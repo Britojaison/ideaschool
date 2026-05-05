@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
+import DisableImageActions from "./DisableImageActions";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +21,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Script id="reset-to-hero-on-refresh" strategy="beforeInteractive">
+          {`
+            if ("scrollRestoration" in history) {
+              history.scrollRestoration = "manual";
+            }
+
+            const resetToHero = () => {
+              if (window.location.hash) {
+                return;
+              }
+
+              window.scrollTo(0, 0);
+            };
+
+            resetToHero();
+
+            window.addEventListener("pageshow", () => {
+              resetToHero();
+              requestAnimationFrame(resetToHero);
+              window.setTimeout(resetToHero, 80);
+              window.setTimeout(resetToHero, 250);
+              window.setTimeout(resetToHero, 700);
+            });
+
+            window.addEventListener("load", () => {
+              resetToHero();
+              window.setTimeout(resetToHero, 120);
+            });
+          `}
+        </Script>
+        <DisableImageActions />
+        {children}
+      </body>
     </html>
   );
 }

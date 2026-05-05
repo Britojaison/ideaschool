@@ -1,35 +1,49 @@
 "use client";
 
 import LiquidGlass from "liquid-glass-react";
+import { useResettableLiquidMouse } from "./useResettableLiquidMouse";
 
 export default function LiquidVideoButton() {
+  const liquidMouse = useResettableLiquidMouse<HTMLDivElement>();
+
   const goToVideo = () => {
     window.location.hash = "video";
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      goToVideo();
+    }
+  };
+
   return (
-    <button
-      className="videoGlassShell"
-      type="button"
+    <div
+      className="videoButtonMount"
+      role="button"
+      tabIndex={0}
       aria-label="Watch video"
       onClick={goToVideo}
+      onKeyDown={handleKeyDown}
+      onMouseMove={liquidMouse.handleMouseMove}
+      onMouseLeave={liquidMouse.handleMouseLeave}
     >
       <LiquidGlass
         className="videoGlass"
-        displacementScale={72}
-        blurAmount={0.08}
-        saturation={165}
+        globalMousePos={liquidMouse.globalMousePos}
+        mouseOffset={liquidMouse.mouseOffset}
+        displacementScale={64}
+        blurAmount={0.0625}
+        saturation={0}
         aberrationIntensity={2}
-        elasticity={0.22}
+        elasticity={0.35}
         cornerRadius={100}
         padding="0"
-        mode="prominent"
+        mode="standard"
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
-          width: "249px",
-          height: "59px",
         }}
       >
         <span className="videoButtonContent">
@@ -37,6 +51,6 @@ export default function LiquidVideoButton() {
           <span>Watch Video</span>
         </span>
       </LiquidGlass>
-    </button>
+    </div>
   );
 }

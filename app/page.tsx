@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
 import LearningTimeline from "./LearningTimeline";
@@ -109,9 +110,9 @@ export default function Home() {
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
           </nav>
-          <a className="headerCta" href="#apply">
+          <Link className="headerCta" href="/apply">
             <span className="headerCtaText">Apply Now</span>
-          </a>
+          </Link>
         </header>
 
         <div className="heroContent">
@@ -127,9 +128,9 @@ export default function Home() {
               <br />
               industry.
             </p>
-            <a className="primaryCta" href="#apply">
+            <Link className="primaryCta" href="/apply">
               <span className="primaryCtaText">Apply Now</span>
-            </a>
+            </Link>
           </div>
 
           <div className="heroActions">
@@ -445,7 +446,7 @@ export default function Home() {
               <h2>Program</h2>
               <a href="#training">Training</a>
               <a href="#training">Workshops</a>
-              <a href="#apply">Apply</a>
+              <Link href="/apply">Apply</Link>
             </div>
             <div>
               <h2>Company</h2>

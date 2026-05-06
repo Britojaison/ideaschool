@@ -24,6 +24,7 @@ const steps = [
 export default function LearningTimeline() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [timelineProgress, setTimelineProgress] = useState(0);
 
   useEffect(() => {
     const updateActiveStep = () => {
@@ -37,13 +38,14 @@ export default function LearningTimeline() {
       const viewportHeight = window.innerHeight;
       const start = viewportHeight * 0.72;
       const end = -rect.height * 0.12;
-      const progress = (start - rect.top) / (start - end);
+      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
       const nextIndex = Math.min(
         steps.length - 1,
         Math.max(0, Math.round(progress * (steps.length - 1))),
       );
 
       setActiveIndex(nextIndex);
+      setTimelineProgress(progress);
     };
 
     updateActiveStep();
@@ -57,7 +59,17 @@ export default function LearningTimeline() {
   }, []);
 
   return (
-    <div className="learningTimeline" aria-label="Program timeline" ref={timelineRef}>
+    <div
+      className="learningTimeline"
+      aria-label="Program timeline"
+      ref={timelineRef}
+      style={
+        {
+          "--timeline-progress": timelineProgress,
+          "--timeline-fill-progress": Math.pow(timelineProgress, 1.35),
+        } as CSSProperties
+      }
+    >
       {steps.map((step, index) => (
         <article
           className={`learningStep ${step.side} ${index === activeIndex ? "active" : ""}`}
@@ -72,6 +84,7 @@ export default function LearningTimeline() {
           </div>
         </article>
       ))}
+      <span className="learningEndDot" aria-hidden="true" />
     </div>
   );
 }

@@ -213,7 +213,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="videoSection" aria-label="Idea School video">
+      <section className="videoSection" id="video" aria-label="Idea School video">
         <Image
           src="/images/9a5c8f878495eaf39832722ea5fdd3819b80462d.jpg"
           alt=""

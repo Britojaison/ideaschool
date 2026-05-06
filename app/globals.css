@@ -208,7 +208,15 @@ img {
   line-height: 1;
   letter-spacing: 0;
   box-shadow: 0 0 30.4px 1px rgba(84, 57, 133, 0.4);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
   white-space: nowrap;
+}
+
+.headerCta:hover,
+.primaryCta:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.08);
+  box-shadow: 0 0 38px 4px rgba(117, 76, 184, 0.54);
 }
 
 .headerCta {
@@ -217,6 +225,10 @@ img {
 
 .primaryCta {
   box-shadow: none;
+}
+
+.heroCopy .primaryCta {
+  display: flex;
 }
 
 .headerCtaText,
@@ -229,8 +241,12 @@ img {
   font-family: Stara, Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 600;
+  font-style: normal;
   line-height: 1;
   letter-spacing: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+  opacity: 1;
 }
 
 .heroContent {
@@ -288,6 +304,12 @@ img {
   height: 59px;
   cursor: pointer;
   outline: none;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.videoButtonMount:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.08);
 }
 
 .videoButtonMount:focus,
@@ -420,6 +442,12 @@ img {
   color: #fff;
   overflow: hidden;
   clip-path: circle(50%);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.quickActionMount:hover {
+  transform: translateY(-3px) scale(1.08);
+  filter: brightness(1.12);
 }
 
 .quickActionMount:focus-visible {
@@ -611,7 +639,7 @@ img {
   position: relative;
   overflow: hidden;
   min-height: 690px;
-  padding: 10px clamp(20px, 4vw, 60px) 76px;
+  padding: 36px clamp(20px, 4vw, 60px) 76px;
   background:
     radial-gradient(circle at 0% 46%, rgba(131, 80, 153, 0.13), transparent 30%),
     radial-gradient(circle at 100% 46%, rgba(131, 80, 153, 0.13), transparent 30%),
@@ -644,13 +672,17 @@ img {
 
 .workshopDivider {
   position: absolute;
-  top: -8px;
+  top: 0;
   left: 50%;
   z-index: 1;
-  width: min(calc(100% - 40px), 1189px);
-  height: 1px;
+  width: min(calc(100% - 40px), 810px);
+  height: 0;
+  border: 0;
+  border-top: 1px solid;
+  border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #af52df 50%, rgba(153, 153, 153, 0) 100%);
+  border-image-slice: 1;
   transform: translateX(-50%);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 135, 255, 0.4) 50%, rgba(153, 153, 153, 0) 100%);
+  background: transparent;
   pointer-events: none;
 }
 
@@ -692,7 +724,7 @@ img {
   width: max-content;
   max-width: calc(100% - 40px);
   height: 41px;
-  margin: 5px auto 50px;
+  margin: 0 auto 50px;
   padding: 0 28px;
   border: 1px solid transparent;
   border-radius: 999px;
@@ -797,13 +829,15 @@ img {
   height: 33px;
   transform: translateX(-50%);
   border-radius: 8px;
-  background: linear-gradient(90deg, #6f4291 0%, #83509980 50%, #87539b 100%);
+  background-color: #4b3b80;
+  background-image: linear-gradient(90deg, #3f3b78 0%, #514081 48%, #74419e 100%);
   color: #fff;
   font-family: Stara, Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0;
+  box-shadow: none;
 }
 
 .availabilityText {
@@ -887,6 +921,12 @@ img {
   height: clamp(82px, 8vw, 118px);
   transform: translate(-50%, -50%);
   cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.videoControlMount:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: brightness(1.12);
 }
 
 .videoPauseIcon {
@@ -1168,12 +1208,12 @@ img {
 @media (min-width: 981px) {
   .heroCopy h1 {
     width: 820px;
-    height: 91px;
+    min-height: 91px;
     max-width: none;
     font-family: "Monument Extended", Arial Black, Arial, Helvetica, sans-serif;
     font-size: 48px;
     font-weight: 800;
-    line-height: 1;
+    line-height: 0.98;
     letter-spacing: 0;
     text-wrap: auto;
     white-space: nowrap;
@@ -1182,13 +1222,13 @@ img {
 
   .heroCopy p {
     width: 530px;
-    height: 77px;
+    min-height: 77px;
     max-width: none;
     margin-top: 28px;
     font-family: Stara, Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.18;
     letter-spacing: 0;
     color: #c1c1c1;
     overflow: visible;
@@ -1335,6 +1375,13 @@ img {
   color: #fff;
   font-size: 10px;
   font-weight: 800;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.worksMeta a:hover {
+  transform: translateY(-2px);
+  background: #194665;
+  box-shadow: 0 8px 22px rgba(18, 49, 74, 0.32);
 }
 
 .worksMeta dl {
@@ -1397,6 +1444,13 @@ img {
   color: inherit;
   font: inherit;
   cursor: pointer;
+  transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
+}
+
+.worksPager button:hover {
+  color: #fff;
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 .worksPager button:focus-visible {
@@ -1487,6 +1541,7 @@ img {
   color: inherit;
   cursor: pointer;
   scroll-snap-align: center;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .workThumb[aria-current="true"] {
@@ -1500,6 +1555,12 @@ img {
 
 .workThumb:hover .workThumbImage {
   transform: scale(1.04);
+}
+
+.workThumb:hover {
+  border-color: rgba(255, 255, 255, 0.46);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+  transform: translateY(-2px);
 }
 
 .workThumb::before {
@@ -1630,7 +1691,13 @@ img {
   background: #dedede;
   cursor: pointer;
   filter: grayscale(1);
-  transition: flex-basis 180ms ease, height 180ms ease, filter 180ms ease;
+  transition: flex-basis 180ms ease, height 180ms ease, filter 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.testimonialAvatar:hover {
+  filter: grayscale(0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
 }
 
 .testimonialAvatar.active {
@@ -1872,9 +1939,11 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 1px;
+  height: 0;
+  border-top: 1px solid;
+  border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #af52df 50%, rgba(153, 153, 153, 0) 100%);
+  border-image-slice: 1;
   content: "";
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(168, 78, 220, 0.42), rgba(255, 255, 255, 0.08));
 }
 
 .whyStats dt {
@@ -1972,7 +2041,14 @@ img {
   background: #1d1d1d;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
   cursor: pointer;
-  transition: flex-basis 280ms ease, width 280ms ease, border-color 180ms ease, opacity 180ms ease;
+  transition: flex-basis 280ms ease, width 280ms ease, border-color 180ms ease, opacity 180ms ease, transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.mentorCard:hover {
+  opacity: 1;
+  transform: translateY(-6px);
+  filter: brightness(1.08);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
 }
 
 .mentorCard.active {
@@ -2075,6 +2151,10 @@ img {
   pointer-events: none;
 }
 
+.learningFaq::after {
+  display: none;
+}
+
 .learningInner {
   position: relative;
   z-index: 1;
@@ -2104,6 +2184,7 @@ img {
 .learningImageLayer {
   position: absolute;
   inset: 0;
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -2129,6 +2210,8 @@ img {
   position: relative;
   z-index: 2;
   min-height: 470px;
+  --timeline-progress: 0;
+  --timeline-fill-progress: 0;
 }
 
 .learningTimeline::before {
@@ -2140,6 +2223,19 @@ img {
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.72);
   content: "";
+}
+
+.learningTimeline::after {
+  position: absolute;
+  top: 42px;
+  left: 50%;
+  width: 2px;
+  height: 356px;
+  transform: translateX(-50%) scaleY(var(--timeline-fill-progress));
+  transform-origin: top center;
+  background: linear-gradient(180deg, #ffffff 0%, #a953ce 62%, #663584 100%);
+  content: "";
+  transition: transform 220ms ease-out;
 }
 
 .learningStep {
@@ -2161,6 +2257,7 @@ img {
 
 .learningDot {
   position: absolute;
+  z-index: 2;
   top: 39px;
   width: 22px;
   height: 22px;
@@ -2181,6 +2278,19 @@ img {
 .learningStep.active .learningDot {
   background: linear-gradient(180deg, #a953ce 0%, #663584 100%);
   box-shadow: 0 0 0 1px rgba(169, 83, 206, 0.45), 0 0 18px rgba(169, 83, 206, 0.32);
+}
+
+.learningEndDot {
+  position: absolute;
+  top: 387px;
+  left: 50%;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.42);
 }
 
 .learningStepLabel {
@@ -2218,6 +2328,21 @@ img {
   border-radius: 6px;
   background: #1c1c1c;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.26);
+  pointer-events: auto;
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease, outline-color 220ms ease;
+  will-change: transform;
+}
+
+.learningImageWrap::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  content: "";
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 42%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
 }
 
 .learningStep.left .learningImageWrap,
@@ -2261,6 +2386,22 @@ img {
 .learningImage {
   object-fit: cover;
   object-position: center center;
+  transition: transform 260ms ease, filter 220ms ease;
+}
+
+.learningImageWrap:hover {
+  z-index: 8;
+  transform: translateY(-12px) scale(1.08);
+  filter: brightness(1.12) saturate(1.08);
+  box-shadow: 0 28px 58px rgba(0, 0, 0, 0.44), 0 0 0 2px rgba(167, 87, 217, 0.58);
+}
+
+.learningImageWrap:hover::after {
+  opacity: 1;
+}
+
+.learningImageWrap:hover .learningImage {
+  transform: scale(1.12);
 }
 
 .faq {
@@ -2482,6 +2623,13 @@ img {
   font: 700 1rem/1 Arial, Helvetica, sans-serif;
   cursor: pointer;
   box-shadow: 0 10px 28px rgba(84, 57, 133, 0.28);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.applyForm button:hover {
+  transform: translateY(-2px) scale(1.01);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 34px rgba(117, 76, 184, 0.38);
 }
 
 .applyForm > p {
@@ -2657,16 +2805,72 @@ img {
     margin: -13px 0 0;
   }
 
+  .whyIdea {
+    padding: 72px 60px 80px;
+  }
+
+  .whyIdeaInner {
+    width: min(100%, 1530px);
+    min-height: 730px;
+    margin: 0 auto;
+  }
+
+  .whyIdeaMedia {
+    top: 14px;
+    left: 0;
+    width: 500px;
+    height: 690px;
+  }
+
+  .whyIdeaCopy {
+    position: relative;
+    width: 850px;
+    min-height: 704px;
+    margin-left: 620px;
+    padding-top: 64px;
+  }
+
+  .whyIdeaCopy::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 704px;
+    height: 0;
+    border-top: 1px solid;
+    border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #af52df 50%, rgba(153, 153, 153, 0) 100%);
+    border-image-slice: 1;
+    content: "";
+    pointer-events: none;
+  }
+
   .whyIdea h2 {
-    width: 730px;
-    height: 84px;
-    margin: 90px 0 22px -24px;
+    width: 820px;
+    height: auto;
+    margin: 34px 0 28px;
     font-family: "Monument Extended", Arial Black, Arial, Helvetica, sans-serif;
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.12;
     letter-spacing: 0;
     font-synthesis: none;
+  }
+
+  .whyIdea p {
+    max-width: 720px;
+    line-height: 1.42;
+  }
+
+  .whyIdea p + p {
+    margin-top: 18px;
+  }
+
+  .whyStats {
+    margin-top: 34px;
+    padding-bottom: 0;
+  }
+
+  .whyStats::after {
+    display: none;
   }
 
   .feedback {
@@ -2790,23 +2994,23 @@ img {
   }
 
   .learningFaq::before {
-    display: block;
+    display: none;
     top: -54px;
     right: 0;
     bottom: auto;
     left: 30%;
     z-index: 0;
-    height: 820px;
+    height: 940px;
     background-image:
       linear-gradient(rgba(115, 50, 128, 0.16) 1px, transparent 1px),
       linear-gradient(90deg, rgba(115, 50, 128, 0.16) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image:
-      linear-gradient(90deg, transparent 0%, #000 16%, #000 100%),
-      linear-gradient(180deg, #000 0%, #000 82%, transparent 100%);
+      linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.28) 9%, #000 18%, #000 86%, rgba(0, 0, 0, 0.3) 94%, transparent 100%),
+      linear-gradient(180deg, #000 0%, #000 82%, rgba(0, 0, 0, 0.58) 92%, transparent 100%);
     -webkit-mask-image:
-      linear-gradient(90deg, transparent 0%, #000 16%, #000 100%),
-      linear-gradient(180deg, #000 0%, #000 82%, transparent 100%);
+      linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.28) 9%, #000 18%, #000 86%, rgba(0, 0, 0, 0.3) 94%, transparent 100%),
+      linear-gradient(180deg, #000 0%, #000 82%, rgba(0, 0, 0, 0.58) 92%, transparent 100%);
     mask-composite: intersect;
     -webkit-mask-composite: source-in;
     opacity: 1;
@@ -2835,8 +3039,32 @@ img {
   .learningContent {
     display: block;
     position: relative;
+    z-index: 1;
     height: 760px;
     margin-top: 0;
+  }
+
+  .learningContent::before {
+    position: absolute;
+    top: -88px;
+    right: 0;
+    left: 30%;
+    z-index: 0;
+    height: 960px;
+    content: "";
+    background-image:
+      linear-gradient(rgba(115, 50, 128, 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(115, 50, 128, 0.16) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image:
+      linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.28) 9%, #000 18%, #000 86%, rgba(0, 0, 0, 0.3) 94%, transparent 100%),
+      linear-gradient(180deg, #000 0%, #000 80%, rgba(0, 0, 0, 0.62) 91%, transparent 100%);
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.28) 9%, #000 18%, #000 86%, rgba(0, 0, 0, 0.3) 94%, transparent 100%),
+      linear-gradient(180deg, #000 0%, #000 80%, rgba(0, 0, 0, 0.62) 91%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+    pointer-events: none;
   }
 
   .learningCopy {
@@ -2870,19 +3098,28 @@ img {
     left: 78.54%;
     width: 2px;
     height: 480px;
-    transform: none;
+    transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.84);
   }
 
   .learningTimeline::after {
     position: absolute;
+    top: 46px;
+    left: 78.54%;
+    width: 2px;
+    height: 480px;
+    transform: translateX(-50%) scaleY(var(--timeline-fill-progress));
+    transform-origin: top center;
+    background: linear-gradient(180deg, #ffffff 0%, #a953ce 62%, #663584 100%);
+    content: "";
+    transition: transform 260ms ease-out;
+  }
+
+  .learningEndDot {
     top: 510px;
-    left: calc(78.54% - 15px);
+    left: 78.54%;
     width: 30px;
     height: 30px;
-    border-radius: 999px;
-    background: #fff;
-    content: "";
   }
 
   .learningStep,
@@ -2902,17 +3139,20 @@ img {
 
   .learningStep:nth-child(1) .learningDot {
     top: 28px;
-    left: calc(78.54% - 15px);
+    left: 78.54%;
+    transform: translateX(-50%);
   }
 
   .learningStep:nth-child(2) .learningDot {
     top: 190px;
-    left: calc(78.54% - 15px);
+    left: 78.54%;
+    transform: translateX(-50%);
   }
 
   .learningStep:nth-child(3) .learningDot {
     top: 352px;
-    left: calc(78.54% - 15px);
+    left: 78.54%;
+    transform: translateX(-50%);
   }
 
   .learningStepLabel,
@@ -2999,6 +3239,10 @@ img {
     margin-top: 0;
   }
 
+  .faq::before {
+    inset: 0 0 -110px;
+  }
+
   .mentors {
     padding-top: 50px;
   }
@@ -3082,8 +3326,15 @@ img {
   }
 
   .learningTimeline::after {
+    top: 58px;
+    left: 77%;
+    width: 2px;
+    height: 452px;
+  }
+
+  .learningEndDot {
     top: 494px;
-    left: calc(77% - 14px);
+    left: 77%;
     width: 28px;
     height: 28px;
   }
@@ -3095,17 +3346,17 @@ img {
 
   .learningStep:nth-child(1) .learningDot {
     top: 44px;
-    left: calc(77% - 14px);
+    left: 77%;
   }
 
   .learningStep:nth-child(2) .learningDot {
     top: 204px;
-    left: calc(77% - 14px);
+    left: 77%;
   }
 
   .learningStep:nth-child(3) .learningDot {
     top: 366px;
-    left: calc(77% - 14px);
+    left: 77%;
   }
 
   .learningStepLabel,
@@ -3347,6 +3598,11 @@ img {
   }
 
   .learningTimeline::before {
+    display: none;
+  }
+
+  .learningTimeline::after,
+  .learningEndDot {
     display: none;
   }
 

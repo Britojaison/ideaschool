@@ -7,7 +7,8 @@ export default function LiquidVideoButton() {
   const liquidMouse = useResettableLiquidMouse<HTMLDivElement>();
 
   const goToVideo = () => {
-    window.location.hash = "video";
+    document.getElementById("video")?.scrollIntoView({ behavior: "smooth" });
+    window.history.replaceState(null, "", "#video");
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {

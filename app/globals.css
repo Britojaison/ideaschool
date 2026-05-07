@@ -3745,17 +3745,17 @@ img {
   }
 
   .contactInner {
-    position: relative;
-    display: block;
-    width: 1324px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(550px, 550px);
+    align-items: center;
+    gap: clamp(72px, 8vw, 128px);
+    width: min(100%, 1420px);
     min-height: 687px;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .contactCopy {
-    position: absolute;
-    top: 245px;
-    left: 0;
+    max-width: 762px;
   }
 
   .contactCopy h2 {
@@ -3784,11 +3784,9 @@ img {
   }
 
   .applyForm {
-    position: absolute;
-    top: 85px;
-    left: 771px;
     width: 550px;
     height: 570px;
+    justify-self: end;
     min-height: 0;
     gap: 22px;
     grid-template-rows: 68px 68px 68px 132px 39px 17px;

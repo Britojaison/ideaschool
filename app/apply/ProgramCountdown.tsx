@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useSyncExternalStore } from "react";
 
 const SECOND = 1000;
 const MINUTE = 60 * SECOND;
@@ -14,8 +14,8 @@ type CountdownParts = {
   seconds: number;
 };
 
-function getCountdownParts(targetTime: number): CountdownParts {
-  const remaining = Math.max(0, targetTime - Date.now());
+function getCountdownParts(targetTime: number, now: number): CountdownParts {
+  const remaining = Math.max(0, targetTime - now);
 
   return {
     days: Math.floor(remaining / DAY),
@@ -35,21 +35,22 @@ type ProgramCountdownProps = {
 
 export default function ProgramCountdown({ targetDate }: ProgramCountdownProps) {
   const targetTime = useMemo(() => new Date(targetDate).getTime(), [targetDate]);
-  const [countdown, setCountdown] = useState<CountdownParts>(() =>
-    getCountdownParts(targetTime)
+  const subscribe = useCallback((onStoreChange: () => void) => {
+    const timer = window.setInterval(onStoreChange, SECOND);
+    return () => window.clearInterval(timer);
+  }, []);
+  const now = useSyncExternalStore(
+    subscribe,
+    () => Date.now(),
+    () => targetTime,
+  );
+  const countdown = useMemo(
+    () => getCountdownParts(targetTime, now),
+    [targetTime, now],
   );
 
-  useEffect(() => {
-    const updateCountdown = () => setCountdown(getCountdownParts(targetTime));
-
-    updateCountdown();
-    const timer = window.setInterval(updateCountdown, SECOND);
-
-    return () => window.clearInterval(timer);
-  }, [targetTime]);
-
   return (
-    <p aria-live="polite">
+    <p aria-live="polite" suppressHydrationWarning>
       {countdown.days} Days : {formatTime(countdown.hours)} Hours :{" "}
       {formatTime(countdown.minutes)} Minutes : {formatTime(countdown.seconds)}{" "}
       Seconds

@@ -21,37 +21,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body>
-        <Script id="reset-to-hero-on-refresh" strategy="beforeInteractive">
+      <head>
+        <Script id="meta-pixel" strategy="afterInteractive">
           {`
-            if ("scrollRestoration" in history) {
-              history.scrollRestoration = "manual";
-            }
-
-            const resetToHero = () => {
-              if (window.location.hash) {
-                return;
-              }
-
-              window.scrollTo(0, 0);
-            };
-
-            resetToHero();
-
-            window.addEventListener("pageshow", () => {
-              resetToHero();
-              requestAnimationFrame(resetToHero);
-              window.setTimeout(resetToHero, 80);
-              window.setTimeout(resetToHero, 250);
-              window.setTimeout(resetToHero, 700);
-            });
-
-            window.addEventListener("load", () => {
-              resetToHero();
-              window.setTimeout(resetToHero, 120);
-            });
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1337534917569436');
+            fbq('track', 'PageView');
           `}
         </Script>
+      </head>
+      <body>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1337534917569436&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         <DisableImageActions />
         {children}
       </body>

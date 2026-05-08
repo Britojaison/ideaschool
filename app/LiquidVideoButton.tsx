@@ -49,7 +49,7 @@ export default function LiquidVideoButton() {
       >
         <span className="videoButtonContent">
           <span className="playIcon" />
-          <span>Watch Video</span>
+          <span className="videoButtonLabel">Watch Video</span>
         </span>
       </LiquidGlass>
     </div>

@@ -139,28 +139,6 @@ export default function AlumniWorks() {
           </LiquidGlass>
         </div>
 
-        <div className="worksMeta">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor
-          </p>
-          <a href="#apply">Explore Now</a>
-          <dl>
-            <div>
-              <dt>From 0 - 60 mph</dt>
-              <dd>2.4 Sec</dd>
-            </div>
-            <div>
-              <dt>Class storage</dt>
-              <dd>30 cu ft</dd>
-            </div>
-            <div>
-              <dt>Range</dt>
-              <dd>370 ml</dd>
-            </div>
-          </dl>
-        </div>
-
         <div className="worksPager" aria-label="Student work carousel">
           <div className="worksPagerControls">
             <button type="button" onClick={selectPrevious}>
@@ -194,7 +172,6 @@ export default function AlumniWorks() {
       </div>
 
       <div className="worksThumbViewport">
-        <div className="workThumbSelection" aria-hidden="true" />
         <div
           className="worksThumbs"
           ref={thumbsRailRef}

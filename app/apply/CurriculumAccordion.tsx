@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 type CurriculumItem = {
@@ -23,6 +22,7 @@ export default function CurriculumAccordion({
     <div className="curriculumList">
       {items.map((item, index) => {
         const isOpen = index === openIndex;
+        const title = item.title.replace(/^\[\d+\]\s*/, "");
 
         return (
           <article
@@ -37,13 +37,10 @@ export default function CurriculumAccordion({
               onFocus={() => setOpenIndex(index)}
             >
               <div className="curriculumHeading">
-                <h3>{item.title}</h3>
-                <p>
-                  Tools: <strong>{item.tools}</strong>
-                </p>
+                <h3>{title}</h3>
               </div>
               <span className="curriculumToggle" aria-hidden="true">
-                {isOpen ? "−" : "+"}
+                ↗
               </span>
             </button>
 
@@ -51,19 +48,9 @@ export default function CurriculumAccordion({
               <div className="curriculumPanel">
                 <div className="curriculumDetails">
                   <p>{item.description}</p>
-                  <div className="curriculumImages">
-                    {item.images.map((src) => (
-                      <div className="curriculumImageWrap" key={src}>
-                        <Image
-                          src={src}
-                          alt=""
-                          fill
-                          sizes="(max-width: 900px) 100vw, 250px"
-                          className="curriculumImage"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  <p className="curriculumTools">
+                    Tools: <strong>{item.tools}</strong>
+                  </p>
                 </div>
               </div>
             ) : null}

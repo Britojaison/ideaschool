@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import DotField from "../DotField";
+import HeroDotField from "../HeroDotField";
+import ScrollTextReveal from "../ScrollTextReveal";
 import CurriculumAccordion from "./CurriculumAccordion";
+import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
 
 const curriculum = [
@@ -84,44 +88,55 @@ const toolLogos = [
     height: 1263,
     className: "veo",
   },
+  {
+    name: "Adobe Creative Cloud",
+    image: "/images/adobe icon.png",
+    width: 225,
+    height: 225,
+    className: "adobe",
+  },
 ];
+
+const attendeeImage = (fileName: string) => `/images/${fileName}?v=20260508`;
+const razorpayPaymentLink =
+  process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/NwcRrEel";
 
 const attendees = [
   {
     title: "Photographers & Videographers",
     description:
       "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
-    image: "/images/Photographers & Videographers.png",
+    image: attendeeImage("Photographers & Videographers copy.png"),
   },
   {
     title: "Graphic Designers & Artists",
     description:
       "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
-    image: "/images/Graphic Designers & Artists.png",
+    image: attendeeImage("Graphic Designers & Artists.png"),
   },
   {
     title: "Content Creators",
     description:
       "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
-    image: "/images/Content Creators.png",
-  },
-  {
-    title: "Marketing Professionals",
-    description:
-      "Produce stunning campaign visuals in-house and drastically cut production budgets without cutting quality.",
-    image: "/images/Marketing Professionals.png",
+    image: attendeeImage("Content Creators.png"),
   },
   {
     title: "Entrepreneurs & Brand Owners",
     description:
       "Create agency-quality AD content for your own brand at a fraction of traditional production cost.",
-    image: "/images/Entrepreneurs & Brand Owners.png",
+    image: attendeeImage("Entrepreneurs & Brand Owners.png"),
+  },
+  {
+    title: "Marketing Professionals",
+    description:
+      "Produce stunning campaign visuals in-house and drastically cut production budgets without cutting quality.",
+    image: attendeeImage("Marketing Professionals.png"),
   },
   {
     title: "Students & Career Switchers",
     description:
       "Build a portfolio of AI filmmaking work and position yourself for one of the most in-demand creative roles.",
-    image: "/images/Students & Career Switchers.png",
+    image: attendeeImage("Students & Career Switchers.png"),
   },
 ];
 
@@ -153,6 +168,16 @@ const clientStories = [
   },
 ];
 
+const proofVideos = [
+  "1C_pNZX6H0VqsNgEKLIeJ3mS5TMMKn5nY",
+  "18wmbXnEyi3KrOVZtPN5NeT5BB6fpNE47",
+  "183j_z6tVKFkZEuOuanpgOrBhC4hw6snS",
+  "18x8d4xKYCut7ZJKfmvOaUu8FUel40a6z",
+  "1rtT_rTPyuLeS9Aa4iArGyNsDD7w9SfPa",
+  "1O0-xtjtqIx07OMwinc6IABldk4b6SS84",
+  "1rjiIPU1G5RIK7dOS02ydymeGBoHDChGB",
+];
+
 const applyFaqs = [
   {
     question: "Do I need any prior AI or design experience?",
@@ -160,17 +185,43 @@ const applyFaqs = [
       "No experience required. The workshop is designed to take you from zero to producing professional-quality AI AD films in a single day.",
     open: true,
   },
-  { question: "What do I need to bring?" },
-  { question: "Is this workshop only for filmmakers?" },
-  { question: "Is there a refund policy?" },
-  { question: "Will there be a recording?" },
-  { question: "How many seats are available?" },
+  {
+    question: "What do I need to bring?",
+    answer:
+      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session.",
+  },
+  {
+    question: "Is this workshop only for filmmakers?",
+    answer:
+      "No. It is useful for designers, editors, marketers, creators, entrepreneurs, students, and anyone who wants to create premium AI-powered ad content.",
+  },
+  {
+    question: "Is there a refund policy?",
+    answer:
+      "Seats are limited, so confirmed registrations are non-refundable. If you cannot attend, contact us before the workshop and we will help you with the best available option.",
+  },
+  {
+    question: "Will there be a recording?",
+    answer:
+      "This is designed as a live hands-on workshop, so the best value comes from attending in person. Any post-session resources or recap material will be shared with registered participants.",
+  },
+  {
+    question: "How many seats are available?",
+    answer:
+      "Only 30 seats are available for this batch to keep the session practical, focused, and easy for participants to get individual guidance.",
+  },
 ];
 
 export default function ApplyPage() {
   return (
     <main className="applyPage">
+      <ScrollTextReveal />
       <section className="programHero" aria-label="AI-powered ad film workshop">
+        <div className="programHeroMedia">
+          <HeroDotField />
+        </div>
+        <div className="programHeroShade" />
+
         <header className="siteHeader">
           <Link className="brand" href="/" aria-label="Idea School home">
             <Image
@@ -189,7 +240,7 @@ export default function ApplyPage() {
             <Link href="/#contact">Contact</Link>
           </nav>
           <a className="headerCta" href="#enroll">
-            <span className="headerCtaText">Apply Now</span>
+            <span className="headerCtaText">Book your class</span>
           </a>
         </header>
 
@@ -206,7 +257,7 @@ export default function ApplyPage() {
               Commercial-grade AD production
             </p>
             <a className="primaryCta programCta" href="#enroll">
-              <span className="primaryCtaText">Apply Now</span>
+              <span className="primaryCtaText">Get early bird pass now</span>
             </a>
 
             <dl className="programStats">
@@ -248,12 +299,32 @@ export default function ApplyPage() {
           </aside>
         </div>
 
-        <p className="programNotice" id="enroll">
-          Applications Open &mdash; Creative + AI Program
-        </p>
+        <div className="programBatchStrip" aria-label="Workshop batch announcement">
+          <span className="programBatchBadge">New Batch</span>
+          <p>Learn Editing &amp; AI with Idea School</p>
+          <a className="programBatchCta" href="#enroll">
+            Get early bird pass now
+          </a>
+        </div>
       </section>
 
       <section className="programCurriculum" aria-label="What you will learn">
+        <div className="programCurriculumDots">
+          <DotField
+            dotRadius={2.8}
+            dotSpacing={16}
+            cursorRadius={500}
+            cursorForce={0.1}
+            bulgeOnly
+            bulgeStrength={67}
+            glowRadius={160}
+            sparkle={false}
+            waveAmplitude={0}
+            gradientFrom="rgba(168, 85, 247, 0.52)"
+            gradientTo="rgba(180, 151, 207, 0.38)"
+            glowColor="rgba(168, 85, 247, 0.18)"
+          />
+        </div>
         <div className="programCurriculumInner">
           <div className="curriculumIntro">
             <h2>What You Will Learn</h2>
@@ -286,17 +357,14 @@ export default function ApplyPage() {
           <h2 className="audienceTitle">Who Should Attend</h2>
 
           <div className="audienceGrid">
-            {attendees.map((attendee, index) => (
-              <article
-                className={`audienceItem${index === 2 || index === 3 ? " reverse" : ""}`}
-                key={attendee.title}
-              >
+            {attendees.map((attendee) => (
+              <article className="audienceItem" key={attendee.title}>
                 <div className="audienceImageWrap" style={{ position: "relative" }}>
                   <Image
                     src={attendee.image}
                     alt=""
                     fill
-                    sizes="(max-width: 900px) 42vw, 235px"
+                    sizes="(max-width: 760px) 100vw, (max-width: 1180px) 30vw, 355px"
                     className="audienceImage"
                   />
                 </div>
@@ -308,6 +376,10 @@ export default function ApplyPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="programOffer" aria-label="Early bird workshop offer">
+        <ProgramNoticeCard paymentLink={razorpayPaymentLink} />
       </section>
 
       <section className="programInstructor" aria-label="Instructor and client feedback">
@@ -336,7 +408,7 @@ export default function ApplyPage() {
       <section className="programProof" aria-label="Client feedback">
         <div className="programProofInner">
           <div className="proofIntro">
-            <h2>What our clients Have to Say?</h2>
+            <h2>What our students Have to Say?</h2>
             <p>
               We&apos;ve already transformed hundreds of creators. Here&apos;s a
               glimpse of what past participants built.
@@ -344,24 +416,45 @@ export default function ApplyPage() {
           </div>
 
           <div className="proofRail" aria-label="Testimonials">
-            {clientStories.map((story) => (
-              <article className="proofCard" key={story.name}>
-                <div className="proofPerson" style={{ position: "relative" }}>
-                  <Image
-                    src={story.image}
-                    alt=""
-                    fill
-                    sizes="150px"
-                    className="proofPersonImage"
-                  />
-                </div>
-                <div className="proofQuote">
-                  <span aria-hidden="true">&ldquo;</span>
-                  <p>{story.quote}</p>
-                  <strong>{story.name}</strong>
-                  <small>Student</small>
-                </div>
-              </article>
+            <div className="proofTrack">
+              {[...clientStories, ...clientStories].map((story, index) => (
+                <article
+                  className="proofCard"
+                  key={`${story.name}-${index}`}
+                  aria-hidden={index >= clientStories.length}
+                >
+                  <div className="proofPerson" style={{ position: "relative" }}>
+                    <Image
+                      src={story.image}
+                      alt=""
+                      fill
+                      sizes="150px"
+                      className="proofPersonImage"
+                    />
+                  </div>
+                  <div className="proofQuote">
+                    <span aria-hidden="true">&ldquo;</span>
+                    <p>{story.quote}</p>
+                    <strong>{story.name}</strong>
+                    <small>Student</small>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="proofVideoRail" aria-label="Student video feedback">
+            {proofVideos.map((videoId, index) => (
+              <div className="proofVideoFrame" key={videoId}>
+                <iframe
+                  className="proofVideo"
+                  src={`https://drive.google.com/file/d/${videoId}/preview`}
+                  title={`Student video feedback ${index + 1}`}
+                  allow="autoplay; encrypted-media; fullscreen"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -422,7 +515,7 @@ export default function ApplyPage() {
                 <span>Message (optional)</span>
                 <textarea name="message" rows={4} />
               </label>
-              <button type="submit">Apply Now</button>
+              <button type="submit">Get early bird pass now</button>
               <p>Limited seats available for the upcoming batch.</p>
             </form>
           </div>
@@ -439,7 +532,7 @@ export default function ApplyPage() {
               <h2>Program</h2>
               <Link href="/#training">Training</Link>
               <Link href="/#training">Workshops</Link>
-              <a href="#apply-form">Apply</a>
+              <a href="#apply-form">Get early bird pass now</a>
             </div>
             <div>
               <h2>Company</h2>

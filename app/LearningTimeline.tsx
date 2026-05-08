@@ -84,7 +84,10 @@ export default function LearningTimeline() {
           </div>
         </article>
       ))}
-      <span className="learningEndDot" aria-hidden="true" />
+      <span
+        className={`learningEndDot${activeIndex === steps.length - 1 ? " active" : ""}`}
+        aria-hidden="true"
+      />
     </div>
   );
 }

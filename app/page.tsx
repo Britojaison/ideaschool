@@ -2,26 +2,30 @@ import Image from "next/image";
 import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
+import HeroDotField from "./HeroDotField";
 import LearningTimeline from "./LearningTimeline";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
 import LiquidVideoButton from "./LiquidVideoButton";
 import MentorCarousel from "./MentorCarousel";
+import ScrollTextReveal from "./ScrollTextReveal";
+import StarBorder from "./StarBorder";
+import WorkshopCarousel from "./WorkshopCarousel";
 
 type Brand =
   | {
-      name: string;
-      image: string;
-      width: number;
-      height: number;
-    }
+    name: string;
+    image: string;
+    width: number;
+    height: number;
+  }
   | {
-      name: string;
-      text: string;
-      width: number;
-      height: number;
-    };
+    name: string;
+    text: string;
+    width: number;
+    height: number;
+  };
 
 const brands: Brand[] = [
   {
@@ -79,22 +83,17 @@ const workshops = [
 export default function Home() {
   return (
     <main>
-      <section className="hero" aria-label="Idea School hero">
+      <ScrollTextReveal />
+
+      <section className="hero" id="hero" aria-label="Idea School hero">
         <div className="heroMedia">
-          <Image
-            src="/images/hero img.jpg"
-            alt="Idea School team"
-            fill
-            priority
-            sizes="100vw"
-            className="heroImage"
-          />
+          <HeroDotField />
         </div>
 
         <div className="heroShade" />
 
         <header className="siteHeader">
-          <a className="brand" href="#" aria-label="Idea School home">
+          <Link className="brand" href="/" aria-label="Idea School home">
             <Image
               src="/images/idea logo.png"
               alt="Idea"
@@ -103,7 +102,7 @@ export default function Home() {
               priority
               className="brandLogo"
             />
-          </a>
+          </Link>
           <nav className="desktopNav" aria-label="Primary navigation">
             <a href="#about">About</a>
             <a href="#training">Training</a>
@@ -111,7 +110,7 @@ export default function Home() {
             <a href="#contact">Contact</a>
           </nav>
           <Link className="headerCta" href="/apply">
-            <span className="headerCtaText">Apply Now</span>
+            <span className="headerCtaText">Book your class</span>
           </Link>
         </header>
 
@@ -129,8 +128,19 @@ export default function Home() {
               industry.
             </p>
             <Link className="primaryCta" href="/apply">
-              <span className="primaryCtaText">Apply Now</span>
+              <span className="primaryCtaText">Get early bird pass now</span>
             </Link>
+          </div>
+
+          <div className="heroVisual" aria-hidden="true">
+            <Image
+              src="/images/Hero 6.png"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 46vw"
+              className="heroVisualImage"
+            />
           </div>
 
           <div className="heroActions">
@@ -181,36 +191,18 @@ export default function Home() {
         <div className="workshopGrid" aria-hidden="true" />
         <div className="workshopDivider" aria-hidden="true" />
         <div className="workshopInner">
-          <h2>Our Workshops</h2>
-          <div className="workshopCards">
-            {workshops.map((workshop, index) => (
-              <article
-                className={`workshopCard${workshop.comingSoon ? " comingSoon" : ""}`}
-                key={workshop.title}
-              >
-                {index === 1 ? (
-                  <span className="availability">
-                    <span className="availabilityText">Available</span>
-                  </span>
-                ) : null}
-                <Image
-                  src={workshop.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 980px) 100vw, 33vw"
-                  className="workshopCardImage"
-                />
-                {workshop.comingSoon ? (
-                  <span className="comingSoonLabel">Coming Soon</span>
-                ) : (
-                  <div className="workshopCardCopy">
-                    <h3>{workshop.title}</h3>
-                    <p>{workshop.description}</p>
-                  </div>
-                )}
-              </article>
-            ))}
-          </div>
+          <StarBorder
+            as="div"
+            role="heading"
+            aria-level={2}
+            className="workshopTitle"
+            color="#af52df"
+            speed="5s"
+            thickness={2}
+          >
+            Our Workshops
+          </StarBorder>
+          <WorkshopCarousel workshops={workshops} />
         </div>
       </section>
 
@@ -431,7 +423,7 @@ export default function Home() {
               <span>Message (optional)</span>
               <textarea name="message" rows={4} />
             </label>
-            <button type="submit">Apply Now</button>
+            <button type="submit">Get early bird pass now</button>
             <p>Limited seats available for the upcoming batch.</p>
           </form>
         </div>
@@ -446,7 +438,7 @@ export default function Home() {
               <h2>Program</h2>
               <a href="#training">Training</a>
               <a href="#training">Workshops</a>
-              <Link href="/apply">Apply</Link>
+              <Link href="/apply">Get early bird pass now</Link>
             </div>
             <div>
               <h2>Company</h2>

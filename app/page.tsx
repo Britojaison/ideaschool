@@ -144,8 +144,8 @@ export default function Home() {
           </div>
 
           <div className="heroActions">
-            <LiquidVideoButton />
             <LiquidBatchNotice />
+            <LiquidVideoButton />
           </div>
         </div>
       </section>

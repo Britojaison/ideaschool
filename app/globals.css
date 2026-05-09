@@ -376,8 +376,8 @@ img {
 .heroActions {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 18px;
+  align-items: flex-start;
+  gap: 30px;
   padding-bottom: clamp(12px, 7vh, 72px);
 }
 
@@ -402,6 +402,7 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .heroCopy h1,
   .heroCopy p,
   .heroCopy .primaryCta,
@@ -417,8 +418,8 @@ img {
   }
 }
 
-.videoButtonMount > div,
-.videoButtonMount > span {
+.videoButtonMount>div,
+.videoButtonMount>span {
   filter: grayscale(1) saturate(0);
 }
 
@@ -490,8 +491,8 @@ img {
   border-radius: 8px;
 }
 
-.batchNoticeMount > div:not(.batchNoticeGlass),
-.batchNoticeMount > span {
+.batchNoticeMount>div:not(.batchNoticeGlass),
+.batchNoticeMount>span {
   background: transparent !important;
   opacity: 0 !important;
   box-shadow: none !important;
@@ -570,8 +571,8 @@ img {
   outline-offset: 4px;
 }
 
-.quickActionMount > div,
-.quickActionMount > span,
+.quickActionMount>div,
+.quickActionMount>span,
 .quickActionGlass,
 .quickActionGlass .glass,
 .quickActionGlass .glass__warp {
@@ -728,7 +729,7 @@ img {
   text-transform: uppercase;
 }
 
-.programHeroCopy > p {
+.programHeroCopy>p {
   max-width: 620px;
   margin: 24px 0 0;
   color: rgba(255, 255, 255, 0.72);
@@ -1208,7 +1209,7 @@ img {
   padding-right: 64px;
 }
 
-.curriculumDetails > p {
+.curriculumDetails>p {
   max-width: 940px;
 }
 
@@ -1397,6 +1398,7 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .audienceItem,
   .audienceImageWrap,
   .audienceImage,
@@ -1474,7 +1476,7 @@ img {
 
 .programInstructor h2,
 .proofIntro h2,
-.programFaqInner > h2 {
+.programFaqInner>h2 {
   margin: 0;
   font-size: clamp(2.2rem, 4vw, 4rem);
   font-weight: 950;
@@ -1893,7 +1895,7 @@ img {
   font-weight: 900;
 }
 
-.programApplyForm > p {
+.programApplyForm>p {
   margin: -6px 0 0;
   text-align: center;
   color: rgba(255, 255, 255, 0.76);
@@ -1910,7 +1912,7 @@ img {
   overflow: hidden;
 }
 
-.programFooter > p {
+.programFooter>p {
   margin: 24px 0 0;
   max-width: 230px;
   color: rgba(255, 255, 255, 0.54);
@@ -1938,7 +1940,7 @@ img {
   font-size: 10px;
 }
 
-.programFooter > strong {
+.programFooter>strong {
   position: absolute;
   left: 18px;
   right: 18px;
@@ -1984,7 +1986,7 @@ img {
   object-fit: contain;
 }
 
-.brandLogos > span:nth-child(3) .brandPartnerLogo {
+.brandLogos>span:nth-child(3) .brandPartnerLogo {
   transform: scale(2.7);
 }
 
@@ -2044,27 +2046,27 @@ img {
     gap: 0;
   }
 
-  .brandLogos > span {
+  .brandLogos>span {
     position: absolute;
     display: block;
     height: auto;
   }
 
-  .brandLogos > span:nth-child(1) {
+  .brandLogos>span:nth-child(1) {
     top: 132px;
     left: calc(50% - 497px);
     width: 86px;
     height: 38px;
   }
 
-  .brandLogos > span:nth-child(2) {
+  .brandLogos>span:nth-child(2) {
     top: 124px;
     left: calc(50% - 311px);
     width: 130px;
     height: 55px;
   }
 
-  .brandLogos > span:nth-child(3) {
+  .brandLogos>span:nth-child(3) {
     top: 126px;
     left: calc(50% - 81px);
     width: 116px;
@@ -2072,14 +2074,14 @@ img {
     overflow: hidden;
   }
 
-  .brandLogos > span:nth-child(4) {
+  .brandLogos>span:nth-child(4) {
     top: 139px;
     left: calc(50% + 135px);
     width: 116px;
     height: 25px;
   }
 
-  .brandLogos > span:nth-child(5) {
+  .brandLogos>span:nth-child(5) {
     top: 126px;
     left: calc(50% + 351px);
     width: 184px;
@@ -2786,8 +2788,8 @@ img {
   }
 
   .quickActionMount,
-  .quickActionMount > div,
-  .quickActionMount > span,
+  .quickActionMount>div,
+  .quickActionMount>span,
   .quickActionGlass,
   .quickActionGlass .glass,
   .quickActionGlass .glass__warp,
@@ -2869,7 +2871,7 @@ img {
     margin: 0 auto;
   }
 
-  .brandLogos > span {
+  .brandLogos>span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2883,7 +2885,7 @@ img {
     max-height: 48px;
   }
 
-  .brandLogos > span:nth-child(3) .brandPartnerLogo {
+  .brandLogos>span:nth-child(3) .brandPartnerLogo {
     transform: none;
   }
 
@@ -3026,16 +3028,16 @@ img {
   .heroVisual {
     position: absolute;
     top: 76px;
-    right: 118px;
-    width: min(52vw, 960px);
+    right: 180px;
+    width: min(76vw, 1180px);
     max-height: calc(100svh - 132px);
   }
 
   .heroActions {
     position: absolute;
-    right: 82px;
+    right: 150px;
     bottom: 88px;
-    gap: 16px;
+    gap: 30px;
     padding-bottom: 0;
   }
 }
@@ -3060,7 +3062,7 @@ img {
   }
 
   .heroActions {
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 0;
   }
 
@@ -3132,11 +3134,11 @@ img {
   .audienceTitle,
   .programInstructor h2,
   .proofIntro h2,
-  .programFaqInner > h2,
+  .programFaqInner>h2,
   .feedback h2,
   .whyIdea h2,
   .mentorsIntro h2,
-  .learningInner > h2,
+  .learningInner>h2,
   .faqIntro h2,
   .contactCopy h2 {
     overflow-wrap: anywhere;
@@ -3146,7 +3148,7 @@ img {
     font-size: clamp(2rem, 10vw, 2.8rem);
   }
 
-  .programHeroCopy > p br,
+  .programHeroCopy>p br,
   .heroCopy p br {
     display: none;
   }
@@ -3430,7 +3432,7 @@ img {
   margin: 0;
 }
 
-.worksMeta dl > div {
+.worksMeta dl>div {
   border-left: 1px solid rgba(255, 255, 255, 0.28);
   padding-left: 28px;
 }
@@ -3962,7 +3964,7 @@ img {
   line-height: 1.5;
 }
 
-.whyIdea p + p {
+.whyIdea p+p {
   margin-top: 16px;
 }
 
@@ -4204,7 +4206,7 @@ img {
   margin: 0 auto;
 }
 
-.learningInner > h2,
+.learningInner>h2,
 .faqIntro h2 {
   margin: 0;
   font-family: var(--font-heading);
@@ -4692,7 +4694,7 @@ img {
   box-shadow: 0 14px 34px rgba(117, 76, 184, 0.38);
 }
 
-.applyForm > p {
+.applyForm>p {
   margin: -14px 0 0;
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.86rem;
@@ -4719,7 +4721,7 @@ img {
   margin: 0 auto;
 }
 
-.footerInner > p {
+.footerInner>p {
   width: min(100%, 320px);
   margin: 24px 0 0;
   color: rgba(255, 255, 255, 0.7);
@@ -4758,7 +4760,7 @@ img {
   color: #fff;
 }
 
-.siteFooter > strong {
+.siteFooter>strong {
   position: absolute;
   left: 0;
   right: 0;
@@ -4860,7 +4862,7 @@ img {
     margin-top: 0;
   }
 
-  .applyForm > p {
+  .applyForm>p {
     margin: -13px 0 0;
   }
 
@@ -4919,7 +4921,7 @@ img {
     line-height: 1.42;
   }
 
-  .whyIdea p + p {
+  .whyIdea p+p {
     margin-top: 18px;
   }
 
@@ -5081,7 +5083,7 @@ img {
     margin: 0 auto;
   }
 
-  .learningInner > h2 {
+  .learningInner>h2 {
     position: absolute;
     top: 74px;
     left: 0;
@@ -5331,7 +5333,7 @@ img {
     white-space: normal;
   }
 
-  .siteFooter > strong {
+  .siteFooter>strong {
     top: auto;
     bottom: -0.08em;
     left: 0;
@@ -5356,7 +5358,7 @@ img {
     width: 100%;
   }
 
-  .learningInner > h2 {
+  .learningInner>h2 {
     top: 74px;
     font-size: clamp(2.4rem, 5.2vw, 3rem);
   }
@@ -5525,7 +5527,7 @@ img {
     gap: 12px;
   }
 
-  .worksMeta dl > div {
+  .worksMeta dl>div {
     padding-left: 12px;
   }
 
@@ -5713,7 +5715,7 @@ img {
     order: -1;
   }
 
-  .learningImageLayer .learningImageWrap + .learningImageWrap {
+  .learningImageLayer .learningImageWrap+.learningImageWrap {
     display: block;
   }
 
@@ -5749,7 +5751,7 @@ img {
     min-height: 420px;
   }
 
-  .footerInner > p {
+  .footerInner>p {
     margin-top: 0;
   }
 
@@ -5758,7 +5760,7 @@ img {
     gap: 24px;
   }
 
-  .siteFooter > strong {
+  .siteFooter>strong {
     bottom: 0;
     font-size: clamp(4rem, 15vw, 7.5rem);
     white-space: normal;
@@ -5997,7 +5999,7 @@ img {
     left: 20px;
   }
 
-  .learningInner > h2,
+  .learningInner>h2,
   .faqIntro h2 {
     text-align: left;
   }
@@ -6030,7 +6032,7 @@ img {
     gap: 26px;
   }
 
-  .siteFooter > strong {
+  .siteFooter>strong {
     font-size: clamp(3.1rem, 18vw, 6.5rem);
   }
 }

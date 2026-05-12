@@ -141,10 +141,10 @@ const attendees = [
 ];
 
 const instructors = [
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/vipin.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/parithi.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/pujeeth.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/arjunai.png" },
+  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.png" },
+  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_PARIDHI.png" },
+  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_AJAY.png" },
+  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_CHANDRU.png" },
 ];
 
 const clientStories = [
@@ -299,13 +299,6 @@ export default function ApplyPage() {
           </aside>
         </div>
 
-        <div className="programBatchStrip" aria-label="Workshop batch announcement">
-          <span className="programBatchBadge">New Batch</span>
-          <p>Learn Editing &amp; AI with Idea School</p>
-          <a className="programBatchCta" href="#enroll">
-            Get early bird pass now
-          </a>
-        </div>
       </section>
 
       <section className="programCurriculum" aria-label="What you will learn">
@@ -522,6 +515,14 @@ export default function ApplyPage() {
         </section>
 
       </section>
+
+      <div className="programBatchStrip" aria-label="Workshop batch announcement">
+        <span className="programBatchBadge">New Batch</span>
+        <p>Learn Editing &amp; AI with Idea School</p>
+        <a className="programBatchCta" href="#enroll">
+          Get early bird pass now
+        </a>
+      </div>
 
       <footer className="siteFooter">
         <div className="footerInner">

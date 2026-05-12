@@ -5,38 +5,38 @@ import { useState } from "react";
 
 const mentors = [
   {
-    image: "/images/pujeeth.png",
-    name: "Pujeeth",
+    image: "/images/zAMAN 2.png",
+    name: "ZAMAN",
     role: "Mentor",
   },
   {
-    image: "/images/vipin.png",
-    name: "Vipin",
+    image: "/images/VIPIN-3.png",
+    name: "VIPIN",
     role: "Mentor",
   },
   {
-    image: "/images/parithi.png",
-    name: "Parithi",
+    image: "/images/pATRTHI.png",
+    name: "PARIDHI",
     role: "Mentor",
   },
   {
-    image: "/images/arjunai.png",
-    name: "Dhananjayan . S",
-    role: "CEO ,88GB",
-  },
-  {
-    image: "/images/parithi.png",
-    name: "Parithi",
+    image: "/images/aRJUN 2.png",
+    name: "ARJUN",
     role: "Mentor",
   },
   {
-    image: "/images/vipin.png",
-    name: "Vipin",
+    image: "/images/CHANDRU.png",
+    name: "CHANDRU",
     role: "Mentor",
   },
   {
-    image: "/images/pujeeth.png",
-    name: "Pujeeth",
+    image: "/images/aJAY 2.png",
+    name: "AJAY",
+    role: "Mentor",
+  },
+  {
+    image: "/images/ANUSHYA.png",
+    name: "ANUSHYA",
     role: "Mentor",
   },
 ];
@@ -76,9 +76,9 @@ export default function MentorCarousel() {
               src={mentor.image}
               alt={isActive ? mentor.name : ""}
               fill
-              sizes={isActive ? "486px" : "120px"}
+              sizes={isActive ? "486px" : "240px"}
               quality={100}
-              priority={isActive}
+              priority
               className="mentorImage"
             />
           </button>

@@ -40,6 +40,7 @@ const revealSelector = [
   ".siteFooter p",
   ".footerLinks h2",
   ".footerLinks a",
+  ".siteFooter > strong",
 ].join(", ");
 
 export default function ScrollTextReveal() {

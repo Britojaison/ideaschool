@@ -45,11 +45,12 @@ export default function LiquidVideoButton() {
           position: "absolute",
           top: "50%",
           left: "50%",
+          width: "46px",
+          height: "46px",
         }}
       >
         <span className="videoButtonContent">
-          <span className="playIcon" />
-          <span className="videoButtonLabel">Watch Video</span>
+          <span className="playIcon" aria-hidden="true" />
         </span>
       </LiquidGlass>
     </div>

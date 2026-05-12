@@ -1,42 +1,42 @@
 "use client";
 
-import Image from "next/image";
 import LiquidGlass from "liquid-glass-react";
 import { useEffect, useRef, useState } from "react";
 
 const workThumbs = [
   {
-    title: "Food campaign",
-    image: "/images/83d40f1614fb920fd1bdd8fdf7f8792990b98f32.jpg",
+    title: "Nurse Day PR 2",
+    video: "/images/Nurse day PR 2.mp4",
   },
   {
-    title: "Black Friday",
-    image: "/images/bf2b72489ff720a0100b6ab10c6e86a70fbc6c43.jpg",
+    title: "Celine Paris",
+    video: "/images/Celine Paris.mp4",
+    poster: "/images/alumni-posters/Celine Paris.mp4.png",
   },
   {
-    title: "Style launch",
-    image: "/images/3d74c9843424c9aa30c3f33fc28bd08f861c5aec.jpg",
+    title: "Aadi Sale",
+    video: "/images/Aadi Sale (1).mp4",
+    poster: "/images/alumni-posters/Aadi Sale (1).mp4.png",
   },
   {
-    title: "Spring drink",
-    image: "/images/9bf47fe908af3a71635ab3e3d95e681fc3b09fe4.jpg",
+    title: "MM Women's Day",
+    video: "/images/MM Women's Day.mp4",
+    poster: "/images/alumni-posters/MM Women's Day.mp4.png",
   },
   {
-    title: "Automotive",
-    image: "/images/automotive copy.jpg",
+    title: "Ranjit watch",
+    video: "/images/Ranjit watch.mp4",
+    poster: "/images/alumni-posters/Ranjit watch.mp4.png",
   },
   {
-    title: "Shoe sale",
-    image: "/images/ce04d496a79858c7cfcdeeb68c3992c3b57447a2.jpg",
-  },
-  {
-    title: "Auto show",
-    image: "/images/2556835a1b7b46f9e856961edea7b9f43a023941.jpg",
+    title: "LEO Energy Drink",
+    video: "/images/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4",
+    poster: "/images/alumni-posters/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4.png",
   },
 ];
 
 export default function AlumniWorks() {
-  const [selectedIndex, setSelectedIndex] = useState(4);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const thumbsRailRef = useRef<HTMLDivElement | null>(null);
   const thumbRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const isProgrammaticScroll = useRef(false);
@@ -110,14 +110,19 @@ export default function AlumniWorks() {
   return (
     <section className="works" id="about" aria-label="Student works">
       <div className="worksStage">
-        <Image
-          src={selectedWork.image}
-          alt={`${selectedWork.title} alumni work`}
-          fill
-          sizes="100vw"
+        <video
+          key={selectedWork.video}
           className="worksHeroImage"
-          priority={selectedIndex === 4}
-        />
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={selectedWork.poster}
+          preload="metadata"
+          aria-label={`${selectedWork.title} alumni work`}
+        >
+          <source src={selectedWork.video} type="video/mp4" />
+        </video>
         <div className="worksLabelMount">
           <LiquidGlass
             className="worksLabelGlass"
@@ -153,7 +158,7 @@ export default function AlumniWorks() {
             <span style={{ width: `${progress}%` }} />
           </div>
           <small>
-            {workThumbs.slice(0, 4).map((_, index) => (
+            {workThumbs.map((_, index) => (
               <button
                 type="button"
                 key={index}
@@ -190,13 +195,16 @@ export default function AlumniWorks() {
               aria-label={`Show ${thumb.title}`}
               onClick={() => setSelectedIndex(index)}
             >
-              <Image
-                src={thumb.image}
-                alt=""
-                fill
-                sizes="243px"
+              <video
                 className="workThumbImage"
-              />
+                muted
+                playsInline
+                poster={thumb.poster}
+                preload="metadata"
+                aria-hidden="true"
+              >
+                <source src={thumb.video} type="video/mp4" />
+              </video>
               <span>{thumb.title}</span>
             </button>
           ))}

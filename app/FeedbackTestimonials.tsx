@@ -3,47 +3,44 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const testimonials = [
+type Testimonial = {
+  name: string;
+  role: string;
+  profileImage: string;
+  workImage: string;
+  quote: string;
+  note?: string;
+};
+
+const testimonials: Testimonial[] = [
   {
-    name: "Shreya Nair",
-    role: "Student, Creative + AI Program",
-    image: "/images/img1.jpg",
+    name: "HIREN METHA",
+    role: "Workshop participant",
+    profileImage: "/images/PROFILE heren.png",
+    workImage: "/images/WORK heren.JPG",
     quote:
-      "This program completely changed how I approach content creation. The practical sessions and real projects helped me understand industry workflows and build confidence in my work.",
-    note:
-      "The hands-on learning and guidance from mentors made a huge difference in my growth.",
+      "The workshop gave me the tools to turn my traditional family business into a modern brand.",
   },
   {
-    name: "Aarav Menon",
-    role: "Student, Editing Workshop",
-    image: "/images/img3.jpg",
+    name: "MANJUNATH HEGDE",
+    role: "Workshop participant",
+    profileImage: "/images/MANJUNATH HEGDE - PROFILE.png",
+    workImage: "/images/WORK 2.png",
     quote:
-      "I finally understood how to turn ideas into strong videos. Every session pushed me to make, review, and improve instead of only watching tutorials.",
-    note:
-      "The feedback loops and project practice made the learning feel real.",
+      "This workshop filled the market gap for hands-on AI training perfectly. Loved the interactive vibe",
   },
   {
-    name: "Maya Joseph",
-    role: "Student, Content Systems",
-    image: "/images/img4.jpg",
+    name: "",
+    role: "Workshop participant",
+    profileImage: "/images/PROFILE.png",
+    workImage: "/images/WORK.png",
     quote:
-      "The program helped me build confidence with planning, shooting, editing, and presenting my work. I left with a clearer process and a stronger portfolio.",
-    note:
-      "Working on actual briefs made the biggest difference.",
-  },
-  {
-    name: "Dev Kumar",
-    role: "Student, AI Creative Tools",
-    image: "/images/img5.jpg",
-    quote:
-      "Learning AI tools through practical creative tasks helped me understand where they fit in a real workflow without losing my own creative direction.",
-    note:
-      "The mentors kept everything practical and easy to apply.",
+      "Skipping my travel plans for this offline training was worth it. Excellent creative guidance ideas",
   },
 ];
 
 export default function FeedbackTestimonials() {
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const isPausedRef = useRef(false);
   const pauseTimerRef = useRef<number | undefined>(undefined);
   const selectedTestimonial = testimonials[selectedIndex];
@@ -100,7 +97,7 @@ export default function FeedbackTestimonials() {
             onClick={() => selectTestimonial(index)}
           >
             <Image
-              src={testimonial.image}
+              src={testimonial.profileImage}
               alt=""
               fill
               sizes={isActive ? "156px" : "156px"}
@@ -121,7 +118,7 @@ export default function FeedbackTestimonials() {
             aria-hidden="true"
           />
           <blockquote>{selectedTestimonial.quote}</blockquote>
-          <p>{selectedTestimonial.note}</p>
+          {selectedTestimonial.note ? <p>{selectedTestimonial.note}</p> : null}
           <footer>
             <strong>{selectedTestimonial.name}</strong>
             <span>{selectedTestimonial.role}</span>
@@ -134,9 +131,9 @@ export default function FeedbackTestimonials() {
 
         <div className="testimonialImageWrap">
           <Image
-            key={selectedTestimonial.image}
-            src={selectedTestimonial.image}
-            alt="Idea School students and mentors"
+            key={selectedTestimonial.workImage}
+            src={selectedTestimonial.workImage}
+            alt={`${selectedTestimonial.name} workshop work`}
             fill
             sizes="(max-width: 980px) 100vw, 350px"
             className="testimonialImage"

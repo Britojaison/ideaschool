@@ -1,10 +1,53 @@
 "use client";
 
 import LiquidGlass from "liquid-glass-react";
+import { useEffect, useState } from "react";
 
-export default function LiquidVideoControlButton() {
+export default function LiquidVideoControlButton({ targetId }: { targetId: string }) {
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  useEffect(() => {
+    const video = document.getElementById(targetId);
+
+    if (!(video instanceof HTMLVideoElement)) {
+      return;
+    }
+
+    const syncVideoState = () => {
+      setIsPlaying(!video.paused);
+    };
+
+    syncVideoState();
+    video.addEventListener("play", syncVideoState);
+    video.addEventListener("pause", syncVideoState);
+
+    return () => {
+      video.removeEventListener("play", syncVideoState);
+      video.removeEventListener("pause", syncVideoState);
+    };
+  }, [targetId]);
+
+  const toggleVideo = () => {
+    const video = document.getElementById(targetId);
+
+    if (!(video instanceof HTMLVideoElement)) {
+      return;
+    }
+
+    if (video.paused) {
+      void video.play();
+    } else {
+      video.pause();
+    }
+  };
+
   return (
-    <div className="videoControlMount">
+    <button
+      className="videoControlMount"
+      type="button"
+      aria-label={isPlaying ? "Pause Idea School video" : "Play Idea School video"}
+      onClick={toggleVideo}
+    >
       <LiquidGlass
         className="videoControlGlass"
         displacementScale={64}
@@ -15,18 +58,21 @@ export default function LiquidVideoControlButton() {
         cornerRadius={100}
         padding="0"
         mode="prominent"
-        onClick={() => undefined}
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
         }}
       >
-        <span className="videoPauseIcon" aria-label="Pause Idea School video">
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </span>
+        {isPlaying ? (
+          <span className="videoPauseIcon" aria-hidden="true">
+            <span />
+            <span />
+          </span>
+        ) : (
+          <span className="videoPlayIcon" aria-hidden="true" />
+        )}
       </LiquidGlass>
-    </div>
+    </button>
   );
 }

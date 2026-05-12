@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
-import HeroDotField from "./HeroDotField";
-import LearningTimeline from "./LearningTimeline";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
@@ -29,36 +27,114 @@ type Brand =
 
 const brands: Brand[] = [
   {
-    name: "JLL",
-    image: "/images/jill.png",
-    width: 86,
-    height: 38,
-  },
-  {
-    name: "Netflix",
-    image: "/images/netflix.png",
-    width: 130,
-    height: 55,
-  },
-  {
-    name: "Milky Mist",
-    image: "/images/milky mist.png",
-    width: 116,
-    height: 50,
+    name: "Ashok Leyland",
+    image: "/images/ASHOK LEYLAND.png",
+    width: 1254,
+    height: 1254,
   },
   {
     name: "Finolex",
-    image: "/images/finolex logo.png",
-    width: 116,
-    height: 25,
+    image: "/images/FINOLEX.png",
+    width: 1254,
+    height: 1254,
   },
   {
-    name: "Xiaomi",
-    text: "XIAOMI",
-    width: 147,
-    height: 41,
+    name: "Heritage",
+    image: "/images/heritage.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "JLL",
+    image: "/images/JLL.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Milky Mist",
+    image: "/images/MILKY MIST-2.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Mapro",
+    image: "/images/mapro.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Moj",
+    image: "/images/moj.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Netflix",
+    image: "/images/NETFLIX-2.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Paytm",
+    image: "/images/paytm.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Amazon",
+    image: "/images/AMAZON.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Poco",
+    image: "/images/POCO.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "SIG",
+    image: "/images/SIG.png",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Xiamo",
+    image: "/images/XIAMO.png",
+    width: 1254,
+    height: 1254,
   },
 ];
+
+function BrandLogo({ brand }: { brand: Brand }) {
+  if ("image" in brand) {
+    return (
+      <Image
+        src={brand.image}
+        alt={brand.name}
+        width={brand.width}
+        height={brand.height}
+        className="brandPartnerLogo"
+      />
+    );
+  }
+
+  return (
+    <span
+      className={brand.name === "Xiaomi" ? "xiaomiText" : "milkyMistText"}
+      aria-label={brand.name}
+    >
+      {brand.name === "Xiaomi" ? (
+        <>
+          x<span className="dotlessI">ı</span>aom
+          <span className="dotlessI">ı</span>
+        </>
+      ) : (
+        brand.text
+      )}
+    </span>
+  );
+}
 
 const workshops = [
   {
@@ -68,9 +144,9 @@ const workshops = [
     comingSoon: true,
   },
   {
-    title: "Creative + AI Program",
+    title: "AI AD FILM MAKING MASTERCLASS",
     description: "Learn editing, content, and AI tools through real-world projects.",
-    image: "/images/3690ba0056dc8b622457a2356266c582d8917011.jpg",
+    image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.jpg",
   },
   {
     title: "Advanced Content Systems",
@@ -80,15 +156,53 @@ const workshops = [
   },
 ];
 
+const notCourseFeatures = [
+  {
+    title: "Studio-Led Training",
+    description:
+      "Learn through guided sessions, creator breakdowns, feedback loops, and practical assignments that mirror real content work.",
+    image: "/images/DSC01109.JPG",
+    accent: "violet",
+  },
+  {
+    title: "Real Brand Practice",
+    description:
+      "Move from classroom tasks into portfolio-ready briefs, shoots, edits, and campaigns shaped by real market expectations.",
+    image: "/images/DSC01035.JPG",
+    accent: "blue",
+  },
+];
+
+const notCoursePillars = [
+  {
+    title: "Pulse",
+    description:
+      "Stay current with culture, trends, platforms, and brand moments so your ideas feel relevant in the real world.",
+  },
+  {
+    title: "Creator Mindset",
+    description:
+      "Build the habit of observing, scripting, testing, improving, and presenting your work with clarity.",
+  },
+  {
+    title: "Production Fitness",
+    description:
+      "Practice the daily discipline of shooting, editing, planning, and managing timelines without losing creative quality.",
+  },
+  {
+    title: "Case Room",
+    description:
+      "Decode campaigns, creator pages, brand decisions, and content systems to understand why some work performs.",
+  },
+];
+
 export default function Home() {
   return (
     <main>
       <ScrollTextReveal />
 
       <section className="hero" id="hero" aria-label="Idea School hero">
-        <div className="heroMedia">
-          <HeroDotField />
-        </div>
+        <div className="heroMedia" />
 
         <div className="heroShade" />
 
@@ -112,6 +226,23 @@ export default function Home() {
           <Link className="headerCta" href="/apply">
             <span className="headerCtaText">Book your class</span>
           </Link>
+          <div className="mobileHeaderActions" aria-label="Quick contact actions">
+            <a
+              className="mobileHeaderAction whatsapp"
+              href="#whatsapp"
+              aria-label="WhatsApp"
+            >
+              <Image src="/images/whatsapp.svg" alt="" width={26} height={26} />
+            </a>
+            <a className="mobileHeaderAction phone" href="#call" aria-label="Call">
+              <Image src="/images/phone.svg" alt="" width={25} height={25} />
+            </a>
+            <a className="mobileMenuLink" href="#training" aria-label="Training">
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </a>
+          </div>
         </header>
 
         <div className="heroContent">
@@ -123,65 +254,38 @@ export default function Home() {
             </h1>
             <p>
               Learn editing, content creation, and AI tools through real
-              projects and hands-on sessions designed for the
-              <br />
-              industry.
+              projects and hands-on sessions designed for the industry.
             </p>
             <Link className="primaryCta" href="/apply">
-              <span className="primaryCtaText">Get early bird pass now</span>
+              <span className="primaryCtaText">Apply Now</span>
             </Link>
-          </div>
-
-          <div className="heroVisual" aria-hidden="true">
-            <Image
-              src="/images/Hero 6.png"
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 900px) 100vw, 46vw"
-              className="heroVisualImage"
-            />
-          </div>
-
-          <div className="heroActions">
-            <LiquidBatchNotice />
-            <LiquidVideoButton />
+            <div className="heroInlineActions">
+              <LiquidBatchNotice />
+              <LiquidVideoButton />
+            </div>
           </div>
         </div>
       </section>
 
       <LiquidQuickActions />
 
-      <section className="brands" aria-label="Brand partners">
-        <p>We have worked with 150+ Brands</p>
+      <section className="brands" aria-labelledby="brand-partners-title">
+        <h2 className="brandsTitle" id="brand-partners-title">
+          We have worked with 150+ Brands
+        </h2>
         <div className="brandLogos">
           {brands.map((brand) => (
             <span key={brand.name}>
-              {"image" in brand ? (
-                <Image
-                  src={brand.image}
-                  alt={brand.name}
-                  width={brand.width}
-                  height={brand.height}
-                  className="brandPartnerLogo"
-                />
-              ) : (
-                <span
-                  className={
-                    brand.name === "Xiaomi" ? "xiaomiText" : "milkyMistText"
-                  }
-                  aria-label={brand.name}
-                >
-                  {brand.name === "Xiaomi" ? (
-                    <>
-                      x<span className="dotlessI">ı</span>aom
-                      <span className="dotlessI">ı</span>
-                    </>
-                  ) : (
-                    brand.text
-                  )}
-                </span>
-              )}
+              <BrandLogo brand={brand} />
+            </span>
+          ))}
+          {brands.map((brand) => (
+            <span
+              className="brandLogoDuplicate"
+              key={`${brand.name}-duplicate`}
+              aria-hidden="true"
+            >
+              <BrandLogo brand={brand} />
             </span>
           ))}
         </div>
@@ -206,27 +310,27 @@ export default function Home() {
       </section>
 
       <section className="videoSection" id="video" aria-label="Idea School video">
-        <Image
-          src="/images/9a5c8f878495eaf39832722ea5fdd3819b80462d.jpg"
-          alt=""
-          fill
-          sizes="100vw"
+        <video
+          id="homePageVideo"
           className="videoPoster"
-          aria-hidden="true"
-        />
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-label="Idea School classroom video"
+        >
+          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
+        </video>
         <div className="videoSectionShade" aria-hidden="true" />
-        <LiquidVideoControlButton />
+        <LiquidVideoControlButton targetId="homePageVideo" />
       </section>
 
       <AlumniWorks />
 
       <section className="feedback" id="testimonials" aria-label="Student feedback">
         <div className="feedbackIntro">
-          <h2>
-            Real Feedback
-            <br />
-            From Our Students
-          </h2>
+          <h2>Real Feedback From Our Students</h2>
           <p>
             Honest feedback from learners who experienced our training and built
             real skills through hands-on projects.
@@ -240,7 +344,7 @@ export default function Home() {
         <div className="whyIdeaInner">
           <div className="whyIdeaMedia">
             <Image
-              src="/images/arjun.jpg"
+              src="/images/ARJUN - MAIN PAGE (ABOUT SECTION).png"
               alt="Idea School training session"
               fill
               sizes="(max-width: 980px) 100vw, 420px"
@@ -255,13 +359,12 @@ export default function Home() {
               <br />
               ready for the real world
             </h2>
-            <p>
+            <p className="whyIdeaDescription">
               Idea School focuses on practical learning that goes beyond
               theory. Our programs are designed to help students understand real
               workflows, work on meaningful projects, and build skills that are
               actually used in the industry.
-            </p>
-            <p>
+              <br />
               From editing and content creation to AI tools and digital systems,
               we guide students through a structured learning process that
               prepares them for real opportunities.
@@ -291,7 +394,9 @@ export default function Home() {
           <h2>Learn from People Who Do It for Real</h2>
           <p>
             Our mentors are active creators, editors, and strategists working in
-            the industry. Learn directly from people who build, create, and
+            the industry.
+            <br />
+            Learn directly from people who build, create, and
             deliver real results.
           </p>
         </div>
@@ -299,50 +404,53 @@ export default function Home() {
         <MentorCarousel />
       </section>
 
-      <section className="learningFaq" aria-label="How you will learn">
-        <div className="learningInner">
-          <h2>How you will learn</h2>
+      <section className="notCourseSection" aria-label="Not just a course">
+        <div className="notCourseInner">
+          <div className="notCourseHeader">
+            <h2>
+              Not Just a <em>Course</em>
+            </h2>
+            <p>
+              Idea School is built around growth beyond lessons. You learn the
+              craft, practice it in real situations, and build the habits needed
+              to show up like a working creator.
+            </p>
+          </div>
 
-          <div className="learningContent">
-            <div className="learningCopy">
-              <p>
-                We&apos;ve designed a structured and practical learning journey
-                to help you build real-world creative skills. You&apos;ll
-                progress through three key stages:{" "}
-                <strong>Fundamentals, Real Projects, and Advanced Workflows.</strong>
-              </p>
-              <p>
-                No confusion, no random learning. Everything is structured
-                step-by-step from basics to advanced so you always know what to
-                learn next and how to <strong>apply it.</strong>
-              </p>
-            </div>
-
-            <LearningTimeline />
-
-            <div className="learningImageLayer" aria-hidden="true">
-              {[
-                "/images/bg1.png",
-                "/images/bg2.png",
-                "/images/bg3.png",
-                "/images/bg4.png",
-                "/images/bg5.png",
-                "/images/bg6.png",
-              ].map((image, index) => (
-                <div
-                  className={`learningImageWrap image${Math.floor(index / 2)}-${index % 2}`}
-                  key={image}
-                >
-                  <Image
-                    src={image}
-                    alt=""
-                    fill
-                    sizes="(max-width: 980px) 50vw, 180px"
-                    className="learningImage"
-                  />
+          <div className="notCourseFeatureGrid">
+            {notCourseFeatures.map((feature) => (
+              <article
+                className={`notCourseFeature ${feature.accent}`}
+                key={feature.title}
+              >
+                <Image
+                  src={feature.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 980px) 100vw, 50vw"
+                  className="notCourseFeatureImage"
+                />
+                <div className="notCourseFeatureShade" />
+                <div className="notCourseFeatureCopy">
+                  <span aria-hidden="true" />
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
                 </div>
-              ))}
-            </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="notCoursePillarGrid">
+            {notCoursePillars.map((pillar, index) => (
+              <article className="notCoursePillar" key={pillar.title}>
+                <span
+                  className={`notCoursePillarLine line${index}`}
+                  aria-hidden="true"
+                />
+                <h3>{pillar.title}</h3>
+                <p>{pillar.description}</p>
+              </article>
+            ))}
           </div>
 
           <div className="faq">
@@ -362,11 +470,28 @@ export default function Home() {
                     "No, the program is designed for beginners as well as those with basic knowledge. We start from the fundamentals and gradually move to advanced concepts.",
                   open: false,
                 },
-                { question: "What will I learn in this program?", open: false },
-                { question: "Is this program online or offline?", open: false },
-                { question: "Will I work on real projects?", open: false },
+                {
+                  question: "What will I learn in this program?",
+                  answer:
+                    "You will learn content planning, shooting basics, editing workflows, creative thinking, AI tools, and how to build content that works for brands, businesses, and your own portfolio.",
+                  open: false,
+                },
+                {
+                  question: "Is this program online or offline?",
+                  answer:
+                    "The program is conducted offline with hands-on sessions, mentor guidance, and practical activities so you can learn by doing and get direct feedback.",
+                  open: false,
+                },
+                {
+                  question: "Will I work on real projects?",
+                  answer:
+                    "Yes. You will work on practical briefs and real-world style projects throughout the program, helping you build confidence, process, and portfolio-ready work.",
+                  open: false,
+                },
                 {
                   question: "Will I get a certificate after completion?",
+                  answer:
+                    "Yes, you will receive a certificate after successfully completing the program and participating in the required practical sessions and project work.",
                   open: false,
                 },
               ].map((item) => (
@@ -387,9 +512,7 @@ export default function Home() {
         <div className="contactInner">
           <div className="contactCopy">
             <h2>
-              Ready to start your
-              <br />
-              creative journey?
+              Ready to start your creative journey?
               <br />
               Contact us.
             </h2>
@@ -422,7 +545,7 @@ export default function Home() {
               <span>Message (optional)</span>
               <textarea name="message" rows={4} />
             </label>
-            <button type="submit">Get early bird pass now</button>
+            <button type="submit">Apply now</button>
             <p>Limited seats available for the upcoming batch.</p>
           </form>
         </div>

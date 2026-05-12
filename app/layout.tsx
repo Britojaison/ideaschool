@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import DisableImageActions from "./DisableImageActions";
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Idea School",
@@ -20,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={cn("font-sans", geist.variable)}>
       <head>
         <Script id="meta-pixel" strategy="afterInteractive">
           {`

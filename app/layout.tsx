@@ -5,7 +5,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Idea School",
-  description: "Creative skills training for editing, content creation, and AI tools."
+  description: "Creative skills training for editing, content creation, and AI tools.",
+  icons: {
+    icon: [{ url: "/images/idea%20logo.png", type: "image/png" }],
+    apple: [{ url: "/images/idea%20logo.png", type: "image/png" }]
+  }
 };
 
 export const viewport: Viewport = {

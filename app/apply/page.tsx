@@ -560,11 +560,11 @@ export default function ApplyPage() {
             </div>
             <div>
               <h2>Socials</h2>
-              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+              <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">
                 Instagram
               </a>
-              <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-                YouTube
+              <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">
+                LinkedIn
               </a>
             </div>
           </nav>

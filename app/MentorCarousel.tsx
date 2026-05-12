@@ -7,37 +7,37 @@ const mentors = [
   {
     image: "/images/zAMAN 2.png",
     name: "ZAMAN",
-    role: "Mentor",
+    role: "Head ofGrowth",
   },
   {
     image: "/images/VIPIN-3.png",
     name: "VIPIN",
-    role: "Mentor",
+    role: "Senior Visualiser",
   },
   {
     image: "/images/pATRTHI.png",
     name: "PARIDHI",
-    role: "Mentor",
+    role: "Head of Design",
   },
   {
     image: "/images/aRJUN 2.png",
     name: "ARJUN",
-    role: "Mentor",
+    role: "CEO",
   },
   {
     image: "/images/CHANDRU.png",
     name: "CHANDRU",
-    role: "Mentor",
+    role: "Senior Creative Stratagist",
   },
   {
     image: "/images/aJAY 2.png",
     name: "AJAY",
-    role: "Mentor",
+    role: "Video Editor",
   },
   {
     image: "/images/ANUSHYA.png",
     name: "ANUSHYA",
-    role: "Mentor",
+    role: "Design Lead",
   },
 ];
 
@@ -66,17 +66,19 @@ export default function MentorCarousel() {
             aria-label={`Show ${mentor.name}`}
             onClick={() => setActiveIndex(index)}
           >
-            {isActive ? (
-              <span className="mentorInfo">
-                <span>{mentor.role}</span>
-                <strong>{mentor.name}</strong>
-              </span>
-            ) : null}
+            <span className="mentorInfo">
+              <span>{mentor.role}</span>
+              <strong>{mentor.name}</strong>
+            </span>
             <Image
               src={mentor.image}
-              alt={isActive ? mentor.name : ""}
+              alt={mentor.name}
               fill
-              sizes={isActive ? "486px" : "240px"}
+              sizes={
+                isActive
+                  ? "(max-width: 640px) calc(100vw - 36px), (max-width: 980px) 320px, 486px"
+                  : "(max-width: 640px) calc(100vw - 36px), 240px"
+              }
               quality={100}
               priority
               className="mentorImage"

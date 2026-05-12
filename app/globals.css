@@ -4793,9 +4793,9 @@ img {
   flex-basis: 486px;
   width: 486px;
   height: 486px;
-  border: 2px solid #8b5cff;
-  background: #d7deef;
-  box-shadow: 0 0 0 1px rgba(139, 92, 255, 0.3), 0 20px 54px rgba(0, 0, 0, 0.28);
+  border: 0;
+  background: transparent;
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.28);
 }
 
 .mentorCard:focus-visible {
@@ -4831,19 +4831,25 @@ img {
 }
 
 .mentorCard.active .mentorImage {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center bottom;
   filter: none;
 }
 
 .mentorInfo {
   position: absolute;
-  top: 28px;
-  left: 28px;
+  top: 24px;
+  left: 24px;
   z-index: 2;
   display: grid;
   gap: 8px;
   color: #080808;
+  text-align: left;
+}
+
+.mentorCard:not(.active) .mentorInfo {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .mentorInfo span {
@@ -7155,25 +7161,62 @@ img {
     gap: 14px;
     margin-top: 34px;
     padding-inline: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mentorCarousel::-webkit-scrollbar {
+    display: none;
   }
 
   .mentorCard,
   .mentorCard.active {
-    flex-basis: 96px;
-    width: 96px;
-    height: 310px;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    height: clamp(330px, 112vw, 430px);
+    border: 0;
+    background: transparent;
+    opacity: 1;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
 
   .mentorCard.active {
-    order: -1;
-    flex-basis: min(286px, 78vw);
-    width: min(286px, 78vw);
-    min-width: min(286px, 78vw);
+    order: initial;
+    box-shadow: 0 20px 54px rgba(0, 0, 0, 0.28);
+  }
+
+  .mentorCard.edge::after,
+  .mentorCard.near::after,
+  .mentorCard.mid::after {
+    display: none;
+  }
+
+  .mentorCard.edge,
+  .mentorCard.near,
+  .mentorCard.mid {
+    opacity: 1;
+  }
+
+  .mentorImage,
+  .mentorCard.active .mentorImage {
+    object-fit: cover;
+    object-position: center bottom;
+    filter: none;
   }
 
   .mentorInfo {
-    top: 20px;
-    left: 20px;
+    top: 18px;
+    left: 18px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mentorCard:not(.active) .mentorInfo {
+    opacity: 1;
+    visibility: visible;
   }
 
   .learningInner>h2,

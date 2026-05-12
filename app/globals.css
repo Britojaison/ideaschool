@@ -689,10 +689,17 @@ img {
   z-index: 2;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-  gap: clamp(36px, 6vw, 86px);
+  grid-template-rows: auto auto;
+  column-gap: clamp(36px, 6vw, 86px);
+  row-gap: 0;
+  align-content: start;
   flex: 1;
   width: min(100%, 1280px);
   margin: 0 auto;
+}
+
+.programHeroInner > .programStats {
+  grid-column: 1;
 }
 
 .programHeroCopy {
@@ -795,6 +802,8 @@ img {
 }
 
 .programHeroCard {
+  grid-column: 2;
+  grid-row: 1 / -1;
   align-self: start;
   display: grid;
   gap: 12px;
@@ -1523,8 +1532,9 @@ img {
 
 .toolsRow {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: center;
+  justify-items: center;
   gap: clamp(12px, 2vw, 28px);
 }
 
@@ -2804,28 +2814,35 @@ img {
   }
 
   .programHeroInner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 34px;
   }
 
-  .programHeroCopy h1 {
-    max-width: 680px;
-    font-size: clamp(2.25rem, 8.5vw, 3rem);
-  }
-
-  .programStats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px 22px;
-    margin-top: 46px;
+  .programHeroCopy {
+    order: 1;
   }
 
   .programHeroCard {
+    order: 2;
     max-width: 520px;
     padding-top: 0;
   }
 
   .programHeroCard p {
     text-align: left;
+  }
+
+  .programHeroInner > .programStats {
+    order: 3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 22px;
+    margin-top: 0;
+  }
+
+  .programHeroCopy h1 {
+    max-width: 680px;
+    font-size: clamp(2.25rem, 8.5vw, 3rem);
   }
 
   .programHeroImageWrap {
@@ -2901,9 +2918,14 @@ img {
     gap: 28px;
   }
 
+  .toolsBlock h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    white-space: nowrap;
+  }
+
   .toolsRow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 28px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 16px;
   }
 
   .toolLogo {
@@ -3180,6 +3202,27 @@ img {
     letter-spacing: 0;
   }
 
+  .programHero .siteHeader {
+    left: 0;
+    right: 0;
+    width: auto;
+    padding-left: calc(var(--apply-section-x) + max(0px, (100vw - 2 * var(--apply-section-x) - 1280px) / 2));
+    padding-right: calc(var(--apply-section-x) + max(0px, (100vw - 2 * var(--apply-section-x) - 1280px) / 2));
+  }
+
+  .programHero .desktopNav {
+    position: static;
+    height: auto;
+    gap: clamp(24px, 2.2vw, 40px);
+    margin-left: clamp(36px, 6vw, 86px);
+  }
+
+  .programHero .headerCta {
+    position: static;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
   .heroContent {
     display: block;
     min-height: 100svh;
@@ -3349,19 +3392,47 @@ img {
   }
 
   .proofCard {
-    flex-basis: min(86vw, 380px);
-    grid-template-columns: 1fr;
+    flex-basis: min(86vw, 318px);
+    grid-template-columns: 86px minmax(0, 1fr);
+    align-items: center;
     gap: 12px;
-    padding: 22px 18px;
+    min-height: 158px;
+    padding: 14px 14px 14px 12px;
   }
 
   .proofPerson {
-    order: 2;
-    height: 170px;
+    align-self: end;
+    width: 86px;
+    height: 128px;
+  }
+
+  .proofPersonImage {
+    transform: none;
   }
 
   .proofQuote {
+    align-self: center;
+    min-width: 0;
     padding-bottom: 0;
+  }
+
+  .proofQuote span {
+    height: 18px;
+    font-size: 42px;
+    line-height: 0.7;
+  }
+
+  .proofQuote p {
+    max-width: none;
+    margin: 6px 0 12px;
+    font-size: 13px;
+    line-height: 1.24;
+  }
+
+  .proofQuote strong,
+  .proofQuote small {
+    font-size: 10px;
+    line-height: 1.25;
   }
 
   .proofVideoRail {
@@ -6002,6 +6073,7 @@ img {
   .programNoticeTitle {
     margin-top: 22px;
     font-size: clamp(1.85rem, 10vw, 2.55rem);
+    display: none;
   }
 
   .programNoticeBenefits {
@@ -6056,20 +6128,27 @@ img {
   }
 
   .programBatchStrip {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 12px;
-    padding: 16px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: clamp(6px, 1.8vw, 10px);
+    min-height: 56px;
+    padding: 8px 10px;
     text-align: center;
   }
 
   .programBatchBadge,
   .programBatchCta {
-    justify-self: center;
+    min-width: 0;
+    min-height: 32px;
+    padding-inline: clamp(8px, 2.4vw, 12px);
+    font-size: clamp(9px, 2.55vw, 12px);
   }
 
   .programBatchStrip p {
-    font-size: 15px;
+    font-size: clamp(9px, 2.55vw, 13px);
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .programOffer {
@@ -6087,7 +6166,8 @@ img {
   }
 
   .toolsRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 12px;
   }
 
   .audienceGrid {

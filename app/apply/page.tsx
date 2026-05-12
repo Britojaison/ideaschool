@@ -54,32 +54,39 @@ const curriculum = [
 
 const toolLogos = [
   {
-    name: "Nano Banana",
+    name: "Adobe cloud",
     image: "/images/tool1.png",
     width: 1254,
     height: 1254,
-    className: "nano",
-  },
-  {
-    name: "FLUX.1 Kontext",
-    image: "/images/tool2.png",
-    width: 1254,
-    height: 1254,
-    className: "flux",
+    className: "adobe",
   },
   {
     name: "Cinema Studio",
+    image: "/images/tool2.png",
+    width: 1254,
+    height: 1254,
+    className: "Cinema Studio",
+  },
+  {
+    name: "Kontext",
     image: "/images/tool3.png",
     width: 1254,
     height: 1254,
-    className: "cinema",
+    className: "kontext",
   },
   {
-    name: "Seedance 2",
+    name: "veo 3",
     image: "/images/tool4.png",
     width: 1254,
     height: 1254,
-    className: "seedance",
+    className: "veo 3",
+  },
+  {
+    name: "nano banana",
+    image: "/images/tool5.png",
+    width: 1254,
+    height: 1254,
+    className: "nano banana",
   },
   {
     name: "higgsfield",
@@ -88,20 +95,7 @@ const toolLogos = [
     height: 1254,
     className: "higgsfield",
   },
-  {
-    name: "Veo 3.1",
-    image: "/images/tool5.png",
-    width: 1254,
-    height: 1254,
-    className: "veo",
-  },
-  {
-    name: "Adobe Creative Cloud",
-    image: "/images/tool6.png",
-    width: 1254,
-    height: 1254,
-    className: "adobe",
-  },
+
 ];
 
 const attendeeImage = (fileName: string) => `/images/${fileName}`;
@@ -259,12 +253,7 @@ export default function ApplyPage() {
               className="brandLogo"
             />
           </Link>
-          <nav className="desktopNav" aria-label="Primary navigation">
-            <Link href="/#about">About</Link>
-            <Link href="/#training">Training</Link>
-            <Link href="/#testimonials">Testimonials</Link>
-            <Link href="/#contact">Contact</Link>
-          </nav>
+
           <a className="headerCta" href="#enroll">
             <span className="headerCtaText">Book your class</span>
           </a>
@@ -285,25 +274,6 @@ export default function ApplyPage() {
             <a className="primaryCta programCta" href="#enroll">
               <span className="primaryCtaText">Get early bird pass now</span>
             </a>
-
-            <dl className="programStats">
-              <div>
-                <dt>Batch Date</dt>
-                <dd>May 14</dd>
-              </div>
-              <div>
-                <dt>Learning Mode</dt>
-                <dd>Offline (In-Person)</dd>
-              </div>
-              <div>
-                <dt>Full Day Session</dt>
-                <dd>Hands-on</dd>
-              </div>
-              <div>
-                <dt>Limited Seats</dt>
-                <dd>Applications Open</dd>
-              </div>
-            </dl>
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
@@ -325,6 +295,25 @@ export default function ApplyPage() {
               <strong>and turn your ideas into campaigns.</strong>
             </span>
           </aside>
+
+          <dl className="programStats">
+            <div>
+              <dt>Batch Date</dt>
+              <dd>May 14</dd>
+            </div>
+            <div>
+              <dt>Learning Mode</dt>
+              <dd>Offline </dd>
+            </div>
+            <div>
+              <dt>Full Day Session</dt>
+              <dd>Hands-on</dd>
+            </div>
+            <div>
+              <dt>Limited Seats</dt>
+              <dd>Applications Open</dd>
+            </div>
+          </dl>
         </div>
 
       </section>
@@ -546,9 +535,9 @@ export default function ApplyPage() {
 
       <div className="programBatchStrip" aria-label="Workshop batch announcement">
         <span className="programBatchBadge">New Batch</span>
-        <p>Learn Editing &amp; AI with Idea School</p>
+        <p>Master AI & AD Film Making</p>
         <a className="programBatchCta" href="#enroll">
-          Get early bird pass now
+          Book seat now
         </a>
       </div>
 

@@ -84,12 +84,11 @@ export default function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
             />
             {workshop.comingSoon ? (
               <span className="comingSoonLabel">Coming Soon</span>
-            ) : (
-              <div className="workshopCardCopy">
-                <h3>{workshop.title}</h3>
-                <p>{workshop.description}</p>
-              </div>
-            )}
+            ) : null}
+            <div className="workshopCardCopy">
+              <h3>{workshop.title}</h3>
+              <p>{workshop.description}</p>
+            </div>
           </article>
         );
       })}

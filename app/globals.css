@@ -1960,17 +1960,40 @@ img {
   gap: clamp(34px, 6vw, 70px);
   margin-top: 0;
   padding: clamp(48px, 8vw, 84px) clamp(20px, 7vw, 88px) clamp(36px, 5vw, 56px);
-  background: #0c0d0f;
+  background:
+    radial-gradient(ellipse at 0% 100%, rgba(118, 64, 142, 0.16) 0%, rgba(50, 29, 64, 0.08) 24%, transparent 46%),
+    radial-gradient(ellipse at 100% 100%, rgba(118, 64, 142, 0.16) 0%, rgba(50, 29, 64, 0.08) 24%, transparent 46%),
+    #101010;
+  isolation: isolate;
   text-align: center;
 }
 
+.brands::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -120px;
+  z-index: 0;
+  height: 220px;
+  content: "";
+  background:
+    radial-gradient(ellipse at 0% 40%, rgba(118, 64, 142, 0.12) 0%, rgba(50, 29, 64, 0.06) 26%, transparent 50%),
+    radial-gradient(ellipse at 100% 40%, rgba(118, 64, 142, 0.12) 0%, rgba(50, 29, 64, 0.06) 26%, transparent 50%),
+    linear-gradient(180deg, rgba(16, 16, 16, 0) 0%, #101010 44%, #101010 100%);
+  pointer-events: none;
+}
+
 .brands p {
+  position: relative;
+  z-index: 1;
   margin: 0;
   color: rgba(255, 255, 255, 0.68);
   font-size: clamp(1.05rem, 1.5vw, 1.4rem);
 }
 
 .brandLogos {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: center;
@@ -2099,51 +2122,36 @@ img {
   position: relative;
   overflow: hidden;
   min-height: 690px;
+  margin-top: 0;
   padding: 96px clamp(20px, 4vw, 60px) 76px;
   background:
-    radial-gradient(circle at 0% 46%, rgba(131, 80, 153, 0.13), transparent 30%),
-    radial-gradient(circle at 100% 46%, rgba(131, 80, 153, 0.13), transparent 30%),
-    linear-gradient(90deg, rgba(111, 66, 145, 0.065), transparent 14%, transparent 86%, rgba(111, 66, 145, 0.065)),
-    #0c0d0f;
+    radial-gradient(ellipse at 0% 24%, rgba(118, 64, 142, 0.16) 0%, rgba(50, 29, 64, 0.08) 24%, transparent 46%),
+    radial-gradient(ellipse at 100% 24%, rgba(118, 64, 142, 0.16) 0%, rgba(50, 29, 64, 0.08) 24%, transparent 46%),
+    #101010;
   isolation: isolate;
 }
 
 .workshopGrid {
   position: absolute;
-  top: -86px;
+  top: -140px;
   left: 50%;
   z-index: -1;
   width: 100%;
-  height: 820px;
+  height: calc(100% + 140px);
   transform: translateX(-50%);
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.082) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.082) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-position: center top;
+  background-size: 64px 64px;
   mask-image:
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 84%, transparent 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.64), #000 12%, #000 88%, rgba(0, 0, 0, 0.64));
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.28) 18%, rgba(0, 0, 0, 0.72) 30%, #000 42%, #000 82%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 13%, #000 87%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-image:
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 84%, transparent 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.64), #000 12%, #000 88%, rgba(0, 0, 0, 0.64));
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.28) 18%, rgba(0, 0, 0, 0.72) 30%, #000 42%, #000 82%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 13%, #000 87%, transparent 100%);
   -webkit-mask-composite: source-in;
-  pointer-events: none;
-}
-
-.workshopDivider {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 1;
-  width: min(calc(100% - 40px), 810px);
-  height: 0;
-  border: 0;
-  border-top: 1px solid;
-  border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #af52df 50%, rgba(153, 153, 153, 0) 100%);
-  border-image-slice: 1;
-  transform: translateX(-50%);
-  background: transparent;
   pointer-events: none;
 }
 
@@ -2159,14 +2167,14 @@ img {
 
 .workshops::before {
   top: 0;
-  height: 116px;
-  background: linear-gradient(180deg, #0c0d0f 0%, rgba(12, 13, 15, 0.62) 42%, transparent 100%);
+  height: 180px;
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.36) 62%, transparent 100%);
 }
 
 .workshops::after {
   bottom: 0;
   height: 170px;
-  background: linear-gradient(180deg, transparent, rgba(12, 13, 15, 0.78) 54%, #0c0d0f 100%);
+  background: linear-gradient(180deg, transparent, rgba(16, 16, 16, 0.78) 54%, #101010 100%);
 }
 
 .workshopInner {
@@ -2279,7 +2287,7 @@ img {
   inset: 0;
   content: "";
   border-radius: 5px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #101010 90%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.42) 68%, #050505 100%);
   transition: background 260ms ease, backdrop-filter 260ms ease;
 }
 
@@ -2295,20 +2303,19 @@ img {
 }
 
 .workshopCard.comingSoon .workshopCardImage {
-  opacity: 0.58;
-  filter: blur(2.5px) saturate(0.78) contrast(0.96);
+  opacity: 0.76;
+  filter: blur(1.2px) saturate(0.92) contrast(1);
   transform: scale(1.025);
 }
 
 .workshopCard.comingSoon::after {
   z-index: 1;
-  background: rgba(0, 0, 0, 0.26);
-  backdrop-filter: blur(0.8px);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0.86) 100%);
 }
 
 .workshopCard.isAutoDimmed {
   opacity: 1;
-  filter: blur(3px) grayscale(0.12) brightness(0.48);
+  filter: brightness(0.72);
   transform: scale(0.985);
 }
 
@@ -2327,18 +2334,17 @@ img {
 }
 
 .workshopCard.comingSoon.isAutoActive .workshopCardImage {
-  opacity: 0.7;
-  filter: blur(1.4px) saturate(0.9) contrast(1);
+  opacity: 0.88;
+  filter: blur(0.7px) saturate(1) contrast(1.03);
   transform: scale(1.055);
 }
 
 .workshopCard.isAutoActive::after {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(16, 16, 16, 0.92) 90%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 24%, rgba(0, 0, 0, 0.42) 66%, rgba(16, 16, 16, 0.94) 100%);
 }
 
 .workshopCard.comingSoon.isAutoActive::after {
-  background: rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(0.4px);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0.9) 100%);
 }
 
 .workshopCard.isAutoActive .availability {
@@ -2347,6 +2353,7 @@ img {
 }
 
 .workshopCard.isAutoActive .comingSoonLabel {
+  opacity: 1;
   transform: translate(-50%, calc(-50% - 3px));
   box-shadow: 0 0 34px rgba(137, 85, 153, 0.48);
 }
@@ -2364,7 +2371,7 @@ img {
 
   .workshopCards:hover .workshopCard {
     opacity: 1;
-    filter: blur(3px) grayscale(0.12) brightness(0.48);
+    filter: brightness(0.72);
     transform: scale(0.985);
   }
 
@@ -2383,8 +2390,8 @@ img {
   }
 
   .workshopCard.comingSoon:hover .workshopCardImage {
-    opacity: 0.7;
-    filter: blur(1.4px) saturate(0.9) contrast(1);
+    opacity: 0.88;
+    filter: blur(0.7px) saturate(1) contrast(1.03);
     transform: scale(1.055);
   }
 
@@ -2393,8 +2400,7 @@ img {
   }
 
   .workshopCard.comingSoon:hover::after {
-    background: rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(0.4px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0.9) 100%);
   }
 
   .workshopCard:hover .availability,
@@ -2404,6 +2410,7 @@ img {
   }
 
   .workshopCard:hover .comingSoonLabel {
+    opacity: 1;
     transform: translate(-50%, calc(-50% - 3px));
   }
 
@@ -2424,9 +2431,12 @@ img {
   height: 43px;
   padding: 0 28px;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0;
+  border: 1px solid rgba(255, 255, 255, 0.26);
   border-radius: 999px;
-  background: rgba(16, 16, 16, 0.56);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 46%, rgba(10, 10, 10, 0.22) 100%),
+    rgba(18, 18, 18, 0.28);
   color: #fff;
   font-family: var(--font-subject);
   font-size: 22px;
@@ -2435,9 +2445,15 @@ img {
   line-height: 1;
   letter-spacing: 0;
   white-space: nowrap;
-  box-shadow: 0 0 30px rgba(137, 85, 153, 0.32);
-  backdrop-filter: blur(10px);
-  transition: transform 260ms ease, box-shadow 260ms ease, background 260ms ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 34px rgba(0, 0, 0, 0.32),
+    0 0 28px rgba(137, 85, 153, 0.22);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 260ms ease, box-shadow 260ms ease, background 260ms ease;
 }
 
 .availability {
@@ -2482,7 +2498,7 @@ img {
   left: 24px;
   right: 24px;
   bottom: 38px;
-  z-index: 1;
+  z-index: 3;
   text-align: center;
   transition: transform 260ms ease;
 }
@@ -2496,20 +2512,33 @@ img {
   height: 19px;
   margin: 0 auto;
   color: #fff;
-  font-family: var(--font-subject);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.18;
   letter-spacing: 0;
   text-align: center;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.82);
 }
 
 .workshopCardCopy p {
-  max-width: 360px;
-  margin: 16px auto 0;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
-  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 296px;
+  max-width: 100%;
+  min-height: 48px;
+  margin: 12px auto 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-subject);
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.82);
 }
 
 .videoSection {

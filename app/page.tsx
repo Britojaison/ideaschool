@@ -189,7 +189,6 @@ export default function Home() {
 
       <section className="workshops" id="training" aria-label="Our workshops">
         <div className="workshopGrid" aria-hidden="true" />
-        <div className="workshopDivider" aria-hidden="true" />
         <div className="workshopInner">
           <StarBorder
             as="div"

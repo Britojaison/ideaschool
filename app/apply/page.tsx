@@ -142,29 +142,47 @@ const attendees = [
 
 const instructors = [
   { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_PARIDHI.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_AJAY.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_CHANDRU.png" },
+  { name: "Elamparidhi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.png" },
+  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.png" },
+  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.png" },
 ];
 
 const clientStories = [
   {
-    name: "Arjun Nair",
+    name: "Balaji",
     quote:
-      "This program completely changed how I approach content creation and editing.",
-    image: "/images/card1.png",
+      "The offline guidance was incredible, solving every doubt personally. Much better thann any online program",
+    image: "/images/B1_BALAJI.png",
   },
   {
-    name: "Megha S",
+    name: "Manjunath",
     quote:
-      "I finally understand real editing workflows and how to apply them in projects.",
-    image: "/images/card2.png",
+      "This workshop fillled the market gap for hands-on AI training perectly. Loved the interactive vibe.",
+    image: "/images/B1_MANJUNATH.png",
   },
   {
-    name: "Rahul K",
+    name: "Hiren Metha",
     quote:
-      "From ideas to execution, this helped me build real campaign-ready skills.",
-    image: "/images/card3.png",
+      "Thee workshop gave me the tools to turn my traditional family business into a modern brand.",
+    image: "/images/B1_metha.png",
+  },
+  {
+    name: " ",
+    quote:
+      "Exploring tools I never Knew existed. This workshop was worth my entire day.",
+    image: "/images/B1_QUOTE4.png",
+  },
+  {
+    name: "",
+    quote:
+      "Skipping my travel plans for this offline training was worth it!. Excellent creative guidance ideas.",
+    image: "/images/B1_QUOTE5.png",
+  },
+  {
+    name: "",
+    quote:
+      "Valuable hands-onn experience you cannot get online. My first offline marketing eveent was simply great",
+    image: "/images/B1_QUOTE6.png",
   },
 ];
 
@@ -377,7 +395,7 @@ export default function ApplyPage() {
 
       <section className="programInstructor" aria-label="Instructor and client feedback">
         <div className="programInstructorInner">
-          <h2>Meet the Instructor</h2>
+          <h2>Meet the Instructors</h2>
           <div className="instructorGrid">
             {instructors.map((instructor, index) => (
               <article className="instructorCard" key={`${instructor.name}-${index}`}>

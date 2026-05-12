@@ -763,7 +763,7 @@ img {
   color: rgba(255, 255, 255, 0.76);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 4s00;
 }
 
 .programStats dd {
@@ -771,7 +771,7 @@ img {
   color: #fff;
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 2.5vw, 2.15rem);
-  font-weight: 900;
+  font-weight: 300;
   line-height: 1.05;
 }
 
@@ -1121,7 +1121,8 @@ img {
 
 .curriculumIntro p {
   margin: 14px auto 0;
-  max-width: 560px;
+  max-width: none !important;
+  width: 100%;
   color: rgba(255, 255, 255, 0.66);
   font-size: 17px;
   line-height: 1.45;
@@ -1190,9 +1191,9 @@ img {
 .curriculumItem h3 {
   max-width: 598px;
   margin: 0;
-  font-family: var(--font-subject);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 28px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: 0;
 }
@@ -1200,13 +1201,16 @@ img {
 .curriculumItem p {
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 16px;
+  font-family: var(--font-subject);
+  font-size: 17px;
+  font-weight: 500;
   line-height: 1.45;
 }
 
 .curriculumItem strong {
   color: #9d55b4;
-  font-weight: 800;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 
 .curriculumPanel {
@@ -1221,7 +1225,8 @@ img {
 .curriculumDetails .curriculumTools {
   margin-top: 18px;
   color: #9d55b4;
-  font-weight: 800;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 
 .programAudience {
@@ -1602,7 +1607,7 @@ img {
   display: flex;
   width: max-content;
   gap: 20px;
-  animation: proofAutoScroll 24s linear infinite;
+  animation: proofAutoScroll 42s linear infinite;
   will-change: transform;
 }
 
@@ -1689,7 +1694,7 @@ img {
   position: relative;
   align-self: end;
   height: 188px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .proofPersonImage {
@@ -1697,22 +1702,7 @@ img {
   object-position: bottom center;
   mix-blend-mode: multiply;
   transform-origin: bottom center;
-}
-
-.proofCard:nth-child(1) .proofPersonImage {
-  transform: scale(1.58);
-}
-
-.proofCard:nth-child(2) .proofPersonImage {
-  transform: scale(1.42);
-}
-
-.proofCard:nth-child(4) .proofPersonImage {
-  transform: scale(1.58);
-}
-
-.proofCard:nth-child(5) .proofPersonImage {
-  transform: scale(1.42);
+  transform: translateY(-24px);
 }
 
 @media (prefers-reduced-motion: reduce) {

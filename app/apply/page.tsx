@@ -55,89 +55,97 @@ const curriculum = [
 const toolLogos = [
   {
     name: "Nano Banana",
-    image: "/images/nano transparent.png",
-    width: 388,
-    height: 106,
+    image: "/images/tool1.png",
+    width: 1254,
+    height: 1254,
     className: "nano",
   },
   {
     name: "FLUX.1 Kontext",
-    image: "/images/flux transparent.png",
-    width: 1024,
-    height: 1024,
+    image: "/images/tool2.png",
+    width: 1254,
+    height: 1254,
     className: "flux",
   },
   {
     name: "Cinema Studio",
-    image: "/images/cinema studio transparent.png",
-    width: 1920,
-    height: 1080,
+    image: "/images/tool3.png",
+    width: 1254,
+    height: 1254,
     className: "cinema",
   },
   {
     name: "Seedance 2",
-    image: "/images/seedance transparent.png",
-    width: 275,
-    height: 183,
+    image: "/images/tool4.png",
+    width: 1254,
+    height: 1254,
     className: "seedance",
   },
   {
+    name: "higgsfield",
+    image: "/images/tool6.png",
+    width: 1254,
+    height: 1254,
+    className: "higgsfield",
+  },
+  {
     name: "Veo 3.1",
-    image: "/images/veo transparent.png",
-    width: 1500,
-    height: 1263,
+    image: "/images/tool5.png",
+    width: 1254,
+    height: 1254,
     className: "veo",
   },
   {
     name: "Adobe Creative Cloud",
-    image: "/images/adobe icon.png",
-    width: 225,
-    height: 225,
+    image: "/images/tool6.png",
+    width: 1254,
+    height: 1254,
     className: "adobe",
   },
 ];
 
-const attendeeImage = (fileName: string) => `/images/${fileName}?v=20260508`;
+const attendeeImage = (fileName: string) => `/images/${fileName}`;
 const razorpayPaymentLink =
   process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/NwcRrEel";
 
 const attendees = [
   {
-    title: "Photographers & Videographers",
-    description:
-      "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
-    image: attendeeImage("Photographers & Videographers copy.png"),
-  },
-  {
-    title: "Graphic Designers & Artists",
-    description:
-      "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
-    image: attendeeImage("Graphic Designers & Artists.png"),
-  },
-  {
-    title: "Content Creators",
-    description:
-      "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
-    image: attendeeImage("Content Creators.png"),
-  },
-  {
     title: "Entrepreneurs & Brand Owners",
     description:
       "Create agency-quality AD content for your own brand at a fraction of traditional production cost.",
-    image: attendeeImage("Entrepreneurs & Brand Owners.png"),
+    image: attendeeImage("whoEntrepreneurs & Brand Owners.png"),
   },
   {
     title: "Marketing Professionals",
     description:
       "Produce stunning campaign visuals in-house and drastically cut production budgets without cutting quality.",
-    image: attendeeImage("Marketing Professionals.png"),
+    image: attendeeImage("whoMarketing Professionals.png"),
   },
   {
     title: "Students & Career Switchers",
     description:
       "Build a portfolio of AI filmmaking work and position yourself for one of the most in-demand creative roles.",
-    image: attendeeImage("Students & Career Switchers.png"),
+    image: attendeeImage("whoStudents & Career Switchers.png"),
   },
+  {
+    title: "Photographers & Videographers",
+    description:
+      "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
+    image: attendeeImage("whoPhotographers & Videographers.png"),
+  },
+  {
+    title: "Graphic Designers & Artists",
+    description:
+      "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
+    image: attendeeImage("whoGraphic Designers & Artists.png"),
+  },
+  {
+    title: "Content Creators",
+    description:
+      "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
+    image: attendeeImage("whoContent Creators.png"),
+  },
+
 ];
 
 const instructors = [
@@ -301,13 +309,15 @@ export default function ApplyPage() {
           <aside className="programHeroCard" aria-label="Workshop preview">
             <ProgramCountdown targetDate="2026-05-14T00:00:00+05:30" />
             <div className="programHeroImageWrap" style={{ position: "relative" }}>
-              <Image
-                src="/images/hero.jpg"
-                alt="Students learning AI ad filmmaking at Idea School"
-                fill
-                priority
-                sizes="(max-width: 900px) 100vw, 380px"
-                className="programHeroImage"
+              <video
+                className="programHeroVideo"
+                src="/images/workshop_ad_compressed.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="AI ad filmmaking workshop preview"
               />
             </div>
             <span>
@@ -486,12 +496,12 @@ export default function ApplyPage() {
             ))}
           </div>
         </div>
-
+        {/* 
         <section className="contactSection" id="contact" aria-label="Contact Idea School">
           <div className="contactInner">
             <div className="contactCopy">
               <h2>
-                Ready to start your
+                Ready to start your 
                 <br />
                 creative journey?
                 <br />
@@ -530,7 +540,7 @@ export default function ApplyPage() {
               <p>Limited seats available for the upcoming batch.</p>
             </form>
           </div>
-        </section>
+        </section> */}
 
       </section>
 

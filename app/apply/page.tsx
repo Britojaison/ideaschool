@@ -54,117 +54,137 @@ const curriculum = [
 
 const toolLogos = [
   {
-    name: "Nano Banana",
-    image: "/images/nano transparent.png",
-    width: 388,
-    height: 106,
-    className: "nano",
-  },
-  {
-    name: "FLUX.1 Kontext",
-    image: "/images/flux transparent.png",
-    width: 1024,
-    height: 1024,
-    className: "flux",
+    name: "Adobe cloud",
+    image: "/images/tool1.png",
+    width: 1254,
+    height: 1254,
+    className: "adobe",
   },
   {
     name: "Cinema Studio",
-    image: "/images/cinema studio transparent.png",
-    width: 1920,
-    height: 1080,
-    className: "cinema",
+    image: "/images/tool2.png",
+    width: 1254,
+    height: 1254,
+    className: "Cinema Studio",
   },
   {
-    name: "Seedance 2",
-    image: "/images/seedance transparent.png",
-    width: 275,
-    height: 183,
-    className: "seedance",
+    name: "Kontext",
+    image: "/images/tool3.png",
+    width: 1254,
+    height: 1254,
+    className: "kontext",
   },
   {
-    name: "Veo 3.1",
-    image: "/images/veo transparent.png",
-    width: 1500,
-    height: 1263,
-    className: "veo",
+    name: "veo 3",
+    image: "/images/tool4.png",
+    width: 1254,
+    height: 1254,
+    className: "veo 3",
   },
   {
-    name: "Adobe Creative Cloud",
-    image: "/images/adobe icon.png",
-    width: 225,
-    height: 225,
-    className: "adobe",
+    name: "nano banana",
+    image: "/images/tool5.png",
+    width: 1254,
+    height: 1254,
+    className: "nano banana",
   },
+  {
+    name: "higgsfield",
+    image: "/images/tool6.png",
+    width: 1254,
+    height: 1254,
+    className: "higgsfield",
+  },
+
 ];
 
-const attendeeImage = (fileName: string) => `/images/${fileName}?v=20260508`;
+const attendeeImage = (fileName: string) => `/images/${fileName}`;
 const razorpayPaymentLink =
   process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/NwcRrEel";
 
 const attendees = [
   {
-    title: "Photographers & Videographers",
-    description:
-      "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
-    image: attendeeImage("Photographers & Videographers copy.png"),
-  },
-  {
-    title: "Graphic Designers & Artists",
-    description:
-      "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
-    image: attendeeImage("Graphic Designers & Artists.png"),
-  },
-  {
-    title: "Content Creators",
-    description:
-      "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
-    image: attendeeImage("Content Creators.png"),
-  },
-  {
     title: "Entrepreneurs & Brand Owners",
     description:
       "Create agency-quality AD content for your own brand at a fraction of traditional production cost.",
-    image: attendeeImage("Entrepreneurs & Brand Owners.png"),
+    image: attendeeImage("whoEntrepreneurs & Brand Owners.png"),
   },
   {
     title: "Marketing Professionals",
     description:
       "Produce stunning campaign visuals in-house and drastically cut production budgets without cutting quality.",
-    image: attendeeImage("Marketing Professionals.png"),
+    image: attendeeImage("whoMarketing Professionals.png"),
   },
   {
     title: "Students & Career Switchers",
     description:
       "Build a portfolio of AI filmmaking work and position yourself for one of the most in-demand creative roles.",
-    image: attendeeImage("Students & Career Switchers.png"),
+    image: attendeeImage("whoStudents & Career Switchers.png"),
   },
+  {
+    title: "Photographers & Videographers",
+    description:
+      "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
+    image: attendeeImage("whoPhotographers & Videographers.png"),
+  },
+  {
+    title: "Graphic Designers & Artists",
+    description:
+      "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
+    image: attendeeImage("whoGraphic Designers & Artists.png"),
+  },
+  {
+    title: "Content Creators",
+    description:
+      "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
+    image: attendeeImage("whoContent Creators.png"),
+  },
+
 ];
 
 const instructors = [
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/vipin.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/parithi.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/pujeeth.png" },
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/arjunai.png" },
+  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.png" },
+  { name: "Elamparidhi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.png" },
+  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.png" },
+  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.png" },
 ];
 
 const clientStories = [
   {
-    name: "Arjun Nair",
+    name: "Balaji",
     quote:
-      "This program completely changed how I approach content creation and editing.",
-    image: "/images/card1.png",
+      "The offline guidance was incredible, solving every doubt personally. Much better thann any online program",
+    image: "/images/B1_BALAJI.png",
   },
   {
-    name: "Megha S",
+    name: "Manjunath",
     quote:
-      "I finally understand real editing workflows and how to apply them in projects.",
-    image: "/images/card2.png",
+      "This workshop fillled the market gap for hands-on AI training perectly. Loved the interactive vibe.",
+    image: "/images/B1_MANJUNATH.png",
   },
   {
-    name: "Rahul K",
+    name: "Hiren Metha",
     quote:
-      "From ideas to execution, this helped me build real campaign-ready skills.",
-    image: "/images/card3.png",
+      "Thee workshop gave me the tools to turn my traditional family business into a modern brand.",
+    image: "/images/B1_metha.png",
+  },
+  {
+    name: " ",
+    quote:
+      "Exploring tools I never Knew existed. This workshop was worth my entire day.",
+    image: "/images/B1_QUOTE4.png",
+  },
+  {
+    name: "",
+    quote:
+      "Skipping my travel plans for this offline training was worth it!. Excellent creative guidance ideas.",
+    image: "/images/B1_QUOTE5.png",
+  },
+  {
+    name: "",
+    quote:
+      "Valuable hands-onn experience you cannot get online. My first offline marketing eveent was simply great",
+    image: "/images/B1_QUOTE6.png",
   },
 ];
 
@@ -233,12 +253,7 @@ export default function ApplyPage() {
               className="brandLogo"
             />
           </Link>
-          <nav className="desktopNav" aria-label="Primary navigation">
-            <Link href="/#about">About</Link>
-            <Link href="/#training">Training</Link>
-            <Link href="/#testimonials">Testimonials</Link>
-            <Link href="/#contact">Contact</Link>
-          </nav>
+
           <a className="headerCta" href="#enroll">
             <span className="headerCtaText">Book your class</span>
           </a>
@@ -259,37 +274,20 @@ export default function ApplyPage() {
             <a className="primaryCta programCta" href="#enroll">
               <span className="primaryCtaText">Get early bird pass now</span>
             </a>
-
-            <dl className="programStats">
-              <div>
-                <dt>Batch Date</dt>
-                <dd>May 14</dd>
-              </div>
-              <div>
-                <dt>Learning Mode</dt>
-                <dd>Offline (In-Person)</dd>
-              </div>
-              <div>
-                <dt>Full Day Session</dt>
-                <dd>Hands-on</dd>
-              </div>
-              <div>
-                <dt>Limited Seats</dt>
-                <dd>Applications Open</dd>
-              </div>
-            </dl>
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
             <ProgramCountdown targetDate="2026-05-14T00:00:00+05:30" />
             <div className="programHeroImageWrap" style={{ position: "relative" }}>
-              <Image
-                src="/images/hero.jpg"
-                alt="Students learning AI ad filmmaking at Idea School"
-                fill
-                priority
-                sizes="(max-width: 900px) 100vw, 380px"
-                className="programHeroImage"
+              <video
+                className="programHeroVideo"
+                src="/images/workshop_ad_compressed.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="AI ad filmmaking workshop preview"
               />
             </div>
             <span>
@@ -297,15 +295,27 @@ export default function ApplyPage() {
               <strong>and turn your ideas into campaigns.</strong>
             </span>
           </aside>
+
+          <dl className="programStats">
+            <div>
+              <dt>Batch Date</dt>
+              <dd>May 14</dd>
+            </div>
+            <div>
+              <dt>Learning Mode</dt>
+              <dd>Offline </dd>
+            </div>
+            <div>
+              <dt>Full Day Session</dt>
+              <dd>Hands-on</dd>
+            </div>
+            <div>
+              <dt>Limited Seats</dt>
+              <dd>Applications Open</dd>
+            </div>
+          </dl>
         </div>
 
-        <div className="programBatchStrip" aria-label="Workshop batch announcement">
-          <span className="programBatchBadge">New Batch</span>
-          <p>Learn Editing &amp; AI with Idea School</p>
-          <a className="programBatchCta" href="#enroll">
-            Get early bird pass now
-          </a>
-        </div>
       </section>
 
       <section className="programCurriculum" aria-label="What you will learn">
@@ -384,7 +394,7 @@ export default function ApplyPage() {
 
       <section className="programInstructor" aria-label="Instructor and client feedback">
         <div className="programInstructorInner">
-          <h2>Meet the Instructor</h2>
+          <h2>Meet the Instructors</h2>
           <div className="instructorGrid">
             {instructors.map((instructor, index) => (
               <article className="instructorCard" key={`${instructor.name}-${index}`}>
@@ -475,12 +485,12 @@ export default function ApplyPage() {
             ))}
           </div>
         </div>
-
+        {/* 
         <section className="contactSection" id="contact" aria-label="Contact Idea School">
           <div className="contactInner">
             <div className="contactCopy">
               <h2>
-                Ready to start your
+                Ready to start your 
                 <br />
                 creative journey?
                 <br />
@@ -519,9 +529,17 @@ export default function ApplyPage() {
               <p>Limited seats available for the upcoming batch.</p>
             </form>
           </div>
-        </section>
+        </section> */}
 
       </section>
+
+      <div className="programBatchStrip" aria-label="Workshop batch announcement">
+        <span className="programBatchBadge">New Batch</span>
+        <p>Master AI & AD Film Making</p>
+        <a className="programBatchCta" href="#enroll">
+          Book seat now
+        </a>
+      </div>
 
       <footer className="siteFooter">
         <div className="footerInner">

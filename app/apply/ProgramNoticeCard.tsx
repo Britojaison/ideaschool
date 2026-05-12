@@ -1,18 +1,10 @@
 "use client";
 
-import type { PointerEvent } from "react";
-
 type ProgramNoticeCardProps = {
   paymentLink: string;
 };
 
 export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProps) {
-  const updateCursor = (event: PointerEvent<HTMLAnchorElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    event.currentTarget.style.setProperty("--book-x", `${event.clientX - rect.left}px`);
-    event.currentTarget.style.setProperty("--book-y", `${event.clientY - rect.top}px`);
-  };
-
   return (
     <a
       className="programNotice"
@@ -21,30 +13,59 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Book the Idea School AI workshop now"
-      onPointerEnter={updateCursor}
-      onPointerMove={updateCursor}
     >
-      <span className="programNoticeVisual">
-        <span className="programNoticeGlass">
-          <span>6+ Hours of practical AI learning</span>
-          <span>Hands-on training with real AI tools</span>
-          <span>Create AI ads, visuals &amp; content live</span>
-          <span>₹1500+ worth AI tool credits usage included</span>
+      <span className="programNoticeEyebrow">
+        <span>Early Bird Offer</span>
+        <span>Offline workshop</span>
+      </span>
+
+      <span className="programNoticeTitle">
+        Reserve your AI AD Masterclass seat
+      </span>
+
+      <span className="programNoticeContent">
+        <span className="programNoticeBenefits">
+          <span>
+            <strong>6+ Hours</strong>
+            <small>of practical AI learning</small>
+          </span>
+          <span>
+            <strong>Real AI Tools</strong>
+            <small>hands-on training inside the workshop</small>
+          </span>
+          <span>
+            <strong>Create Live</strong>
+            <small>AI ads, visuals &amp; content during the session</small>
+          </span>
+          <span>
+            <strong>₹1500+ Credits</strong>
+            <small>AI tool usage included with your seat</small>
+          </span>
         </span>
       </span>
-      <span className="programNoticeFooter">
+
+      <span className="programNoticeCheckout">
         <span className="programNoticePrice">
-          <span className="programNoticeBadge">Early Bird Offer</span>
           <strong>
-            ₹1999 <span className="programNoticeTax">(Incl. Taxes)</span> <del>₹5000</del>
+            ₹1999
+            <span className="programNoticeTax">(Incl. Taxes)</span>
           </strong>
+          <del>₹5000</del>
         </span>
         <span className="programNoticeMeta">
-          <span>16th May 2026</span>
-          <span>Bangalore, HSR layout</span>
+          <span>
+            <small>Date</small>
+            16th May 2026
+          </span>
+          <span>
+            <small>Location</small>
+            Bangalore, HSR layout
+          </span>
+        </span>
+        <span className="programNoticeBook">
+          <span>Book Now</span>
         </span>
       </span>
-      <span className="programNoticeBook">Book Now</span>
     </a>
   );
 }

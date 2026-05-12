@@ -63,6 +63,8 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  word-spacing: -0.02em;
 }
 
 html {
@@ -454,6 +456,15 @@ img {
     filter: none;
     transition: none;
   }
+
+  .programNoticeBenefits span,
+  .programNotice,
+  .programNotice::before,
+  .programNotice::after,
+  .programNoticeBook,
+  .programNoticeBook::before {
+    animation: none;
+  }
 }
 
 .videoButtonMount>div,
@@ -667,6 +678,7 @@ img {
 }
 
 .applyPage {
+  --apply-section-x: clamp(20px, 6.5vw, 88px);
   min-height: 100vh;
   background: #09080e;
   color: #fff;
@@ -679,7 +691,7 @@ img {
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
-  padding: clamp(104px, 10vw, 126px) clamp(20px, 6.5vw, 88px) 0;
+  padding: clamp(104px, 10vw, 126px) var(--apply-section-x) 0;
   background: #050608;
   isolation: isolate;
 }
@@ -732,10 +744,17 @@ img {
   z-index: 2;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-  gap: clamp(36px, 6vw, 86px);
+  grid-template-rows: auto auto;
+  column-gap: clamp(36px, 6vw, 86px);
+  row-gap: 0;
+  align-content: start;
   flex: 1;
   width: min(100%, 1280px);
   margin: 0 auto;
+}
+
+.programHeroInner > .programStats {
+  grid-column: 1;
 }
 
 .programHeroCopy {
@@ -777,10 +796,9 @@ img {
 .programHeroCopy h1 {
   max-width: 854px;
   margin: 0;
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: 0;
+  font-size: clamp(2rem, 3.9vw, 3.7rem);
+  font-weight: 950;
+  line-height: 1;
   text-transform: uppercase;
 }
 
@@ -796,8 +814,17 @@ img {
   display: inline-flex;
   width: fit-content;
   max-width: 100%;
-  padding-inline: 42px;
+  min-height: 52px;
+  height: auto;
+  padding: 10px 34px;
   margin-top: 10px;
+  font-weight: 400;
+}
+
+.programCta .primaryCtaText {
+  height: auto;
+  font-weight: 400;
+  line-height: 1.15;
 }
 
 .programStats {
@@ -815,19 +842,23 @@ img {
 .programStats dt {
   margin: 0 0 8px;
   color: rgba(255, 255, 255, 0.76);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 4s00;
 }
 
 .programStats dd {
   margin: 0;
   color: #fff;
+  font-family: var(--font-heading);
   font-size: clamp(1.5rem, 2.5vw, 2.15rem);
-  font-weight: 900;
+  font-weight: 300;
   line-height: 1.05;
 }
 
 .programHeroCard {
+  grid-column: 2;
+  grid-row: 1 / -1;
   align-self: start;
   display: grid;
   gap: 12px;
@@ -853,9 +884,16 @@ img {
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
 }
 
-.programHeroImage {
+.programHeroImage,
+.programHeroVideo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: 51% center;
+}
+
+.programHeroVideo {
+  display: block;
 }
 
 .programHeroCard span {
@@ -875,24 +913,30 @@ img {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  width: min(calc(100% - 120px), 1056px);
-  min-height: 541px;
-  margin: 73px auto 0;
-  padding: 16px;
-  border: 0;
-  border-radius: 35px;
-  background: #fff;
-  color: #08070c;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: min(calc(100% - 120px), 980px);
+  margin: 54px auto 0;
+  padding: clamp(18px, 2.6vw, 28px);
+  border: 1px solid rgba(191, 118, 231, 0.34);
+  border-radius: 28px;
+  background:
+    linear-gradient(115deg, rgba(8, 7, 12, 0.18), rgba(8, 7, 12, 0.82)),
+    radial-gradient(circle at 86% 12%, rgba(175, 82, 223, 0.36), transparent 34%),
+    radial-gradient(circle at 8% 88%, rgba(75, 57, 187, 0.3), transparent 38%),
+    url("/images/payment bg.png") center / cover no-repeat,
+    rgba(10, 8, 16, 0.92);
+  color: #fff;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 34px 110px rgba(83, 39, 127, 0.24);
-  overflow: visible;
+  box-shadow: 0 34px 110px rgba(26, 10, 45, 0.54);
+  overflow: hidden;
   transition:
     opacity 760ms ease,
     box-shadow 300ms ease,
     filter 300ms ease,
     transform 360ms cubic-bezier(0.2, 0.82, 0.22, 1);
+  animation: programNoticeGlow 5.5s ease-in-out infinite;
 }
 
 .programNotice.scrollTextReveal {
@@ -905,78 +949,200 @@ img {
 
 .programNotice:hover,
 .programNotice.scrollTextReveal.is-visible:hover {
-  transform: translate3d(0, -8px, 0);
-  box-shadow: 0 42px 130px rgba(83, 39, 127, 0.34);
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 44px 140px rgba(78, 37, 126, 0.46);
   filter: brightness(1.02);
 }
 
-.programNoticeVisual {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 326px;
-  overflow: hidden;
-  border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
-    url("/images/payment bg.png") center / cover no-repeat;
-}
-
-.programNoticeVisual::before {
-  content: "";
+.programNotice::before {
   position: absolute;
   inset: 0;
+  content: "";
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.26), transparent 34%),
-    repeating-linear-gradient(110deg, rgba(255, 255, 255, 0.1) 0 2px, transparent 2px 14px);
-  opacity: 0.5;
+    linear-gradient(rgba(191, 118, 231, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(191, 118, 231, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 50% 34%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 50% 34%, #000 0%, transparent 70%);
+  pointer-events: none;
+  animation: programNoticeGridDrift 12s linear infinite;
 }
 
-.programNoticeGlass {
+.programNotice::after {
+  position: absolute;
+  inset: -40%;
+  content: "";
+  background:
+    conic-gradient(from 120deg at 50% 50%, transparent 0deg, rgba(198, 117, 239, 0.16) 72deg, transparent 132deg, rgba(75, 57, 187, 0.12) 220deg, transparent 300deg);
+  opacity: 0.46;
+  pointer-events: none;
+  animation: programNoticeAura 11s linear infinite;
+}
+
+.programNoticeContent,
+.programNoticeCheckout {
+  position: relative;
+  z-index: 1;
+}
+
+.programNoticeContent {
+  display: block;
+}
+
+.programNoticeEyebrow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.programNoticeEyebrow span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(8, 7, 12, 0.34);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.programNoticeEyebrow span:first-child {
+  border-color: rgba(255, 255, 255, 0.58);
+  background:
+    linear-gradient(90deg, #ffffff 0%, #f1ddff 100%);
+  color: #08070c;
+  box-shadow:
+    0 0 0 1px rgba(198, 117, 239, 0.38),
+    0 14px 34px rgba(198, 117, 239, 0.28);
+}
+
+.programNoticeTitle {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin-top: 24px;
+  font-family: var(--font-subject);
+  font-size: clamp(2rem, 3.6vw, 3.55rem);
+  font-weight: 950;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.programNoticeBenefits {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 18px;
-  width: min(88%, 900px);
-  min-height: 232px;
-  padding: 48px clamp(26px, 7vw, 96px);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 15px;
-  background: rgba(92, 48, 104, 0.34);
-  color: #fff;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 800;
-  line-height: 1.2;
-  text-align: center;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 0;
 }
 
-.programNoticeFooter {
+.programNoticeBenefits span {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 18px 24px;
-  min-height: 166px;
-  padding: 34px 28px 16px;
+  align-content: start;
+  min-height: 88px;
+  padding: 16px 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.045)),
+    rgba(8, 7, 12, 0.5);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.2;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease,
+    transform 260ms cubic-bezier(0.2, 0.82, 0.22, 1);
+  animation: programBenefitRise 700ms both;
 }
 
-.programNoticeBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #08070c;
-  font-size: 18px;
-  font-weight: 800;
+.programNoticeBenefits span:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.programNoticeBenefits span:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.programNoticeBenefits span:nth-child(4) {
+  animation-delay: 210ms;
+}
+
+.programNotice:hover .programNoticeBenefits span {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.programNoticeBenefits span:hover {
+  transform: translateY(-5px);
+  border-color: rgba(198, 117, 239, 0.72);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.22), rgba(198, 117, 239, 0.12)),
+    rgba(8, 7, 12, 0.56);
+  box-shadow: 0 18px 48px rgba(67, 36, 106, 0.34);
+}
+
+.programNoticeBenefits span::before {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background: #c675ef;
+  box-shadow: 0 0 24px rgba(198, 117, 239, 0.9);
+  content: "";
+}
+
+.programNoticeBenefits strong {
+  max-width: calc(100% - 32px);
+  color: #fff;
+  font-size: clamp(1.18rem, 1.75vw, 1.5rem);
+  font-weight: 950;
   line-height: 1;
-  white-space: nowrap;
+}
+
+.programNoticeBenefits small {
+  max-width: 330px;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-weight: 800;
+  line-height: 1.28;
+  transition: color 220ms ease;
+}
+
+.programNoticeBenefits span:hover small {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.programNoticeCheckout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(260px, 1fr) minmax(180px, 0.72fr);
+  align-items: center;
+  gap: 20px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(244, 237, 252, 0.94));
+  color: #08070c;
 }
 
 .programNoticePrice {
   display: grid;
-  gap: 14px;
+  gap: 10px;
   min-width: 0;
 }
 
@@ -986,94 +1152,187 @@ img {
   flex-wrap: wrap;
   gap: 12px;
   color: #08070c;
-  font-size: clamp(31px, 3.4vw, 44px);
+  font-size: clamp(2.25rem, 3.3vw, 3.4rem);
   font-weight: 950;
-  line-height: 1;
+  line-height: 0.9;
   letter-spacing: 0;
 }
 
 .programNoticePrice del {
-  color: #08070c;
-  font-size: 0.48em;
-  font-weight: 800;
-  text-decoration-thickness: 2px;
+  width: max-content;
+  color: rgba(8, 7, 12, 0.48);
+  font-size: clamp(1.08rem, 1.4vw, 1.35rem);
+  font-weight: 900;
+  text-decoration-color: #08070c;
+  text-decoration-thickness: 3px;
 }
 
 .programNoticeTax {
-  font-size: 0.46em;
-  font-weight: 800;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-weight: 900;
+  line-height: 1.1;
 }
 
 .programNoticeMeta {
   display: grid;
-  gap: 16px;
-  justify-items: end;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
   color: #08070c;
-  font-size: 20px;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  font-weight: 850;
   line-height: 1.1;
-  text-align: right;
+}
+
+.programNoticeMeta span {
+  display: grid;
+  gap: 6px;
+  min-height: 64px;
+  padding: 12px 14px;
+  border: 1px solid rgba(8, 7, 12, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.programNoticeMeta small {
+  color: rgba(8, 7, 12, 0.5);
+  font-size: 0.58em;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .programNoticeBook {
-  position: absolute;
-  right: 164px;
-  top: 284px;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 126px;
-  height: 126px;
-  border-radius: 50%;
-  background: #101010;
-  color: #a256bd;
-  font-size: 15px;
-  font-weight: 800;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 24px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4b39bb 0%, #7a42d8 50%, #4b39bb 100%);
+  background-size: 220% 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
   line-height: 1;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
-  pointer-events: none;
-  will-change: left, top, transform;
+  box-shadow: 0 18px 44px rgba(92, 55, 198, 0.32);
   transition:
-    color 220ms ease,
     transform 280ms cubic-bezier(0.2, 0.82, 0.22, 1),
     box-shadow 280ms ease;
+  animation: programBookPulse 2.8s ease-in-out infinite;
+}
+
+.programNoticeBook::before {
+  position: absolute;
+  inset: -40% auto -40% -70%;
+  width: 44%;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  transform: skewX(-18deg);
+  animation: programBookSheen 3.2s ease-in-out infinite;
+}
+
+.programNoticeBook span {
+  position: relative;
+  z-index: 1;
 }
 
 .programNotice:hover .programNoticeBook {
-  color: #fff;
-  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.34);
+  transform: translateY(-4px) scale(1.02);
+  background-position: 100% 50%;
+  box-shadow: 0 24px 60px rgba(92, 55, 198, 0.52);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .programNotice:hover {
-    cursor: none;
+.programNotice:active .programNoticeBook {
+  transform: translateY(-1px) scale(0.99);
+}
+
+@keyframes programBenefitRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
 
-  .programNotice:hover .programNoticeBook {
-    right: auto;
-    left: var(--book-x, calc(100% - 227px));
-    top: var(--book-y, 284px);
-    transform: translate(-50%, -50%) scale(1.045);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes programBookPulse {
+  0%,
+  100% {
+    box-shadow: 0 18px 44px rgba(92, 55, 198, 0.32);
+  }
+
+  50% {
+    box-shadow: 0 22px 58px rgba(128, 72, 220, 0.52);
+  }
+}
+
+@keyframes programBookSheen {
+  0%,
+  42% {
+    left: -70%;
+  }
+
+  68%,
+  100% {
+    left: 126%;
+  }
+}
+
+@keyframes programNoticeGlow {
+  0%,
+  100% {
+    box-shadow: 0 34px 110px rgba(26, 10, 45, 0.54);
+  }
+
+  50% {
+    box-shadow: 0 42px 130px rgba(78, 37, 126, 0.5);
+  }
+}
+
+@keyframes programNoticeGridDrift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+
+  to {
+    background-position: 34px 34px, 34px 34px;
+  }
+}
+
+@keyframes programNoticeAura {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 
 .programBatchStrip {
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
   display: grid;
   grid-template-columns: minmax(140px, 1fr) minmax(0, 520px) minmax(140px, 1fr);
   align-items: center;
   gap: clamp(18px, 3vw, 36px);
-  width: 100vw;
+  width: 100%;
   min-height: 80px;
-  margin: auto calc(50% - 50vw) 0;
   padding: 0 clamp(48px, 7vw, 96px);
-  border: 1px solid rgba(128, 86, 251, 0.12);
-  border-right: 0;
-  border-left: 0;
+  border-top: 1px solid rgba(128, 86, 251, 0.24);
   background:
     radial-gradient(ellipse at 50% 8%, rgba(128, 86, 251, 0.14), transparent 48%),
     linear-gradient(180deg, rgba(13, 9, 23, 0.98) 0%, rgba(8, 7, 12, 1) 100%);
   color: #fff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .programBatchBadge {
@@ -1131,7 +1390,7 @@ img {
 .programCurriculum {
   position: relative;
   overflow: hidden;
-  padding: 58px clamp(20px, 6.5vw, 88px) 98px;
+  padding: 58px var(--apply-section-x) 98px;
   background: linear-gradient(180deg, #0c0d0f 0%, #0c0d0f 78%, #08070c 100%);
 }
 
@@ -1167,11 +1426,13 @@ img {
   font-weight: 950;
   line-height: 1;
   text-transform: uppercase;
+  word-spacing: 0.1em;
 }
 
 .curriculumIntro p {
   margin: 14px auto 0;
-  max-width: 560px;
+  max-width: none !important;
+  width: 100%;
   color: rgba(255, 255, 255, 0.66);
   font-size: 17px;
   line-height: 1.45;
@@ -1240,9 +1501,9 @@ img {
 .curriculumItem h3 {
   max-width: 598px;
   margin: 0;
-  font-family: var(--font-subject);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 28px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: 0;
 }
@@ -1250,13 +1511,16 @@ img {
 .curriculumItem p {
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 16px;
+  font-family: var(--font-subject);
+  font-size: 17px;
+  font-weight: 500;
   line-height: 1.45;
 }
 
 .curriculumItem strong {
   color: #9d55b4;
-  font-weight: 800;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 
 .curriculumPanel {
@@ -1271,14 +1535,15 @@ img {
 .curriculumDetails .curriculumTools {
   margin-top: 18px;
   color: #9d55b4;
-  font-weight: 800;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 
 .programAudience {
   position: relative;
   overflow: hidden;
   margin-top: -120px;
-  padding: 174px clamp(20px, 6.5vw, 88px) 64px;
+  padding: 174px var(--apply-section-x) 64px;
   background:
     radial-gradient(circle at 50% 3%, rgba(126, 75, 170, 0.12), transparent 34%),
     linear-gradient(rgba(116, 66, 148, 0.11) 1px, transparent 1px),
@@ -1300,7 +1565,7 @@ img {
 .programAudienceInner {
   position: relative;
   z-index: 1;
-  width: min(100%, 1056px);
+  width: min(100%, 1256px);
   margin: 0 auto;
 }
 
@@ -1313,80 +1578,44 @@ img {
   margin: 0;
   color: #fff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 32px;
-  font-weight: 800;
+  font-size: clamp(2rem, 3.9vw, 3.7rem);
+  font-weight: 950;
   line-height: 1;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .toolsRow {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: center;
-  gap: clamp(16px, 3.5vw, 48px);
+  justify-items: center;
+  gap: clamp(12px, 2vw, 28px);
 }
 
 .toolLogo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 62px;
+  width: 100%;
+  min-height: 86px;
 }
 
 .toolLogoImage {
   display: block;
-  width: auto;
+  width: min(96px, 100%);
   height: auto;
-  max-width: 100%;
   object-fit: contain;
-}
-
-.toolLogo.nano {
-  justify-self: start;
-}
-
-.toolLogo.nano .toolLogoImage {
-  width: 176px;
-}
-
-.toolLogo.flux .toolLogoImage {
-  width: 188px;
-}
-
-.toolLogo.cinema .toolLogoImage {
-  width: 182px;
-}
-
-.toolLogo.seedance .toolLogoImage {
-  width: 170px;
-}
-
-.toolLogo.veo .toolLogoImage {
-  width: 220px;
-  max-width: none;
-}
-
-.toolLogo.veo {
-  min-height: 96px;
-}
-
-.toolLogo.adobe {
-  justify-self: end;
-}
-
-.toolLogo.adobe .toolLogoImage {
-  width: 58px;
-  border-radius: 12px;
 }
 
 .audienceTitle {
   margin: 90px 0 92px;
   color: #fff;
-  font-size: 40px;
-  font-weight: 900;
+  font-size: clamp(2rem, 3.9vw, 3.7rem);
+  font-weight: 950;
   line-height: 1;
   text-align: center;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 .audienceGrid {
@@ -1492,7 +1721,7 @@ img {
 .programOffer {
   position: relative;
   overflow: hidden;
-  padding: 64px clamp(20px, 6.5vw, 88px) 82px;
+  padding: 64px var(--apply-section-x) 82px;
   background:
     radial-gradient(circle at 50% 58%, rgba(126, 75, 170, 0.18), transparent 42%),
     linear-gradient(180deg, #08070c 0%, #10091a 54%, #08070c 100%);
@@ -1516,7 +1745,7 @@ img {
 }
 
 .programInstructor {
-  padding: 70px clamp(20px, 6.5vw, 88px) 52px;
+  padding: 70px var(--apply-section-x) 52px;
   background: #08070c;
 }
 
@@ -1529,14 +1758,20 @@ img {
   margin: 0 auto;
 }
 
+.programInstructorInner,
+.programProofInner {
+  width: min(100%, 1450px);
+}
+
 .programInstructor h2,
 .proofIntro h2,
 .programFaqInner>h2 {
   margin: 0;
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-size: clamp(2rem, 3.9vw, 3.7rem);
   font-weight: 950;
   line-height: 1;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .instructorGrid {
@@ -1616,7 +1851,7 @@ img {
 
 .programProof {
   overflow: hidden;
-  padding: 42px 0 54px;
+  padding: 42px var(--apply-section-x) 54px;
   background:
     linear-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.075) 1px, transparent 1px),
@@ -1625,7 +1860,6 @@ img {
 }
 
 .proofIntro {
-  padding: 0 20px;
   text-align: center;
 }
 
@@ -1638,19 +1872,19 @@ img {
 
 .proofRail {
   margin-top: 66px;
-  padding-left: 60px;
+  padding-left: 0;
   padding-right: 0;
   overflow: hidden;
   scrollbar-width: none;
-  mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 60px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 60px), transparent 100%);
 }
 
 .proofTrack {
   display: flex;
   width: max-content;
   gap: 20px;
-  animation: proofAutoScroll 24s linear infinite;
+  animation: proofAutoScroll 42s linear infinite;
   will-change: transform;
 }
 
@@ -1663,7 +1897,7 @@ img {
   display: flex;
   gap: 24px;
   margin-top: 72px;
-  padding: 0 var(--page-gutter) 14px;
+  padding: 0 0 14px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -1737,7 +1971,7 @@ img {
   position: relative;
   align-self: end;
   height: 188px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .proofPersonImage {
@@ -1745,22 +1979,7 @@ img {
   object-position: bottom center;
   mix-blend-mode: multiply;
   transform-origin: bottom center;
-}
-
-.proofCard:nth-child(1) .proofPersonImage {
-  transform: scale(1.58);
-}
-
-.proofCard:nth-child(2) .proofPersonImage {
-  transform: scale(1.42);
-}
-
-.proofCard:nth-child(4) .proofPersonImage {
-  transform: scale(1.58);
-}
-
-.proofCard:nth-child(5) .proofPersonImage {
-  transform: scale(1.42);
+  transform: translateY(-24px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1812,6 +2031,7 @@ img {
 .programFaqContact {
   position: relative;
   overflow: hidden;
+  padding: 0 var(--apply-section-x);
   background:
     radial-gradient(ellipse at 50% 108%, rgba(226, 216, 246, 0.82) 0%, rgba(186, 162, 228, 0.52) 28%, rgba(112, 82, 170, 0.22) 48%, transparent 68%),
     radial-gradient(ellipse at 14% 104%, rgba(144, 112, 205, 0.3) 0%, transparent 42%),
@@ -1819,7 +2039,7 @@ img {
 }
 
 .programFaqInner {
-  padding: 22px 20px 72px;
+  padding: 22px 0 72px;
 }
 
 .programFaqList {
@@ -1883,14 +2103,15 @@ img {
   grid-template-columns: minmax(0, 1fr) 360px;
   align-items: center;
   gap: clamp(40px, 12vw, 170px);
-  padding: 70px 20px 38px;
+  padding: 70px 0 38px;
 }
 
 .programContactCopy h2 {
   margin: 0;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(2rem, 3.9vw, 3.7rem);
   font-weight: 950;
-  line-height: 0.98;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .programContactCopy p {
@@ -2658,6 +2879,10 @@ img {
 }
 
 @media (max-width: 980px) {
+  .applyPage {
+    --apply-section-x: 20px;
+  }
+
   .siteHeader {
     position: absolute;
     gap: 16px;
@@ -2670,32 +2895,39 @@ img {
   .programHero {
     min-height: 100vh;
     min-height: 100svh;
-    padding: 118px 20px 0;
+    padding: 118px var(--apply-section-x) 0;
   }
 
   .programHeroInner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 34px;
   }
 
-  .programHeroCopy h1 {
-    max-width: 680px;
-    font-size: clamp(2.25rem, 8.5vw, 3rem);
-  }
-
-  .programStats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px 22px;
-    margin-top: 46px;
+  .programHeroCopy {
+    order: 1;
   }
 
   .programHeroCard {
+    order: 2;
     max-width: 520px;
     padding-top: 0;
   }
 
   .programHeroCard p {
     text-align: left;
+  }
+
+  .programHeroInner > .programStats {
+    order: 3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 22px;
+    margin-top: 0;
+  }
+
+  .programHeroCopy h1 {
+    max-width: 680px;
+    font-size: clamp(2.25rem, 8.5vw, 3rem);
   }
 
   .programHeroImageWrap {
@@ -2705,48 +2937,21 @@ img {
   .programNotice {
     width: min(calc(100% - (var(--page-gutter) * 2)), 720px);
     min-height: 0;
-    margin-top: 48px;
-    padding: 12px;
+    margin-top: 42px;
+    padding: 16px;
     border-radius: 28px;
   }
 
-  .programNoticeVisual {
-    min-height: 270px;
-    border-radius: 20px;
+  .programNoticeTitle {
+    margin-top: 24px;
   }
 
-  .programNoticeGlass {
-    min-height: 198px;
-    gap: 14px;
-    padding: 34px 24px;
-  }
-
-  .programNoticeFooter {
+  .programNoticeCheckout {
     grid-template-columns: 1fr;
-    justify-items: center;
-    min-height: 0;
-    padding: 58px 16px 18px;
-    text-align: center;
-  }
-
-  .programNoticePrice strong {
-    justify-content: center;
-  }
-
-  .programNoticeMeta {
-    justify-items: center;
-    gap: 8px;
-    font-size: 17px;
-    text-align: center;
   }
 
   .programNoticeBook {
-    right: auto;
-    left: 50%;
-    top: 234px;
-    width: 96px;
-    height: 96px;
-    transform: translateX(-50%);
+    min-height: 58px;
   }
 
   .programBatchStrip {
@@ -2755,11 +2960,11 @@ img {
   }
 
   .programOffer {
-    padding: 54px 20px 68px;
+    padding: 54px var(--apply-section-x) 68px;
   }
 
   .programCurriculum {
-    padding: 48px 20px 72px;
+    padding: 48px var(--apply-section-x) 72px;
   }
 
   .curriculumIntro {
@@ -2792,41 +2997,29 @@ img {
 
   .programAudience {
     margin-top: -70px;
-    padding: 118px 20px 70px;
+    padding: 118px var(--apply-section-x) 70px;
   }
 
   .toolsBlock {
     gap: 28px;
   }
 
+  .toolsBlock h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    white-space: nowrap;
+  }
+
   .toolsRow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 28px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 16px;
   }
 
-  .toolLogo.nano .toolLogoImage,
-  .toolLogo.flux .toolLogoImage,
-  .toolLogo.cinema .toolLogoImage,
-  .toolLogo.seedance .toolLogoImage,
-  .toolLogo.veo .toolLogoImage,
-  .toolLogo.adobe .toolLogoImage {
-    width: min(180px, 42vw);
-    max-width: 100%;
+  .toolLogo {
+    min-height: 76px;
   }
 
-  .toolLogo.adobe .toolLogoImage {
-    width: 58px;
-  }
-
-  .toolLogo,
-  .toolLogo.nano,
-  .toolLogo.veo,
-  .toolLogo.adobe {
-    justify-self: center;
-  }
-
-  .toolLogo.veo {
-    min-height: 72px;
+  .toolLogoImage {
+    width: min(104px, 42vw);
   }
 
   .audienceTitle {
@@ -3004,12 +3197,12 @@ img {
 
   .proofRail {
     margin-top: 42px;
-    padding-inline: 20px;
+    padding-inline: 0;
   }
 
   .proofVideoRail {
     margin-top: 48px;
-    padding-inline: 20px;
+    padding-inline: 0;
   }
 
   .proofVideoFrame {
@@ -3115,6 +3308,27 @@ img {
     font-weight: 600;
     line-height: 1;
     letter-spacing: 0;
+  }
+
+  .programHero .siteHeader {
+    left: 0;
+    right: 0;
+    width: auto;
+    padding-left: calc(var(--apply-section-x) + max(0px, (100vw - 2 * var(--apply-section-x) - 1280px) / 2));
+    padding-right: calc(var(--apply-section-x) + max(0px, (100vw - 2 * var(--apply-section-x) - 1280px) / 2));
+  }
+
+  .programHero .desktopNav {
+    position: static;
+    height: auto;
+    gap: clamp(24px, 2.2vw, 40px);
+    margin-left: clamp(36px, 6vw, 86px);
+  }
+
+  .programHero .headerCta {
+    position: static;
+    margin-left: auto;
+    margin-right: 0;
   }
 
   .heroContent {
@@ -3515,6 +3729,11 @@ img {
     font-size: clamp(2rem, 10vw, 2.8rem);
   }
 
+  .programCta {
+    min-height: 46px;
+    padding: 0 34px;
+  }
+
   .programHeroCopy>p br,
   .heroCopy p br {
     display: none;
@@ -3524,26 +3743,16 @@ img {
     gap: 22px;
   }
 
-  .toolLogo.nano .toolLogoImage,
-  .toolLogo.flux .toolLogoImage,
-  .toolLogo.cinema .toolLogoImage,
-  .toolLogo.seedance .toolLogoImage,
-  .toolLogo.veo .toolLogoImage,
-  .toolLogo.adobe .toolLogoImage {
-    width: min(180px, 78vw);
-    max-width: 100%;
-  }
-
-  .toolLogo.adobe .toolLogoImage {
-    width: 58px;
-  }
-
-  .toolLogo.veo {
+  .toolLogo {
     min-height: 72px;
   }
 
+  .toolLogoImage {
+    width: min(100px, 36vw);
+  }
+
   .programInstructor {
-    padding-inline: 18px;
+    padding-inline: var(--apply-section-x);
   }
 
   .instructorGrid {
@@ -3551,24 +3760,52 @@ img {
   }
 
   .proofCard {
-    flex-basis: min(86vw, 380px);
-    grid-template-columns: 1fr;
+    flex-basis: min(86vw, 318px);
+    grid-template-columns: 86px minmax(0, 1fr);
+    align-items: center;
     gap: 12px;
-    padding: 22px 18px;
+    min-height: 158px;
+    padding: 14px 14px 14px 12px;
   }
 
   .proofPerson {
-    order: 2;
-    height: 170px;
+    align-self: end;
+    width: 86px;
+    height: 128px;
+  }
+
+  .proofPersonImage {
+    transform: none;
   }
 
   .proofQuote {
+    align-self: center;
+    min-width: 0;
     padding-bottom: 0;
+  }
+
+  .proofQuote span {
+    height: 18px;
+    font-size: 42px;
+    line-height: 0.7;
+  }
+
+  .proofQuote p {
+    max-width: none;
+    margin: 6px 0 12px;
+    font-size: 13px;
+    line-height: 1.24;
+  }
+
+  .proofQuote strong,
+  .proofQuote small {
+    font-size: 10px;
+    line-height: 1.25;
   }
 
   .proofVideoRail {
     gap: 16px;
-    padding-inline: 18px;
+    padding-inline: 0;
   }
 
   .proofVideoFrame {
@@ -3584,7 +3821,7 @@ img {
   }
 
   .programFaqInner {
-    padding-inline: 18px;
+    padding-inline: 0;
   }
 
   .programFaqItem summary strong,
@@ -3654,6 +3891,19 @@ img {
     font-weight: 600;
     line-height: 1;
     letter-spacing: 0;
+  }
+
+  .programCta {
+    min-height: 52px;
+    height: auto;
+    padding: 10px 34px;
+    font-weight: 400;
+  }
+
+  .programCta .primaryCtaText {
+    height: auto;
+    font-weight: 400;
+    line-height: 1.15;
   }
 
   .videoButtonMount,
@@ -5398,6 +5648,7 @@ img {
 
 .siteFooter {
   position: relative;
+  z-index: 1001;
   overflow: hidden;
   min-height: 330px;
   padding: 58px var(--page-gutter) 40px;
@@ -6635,66 +6886,104 @@ img {
 
   .programNotice {
     width: min(calc(100% - 28px), 420px);
-    margin-top: 36px;
-    padding: 10px;
+    margin-top: 32px;
+    padding: 12px;
     border-radius: 24px;
   }
 
-  .programNoticeVisual {
-    min-height: 238px;
-    border-radius: 18px;
+  .programNoticeCheckout {
+    border-radius: 16px;
   }
 
-  .programNoticeGlass {
-    width: 90%;
-    min-height: 178px;
-    gap: 12px;
-    padding: 28px 18px;
-    font-size: 16px;
+  .programNoticeEyebrow span {
+    min-height: 30px;
+    padding-inline: 11px;
+    font-size: 11px;
   }
 
-  .programNoticeFooter {
-    padding: 50px 10px 16px;
+  .programNoticeTitle {
+    margin-top: 22px;
+    font-size: clamp(1.85rem, 10vw, 2.55rem);
+    display: none;
   }
 
-  .programNoticeBadge {
-    font-size: 15px;
+  .programNoticeBenefits {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin-top: 20px;
+  }
+
+  .programNoticeBenefits span {
+    min-height: 86px;
+    padding: 15px 16px;
+  }
+
+  .programNoticeBenefits strong {
+    font-size: clamp(1.25rem, 6.2vw, 1.65rem);
+  }
+
+  .programNoticeBenefits small {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  .programNoticeCheckout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 14px;
   }
 
   .programNoticePrice {
-    gap: 10px;
+    gap: 8px;
   }
 
   .programNoticePrice strong {
+    gap: 8px;
+    font-size: clamp(2.6rem, 14vw, 3.35rem);
+  }
+
+  .programNoticeTax {
+    max-width: 96px;
+    font-size: 0.98rem;
+  }
+
+  .programNoticeMeta {
+    grid-template-columns: 1fr;
     gap: 10px;
+    font-size: 1.08rem;
   }
 
   .programNoticeBook {
-    top: 206px;
-    width: 84px;
-    height: 84px;
-    font-size: 13px;
+    min-height: 54px;
+    font-size: 16px;
   }
 
   .programBatchStrip {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 12px;
-    padding: 16px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: clamp(6px, 1.8vw, 10px);
+    min-height: 56px;
+    padding: 8px 10px;
     text-align: center;
   }
 
   .programBatchBadge,
   .programBatchCta {
-    justify-self: center;
+    min-width: 0;
+    min-height: 32px;
+    padding-inline: clamp(8px, 2.4vw, 12px);
+    font-size: clamp(9px, 2.55vw, 12px);
   }
 
   .programBatchStrip p {
-    font-size: 15px;
+    font-size: clamp(9px, 2.55vw, 13px);
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .programOffer {
-    padding: 42px 14px 56px;
+    padding: 42px var(--apply-section-x) 56px;
   }
 
   .curriculumTrigger {
@@ -6708,7 +6997,8 @@ img {
   }
 
   .toolsRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 12px;
   }
 
   .audienceGrid {

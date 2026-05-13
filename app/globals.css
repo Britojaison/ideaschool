@@ -714,6 +714,235 @@ img {
   color: #fff;
 }
 
+.thankYouPage {
+  --apply-section-x: clamp(20px, 6.5vw, 88px);
+  min-height: 100vh;
+  background: #09080e;
+  color: #fff;
+}
+
+.thankYouHero {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: clamp(104px, 10vw, 126px) var(--apply-section-x) 48px;
+  background: #050608;
+  isolation: isolate;
+}
+
+.thankYouHeroMedia,
+.thankYouHeroShade {
+  position: absolute;
+  inset: 0;
+}
+
+.thankYouHeroMedia {
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(108, 72, 170, 0.26), transparent 34%),
+    radial-gradient(circle at 78% 72%, rgba(172, 47, 239, 0.16), transparent 30%),
+    linear-gradient(180deg, #050608 0%, #08090b 70%, #0c0d0f 100%);
+}
+
+.thankYouHeroShade {
+  z-index: 1;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(137, 85, 153, 0.1), transparent 40%),
+    linear-gradient(90deg, rgba(5, 6, 8, 0.34) 0%, rgba(5, 6, 8, 0.14) 44%, rgba(5, 6, 8, 0.3) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.12) 42%, rgba(12, 13, 15, 0.18) 100%);
+  pointer-events: none;
+}
+
+.thankYouHero::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 1;
+  height: clamp(150px, 22vh, 260px);
+  content: "";
+  background: linear-gradient(180deg, rgba(12, 13, 15, 0) 0%, rgba(12, 13, 15, 0.08) 38%, rgba(12, 13, 15, 0.34) 72%, #0c0d0f 100%);
+  pointer-events: none;
+}
+
+.thankYouHero .siteHeader {
+  border-bottom: 0;
+}
+
+.thankYouInner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  flex: 1;
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+.thankYouCard {
+  display: grid;
+  justify-items: center;
+  width: min(100%, 760px);
+  padding: clamp(28px, 4vw, 40px);
+  border: 1px solid rgba(191, 118, 231, 0.26);
+  border-radius: 32px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+    radial-gradient(circle at top, rgba(128, 86, 251, 0.22), transparent 44%),
+    rgba(10, 8, 16, 0.82);
+  box-shadow: 0 34px 110px rgba(26, 10, 45, 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  text-align: center;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .thankYouCard:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(191, 118, 231, 0.42);
+    box-shadow: 0 42px 124px rgba(48, 20, 86, 0.58);
+  }
+}
+
+.thankYouPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(#101010, #101010) padding-box,
+    linear-gradient(94.17deg, #8056fb 20.37%, #af52df 66%, #895599 100%) border-box;
+  box-shadow: 0 0 24px rgba(128, 86, 251, 0.3);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.thankYouCard h1 {
+  margin: 22px 0 0;
+  font-size: clamp(2.2rem, 5vw, 4.25rem);
+  font-weight: 950;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.thankYouCard h1 span {
+  color: #ac2fef;
+}
+
+.thankYouCard p {
+  max-width: 560px;
+  margin: 20px auto 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(1rem, 1.3vw, 1.14rem);
+  line-height: 1.55;
+}
+
+.thankYouMeta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.thankYouMeta span {
+  display: grid;
+  gap: 8px;
+  min-height: 118px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)),
+    rgba(8, 7, 12, 0.44);
+  text-align: left;
+}
+
+.thankYouMeta strong {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 850;
+  line-height: 1.1;
+}
+
+.thankYouMeta small {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.thankYouActions {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: min(100%, 420px);
+  margin-top: 28px;
+}
+
+.thankYouActions .thankYouPrimaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  width: min(100%, 340px);
+  min-height: 52px;
+  height: 52px;
+  padding: 0 20px;
+  border: 1px solid rgba(76, 175, 80, 0.82) !important;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, #30d158 0%, #25b846 100%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.thankYouActions .thankYouPrimaryCta:hover {
+  transform: translateY(-1px);
+  border-color: rgba(109, 221, 124, 0.95) !important;
+  background:
+    linear-gradient(180deg, #34db60 0%, #27c04a 100%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  filter: saturate(1.04);
+}
+
+.thankYouSecondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 68px;
+  height: 68px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.thankYouSecondaryCta:hover {
+  transform: translateY(-1px);
+  border-color: rgba(191, 118, 231, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .programHero {
   position: relative;
   display: flex;
@@ -3000,6 +3229,29 @@ img {
     padding: 118px var(--apply-section-x) 0;
   }
 
+  .thankYouHero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 118px var(--apply-section-x) 28px;
+  }
+
+  .thankYouCard {
+    border-radius: 28px;
+  }
+
+  .thankYouMeta {
+    grid-template-columns: 1fr;
+  }
+
+  .thankYouMeta span {
+    min-height: 0;
+  }
+
+  .thankYouActions {
+    flex-direction: column;
+    width: min(100%, 360px);
+  }
+
   .programHeroInner {
     display: flex;
     flex-direction: column;
@@ -3526,7 +3778,14 @@ img {
   }
 
   .mobileHeaderActions {
-    display: none;
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
   .mobileHeaderAction {
@@ -3537,6 +3796,7 @@ img {
     width: 44px;
     height: 44px;
     border-radius: 999px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32);
     text-decoration: none;
     overflow: visible;
   }
@@ -3764,10 +4024,7 @@ img {
   }
 
   .quickActions {
-    display: flex;
-    right: 16px;
-    bottom: 92px;
-    gap: 8px;
+    display: none;
   }
 
   .quickActionMount,
@@ -4115,10 +4372,11 @@ img {
   position: absolute;
   top: 40px;
   left: 50%;
-  z-index: 3;
+  z-index: 5;
   width: 225px;
   height: 53px;
   transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .worksLabelText {
@@ -4134,7 +4392,14 @@ img {
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0;
+  white-space: nowrap;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.34);
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+  will-change: auto;
+  pointer-events: none;
 }
 
 .worksMeta {
@@ -6655,10 +6920,10 @@ img {
   }
 
   .worksLabelText {
-    color: #101010;
+    color: #fff;
     font-size: 20px;
     font-weight: 800;
-    text-shadow: none;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.34);
     width: 190px;
     height: 48px;
   }

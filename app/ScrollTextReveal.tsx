@@ -5,7 +5,6 @@ import { useEffect } from "react";
 const revealSelector = [
   ".workshopCardCopy h3",
   ".workshopCardCopy p",
-  ".worksLabelText",
   ".worksMeta p",
   ".worksMeta a",
   ".worksMeta dt",

@@ -3407,7 +3407,7 @@ img {
     align-content: end;
     align-items: end;
     gap: 28px;
-    padding-top: min(46svh, 360px);
+    padding-top: min(41svh, 320px);
     padding-bottom: 60px;
   }
 
@@ -3795,27 +3795,27 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    background: rgba(18, 18, 18, 0.72);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(10px);
     text-decoration: none;
     overflow: visible;
   }
 
   .mobileHeaderAction.whatsapp {
-    background: #00b978;
-  }
-
-  .mobileHeaderAction.phone {
-    background: #1687f7;
+    background: rgba(18, 18, 18, 0.72);
   }
 
   .mobileHeaderAction img {
     position: relative;
     z-index: 2;
-    width: 24px;
-    height: 24px;
+    width: 31px;
+    height: 31px;
+    object-fit: contain;
   }
 
   .mobileHeaderActionLabel {
@@ -3876,7 +3876,7 @@ img {
     width: min(calc(100% - (var(--page-gutter) * 2)), var(--page-max));
     min-height: 100svh;
     margin: 0 auto;
-    padding: min(52svh, 420px) 0 72px;
+    padding: min(47svh, 368px) 0 72px;
     background: transparent;
   }
 

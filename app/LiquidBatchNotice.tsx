@@ -9,7 +9,7 @@ export default function LiquidBatchNotice() {
   return (
     <div
       className="batchNoticeMount"
-      aria-label="Next batch starts on 11th May 2026"
+      aria-label="Next batch starts on 23rd May 2026"
       onMouseMove={liquidMouse.handleMouseMove}
       onMouseLeave={liquidMouse.handleMouseLeave}
     >
@@ -34,7 +34,7 @@ export default function LiquidBatchNotice() {
         <span className="batchNoticeContent">
           <span className="noticeIcon" aria-hidden="true" />
           <span className="batchNoticeText">
-            Next Batch starts on 11th May 2026
+            Next Batch starts on 23rd May 2026
           </span>
         </span>
       </LiquidGlass>

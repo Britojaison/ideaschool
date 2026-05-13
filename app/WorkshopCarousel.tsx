@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 type Workshop = {
   title: string;
   description: string;
   image: string;
+  href?: string;
   comingSoon?: boolean;
 };
 
@@ -49,27 +51,24 @@ export default function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
     >
       {workshops.map((workshop, index) => {
         const isAutoActive = !isPaused && index === activeIndex;
-
-        return (
-          <article
-            className={`workshopCard${workshop.comingSoon ? " comingSoon" : ""}${isAutoActive ? " isAutoActive" : ""}${!isPaused && !isAutoActive ? " isAutoDimmed" : ""}`}
-            key={workshop.title}
-            ref={(element) => {
-              cardRefs.current[index] = element;
-            }}
-            onMouseEnter={() => {
-              setActiveIndex(index);
-              setIsPaused(true);
-            }}
-            onFocus={() => {
-              setActiveIndex(index);
-              setIsPaused(true);
-            }}
-            onBlur={() => {
-              setActiveIndex(1);
-              setIsPaused(false);
-            }}
-          >
+        const className = `workshopCard${workshop.comingSoon ? " comingSoon" : ""}${isAutoActive ? " isAutoActive" : ""}${!isPaused && !isAutoActive ? " isAutoDimmed" : ""}`;
+        const sharedProps = {
+          className,
+          onMouseEnter: () => {
+            setActiveIndex(index);
+            setIsPaused(true);
+          },
+          onFocus: () => {
+            setActiveIndex(index);
+            setIsPaused(true);
+          },
+          onBlur: () => {
+            setActiveIndex(1);
+            setIsPaused(false);
+          },
+        };
+        const cardContent = (
+          <>
             {index === 1 ? (
               <span className="availability">
                 <span className="availabilityText">Available</span>
@@ -89,6 +88,34 @@ export default function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
               <h3>{workshop.title}</h3>
               <p>{workshop.description}</p>
             </div>
+          </>
+        );
+
+        if (workshop.href) {
+          return (
+            <Link
+              {...sharedProps}
+              href={workshop.href}
+              key={workshop.title}
+              ref={(element) => {
+                cardRefs.current[index] = element;
+              }}
+              aria-label={`Apply for ${workshop.title}`}
+            >
+              {cardContent}
+            </Link>
+          );
+        }
+
+        return (
+          <article
+            {...sharedProps}
+            key={workshop.title}
+            ref={(element) => {
+              cardRefs.current[index] = element;
+            }}
+          >
+            {cardContent}
           </article>
         );
       })}

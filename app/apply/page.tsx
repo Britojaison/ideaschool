@@ -266,7 +266,13 @@ export default function ApplyPage() {
               <span className="programTag">Create AD Films That Pay You</span>
             </div>
 
-            <h1>Master AI-Powered AD Film Making In 1Day</h1>
+            <h1>
+              Master{" "}
+              <span className="programHeroTitleAccent">
+                AI-Powered AD Film Making
+              </span>{" "}
+              In <span className="programHeroTitleDay">1Day</span>
+            </h1>
             <p>
               Master ultra-realistic AI visuals &middot; Cinematic storytelling &middot;
               Commercial-grade AD production
@@ -277,11 +283,11 @@ export default function ApplyPage() {
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
-            <ProgramCountdown targetDate="2026-05-14T00:00:00+05:30" />
+            <ProgramCountdown targetDate="2026-05-23T00:00:00+05:30" />
             <div className="programHeroImageWrap" style={{ position: "relative" }}>
               <video
                 className="programHeroVideo"
-                src="/images/workshop_ad_compressed.mp4"
+                src="/images/prajesh.mp4"
                 autoPlay
                 muted
                 loop
@@ -299,7 +305,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>May 14</dd>
+              <dd>May 23</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>
@@ -311,7 +317,7 @@ export default function ApplyPage() {
             </div>
             <div>
               <dt>Location</dt>
-              <dd>88GB  HQ,HSR Layout,Bengaluru</dd>
+              <dd>88GB HQ, HSR Layout, Bengaluru</dd>
             </div>
           </dl>
         </div>

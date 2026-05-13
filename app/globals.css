@@ -753,7 +753,7 @@ img {
   margin: 0 auto;
 }
 
-.programHeroInner > .programStats {
+.programHeroInner>.programStats {
   grid-column: 1;
 }
 
@@ -796,10 +796,31 @@ img {
 .programHeroCopy h1 {
   max-width: 854px;
   margin: 0;
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 3.9vw, 3.7rem);
   font-weight: 950;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.programHeroTitleAccent,
+.programHeroTitleDay {
+  font-family: var(--font-heading);
+  display: inline-block;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: 0;
+  vertical-align: baseline;
+}
+
+.programHeroTitleAccent {
+  color: #ac2fef;
+}
+
+.programHeroTitleDay {
+  color: #8056fb;
 }
 
 .programHeroCopy>p {
@@ -854,6 +875,7 @@ img {
   font-size: clamp(1.5rem, 2.5vw, 2.15rem);
   font-weight: 300;
   line-height: 1.05;
+  overflow-wrap: anywhere;
 }
 
 .programHeroCard {
@@ -877,7 +899,7 @@ img {
 .programHeroImageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 380 / 480;
+  aspect-ratio: 4 / 5.4;
   overflow: hidden;
   border-radius: 8px;
   background: #141820;
@@ -1261,6 +1283,7 @@ img {
 }
 
 @keyframes programBookPulse {
+
   0%,
   100% {
     box-shadow: 0 18px 44px rgba(92, 55, 198, 0.32);
@@ -1272,6 +1295,7 @@ img {
 }
 
 @keyframes programBookSheen {
+
   0%,
   42% {
     left: -70%;
@@ -1284,6 +1308,7 @@ img {
 }
 
 @keyframes programNoticeGlow {
+
   0%,
   100% {
     box-shadow: 0 34px 110px rgba(26, 10, 45, 0.54);
@@ -1897,7 +1922,7 @@ img {
   display: flex;
   gap: 24px;
   margin-top: 72px;
-  padding: 0 0 14px;
+  padding: 0 60px 14px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -2918,11 +2943,15 @@ img {
     text-align: left;
   }
 
-  .programHeroInner > .programStats {
+  .programHeroInner>.programStats {
     order: 3;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 30px 22px;
     margin-top: 0;
+  }
+
+  .programStats dd {
+    font-size: clamp(1.35rem, 5.2vw, 2rem);
   }
 
   .programHeroCopy h1 {
@@ -2931,14 +2960,14 @@ img {
   }
 
   .programHeroImageWrap {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5.4;
   }
 
   .programNotice {
-    width: min(calc(100% - (var(--page-gutter) * 2)), 720px);
+    width: min(calc(100% - 36px), 720px);
     min-height: 0;
-    margin-top: 42px;
-    padding: 16px;
+    margin-top: 48px;
+    padding: 12px;
     border-radius: 28px;
   }
 
@@ -3344,7 +3373,7 @@ img {
     position: absolute;
     top: 297px;
     left: 0;
-    width: min(62vw, 754px);
+    width: 754px;
     height: 264px;
     max-width: none;
   }
@@ -3473,7 +3502,7 @@ img {
     min-height: 100vh;
     min-height: 100svh;
     margin: 0 auto;
-    padding: 132px 0 82px;
+    padding: 132px 0 32px;
     background: transparent;
   }
 
@@ -3483,6 +3512,7 @@ img {
     margin: 0 auto;
     padding-bottom: 0;
     text-align: center;
+    transform: translateY(44px);
   }
 
   .heroVisual {
@@ -3497,9 +3527,9 @@ img {
   .heroCopy h1 {
     max-width: 430px;
     margin-inline: auto;
-    font-size: clamp(2.05rem, 9.2vw, 3.15rem);
-    font-weight: 600;
-    line-height: 1.08;
+    font-size: clamp(2.45rem, 10.8vw, 3.85rem);
+    font-weight: 700;
+    line-height: 1.05;
     text-wrap: balance;
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.62);
   }
@@ -3513,9 +3543,9 @@ img {
   .heroCopy p {
     max-width: 370px;
     margin: 38px auto 0;
-    font-size: clamp(1.05rem, 4.4vw, 1.55rem);
-    line-height: 1.42;
-    font-weight: 400;
+    font-size: clamp(1.32rem, 5.4vw, 2rem);
+    line-height: 1.38;
+    font-weight: 500;
     color: rgba(255, 255, 255, 0.94);
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
   }
@@ -3531,8 +3561,7 @@ img {
 
   .primaryCtaText {
     height: auto;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 17px;
   }
 
   .heroCopy .primaryCta {
@@ -3581,8 +3610,7 @@ img {
   }
 
   .batchNoticeText {
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 15px;
     line-height: 1.15;
   }
 
@@ -3619,8 +3647,8 @@ img {
   .videoButtonContent::after {
     content: "Watch Video";
     font-family: var(--font-subject);
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
   }
 
   .quickActions {
@@ -3853,7 +3881,7 @@ img {
 
 @media (min-width: 981px) {
   .heroCopy h1 {
-    width: min(62vw, 754px);
+    width: 754px;
     height: 103px;
     min-height: 103px;
     max-width: none;
@@ -3868,7 +3896,7 @@ img {
   }
 
   .heroCopy p {
-    width: min(54vw, 560px);
+    width: 680px;
     min-height: 48px;
     max-width: none;
     margin-top: 16px;
@@ -4795,9 +4823,9 @@ img {
   flex-basis: 486px;
   width: 486px;
   height: 486px;
-  border: 0;
-  background: transparent;
-  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.28);
+  border: 2px solid #8b5cff;
+  background: #d7deef;
+  box-shadow: 0 0 0 1px rgba(139, 92, 255, 0.3), 0 20px 54px rgba(0, 0, 0, 0.28);
 }
 
 .mentorCard:focus-visible {
@@ -4833,25 +4861,19 @@ img {
 }
 
 .mentorCard.active .mentorImage {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center bottom;
   filter: none;
 }
 
 .mentorInfo {
   position: absolute;
-  top: 24px;
-  left: 24px;
+  top: 28px;
+  left: 28px;
   z-index: 2;
   display: grid;
   gap: 8px;
   color: #080808;
-  text-align: left;
-}
-
-.mentorCard:not(.active) .mentorInfo {
-  opacity: 0;
-  visibility: hidden;
 }
 
 .mentorInfo span {
@@ -5720,7 +5742,10 @@ img {
   bottom: -0.08em;
   width: 100%;
   transform: none;
-  color: rgba(255, 255, 255, 0.09);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(164, 164, 164, 0.7) 84.34%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   font-family: var(--font-heading);
   font-size: clamp(4.6rem, 13vw, 13rem);
   font-weight: 900;
@@ -6351,10 +6376,6 @@ img {
     right: 0;
     width: 100%;
     transform: none;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(164, 164, 164, 0.7) 84.34%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
     font-family: var(--font-heading);
     font-size: clamp(120px, 12vw, 200px);
     font-weight: 900;
@@ -6858,7 +6879,8 @@ img {
 
 @media (max-width: 640px) {
   .programHero {
-    padding-top: 104px;
+    padding-top: 98px;
+    padding-bottom: 32px;
   }
 
   .programHero .siteHeader .headerCta {
@@ -6867,29 +6889,85 @@ img {
     padding-inline: 12px;
   }
 
+  .programHeroInner {
+    gap: 28px;
+  }
+
+  .programHeroCopy {
+    max-width: 100%;
+  }
+
   .programEyebrowRow {
+    align-items: flex-start;
     gap: 14px;
     margin-bottom: 24px;
   }
 
   .programPill {
     min-width: 0;
-    min-height: 38px;
-    padding-inline: 20px;
-    font-size: 15px;
+    min-height: 36px;
+    padding-inline: 16px;
+    font-size: 14px;
   }
 
   .programTag {
-    font-size: 15px;
+    max-width: 16ch;
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .programStats {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 18px;
+  }
+
+  .programStats dt {
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+
+  .programStats dd {
+    font-size: clamp(1.2rem, 7vw, 1.6rem);
+    line-height: 1.15;
+  }
+
+  .programHeroCopy h1 {
+    font-size: clamp(1.9rem, 12.5vw, 2.65rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  .programHeroCopy > p {
+    margin-top: 18px;
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .programCta {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+    justify-content: center;
+  }
+
+  .programCta .primaryCtaText {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .programHeroCard {
+    max-width: 100%;
+    gap: 10px;
   }
 
   .programHeroCard span {
-    font-size: 17px;
+    max-width: none;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .programHeroImageWrap {
+    aspect-ratio: 4 / 5;
   }
 
   .programNotice {
@@ -7163,62 +7241,25 @@ img {
     gap: 14px;
     margin-top: 34px;
     padding-inline: 0;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .mentorCarousel::-webkit-scrollbar {
-    display: none;
   }
 
   .mentorCard,
   .mentorCard.active {
-    flex: 0 0 100%;
-    width: 100%;
-    min-width: 100%;
-    height: clamp(330px, 112vw, 430px);
-    border: 0;
-    background: transparent;
-    opacity: 1;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
+    flex-basis: 96px;
+    width: 96px;
+    height: 310px;
   }
 
   .mentorCard.active {
-    order: initial;
-    box-shadow: 0 20px 54px rgba(0, 0, 0, 0.28);
-  }
-
-  .mentorCard.edge::after,
-  .mentorCard.near::after,
-  .mentorCard.mid::after {
-    display: none;
-  }
-
-  .mentorCard.edge,
-  .mentorCard.near,
-  .mentorCard.mid {
-    opacity: 1;
-  }
-
-  .mentorImage,
-  .mentorCard.active .mentorImage {
-    object-fit: cover;
-    object-position: center bottom;
-    filter: none;
+    order: -1;
+    flex-basis: min(286px, 78vw);
+    width: min(286px, 78vw);
+    min-width: min(286px, 78vw);
   }
 
   .mentorInfo {
-    top: 18px;
-    left: 18px;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .mentorCard:not(.active) .mentorInfo {
-    opacity: 1;
-    visibility: visible;
+    top: 20px;
+    left: 20px;
   }
 
   .learningInner>h2,
@@ -7330,6 +7371,28 @@ img {
 
   .siteFooter>strong {
     font-size: clamp(3.1rem, 18vw, 6.5rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .programHero .siteHeader {
+    gap: 12px;
+    padding-inline: 16px;
+  }
+
+  .programHero .siteHeader .headerCta {
+    min-width: 118px;
+    max-width: calc(100vw - 108px);
+    padding-inline: 10px;
+    font-size: 15px;
+  }
+
+  .programTag {
+    max-width: 14ch;
+  }
+
+  .programHeroCopy h1 {
+    font-size: clamp(1.75rem, 11.8vw, 2.3rem);
   }
 }
 

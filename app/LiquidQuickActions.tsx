@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import LiquidGlass from "liquid-glass-react";
+import { useEffect, useRef, useState } from "react";
 import { useResettableLiquidMouse } from "./useResettableLiquidMouse";
 
 const actions = [
   {
-    href: "#whatsapp",
+    href: "https://wa.me/918618894857",
     label: "WhatsApp",
     className: "whatsapp",
     icon: "/images/whatsapp.svg",
   },
   {
-    href: "#call",
+    href: "tel:+918618894857",
     label: "Call",
     className: "phone",
     icon: "/images/phone.svg",
@@ -31,15 +32,47 @@ export default function LiquidQuickActions() {
 
 function QuickAction({ action }: { action: (typeof actions)[number] }) {
   const liquidMouse = useResettableLiquidMouse<HTMLAnchorElement>();
+  const [isVisible, setIsVisible] = useState(false);
+  const hideTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (hideTimerRef.current !== null) {
+        window.clearTimeout(hideTimerRef.current);
+      }
+    };
+  }, []);
+
+  const showLabelTemporarily = () => {
+    setIsVisible(true);
+
+    if (hideTimerRef.current !== null) {
+      window.clearTimeout(hideTimerRef.current);
+    }
+
+    hideTimerRef.current = window.setTimeout(() => {
+      setIsVisible(false);
+      hideTimerRef.current = null;
+    }, 1400);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isVisible) {
+      event.preventDefault();
+      showLabelTemporarily();
+    }
+  };
 
   return (
     <a
-      className={`quickActionMount ${action.className}`}
+      className={`quickActionMount ${action.className}${isVisible ? " isVisible" : ""}`}
       href={action.href}
       aria-label={action.label}
+      onClick={handleClick}
       onMouseMove={liquidMouse.handleMouseMove}
       onMouseLeave={liquidMouse.handleMouseLeave}
     >
+      <span className="quickActionLabel">8618894857</span>
       <LiquidGlass
         className="quickActionGlass"
         globalMousePos={liquidMouse.globalMousePos}

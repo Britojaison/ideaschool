@@ -117,6 +117,9 @@ export default function FeedbackTestimonials() {
             className="quoteMark"
             aria-hidden="true"
           />
+          <span className="testimonialStars" aria-label="5 out of 5 stars">
+            *****
+          </span>
           <blockquote>{selectedTestimonial.quote}</blockquote>
           {selectedTestimonial.note ? <p>{selectedTestimonial.note}</p> : null}
           <footer>
@@ -124,9 +127,6 @@ export default function FeedbackTestimonials() {
             <span>{selectedTestimonial.role}</span>
           </footer>
           <div className="testimonialRule" aria-hidden="true" />
-          <span className="testimonialStars" aria-label="5 out of 5 stars">
-            *****
-          </span>
         </div>
 
         <div className="testimonialImageWrap">

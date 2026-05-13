@@ -70,9 +70,7 @@ export default function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
         const cardContent = (
           <>
             {index === 1 ? (
-              <span className="availability">
-                <span className="availabilityText">Available</span>
-              </span>
+              <span className="availability">Apply Now</span>
             ) : null}
             <Image
               src={workshop.image}

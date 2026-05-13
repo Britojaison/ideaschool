@@ -7,6 +7,7 @@ import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
 import LiquidVideoButton from "./LiquidVideoButton";
 import MentorCarousel from "./MentorCarousel";
+import MobileContactActions from "./MobileContactActions";
 import ScrollTextReveal from "./ScrollTextReveal";
 import StarBorder from "./StarBorder";
 import WorkshopCarousel from "./WorkshopCarousel";
@@ -227,23 +228,7 @@ export default function Home() {
           <Link className="headerCta" href="/apply">
             <span className="headerCtaText">Book your class</span>
           </Link>
-          <div className="mobileHeaderActions" aria-label="Quick contact actions">
-            <a
-              className="mobileHeaderAction whatsapp"
-              href="#whatsapp"
-              aria-label="WhatsApp"
-            >
-              <Image src="/images/whatsapp.svg" alt="" width={26} height={26} />
-            </a>
-            <a className="mobileHeaderAction phone" href="#call" aria-label="Call">
-              <Image src="/images/phone.svg" alt="" width={25} height={25} />
-            </a>
-            <a className="mobileMenuLink" href="#training" aria-label="Training">
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
-            </a>
-          </div>
+          <MobileContactActions />
         </header>
 
         <div className="heroContent">

@@ -12,12 +12,6 @@ const actions = [
     className: "whatsapp",
     icon: "/images/whatsapp.svg",
   },
-  {
-    href: "tel:+918618894857",
-    label: "Call",
-    className: "phone",
-    icon: "/images/phone.svg",
-  },
 ];
 
 export default function LiquidQuickActions() {

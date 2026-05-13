@@ -3407,6 +3407,8 @@ img {
     align-content: end;
     align-items: end;
     gap: 28px;
+    padding-top: min(46svh, 360px);
+    padding-bottom: 60px;
   }
 
   .heroActions {
@@ -3872,15 +3874,15 @@ img {
     align-content: start;
     gap: 0;
     width: min(calc(100% - (var(--page-gutter) * 2)), var(--page-max));
-    min-height: auto;
+    min-height: 100svh;
     margin: 0 auto;
-    padding: 132px 0 72px;
+    padding: min(52svh, 420px) 0 72px;
     background: transparent;
   }
 
   .heroCopy {
     width: 100%;
-    max-width: 430px;
+    max-width: 340px;
     margin: 0 auto;
     padding-bottom: 0;
     text-align: center;
@@ -3897,11 +3899,11 @@ img {
   }
 
   .heroCopy h1 {
-    max-width: 430px;
+    max-width: 320px;
     margin-inline: auto;
-    font-size: clamp(2.45rem, 10.8vw, 3.85rem);
+    font-size: clamp(2.1rem, 9.2vw, 3.05rem);
     font-weight: 700;
-    line-height: 1.05;
+    line-height: 0.98;
     text-wrap: balance;
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.62);
   }
@@ -3913,10 +3915,10 @@ img {
   }
 
   .heroCopy p {
-    max-width: 370px;
-    margin: 38px auto 0;
-    font-size: clamp(1.32rem, 5.4vw, 2rem);
-    line-height: 1.38;
+    max-width: 320px;
+    margin: 20px auto 0;
+    font-size: clamp(1rem, 4.7vw, 1.28rem);
+    line-height: 1.42;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.94);
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
@@ -3924,11 +3926,11 @@ img {
 
   .primaryCta {
     display: inline-flex;
-    width: min(100%, 232px);
-    height: 44px;
-    min-height: 44px;
-    margin: 26px 0 0;
-    padding-inline: 18px;
+    width: min(100%, 240px);
+    height: 48px;
+    min-height: 48px;
+    margin: 24px 0 0;
+    padding-inline: 22px;
   }
 
   .primaryCtaText {
@@ -3937,24 +3939,25 @@ img {
   }
 
   .heroCopy .primaryCta {
-    justify-self: start;
-    width: min(100%, 232px);
+    justify-self: center;
+    width: min(100%, 240px);
+    margin-inline: auto;
   }
 
   .heroInlineActions {
     position: static;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
-    max-width: 430px;
-    gap: 18px;
-    margin: 28px 0 0;
+    max-width: 340px;
+    gap: 14px;
+    margin: 22px auto 0;
   }
 
   .batchNoticeMount {
     order: 1;
-    width: min(100%, 318px);
+    width: min(100%, 320px);
     flex: 0 0 auto;
     height: 50px;
     min-height: 50px;
@@ -3982,8 +3985,8 @@ img {
   }
 
   .batchNoticeText {
-    font-size: 15px;
-    line-height: 1.15;
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .videoButtonMount {

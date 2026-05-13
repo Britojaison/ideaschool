@@ -64,7 +64,7 @@ export default function ApplyThankYouPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span className="primaryCtaText">Contact on WhatsApp</span>
+                <span className="primaryCtaText">Join Whatsapp Community</span>
               </a>
             </div>
           </div>

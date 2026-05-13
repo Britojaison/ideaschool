@@ -3344,7 +3344,7 @@ img {
     position: absolute;
     top: 297px;
     left: 0;
-    width: 754px;
+    width: min(62vw, 754px);
     height: 264px;
     max-width: none;
   }
@@ -3497,9 +3497,9 @@ img {
   .heroCopy h1 {
     max-width: 430px;
     margin-inline: auto;
-    font-size: clamp(2.45rem, 10.8vw, 3.85rem);
-    font-weight: 700;
-    line-height: 1.05;
+    font-size: clamp(2.05rem, 9.2vw, 3.15rem);
+    font-weight: 600;
+    line-height: 1.08;
     text-wrap: balance;
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.62);
   }
@@ -3513,9 +3513,9 @@ img {
   .heroCopy p {
     max-width: 370px;
     margin: 38px auto 0;
-    font-size: clamp(1.32rem, 5.4vw, 2rem);
-    line-height: 1.38;
-    font-weight: 500;
+    font-size: clamp(1.05rem, 4.4vw, 1.55rem);
+    line-height: 1.42;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.94);
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.72);
   }
@@ -3531,7 +3531,8 @@ img {
 
   .primaryCtaText {
     height: auto;
-    font-size: 17px;
+    font-size: 15px;
+    font-weight: 500;
   }
 
   .heroCopy .primaryCta {
@@ -3580,7 +3581,8 @@ img {
   }
 
   .batchNoticeText {
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: 400;
     line-height: 1.15;
   }
 
@@ -3617,8 +3619,8 @@ img {
   .videoButtonContent::after {
     content: "Watch Video";
     font-family: var(--font-subject);
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
   }
 
   .quickActions {
@@ -3851,7 +3853,7 @@ img {
 
 @media (min-width: 981px) {
   .heroCopy h1 {
-    width: 754px;
+    width: min(62vw, 754px);
     height: 103px;
     min-height: 103px;
     max-width: none;
@@ -3866,7 +3868,7 @@ img {
   }
 
   .heroCopy p {
-    width: 680px;
+    width: min(54vw, 560px);
     min-height: 48px;
     max-width: none;
     margin-top: 16px;

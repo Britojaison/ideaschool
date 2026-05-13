@@ -4800,11 +4800,12 @@ img {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, max-content));
-  gap: clamp(14px, 2.6vw, 36px);
+  gap: clamp(12px, 1.8vw, 24px);
   margin: 40px 0 0;
   padding: 28px 0 64px;
   border-top: 0;
   align-items: start;
+  justify-content: space-between;
 }
 
 .whyStats>div {
@@ -4826,18 +4827,18 @@ img {
   content: "";
 }
 
-.whyStats dt {
+.whyStatLabel {
   margin: 0;
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(0.78rem, 0.9vw, 0.9rem);
+  font-size: clamp(0.84rem, 0.98vw, 0.98rem);
   line-height: 1.2;
 }
 
-.whyStats dd {
+.whyStatValue {
   display: block;
   margin: 0;
   color: #fff;
-  font-size: clamp(1.75rem, 2.7vw, 2.55rem);
+  font-size: clamp(1.95rem, 3vw, 2.85rem);
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
@@ -4948,7 +4949,7 @@ img {
 }
 
 .mentorCard.edge {
-  opacity: 0.62;
+  opacity: 0.88;
 }
 
 .mentorCard.edge::after,
@@ -4957,21 +4958,17 @@ img {
   position: absolute;
   inset: 0;
   content: "";
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.22), transparent 38%, rgba(0, 0, 0, 0.38)),
-    rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 34%, rgba(255, 255, 255, 0.03));
 }
 
 .mentorCard.mid::after {
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.14), transparent 36%, rgba(0, 0, 0, 0.26)),
-    rgba(0, 0, 0, 0.04);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%, rgba(255, 255, 255, 0.02));
 }
 
 .mentorImage {
   object-fit: cover;
   object-position: center center;
-  filter: grayscale(0.85) contrast(1.08) brightness(1.08);
+  filter: grayscale(0.12) contrast(1.04) brightness(1.16) saturate(1.04);
 }
 
 .mentorCard.active .mentorImage {
@@ -6044,16 +6041,16 @@ img {
   .whyStats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: start;
-    column-gap: 28px;
+    column-gap: 18px;
     margin-top: 34px;
     padding-bottom: 0;
   }
 
-  .whyStats dd {
+  .whyStatValue {
     width: auto;
     height: auto;
     font-family: "DM Sans 24pt", "DM Sans", var(--font-subject);
-    font-size: 38px;
+    font-size: 42px;
     font-weight: 600;
     line-height: 1;
     letter-spacing: 0;
@@ -6770,7 +6767,7 @@ img {
 
   .whyStats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 10px;
     overflow-x: visible;
   }
 
@@ -6781,18 +6778,18 @@ img {
     white-space: normal;
   }
 
-  .whyStats dt {
+  .whyStatLabel {
     margin-bottom: 0;
     overflow-wrap: anywhere;
   }
 
-  .whyStats dd {
+  .whyStatValue {
     display: block;
     width: auto;
     height: auto;
     min-width: 0;
     color: #fff;
-    font-size: clamp(1.65rem, 6vw, 2.35rem);
+    font-size: clamp(1.8rem, 6.4vw, 2.5rem);
     line-height: 1;
     opacity: 1;
   }
@@ -7359,19 +7356,19 @@ img {
     white-space: normal;
   }
 
-  .whyStats dt {
+  .whyStatLabel {
     margin-bottom: 0;
     font-size: clamp(0.62rem, 2.8vw, 0.72rem);
     line-height: 1.15;
     overflow-wrap: anywhere;
   }
 
-  .whyStats dd {
+  .whyStatValue {
     display: block;
     width: auto;
     height: auto;
     color: #fff;
-    font-size: clamp(1.45rem, 7vw, 1.9rem);
+    font-size: clamp(1.56rem, 7.5vw, 2.05rem);
     line-height: 1;
     opacity: 1;
   }

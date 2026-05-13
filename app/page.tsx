@@ -358,20 +358,20 @@ export default function Home() {
             </p>
             <p>For collaborations or queries, reach out to us directly.</p>
 
-            <dl className="whyStats">
+            <div className="whyStats" role="list" aria-label="Idea School results">
               <div>
-                <dt>Projects Completed</dt>
-                <dd>100+</dd>
+                <p className="whyStatLabel">Projects Completed</p>
+                <p className="whyStatValue">100+</p>
               </div>
               <div>
-                <dt>Brands collabed</dt>
-                <dd>100+</dd>
+                <p className="whyStatLabel">Brands collabed</p>
+                <p className="whyStatValue">100+</p>
               </div>
               <div>
-                <dt>Tools &amp; Skills Covered</dt>
-                <dd>20+</dd>
+                <p className="whyStatLabel">Tools &amp; Skills Covered</p>
+                <p className="whyStatValue">20+</p>
               </div>
-            </dl>
+            </div>
           </div>
         </div>
       </section>

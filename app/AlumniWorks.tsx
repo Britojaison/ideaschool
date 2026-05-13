@@ -5,6 +5,11 @@ import { useEffect, useRef, useState } from "react";
 
 const workThumbs = [
   {
+    title: "MM Women's Day",
+    video: "/images/MM Women's Day.mp4",
+    poster: "/images/alumni-posters/MM Women's Day.mp4.png",
+  },
+  {
     title: "Nurse Day PR 2",
     video: "/images/Nurse day PR 2.mp4",
   },
@@ -17,11 +22,6 @@ const workThumbs = [
     title: "Aadi Sale",
     video: "/images/Aadi Sale (1).mp4",
     poster: "/images/alumni-posters/Aadi Sale (1).mp4.png",
-  },
-  {
-    title: "MM Women's Day",
-    video: "/images/MM Women's Day.mp4",
-    poster: "/images/alumni-posters/MM Women's Day.mp4.png",
   },
   {
     title: "Ranjit watch",

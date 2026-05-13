@@ -165,7 +165,7 @@ const clientStories = [
   {
     name: "Hiren Metha",
     quote:
-      "Thee workshop gave me the tools to turn my traditional family business into a modern brand.",
+      "The workshop gave me the tools to turn my traditional family business into a modern brand.",
     image: "/images/B1_metha.png",
   },
   {

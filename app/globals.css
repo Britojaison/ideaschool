@@ -4479,7 +4479,7 @@ img {
   z-index: 0;
   width: 198px;
   height: 146px;
-  opacity: 0.85;
+  opacity: 0.1;
   object-fit: contain;
   pointer-events: none;
 }
@@ -4686,18 +4686,19 @@ img {
 .whyStats {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, max-content);
+  grid-template-columns: repeat(3, minmax(0, max-content));
   gap: clamp(14px, 2.6vw, 36px);
   margin: 40px 0 0;
   padding: 28px 0 64px;
   border-top: 0;
+  align-items: start;
 }
 
 .whyStats>div {
-  display: flex;
-  align-items: center;
-  gap: clamp(8px, 1vw, 12px);
-  white-space: nowrap;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
 }
 
 .whyStats::after {
@@ -4720,13 +4721,13 @@ img {
 }
 
 .whyStats dd {
-  display: flex;
-  align-items: center;
+  display: block;
   margin: 0;
   color: #fff;
   font-size: clamp(1.75rem, 2.7vw, 2.55rem);
   font-weight: 900;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .mentors {
@@ -5921,7 +5922,7 @@ img {
   }
 
   .whyStats {
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: start;
     column-gap: 28px;
     margin-top: 34px;
@@ -5929,8 +5930,8 @@ img {
   }
 
   .whyStats dd {
-    width: 88px;
-    height: 34px;
+    width: auto;
+    height: auto;
     font-family: "DM Sans 24pt", "DM Sans", var(--font-subject);
     font-size: 38px;
     font-weight: 600;
@@ -6937,7 +6938,7 @@ img {
     letter-spacing: -0.03em;
   }
 
-  .programHeroCopy > p {
+  .programHeroCopy>p {
     margin-top: 18px;
     font-size: 0.98rem;
     line-height: 1.5;
@@ -7348,25 +7349,34 @@ img {
   }
 
   .footerLinks {
-    grid-template-columns: minmax(0, 1fr) max-content;
-    align-items: center;
-    gap: 30px 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 28px 20px;
+  }
+
+  .footerLinks div:nth-child(1) {
+    grid-column: 1;
   }
 
   .footerLinks div:nth-child(2) {
-    justify-self: end;
-    align-self: center;
+    grid-column: 2;
+    justify-self: stretch;
+    align-self: start;
   }
 
   .footerLinks div:nth-child(3) {
     grid-column: 1 / -1;
-    grid-template-columns: repeat(2, max-content);
-    column-gap: 28px;
-    row-gap: 16px;
+    grid-template-columns: 1fr;
+    row-gap: 14px;
   }
 
   .footerLinks div:nth-child(3) h2 {
-    grid-column: 1 / -1;
+    grid-column: auto;
+  }
+
+  .siteFooter {
+    min-height: 500px;
+    padding-bottom: 120px;
   }
 
   .siteFooter>strong {

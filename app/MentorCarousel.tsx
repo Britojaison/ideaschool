@@ -66,10 +66,12 @@ export default function MentorCarousel() {
             aria-label={`Show ${mentor.name}`}
             onClick={() => setActiveIndex(index)}
           >
-            <span className="mentorInfo">
-              <span>{mentor.role}</span>
-              <strong>{mentor.name}</strong>
-            </span>
+            {isActive ? (
+              <span className="mentorInfo">
+                <span>{mentor.role}</span>
+                <strong>{mentor.name}</strong>
+              </span>
+            ) : null}
             <Image
               src={mentor.image}
               alt={mentor.name}

@@ -574,8 +574,8 @@ export default function Home() {
               <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
                 Instagram
               </a>
-              <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-                YouTube
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+                LinkedIn
               </a>
             </div>
           </nav>

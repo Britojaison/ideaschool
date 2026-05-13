@@ -275,7 +275,7 @@ export default function ApplyPage() {
             </h1>
             <p>
               Master ultra-realistic AI visuals &middot; Cinematic storytelling &middot;
-              Commercial-grade AD production
+              Commercial grade AD production
             </p>
             <a className="primaryCta programCta" href="#enroll">
               <span className="primaryCtaText">Get early bird pass now</span>

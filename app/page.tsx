@@ -254,8 +254,9 @@ export default function Home() {
               Actually Matter
             </h1>
             <p>
-              Learn editing, content creation, and AI tools through real
-              projects and hands-on sessions designed for the industry.
+              Learn editing, content creation, and AI tools through real projects
+              <br />
+              and hands-on sessions designed for the industry.
             </p>
             <Link className="primaryCta" href="/apply">
               <span className="primaryCtaText">Apply Now</span>

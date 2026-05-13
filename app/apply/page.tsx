@@ -289,12 +289,13 @@ export default function ApplyPage() {
               <video
                 id="apply-hero-video"
                 className="programHeroVideo"
-                src="/images/prajesh.mp4"
+                src="/images/prajesh-optimized.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
+                poster="/images/prajesh-poster.jpg"
                 aria-label="AI ad filmmaking workshop preview"
               />
               <LiquidVideoMuteButton targetId="apply-hero-video" />

@@ -7,7 +7,6 @@ import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
 import LiquidVideoButton from "./LiquidVideoButton";
 import MentorCarousel from "./MentorCarousel";
-import MobileContactActions from "./MobileContactActions";
 import ScrollTextReveal from "./ScrollTextReveal";
 import StarBorder from "./StarBorder";
 import WorkshopCarousel from "./WorkshopCarousel";
@@ -228,7 +227,6 @@ export default function Home() {
           <Link className="headerCta" href="/apply">
             <span className="headerCtaText">Book your class</span>
           </Link>
-          <MobileContactActions />
         </header>
 
         <div className="heroContent">

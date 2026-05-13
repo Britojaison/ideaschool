@@ -608,7 +608,7 @@ img {
   position: fixed;
   right: clamp(18px, 4vw, 54px);
   bottom: clamp(34px, 8vh, 84px);
-  z-index: 50;
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3783,7 +3783,7 @@ img {
     position: fixed;
     right: 16px;
     bottom: 18px;
-    z-index: 50;
+    z-index: 2000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4027,7 +4027,9 @@ img {
   }
 
   .quickActions {
-    display: none;
+    display: flex;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(18px, env(safe-area-inset-bottom));
   }
 
   .quickActionMount,

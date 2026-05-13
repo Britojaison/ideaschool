@@ -2670,6 +2670,12 @@ img {
   object-fit: contain;
 }
 
+.maproLogo {
+  max-height: 44px;
+  object-position: center top;
+  clip-path: inset(0 0 14px 0);
+}
+
 .milkyMistText,
 .xiaomiText {
   display: flex;
@@ -2709,7 +2715,7 @@ img {
   }
 
   to {
-    transform: translateX(calc(-50% - clamp(17px, 2vw, 36px)));
+    transform: translateX(calc(-100% / 3));
   }
 }
 
@@ -4110,7 +4116,7 @@ img {
     }
 
     to {
-      transform: translateX(calc(-50% - 17px));
+      transform: translateX(calc(-100% / 3));
     }
   }
 

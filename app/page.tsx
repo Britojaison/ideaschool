@@ -114,7 +114,7 @@ function BrandLogo({ brand }: { brand: Brand }) {
         alt={brand.name}
         width={brand.width}
         height={brand.height}
-        className="brandPartnerLogo"
+        className={`brandPartnerLogo${brand.name === "Mapro" ? " maproLogo" : ""}`}
       />
     );
   }
@@ -267,7 +267,16 @@ export default function Home() {
           {brands.map((brand) => (
             <span
               className="brandLogoDuplicate"
-              key={`${brand.name}-duplicate`}
+              key={`${brand.name}-duplicate-1`}
+              aria-hidden="true"
+            >
+              <BrandLogo brand={brand} />
+            </span>
+          ))}
+          {brands.map((brand) => (
+            <span
+              className="brandLogoDuplicate"
+              key={`${brand.name}-duplicate-2`}
               aria-hidden="true"
             >
               <BrandLogo brand={brand} />

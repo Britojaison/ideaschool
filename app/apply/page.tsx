@@ -3,6 +3,7 @@ import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
+import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
@@ -286,6 +287,7 @@ export default function ApplyPage() {
             <ProgramCountdown targetDate="2026-05-23T00:00:00+05:30" />
             <div className="programHeroImageWrap" style={{ position: "relative" }}>
               <video
+                id="apply-hero-video"
                 className="programHeroVideo"
                 src="/images/prajesh.mp4"
                 autoPlay
@@ -295,6 +297,7 @@ export default function ApplyPage() {
                 preload="metadata"
                 aria-label="AI ad filmmaking workshop preview"
               />
+              <LiquidVideoMuteButton targetId="apply-hero-video" />
             </div>
             <span>
               Learn to produce studio-quality AD films using AI{" "}

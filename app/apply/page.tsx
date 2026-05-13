@@ -310,8 +310,8 @@ export default function ApplyPage() {
               <dd>Hands-on</dd>
             </div>
             <div>
-              <dt>Limited Seats</dt>
-              <dd>Applications Open</dd>
+              <dt>Location</dt>
+              <dd>88GB  HQ,HSR Layout,Bengaluru</dd>
             </div>
           </dl>
         </div>
@@ -535,7 +535,7 @@ export default function ApplyPage() {
 
       <div className="programBatchStrip" aria-label="Workshop batch announcement">
         <span className="programBatchBadge">New Batch</span>
-        <p>Master AI & AD Film Making</p>
+        <p>AI-POWERED AD FILM MAKING</p>
         <a className="programBatchCta" href="#enroll">
           Book seat now
         </a>

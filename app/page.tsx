@@ -99,7 +99,7 @@ const brands: Brand[] = [
     height: 1254,
   },
   {
-    name: "Xiamo",
+    name: "Xiaomi",
     image: "/images/XIAMO.png",
     width: 1254,
     height: 1254,
@@ -371,7 +371,7 @@ export default function Home() {
                 <p className="whyStatValue">100+</p>
               </div>
               <div>
-                <p className="whyStatLabel">Brands collabed</p>
+                <p className="whyStatLabel">Brands Collaborated</p>
                 <p className="whyStatValue">100+</p>
               </div>
               <div>

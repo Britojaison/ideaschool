@@ -154,13 +154,13 @@ const clientStories = [
   {
     name: "Balaji",
     quote:
-      "The offline guidance was incredible, solving every doubt personally. Much better thann any online program",
+      "The offline guidance was incredible, solving every doubt personally. Much better than any online program",
     image: "/images/B1_BALAJI.png",
   },
   {
     name: "Manjunath",
     quote:
-      "This workshop fillled the market gap for hands-on AI training perectly. Loved the interactive vibe.",
+      "This workshop filled the market gap for hands-on AI training perfectly. Loved the interactive vibe.",
     image: "/images/B1_MANJUNATH.png",
   },
   {
@@ -172,7 +172,7 @@ const clientStories = [
   {
     name: " ",
     quote:
-      "Exploring tools I never Knew existed. This workshop was worth my entire day.",
+      "Exploring tools I never knew existed. This workshop was worth my entire day.",
     image: "/images/B1_QUOTE4.png",
   },
   {
@@ -184,7 +184,7 @@ const clientStories = [
   {
     name: "",
     quote:
-      "Valuable hands-onn experience you cannot get online. My first offline marketing eveent was simply great",
+      "Valuable hands-on experience you cannot get online. My first offline marketing event was simply great",
     image: "/images/B1_QUOTE6.png",
   },
 ];
@@ -428,7 +428,7 @@ export default function ApplyPage() {
       <section className="programProof" aria-label="Client feedback">
         <div className="programProofInner">
           <div className="proofIntro">
-            <h2>What our students Have to Say?</h2>
+            <h2>What Our Students Have to Say?</h2>
             <p>
               We&apos;ve already transformed hundreds of creators. Here&apos;s a
               glimpse of what past participants built.

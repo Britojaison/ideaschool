@@ -7,7 +7,7 @@ const mentors = [
   {
     image: "/images/zAMAN 2.png",
     name: "ZAMAN",
-    role: "Head ofGrowth",
+    role: "Head of Growth",
   },
   {
     image: "/images/VIPIN-3.png",
@@ -27,7 +27,7 @@ const mentors = [
   {
     image: "/images/CHANDRU.png",
     name: "CHANDRU",
-    role: "Senior Creative Stratagist",
+    role: "Senior Creative Strategist",
   },
   {
     image: "/images/aJAY 2.png",

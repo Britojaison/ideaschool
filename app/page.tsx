@@ -358,7 +358,7 @@ export default function Home() {
               theory. Our programs are designed to help students understand real
               workflows, work on meaningful projects, and build skills that are
               actually used in the industry.
-              <br />
+              <br /><br />
               From editing and content creation to AI tools and digital systems,
               we guide students through a structured learning process that
               prepares them for real opportunities.
@@ -385,7 +385,7 @@ export default function Home() {
 
       <section className="mentors" aria-label="Idea School mentors">
         <div className="mentorsIntro">
-          <h2>Learn from People Who Do It for Real</h2>
+          <h2>Learn From People Who Do It For Real</h2>
           <p>
             Our mentors are active creators, editors, and strategists working in
             the industry.

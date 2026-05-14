@@ -178,7 +178,7 @@ const clientStories = [
   {
     name: "",
     quote:
-      "Skipping my travel plans for this offline training was worth it!. Excellent creative guidance ideas.",
+      "Skipping my travel plans for this offline training was worth it !. Excellent creative guidance ideas.",
     image: "/images/B1_QUOTE5.png",
   },
   {
@@ -219,12 +219,12 @@ const applyFaqs = [
   {
     question: "Is there a refund policy?",
     answer:
-      "Seats are limited, so confirmed registrations are non-refundable. If you cannot attend, contact us before the workshop and we will help you with the best available option.",
+      "Seats are limited, so confirmed registrations are non-refundable. If you are unable to attend, please contact us before the workshop, and we will help you with the best available option.",
   },
   {
     question: "Will there be a recording?",
     answer:
-      "This is designed as a live hands-on workshop, so the best value comes from attending in person. Any post-session resources or recap material will be shared with registered participants.",
+      "This workshop is designed to be a live, hands-on experience, and the full value comes from participating in person. Post-session resources and recap materials will be shared with all registered participants.",
   },
   {
     question: "How many seats are available?",
@@ -272,7 +272,7 @@ export default function ApplyPage() {
               <span className="programHeroTitleAccent">
                 AI-Powered AD Film Making
               </span>{" "}
-              In <span className="programHeroTitleDay">1Day</span>
+              In <span className="programHeroTitleDay">1 Day</span>
             </h1>
             <p>
               Master ultra-realistic AI visuals &middot; Cinematic storytelling &middot;

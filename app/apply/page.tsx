@@ -264,7 +264,7 @@ export default function ApplyPage() {
           <div className="programHeroCopy">
             <div className="programEyebrowRow">
               <span className="programPill">Offline workshop</span>
-              <span className="programTag">Create AD Films That Pay You</span>
+              <span className="programTag">Agency-Level Ad Film Training Led By Industry Experts</span>
             </div>
 
             <h1>
@@ -281,6 +281,7 @@ export default function ApplyPage() {
             <a className="primaryCta programCta" href="#enroll">
               <span className="primaryCtaText">Get early bird pass now</span>
             </a>
+            <span className="seatLimit">Limited to 25 seats Only</span>
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
@@ -300,10 +301,7 @@ export default function ApplyPage() {
               />
               <LiquidVideoMuteButton targetId="apply-hero-video" />
             </div>
-            <span>
-              Learn to produce studio-quality AD films using AI{" "}
-              <strong>and turn your ideas into campaigns.</strong>
-            </span>
+
           </aside>
 
           <dl className="programStats">

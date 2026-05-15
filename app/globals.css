@@ -1048,8 +1048,10 @@ img {
 
 .programTag {
   color: #9e55b6;
+  font-family: var(--font-heading);
   font-size: 17px;
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: 0.01em;
 }
 
 .programHeroCopy h1 {
@@ -7341,8 +7343,10 @@ img {
   }
 
   .programEyebrowRow {
+    flex-direction: row;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
+    flex-wrap: nowrap;
     margin-bottom: 24px;
   }
 
@@ -7355,9 +7359,12 @@ img {
   }
 
   .programTag {
-    max-width: 260px;
+    display: inline-block;
+    flex: 1 1 auto;
+    max-width: none;
     font-size: 13px;
     line-height: 1.25;
+    text-align: left;
   }
 
   .programStats {
@@ -7396,6 +7403,12 @@ img {
 
   .programCta .primaryCtaText {
     white-space: normal;
+    text-align: center;
+  }
+
+  .seatLimit {
+    margin-left: 0;
+    width: 100%;
     text-align: center;
   }
 
@@ -7835,7 +7848,7 @@ img {
   }
 
   .programTag {
-    max-width: 14ch;
+    font-size: 12px;
   }
 
   .programHeroCopy h1 {

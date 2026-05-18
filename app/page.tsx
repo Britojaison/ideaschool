@@ -232,12 +232,12 @@ export default function Home() {
         <div className="heroContent">
           <div className="heroCopy">
             <h1>
-              Build Creative Skills That
+              Creating <span>Future Ready</span>
               <br />
-              Actually Matter
+              <strong>Pro&apos;s</strong>
             </h1>
             <p>
-              Learn editing, content creation, and AI tools through real projects
+              <span>Learn editing, content creation, and AI tools</span> through real projects
               <br />
               and hands-on sessions designed for the industry.
             </p>

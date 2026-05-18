@@ -4,6 +4,7 @@ import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
 import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
+import LiquidVideoControlButton from "../LiquidVideoControlButton";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
@@ -479,6 +480,23 @@ export default function ApplyPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="videoSection" aria-label="Idea School video">
+        <video
+          id="applyHomePageVideo"
+          className="videoPoster"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-label="Idea School classroom video"
+        >
+          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
+        </video>
+        <div className="videoSectionShade" aria-hidden="true" />
+        <LiquidVideoControlButton targetId="applyHomePageVideo" />
       </section>
 
       <section className="programFaqContact" aria-label="FAQ and application form">

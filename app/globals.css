@@ -398,7 +398,7 @@ img {
   align-items: center;
   width: fit-content;
   margin-top: 6px;
-  padding: 0 18px 5px;
+  padding: 2px 8px 5px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 16px;
   background: linear-gradient(90deg, rgba(175, 82, 223, 0.25), rgba(68, 213, 255, 0.1));
@@ -3978,7 +3978,7 @@ img {
 
   .heroCopy h1 strong {
     margin: 2px 0 4px;
-    padding: 0 12px 4px;
+    padding: 4px 8px 6px;
     border-radius: 12px;
     font-size: 0.78em;
     line-height: 0.9;
@@ -4347,7 +4347,7 @@ img {
   .heroCopy h1 {
     width: 754px;
     height: auto;
-    min-height: 118px;
+    min-height: 0;
     max-width: none;
     font-family: var(--font-heading);
     font-size: 48px;
@@ -4363,7 +4363,7 @@ img {
     width: 680px;
     min-height: 48px;
     max-width: none;
-    margin-top: 20px;
+    margin-top: 18px;
     font-family: var(--font-subject);
     font-size: 20px;
     font-weight: 500;

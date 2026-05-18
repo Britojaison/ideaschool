@@ -1047,9 +1047,36 @@ img {
 }
 
 .programTag {
-  color: #9e55b6;
+  position: relative;
+  display: inline-block;
+  color: #dafd55;
   font-size: 17px;
-  font-weight: 800;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.programTag::before,
+.programTag::after {
+  position: absolute;
+  inset: -16px -24px -15px -22px;
+  z-index: -1;
+  border: 2px solid #dafd55;
+  border-radius: 55% 45% 48% 52% / 58% 44% 56% 42%;
+  content: "";
+  pointer-events: none;
+  transform: rotate(-2deg);
+}
+
+.programTag::after {
+  display: none;
+}
+
+.programTag span {
+  display: inline;
+}
+
+.programTag span+span::before {
+  content: " ";
 }
 
 .programHeroCopy h1 {
@@ -3272,6 +3299,8 @@ img {
     display: flex;
     flex-direction: column;
     gap: 34px;
+    width: min(100%, 720px);
+    margin-inline: auto;
   }
 
   .programHeroCopy {
@@ -3280,6 +3309,7 @@ img {
 
   .programHeroCard {
     order: 2;
+    align-self: center;
     max-width: 520px;
     padding-top: 0;
   }
@@ -7342,22 +7372,36 @@ img {
 
   .programEyebrowRow {
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     margin-bottom: 24px;
+    flex-wrap: nowrap;
   }
 
   .programPill {
     min-width: 0;
     min-height: 36px;
-    padding-inline: 16px;
-    font-size: 14px;
+    padding-inline: 14px;
+    font-size: 13px;
     flex-shrink: 0;
   }
 
   .programTag {
-    max-width: 260px;
-    font-size: 13px;
-    line-height: 1.25;
+    flex: 0 1 auto;
+    min-width: 0;
+    width: max-content;
+    max-width: none;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.18;
+  }
+
+  .programTag span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .programTag span+span::before {
+    content: "";
   }
 
   .programStats {
@@ -7834,8 +7878,17 @@ img {
     font-size: 15px;
   }
 
+  .programEyebrowRow {
+    gap: 10px;
+  }
+
+  .programPill {
+    padding-inline: 12px;
+    font-size: 12px;
+  }
+
   .programTag {
-    max-width: 14ch;
+    font-size: 11px;
   }
 
   .programHeroCopy h1 {

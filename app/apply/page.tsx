@@ -8,6 +8,7 @@ import LiquidVideoControlButton from "../LiquidVideoControlButton";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
+import ProofVideoCard from "./ProofVideoCard";
 
 const curriculum = [
   {
@@ -191,13 +192,34 @@ const clientStories = [
 ];
 
 const proofVideos = [
-  "1C_pNZX6H0VqsNgEKLIeJ3mS5TMMKn5nY",
-  "18wmbXnEyi3KrOVZtPN5NeT5BB6fpNE47",
-  "183j_z6tVKFkZEuOuanpgOrBhC4hw6snS",
-  "18x8d4xKYCut7ZJKfmvOaUu8FUel40a6z",
-  "1rtT_rTPyuLeS9Aa4iArGyNsDD7w9SfPa",
-  "1O0-xtjtqIx07OMwinc6IABldk4b6SS84",
-  "1rjiIPU1G5RIK7dOS02ydymeGBoHDChGB",
+  {
+    src: "/images/proof-videos/student-feedback-1.mp4",
+    poster: "/images/proof-videos/student-feedback-1.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-2.mp4",
+    poster: "/images/proof-videos/student-feedback-2.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-3.mp4",
+    poster: "/images/proof-videos/student-feedback-3.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-4.mp4",
+    poster: "/images/proof-videos/student-feedback-4.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-5.mp4",
+    poster: "/images/proof-videos/student-feedback-5.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-6.mp4",
+    poster: "/images/proof-videos/student-feedback-6.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-7.mp4",
+    poster: "/images/proof-videos/student-feedback-7.jpg",
+  },
 ];
 
 const applyFaqs = [
@@ -299,6 +321,9 @@ export default function ApplyPage() {
                 muted
                 loop
                 playsInline
+                disablePictureInPicture
+                disableRemotePlayback
+                controlsList="nodownload noplaybackrate noremoteplayback"
                 preload="auto"
                 poster="/images/prajesh-poster.jpg"
                 aria-label="AI ad filmmaking workshop preview"
@@ -466,16 +491,9 @@ export default function ApplyPage() {
           </div>
 
           <div className="proofVideoRail" aria-label="Student video feedback">
-            {proofVideos.map((videoId, index) => (
-              <div className="proofVideoFrame" key={videoId}>
-                <iframe
-                  className="proofVideo"
-                  src={`https://drive.google.com/file/d/${videoId}/preview`}
-                  title={`Student video feedback ${index + 1}`}
-                  allow="autoplay; encrypted-media; fullscreen"
-                  allowFullScreen
-                  loading="lazy"
-                />
+            {proofVideos.map((video, index) => (
+              <div className="proofVideoFrame" key={video.src}>
+                <ProofVideoCard src={video.src} poster={video.poster} index={index} />
               </div>
             ))}
           </div>
@@ -490,6 +508,9 @@ export default function ApplyPage() {
           loop
           muted
           playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload noplaybackrate noremoteplayback"
           preload="metadata"
           aria-label="Idea School classroom video"
         >

@@ -1234,6 +1234,7 @@ img {
 
 .programHeroVideo {
   display: block;
+  pointer-events: none;
 }
 
 .videoMuteButton {
@@ -2332,14 +2333,112 @@ img {
   scroll-snap-align: start;
 }
 
-.proofVideo {
+.proofVideoPlayer,
+.proofVideoNative,
+.proofVideoOverlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1160px;
-  height: 650px;
+  inset: 0;
+}
+
+.proofVideoPlayer {
+  overflow: hidden;
+  background: #08070c;
+}
+
+.proofVideoNative {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   border: 0;
+  pointer-events: none;
+}
+
+.proofVideoOverlay {
+  background:
+    linear-gradient(180deg, rgba(5, 5, 8, 0.08), rgba(5, 5, 8, 0.28)),
+    radial-gradient(circle at 50% 50%, rgba(126, 74, 255, 0.16), rgba(5, 5, 8, 0.26) 58%);
+}
+
+.proofVideoAction {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #141119;
+  cursor: pointer;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
   transform: translate(-50%, -50%);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.proofVideoPlay {
+  position: absolute;
+  left: 31px;
+  top: 22px;
+  width: 0;
+  height: 0;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 23px solid currentColor;
+}
+
+.proofVideoPause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.proofVideoPause span {
+  width: 8px;
+  height: 30px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.proofVideoMute {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(15, 14, 20, 0.72);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.proofVideoMuteIcon {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
+.proofVideoAction:hover,
+.proofVideoAction:focus-visible {
+  background: #fff;
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.proofVideoAction:focus-visible,
+.proofVideoMute:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 3px;
 }
 
 @keyframes proofAutoScroll {
@@ -3213,6 +3312,25 @@ img {
   z-index: -2;
   object-fit: cover;
   object-position: center center;
+  pointer-events: none;
+}
+
+.videoPoster::-webkit-media-controls,
+.videoPoster::-webkit-media-controls-panel,
+.videoPoster::-webkit-media-controls-play-button,
+.videoPoster::-webkit-media-controls-timeline,
+.videoPoster::-webkit-media-controls-current-time-display,
+.videoPoster::-webkit-media-controls-time-remaining-display,
+.videoPoster::-webkit-media-controls-mute-button,
+.programHeroVideo::-webkit-media-controls,
+.programHeroVideo::-webkit-media-controls-panel,
+.programHeroVideo::-webkit-media-controls-play-button,
+.programHeroVideo::-webkit-media-controls-timeline,
+.programHeroVideo::-webkit-media-controls-current-time-display,
+.programHeroVideo::-webkit-media-controls-time-remaining-display,
+.programHeroVideo::-webkit-media-controls-mute-button {
+  display: none !important;
+  -webkit-appearance: none;
 }
 
 .videoSectionShade {
@@ -3229,6 +3347,7 @@ img {
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 2;
   padding: 0;
   border: 0;
   width: clamp(82px, 8vw, 118px);
@@ -3639,9 +3758,17 @@ img {
     height: min(102vw, 650px);
   }
 
-  .proofVideo {
-    width: calc(min(78vw, 500px) * 2.32);
-    height: min(102vw, 650px);
+  .proofVideoAction {
+    width: 68px;
+    height: 68px;
+  }
+
+  .proofVideoPlay {
+    left: 28px;
+    top: 20px;
+    border-top-width: 14px;
+    border-bottom-width: 14px;
+    border-left-width: 21px;
   }
 
   .proofCard {
@@ -4309,9 +4436,17 @@ img {
     border-radius: 14px;
   }
 
-  .proofVideo {
-    width: calc(min(86vw, 500px) * 2.32);
-    height: min(112vw, 650px);
+  .proofVideoAction {
+    width: 58px;
+    height: 58px;
+  }
+
+  .proofVideoPlay {
+    left: 24px;
+    top: 17px;
+    border-top-width: 12px;
+    border-bottom-width: 12px;
+    border-left-width: 18px;
   }
 
   .programFaqInner {
@@ -7563,7 +7698,7 @@ img {
     grid-template-columns: auto minmax(0, 1fr) auto;
     gap: clamp(6px, 1.8vw, 10px);
     min-height: 56px;
-    padding: 8px 10px;
+    padding: 8px 10px max(8px, env(safe-area-inset-bottom));
     text-align: center;
   }
 
@@ -7651,8 +7786,23 @@ img {
 
   .videoControlMount,
   .videoPauseIcon {
-    width: 78px;
-    height: 78px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .videoPauseIcon {
+    gap: 8px;
+  }
+
+  .videoPauseIcon span {
+    width: 8px;
+    height: 28px;
+  }
+
+  .videoPlayIcon {
+    border-top-width: 18px;
+    border-bottom-width: 18px;
+    border-left-width: 28px;
   }
 
   .feedback {

@@ -311,6 +311,9 @@ export default function Home() {
           loop
           muted
           playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload noplaybackrate noremoteplayback"
           preload="metadata"
           aria-label="Idea School classroom video"
         >

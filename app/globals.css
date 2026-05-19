@@ -1763,8 +1763,15 @@ img {
   overflow-wrap: anywhere;
 }
 
-.programBatchCta {
+.programBatchAction {
   justify-self: end;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.programBatchCta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1781,6 +1788,15 @@ img {
   text-align: center;
   white-space: nowrap;
   transition: transform 180ms ease, filter 180ms ease;
+}
+
+.programBatchSeats {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .programBatchCta:hover {
@@ -7708,6 +7724,14 @@ img {
     min-height: 32px;
     padding-inline: clamp(8px, 2.4vw, 12px);
     font-size: clamp(9px, 2.55vw, 12px);
+  }
+
+  .programBatchAction {
+    gap: 5px;
+  }
+
+  .programBatchSeats {
+    font-size: clamp(8px, 2.2vw, 10px);
   }
 
   .programBatchStrip p {

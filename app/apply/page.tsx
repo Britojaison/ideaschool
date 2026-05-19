@@ -586,9 +586,12 @@ export default function ApplyPage() {
       <div className="programBatchStrip" aria-label="Workshop batch announcement">
         <span className="programBatchBadge">New Batch</span>
         <p>AI-POWERED AD FILM MAKING</p>
-        <a className="programBatchCta" href="#enroll">
-          Book seat now
-        </a>
+        <div className="programBatchAction">
+          <a className="programBatchCta" href="#enroll">
+            Book seat now
+          </a>
+          <span className="programBatchSeats">Only 3 seats left</span>
+        </div>
       </div>
 
       <footer className="siteFooter">

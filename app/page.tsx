@@ -234,10 +234,10 @@ export default function Home() {
             <h1>
               Creating <span>Future Ready</span>
               <br />
-              <strong>Pro&apos;s</strong>
+              <strong>Pros</strong>
             </h1>
             <p>
-              <span>Learn editing, content creation, and AI tools</span> through real projects
+              <span>Learn editing, content creation, and AI tools</span> through real projects{" "}
               <br />
               and hands-on sessions designed for the industry.
             </p>

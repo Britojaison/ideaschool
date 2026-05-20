@@ -1599,6 +1599,13 @@ img {
   text-transform: uppercase;
 }
 
+.programNoticeAction {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  text-align: center;
+}
+
 .programNoticeBook {
   position: relative;
   display: flex;
@@ -1634,6 +1641,14 @@ img {
 .programNoticeBook span {
   position: relative;
   z-index: 1;
+}
+
+.programNoticeSeats {
+  color: #7a1d2a;
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .programNotice:hover .programNoticeBook {

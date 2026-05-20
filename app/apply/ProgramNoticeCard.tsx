@@ -62,8 +62,11 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
             Bangalore, HSR layout
           </span>
         </span>
-        <span className="programNoticeBook">
-          <span>Book Now</span>
+        <span className="programNoticeAction">
+          <span className="programNoticeBook">
+            <span>Book Now</span>
+          </span>
+          <span className="programNoticeSeats">Only 3 seats left</span>
         </span>
       </span>
     </a>

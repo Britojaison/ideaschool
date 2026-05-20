@@ -232,7 +232,7 @@ const applyFaqs = [
   {
     question: "What do I need to bring?",
     answer:
-      "No worries — we’ll provide one for you during the workshop.",
+      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session.No worries — we’ll provide one for you during the workshop.",
   },
   {
     question: "Is this workshop only for filmmakers?",

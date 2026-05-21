@@ -396,6 +396,21 @@ html.isHeroGlassCursorActive .hero * {
   filter: blur(0);
 }
 
+.longCourseOutcomes .longCourseIntro h2.scrollTextReveal,
+.longCourseOutcomes .longCourseIntro p.scrollTextReveal {
+  transform: translate3d(72px, 0, 0) scale(0.98);
+  transform-origin: right center;
+  transition:
+    opacity 900ms ease,
+    transform 980ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 900ms ease;
+}
+
+.longCourseOutcomes .longCourseIntro h2.scrollTextReveal.is-visible,
+.longCourseOutcomes .longCourseIntro p.scrollTextReveal.is-visible {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
 .heroCopy h1 {
   max-width: 850px;
   margin: 0;
@@ -494,6 +509,11 @@ html.isHeroGlassCursorActive .hero * {
   .heroCopy .heroInlineActions,
   .heroVisual,
   .heroActions,
+  .longCourseHeroCopy .programEyebrowRow,
+  .longCourseHeroCopy h1,
+  .longCourseHeroCopy>p,
+  .longCourseHeroCopy .programCta,
+  .longCourseStats,
   .scrollTextReveal {
     opacity: 1;
     transform: none;
@@ -2716,7 +2736,22 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .longCourseHero .siteHeader {
+  align-items: center;
+  gap: clamp(28px, 4vw, 56px);
+  min-height: 92px;
+  padding-block: 12px;
   border-bottom: 0;
+}
+
+.longCourseHero .brand {
+  width: clamp(82px, 6vw, 104px);
+  min-height: 50px;
+}
+
+.longCourseHero .brandLogo {
+  display: block;
+  max-height: 58px;
+  object-fit: contain;
 }
 
 .longCourseHero .siteHeader .headerCta {
@@ -2726,7 +2761,15 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .longCourseHero .desktopNav {
+  flex: 0 1 auto;
+  justify-content: flex-start;
+  gap: clamp(34px, 3.4vw, 58px);
   max-width: calc(100vw - var(--page-gutter) * 2 - 288px);
+  white-space: nowrap;
+}
+
+.longCourseHero .desktopNav a {
+  flex: 0 0 auto;
 }
 
 .longCoursePage .programPill {
@@ -2736,8 +2779,7 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow: 0 0 24px rgba(218, 253, 85, 0.22);
 }
 
-.longCoursePage .programTag,
-.longCoursePage .programFaqItem summary span {
+.longCoursePage .programTag {
   color: var(--course-green);
 }
 
@@ -2855,8 +2897,14 @@ html.isHeroGlassCursorActive .hero * {
 
 .longCoursePage .programFaqItem summary strong,
 .longCoursePage .programFaqItem p {
-  border-color: rgba(218, 253, 85, 0.22);
-  background: linear-gradient(180deg, rgba(42, 50, 18, 0.9), rgba(24, 28, 14, 0.9));
+  border-color: rgba(194, 130, 229, 0.22);
+  background: linear-gradient(180deg, rgba(36, 26, 48, 0.92), rgba(18, 13, 28, 0.92));
+}
+
+.longCoursePage .programFaqItem summary span {
+  border-color: rgba(194, 130, 229, 0.28);
+  background: rgba(22, 13, 34, 0.9);
+  color: #ffffff;
 }
 
 .longCourseHeroInner {
@@ -2874,6 +2922,46 @@ html.isHeroGlassCursorActive .hero * {
 
 .longCourseHeroCopy {
   max-width: 820px;
+}
+
+.longCourseHeroCopy .programEyebrowRow,
+.longCourseHeroCopy h1,
+.longCourseHeroCopy>p,
+.longCourseHeroCopy .programCta,
+.longCourseStats {
+  opacity: 0;
+  transform: translate3d(-72px, 0, 0);
+  filter: blur(9px);
+  animation: longCourseHeroContentIn 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform, filter;
+}
+
+.longCourseHeroCopy .programEyebrowRow {
+  animation-delay: 140ms;
+}
+
+.longCourseHeroCopy h1 {
+  animation-delay: 300ms;
+}
+
+.longCourseHeroCopy>p {
+  animation-delay: 500ms;
+}
+
+.longCourseHeroCopy .programCta {
+  animation-delay: 690ms;
+}
+
+.longCourseStats {
+  animation-delay: 860ms;
+}
+
+@keyframes longCourseHeroContentIn {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
 }
 
 .longCourseHeroCopy h1 {
@@ -2990,6 +3078,8 @@ html.isHeroGlassCursorActive .hero * {
 .longCourseSchedule,
 .longCourseMentors,
 .longCoursePortfolio,
+.longCourseDetails,
+.longCourseVoices,
 .longCourseFaq,
 .longCourseApply,
 .longCoursePage .siteFooter {
@@ -3022,6 +3112,89 @@ html.isHeroGlassCursorActive .hero * {
   pointer-events: none;
 }
 
+.longCourseScrollArrow {
+  --arrow-opacity: 0;
+  --arrow-clip-left: 100%;
+  --arrow-clip-right: 0%;
+  --arrow-shift: 0px;
+  position: absolute;
+  top: clamp(92px, 10vw, 142px);
+  left: min(62vw, 820px);
+  right: clamp(42px, 7vw, 112px);
+  z-index: 0;
+  width: auto;
+  min-width: 260px;
+  max-width: 470px;
+  height: 58px;
+  opacity: var(--arrow-opacity);
+  clip-path: inset(0 var(--arrow-clip-right) 0 var(--arrow-clip-left));
+  transform: translate3d(var(--arrow-shift), 0, 0);
+  transition: opacity 220ms linear, clip-path 220ms linear, transform 220ms linear;
+  pointer-events: none;
+}
+
+.longCourseScrollArrow span {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(175, 82, 223, 0.95), rgba(180, 255, 57, 0.72) 72%, rgba(180, 255, 57, 0));
+  box-shadow:
+    0 0 18px rgba(180, 255, 57, 0.28),
+    0 0 30px rgba(175, 82, 223, 0.24);
+  transform: translateY(-50%);
+}
+
+.longCourseScrollArrow span::before,
+.longCourseScrollArrow span::after {
+  position: absolute;
+  left: 0;
+  width: 34px;
+  height: 2px;
+  content: "";
+  border-radius: 999px;
+  background: #af52df;
+  box-shadow: 0 0 18px rgba(175, 82, 223, 0.45);
+  transform-origin: left center;
+}
+
+.longCourseScrollArrow span::before {
+  transform: rotate(36deg);
+}
+
+.longCourseScrollArrow span::after {
+  transform: rotate(-36deg);
+}
+
+.outcomesArjunPortrait {
+  position: absolute;
+  top: clamp(-42px, -2.5vw, -18px);
+  right: clamp(18px, 4vw, 64px);
+  z-index: 0;
+  width: clamp(240px, 22vw, 380px);
+  aspect-ratio: 1700 / 2500;
+  filter: drop-shadow(0 26px 54px rgba(0, 0, 0, 0.48));
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+.outcomesArjunPortrait::after {
+  content: none;
+}
+
+.outcomesArjunImage {
+  object-fit: contain;
+  object-position: center bottom;
+  filter: saturate(1.02) contrast(1.06);
+}
+
+.longCourseOutcomes .longCourseIntro,
+.longCourseOutcomes .outcomeGrid {
+  position: relative;
+  z-index: 1;
+}
+
 .rogMonitorHero3D {
   position: absolute;
   top: -44px;
@@ -3049,19 +3222,6 @@ html.isHeroGlassCursorActive .hero * {
   will-change: transform, opacity;
   mix-blend-mode: normal;
   isolation: isolate;
-}
-
-.longCourseFloatingModel3D.rogMonitorHero3D::after {
-  position: absolute;
-  inset: 10% -12% 8%;
-  z-index: -1;
-  content: "";
-  background:
-    radial-gradient(circle at 58% 36%, rgba(180, 255, 57, 0.2), transparent 34%),
-    radial-gradient(circle at 44% 50%, rgba(139, 92, 255, 0.28), transparent 46%);
-  filter: blur(34px);
-  opacity: 0.78;
-  pointer-events: none;
 }
 
 .rogMonitorHero3D::before {
@@ -3660,6 +3820,230 @@ html.isHeroGlassCursorActive .hero * {
 .longCoursePortfolio {
   padding: 74px var(--apply-section-x);
   background: #08070c;
+}
+
+.longCourseDetails {
+  position: relative;
+  overflow: hidden;
+  padding: 78px var(--apply-section-x) 92px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(218, 253, 85, 0.12), transparent 28%),
+    radial-gradient(circle at 92% 72%, rgba(128, 86, 251, 0.15), transparent 32%),
+    linear-gradient(rgba(218, 253, 85, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(218, 253, 85, 0.04) 1px, transparent 1px),
+    #0a0b0d;
+  background-size: auto, auto, 34px 34px, 34px 34px, auto;
+}
+
+.detailsGlanceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+  align-items: center;
+  gap: clamp(20px, 3.4vw, 44px);
+}
+
+.detailsPanel {
+  border: 1px solid rgba(218, 253, 85, 0.24);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 34%),
+    linear-gradient(180deg, rgba(26, 21, 35, 0.94), rgba(10, 10, 14, 0.94));
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.programGlancePanel {
+  padding: clamp(22px, 3.2vw, 42px);
+}
+
+.detailsPanel h2 {
+  margin: 28px 0 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.8vw, 3.7rem);
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.programDetailTable {
+  display: grid;
+  margin: 34px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.programDetailTable div {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.36fr) minmax(0, 1fr);
+  min-height: 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.programDetailTable div:last-child {
+  border-bottom: 0;
+}
+
+.programDetailTable dt,
+.programDetailTable dd {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 15px 18px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.programDetailTable dt {
+  background: rgba(218, 253, 85, 0.09);
+  color: #fff;
+  font-weight: 900;
+}
+
+.programDetailTable dd {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 650;
+}
+
+.enrollmentPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+  padding: clamp(24px, 3.5vw, 44px);
+  text-align: center;
+}
+
+.feeCallout {
+  display: grid;
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.feeCallout span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.feeCallout strong {
+  color: var(--course-green);
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 28px rgba(218, 253, 85, 0.2);
+}
+
+.feeCallout p {
+  max-width: 480px;
+  margin: 8px auto 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 16px;
+  line-height: 1.48;
+}
+
+.enrollmentChecklist {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  margin-top: 34px;
+}
+
+.enrollmentChecklist p {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.84);
+  text-align: left;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.enrollmentChecklist span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--course-green);
+  color: #08070c;
+  font-size: 17px;
+  font-weight: 950;
+}
+
+.enrollmentCta {
+  margin-top: 30px;
+}
+
+.longCourseVoices {
+  position: relative;
+  overflow: hidden;
+  padding: 78px var(--apply-section-x) 92px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(218, 253, 85, 0.1), transparent 28%),
+    radial-gradient(circle at 86% 72%, rgba(128, 86, 251, 0.18), transparent 36%),
+    linear-gradient(rgba(218, 253, 85, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(218, 253, 85, 0.035) 1px, transparent 1px),
+    #08070c;
+  background-size: auto, auto, 34px 34px, 34px 34px, auto;
+}
+
+.voicesIntro {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.voicesIntro h2 {
+  max-width: 980px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.voicesIntro p {
+  max-width: 720px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 17px;
+  line-height: 1.48;
+}
+
+.courseVoiceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  width: min(100%, 980px);
+  margin: 48px auto 0;
+}
+
+.courseVoiceFrame.proofVideoFrame {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  min-height: 0;
+  border-color: rgba(194, 130, 229, 0.28);
+  border-radius: 14px;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.32),
+    0 0 34px rgba(128, 86, 251, 0.12);
+  scroll-snap-align: none;
 }
 
 .portfolioGrid {
@@ -4969,6 +5353,15 @@ html.isHeroGlassCursorActive .hero * {
     margin: -8px auto 0;
   }
 
+  .detailsGlanceGrid {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .enrollmentPanel {
+    min-height: 0;
+  }
+
   .longCourseStats {
     order: 3;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4982,6 +5375,13 @@ html.isHeroGlassCursorActive .hero * {
 
   .longCourseHeroCopy h1>span {
     font-size: clamp(1.35rem, 4.2vw, 2rem);
+  }
+
+  .longCourseScrollArrow {
+    top: 104px;
+    right: 20px;
+    width: min(38vw, 280px);
+    opacity: calc(var(--arrow-opacity) * 0.72);
   }
 
   .rogMonitorHero3D {
@@ -5119,6 +5519,19 @@ html.isHeroGlassCursorActive .hero * {
     height: auto;
     gap: clamp(24px, 2.2vw, 40px);
     margin-left: clamp(36px, 6vw, 86px);
+  }
+
+  .longCourseHero .desktopNav {
+    position: static;
+    display: flex;
+    flex: 0 1 auto;
+    gap: clamp(28px, 3.2vw, 48px);
+    height: auto;
+    margin-left: 0;
+  }
+
+  .longCourseHero .desktopNav a {
+    width: auto;
   }
 
   .programHero .headerCta {
@@ -8874,6 +9287,19 @@ html.isHeroGlassCursorActive .hero * {
     padding-bottom: 66px;
   }
 
+  .longCourseScrollArrow {
+    display: none;
+  }
+
+  .outcomesArjunPortrait {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 260px);
+    margin: 0 0 28px auto;
+    opacity: 0.86;
+  }
+
   .rogMonitorHero3D {
     position: relative;
     top: auto;
@@ -8910,7 +9336,9 @@ html.isHeroGlassCursorActive .hero * {
 
   .longCourseSchedule,
   .longCourseMentors,
-  .longCoursePortfolio {
+  .longCoursePortfolio,
+  .longCourseDetails,
+  .longCourseVoices {
     padding-top: 58px;
     padding-bottom: 58px;
   }
@@ -8919,8 +9347,29 @@ html.isHeroGlassCursorActive .hero * {
   .standOutIntro h2,
   .standOutPrinciples h3,
   .portfolioPanel h2,
+  .detailsPanel h2,
+  .voicesIntro h2,
   .longCourseApplyInner h2 {
     font-size: clamp(1.95rem, 9vw, 2.7rem);
+  }
+
+  .courseVoiceGrid {
+    grid-template-columns: 1fr;
+    width: min(100%, 360px);
+    gap: 18px;
+    margin-top: 34px;
+  }
+
+  .programDetailTable div {
+    grid-template-columns: 1fr;
+  }
+
+  .programDetailTable dt {
+    padding-bottom: 6px;
+  }
+
+  .programDetailTable dd {
+    padding-top: 6px;
   }
 
   .outcomeGrid {

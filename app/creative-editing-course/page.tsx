@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import DecryptedText from "../DecryptedText";
+import ProofVideoCard from "../apply/ProofVideoCard";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
 import LazyCurriculumDotField from "./LazyCurriculumDotField";
 import RogMonitorHero3D from "./RogMonitorHero3D";
+import ScrollFadeArrow from "./ScrollFadeArrow";
 import StandOutSection from "./StandOutSection";
 
 export const metadata: Metadata = {
@@ -224,6 +226,38 @@ const tools = [
   "HeyGen",
 ];
 
+const programDetails = [
+  { label: "Duration", value: "24 Weeks" },
+  { label: "Core Training", value: "12 Weeks" },
+  { label: "Internship", value: "12 Weeks" },
+  { label: "Mode", value: "Studio-led practical program" },
+  { label: "Schedule", value: "Weekly recorded, offline, query, task, and feedback rhythm" },
+  { label: "Outcome", value: "Portfolio + placement assistance eligibility" },
+  { label: "Portfolio", value: "Website, cohort brochure, edited shoot sets, and campaign assets" },
+  { label: "Tools", value: "Premiere Pro, Photoshop, After Effects, AI tools, Framer, and Figma" },
+];
+
+const enrollmentBenefits = [
+  "Talk to the team and check whether the program fits your goals",
+  "Understand batch availability, fee structure, and admission steps",
+  "Reserve a seat only after your program fit is clear",
+];
+
+const studentVoiceVideos = [
+  {
+    src: "/images/proof-videos/student-feedback-1.mp4",
+    poster: "/images/proof-videos/student-feedback-1.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-2.mp4",
+    poster: "/images/proof-videos/student-feedback-2.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-3.mp4",
+    poster: "/images/proof-videos/student-feedback-3.jpg",
+  },
+];
+
 const faqs = [
   {
     question: "Who is this course for?",
@@ -329,6 +363,18 @@ export default function CreativeEditingCoursePage() {
 
       <section className="longCourseOutcomes" aria-label="Course outcomes">
         <div className="longCourseSectionInner">
+          <ScrollFadeArrow />
+          <div className="outcomesArjunPortrait" aria-hidden="true">
+            <Image
+              src="/images/ARJUN - MAIN PAGE (ABOUT SECTION).png"
+              alt=""
+              fill
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 900px) 260px, 340px"
+              className="outcomesArjunImage"
+            />
+          </div>
           <div className="longCourseIntro">
             <span className="sectionPill">What You Build</span>
             <h2>Graduate With Work That Shows Your Range</h2>
@@ -495,6 +541,65 @@ export default function CreativeEditingCoursePage() {
                 <span key={tool}>{tool}</span>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="longCourseDetails" aria-label="Program details and enrollment">
+        <div className="longCourseSectionInner detailsGlanceGrid">
+          <article className="detailsPanel programGlancePanel">
+            <span className="sectionPill">Key Program Highlights</span>
+            <h2>Program Details At A Glance</h2>
+            <dl className="programDetailTable">
+              {programDetails.map((item) => (
+                <div key={item.label}>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </article>
+
+          <article className="detailsPanel enrollmentPanel">
+            <span className="sectionPill">Admission & Enrollment</span>
+            <h2>Fees And Enrollment</h2>
+            <div className="feeCallout">
+              <span>Program fee</span>
+              <strong>Shared after counseling</strong>
+              <p>Seats are limited so every learner gets attention, feedback, and room to practice.</p>
+            </div>
+            <div className="enrollmentChecklist">
+              {enrollmentBenefits.map((benefit) => (
+                <p key={benefit}>
+                  <span aria-hidden="true">✓</span>
+                  {benefit}
+                </p>
+              ))}
+            </div>
+            <Link className="primaryCta programCta enrollmentCta" href="/#contact">
+              <span className="primaryCtaText">Talk to Idea School</span>
+            </Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="longCourseVoices" aria-label="Student video testimonials">
+        <div className="longCourseSectionInner">
+          <div className="voicesIntro">
+            <span className="sectionPill">Student Voices</span>
+            <h2>What Students Say After The Program</h2>
+            <p>
+              Real student feedback from hands-on sessions, practical guidance, and the
+              confidence that comes from building with mentors.
+            </p>
+          </div>
+
+          <div className="courseVoiceGrid">
+            {studentVoiceVideos.map((video, index) => (
+              <div className="proofVideoFrame courseVoiceFrame" key={video.src}>
+                <ProofVideoCard src={video.src} poster={video.poster} index={index} />
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -307,7 +307,6 @@ function MonitorScene({ scrollZigZag = false }: Pick<RogMonitorHero3DProps, "scr
   return (
     <>
       <CinematicLighting />
-      <GlowAtmosphere />
       <Bounds fit clip observe margin={1.12}>
         <AnimatedMonitorModel scrollZigZag={scrollZigZag} />
       </Bounds>

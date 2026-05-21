@@ -14,7 +14,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-const MODEL_PATH = "/models/frontman-web.glb";
+const MODEL_PATH = "/images/3d model/FrontMan_web.glb";
 
 type RogMonitorHero3DProps = {
   className?: string;
@@ -347,10 +347,15 @@ export default function RogMonitorHero3D({
     }
 
     let animationFrame = 0;
+    let lastFrameTime = performance.now();
+    const currentMotion = {
+      x: 0,
+      y: 0,
+      scale: window.innerWidth < 700 ? 1.08 : 1.22,
+    };
+    const targetMotion = { ...currentMotion };
 
-    const updateTravel = () => {
-      animationFrame = 0;
-
+    const updateTargetTravel = () => {
       if (!wrapperRef.current) {
         return;
       }
@@ -404,20 +409,44 @@ export default function RogMonitorHero3D({
       const scrolledScale = window.innerWidth < 700 ? 0.76 : 0.72;
       const modelScale = THREE.MathUtils.lerp(heroScale, scrolledScale, shrinkProgress);
 
-      wrapperRef.current.style.setProperty("--model-page-x", `${sectionTravelX}px`);
-      wrapperRef.current.style.setProperty("--model-page-y", `${verticalDrift}px`);
-      wrapperRef.current.style.setProperty("--model-page-scale", `${modelScale}`);
+      targetMotion.x = sectionTravelX;
+      targetMotion.y = verticalDrift;
+      targetMotion.scale = modelScale;
+    };
+
+    const renderTravel = (time: number) => {
+      if (!wrapperRef.current) {
+        animationFrame = 0;
+        return;
+      }
+
+      const delta = Math.min((time - lastFrameTime) / 1000, 0.08);
+      lastFrameTime = time;
+
+      currentMotion.x = THREE.MathUtils.damp(currentMotion.x, targetMotion.x, 1.25, delta);
+      currentMotion.y = THREE.MathUtils.damp(currentMotion.y, targetMotion.y, 1.35, delta);
+      currentMotion.scale = THREE.MathUtils.damp(currentMotion.scale, targetMotion.scale, 1.45, delta);
+
+      wrapperRef.current.style.setProperty("--model-page-x", `${currentMotion.x}px`);
+      wrapperRef.current.style.setProperty("--model-page-y", `${currentMotion.y}px`);
+      wrapperRef.current.style.setProperty("--model-page-scale", `${currentMotion.scale}`);
+
+      animationFrame = window.requestAnimationFrame(renderTravel);
     };
 
     const requestTravelUpdate = () => {
+      updateTargetTravel();
+
       if (animationFrame) {
         return;
       }
 
-      animationFrame = window.requestAnimationFrame(updateTravel);
+      lastFrameTime = performance.now();
+      animationFrame = window.requestAnimationFrame(renderTravel);
     };
 
-    updateTravel();
+    updateTargetTravel();
+    requestTravelUpdate();
     window.addEventListener("scroll", requestTravelUpdate, { passive: true });
     window.addEventListener("resize", requestTravelUpdate);
 

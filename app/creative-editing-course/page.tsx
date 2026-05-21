@@ -5,6 +5,7 @@ import DecryptedText from "../DecryptedText";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
 import LazyCurriculumDotField from "./LazyCurriculumDotField";
+import RogMonitorHero3D from "./RogMonitorHero3D";
 import StandOutSection from "./StandOutSection";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 const course = {
   eyebrow: "24-week career program",
   title: "Creative Editing & AI Pro Course",
-  accent: "Build editor-ready craft, AI speed, and a real portfolio.",
+  accent: "Build editor-ready craft, AI speed,\nand a real portfolio.",
   description:
     "A studio-led program for students, creators, designers, and career switchers who want to learn Premiere Pro, Photoshop, After Effects, sound design, AI tools, portfolio creation, and brand-ready production workflows.",
   heroImage: "/images/Hero 6.png",
@@ -251,6 +252,7 @@ export default function CreativeEditingCoursePage() {
   return (
     <main className="longCoursePage">
       <ScrollTextReveal />
+      <RogMonitorHero3D className="longCourseFloatingModel3D" scrollZigZag travelAcrossPage />
 
       <section className="longCourseHero" aria-label={course.title}>
         <div className="longCourseHeroMedia">
@@ -311,16 +313,7 @@ export default function CreativeEditingCoursePage() {
           </div>
 
           <aside className="longCourseHeroCard" aria-label="Course preview">
-            <div className="longCourseImageWrap">
-              <Image
-                src={course.heroImage}
-                alt="Idea School creative editing course"
-                fill
-                priority
-                sizes="(max-width: 980px) 100vw, 420px"
-                className="longCourseImage"
-              />
-            </div>
+            <div className="longCourseHeroModelSpace" aria-hidden="true" />
           </aside>
 
           <dl className="programStats longCourseStats">

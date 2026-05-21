@@ -385,10 +385,12 @@ export default function DecryptedText({
       <span aria-hidden="true">
         {displayText.split("").map((char, index) => {
           const isRevealedOrDone = revealedIndices.has(index) || (!isAnimating && isDecrypted);
+          const textClassName = isRevealedOrDone ? className : encryptedClassName;
+          const charClassName = char === " " ? `${textClassName} decryptedSpace`.trim() : textClassName;
 
           return (
-            <span key={`${char}-${index}`} className={isRevealedOrDone ? className : encryptedClassName}>
-              {char}
+            <span key={`${char}-${index}`} className={charClassName}>
+              {char === " " ? "\u00a0" : char}
             </span>
           );
         })}

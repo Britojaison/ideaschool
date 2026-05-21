@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
+import HeroFluidGlassCursor from "./HeroFluidGlassCursor";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
@@ -138,20 +139,20 @@ function BrandLogo({ brand }: { brand: Brand }) {
 
 const workshops = [
   {
-    title: "Performance Marketing",
-    description: "Learn how content drives growth and results.",
+    title: "Performance Marketing Lab",
+    description: "Understand how strategy, content, and numbers work together to turn attention into measurable growth.",
     image: "/images/359586b8b594b653726bbda2883862b8a820e37b.jpg",
     comingSoon: true,
   },
   {
     title: "AI AD FILM MAKING MASTERCLASS",
-    description: "Learn editing, content, and AI tools through real-world projects.",
+    description: "Create campaign-ready ad films with editing, storytelling, AI workflows, and mentor feedback built into every step.",
     image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.jpg",
     href: "/apply",
   },
   {
     title: "Advanced Content Systems",
-    description: "Build scalable content workflows and strategies.",
+    description: "Build repeatable content systems for brands, creators, and businesses that need consistency, speed, and quality.",
     image: "/images/c988e78cfada134657e808cfb29a0523e125dde8.jpg",
     comingSoon: true,
   },
@@ -159,16 +160,16 @@ const workshops = [
 
 const notCourseFeatures = [
   {
-    title: "Studio-Led Training",
+    title: "Studio-Led Learning",
     description:
-      "Learn through guided sessions, creator breakdowns, feedback loops, and practical assignments that mirror real content work.",
+      "Every session is shaped around how creative work actually happens: briefs, references, execution, revisions, feedback, and final delivery.",
     image: "/images/DSC01109.JPG",
     accent: "violet",
   },
   {
-    title: "Real Brand Practice",
+    title: "Portfolio-Focused Practice",
     description:
-      "Move from classroom tasks into portfolio-ready briefs, shoots, edits, and campaigns shaped by real market expectations.",
+      "You do not leave with only notes. You build work, sharpen your taste, and develop pieces that show what you can actually do.",
     image: "/images/DSC01035.JPG",
     accent: "blue",
   },
@@ -176,24 +177,24 @@ const notCourseFeatures = [
 
 const notCoursePillars = [
   {
-    title: "Pulse",
+    title: "Market Pulse",
     description:
-      "Stay current with culture, trends, platforms, and brand moments so your ideas feel relevant in the real world.",
+      "Learn to read trends, platforms, brand behavior, and audience signals so your ideas feel current instead of copied.",
   },
   {
-    title: "Creator Mindset",
+    title: "Creative Decision-Making",
     description:
-      "Build the habit of observing, scripting, testing, improving, and presenting your work with clarity.",
+      "Develop the habit of choosing stronger hooks, clearer edits, sharper visuals, and better story flow with intention.",
   },
   {
-    title: "Production Fitness",
+    title: "Production Confidence",
     description:
-      "Practice the daily discipline of shooting, editing, planning, and managing timelines without losing creative quality.",
+      "Practice planning, shooting, editing, and delivering work within real constraints without losing creative quality.",
   },
   {
-    title: "Case Room",
+    title: "Brand Thinking",
     description:
-      "Decode campaigns, creator pages, brand decisions, and content systems to understand why some work performs.",
+      "Decode campaigns, creator pages, and brand choices so you understand why some content earns attention and trust.",
   },
 ];
 
@@ -204,6 +205,7 @@ export default function Home() {
 
       <section className="hero" id="hero" aria-label="Idea School hero">
         <div className="heroMedia" />
+        <HeroFluidGlassCursor />
 
         <div className="heroShade" />
 
@@ -225,24 +227,24 @@ export default function Home() {
             <a href="#contact">Contact</a>
           </nav>
           <Link className="headerCta" href="/apply">
-            <span className="headerCtaText">Book your class</span>
+            <span className="headerCtaText">Book a seat</span>
           </Link>
         </header>
 
         <div className="heroContent">
           <div className="heroCopy">
             <h1>
-              Creating <span>Future Ready</span>
+              Become <span>Industry Ready</span>
               <br />
-              <strong>Pros</strong>
+              <strong>Creator</strong>
             </h1>
             <p>
-              <span>Learn editing, content creation, and AI tools</span> through real projects{" "}
+              <span>Learn editing, ad filmmaking, content strategy, and AI tools</span> through guided projects{" "}
               <br />
-              and hands-on sessions designed for the industry.
+              designed to help you think, create, and present like a working professional.
             </p>
             <Link className="primaryCta" href="/apply">
-              <span className="primaryCtaText">Apply Now</span>
+              <span className="primaryCtaText">Start building</span>
             </Link>
             <div className="heroInlineActions">
               <LiquidBatchNotice />
@@ -256,7 +258,7 @@ export default function Home() {
 
       <section className="brands" aria-labelledby="brand-partners-title">
         <h2 className="brandsTitle" id="brand-partners-title">
-          We have worked with 150+ Brands
+          Learn from a team shaped by real brand work
         </h2>
         <div className="brandLogos">
           {brands.map((brand) => (
@@ -327,10 +329,10 @@ export default function Home() {
 
       <section className="feedback" id="testimonials" aria-label="Student feedback">
         <div className="feedbackIntro">
-          <h2>Real Feedback From Our Students</h2>
+          <h2>Proof From People Who Chose To Build</h2>
           <p>
-            Honest feedback from learners who experienced our training and built
-            real skills through hands-on projects.
+            Students come in with curiosity, half-finished ideas, or no clear direction.
+            They leave with sharper skills, stronger confidence, and work they can talk about.
           </p>
         </div>
 
@@ -352,33 +354,34 @@ export default function Home() {
           <div className="whyIdeaCopy">
             <span className="sectionPill">Why Idea School</span>
             <h2>
-              We build creators
+              Built for people who
               <br />
-              ready for the real world
+              want real creative skill
             </h2>
             <p className="whyIdeaDescription">
-              Idea School focuses on practical learning that goes beyond
-              theory. Our programs are designed to help students understand real
-              workflows, work on meaningful projects, and build skills that are
-              actually used in the industry.
+              Idea School is for learners who do not want another passive class.
+              The program is built around doing the work: understanding briefs,
+              creating content, editing with purpose, using AI practically, and
+              improving through feedback.
               <br /><br />
-              From editing and content creation to AI tools and digital systems,
-              we guide students through a structured learning process that
-              prepares them for real opportunities.
+              What makes it different is the environment. You learn inside a
+              studio-style process, see how professionals make decisions, and
+              build the kind of creative judgement that helps you stand out in a
+              crowded market.
             </p>
-            <p>For collaborations or queries, reach out to us directly.</p>
+            <p>For batch details, collaborations, or queries, reach out to us directly.</p>
 
             <div className="whyStats" role="list" aria-label="Idea School results">
               <div>
-                <p className="whyStatLabel">Projects Completed</p>
+                <p className="whyStatLabel">Creative Projects</p>
                 <p className="whyStatValue">100+</p>
               </div>
               <div>
-                <p className="whyStatLabel">Brands Collaborated</p>
+                <p className="whyStatLabel">Brand Collaborations</p>
                 <p className="whyStatValue">100+</p>
               </div>
               <div>
-                <p className="whyStatLabel">Tools &amp; Skills Covered</p>
+                <p className="whyStatLabel">Tools, Systems &amp; Skills</p>
                 <p className="whyStatValue">20+</p>
               </div>
             </div>
@@ -388,13 +391,12 @@ export default function Home() {
 
       <section className="mentors" aria-label="Idea School mentors">
         <div className="mentorsIntro">
-          <h2>Learn From People Who Do It For Real</h2>
+          <h2>Learn From People Who Work In The Field</h2>
           <p>
-            Our mentors are active creators, editors, and strategists working in
-            the industry.
+            Our mentors are active creators, editors, and strategists who understand
+            what clients, audiences, and platforms expect.
             <br />
-            Learn directly from people who build, create, and
-            deliver real results.
+            You learn the craft, the thinking, and the decisions behind professional work.
           </p>
         </div>
 
@@ -405,12 +407,12 @@ export default function Home() {
         <div className="notCourseInner">
           <div className="notCourseHeader">
             <h2>
-              Not Just a <em>Course</em>
+              More Than a <em>Course</em>
             </h2>
             <p>
-              Idea School is built around growth beyond lessons. You learn the
-              craft, practice it in real situations, and build the habits needed
-              to show up like a working creator.
+              The goal is not to simply finish a syllabus. The goal is to help
+              you become someone who can take an idea, shape it, execute it,
+              improve it, and explain it with confidence.
             </p>
           </div>
 
@@ -454,8 +456,8 @@ export default function Home() {
             <div className="faqIntro">
               <h2>Frequently Asked Questions</h2>
               <p>
-                Find answers to common questions about the program. Still
-                unsure? Feel free to contact us.
+                A few things worth knowing before you decide whether this is the
+                right creative environment for you.
               </p>
             </div>
 
@@ -464,19 +466,19 @@ export default function Home() {
                 {
                   question: "Do I need prior experience to join?",
                   answer:
-                    "No, the program is designed for beginners as well as those with basic knowledge. We start from the fundamentals and gradually move to advanced concepts.",
+                    "No. The program is designed for serious beginners as well as people with basic creative experience. We start with fundamentals, then move into projects, feedback, and more advanced workflows.",
                   open: false,
                 },
                 {
-                  question: "What will I learn in this program?",
+                  question: "What makes this different from watching tutorials?",
                   answer:
-                    "You will learn content planning, shooting basics, editing workflows, creative thinking, AI tools, and how to build content that works for brands, businesses, and your own portfolio.",
+                    "Tutorials can show steps. This program gives you structure, deadlines, guided practice, feedback, peer energy, and a studio-style process so you learn how to make better creative decisions.",
                   open: false,
                 },
                 {
                   question: "Is this program online or offline?",
                   answer:
-                    "The program is conducted offline with hands-on sessions, mentor guidance, and practical activities so you can learn by doing and get direct feedback.",
+                    "The program is conducted offline with hands-on sessions, mentor guidance, and practical activities so you can learn by doing, ask questions, and get direct feedback.",
                   open: false,
                 },
                 {
@@ -486,9 +488,9 @@ export default function Home() {
                   open: false,
                 },
                 {
-                  question: "Will I get a certificate after completion?",
+                  question: "What should I expect to leave with?",
                   answer:
-                    "Yes, you will receive a certificate after successfully completing the program and participating in the required practical sessions and project work.",
+                    "You should leave with stronger fundamentals, practical AI and editing workflows, clearer creative thinking, mentor feedback, and work you can use to show your capability.",
                   open: false,
                 },
               ].map((item) => (
@@ -509,13 +511,13 @@ export default function Home() {
         <div className="contactInner">
           <div className="contactCopy">
             <h2>
-              Ready to start your creative journey?
+              Ready to take your creative work seriously?
               <br />
-              Contact us.
+              Talk to us.
             </h2>
             <p>
-              Join Idea School and start learning editing, content creation, and
-              AI tools through real projects and hands-on sessions.
+              Tell us where you are starting from. We will help you understand
+              the batch, the learning path, and whether the program fits your goals.
             </p>
           </div>
 
@@ -543,21 +545,21 @@ export default function Home() {
               <textarea name="message" rows={4} />
             </label>
             <button type="submit">Apply now</button>
-            <p>Limited seats available for the upcoming batch.</p>
+            <p>Seats are limited so every learner gets attention, feedback, and room to practice.</p>
           </form>
         </div>
       </section>
 
       <footer className="siteFooter">
         <div className="footerInner">
-          <p>Idea School is where you build real skills for the creative industry.</p>
+          <p>Idea School is where creative learners become sharper, more confident, and more industry-ready.</p>
 
           <nav className="footerLinks" aria-label="Footer navigation">
             <div>
               <h2>Program</h2>
               <a href="#training">Training</a>
               <a href="#training">Workshops</a>
-              <Link href="/apply">Get early bird pass now</Link>
+              <Link href="/apply">Check batch availability</Link>
             </div>
             <div>
               <h2>Company</h2>

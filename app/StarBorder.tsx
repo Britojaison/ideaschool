@@ -1,4 +1,4 @@
-import type { ElementType, HTMLAttributes, ReactNode } from "react";
+import { createElement, type ElementType, type HTMLAttributes, type ReactNode } from "react";
 import "./StarBorder.css";
 
 type StarBorderProps = HTMLAttributes<HTMLElement> & {
@@ -11,7 +11,7 @@ type StarBorderProps = HTMLAttributes<HTMLElement> & {
 };
 
 export default function StarBorder({
-  as: Component = "button",
+  as,
   className = "",
   color = "white",
   speed = "6s",
@@ -20,15 +20,19 @@ export default function StarBorder({
   style,
   ...rest
 }: StarBorderProps) {
-  return (
-    <Component
-      className={`star-border-container ${className}`}
-      style={{
+  const Component = (as ?? "button") as ElementType;
+
+  return createElement(
+    Component,
+    {
+      className: `star-border-container ${className}`,
+      style: {
         padding: `${thickness}px 0`,
         ...style,
-      }}
-      {...rest}
-    >
+      },
+      ...rest,
+    },
+    <>
       <div
         className="border-gradient-bottom"
         style={{
@@ -44,6 +48,6 @@ export default function StarBorder({
         }}
       />
       <div className="inner-content">{children}</div>
-    </Component>
+    </>,
   );
 }

@@ -27,15 +27,15 @@ const testimonials: Testimonial[] = [
     profileImage: "/images/MANJUNATH HEGDE - PROFILE.png",
     workImage: "/images/WORK 2.png",
     quote:
-      "This workshop filled the market gap for hands-on AI training perfectly. Loved the interactive vibe",
+      "This workshop filled the market gap for hands-on AI training perfectly. Loved the interactive vibe.",
   },
   {
-    name: "",
+    name: "IDEA SCHOOL STUDENT",
     role: "Workshop participant",
     profileImage: "/images/PROFILE.png",
     workImage: "/images/WORK.png",
     quote:
-      "Skipping my travel plans for this offline training was worth it. Excellent creative guidance ideas",
+      "Skipping my travel plans for this offline training was worth it. The creative guidance was excellent.",
   },
 ];
 

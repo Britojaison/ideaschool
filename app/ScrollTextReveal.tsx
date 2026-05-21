@@ -3,6 +3,22 @@
 import { useEffect } from "react";
 
 const revealSelector = [
+  "main h1",
+  "main h2",
+  "main h3",
+  "main h4",
+  "main h5",
+  "main h6",
+  "main p",
+  "main li",
+  "main dt",
+  "main dd",
+  "main blockquote",
+  "main figcaption",
+  "main summary",
+  "main label",
+  "main legend",
+  "main small",
   ".workshopCardCopy h3",
   ".workshopCardCopy p",
   ".worksMeta p",
@@ -42,11 +58,31 @@ const revealSelector = [
   ".siteFooter > strong",
 ].join(", ");
 
+const excludedRevealSelector = [
+  ".hero",
+  ".siteHeader",
+  ".desktopNav",
+  ".quickActions",
+  ".mobileHeaderActions",
+  ".heroFluidGlassLayer",
+  "canvas",
+  "svg",
+  "button",
+  "input",
+  "select",
+  "textarea",
+  "[aria-hidden='true']",
+].join(", ");
+
 export default function ScrollTextReveal() {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const revealItems = Array.from(
-      document.querySelectorAll<HTMLElement>(revealSelector),
+    const revealItems = Array.from(document.querySelectorAll<HTMLElement>(revealSelector)).filter(
+      (item, index, items) => {
+        if (!item.textContent?.trim()) return false;
+        if (item.closest(excludedRevealSelector)) return false;
+        return items.indexOf(item) === index;
+      },
     );
 
     if (reduceMotion.matches) {

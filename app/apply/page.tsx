@@ -232,7 +232,7 @@ const applyFaqs = [
   {
     question: "What do I need to bring?",
     answer:
-      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session.",
+      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session. Don’t have a laptop ? No worries — we’ll provide one for you during the workshop.",
   },
   {
     question: "Is this workshop only for filmmakers?",
@@ -590,7 +590,7 @@ export default function ApplyPage() {
           <a className="programBatchCta" href="#enroll">
             Book seat now
           </a>
-          <span className="programBatchSeats">Only 3 seats left</span>
+          <span className="programBatchSeats">Only 2 seats left</span>
         </div>
       </div>
 

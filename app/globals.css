@@ -2974,7 +2974,7 @@ html.isHeroGlassCursorActive .hero * {
 .longCourseHeroCopy .programEyebrowRow,
 .longCourseHeroCopy h1,
 .longCourseHeroCopy>p,
-.longCourseHeroCopy .programCta,
+.longCourseHeroCopy .longCourseHeroCtas,
 .longCourseStats {
   opacity: 0;
   transform: translate3d(-72px, 0, 0);
@@ -2995,7 +2995,7 @@ html.isHeroGlassCursorActive .hero * {
   animation-delay: 500ms;
 }
 
-.longCourseHeroCopy .programCta {
+.longCourseHeroCopy .longCourseHeroCtas {
   animation-delay: 690ms;
 }
 
@@ -3062,6 +3062,34 @@ html.isHeroGlassCursorActive .hero * {
   line-height: 1.48;
 }
 
+.longCourseHeroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.longCourseHeroCtas .programCta {
+  margin-top: 0;
+}
+
+.brochureCta {
+  border: 1px solid rgba(218, 253, 85, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.brochureCta:hover,
+.brochureCta:focus-visible {
+  border-color: rgba(218, 253, 85, 0.72);
+  background: rgba(218, 253, 85, 0.12);
+}
+
 .longCourseHeroCard {
   grid-column: 2;
   grid-row: 1 / -1;
@@ -3113,7 +3141,22 @@ html.isHeroGlassCursorActive .hero * {
 
 .longCourseStats {
   grid-column: 1;
-  margin-top: 50px;
+  grid-template-columns: minmax(120px, 0.78fr) minmax(130px, 0.86fr) minmax(120px, 0.78fr) minmax(320px, 1.6fr);
+  gap: 20px 28px;
+  max-width: 1050px;
+  margin-top: 34px;
+}
+
+.longCourseStats dt {
+  font-size: 16px;
+}
+
+.longCourseStats dd {
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+}
+
+.longCourseStats div:last-child dd {
+  white-space: nowrap;
 }
 
 .longCourseSectionInner {
@@ -5949,7 +5992,11 @@ html.isHeroGlassCursorActive .hero * {
     order: 3;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 22px;
-    margin-top: clamp(190px, 32vw, 250px);
+    margin-top: 30px;
+  }
+
+  .longCourseStats div:last-child dd {
+    white-space: normal;
   }
 
   .longCourseHeroCopy h1 {
@@ -9907,9 +9954,9 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseStats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
-    margin-top: 230px;
+    margin-top: 30px;
   }
 
   .longCourseOutcomes,
@@ -10266,6 +10313,11 @@ html.isHeroGlassCursorActive .hero * {
     min-height: 48px;
     padding: 12px 18px;
     justify-content: center;
+  }
+
+  .longCourseHeroCtas {
+    width: 100%;
+    gap: 10px;
   }
 
   .programCta .primaryCtaText {

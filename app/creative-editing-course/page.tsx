@@ -372,9 +372,19 @@ export default function CreativeEditingCoursePage() {
               />
             </h1>
             <p>{course.description}</p>
-            <a className="primaryCta programCta" href="#apply">
-              <span className="primaryCtaText">{course.ctaLabel}</span>
-            </a>
+            <div className="longCourseHeroCtas">
+              <a className="primaryCta programCta" href="#apply">
+                <span className="primaryCtaText">{course.ctaLabel}</span>
+              </a>
+              <a
+                className="programCta brochureCta"
+                href="/pdf/Program%20Brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="primaryCtaText">View brochure</span>
+              </a>
+            </div>
             <div className="longCourseHeroMobileModel" aria-hidden="true">
               <RogMonitorHero3D />
             </div>

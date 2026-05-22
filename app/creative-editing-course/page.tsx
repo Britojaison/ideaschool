@@ -4,7 +4,6 @@ import Link from "next/link";
 import DecryptedText from "../DecryptedText";
 import ProofVideoCard from "../apply/ProofVideoCard";
 import HeroDotField from "../HeroDotField";
-import HeroFluidGlassCursor from "../HeroFluidGlassCursor";
 import ScrollTextReveal from "../ScrollTextReveal";
 import LazyCurriculumDotField from "./LazyCurriculumDotField";
 import RogMonitorHero3D from "./RogMonitorHero3D";
@@ -293,7 +292,6 @@ export default function CreativeEditingCoursePage() {
         <div className="longCourseHeroMedia">
           <HeroDotField />
         </div>
-        <HeroFluidGlassCursor />
         <div className="longCourseHeroShade" />
 
         <header className="siteHeader">

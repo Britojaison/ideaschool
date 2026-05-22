@@ -3,10 +3,12 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import DecryptedText from "../DecryptedText";
+import DetailsSectionMotion from "./DetailsSectionMotion";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
 import TiltedCard from "../TiltedCard";
 import OutcomeCards from "./OutcomeCards";
+import PortfolioSectionMotion from "./PortfolioSectionMotion";
 import RogMonitorHero3D from "./RogMonitorHero3D";
 import ScheduleSection from "./ScheduleSection";
 
@@ -529,10 +531,6 @@ export default function CreativeEditingCoursePage() {
                       className="courseMentorImage"
                     />
                   </div>
-                  <div className="courseMentorCopy">
-                    <h3>{mentor.name}</h3>
-                    <p>{mentor.role}</p>
-                  </div>
                 </article>
               </TiltedCard>
             ))}
@@ -541,6 +539,7 @@ export default function CreativeEditingCoursePage() {
       </section>
 
       <section className="longCoursePortfolio" id="portfolio" aria-label="Portfolio and tools">
+        <PortfolioSectionMotion />
         <div className="longCourseSectionInner portfolioGrid">
           <div className="portfolioPanel">
             <h2>Portfolio Milestones</h2>
@@ -563,6 +562,7 @@ export default function CreativeEditingCoursePage() {
       </section>
 
       <section className="longCourseDetails" aria-label="Program details and enrollment">
+        <DetailsSectionMotion />
         <div className="longCourseSectionInner detailsGlanceGrid">
           <article className="detailsPanel programGlancePanel">
             <span className="sectionPill">Key Program Highlights</span>

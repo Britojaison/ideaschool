@@ -4160,20 +4160,20 @@ html.isHeroGlassCursorActive .hero * {
 
 .courseMentorCard {
   overflow: hidden;
-  border: 1px solid rgba(218, 253, 85, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #08070c;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
   box-shadow:
     0 24px 70px rgba(0, 0, 0, 0.28),
-    0 0 34px rgba(218, 253, 85, 0.08);
+    0 0 34px rgba(255, 255, 255, 0.05);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .courseMentorCard:hover {
   box-shadow:
     0 30px 82px rgba(0, 0, 0, 0.36),
-    0 0 42px rgba(218, 253, 85, 0.16);
+    0 0 42px rgba(255, 255, 255, 0.08);
 }
 
 .courseMentorTilt {
@@ -4188,58 +4188,20 @@ html.isHeroGlassCursorActive .hero * {
 
 .courseMentorImageWrap {
   position: relative;
-  aspect-ratio: 1.28 / 1;
+  aspect-ratio: 0.82 / 1;
   overflow: hidden;
-  background: #dafd55;
-}
-
-.courseMentorCard.mint .courseMentorImageWrap {
-  background: #b8f2df;
-}
-
-.courseMentorCard.lime .courseMentorImageWrap {
-  background: #eef8b4;
-}
-
-.courseMentorCard.violet .courseMentorImageWrap {
-  background: #d8cdf8;
+  background: transparent;
 }
 
 .courseMentorImage {
-  object-fit: contain;
-  object-position: center bottom;
-  transform: scale(1.03);
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1);
   transition: transform 260ms ease;
 }
 
 .courseMentorCard:hover .courseMentorImage {
   transform: scale(1.07);
-}
-
-.courseMentorCopy {
-  display: grid;
-  gap: 8px;
-  min-height: 118px;
-  padding: 20px 18px 22px;
-  text-align: center;
-  background: #fff;
-}
-
-.courseMentorCopy h3 {
-  margin: 0;
-  color: #08070c;
-  font-family: var(--font-subject);
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 1.15;
-}
-
-.courseMentorCopy p {
-  margin: 0;
-  color: rgba(8, 7, 12, 0.62);
-  font-size: 15px;
-  font-weight: 900;
-  line-height: 1.25;
 }
 
 .longCoursePortfolio {
@@ -4279,6 +4241,124 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .longCourseDetails.has-details-motion .detailsPanel {
+    opacity: 0;
+    will-change: opacity, transform, filter;
+  }
+
+  .longCourseDetails.has-details-motion .programGlancePanel {
+    --details-panel-shift-y: 116px;
+  }
+
+  .longCourseDetails.has-details-motion .enrollmentPanel {
+    --details-panel-shift-y: -116px;
+  }
+
+  .longCourseDetails.has-details-motion.is-details-visible .detailsPanel {
+    animation: detailsPanelEnter 2.25s cubic-bezier(0.16, 0.82, 0.28, 1) both;
+  }
+
+  .longCourseDetails.has-details-motion.is-details-visible .enrollmentPanel {
+    animation-delay: 160ms;
+  }
+
+  .longCourseDetails.has-details-motion .detailsPanel :is(
+    .sectionPill,
+    h2,
+    .programDetailTable dt,
+    .programDetailTable dd,
+    .feeCallout > span,
+    .feeCallout strong,
+    .feeCallout p,
+    .enrollmentChecklist p,
+    .enrollmentCta
+  ) {
+    opacity: 0;
+    filter: blur(7px);
+    transform: translate3d(-44px, 0, 0);
+    transition:
+      opacity 1.25s ease,
+      filter 1.25s ease,
+      transform 1.35s cubic-bezier(0.16, 0.82, 0.28, 1);
+    transition-delay: var(--details-text-delay, 240ms);
+    will-change: opacity, transform, filter;
+  }
+
+  .longCourseDetails.has-details-motion .detailsPanel h2 {
+    --details-text-delay: 340ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(1) :is(dt, dd),
+  .longCourseDetails.has-details-motion .feeCallout > span {
+    --details-text-delay: 460ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(2) :is(dt, dd),
+  .longCourseDetails.has-details-motion .feeCallout strong {
+    --details-text-delay: 560ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(3) :is(dt, dd),
+  .longCourseDetails.has-details-motion .feeCallout p {
+    --details-text-delay: 660ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(4) :is(dt, dd),
+  .longCourseDetails.has-details-motion .enrollmentChecklist p:nth-child(1) {
+    --details-text-delay: 760ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(5) :is(dt, dd),
+  .longCourseDetails.has-details-motion .enrollmentChecklist p:nth-child(2) {
+    --details-text-delay: 860ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(6) :is(dt, dd),
+  .longCourseDetails.has-details-motion .enrollmentChecklist p:nth-child(3) {
+    --details-text-delay: 960ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(7) :is(dt, dd),
+  .longCourseDetails.has-details-motion .enrollmentCta {
+    --details-text-delay: 1060ms;
+  }
+
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(8) :is(dt, dd) {
+    --details-text-delay: 1160ms;
+  }
+
+  .longCourseDetails.has-details-motion.is-details-visible .detailsPanel :is(
+    .sectionPill,
+    h2,
+    .programDetailTable dt,
+    .programDetailTable dd,
+    .feeCallout > span,
+    .feeCallout strong,
+    .feeCallout p,
+    .enrollmentChecklist p,
+    .enrollmentCta
+  ) {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes detailsPanelEnter {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(0, var(--details-panel-shift-y, 0), 0) scale(0.965);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 .programGlancePanel {
@@ -4518,6 +4598,43 @@ html.isHeroGlassCursorActive .hero * {
   background:
     radial-gradient(circle at 100% 0%, rgba(218, 253, 85, 0.14), transparent 36%),
     linear-gradient(180deg, rgba(30, 20, 44, 0.94), rgba(12, 9, 18, 0.94));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .longCoursePortfolio.has-portfolio-motion .portfolioPanel {
+    opacity: 0;
+    will-change: opacity, transform, filter;
+  }
+
+  .longCoursePortfolio.has-portfolio-motion .portfolioPanel:first-child {
+    --portfolio-panel-shift: -96px;
+  }
+
+  .longCoursePortfolio.has-portfolio-motion .portfolioPanel:last-child {
+    --portfolio-panel-shift: 96px;
+  }
+
+  .longCoursePortfolio.has-portfolio-motion.is-portfolio-visible .portfolioPanel {
+    animation: portfolioPanelEnter 1.8s cubic-bezier(0.16, 0.82, 0.28, 1) both;
+  }
+
+  .longCoursePortfolio.has-portfolio-motion.is-portfolio-visible .portfolioPanel:last-child {
+    animation-delay: 120ms;
+  }
+}
+
+@keyframes portfolioPanelEnter {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate3d(var(--portfolio-panel-shift, 0), 0, 0) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 .portfolioMilestones,
@@ -5793,7 +5910,7 @@ html.isHeroGlassCursorActive .hero * {
   .longCourseHeroInner {
     display: flex;
     flex-direction: column;
-    gap: 34px;
+    gap: 28px;
     width: min(100%, 720px);
   }
 
@@ -5802,17 +5919,24 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseHeroCard {
-    order: 2;
-    align-self: center;
-    max-width: 520px;
-    min-height: clamp(340px, 58vw, 500px);
-    padding-top: 0;
+    display: none;
   }
 
-  .longCourseHeroModelSpace {
-    width: min(100%, 330px);
-    height: clamp(280px, 44vw, 400px);
-    margin: -8px auto 0;
+  .longCourseHeroMobileModel {
+    display: block;
+    width: min(48vw, 340px);
+    height: clamp(230px, 36vw, 320px);
+    margin: 22px auto -2px;
+  }
+
+  .longCourseHeroMobileModel .rogMonitorHero3D {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 1;
   }
 
   .detailsGlanceGrid {
@@ -5827,7 +5951,7 @@ html.isHeroGlassCursorActive .hero * {
   .longCourseStats {
     order: 3;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px 22px;
+    gap: 24px 22px;
     margin-top: 0;
   }
 
@@ -5855,12 +5979,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseFloatingModel3D.rogMonitorHero3D {
-    position: fixed;
-    top: clamp(114px, 16vh, 150px);
-    right: clamp(18px, 3vw, 34px);
-    width: clamp(230px, 34vw, 330px);
-    height: clamp(280px, 44vw, 400px);
-    opacity: 0;
+    display: none;
   }
 
   .outcomeGrid {
@@ -9801,8 +9920,8 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseOutcomes {
-    padding-top: 54px;
-    padding-bottom: 66px;
+    padding-top: 48px;
+    padding-bottom: 48px;
     overflow: visible;
   }
 
@@ -9844,14 +9963,14 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseStandOut {
-    padding-top: 58px;
-    padding-bottom: 66px;
+    padding-top: 48px;
+    padding-bottom: 48px;
     min-height: 0;
   }
 
   .longCourseCurriculum {
     padding-top: 48px;
-    padding-bottom: 68px;
+    padding-bottom: 48px;
   }
 
   .longCourseSchedule,
@@ -9859,14 +9978,14 @@ html.isHeroGlassCursorActive .hero * {
   .longCoursePortfolio,
   .longCourseDetails,
   .longCourseVoices {
-    padding-top: 58px;
-    padding-bottom: 58px;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   .longCourseVoices {
     min-height: 100svh;
-    padding-top: 42px;
-    padding-bottom: 42px;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   .longCourseIntro h2,
@@ -9906,7 +10025,7 @@ html.isHeroGlassCursorActive .hero * {
   .outcomeGrid {
     display: block;
     margin-top: 32px;
-    padding-bottom: 24px;
+    padding-bottom: 0;
   }
 
   .outcomeCard {
@@ -10067,7 +10186,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .courseMentorImageWrap {
-    aspect-ratio: 1.45 / 1;
+    aspect-ratio: 0.86 / 1;
   }
 
   .portfolioMilestones span,

@@ -17,6 +17,7 @@ import { easing } from "maath";
 type NavItem = {
   label: string;
   link: string;
+  showArrow?: boolean;
 };
 
 type ModeProps = {
@@ -55,7 +56,7 @@ type ModeComponentProps = {
 const defaultNavItems = [
   { label: "Home", link: "#hero" },
   { label: "Training", link: "#training" },
-  { label: "Apply", link: "/apply" },
+  { label: "Apply", link: "/apply", showArrow: true },
 ];
 
 export default function FluidGlass({
@@ -288,18 +289,9 @@ function NavItems({ items }: { items: NavItem[] }) {
 
   return (
     <group ref={group} renderOrder={10}>
-      {items.map(({ label, link }) => (
-        <Text
+      {items.map(({ label, link, showArrow }) => (
+        <group
           key={label}
-          fontSize={fontSize}
-          color="white"
-          anchorX="center"
-          anchorY="middle"
-          outlineWidth={0}
-          outlineBlur="20%"
-          outlineColor="#000"
-          outlineOpacity={0.5}
-          renderOrder={10}
           onClick={(event) => {
             event.stopPropagation();
             handleNavigate(link);
@@ -311,8 +303,36 @@ function NavItems({ items }: { items: NavItem[] }) {
             document.body.style.cursor = "auto";
           }}
         >
-          {label}
-        </Text>
+          <Text
+            fontSize={fontSize}
+            color="white"
+            anchorX="center"
+            anchorY="middle"
+            outlineWidth={0}
+            outlineBlur="20%"
+            outlineColor="#000"
+            outlineOpacity={0.5}
+            renderOrder={10}
+          >
+            {label}
+          </Text>
+          {showArrow && (
+            <Text
+              position={[0.064, 0.009, 0]}
+              fontSize={fontSize * 0.72}
+              color="white"
+              anchorX="center"
+              anchorY="middle"
+              outlineWidth={0}
+              outlineBlur="20%"
+              outlineColor="#000"
+              outlineOpacity={0.5}
+              renderOrder={10}
+            >
+              ↗
+            </Text>
+          )}
+        </group>
       ))}
     </group>
   );

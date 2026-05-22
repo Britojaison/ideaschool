@@ -34,11 +34,18 @@ export default function ScrollFadeArrow() {
       const leftClip = (1 - enterProgress) * 100;
       const rightClip = exitProgress * 100;
       const shift = (1 - enterProgress) * 32 - exitProgress * 28;
+      const portraitArrowExit = Math.min(
+        Math.max((window.innerHeight * 0.14 - sectionRect.top) / (window.innerHeight * 0.34), 0),
+        1,
+      );
+      const portraitArrowOpacity = enterProgress * (1 - portraitArrowExit);
 
       arrowRef.current.style.setProperty("--arrow-opacity", `${opacity}`);
       arrowRef.current.style.setProperty("--arrow-clip-left", `${leftClip}%`);
       arrowRef.current.style.setProperty("--arrow-clip-right", `${rightClip}%`);
       arrowRef.current.style.setProperty("--arrow-shift", `${shift}px`);
+      arrowRef.current.style.setProperty("--portrait-arrow-opacity", `${portraitArrowOpacity}`);
+      section.style.setProperty("--outcomes-portrait-progress", `${enterProgress}`);
     };
 
     const requestUpdate = () => {
@@ -64,8 +71,13 @@ export default function ScrollFadeArrow() {
   }, []);
 
   return (
-    <div className="longCourseScrollArrow" aria-hidden="true" ref={arrowRef}>
-      <span />
+    <div className="longCourseScrollArrowLayer" aria-hidden="true" ref={arrowRef}>
+      <div className="longCourseScrollArrow">
+        <span />
+      </div>
+      <div className="outcomesPortraitUpArrow">
+        <span />
+      </div>
     </div>
   );
 }

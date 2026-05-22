@@ -3182,6 +3182,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .longCourseOutcomes {
+  --outcomes-portrait-progress: 0;
   position: relative;
   overflow: hidden;
   padding: 70px var(--apply-section-x) 92px;
@@ -3206,11 +3207,16 @@ html.isHeroGlassCursorActive .hero * {
   pointer-events: none;
 }
 
-.longCourseScrollArrow {
+.longCourseScrollArrowLayer {
   --arrow-opacity: 0;
   --arrow-clip-left: 100%;
   --arrow-clip-right: 0%;
   --arrow-shift: 0px;
+  --portrait-arrow-opacity: 0;
+  pointer-events: none;
+}
+
+.longCourseScrollArrow {
   position: absolute;
   top: clamp(92px, 10vw, 142px);
   left: min(62vw, 820px);
@@ -3225,6 +3231,54 @@ html.isHeroGlassCursorActive .hero * {
   transform: translate3d(var(--arrow-shift), 0, 0);
   transition: opacity 220ms linear, clip-path 220ms linear, transform 220ms linear;
   pointer-events: none;
+}
+
+.outcomesPortraitUpArrow {
+  position: absolute;
+  top: clamp(54px, 6vw, 88px);
+  right: clamp(315px, 27vw, 500px);
+  z-index: 1;
+  width: 54px;
+  height: clamp(150px, 16vw, 250px);
+  opacity: var(--portrait-arrow-opacity);
+  transform: translate3d(0, calc((1 - var(--portrait-arrow-opacity)) * 18px), 0);
+  transition: opacity 180ms linear, transform 180ms linear;
+  pointer-events: none;
+}
+
+.outcomesPortraitUpArrow span {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(0deg, rgba(175, 82, 223, 0), rgba(175, 82, 223, 0.96) 34%, rgba(218, 253, 85, 0.7));
+  box-shadow:
+    0 0 18px rgba(175, 82, 223, 0.45),
+    0 0 28px rgba(218, 253, 85, 0.18);
+  transform: translateX(-50%);
+}
+
+.outcomesPortraitUpArrow span::before,
+.outcomesPortraitUpArrow span::after {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 2px;
+  content: "";
+  border-radius: 999px;
+  background: #af52df;
+  box-shadow: 0 0 18px rgba(175, 82, 223, 0.55);
+  transform-origin: left center;
+}
+
+.outcomesPortraitUpArrow span::before {
+  transform: rotate(138deg);
+}
+
+.outcomesPortraitUpArrow span::after {
+  transform: rotate(42deg);
 }
 
 .longCourseScrollArrow span {
@@ -3267,9 +3321,12 @@ html.isHeroGlassCursorActive .hero * {
   right: clamp(18px, 4vw, 64px);
   z-index: 0;
   width: clamp(240px, 22vw, 380px);
-  aspect-ratio: 1700 / 2500;
+  aspect-ratio: 1 / 1.22;
+  overflow: hidden;
   filter: drop-shadow(0 26px 54px rgba(0, 0, 0, 0.48));
-  opacity: 0.96;
+  opacity: calc(0.2 + (var(--outcomes-portrait-progress) * 0.76));
+  transform: translate3d(calc((1 - var(--outcomes-portrait-progress)) * 120px), 0, 0);
+  transition: opacity 180ms linear, transform 180ms linear;
   pointer-events: none;
 }
 
@@ -3278,8 +3335,8 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .outcomesArjunImage {
-  object-fit: contain;
-  object-position: center bottom;
+  object-fit: cover;
+  object-position: center top;
   filter: saturate(1.02) contrast(1.06);
 }
 
@@ -9974,16 +10031,17 @@ html.isHeroGlassCursorActive .hero * {
     overflow: visible;
   }
 
-  .longCourseScrollArrow {
+  .longCourseScrollArrow,
+  .outcomesPortraitUpArrow {
     display: none;
   }
 
   .outcomesArjunPortrait {
     position: absolute;
-    top: 62px;
-    right: -52px;
+    top: 68px;
+    right: -36px;
     z-index: 0;
-    width: min(56vw, 238px);
+    width: min(50vw, 210px);
     margin: 0;
     opacity: 0.78;
   }

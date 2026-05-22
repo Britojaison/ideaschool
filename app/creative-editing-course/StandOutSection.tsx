@@ -75,7 +75,7 @@ export default function StandOutSection() {
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduceMotion.matches) {
-      section.classList.add("is-stroke-drawn", "stroke-from-top");
+      section.classList.add("is-stroke-drawn", "is-content-visible", "stroke-from-top");
       return;
     }
 
@@ -94,14 +94,14 @@ export default function StandOutSection() {
         if (!entry) return;
 
         if (!entry.isIntersecting) {
-          section.classList.remove("is-stroke-drawn");
+          section.classList.remove("is-stroke-drawn", "is-content-visible");
           return;
         }
 
         const directionClass = scrollDirectionRef.current === "up" ? "stroke-from-bottom" : "stroke-from-top";
-        section.classList.remove("is-stroke-drawn", "stroke-from-top", "stroke-from-bottom");
+        section.classList.remove("is-stroke-drawn", "is-content-visible", "stroke-from-top", "stroke-from-bottom");
         void section.offsetWidth;
-        section.classList.add(directionClass, "is-stroke-drawn");
+        section.classList.add(directionClass, "is-stroke-drawn", "is-content-visible");
       },
       { threshold: 0.34 }
     );

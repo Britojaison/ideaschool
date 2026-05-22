@@ -1,14 +1,27 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import DecryptedText from "../DecryptedText";
-import ProofVideoCard from "../apply/ProofVideoCard";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
-import LazyCurriculumDotField from "./LazyCurriculumDotField";
+import TiltedCard from "../TiltedCard";
+import OutcomeCards from "./OutcomeCards";
 import RogMonitorHero3D from "./RogMonitorHero3D";
-import ScrollFadeArrow from "./ScrollFadeArrow";
-import StandOutSection from "./StandOutSection";
+import ScheduleSection from "./ScheduleSection";
+
+const LazyCurriculumDotField = dynamic(() => import("./LazyCurriculumDotField"), {
+  loading: () => null,
+});
+const ProofVideoCard = dynamic(() => import("../apply/ProofVideoCard"), {
+  loading: () => <div className="proofVideoPlayer proofVideoPlaceholder" aria-hidden="true" />,
+});
+const ScrollFadeArrow = dynamic(() => import("./ScrollFadeArrow"), {
+  loading: () => null,
+});
+const StandOutSection = dynamic(() => import("./StandOutSection"), {
+  loading: () => <section className="longCourseStandOut longCourseStandOutLoading" aria-hidden="true" />,
+});
 
 export const metadata: Metadata = {
   title: "Creative Editing & AI Pro Course | Idea School",
@@ -402,14 +415,7 @@ export default function CreativeEditingCoursePage() {
               last-minute task. It grows week by week.
             </p>
           </div>
-          <div className="outcomeGrid">
-            {outcomes.map((outcome, index) => (
-              <article className="outcomeCard" key={outcome}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{outcome}</p>
-              </article>
-            ))}
-          </div>
+          <OutcomeCards outcomes={outcomes} />
         </div>
       </section>
 
@@ -482,30 +488,7 @@ export default function CreativeEditingCoursePage() {
         </div>
       </section>
 
-      <section className="longCourseSchedule" id="schedule" aria-label="Weekly schedule">
-        <div className="longCourseSectionInner splitSection">
-          <div className="longCourseIntro">
-            <span className="sectionPill">Weekly Rhythm</span>
-            <h2>Structured Practice, Feedback, And Delivery</h2>
-            <p>
-              The week is designed around learning, doing, review, and completion so students
-              stay consistent instead of waiting until the deadline.
-            </p>
-          </div>
-
-          <div className="scheduleList">
-            {weeklySchedule.map((item) => (
-              <article className="scheduleItem" key={item.day}>
-                <span>{item.day}</span>
-                <div>
-                  <h3>{item.activity}</h3>
-                  <p>{item.objective}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ScheduleSection items={weeklySchedule} />
 
       <section className="longCourseMentors" aria-label="Mentors guiding the program">
         <div className="longCourseSectionInner">
@@ -520,23 +503,38 @@ export default function CreativeEditingCoursePage() {
 
           <div className="mentorCardGrid">
             {mentors.map((mentor) => (
-              <article className={`courseMentorCard ${mentor.accent}`} key={mentor.name}>
-                <div className="courseMentorImageWrap">
-                  <Image
-                    src={mentor.image}
-                    alt={mentor.name}
-                    fill
-                    loading="lazy"
-                    decoding="async"
-                    sizes="(max-width: 760px) 88vw, (max-width: 1180px) 42vw, 290px"
-                    className="courseMentorImage"
-                  />
-                </div>
-                <div className="courseMentorCopy">
-                  <h3>{mentor.name}</h3>
-                  <p>{mentor.role}</p>
-                </div>
-              </article>
+              <TiltedCard
+                key={mentor.name}
+                captionText={`${mentor.name} - ${mentor.role}`}
+                containerHeight="auto"
+                containerWidth="100%"
+                imageHeight="auto"
+                imageWidth="100%"
+                rotateAmplitude={10}
+                scaleOnHover={1.04}
+                showMobileWarning={false}
+                showTooltip
+                className="courseMentorTilt"
+                innerClassName="courseMentorTiltInner"
+              >
+                <article className={`courseMentorCard ${mentor.accent}`}>
+                  <div className="courseMentorImageWrap">
+                    <Image
+                      src={mentor.image}
+                      alt={mentor.name}
+                      fill
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(max-width: 760px) 88vw, (max-width: 1180px) 42vw, 290px"
+                      className="courseMentorImage"
+                    />
+                  </div>
+                  <div className="courseMentorCopy">
+                    <h3>{mentor.name}</h3>
+                    <p>{mentor.role}</p>
+                  </div>
+                </article>
+              </TiltedCard>
             ))}
           </div>
         </div>
@@ -680,7 +678,9 @@ export default function CreativeEditingCoursePage() {
             </div>
           </nav>
         </div>
-        <strong aria-hidden="true">IDEA SCHOOL</strong>
+        <Link className="footerHeroLink" href="/#hero" aria-label="Back to hero">
+          IDEA SCHOOL
+        </Link>
       </footer>
     </main>
   );

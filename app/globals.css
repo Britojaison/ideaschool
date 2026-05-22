@@ -2456,6 +2456,12 @@ html.isHeroGlassCursorActive .hero * {
   background: #08070c;
 }
 
+.proofVideoPlaceholder {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(218, 253, 85, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(34, 24, 45, 0.9), rgba(8, 7, 12, 0.96));
+}
+
 .proofVideoNative {
   width: 100%;
   height: 100%;
@@ -2713,8 +2719,13 @@ html.isHeroGlassCursorActive .hero * {
   --course-green: #dafd55;
   --course-green-soft: rgba(218, 253, 85, 0.16);
   --course-green-border: rgba(218, 253, 85, 0.36);
+  scroll-behavior: smooth;
   background: #08070c;
   color: #fff;
+}
+
+.longCoursePage [id] {
+  scroll-margin-top: 96px;
 }
 
 .longCoursePage ::selection {
@@ -3369,6 +3380,44 @@ html.isHeroGlassCursorActive .hero * {
   line-height: 1.24;
 }
 
+@media (min-width: 641px) {
+  .outcomeCard {
+    opacity: 0;
+    transition:
+      opacity 980ms ease,
+      transform 1320ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+
+  .outcomeCard:nth-child(-n + 3) {
+    transform: translate3d(96px, 0, 0) scale(0.985);
+  }
+
+  .outcomeCard:nth-child(n + 4) {
+    transform: translate3d(-96px, 0, 0) scale(0.985);
+  }
+
+  .outcomeGrid.is-visible .outcomeCard {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  .outcomeGrid.is-visible .outcomeCard:nth-child(1),
+  .outcomeGrid.is-visible .outcomeCard:nth-child(4) {
+    transition-delay: 0ms;
+  }
+
+  .outcomeGrid.is-visible .outcomeCard:nth-child(2),
+  .outcomeGrid.is-visible .outcomeCard:nth-child(5) {
+    transition-delay: 180ms;
+  }
+
+  .outcomeGrid.is-visible .outcomeCard:nth-child(3),
+  .outcomeGrid.is-visible .outcomeCard:nth-child(6) {
+    transition-delay: 360ms;
+  }
+}
+
 @keyframes outcomeMobileStackIn {
   from {
     opacity: 0.72;
@@ -3393,6 +3442,10 @@ html.isHeroGlassCursorActive .hero * {
     linear-gradient(90deg, rgba(218, 253, 85, 0.045) 1px, transparent 1px),
     #0a0b0d;
   background-size: auto, auto, 32px 32px, 32px 32px, auto;
+}
+
+.longCourseStandOutLoading {
+  min-height: 560px;
 }
 
 .standOutGrid {
@@ -3434,6 +3487,20 @@ html.isHeroGlassCursorActive .hero * {
 
 .standOutIntro h2 {
   color: #fff;
+}
+
+.standOutPrinciples h3 {
+  opacity: 0;
+  transform: translate3d(110px, 0, 0);
+  transition:
+    opacity 940ms ease,
+    transform 1280ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.longCourseStandOut.is-content-visible .standOutPrinciples h3 {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .standOutBrushStrokes {
@@ -3601,6 +3668,12 @@ html.isHeroGlassCursorActive .hero * {
 
   .longCourseStandOut.is-stroke-drawn .standOutBrushStroke {
     animation: none;
+  }
+
+  .standOutPrinciples h3 {
+    opacity: 1;
+    transition: none;
+    transform: none;
   }
 }
 
@@ -3908,6 +3981,104 @@ html.isHeroGlassCursorActive .hero * {
   text-align: left;
 }
 
+.scheduleTitleWrap {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.scheduleTitleWrap h2 {
+  position: relative;
+  z-index: 1;
+}
+
+.longCourseSchedule .longCourseIntro .sectionPill,
+.longCourseSchedule .longCourseIntro .scheduleTitleWrap,
+.longCourseSchedule .longCourseIntro>p {
+  opacity: 0;
+  transform: translate3d(110px, 0, 0);
+  transition:
+    opacity 940ms ease,
+    transform 1280ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.longCourseSchedule .longCourseIntro .scheduleTitleWrap {
+  transition-delay: 120ms;
+}
+
+.longCourseSchedule .longCourseIntro>p {
+  transition-delay: 240ms;
+}
+
+.longCourseSchedule.is-content-visible .longCourseIntro .sectionPill,
+.longCourseSchedule.is-content-visible .longCourseIntro .scheduleTitleWrap,
+.longCourseSchedule.is-content-visible .longCourseIntro>p {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.scheduleBrushStrokes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: min(94vw, 800px);
+  height: 132%;
+  pointer-events: none;
+  transform: translate(-51%, -49%) rotate(-0.7deg);
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.2));
+}
+
+.scheduleBrushStrokes .standOutBrushStroke {
+  opacity: 0;
+  clip-path: inset(var(--stroke-top) 100% var(--stroke-bottom) 0);
+  transform: translate3d(0, var(--stroke-y), 0);
+}
+
+.scheduleBrushStrokes .standOutBrushStroke::before {
+  transform: translate3d(var(--stroke-texture-x, 0), 0, 0) scaleX(0.985);
+}
+
+.longCourseSchedule.is-stroke-drawn.stroke-from-top .scheduleBrushStrokes .standOutBrushStroke {
+  animation: standOutBrushDrawFromLeft 0.5s cubic-bezier(0.18, 0.84, 0.18, 1) var(--stroke-delay) both;
+}
+
+.longCourseSchedule.is-stroke-drawn.stroke-from-top .scheduleBrushStrokes .standOutBrushStroke::before {
+  animation: standOutBrushTextureFromLeft 0.5s cubic-bezier(0.18, 0.84, 0.18, 1) var(--stroke-delay) both;
+}
+
+.longCourseSchedule.is-stroke-drawn.stroke-from-bottom .scheduleBrushStrokes .standOutBrushStroke {
+  animation: standOutBrushDrawFromRight 0.5s cubic-bezier(0.18, 0.84, 0.18, 1) var(--stroke-reverse-delay) both;
+  transform-origin: right center;
+}
+
+.longCourseSchedule.is-stroke-drawn.stroke-from-bottom .scheduleBrushStrokes .standOutBrushStroke::before {
+  animation: standOutBrushTextureFromRight 0.5s cubic-bezier(0.18, 0.84, 0.18, 1) var(--stroke-reverse-delay) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .longCourseSchedule.is-stroke-drawn .scheduleBrushStrokes .standOutBrushStroke {
+    opacity: 0.95;
+    animation: none;
+    clip-path: inset(var(--stroke-top) 0 var(--stroke-bottom) 0);
+    transform: translate3d(0, var(--stroke-y), 0);
+  }
+
+  .longCourseSchedule.is-stroke-drawn .scheduleBrushStrokes .standOutBrushStroke::before {
+    animation: none;
+    transform: none;
+  }
+
+  .longCourseSchedule .longCourseIntro .sectionPill,
+  .longCourseSchedule .longCourseIntro .scheduleTitleWrap,
+  .longCourseSchedule .longCourseIntro>p {
+    opacity: 1;
+    transition: none;
+    transform: none;
+  }
+}
+
 .scheduleList {
   display: grid;
   gap: 12px;
@@ -4000,10 +4171,19 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .courseMentorCard:hover {
-  transform: translateY(-6px);
   box-shadow:
     0 30px 82px rgba(0, 0, 0, 0.36),
     0 0 42px rgba(218, 253, 85, 0.16);
+}
+
+.courseMentorTilt {
+  align-items: stretch;
+}
+
+.courseMentorTiltInner {
+  display: block;
+  transform-origin: center;
+  will-change: transform;
 }
 
 .courseMentorImageWrap {
@@ -5600,6 +5780,10 @@ html.isHeroGlassCursorActive .hero * {
 
   .longCoursePage {
     --apply-section-x: 20px;
+  }
+
+  .longCoursePage [id] {
+    scroll-margin-top: 84px;
   }
 
   .longCourseHero {
@@ -8298,7 +8482,7 @@ html.isHeroGlassCursorActive .hero * {
   color: #fff;
 }
 
-.siteFooter>strong {
+.footerHeroLink {
   position: absolute;
   left: 0;
   right: 0;
@@ -8315,8 +8499,13 @@ html.isHeroGlassCursorActive .hero * {
   line-height: 0.78;
   letter-spacing: 0;
   text-align: center;
+  text-decoration: none;
   white-space: nowrap;
-  pointer-events: none;
+  transition: filter 180ms ease;
+}
+
+.footerHeroLink:hover {
+  filter: brightness(1.35);
 }
 
 @media (min-width: 981px) {
@@ -8930,7 +9119,7 @@ html.isHeroGlassCursorActive .hero * {
     white-space: normal;
   }
 
-  .siteFooter>strong {
+  .footerHeroLink {
     top: auto;
     bottom: -0.08em;
     left: 0;
@@ -9455,7 +9644,7 @@ html.isHeroGlassCursorActive .hero * {
     gap: 24px;
   }
 
-  .siteFooter>strong {
+  .footerHeroLink {
     bottom: 0;
     font-size: clamp(4rem, 15vw, 7.5rem);
     white-space: normal;
@@ -10345,7 +10534,7 @@ html.isHeroGlassCursorActive .hero * {
     padding-bottom: 120px;
   }
 
-  .siteFooter>strong {
+  .footerHeroLink {
     font-size: clamp(3.1rem, 18vw, 6.5rem);
   }
 }
@@ -10397,5 +10586,8 @@ html.isHeroGlassCursorActive .hero * {
 
   .outcomeCard {
     animation: none;
+    opacity: 1;
+    transition: none;
+    transform: none;
   }
 }

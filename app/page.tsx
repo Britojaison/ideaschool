@@ -581,7 +581,9 @@ export default function Home() {
             </div>
           </nav>
         </div>
-        <strong aria-hidden="true">IDEA SCHOOL</strong>
+        <Link className="footerHeroLink" href="#hero" aria-label="Back to hero">
+          IDEA SCHOOL
+        </Link>
       </footer>
     </main>
   );

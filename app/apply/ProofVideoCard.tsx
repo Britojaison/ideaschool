@@ -80,7 +80,7 @@ export default function ProofVideoCard({
         className="proofVideoNative"
         src={src}
         poster={poster}
-        preload="metadata"
+        preload="none"
         muted
         playsInline
         disablePictureInPicture

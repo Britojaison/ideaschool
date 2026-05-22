@@ -5923,10 +5923,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseHeroMobileModel {
-    display: block;
-    width: min(48vw, 340px);
-    height: clamp(230px, 36vw, 320px);
-    margin: 22px auto -2px;
+    display: none;
   }
 
   .longCourseHeroMobileModel .rogMonitorHero3D {
@@ -5952,7 +5949,7 @@ html.isHeroGlassCursorActive .hero * {
     order: 3;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 22px;
-    margin-top: 0;
+    margin-top: clamp(190px, 32vw, 250px);
   }
 
   .longCourseHeroCopy h1 {
@@ -5979,7 +5976,12 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseFloatingModel3D.rogMonitorHero3D {
-    display: none;
+    display: block;
+    position: fixed;
+    top: clamp(330px, 50svh, 430px);
+    right: 14px;
+    width: clamp(150px, 34vw, 230px);
+    height: clamp(190px, 44vw, 290px);
   }
 
   .outcomeGrid {
@@ -9888,7 +9890,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseHeroMobileModel {
-    display: block;
+    display: none;
     width: min(74vw, 280px);
     height: 230px;
     margin: 18px auto -4px;
@@ -9907,7 +9909,7 @@ html.isHeroGlassCursorActive .hero * {
   .longCourseStats {
     grid-template-columns: 1fr;
     gap: 18px;
-    margin-top: 18px;
+    margin-top: 230px;
   }
 
   .longCourseOutcomes,
@@ -9959,7 +9961,13 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseFloatingModel3D.rogMonitorHero3D {
-    display: none;
+    display: block;
+    position: fixed;
+    top: clamp(320px, 49svh, 410px);
+    right: 14px;
+    width: clamp(150px, 38vw, 190px);
+    height: clamp(190px, 48vw, 245px);
+    opacity: 0;
   }
 
   .longCourseStandOut {
@@ -10160,10 +10168,62 @@ html.isHeroGlassCursorActive .hero * {
     padding: 14px;
   }
 
+  .scheduleList {
+    display: block;
+  }
+
   .scheduleItem {
+    position: sticky;
+    top: 86px;
+    z-index: var(--schedule-stack-layer, 1);
     grid-template-columns: 1fr;
     gap: 10px;
+    min-height: 150px;
+    margin-bottom: 16px;
     padding: 16px;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(218, 253, 85, 0.16), transparent 42%),
+      linear-gradient(120deg, #17151d 0%, #121019 58%, #17151d 100%);
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.36),
+      inset 0 1px 0 rgba(218, 253, 85, 0.1);
+    transform-origin: center top;
+    animation: outcomeMobileStackIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+    will-change: transform, opacity;
+  }
+
+  .scheduleItem:nth-child(1) {
+    --schedule-stack-layer: 1;
+  }
+
+  .scheduleItem:nth-child(2) {
+    --schedule-stack-layer: 2;
+  }
+
+  .scheduleItem:nth-child(3) {
+    --schedule-stack-layer: 3;
+  }
+
+  .scheduleItem:nth-child(4) {
+    --schedule-stack-layer: 4;
+  }
+
+  .scheduleItem:nth-child(5) {
+    --schedule-stack-layer: 5;
+  }
+
+  .scheduleItem:nth-child(6) {
+    --schedule-stack-layer: 6;
+  }
+
+  .scheduleItem:nth-child(7) {
+    --schedule-stack-layer: 7;
+  }
+
+  .scheduleItem:last-child {
+    margin-bottom: 0;
   }
 
   .mentorCardGrid {

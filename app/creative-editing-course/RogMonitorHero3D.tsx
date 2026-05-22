@@ -367,9 +367,7 @@ export default function RogMonitorHero3D({
       const pageProgress = THREE.MathUtils.clamp(window.scrollY / pageHeight, 0, 1);
       const rect = wrapperRef.current.getBoundingClientRect();
       const sideGap = window.innerWidth < 700 ? 14 : Math.max(window.innerWidth * 0.045, 28);
-      const horizontalTravel = window.innerWidth < 700
-        ? 0
-        : Math.max(window.innerWidth - rect.width - sideGap * 2, 0);
+      const horizontalTravel = Math.max(window.innerWidth - rect.width - sideGap * 2, 0);
       const sections = Array.from(
         document.querySelectorAll<HTMLElement>(".longCoursePage > section, .longCoursePage > footer"),
       );

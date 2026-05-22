@@ -39,13 +39,18 @@ export default function ScrollFadeArrow() {
         1,
       );
       const portraitArrowOpacity = enterProgress * (1 - portraitArrowExit);
+      const portraitArrowClipBottom = portraitArrowExit * 100;
+      const isPortraitVisible =
+        sectionRect.top < window.innerHeight * 0.72 &&
+        sectionRect.bottom > window.innerHeight * 0.28;
 
       arrowRef.current.style.setProperty("--arrow-opacity", `${opacity}`);
       arrowRef.current.style.setProperty("--arrow-clip-left", `${leftClip}%`);
       arrowRef.current.style.setProperty("--arrow-clip-right", `${rightClip}%`);
       arrowRef.current.style.setProperty("--arrow-shift", `${shift}px`);
       arrowRef.current.style.setProperty("--portrait-arrow-opacity", `${portraitArrowOpacity}`);
-      section.style.setProperty("--outcomes-portrait-progress", `${enterProgress}`);
+      arrowRef.current.style.setProperty("--portrait-arrow-clip-bottom", `${portraitArrowClipBottom}%`);
+      section.classList.toggle("is-portrait-visible", isPortraitVisible);
     };
 
     const requestUpdate = () => {

@@ -66,7 +66,7 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
           <span className="programNoticeBook">
             <span>Book Now</span>
           </span>
-          <span className="programNoticeSeats">Only 3 seats left</span>
+          <span className="programNoticeSeats">Only 2 seats left</span>
         </span>
       </span>
     </a>

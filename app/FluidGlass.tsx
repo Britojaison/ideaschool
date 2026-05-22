@@ -39,6 +39,8 @@ type FluidGlassProps = {
   barProps?: ModeProps;
   cubeProps?: ModeProps;
   lockLensToCenter?: boolean;
+  refractionScene?: "home" | "course" | "none";
+  showRefractionBackdrop?: boolean;
 };
 
 type Device = "mobile" | "tablet" | "desktop";
@@ -47,6 +49,7 @@ type ModeComponentProps = {
   children?: React.ReactNode;
   modeProps?: ModeProps;
   followPointerOverride?: boolean;
+  showRefractionBackdrop?: boolean;
 };
 
 const defaultNavItems = [
@@ -61,6 +64,8 @@ export default function FluidGlass({
   barProps = {},
   cubeProps = {},
   lockLensToCenter = false,
+  refractionScene = "home",
+  showRefractionBackdrop = true,
 }: FluidGlassProps) {
   const Wrapper = mode === "bar" ? Bar : mode === "cube" ? Cube : Lens;
   const rawOverrides = mode === "bar" ? barProps : mode === "cube" ? cubeProps : lensProps;
@@ -75,8 +80,13 @@ export default function FluidGlass({
       style={{ width: "100%", height: "100%" }}
     >
       {mode === "bar" && <NavItems items={navItems} />}
-      <Wrapper modeProps={modeProps} followPointerOverride={!lockLensToCenter}>
-        <HeroRefractionScene />
+      <Wrapper
+        modeProps={modeProps}
+        followPointerOverride={!lockLensToCenter}
+        showRefractionBackdrop={showRefractionBackdrop}
+      >
+        {refractionScene === "home" && <HeroRefractionScene />}
+        {refractionScene === "course" && <CourseRefractionScene />}
         <Preload />
       </Wrapper>
     </Canvas>
@@ -90,6 +100,7 @@ const ModeWrapper = memo(function ModeWrapper({
   lockToBottom = false,
   followPointer = true,
   modeProps = {},
+  showRefractionBackdrop = true,
   ...props
 }: {
   children?: React.ReactNode;
@@ -98,6 +109,7 @@ const ModeWrapper = memo(function ModeWrapper({
   lockToBottom?: boolean;
   followPointer?: boolean;
   modeProps?: ModeProps;
+  showRefractionBackdrop?: boolean;
 }) {
   const ref = useRef<THREE.Group>(null);
   const { nodes } = useGLTF(glb);
@@ -161,10 +173,12 @@ const ModeWrapper = memo(function ModeWrapper({
   return (
     <>
       {createPortal(children, scene)}
-      <mesh scale={[vp.width, vp.height, 1]}>
-        <planeGeometry />
-        <meshBasicMaterial map={buffer.texture} transparent opacity={0.88} />
-      </mesh>
+      {showRefractionBackdrop && (
+        <mesh scale={[vp.width, vp.height, 1]}>
+          <planeGeometry />
+          <meshBasicMaterial map={buffer.texture} transparent opacity={0.88} />
+        </mesh>
+      )}
       <group
         ref={ref}
         scale={scale ?? 0.18}
@@ -328,6 +342,59 @@ function HeroRefractionScene() {
       >
         IDEA SCHOOL
       </Text>
+    </group>
+  );
+}
+
+function CourseRefractionScene() {
+  const { width, height } = useThree((state) => state.viewport);
+  const coverWidth = Math.max(width, height * 1.55);
+  const coverHeight = Math.max(height, width / 1.55);
+
+  return (
+    <group>
+      <mesh position={[0, 0, -0.1]} scale={[coverWidth, coverHeight, 1]}>
+        <planeGeometry />
+        <meshBasicMaterial color="#08090b" />
+      </mesh>
+      <Text
+        position={[-0.62, 0.26, 6]}
+        fontSize={width < 5 ? 0.3 : 0.58}
+        letterSpacing={0}
+        outlineWidth={0}
+        outlineBlur="20%"
+        outlineColor="#000"
+        outlineOpacity={0.34}
+        color="#ffffff"
+        anchorX="center"
+        anchorY="middle"
+      >
+        EDIT
+      </Text>
+      <Text
+        position={[0.42, -0.08, 7]}
+        fontSize={width < 5 ? 0.26 : 0.48}
+        letterSpacing={0}
+        outlineWidth={0}
+        outlineBlur="20%"
+        outlineColor="#000"
+        outlineOpacity={0.3}
+        color="#dafd55"
+        anchorX="center"
+        anchorY="middle"
+      >
+        AI
+      </Text>
+      <Image position={[1.18, -0.18, 3]} scale={[1.65, 1.2]} url="/images/Hero 6.png" />
+      <Image position={[-1.25, -0.5, 4]} scale={[1.2, 1.08]} url="/images/DSC01109.JPG" />
+      <mesh position={[0.1, 0.62, 8]} rotation-z={-0.18}>
+        <planeGeometry args={[2.2, 0.12]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.86} />
+      </mesh>
+      <mesh position={[0.52, -0.54, 8.2]} rotation-z={0.28}>
+        <planeGeometry args={[2.3, 0.12]} />
+        <meshBasicMaterial color="#dafd55" transparent opacity={0.76} />
+      </mesh>
     </group>
   );
 }

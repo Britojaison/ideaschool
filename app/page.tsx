@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
-import HeroFluidGlassCursor from "./HeroFluidGlassCursor";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
@@ -205,7 +204,6 @@ export default function Home() {
 
       <section className="hero" id="hero" aria-label="Idea School hero">
         <div className="heroMedia" />
-        <HeroFluidGlassCursor />
 
         <div className="heroShade" />
 

@@ -146,6 +146,17 @@ html.isHeroGlassCursorActive .hero * {
   pointer-events: none;
 }
 
+.longCourseHero .heroFluidGlassLayer {
+  position: fixed;
+  inset: 0;
+  width: auto;
+  height: auto;
+  transform: none;
+  z-index: 2147483001;
+  overflow: hidden;
+  background: transparent;
+}
+
 .heroFluidGlassLayer canvas {
   display: block;
   width: 100% !important;

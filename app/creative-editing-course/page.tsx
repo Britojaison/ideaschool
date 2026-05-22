@@ -256,6 +256,22 @@ const studentVoiceVideos = [
     src: "/images/proof-videos/student-feedback-3.mp4",
     poster: "/images/proof-videos/student-feedback-3.jpg",
   },
+  {
+    src: "/images/proof-videos/student-feedback-4.mp4",
+    poster: "/images/proof-videos/student-feedback-4.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-5.mp4",
+    poster: "/images/proof-videos/student-feedback-5.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-6.mp4",
+    poster: "/images/proof-videos/student-feedback-6.jpg",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-7.mp4",
+    poster: "/images/proof-videos/student-feedback-7.jpg",
+  },
 ];
 
 const faqs = [
@@ -344,6 +360,9 @@ export default function CreativeEditingCoursePage() {
             <a className="primaryCta programCta" href="#apply">
               <span className="primaryCtaText">{course.ctaLabel}</span>
             </a>
+            <div className="longCourseHeroMobileModel" aria-hidden="true">
+              <RogMonitorHero3D />
+            </div>
           </div>
 
           <aside className="longCourseHeroCard" aria-label="Course preview">
@@ -366,7 +385,7 @@ export default function CreativeEditingCoursePage() {
           <ScrollFadeArrow />
           <div className="outcomesArjunPortrait" aria-hidden="true">
             <Image
-              src="/images/ARJUN - MAIN PAGE (ABOUT SECTION).png"
+              src="/images/arjun-cutout.png"
               alt=""
               fill
               loading="lazy"

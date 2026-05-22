@@ -241,9 +241,14 @@ export default function Home() {
               <br />
               and hands-on sessions designed for the industry.
             </p>
-            <Link className="primaryCta" href="/apply">
-              <span className="primaryCtaText">Apply Now</span>
-            </Link>
+            <div className="heroCtaRow">
+              <Link className="primaryCta" href="/apply">
+                <span className="primaryCtaText">Apply Now</span>
+              </Link>
+              <Link className="primaryCta heroCourseCta" href="/creative-editing-course">
+                <span className="primaryCtaText">View Course</span>
+              </Link>
+            </div>
             <div className="heroInlineActions">
               <LiquidBatchNotice />
               <LiquidVideoButton />

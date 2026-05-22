@@ -350,9 +350,10 @@ export default function RogMonitorHero3D({
     const currentMotion = {
       x: 0,
       y: 0,
-      scale: window.innerWidth < 700 ? 1.08 : 1.22,
+      scale: window.innerWidth < 700 ? 0.82 : 1.22,
     };
     const targetMotion = { ...currentMotion };
+    let targetOpacity = 1;
 
     const updateTargetTravel = () => {
       if (!wrapperRef.current) {
@@ -366,7 +367,9 @@ export default function RogMonitorHero3D({
       const pageProgress = THREE.MathUtils.clamp(window.scrollY / pageHeight, 0, 1);
       const rect = wrapperRef.current.getBoundingClientRect();
       const sideGap = window.innerWidth < 700 ? 14 : Math.max(window.innerWidth * 0.045, 28);
-      const horizontalTravel = Math.max(window.innerWidth - rect.width - sideGap * 2, 0);
+      const horizontalTravel = window.innerWidth < 700
+        ? 0
+        : Math.max(window.innerWidth - rect.width - sideGap * 2, 0);
       const sections = Array.from(
         document.querySelectorAll<HTMLElement>(".longCoursePage > section, .longCoursePage > footer"),
       );
@@ -404,13 +407,16 @@ export default function RogMonitorHero3D({
       const shrinkStart = 0.06;
       const shrinkEnd = 0.38;
       const shrinkProgress = THREE.MathUtils.smoothstep(pageProgress, shrinkStart, shrinkEnd);
-      const heroScale = window.innerWidth < 700 ? 1.08 : 1.22;
-      const scrolledScale = window.innerWidth < 700 ? 0.76 : 0.72;
-      const modelScale = THREE.MathUtils.lerp(heroScale, scrolledScale, shrinkProgress);
+      const heroScale = window.innerWidth < 700 ? 0.82 : 1.22;
+      const scrolledScale = window.innerWidth < 700 ? 0.7 : 0.72;
+      const activeSection = sections[sectionIndex];
+      const isDetailsSection = activeSection?.classList.contains("longCourseDetails");
+      const modelScale = THREE.MathUtils.lerp(heroScale, scrolledScale, shrinkProgress) * (isDetailsSection ? 0.72 : 1);
 
       targetMotion.x = sectionTravelX;
       targetMotion.y = verticalDrift;
       targetMotion.scale = modelScale;
+      targetOpacity = isDetailsSection ? 0.18 : 1;
     };
 
     const renderTravel = (time: number) => {
@@ -429,6 +435,7 @@ export default function RogMonitorHero3D({
       wrapperRef.current.style.setProperty("--model-page-x", `${currentMotion.x}px`);
       wrapperRef.current.style.setProperty("--model-page-y", `${currentMotion.y}px`);
       wrapperRef.current.style.setProperty("--model-page-scale", `${currentMotion.scale}`);
+      wrapperRef.current.style.opacity = `${targetOpacity}`;
 
       animationFrame = window.requestAnimationFrame(renderTravel);
     };

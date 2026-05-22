@@ -61,6 +61,7 @@ const revealSelector = [
 const excludedRevealSelector = [
   ".hero",
   ".longCourseHero",
+  ".longCourseStandOut",
   ".siteHeader",
   ".desktopNav",
   ".quickActions",

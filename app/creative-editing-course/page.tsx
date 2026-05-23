@@ -15,9 +15,7 @@ import ScheduleSection from "./ScheduleSection";
 const LazyCurriculumDotField = dynamic(() => import("./LazyCurriculumDotField"), {
   loading: () => null,
 });
-const ProofVideoCard = dynamic(() => import("../apply/ProofVideoCard"), {
-  loading: () => <div className="proofVideoPlayer proofVideoPlaceholder" aria-hidden="true" />,
-});
+
 const ScrollFadeArrow = dynamic(() => import("./ScrollFadeArrow"), {
   loading: () => null,
 });
@@ -258,36 +256,7 @@ const enrollmentBenefits = [
   "Reserve a seat only after your program fit is clear",
 ];
 
-const studentVoiceVideos = [
-  {
-    src: "/images/proof-videos/student-feedback-1.mp4",
-    poster: "/images/proof-videos/student-feedback-1.jpg",
-  },
-  {
-    src: "/images/proof-videos/student-feedback-2.mp4",
-    poster: "/images/proof-videos/student-feedback-2.jpg",
-  },
-  {
-    src: "/images/proof-videos/student-feedback-3.mp4",
-    poster: "/images/proof-videos/student-feedback-3.jpg",
-  },
-  {
-    src: "/images/proof-videos/student-feedback-4.mp4",
-    poster: "/images/proof-videos/student-feedback-4.jpg",
-  },
-  {
-    src: "/images/proof-videos/student-feedback-5.mp4",
-    poster: "/images/proof-videos/student-feedback-5.jpg",
-  },
-  {
-    src: "/images/proof-videos/student-feedback-6.mp4",
-    poster: "/images/proof-videos/student-feedback-6.jpg",
-  },
-  {
-    src: "/images/proof-videos/student-feedback-7.mp4",
-    poster: "/images/proof-videos/student-feedback-7.jpg",
-  },
-];
+
 
 const faqs = [
   {
@@ -610,26 +579,7 @@ export default function CreativeEditingCoursePage() {
         </div>
       </section>
 
-      <section className="longCourseVoices" aria-label="Student video testimonials">
-        <div className="longCourseSectionInner">
-          <div className="voicesIntro">
-            <span className="sectionPill">Student Voices</span>
-            <h2>What Students Say After The Program</h2>
-            <p>
-              Real student feedback from hands-on sessions, practical guidance, and the
-              confidence that comes from building with mentors.
-            </p>
-          </div>
 
-          <div className="courseVoiceGrid">
-            {studentVoiceVideos.map((video, index) => (
-              <div className="proofVideoFrame courseVoiceFrame" key={video.src}>
-                <ProofVideoCard src={video.src} poster={video.poster} index={index} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="programFaqContact longCourseFaq" id="faq" aria-label="Course FAQ">
         <div className="programFaqInner">

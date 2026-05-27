@@ -3,12 +3,12 @@ import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
-import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
 import LiquidVideoControlButton from "../LiquidVideoControlButton";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
 import ProofVideoCard from "./ProofVideoCard";
+import ApplyHeroVideo from "./ApplyHeroVideo";
 
 const curriculum = [
   {
@@ -312,24 +312,7 @@ export default function ApplyPage() {
 
           <aside className="programHeroCard" aria-label="Workshop preview">
             <ProgramCountdown targetDate="2026-05-23T00:00:00+05:30" />
-            <div className="programHeroImageWrap" style={{ position: "relative" }}>
-              <video
-                id="apply-hero-video"
-                className="programHeroVideo"
-                src="/images/prajesh-optimized.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                disablePictureInPicture
-                disableRemotePlayback
-                controlsList="nodownload noplaybackrate noremoteplayback"
-                preload="auto"
-                poster="/images/prajesh-poster.webp"
-                aria-label="AI ad filmmaking workshop preview"
-              />
-              <LiquidVideoMuteButton targetId="apply-hero-video" />
-            </div>
+            <ApplyHeroVideo />
 
           </aside>
 

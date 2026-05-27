@@ -81,7 +81,7 @@ export default function ProofVideoCard({
         src={src}
         poster={poster}
         preload="none"
-        muted
+        muted={isMuted}
         playsInline
         disablePictureInPicture
         disableRemotePlayback

@@ -2,8 +2,19 @@
 
 import { useEffect, useState } from "react";
 
-export default function LiquidVideoMuteButton({ targetId }: { targetId: string }) {
-  const [isMuted, setIsMuted] = useState(true);
+export default function LiquidVideoMuteButton({
+  targetId,
+  isMuted: propIsMuted,
+  setIsMuted: propSetIsMuted,
+}: {
+  targetId: string;
+  isMuted?: boolean;
+  setIsMuted?: (muted: boolean) => void;
+}) {
+  const [localIsMuted, localSetIsMuted] = useState(true);
+
+  const isMuted = propIsMuted !== undefined ? propIsMuted : localIsMuted;
+  const setIsMuted = propSetIsMuted !== undefined ? propSetIsMuted : localSetIsMuted;
 
   useEffect(() => {
     const video = document.getElementById(targetId);
@@ -22,7 +33,7 @@ export default function LiquidVideoMuteButton({ targetId }: { targetId: string }
     return () => {
       video.removeEventListener("volumechange", syncMuteState);
     };
-  }, [targetId]);
+  }, [targetId, setIsMuted]);
 
   const toggleMute = () => {
     const video = document.getElementById(targetId);
@@ -31,11 +42,14 @@ export default function LiquidVideoMuteButton({ targetId }: { targetId: string }
       return;
     }
 
-    video.muted = !video.muted;
+    const newMuted = !video.muted;
+    video.muted = newMuted;
 
-    if (!video.muted && video.volume === 0) {
+    if (!newMuted && video.volume === 0) {
       video.volume = 1;
     }
+
+    setIsMuted(newMuted);
 
     void video.play();
   };

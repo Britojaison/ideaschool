@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   title: "Idea School",
   description: "Creative skills training for editing, content creation, and AI tools.",
   icons: {
-    icon: [{ url: "/images/idea%20logo.png", type: "image/png" }],
-    apple: [{ url: "/images/idea%20logo.png", type: "image/png" }]
+    icon: [{ url: "/images/idea%20logo.webp", type: "image/png" }],
+    apple: [{ url: "/images/idea%20logo.webp", type: "image/png" }]
   }
 };
 

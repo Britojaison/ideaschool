@@ -28,79 +28,79 @@ type Brand =
 const brands: Brand[] = [
   {
     name: "Ashok Leyland",
-    image: "/images/ASHOK LEYLAND.png",
+    image: "/images/ASHOK LEYLAND.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Finolex",
-    image: "/images/FINOLEX.png",
+    image: "/images/FINOLEX.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Heritage",
-    image: "/images/heritage.png",
+    image: "/images/heritage.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "JLL",
-    image: "/images/JLL.png",
+    image: "/images/JLL.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Milky Mist",
-    image: "/images/MILKY MIST-2.png",
+    image: "/images/MILKY MIST-2.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Mapro",
-    image: "/images/mapro.png",
+    image: "/images/mapro.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Moj",
-    image: "/images/moj.png",
+    image: "/images/moj.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Netflix",
-    image: "/images/NETFLIX-2.png",
+    image: "/images/NETFLIX-2.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Paytm",
-    image: "/images/paytm.png",
+    image: "/images/paytm.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Amazon",
-    image: "/images/AMAZON.png",
+    image: "/images/AMAZON.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Poco",
-    image: "/images/POCO.png",
+    image: "/images/POCO.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "SIG",
-    image: "/images/SIG.png",
+    image: "/images/SIG.webp",
     width: 1254,
     height: 1254,
   },
   {
     name: "Xiaomi",
-    image: "/images/XIAMO.png",
+    image: "/images/XIAMO.webp",
     width: 1254,
     height: 1254,
   },
@@ -140,19 +140,19 @@ const workshops = [
   {
     title: "Performance Marketing",
     description: "Learn how content drives growth and results.",
-    image: "/images/359586b8b594b653726bbda2883862b8a820e37b.jpg",
+    image: "/images/359586b8b594b653726bbda2883862b8a820e37b.webp",
     comingSoon: true,
   },
   {
     title: "AI AD FILM MAKING MASTERCLASS",
     description: "Learn editing, content, and AI tools through real-world projects.",
-    image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.jpg",
+    image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
     href: "/apply",
   },
   {
     title: "Advanced Content Systems",
     description: "Build scalable content workflows and strategies.",
-    image: "/images/c988e78cfada134657e808cfb29a0523e125dde8.jpg",
+    image: "/images/c988e78cfada134657e808cfb29a0523e125dde8.webp",
     comingSoon: true,
   },
 ];
@@ -162,14 +162,14 @@ const notCourseFeatures = [
     title: "Studio-Led Training",
     description:
       "Learn through guided sessions, creator breakdowns, feedback loops, and practical assignments that mirror real content work.",
-    image: "/images/DSC01109.JPG",
+    image: "/images/DSC01109.webp",
     accent: "violet",
   },
   {
     title: "Real Brand Practice",
     description:
       "Move from classroom tasks into portfolio-ready briefs, shoots, edits, and campaigns shaped by real market expectations.",
-    image: "/images/DSC01035.JPG",
+    image: "/images/DSC01035.webp",
     accent: "blue",
   },
 ];
@@ -210,7 +210,7 @@ export default function Home() {
         <header className="siteHeader">
           <Link className="brand" href="/" aria-label="Idea School home">
             <Image
-              src="/images/idea logo.png"
+              src="/images/idea logo.webp"
               alt="Idea"
               width={104}
               height={54}
@@ -341,7 +341,7 @@ export default function Home() {
         <div className="whyIdeaInner">
           <div className="whyIdeaMedia">
             <Image
-              src="/images/ARJUN - MAIN PAGE (ABOUT SECTION).png"
+              src="/images/ARJUN - MAIN PAGE (ABOUT SECTION).webp"
               alt="Idea School training session"
               fill
               sizes="(max-width: 980px) 100vw, 420px"

@@ -117,7 +117,7 @@ img {
   z-index: 0;
   background:
     linear-gradient(180deg, rgba(5, 6, 8, 0.12) 0%, rgba(5, 6, 8, 0.08) 58%, rgba(12, 13, 15, 0.42) 100%),
-    url("/images/Hero Section_2.png") center center / cover no-repeat,
+    url("/images/Hero Section_2.webp") center center / cover no-repeat,
     #050608;
 }
 
@@ -1322,7 +1322,7 @@ img {
     linear-gradient(115deg, rgba(8, 7, 12, 0.18), rgba(8, 7, 12, 0.82)),
     radial-gradient(circle at 86% 12%, rgba(175, 82, 223, 0.36), transparent 34%),
     radial-gradient(circle at 8% 88%, rgba(75, 57, 187, 0.3), transparent 38%),
-    url("/images/payment bg.png") center / cover no-repeat,
+    url("/images/payment bg.webp") center / cover no-repeat,
     rgba(10, 8, 16, 0.92);
   color: #fff;
   cursor: pointer;
@@ -3967,7 +3967,7 @@ img {
     height: auto;
     background:
       linear-gradient(180deg, rgba(5, 6, 8, 0.05) 0%, rgba(5, 6, 8, 0.24) 36%, rgba(5, 6, 8, 0.62) 64%, #0c0d0f 100%),
-      url("/images/hero img.jpg") 42% top / cover no-repeat,
+      url("/images/hero img.webp") 42% top / cover no-repeat,
       #050608;
   }
 

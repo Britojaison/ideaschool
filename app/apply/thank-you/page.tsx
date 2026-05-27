@@ -20,7 +20,7 @@ export default function ApplyThankYouPage() {
         <header className="siteHeader">
           <Link className="brand" href="/" aria-label="Idea School home">
             <Image
-              src="/images/idea logo.png"
+              src="/images/idea logo.webp"
               alt="Idea"
               width={104}
               height={54}

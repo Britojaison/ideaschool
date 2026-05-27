@@ -9312,12 +9312,12 @@ html.isHeroGlassCursorActive .hero * {
     align-items: center;
     justify-content: center;
     width: 655px;
-    height: 34px;
+    height: auto;
     margin: 0 auto;
     font-family: var(--font-heading);
     font-size: 48px;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.15;
     letter-spacing: 0;
     text-align: center;
     font-synthesis: none;

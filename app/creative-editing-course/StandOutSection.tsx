@@ -157,7 +157,7 @@ export default function StandOutSection() {
 
           <div className="standOutImageWrap">
             <Image
-              src="/images/DSC01109.JPG"
+              src="/images/DSC01109.webp"
               alt="Idea School mentor guiding a creative training session"
               fill
               loading="lazy"

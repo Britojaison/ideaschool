@@ -16,24 +16,24 @@ const testimonials: Testimonial[] = [
   {
     name: "HIREN METHA",
     role: "Workshop participant",
-    profileImage: "/images/PROFILE heren.png",
-    workImage: "/images/WORK heren.JPG",
+    profileImage: "/images/PROFILE heren.webp",
+    workImage: "/images/WORK heren.webp",
     quote:
       "The workshop gave me the tools to turn my traditional family business into a modern brand.",
   },
   {
     name: "MANJUNATH HEGDE",
     role: "Workshop participant",
-    profileImage: "/images/MANJUNATH HEGDE - PROFILE.png",
-    workImage: "/images/WORK 2.png",
+    profileImage: "/images/MANJUNATH HEGDE - PROFILE.webp",
+    workImage: "/images/WORK 2.webp",
     quote:
       "This workshop filled the market gap for hands-on AI training perfectly. Loved the interactive vibe.",
   },
   {
     name: "IDEA SCHOOL STUDENT",
     role: "Workshop participant",
-    profileImage: "/images/PROFILE.png",
-    workImage: "/images/WORK.png",
+    profileImage: "/images/PROFILE.webp",
+    workImage: "/images/WORK.webp",
     quote:
       "Skipping my travel plans for this offline training was worth it. The creative guidance was excellent.",
   },

@@ -5,37 +5,37 @@ import { useState } from "react";
 
 const mentors = [
   {
-    image: "/images/zAMAN 2.png",
+    image: "/images/zAMAN 2.webp",
     name: "ZAMAN",
     role: "Head of Growth",
   },
   {
-    image: "/images/VIPIN-3.png",
+    image: "/images/VIPIN-3.webp",
     name: "VIPIN",
     role: "Senior Visualiser",
   },
   {
-    image: "/images/pATRTHI.png",
+    image: "/images/pATRTHI.webp",
     name: "PARIDHI",
     role: "Head of Design",
   },
   {
-    image: "/images/aRJUN 2.png",
+    image: "/images/aRJUN 2.webp",
     name: "ARJUN",
     role: "CEO",
   },
   {
-    image: "/images/CHANDRU.png",
+    image: "/images/CHANDRU.webp",
     name: "CHANDRU",
     role: "Senior Creative Strategist",
   },
   {
-    image: "/images/aJAY 2.png",
+    image: "/images/aJAY 2.webp",
     name: "AJAY",
     role: "Video Editor",
   },
   {
-    image: "/images/ANUSHYA.png",
+    image: "/images/ANUSHYA.webp",
     name: "ANUSHYA",
     role: "Design Lead",
   },

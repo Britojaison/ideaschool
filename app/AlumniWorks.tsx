@@ -7,7 +7,7 @@ const workThumbs = [
   {
     title: "MM Women's Day",
     video: "/images/MM Women's Day.mp4",
-    poster: "/images/alumni-posters/MM Women's Day.mp4.png",
+    poster: "/images/alumni-posters/MM Women's Day.mp4.webp",
   },
   {
     title: "Nurse Day PR 2",
@@ -16,22 +16,22 @@ const workThumbs = [
   {
     title: "Celine Paris",
     video: "/images/Celine Paris.mp4",
-    poster: "/images/alumni-posters/Celine Paris.mp4.png",
+    poster: "/images/alumni-posters/Celine Paris.mp4.webp",
   },
   {
     title: "Aadi Sale",
     video: "/images/Aadi Sale (1).mp4",
-    poster: "/images/alumni-posters/Aadi Sale (1).mp4.png",
+    poster: "/images/alumni-posters/Aadi Sale (1).mp4.webp",
   },
   {
     title: "Ranjit watch",
     video: "/images/Ranjit watch.mp4",
-    poster: "/images/alumni-posters/Ranjit watch.mp4.png",
+    poster: "/images/alumni-posters/Ranjit watch.mp4.webp",
   },
   {
     title: "LEO Energy Drink",
     video: "/images/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4",
-    poster: "/images/alumni-posters/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4.png",
+    poster: "/images/alumni-posters/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4.webp",
   },
 ];
 

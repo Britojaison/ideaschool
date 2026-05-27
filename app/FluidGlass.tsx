@@ -345,9 +345,9 @@ function HeroRefractionScene() {
 
   return (
     <group>
-      <Image position={[0, 0, 0]} scale={[coverWidth, coverHeight]} url="/images/Hero Section_2.png" />
-      <Image position={[2.1, -0.18, 3]} scale={[2.75, 3.3]} url="/images/DSC01109.JPG" />
-      <Image position={[-2.3, -0.82, 6]} scale={[1.9, 2.5]} url="/images/WORK heren.JPG" />
+      <Image position={[0, 0, 0]} scale={[coverWidth, coverHeight]} url="/images/Hero Section_2.webp" />
+      <Image position={[2.1, -0.18, 3]} scale={[2.75, 3.3]} url="/images/DSC01109.webp" />
+      <Image position={[-2.3, -0.82, 6]} scale={[1.9, 2.5]} url="/images/WORK heren.webp" />
       <Text
         position={[0, 0.64, 12]}
         fontSize={width < 5 ? 0.34 : 0.72}
@@ -405,8 +405,8 @@ function CourseRefractionScene() {
       >
         AI
       </Text>
-      <Image position={[1.18, -0.18, 3]} scale={[1.65, 1.2]} url="/images/Hero 6.png" />
-      <Image position={[-1.25, -0.5, 4]} scale={[1.2, 1.08]} url="/images/DSC01109.JPG" />
+      <Image position={[1.18, -0.18, 3]} scale={[1.65, 1.2]} url="/images/Hero 6.webp" />
+      <Image position={[-1.25, -0.5, 4]} scale={[1.2, 1.08]} url="/images/DSC01109.webp" />
       <mesh position={[0.1, 0.62, 8]} rotation-z={-0.18}>
         <planeGeometry args={[2.2, 0.12]} />
         <meshBasicMaterial color="#ffffff" transparent opacity={0.86} />

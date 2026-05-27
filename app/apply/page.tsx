@@ -16,84 +16,84 @@ const curriculum = [
     tools: "Overview, Strategy",
     description:
       "Understand AI-powered filmmaking fundamentals. Develop your own distinctive visual voice and learn why creative direction is the most valuable skill in the AI era.",
-    images: ["/images/work1.png", "/images/work2.png"],
+    images: ["/images/work1.webp", "/images/work2.webp"],
   },
   {
     title: "[02] Model Photography with AI",
     tools: "Flux Kontext",
     description:
       "Generate ultra-realistic model visuals for AD campaigns. Learn consistent character creation, lighting control, and brand-fit styling.",
-    images: ["/images/arjun.jpg", "/images/359586b8b594b653726bbda2883862b8a820e37b.jpg"],
+    images: ["/images/arjun.webp", "/images/359586b8b594b653726bbda2883862b8a820e37b.webp"],
   },
   {
     title: "[03] Studio Photography",
     tools: "Nano Banana",
     description:
       "Recreate professional studio environments entirely with AI. Control product lighting, shadow, and backgrounds to produce polished commercial-grade imagery.",
-    images: ["/images/automotive.jpg", "/images/ce04d496a79858c7cfcdeeb68c3992c3b57447a2.jpg"],
+    images: ["/images/automotive.webp", "/images/ce04d496a79858c7cfcdeeb68c3992c3b57447a2.webp"],
   },
   {
     title: "[04] Cinematic Visuals",
     tools: "Cinema Studio, Seedance",
     description:
       "Elevate stills into motion-ready frames. Master cinematic color grading, depth of field, lens effects, and scene composition.",
-    images: ["/images/bf2b72489ff720a0100b6ab10c6e86a70fbc6c43.jpg", "/images/c988e78cfada134657e808cfb29a0523e125dde8.jpg"],
+    images: ["/images/bf2b72489ff720a0100b6ab10c6e86a70fbc6c43.webp", "/images/c988e78cfada134657e808cfb29a0523e125dde8.webp"],
   },
   {
     title: "[05] Prompt & Cinematic Control",
     tools: "Cinema Studio, Prompt Craft",
     description:
       "Decode advanced prompt engineering frameworks that unlock cinematic control. Learn the exact sentence structures that separate amateur AI output from agency-level work.",
-    images: ["/images/hero.jpg", "/images/3d74c9843424c9aa30c3f33fc28bd08f861c5aec.jpg"],
+    images: ["/images/hero.webp", "/images/3d74c9843424c9aa30c3f33fc28bd08f861c5aec.webp"],
   },
   {
     title: "[06] Seedance + Final Act Showdown",
     tools: "Seedance, Google Veo",
     description:
       "Produce your mini AD film, then watch the live showdown of the best AI creative work from the group - your debut as an AI filmmaker.",
-    images: ["/images/9bf47fe908af3a71635ab3e3d95e681fc3b09fe4.jpg", "/images/2556835a1b7b46f9e856961edea7b9f43a023941.jpg"],
+    images: ["/images/9bf47fe908af3a71635ab3e3d95e681fc3b09fe4.webp", "/images/2556835a1b7b46f9e856961edea7b9f43a023941.webp"],
   },
 ];
 
 const toolLogos = [
   {
     name: "Adobe cloud",
-    image: "/images/tool1.png",
+    image: "/images/tool1.webp",
     width: 1254,
     height: 1254,
     className: "adobe",
   },
   {
     name: "Cinema Studio",
-    image: "/images/tool2.png",
+    image: "/images/tool2.webp",
     width: 1254,
     height: 1254,
     className: "Cinema Studio",
   },
   {
     name: "Kontext",
-    image: "/images/tool3.png",
+    image: "/images/tool3.webp",
     width: 1254,
     height: 1254,
     className: "kontext",
   },
   {
     name: "veo 3",
-    image: "/images/tool4.png",
+    image: "/images/tool4.webp",
     width: 1254,
     height: 1254,
     className: "veo 3",
   },
   {
     name: "nano banana",
-    image: "/images/tool5.png",
+    image: "/images/tool5.webp",
     width: 1254,
     height: 1254,
     className: "nano banana",
   },
   {
     name: "higgsfield",
-    image: "/images/tool6.png",
+    image: "/images/tool6.webp",
     width: 1254,
     height: 1254,
     className: "higgsfield",
@@ -110,46 +110,46 @@ const attendees = [
     title: "Entrepreneurs & Brand Owners",
     description:
       "Create agency-quality AD content for your own brand at a fraction of traditional production cost.",
-    image: attendeeImage("whoEntrepreneurs & Brand Owners.png"),
+    image: attendeeImage("whoEntrepreneurs & Brand Owners.webp"),
   },
   {
     title: "Marketing Professionals",
     description:
       "Produce stunning campaign visuals in-house and drastically cut production budgets without cutting quality.",
-    image: attendeeImage("whoMarketing Professionals.png"),
+    image: attendeeImage("whoMarketing Professionals.webp"),
   },
   {
     title: "Students & Career Switchers",
     description:
       "Build a portfolio of AI filmmaking work and position yourself for one of the most in-demand creative roles.",
-    image: attendeeImage("whoStudents & Career Switchers.png"),
+    image: attendeeImage("whoStudents & Career Switchers.webp"),
   },
   {
     title: "Photographers & Videographers",
     description:
       "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
-    image: attendeeImage("whoPhotographers & Videographers.png"),
+    image: attendeeImage("whoPhotographers & Videographers.webp"),
   },
   {
     title: "Graphic Designers & Artists",
     description:
       "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
-    image: attendeeImage("whoGraphic Designers & Artists.png"),
+    image: attendeeImage("whoGraphic Designers & Artists.webp"),
   },
   {
     title: "Content Creators",
     description:
       "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
-    image: attendeeImage("whoContent Creators.png"),
+    image: attendeeImage("whoContent Creators.webp"),
   },
 
 ];
 
 const instructors = [
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.png" },
-  { name: "Elamparidhi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.png" },
-  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.png" },
-  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.png" },
+  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.webp" },
+  { name: "Elamparidhi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.webp" },
+  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.webp" },
+  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.webp" },
 ];
 
 const clientStories = [
@@ -157,68 +157,68 @@ const clientStories = [
     name: "Balaji",
     quote:
       "The offline guidance was incredible, solving every doubt personally. Much better than any online program",
-    image: "/images/B1_BALAJI.png",
+    image: "/images/B1_BALAJI.webp",
   },
   {
     name: "Manjunath",
     quote:
       "This workshop filled the market gap for hands-on AI training perfectly. Loved the interactive vibe.",
-    image: "/images/B1_MANJUNATH.png",
+    image: "/images/B1_MANJUNATH.webp",
   },
   {
     name: "Hiren Metha",
     quote:
       "The workshop gave me the tools to turn my traditional family business into a modern brand.",
-    image: "/images/B1_metha.png",
+    image: "/images/B1_metha.webp",
   },
   {
     name: " ",
     quote:
       "Exploring tools I never knew existed. This workshop was worth my entire day.",
-    image: "/images/B1_QUOTE4.png",
+    image: "/images/B1_QUOTE4.webp",
   },
   {
     name: "",
     quote:
       "Skipping my travel plans for this offline training was worth it !. Excellent creative guidance ideas.",
-    image: "/images/B1_QUOTE5.png",
+    image: "/images/B1_QUOTE5.webp",
   },
   {
     name: "",
     quote:
       "Valuable hands-on experience you cannot get online. My first offline marketing event was simply great",
-    image: "/images/B1_QUOTE6.png",
+    image: "/images/B1_QUOTE6.webp",
   },
 ];
 
 const proofVideos = [
   {
     src: "/images/proof-videos/student-feedback-1.mp4",
-    poster: "/images/proof-videos/student-feedback-1.jpg",
+    poster: "/images/proof-videos/student-feedback-1.webp",
   },
   {
     src: "/images/proof-videos/student-feedback-2.mp4",
-    poster: "/images/proof-videos/student-feedback-2.jpg",
+    poster: "/images/proof-videos/student-feedback-2.webp",
   },
   {
     src: "/images/proof-videos/student-feedback-3.mp4",
-    poster: "/images/proof-videos/student-feedback-3.jpg",
+    poster: "/images/proof-videos/student-feedback-3.webp",
   },
   {
     src: "/images/proof-videos/student-feedback-4.mp4",
-    poster: "/images/proof-videos/student-feedback-4.jpg",
+    poster: "/images/proof-videos/student-feedback-4.webp",
   },
   {
     src: "/images/proof-videos/student-feedback-5.mp4",
-    poster: "/images/proof-videos/student-feedback-5.jpg",
+    poster: "/images/proof-videos/student-feedback-5.webp",
   },
   {
     src: "/images/proof-videos/student-feedback-6.mp4",
-    poster: "/images/proof-videos/student-feedback-6.jpg",
+    poster: "/images/proof-videos/student-feedback-6.webp",
   },
   {
     src: "/images/proof-videos/student-feedback-7.mp4",
-    poster: "/images/proof-videos/student-feedback-7.jpg",
+    poster: "/images/proof-videos/student-feedback-7.webp",
   },
 ];
 
@@ -269,7 +269,7 @@ export default function ApplyPage() {
         <header className="siteHeader">
           <Link className="brand" href="/" aria-label="Idea School home">
             <Image
-              src="/images/idea logo.png"
+              src="/images/idea logo.webp"
               alt="Idea"
               width={104}
               height={54}
@@ -325,7 +325,7 @@ export default function ApplyPage() {
                 disableRemotePlayback
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 preload="auto"
-                poster="/images/prajesh-poster.jpg"
+                poster="/images/prajesh-poster.webp"
                 aria-label="AI ad filmmaking workshop preview"
               />
               <LiquidVideoMuteButton targetId="apply-hero-video" />

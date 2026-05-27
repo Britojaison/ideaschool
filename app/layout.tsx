@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description:
     "Hands-on creative training for editing, AI ad filmmaking, content strategy, portfolio projects, and industry-ready creative workflows.",
   icons: {
-    icon: [{ url: "/images/idea%20logo.png", type: "image/png" }],
-    apple: [{ url: "/images/idea%20logo.png", type: "image/png" }]
+    icon: [{ url: "/images/idea%20logo.webp", type: "image/png" }],
+    apple: [{ url: "/images/idea%20logo.webp", type: "image/png" }]
   }
 };
 

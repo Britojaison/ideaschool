@@ -35,7 +35,7 @@ const course = {
   accent: "Build editor-ready craft, AI speed,\nand a real portfolio.",
   description:
     "A studio-led program for students, creators, designers, and career switchers who want to learn Premiere Pro, Photoshop, After Effects, sound design, AI tools, portfolio creation, and brand-ready production workflows.",
-  heroImage: "/images/Hero 6.png",
+  heroImage: "/images/Hero 6.webp",
   ctaLabel: "Apply for the next cohort",
 };
 
@@ -194,25 +194,25 @@ const mentors = [
   {
     name: "Dhananjayan . S",
     role: "CEO, 88GB",
-    image: "/images/mentor_ARJUN.png",
+    image: "/images/mentor_ARJUN.webp",
     accent: "green",
   },
   {
     name: "Elamparidhi",
     role: "Head of Design, 88GB",
-    image: "/images/mentor_PARIDHI.png",
+    image: "/images/mentor_PARIDHI.webp",
     accent: "mint",
   },
   {
     name: "Ajay Karthik",
     role: "Video Editor, 88GB",
-    image: "/images/mentor_AJAY.png",
+    image: "/images/mentor_AJAY.webp",
     accent: "lime",
   },
   {
     name: "Chandrasoodeshwar",
     role: "Senior Creative Strategist, 88GB",
-    image: "/images/mentor_CHANDRU.png",
+    image: "/images/mentor_CHANDRU.webp",
     accent: "violet",
   },
 ];
@@ -297,7 +297,7 @@ export default function CreativeEditingCoursePage() {
         <header className="siteHeader">
           <Link className="brand" href="/" aria-label="Idea School home">
             <Image
-              src="/images/idea logo.png"
+              src="/images/idea logo.webp"
               alt="Idea"
               width={104}
               height={54}
@@ -379,7 +379,7 @@ export default function CreativeEditingCoursePage() {
           <ScrollFadeArrow />
           <div className="outcomesArjunPortrait" aria-hidden="true">
             <Image
-              src="/images/arjun-cutout.png"
+              src="/images/arjun-cutout.webp"
               alt=""
               fill
               loading="lazy"

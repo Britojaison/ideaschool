@@ -239,22 +239,30 @@ const tools = [
   "HeyGen",
 ];
 
-const programDetails = [
-  { label: "Duration", value: "24 Weeks" },
-  { label: "Core Training", value: "12 Weeks" },
-  { label: "Internship", value: "12 Weeks" },
-  { label: "Mode", value: "Studio-led practical program" },
-  { label: "Schedule", value: "Weekly recorded, offline, query, task, and feedback rhythm" },
-  { label: "Outcome", value: "Portfolio + placement assistance eligibility" },
-  { label: "Portfolio", value: "Website, cohort brochure, edited shoot sets, and campaign assets" },
-  { label: "Tools", value: "Premiere Pro, Photoshop, After Effects, AI tools, Framer, and Figma" },
+const programHighlights = [
+  "24 Week Intensive Program (12 + 12 Weeks)",
+  "Creative Editing & Storytelling Training",
+  "AI-Powered Editing Workflows",
+  "Motion Graphics & Content Systems",
+  "Reels, Podcast & Commercial Editing",
+  "Practical Assignments & Real-World Projects",
+  "Weekly Mentorship & Feedback Sessions",
+  "Portfolio Development Support",
+  "Community Access & Networking",
+  "Industry Exposure Opportunities",
+  "Certificate of Completion",
 ];
 
-const enrollmentBenefits = [
-  "Talk to the team and check whether the program fits your goals",
-  "Understand batch availability, fee structure, and admission steps",
-  "Reserve a seat only after your program fit is clear",
+const enrollmentDetails = [
+  { label: "Mode", value: "Offline + Online Hybrid Learning Experience" },
+  {
+    label: "Ideal For",
+    value:
+      "Creators, Editors, Designers, Content Professionals, Students, Freelancers & Aspiring Digital Creators",
+  },
+  { label: "Cohort Intake", value: "Focused mentorship with limited seats per batch." },
 ];
+
 
 
 
@@ -545,33 +553,33 @@ export default function CreativeEditingCoursePage() {
         <div className="longCourseSectionInner detailsGlanceGrid">
           <article className="detailsPanel programGlancePanel">
             <span className="sectionPill">Key Program Highlights</span>
-            <h2>Program Details At A Glance</h2>
-            <dl className="programDetailTable">
-              {programDetails.map((item) => (
-                <div key={item.label}>
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
+            <h2>What The Program Includes</h2>
+            <div className="highlightsChecklist">
+              {programHighlights.map((highlight) => (
+                <div className="highlightItem" key={highlight}>
+                  <span className="checkIcon" aria-hidden="true">✓</span>
+                  <span>{highlight}</span>
                 </div>
               ))}
-            </dl>
+            </div>
           </article>
 
           <article className="detailsPanel enrollmentPanel">
             <span className="sectionPill">Admission & Enrollment</span>
             <h2>Fees And Enrollment</h2>
             <div className="feeCallout">
-              <span>Program fee</span>
-              <strong>Shared after counseling</strong>
+              <span>Full Program Fee</span>
+              <strong>₹69,999</strong>
               <p>Seats are limited so every learner gets attention, feedback, and room to practice.</p>
             </div>
-            <div className="enrollmentChecklist">
-              {enrollmentBenefits.map((benefit) => (
-                <p key={benefit}>
-                  <span aria-hidden="true">✓</span>
-                  {benefit}
-                </p>
+            <dl className="programDetailTable">
+              {enrollmentDetails.map((item) => (
+                <div key={item.label}>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
               ))}
-            </div>
+            </dl>
             <Link className="primaryCta programCta enrollmentCta" href="/#contact">
               <span className="primaryCtaText">Talk to Idea School</span>
             </Link>

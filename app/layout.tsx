@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/images/idea%20logo.webp", type: "image/png" }],
     apple: [{ url: "/images/idea%20logo.webp", type: "image/png" }]
+  },
+  verification: {
+    google: "IoTBz0cEobJ80992_poSZ0vrVo4Dk9AvCGJz9vjYQEw"
   }
 };
 

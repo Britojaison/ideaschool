@@ -4374,12 +4374,12 @@ html.isHeroGlassCursorActive .hero * {
   .longCourseDetails.has-details-motion .detailsPanel :is(
     .sectionPill,
     h2,
+    .highlightItem,
     .programDetailTable dt,
     .programDetailTable dd,
     .feeCallout > span,
     .feeCallout strong,
     .feeCallout p,
-    .enrollmentChecklist p,
     .enrollmentCta
   ) {
     opacity: 0;
@@ -4397,54 +4397,61 @@ html.isHeroGlassCursorActive .hero * {
     --details-text-delay: 340ms;
   }
 
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(1) :is(dt, dd),
+  /* Row 1 highlights, and fee callout header */
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(1),
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(2),
   .longCourseDetails.has-details-motion .feeCallout > span {
     --details-text-delay: 460ms;
   }
 
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(2) :is(dt, dd),
+  /* Row 2 highlights, and fee callout strong */
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(3),
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(4),
   .longCourseDetails.has-details-motion .feeCallout strong {
     --details-text-delay: 560ms;
   }
 
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(3) :is(dt, dd),
+  /* Row 3 highlights, and fee callout p */
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(5),
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(6),
   .longCourseDetails.has-details-motion .feeCallout p {
     --details-text-delay: 660ms;
   }
 
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(4) :is(dt, dd),
-  .longCourseDetails.has-details-motion .enrollmentChecklist p:nth-child(1) {
+  /* Row 4 highlights, and table row 1 */
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(7),
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(8),
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(1) :is(dt, dd) {
     --details-text-delay: 760ms;
   }
 
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(5) :is(dt, dd),
-  .longCourseDetails.has-details-motion .enrollmentChecklist p:nth-child(2) {
+  /* Row 5 highlights, and table row 2 */
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(9),
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(10),
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(2) :is(dt, dd) {
     --details-text-delay: 860ms;
   }
 
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(6) :is(dt, dd),
-  .longCourseDetails.has-details-motion .enrollmentChecklist p:nth-child(3) {
+  /* Row 6 highlights, and table row 3 */
+  .longCourseDetails.has-details-motion .highlightItem:nth-child(11),
+  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(3) :is(dt, dd) {
     --details-text-delay: 960ms;
   }
 
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(7) :is(dt, dd),
+  /* CTA Button */
   .longCourseDetails.has-details-motion .enrollmentCta {
     --details-text-delay: 1060ms;
-  }
-
-  .longCourseDetails.has-details-motion .programDetailTable div:nth-child(8) :is(dt, dd) {
-    --details-text-delay: 1160ms;
   }
 
   .longCourseDetails.has-details-motion.is-details-visible .detailsPanel :is(
     .sectionPill,
     h2,
+    .highlightItem,
     .programDetailTable dt,
     .programDetailTable dd,
     .feeCallout > span,
     .feeCallout strong,
     .feeCallout p,
-    .enrollmentChecklist p,
     .enrollmentCta
   ) {
     opacity: 1;
@@ -4482,6 +4489,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .programDetailTable {
   display: grid;
+  width: 100%;
   margin: clamp(24px, 3.2svh, 34px) 0 0;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
@@ -4545,11 +4553,12 @@ html.isHeroGlassCursorActive .hero * {
 .feeCallout strong {
   color: var(--course-green);
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 2.95vw, 2.75rem);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
   font-weight: 950;
   line-height: 1;
   text-transform: uppercase;
-  text-shadow: 0 0 28px rgba(218, 253, 85, 0.2);
+  text-shadow: 0 0 32px rgba(218, 253, 85, 0.3);
+  letter-spacing: -0.01em;
 }
 
 .feeCallout p {
@@ -4560,42 +4569,50 @@ html.isHeroGlassCursorActive .hero * {
   line-height: 1.48;
 }
 
-.enrollmentChecklist {
+.highlightsChecklist {
   display: grid;
-  gap: clamp(10px, 1.4svh, 12px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
   width: 100%;
   margin-top: clamp(24px, 3.4svh, 34px);
 }
 
-.enrollmentChecklist p {
-  display: grid;
-  grid-template-columns: 30px 1fr;
-  align-items: center;
-  gap: 12px;
-  min-height: clamp(52px, 5.4svh, 58px);
-  margin: 0;
-  padding: clamp(10px, 1.3svh, 12px) 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.045);
-  color: rgba(255, 255, 255, 0.84);
-  text-align: left;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.3;
+@media (max-width: 980px) {
+  .highlightsChecklist {
+    grid-template-columns: 1fr;
+  }
 }
 
-.enrollmentChecklist span {
+.highlightItem {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  gap: 14px;
+  min-height: clamp(56px, 5.8svh, 64px);
+  margin: 0;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.checkIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
   background: var(--course-green);
   color: #08070c;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 950;
+  flex-shrink: 0;
 }
 
 .enrollmentCta {

@@ -489,19 +489,6 @@ html.isHeroGlassCursorActive .hero * {
   margin-top: 0;
 }
 
-.heroCourseCta {
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(10, 10, 12, 0.42);
-  box-shadow: none;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.heroCourseCta:hover {
-  border-color: rgba(255, 255, 255, 0.38);
-  box-shadow: 0 0 28px rgba(117, 76, 184, 0.28);
-}
-
 .heroInlineActions {
   display: flex;
   align-items: center;
@@ -6539,7 +6526,7 @@ html.isHeroGlassCursorActive .hero * {
 
   .batchNoticeMount {
     order: 1;
-    width: min(100%, 320px);
+    width: min(100%, 340px);
     flex: 0 0 auto;
     height: 50px;
     min-height: 50px;
@@ -6556,18 +6543,18 @@ html.isHeroGlassCursorActive .hero * {
   .batchNoticeContent {
     gap: 10px;
     justify-content: center;
-    padding: 0 14px;
+    padding: 0 10px;
   }
 
   .noticeIcon {
-    flex-basis: 30px;
-    width: 30px;
-    height: 30px;
-    background-size: 24px 28px;
+    flex-basis: 26px;
+    width: 26px;
+    height: 26px;
+    background-size: 21px 25px;
   }
 
   .batchNoticeText {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.2;
   }
 
@@ -6928,7 +6915,7 @@ html.isHeroGlassCursorActive .hero * {
   .batchNoticeGlass,
   .batchNoticeGlass .glass,
   .batchNoticeContent {
-    width: 417px;
+    width: 520px;
     height: 51px;
     min-height: 51px;
   }
@@ -6938,7 +6925,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .batchNoticeContent {
-    padding: 0 8px;
+    padding: 0 20px;
   }
 }
 

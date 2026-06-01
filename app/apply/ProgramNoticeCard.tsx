@@ -55,7 +55,7 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
         <span className="programNoticeMeta">
           <span>
             <small>Date</small>
-            23rd May 2026
+            June 13, 2026
           </span>
           <span>
             <small>Location</small>

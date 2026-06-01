@@ -311,7 +311,7 @@ export default function ApplyPage() {
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
-            <ProgramCountdown targetDate="2026-05-23T00:00:00+05:30" />
+            <ProgramCountdown targetDate="2026-06-13T00:00:00+05:30" />
             <ApplyHeroVideo />
 
           </aside>
@@ -319,7 +319,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>May 23</dd>
+              <dd>June 13</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>

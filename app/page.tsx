@@ -245,9 +245,6 @@ export default function Home() {
               <Link className="primaryCta" href="/apply">
                 <span className="primaryCtaText">Apply Now</span>
               </Link>
-              <Link className="primaryCta heroCourseCta" href="/creative-editing-course">
-                <span className="primaryCtaText">View Course</span>
-              </Link>
             </div>
             <div className="heroInlineActions">
               <LiquidBatchNotice />

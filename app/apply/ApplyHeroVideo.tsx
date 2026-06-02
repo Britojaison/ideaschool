@@ -11,7 +11,7 @@ export default function ApplyHeroVideo() {
       <video
         id="apply-hero-video"
         className="programHeroVideo"
-        src="/images/prajesh-optimized.mp4"
+        src="/images/advideo1-optimized.mp4"
         autoPlay
         muted={isMuted}
         loop
@@ -20,7 +20,7 @@ export default function ApplyHeroVideo() {
         disableRemotePlayback
         controlsList="nodownload noplaybackrate noremoteplayback"
         preload="auto"
-        poster="/images/prajesh-poster.webp"
+        poster="/images/advideo1-poster.jpg"
         aria-label="AI ad filmmaking workshop preview"
       />
       <LiquidVideoMuteButton

@@ -60,7 +60,7 @@ export default function ApplyThankYouPage() {
             <div className="thankYouActions">
               <a
                 className="primaryCta thankYouPrimaryCta"
-                href="https://chat.whatsapp.com/F87TI0hePwQ8IJ35dqntXm?mode=gi_t"
+                href="https://chat.whatsapp.com/KWbeQryPQBO3z2drK3gPdE"
                 target="_blank"
                 rel="noreferrer"
               >

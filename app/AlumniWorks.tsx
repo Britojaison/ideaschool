@@ -33,6 +33,18 @@ const workThumbs = [
     video: "/images/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4",
     poster: "/images/alumni-posters/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4.webp",
   },
+  {
+    title: "Girish",
+    video: "/images/alumini-works/Girish_ 2.mp4",
+  },
+  {
+    title: "Kodak",
+    video: "/images/alumini-works/Kodakl.mp4",
+  },
+  {
+    title: "Manguu Ad",
+    video: "/images/alumini-works/Manguu_Ad.mp4",
+  },
 ];
 
 export default function AlumniWorks() {

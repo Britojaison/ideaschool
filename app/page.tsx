@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
+import HashScrollFix from "./HashScrollFix";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
@@ -200,6 +201,7 @@ const notCoursePillars = [
 export default function Home() {
   return (
     <main>
+      <HashScrollFix />
       <ScrollTextReveal />
 
       <section className="hero" id="hero" aria-label="Idea School hero">
@@ -519,6 +521,9 @@ export default function Home() {
               Join Idea School and start learning editing, content creation, and
               AI tools through real projects and hands-on sessions.
             </p>
+            <a className="contactPhone" href="tel:+918618894857">
+              Contact us : 8618894857
+            </a>
           </div>
 
           <form className="applyForm" id="apply">
@@ -565,7 +570,7 @@ export default function Home() {
               <h2>Company</h2>
               <a href="#about">About</a>
               <a href="#testimonials">Testimonials</a>
-              <a href="#contact">Contact</a>
+              <a href="#contact">Contact us : 8618894857</a>
             </div>
             <div>
               <h2>Socials</h2>

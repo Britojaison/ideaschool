@@ -592,7 +592,7 @@ export default function ApplyPage() {
               <h2>Company</h2>
               <Link href="/#about">About</Link>
               <Link href="/#testimonials">Testimonials</Link>
-              <Link href="/#contact">Contact</Link>
+              <Link href="/#contact">Contact : 8618894857</Link>
             </div>
             <div>
               <h2>Socials</h2>

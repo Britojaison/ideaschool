@@ -8568,6 +8568,19 @@ html.isHeroGlassCursorActive .hero * {
   line-height: 1.45;
 }
 
+.contactPhone {
+  display: inline-flex;
+  margin-top: 24px;
+  color: #fff;
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.contactPhone:hover {
+  color: #d9ff57;
+}
+
 .applyForm {
   display: grid;
   gap: 26px;

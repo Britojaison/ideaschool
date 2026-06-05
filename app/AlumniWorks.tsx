@@ -29,11 +29,6 @@ const workThumbs = [
     poster: "/images/alumni-posters/Ranjit watch.mp4.webp",
   },
   {
-    title: "LEO Energy Drink",
-    video: "/images/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4",
-    poster: "/images/alumni-posters/LEO_EnergyDrink_Mukesh_IdeaSchool.mp4.webp",
-  },
-  {
     title: "Girish",
     video: "/images/alumini-works/Girish_ 2.mp4",
   },

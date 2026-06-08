@@ -6,7 +6,6 @@ import HashScrollFix from "./HashScrollFix";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
-import LiquidVideoButton from "./LiquidVideoButton";
 import MentorCarousel from "./MentorCarousel";
 import ProgramMenu from "./ProgramMenu";
 import ScrollTextReveal from "./ScrollTextReveal";
@@ -206,7 +205,18 @@ export default function Home() {
       <ScrollTextReveal />
 
       <section className="hero" id="hero" aria-label="Idea School hero">
-        <div className="heroMedia" />
+        <div className="heroMedia" aria-hidden="true">
+          <video
+            className="heroVideo"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/images/Brand Commercial/SunscreenAD_May22 V2.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         <div className="heroShade" />
 
@@ -251,7 +261,6 @@ export default function Home() {
             </div>
             <div className="heroInlineActions">
               <LiquidBatchNotice />
-              <LiquidVideoButton />
             </div>
           </div>
         </div>

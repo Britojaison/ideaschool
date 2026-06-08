@@ -2874,6 +2874,97 @@ html.isHeroGlassCursorActive .hero * {
   height: 58%;
 }
 
+.brandCommercialMobileHeading {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .brandCommercials {
+    padding: 44px 0 0;
+    background: #f2f2f2;
+    background-image: none;
+  }
+
+  .brandCommercials h2 {
+    width: 100%;
+    padding: 0 22px;
+    color: #000;
+    font-size: clamp(2.08rem, 10vw, 3.15rem);
+    line-height: 0.9;
+    text-align: left;
+  }
+
+  .brandCommercialViewport {
+    margin-top: 28px;
+  }
+
+  .brandCommercialGrid {
+    display: block;
+    height: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .brandCommercialCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 0 0 34px;
+    overflow: visible;
+    background: #f2f2f2;
+    scroll-snap-align: none;
+  }
+
+  .brandCommercialCard + .brandCommercialCard {
+    padding-top: 34px;
+    background: #f2f2f2;
+  }
+
+  .brandCommercialPlayer,
+  .brandCommercialVideo {
+    position: relative;
+    inset: auto;
+  }
+
+  .brandCommercialPlayer {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .brandCommercialVideo {
+    height: 100%;
+    object-fit: cover;
+    transform: none;
+  }
+
+  .brandCommercialOverlay {
+    display: none;
+  }
+
+  .brandCommercialArrow {
+    display: none;
+  }
+
+  .brandCommercialMute {
+    right: 18px;
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .brandCommercialMobileHeading {
+    display: block;
+    margin: 0 22px 28px;
+    color: #000;
+    font-size: clamp(3.6rem, 17vw, 5.2rem);
+    font-weight: 950;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+}
+
 .programProof {
   overflow: hidden;
   padding: 36px var(--apply-section-x) 54px;

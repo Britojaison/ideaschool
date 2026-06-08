@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BrandCommercialVideo from "./BrandCommercialVideo";
 
 type BrandCommercial = {
   title: string;
+  mobileHeading?: string;
   src: string;
   poster: string;
 };
@@ -15,6 +16,7 @@ export default function BrandCommercialsSection({
   commercials: BrandCommercial[];
 }) {
   const railRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Array<HTMLElement | null>>([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const syncActiveSlide = () => {
@@ -44,6 +46,39 @@ export default function BrandCommercialsSection({
     });
   };
 
+  useEffect(() => {
+    const cards = cardRefs.current.filter((card): card is HTMLElement => card !== null);
+
+    if (!cards.length || !window.matchMedia("(max-width: 767px)").matches) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visibleEntry) {
+          return;
+        }
+
+        const nextIndex = cards.findIndex((card) => card === visibleEntry.target);
+
+        if (nextIndex >= 0) {
+          setActiveIndex(nextIndex);
+        }
+      },
+      {
+        threshold: [0.42, 0.58, 0.72],
+      },
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, [commercials.length]);
+
   return (
     <section className="brandCommercials" aria-label="Brand commercial ad films">
       <div className="brandCommercialsInner">
@@ -60,7 +95,18 @@ export default function BrandCommercialsSection({
           </button>
           <div className="brandCommercialGrid" ref={railRef} onScroll={syncActiveSlide}>
             {commercials.map((commercial, index) => (
-              <article className="brandCommercialCard" key={commercial.title}>
+              <article
+                className="brandCommercialCard"
+                key={commercial.title}
+                ref={(node) => {
+                  cardRefs.current[index] = node;
+                }}
+                onMouseEnter={() => setActiveIndex(index)}
+                onFocus={() => setActiveIndex(index)}
+              >
+                {commercial.mobileHeading ? (
+                  <h3 className="brandCommercialMobileHeading">{commercial.mobileHeading}</h3>
+                ) : null}
                 <BrandCommercialVideo
                   src={commercial.src}
                   poster={commercial.poster}

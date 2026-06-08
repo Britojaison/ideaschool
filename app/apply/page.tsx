@@ -230,6 +230,7 @@ const brandCommercials = [
   },
   {
     title: "Campa",
+    mobileHeading: "100% Made with AI.",
     src: "/images/Brand Commercial/CampaAD_Seedance_May22.mp4",
     poster: "/images/Brand Commercial/CampaAD_Seedance_May22.webp",
   },

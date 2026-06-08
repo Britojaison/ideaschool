@@ -3,6 +3,7 @@ import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
 import HashScrollFix from "./HashScrollFix";
+import LiquidApplyButton from "./LiquidApplyButton";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
@@ -255,9 +256,7 @@ export default function Home() {
               and hands-on sessions designed for the industry.
             </p>
             <div className="heroCtaRow">
-              <Link className="primaryCta" href="/apply">
-                <span className="primaryCtaText">Apply Now</span>
-              </Link>
+              <LiquidApplyButton />
             </div>
             <div className="heroInlineActions">
               <LiquidBatchNotice />

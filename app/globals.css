@@ -580,6 +580,7 @@ html.isHeroGlassCursorActive .hero * {
 .heroCopy h1,
 .heroCopy p,
 .heroCopy .primaryCta,
+.heroCopy .liquidApplyMount,
 .heroCopy .heroInlineActions,
 .heroVisual,
 .heroActions {
@@ -597,6 +598,10 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .heroCopy .primaryCta {
+  animation-delay: 440ms;
+}
+
+.heroCopy .liquidApplyMount {
   animation-delay: 440ms;
 }
 
@@ -727,6 +732,73 @@ html.isHeroGlassCursorActive .hero * {
   margin-top: 0;
 }
 
+.liquidApplyMount {
+  position: relative;
+  display: inline-flex;
+  width: 147px;
+  height: 38px;
+  border: 2px solid #b65ee8;
+  border-radius: 8px;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  isolation: isolate;
+  background: rgba(8, 8, 12, 0.18);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 18px rgba(182, 94, 232, 0.34);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.liquidApplyMount::after {
+  position: absolute;
+  inset: -2px;
+  z-index: 4;
+  content: "";
+  border: 2px solid #b65ee8;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 0 22px rgba(182, 94, 232, 0.42);
+  pointer-events: none;
+}
+
+.liquidApplyMount:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.08);
+}
+
+.liquidApplyGlass,
+.liquidApplyGlass .glass {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.liquidApplyMount>div:not(.liquidApplyGlass),
+.liquidApplyMount>span {
+  background: transparent !important;
+  opacity: 0 !important;
+  box-shadow: none !important;
+}
+
+.liquidApplyText {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 147px;
+  height: 38px;
+  color: #fff;
+  font-family: var(--font-subject);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.38);
+  white-space: nowrap;
+}
+
 .heroInlineActions {
   display: flex;
   align-items: center;
@@ -767,6 +839,7 @@ html.isHeroGlassCursorActive .hero * {
   .heroCopy h1,
   .heroCopy p,
   .heroCopy .primaryCta,
+  .heroCopy .liquidApplyMount,
   .heroCopy .heroInlineActions,
   .heroVisual,
   .heroActions,
@@ -6942,6 +7015,20 @@ html.isHeroGlassCursorActive .hero * {
   .heroCtaRow .primaryCta {
     width: 100%;
     margin: 0;
+  }
+
+  .heroCtaRow .liquidApplyMount,
+  .liquidApplyText {
+    width: 100%;
+  }
+
+  .heroCtaRow .liquidApplyMount {
+    height: 48px;
+  }
+
+  .liquidApplyText {
+    height: 48px;
+    font-size: 17px;
   }
 
   .primaryCtaText {

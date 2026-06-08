@@ -32,6 +32,7 @@ export default function LiquidApplyButton() {
           left: "50%",
         }}
       >
+        {null}
       </LiquidGlass>
       <span className="liquidApplyText">Apply Now</span>
     </Link>

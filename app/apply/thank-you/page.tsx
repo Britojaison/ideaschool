@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import HeroDotField from "../../HeroDotField";
+import ProgramMenu from "../../ProgramMenu";
 
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | Idea School",
@@ -28,6 +29,9 @@ export default function ApplyThankYouPage() {
               className="brandLogo"
             />
           </Link>
+          <nav className="desktopNav" aria-label="Program navigation">
+            <ProgramMenu />
+          </nav>
 
           <Link className="headerCta" href="/apply">
             <span className="headerCtaText">Back to program</span>

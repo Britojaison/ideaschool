@@ -12,6 +12,7 @@ const workThumbs = [
   {
     title: "Nurse Day PR 2",
     video: "/images/Nurse day PR 2.mp4",
+    poster: "/images/alumni-posters/Nurse day PR 2.mp4.webp",
   },
   {
     title: "Celine Paris",
@@ -31,14 +32,27 @@ const workThumbs = [
   {
     title: "Girish",
     video: "/images/alumini-works/Girish_ 2.mp4",
+    poster: "/images/alumni-posters/Girish_ 2.mp4.webp",
   },
   {
     title: "Kodak",
     video: "/images/alumini-works/Kodakl.mp4",
+    poster: "/images/alumni-posters/Kodakl.mp4.webp",
   },
   {
     title: "Manguu Ad",
     video: "/images/alumini-works/Manguu_Ad.mp4",
+    poster: "/images/alumni-posters/Manguu_Ad.mp4.webp",
+  },
+  {
+    title: "TAPO",
+    video: "/images/alumini-works/TAPO.mp4",
+    poster: "/images/alumni-posters/TAPO.mp4.webp",
+  },
+  {
+    title: "111",
+    video: "/images/alumini-works/111.mp4",
+    poster: "/images/alumni-posters/111.mp4.webp",
   },
 ];
 

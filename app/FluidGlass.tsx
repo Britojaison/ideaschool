@@ -55,7 +55,7 @@ type ModeComponentProps = {
 
 const defaultNavItems = [
   { label: "Home", link: "#hero" },
-  { label: "Training", link: "#training" },
+  { label: "Training", link: "#program" },
   { label: "Apply", link: "/apply", showArrow: true },
 ];
 

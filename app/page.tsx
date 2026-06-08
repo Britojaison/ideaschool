@@ -8,6 +8,7 @@ import LiquidQuickActions from "./LiquidQuickActions";
 import LiquidVideoControlButton from "./LiquidVideoControlButton";
 import LiquidVideoButton from "./LiquidVideoButton";
 import MentorCarousel from "./MentorCarousel";
+import ProgramMenu from "./ProgramMenu";
 import ScrollTextReveal from "./ScrollTextReveal";
 import StarBorder from "./StarBorder";
 import WorkshopCarousel from "./WorkshopCarousel";
@@ -222,7 +223,7 @@ export default function Home() {
           </Link>
           <nav className="desktopNav" aria-label="Primary navigation">
             <a href="#about">About</a>
-            <a href="#training">Training</a>
+            <ProgramMenu />
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -289,7 +290,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="workshops" id="training" aria-label="Our workshops">
+      <section className="workshops" id="program" aria-label="Our programs">
         <div className="workshopGrid" aria-hidden="true" />
         <div className="workshopInner">
           <StarBorder
@@ -301,7 +302,7 @@ export default function Home() {
             speed="5s"
             thickness={2}
           >
-            Our Workshops
+            Our Programs
           </StarBorder>
           <WorkshopCarousel workshops={workshops} />
         </div>
@@ -562,8 +563,8 @@ export default function Home() {
           <nav className="footerLinks" aria-label="Footer navigation">
             <div>
               <h2>Program</h2>
-              <a href="#training">Training</a>
-              <a href="#training">Workshops</a>
+              <a href="#program">Program</a>
+              <Link href="/creative-editing-course">Creative Editing Program</Link>
               <Link href="/apply">Get early bird pass now</Link>
             </div>
             <div>

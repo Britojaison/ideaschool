@@ -4,9 +4,9 @@ import DisableImageActions from "./DisableImageActions";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Idea School | Creative Skills, AI Ad Filmmaking & Editing Training",
+  title: "Idea School | Creative Skills, AI Ad Filmmaking & Editing Programs",
   description:
-    "Hands-on creative training for editing, AI ad filmmaking, content strategy, portfolio projects, and industry-ready creative workflows.",
+    "Hands-on creative programs for editing, AI ad filmmaking, content strategy, portfolio projects, and industry-ready creative workflows.",
   icons: {
     icon: [{ url: "/images/idea%20logo.webp", type: "image/png" }],
     apple: [{ url: "/images/idea%20logo.webp", type: "image/png" }]

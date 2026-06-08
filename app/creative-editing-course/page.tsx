@@ -5,6 +5,7 @@ import Link from "next/link";
 import DecryptedText from "../DecryptedText";
 import DetailsSectionMotion from "./DetailsSectionMotion";
 import HeroDotField from "../HeroDotField";
+import ProgramMenu from "../ProgramMenu";
 import ScrollTextReveal from "../ScrollTextReveal";
 import TiltedCard from "../TiltedCard";
 import OutcomeCards from "./OutcomeCards";
@@ -315,6 +316,7 @@ export default function CreativeEditingCoursePage() {
           </Link>
           <nav className="desktopNav" aria-label="Course navigation">
             <a href="#curriculum">Curriculum</a>
+            <ProgramMenu />
             <a href="#schedule">Schedule</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#faq">FAQ</a>

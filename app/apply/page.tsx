@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
+import ProgramMenu from "../ProgramMenu";
 import ScrollTextReveal from "../ScrollTextReveal";
 import LiquidVideoControlButton from "../LiquidVideoControlButton";
 import CurriculumAccordion from "./CurriculumAccordion";
@@ -9,6 +10,7 @@ import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
+import BrandCommercialsSection from "./BrandCommercialsSection";
 
 const curriculum = [
   {
@@ -222,6 +224,19 @@ const proofVideos = [
   },
 ];
 
+const brandCommercials = [
+  {
+    title: "Sunscreen",
+    src: "/images/Brand Commercial/SunscreenAD_May22 V2.mp4",
+    poster: "/images/Brand Commercial/SunscreenAD_May22 V2.webp",
+  },
+  {
+    title: "Campa",
+    src: "/images/Brand Commercial/CampaAD_Seedance_May22.mp4",
+    poster: "/images/Brand Commercial/CampaAD_Seedance_May22.webp",
+  },
+];
+
 const applyFaqs = [
   {
     question: "Do I need any prior AI or design experience?",
@@ -277,6 +292,9 @@ export default function ApplyPage() {
               className="brandLogo"
             />
           </Link>
+          <nav className="desktopNav" aria-label="Program navigation">
+            <ProgramMenu />
+          </nav>
 
           <a className="headerCta" href="#enroll">
             <span className="headerCtaText">Book your class</span>
@@ -435,6 +453,8 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <BrandCommercialsSection commercials={brandCommercials} />
+
       <section className="programProof" aria-label="Client feedback">
         <div className="programProofInner">
           <div className="proofIntro">
@@ -584,8 +604,8 @@ export default function ApplyPage() {
           <nav className="footerLinks" aria-label="Footer navigation">
             <div>
               <h2>Program</h2>
-              <Link href="/#training">Training</Link>
-              <Link href="/#training">Workshops</Link>
+              <Link href="/#program">Program</Link>
+              <Link href="/creative-editing-course">Creative Editing Program</Link>
               <a href="#apply-form">Get early bird pass now</a>
             </div>
             <div>

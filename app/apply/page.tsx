@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
-import ProgramMenu from "../ProgramMenu";
 import ScrollTextReveal from "../ScrollTextReveal";
 import LiquidVideoControlButton from "../LiquidVideoControlButton";
 import CurriculumAccordion from "./CurriculumAccordion";
@@ -292,10 +291,6 @@ export default function ApplyPage() {
               className="brandLogo"
             />
           </Link>
-          <nav className="desktopNav" aria-label="Program navigation">
-            <ProgramMenu />
-          </nav>
-
           <a className="headerCta" href="#enroll">
             <span className="headerCtaText">Book your class</span>
           </a>

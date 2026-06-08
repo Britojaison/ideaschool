@@ -12,7 +12,10 @@ export const metadata: Metadata = {
     apple: [{ url: "/images/idea%20logo.webp", type: "image/png" }]
   },
   verification: {
-    google: "IoTBz0cEobJ80992_poSZ0vrVo4Dk9AvCGJz9vjYQEw"
+    google: "IoTBz0cEobJ80992_poSZ0vrVo4Dk9AvCGJz9vjYQEw",
+    other: {
+      "msvalidate.01": ["8B36D5965F0BFE9929E6F42BFF5F3F97"]
+    }
   }
 };
 

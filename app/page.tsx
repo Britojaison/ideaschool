@@ -248,7 +248,7 @@ export default function Home() {
             <h1>
               Creating <span>Future Ready</span>
               <br />
-              <strong>Pros</strong>
+              <strong>PROFESSIONAL</strong>
             </h1>
             <p>
               <span>Learn editing, content creation, and AI tools</span> through real projects{" "}

@@ -6,7 +6,6 @@ import HashScrollFix from "./HashScrollFix";
 import LiquidApplyButton from "./LiquidApplyButton";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
-import LiquidVideoControlButton from "./LiquidVideoControlButton";
 import MentorCarousel from "./MentorCarousel";
 import ProgramMenu from "./ProgramMenu";
 import ScrollTextReveal from "./ScrollTextReveal";
@@ -332,7 +331,6 @@ export default function Home() {
           <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
         </video>
         <div className="videoSectionShade" aria-hidden="true" />
-        <LiquidVideoControlButton targetId="homePageVideo" />
       </section>
 
       <AlumniWorks />

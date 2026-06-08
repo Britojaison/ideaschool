@@ -226,7 +226,6 @@ export default function AlumniWorks() {
               >
                 <source src={thumb.video} type="video/mp4" />
               </video>
-              <span>{thumb.title}</span>
             </button>
           ))}
         </div>

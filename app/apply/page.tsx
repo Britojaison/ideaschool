@@ -3,7 +3,6 @@ import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
-import LiquidVideoControlButton from "../LiquidVideoControlButton";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
@@ -515,7 +514,6 @@ export default function ApplyPage() {
           <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
         </video>
         <div className="videoSectionShade" aria-hidden="true" />
-        <LiquidVideoControlButton targetId="applyHomePageVideo" />
       </section>
 
       <section className="programFaqContact" aria-label="FAQ and application form">

@@ -51,6 +51,12 @@ export default function BrandCommercialVideo({
     }
   };
 
+  const playWhenReady = () => {
+    if (isActive) {
+      void videoRef.current?.play();
+    }
+  };
+
   return (
     <div className="brandCommercialPlayer">
       <video
@@ -63,6 +69,7 @@ export default function BrandCommercialVideo({
         muted={isMuted}
         playsInline
         preload="metadata"
+        onCanPlay={playWhenReady}
         controlsList="nodownload noremoteplayback"
         aria-label={`${title} brand commercial`}
       />

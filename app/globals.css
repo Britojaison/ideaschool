@@ -2936,7 +2936,8 @@ html.isHeroGlassCursorActive .hero * {
   .brandCommercialVideo {
     height: 100%;
     object-fit: cover;
-    transform: none;
+    transform: scale(1.18);
+    transform-origin: center center;
   }
 
   .brandCommercialOverlay {

@@ -18,6 +18,7 @@ export default function BrandCommercialsSection({
   const railRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Array<HTMLElement | null>>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const syncActiveSlide = () => {
     const rail = railRef.current;
@@ -45,6 +46,16 @@ export default function BrandCommercialsSection({
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const syncMobileState = () => setIsMobile(mediaQuery.matches);
+
+    syncMobileState();
+    mediaQuery.addEventListener("change", syncMobileState);
+
+    return () => mediaQuery.removeEventListener("change", syncMobileState);
+  }, []);
 
   useEffect(() => {
     const cards = cardRefs.current.filter((card): card is HTMLElement => card !== null);
@@ -111,7 +122,7 @@ export default function BrandCommercialsSection({
                   src={commercial.src}
                   poster={commercial.poster}
                   title={commercial.title}
-                  isActive={index === activeIndex}
+                  isActive={isMobile || index === activeIndex}
                 />
               </article>
             ))}

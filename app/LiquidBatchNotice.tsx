@@ -32,7 +32,6 @@ export default function LiquidBatchNotice() {
         }}
       >
         <span className="batchNoticeContent">
-          <span className="noticeIcon" aria-hidden="true" />
           <span className="batchNoticeText">
             Limited seats for the next hands-on batch
           </span>

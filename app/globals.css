@@ -674,15 +674,14 @@ html.isHeroGlassCursorActive .hero * {
   letter-spacing: 0;
   font-weight: 950;
   text-wrap: balance;
+  color: #fff;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.48);
 }
 
 .heroCopy h1 span {
   display: inline-block;
-  background: linear-gradient(96deg, #ffffff 0%, #dcb8ff 46%, #70e4ff 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 34px rgba(175, 82, 223, 0.26);
+  color: #fff;
+  text-shadow: inherit;
 }
 
 .heroCopy h1 strong {
@@ -705,10 +704,11 @@ html.isHeroGlassCursorActive .hero * {
   margin: clamp(18px, 2.4vh, 28px) 0 0;
   padding-left: 18px;
   border-left: 1px solid rgba(255, 255, 255, 0.24);
-  color: var(--muted);
+  color: #fff;
   font-size: clamp(1.05rem, 1.65vw, 1.52rem);
   line-height: 1.6;
   font-weight: 400;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.56);
 }
 
 .heroCopy p span {
@@ -932,23 +932,16 @@ html.isHeroGlassCursorActive .hero * {
 .batchNoticeMount {
   position: relative;
   flex: 0 0 auto;
-  width: 520px;
-  max-width: calc(100vw - 36px);
-  height: 60px;
+  width: fit-content;
+  max-width: 100%;
+  height: 44px;
   border-radius: 10px;
   overflow: hidden;
   isolation: isolate;
 }
 
 .batchNoticeMount::after {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  content: "";
-  border: 2px solid #8c55a1;
-  border-radius: inherit;
-  box-shadow: 0 0 18px rgba(140, 85, 161, 0.24);
-  pointer-events: none;
+  display: none;
 }
 
 .batchNoticeGlass {
@@ -974,10 +967,11 @@ html.isHeroGlassCursorActive .hero * {
 .batchNoticeContent {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 0;
   width: 100%;
-  height: 60px;
-  padding: 0 20px;
+  height: 44px;
+  padding: 0;
   color: rgba(255, 255, 255, 0.94);
   overflow: hidden;
 }
@@ -7055,7 +7049,8 @@ html.isHeroGlassCursorActive .hero * {
 
   .batchNoticeMount {
     order: 1;
-    width: min(100%, 340px);
+    width: fit-content;
+    max-width: 100%;
     flex: 0 0 auto;
     height: 50px;
     min-height: 50px;
@@ -7071,8 +7066,8 @@ html.isHeroGlassCursorActive .hero * {
 
   .batchNoticeContent {
     gap: 10px;
-    justify-content: center;
-    padding: 0 10px;
+    justify-content: flex-start;
+    padding: 0;
   }
 
   .noticeIcon {
@@ -7444,7 +7439,7 @@ html.isHeroGlassCursorActive .hero * {
   .batchNoticeGlass,
   .batchNoticeGlass .glass,
   .batchNoticeContent {
-    width: 520px;
+    width: fit-content;
     height: 51px;
     min-height: 51px;
   }

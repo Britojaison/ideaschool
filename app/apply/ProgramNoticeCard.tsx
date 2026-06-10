@@ -25,21 +25,21 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
 
       <span className="programNoticeContent">
         <span className="programNoticeBenefits">
-          <span>
-            <strong>6+ Hours</strong>
-            <small>of practical AI learning</small>
+          <span className="programNoticeBenefit">
+            <strong className="programNoticeBenefitTitle">6+ Hours</strong>
+            <span className="programNoticeBenefitText">of practical AI learning</span>
           </span>
-          <span>
-            <strong>Real AI Tools</strong>
-            <small>hands-on training inside the workshop</small>
+          <span className="programNoticeBenefit">
+            <strong className="programNoticeBenefitTitle">Real AI Tools</strong>
+            <span className="programNoticeBenefitText">hands-on training inside the workshop</span>
           </span>
-          <span>
-            <strong>Create Live</strong>
-            <small>AI ads, visuals &amp; content during the session</small>
+          <span className="programNoticeBenefit">
+            <strong className="programNoticeBenefitTitle">Create Live</strong>
+            <span className="programNoticeBenefitText">AI ads, visuals &amp; content during the session</span>
           </span>
-          <span>
-            <strong>₹1500+ Credits</strong>
-            <small>AI tool usage included with your seat</small>
+          <span className="programNoticeBenefit">
+            <strong className="programNoticeBenefitTitle">₹1500+ Credits</strong>
+            <span className="programNoticeBenefitText">AI tool usage included with your seat</span>
           </span>
         </span>
       </span>

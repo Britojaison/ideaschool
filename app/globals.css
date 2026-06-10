@@ -2962,7 +2962,7 @@ html.isHeroGlassCursorActive .hero * {
     display: block;
     margin: 0 22px var(--brand-commercial-mobile-gap);
     color: #000;
-    font-size: clamp(3.6rem, 17vw, 5.2rem);
+    font-size: clamp(2.08rem, 10vw, 3.15rem);
     font-weight: 950;
     line-height: 0.9;
     text-transform: uppercase;

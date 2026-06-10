@@ -1849,7 +1849,7 @@ html.isHeroGlassCursorActive .hero * {
   position: relative;
   display: grid;
   align-content: start;
-  min-height: 88px;
+  min-height: 96px;
   padding: 16px 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1915,6 +1915,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .programNoticeBenefits small {
+  display: block;
   max-width: 330px;
   margin-top: 5px;
   color: rgba(255, 255, 255, 0.72);

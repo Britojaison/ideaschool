@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import DotField from "../DotField";
+import HashScrollFix from "../HashScrollFix";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
 import CurriculumAccordion from "./CurriculumAccordion";
@@ -272,6 +273,7 @@ const applyFaqs = [
 export default function ApplyPage() {
   return (
     <main className="applyPage">
+      <HashScrollFix />
       <ScrollTextReveal />
       <section className="programHero" aria-label="AI-powered ad film workshop">
         <div className="programHeroMedia">

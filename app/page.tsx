@@ -247,11 +247,11 @@ export default function Home() {
             <h1>
               Creating <span>Future Ready</span>
               <br />
-              <strong>PROFESSIONAL</strong>
+              <strong>Professionals</strong>
             </h1>
             <p>
-              <span>Learn editing, content creation, and AI tools</span> through real projects{" "}
-              and hands-on sessions designed for the industry.
+              <span>Learn Editing, Content Creation, and AI Tools</span> through Real Projects{" "}
+              and Hands-on Sessions Designed for the Industry.
             </p>
             <div className="heroCtaRow">
               <LiquidApplyButton />

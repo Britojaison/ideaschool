@@ -713,7 +713,7 @@ html.isHeroGlassCursorActive .hero * {
   line-height: 1.24;
   font-weight: 500;
   word-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: none !important;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.56);
 }
 
@@ -7536,6 +7536,7 @@ html.isHeroGlassCursorActive .hero * {
     word-spacing: 0.18em;
     color: #fff;
     overflow: visible;
+    text-transform: none !important;
   }
 
   .heroCopy p,

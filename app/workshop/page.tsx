@@ -207,6 +207,9 @@ export default function WorkshopPage() {
               className="brandLogo"
             />
           </Link>
+          <a className="headerCta" href="#apply">
+            <span className="headerCtaText">Register now</span>
+          </a>
         </header>
 
         <div className="longCourseHeroInner">

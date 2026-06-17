@@ -188,6 +188,7 @@ export default function WorkshopPage() {
   return (
     <main className="longCoursePage workshopCoursePage">
       <WorkshopGsapAnimations />
+      <WorkshopHeroModel3D />
       <div id="smooth-wrapper" className="workshopSmoothWrapper">
         <div id="smooth-content" className="workshopSmoothContent">
           <ScrollTextReveal />
@@ -234,22 +235,39 @@ export default function WorkshopPage() {
             <span>in 2 Days</span>
           </h1>
 
-          <WorkshopHeroModel3D />
         </div>
       </section>
 
-      <section className="longCourseOutcomes workshopGsapSection" aria-label="What you will learn">
-        <div className="longCourseSectionInner">
-          <ScrollFadeArrow />
-          <div className="longCourseIntro">
-            <span className="sectionPill">What You&apos;ll Learn</span>
-            <h2>Skills You Can Use For Paid Editing Projects</h2>
-            <p>
-              This workshop is built around the content you shared: practical editing,
-              AI-powered creation, better workflows, and a path to higher-value projects.
-            </p>
+      <section className="workshopServicesSection workshopGsapSection" id="services" aria-label="Our Services">
+        <div className="servicesStickyContainer">
+          <div className="servicesTextWrapper">
+            <h2 className="servicesHeading servicesHeadingTop">
+              WE ARE <span className="textGreen">GOOD</span> AT
+            </h2>
+            <h2 className="servicesHeading servicesHeadingBottom">
+              MORE THAN A PRETTY<br/>WEBSITE.
+            </h2>
           </div>
-          <OutcomeCards outcomes={outcomes} />
+
+          <div className="servicesCenter">
+            <div className="servicesCircleWrapper">
+              <div className="servicesCircleTicks"></div>
+              <span className="servicesLabel top"><span className="dot"></span>DEVELOPMENT</span>
+              <span className="servicesLabel right"><span className="dot"></span>SEO</span>
+              <span className="servicesLabel bottom"><span className="dot"></span>E-COMMERCE</span>
+              <span className="servicesLabel left"><span className="dot"></span>DESIGN</span>
+            </div>
+          </div>
+
+          <div className="servicesHexPattern">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+              <path d="M100 10 L180 50 L180 150 L100 190 L20 150 L20 50 Z" stroke="#dafd55" strokeWidth="2" strokeOpacity="0.3"/>
+              <path d="M100 10 L180 50 L180 150 L100 190 L20 150 L20 50 Z" fill="#dafd55" fillOpacity="0.1" transform="scale(0.8) translate(25, 25)"/>
+              <path d="M100 10 L180 50 L180 150 L100 190 L20 150 L20 50 Z" stroke="#dafd55" strokeWidth="2" strokeOpacity="0.1" transform="scale(0.6) translate(66.6, 66.6)"/>
+            </svg>
+          </div>
+
+          <div className="servicesModelTarget" aria-hidden="true" />
         </div>
       </section>
 

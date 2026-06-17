@@ -13,7 +13,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-const MODEL_PATH = "/images/3d model/clapp.glb";
+const MODEL_PATH = "/images/3d model/clap og.glb";
 const BRAND_GREEN = "#DAFD54";
 
 function BrandModel() {
@@ -33,15 +33,25 @@ function BrandModel() {
       const box = child.geometry.boundingBox;
       const isFlat = box && (box.max.y - box.min.y < 0.01 || box.max.z - box.min.z < 0.01 || box.max.x - box.min.x < 0.01);
       const isTransparent = child.material && child.material.transparent;
-      
+
       const name = child.name.toLowerCase();
       if (name.includes("shadow") || name.includes("plane") || name.includes("ground") || (isFlat && isTransparent)) {
         child.visible = false;
         return;
       }
 
-      const newMat = new THREE.MeshBasicMaterial({
-        color: "#dafd55",
+      child.castShadow = true;
+      child.receiveShadow = true;
+
+      const newMat = new THREE.MeshPhysicalMaterial({
+        color: "#93e400",
+        roughness: 0.38,
+        metalness: 0.08,
+        clearcoat: 0.45,
+        clearcoatRoughness: 0.42,
+        emissive: "#385c00",
+        emissiveIntensity: 0.08,
+        side: THREE.DoubleSide,
       });
 
       child.material = newMat;
@@ -58,19 +68,19 @@ function BrandModel() {
     const t = state.clock.elapsedTime;
     groupRef.current.rotation.y = THREE.MathUtils.damp(
       groupRef.current.rotation.y,
-      -0.34 + Math.sin(t * 0.72) * 0.34,
+      -0.48 + Math.sin(t * 0.72) * 0.1,
       3.1,
       delta,
     );
     groupRef.current.rotation.x = THREE.MathUtils.damp(
       groupRef.current.rotation.x,
-      0.08 + Math.sin(t * 0.58) * 0.08,
+      -0.04 + Math.sin(t * 0.58) * 0.05,
       2.6,
       delta,
     );
     groupRef.current.rotation.z = THREE.MathUtils.damp(
       groupRef.current.rotation.z,
-      -0.14 + Math.sin(t * 0.64) * 0.055,
+      -0.08 + Math.sin(t * 0.64) * 0.035,
       2.8,
       delta,
     );
@@ -83,7 +93,7 @@ function BrandModel() {
   });
 
   return (
-    <group ref={groupRef} rotation={[0.08, -0.28, -0.14]}>
+    <group ref={groupRef} rotation={[-0.04, -0.48, -0.08]}>
       <Center>
         <primitive object={model} />
       </Center>
@@ -94,12 +104,20 @@ function BrandModel() {
 function BrandModelScene() {
   return (
     <>
-      <ambientLight intensity={0.82} />
-      <directionalLight position={[-3.2, 4.4, 3.6]} intensity={4.4} color="#ffffff" />
-      <directionalLight position={[2.8, 1.8, 2.2]} intensity={1.8} color={BRAND_GREEN} />
-      <Bounds fit clip observe margin={1.18}>
+      <ambientLight intensity={0.36} />
+      <directionalLight position={[-3.2, 4.4, 3.6]} intensity={5.2} color="#ffffff" castShadow />
+      <directionalLight position={[2.8, 1.8, 2.2]} intensity={2.4} color={BRAND_GREEN} />
+      <Bounds fit clip observe margin={1.42}>
         <BrandModel />
       </Bounds>
+      <ContactShadows
+        position={[0, -2.15, 0]}
+        opacity={0.28}
+        scale={5.5}
+        blur={2.8}
+        far={4}
+        color="#84c600"
+      />
       <Environment preset="studio" resolution={128} />
       <Preload all />
     </>
@@ -107,26 +125,7 @@ function BrandModelScene() {
 }
 
 export default function WorkshopHeroModel3D() {
-  return (
-    <div className="workshopHeroModel3D" aria-hidden="true">
-      <Canvas
-        dpr={[1, 1.75]}
-        gl={{
-          alpha: true,
-          antialias: true,
-          powerPreference: "high-performance",
-        }}
-        camera={{ position: [0, 0.05, 4.2], fov: 30, near: 0.1, far: 18 }}
-        eventPrefix="client"
-        performance={{ min: 0.6 }}
-      >
-        <Suspense fallback={null}>
-          <BrandModelScene />
-        </Suspense>
-        <AdaptiveDpr pixelated />
-      </Canvas>
-    </div>
-  );
+  return null;
 }
 
 useGLTF.preload(MODEL_PATH);

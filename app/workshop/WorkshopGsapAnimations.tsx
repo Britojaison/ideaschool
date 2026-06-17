@@ -228,6 +228,71 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
+      // Curriculum Flow Animation
+      const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
+      if (curriculumFlowSection) {
+        const flowNodes = gsap.utils.toArray<HTMLElement>(".flowNode");
+        const flowPaths = gsap.utils.toArray<SVGPathElement>(".flowLines path");
+        const flowCircles = gsap.utils.toArray<SVGCircleElement>(".flowLines circle");
+
+        // Prepare paths for drawing
+        flowPaths.forEach(path => {
+          const length = path.getTotalLength();
+          gsap.set(path, {
+            strokeDasharray: length,
+            strokeDashoffset: length,
+          });
+        });
+
+        const flowTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: curriculumFlowSection,
+            start: "top 75%",
+            end: "bottom 25%",
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        // 1. Draw the paths
+        if (flowPaths.length) {
+          flowTl.to(flowPaths, {
+            strokeDashoffset: 0,
+            duration: 1.5,
+            ease: "power2.inOut",
+            stagger: 0.1
+          }, 0);
+        }
+
+        // 2. Pop in the circles
+        if (flowCircles.length) {
+          flowTl.fromTo(flowCircles, {
+            scale: 0,
+            transformOrigin: "center center"
+          }, {
+            scale: 1,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+            stagger: 0.05
+          }, 0.4);
+        }
+
+        // 3. Fade and slide in the nodes
+        if (flowNodes.length) {
+          flowTl.fromTo(flowNodes, {
+            y: 40,
+            autoAlpha: 0,
+            filter: "blur(8px)"
+          }, {
+            y: 0,
+            autoAlpha: 1,
+            filter: "blur(0px)",
+            duration: 0.84,
+            ease: "power3.out",
+            stagger: 0.1
+          }, 0.6);
+        }
+      }
+
       smoother.refresh();
     });
 

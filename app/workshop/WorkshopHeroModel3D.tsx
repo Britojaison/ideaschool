@@ -40,13 +40,8 @@ function BrandModel() {
         return;
       }
 
-      const newMat = new THREE.MeshStandardMaterial({
-        metalness: 0.1,
-        roughness: 0.4,
-        envMapIntensity: 0.4, // Lowered to prevent washing out the color
-        color: "#8eb80c", // Strong green base
-        emissive: "#dafd55", // Bright green emissive
-        emissiveIntensity: 0.15, // Low intensity so it doesn't turn white
+      const newMat = new THREE.MeshBasicMaterial({
+        color: "#dafd55",
       });
 
       child.material = newMat;

@@ -11721,7 +11721,7 @@ html.isHeroGlassCursorActive .hero * {
   height: auto;
   color: inherit;
   font-size: clamp(0.9rem, 1vw, 1rem);
-  font-weight: 760;
+  font-weight: 600;
 }
 
 .workshopCoursePage .longCourseHeroCtas .programCta {
@@ -11901,7 +11901,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 480px;
   color: #151515;
   font-size: clamp(1.12rem, 1.28vw, 1.55rem);
-  font-weight: 620;
+  font-weight: 500;
   line-height: 1.34;
 }
 

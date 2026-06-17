@@ -11952,22 +11952,9 @@ html.isHeroGlassCursorActive .hero * {
   height: clamp(220px, 18vw, 390px);
   pointer-events: none;
   transform: translate(-50%, -42%) rotate(-5deg);
-  filter: drop-shadow(0 34px 34px rgba(5, 6, 8, 0.18));
 }
 
-.workshopHeroModel3D::after {
-  position: absolute;
-  left: 18%;
-  right: 18%;
-  bottom: 10%;
-  height: 13%;
-  content: "";
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(5, 6, 8, 0.3), transparent 68%);
-  filter: blur(13px);
-  transform: perspective(700px) rotateX(66deg);
-  pointer-events: none;
-}
+
 
 .workshopHeroModel3D canvas {
   display: block;

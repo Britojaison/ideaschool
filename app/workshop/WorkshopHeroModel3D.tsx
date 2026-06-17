@@ -13,7 +13,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-const MODEL_PATH = "/images/3d model/clapboard.glb";
+const MODEL_PATH = "/images/3d model/clapp.glb";
 const BRAND_GREEN = "#DAFD54";
 
 function BrandModel() {
@@ -28,33 +28,28 @@ function BrandModel() {
         return;
       }
 
-      child.castShadow = true;
-      child.receiveShadow = true;
-
-      if (child.material instanceof THREE.MeshStandardMaterial) {
-        child.material = child.material.clone();
-        child.material.color.set(BRAND_GREEN);
-        child.material.emissive.set(BRAND_GREEN);
-        child.material.emissiveIntensity = 0.04;
-        child.material.metalness = 0.04;
-        child.material.roughness = 0.46;
-        child.material.envMapIntensity = 1.28;
-      } else if (Array.isArray(child.material)) {
-        child.material = child.material.map((material) => {
-          const clonedMaterial = material.clone();
-
-          if (clonedMaterial instanceof THREE.MeshStandardMaterial) {
-            clonedMaterial.color.set(BRAND_GREEN);
-            clonedMaterial.emissive.set(BRAND_GREEN);
-            clonedMaterial.emissiveIntensity = 0.04;
-            clonedMaterial.metalness = 0.04;
-            clonedMaterial.roughness = 0.46;
-            clonedMaterial.envMapIntensity = 1.28;
-          }
-
-          return clonedMaterial;
-        });
+      // Detect shadow plane by checking if it's transparent or extremely flat
+      child.geometry.computeBoundingBox();
+      const box = child.geometry.boundingBox;
+      const isFlat = box && (box.max.y - box.min.y < 0.01 || box.max.z - box.min.z < 0.01 || box.max.x - box.min.x < 0.01);
+      const isTransparent = child.material && child.material.transparent;
+      
+      const name = child.name.toLowerCase();
+      if (name.includes("shadow") || name.includes("plane") || name.includes("ground") || (isFlat && isTransparent)) {
+        child.visible = false;
+        return;
       }
+
+      const newMat = new THREE.MeshStandardMaterial({
+        metalness: 0.1,
+        roughness: 0.4,
+        envMapIntensity: 0.4, // Lowered to prevent washing out the color
+        color: "#8eb80c", // Strong green base
+        emissive: "#dafd55", // Bright green emissive
+        emissiveIntensity: 0.15, // Low intensity so it doesn't turn white
+      });
+
+      child.material = newMat;
     });
 
     return clone;
@@ -105,20 +100,11 @@ function BrandModelScene() {
   return (
     <>
       <ambientLight intensity={0.82} />
-      <directionalLight position={[-3.2, 4.4, 3.6]} intensity={4.4} color="#ffffff" castShadow />
+      <directionalLight position={[-3.2, 4.4, 3.6]} intensity={4.4} color="#ffffff" />
       <directionalLight position={[2.8, 1.8, 2.2]} intensity={1.8} color={BRAND_GREEN} />
       <Bounds fit clip observe margin={1.18}>
         <BrandModel />
       </Bounds>
-      <ContactShadows
-        position={[0, -1.08, 0]}
-        opacity={0.24}
-        scale={4.4}
-        blur={2.7}
-        far={2.4}
-        color="#050608"
-        frames={1}
-      />
       <Environment preset="studio" resolution={128} />
       <Preload all />
     </>
@@ -129,7 +115,6 @@ export default function WorkshopHeroModel3D() {
   return (
     <div className="workshopHeroModel3D" aria-hidden="true">
       <Canvas
-        shadows
         dpr={[1, 1.75]}
         gl={{
           alpha: true,

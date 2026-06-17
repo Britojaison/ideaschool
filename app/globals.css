@@ -11856,6 +11856,7 @@ html.isHeroGlassCursorActive .hero * {
   width: min(100%, 1780px);
   min-height: calc(100svh - clamp(120px, 11vw, 154px));
   margin: auto;
+  transform: translateY(clamp(-78px, -6vh, -42px));
 }
 
 .workshopHero .longCourseHeroCopy {
@@ -11865,7 +11866,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 480px;
   align-self: center;
   min-height: clamp(420px, 54vh, 610px);
-  padding-top: clamp(80px, 12vh, 150px);
+  padding-top: clamp(30px, 5vh, 72px);
 }
 
 .workshopHero .longCourseHeroCopy > p {
@@ -11915,13 +11916,13 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopHeroModel3D {
   position: absolute;
-  left: calc(50% - clamp(36px, 4.2vw, 82px));
-  top: 58%;
+  left: calc(50% - clamp(118px, 10vw, 210px));
+  top: 55%;
   z-index: 3;
   width: clamp(160px, 11vw, 270px);
   height: clamp(220px, 18vw, 390px);
   pointer-events: none;
-  transform: translate(-52%, -34%) rotate(-5deg);
+  transform: translate(-55%, -34%) rotate(-5deg);
   filter: drop-shadow(0 34px 34px rgba(5, 6, 8, 0.18));
 }
 
@@ -12075,6 +12076,7 @@ html.isHeroGlassCursorActive .hero * {
     gap: 24px;
     width: min(100%, 720px);
     min-height: 0;
+    transform: none;
   }
 
   .workshopHero .longCourseHeroCopy {

@@ -215,8 +215,8 @@ export default function WorkshopPage() {
         <div className="longCourseHeroInner">
           <div className="longCourseHeroCopy">
             <p>
-              Learn the editing workflow, AI tools, and creative decisions that help your videos
-              feel sharper than a stack of pretty transitions.
+              Learn in-demand editing skills for brands, creators, agencies, and AI-powered video
+              creation with Higgsfield AI.
             </p>
             <div className="longCourseHeroCtas">
               <a className="primaryCta programCta" href="#apply">
@@ -226,13 +226,10 @@ export default function WorkshopPage() {
           </div>
 
           <h1 className="workshopHeroDisplay">
-            <span>Your Edits</span>
-            <span className="workshopHeroDisplayAccent">Deserve</span>
-            <span>
-              <em>More</em> Than
-            </span>
-            <span>Pretty</span>
-            <span>Transitions.</span>
+            <span>Master</span>
+            <span className="workshopHeroDisplayAccent">High-Paying</span>
+            <span>Video Editing</span>
+            <span>in 2 Days</span>
           </h1>
 
           <WorkshopHeroModel3D />

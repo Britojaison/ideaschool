@@ -12393,3 +12393,200 @@ html.isHeroGlassCursorActive .hero * {
   width: 100%;
   height: auto;
 }
+
+/* Workshop Video Scroll Section */
+.workshopVideoScrollSection {
+  position: relative;
+  height: 350vh;
+  background: #fdfcee; /* light yellowish background like dotsandlines */
+  z-index: 10;
+  clip-path: inset(0); /* Prevent bleeding out of section boundaries */
+}
+
+.videoScrollStickyContainer {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoScrollCenter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoScrollHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 8.5vw, 9rem);
+  font-weight: 800;
+  line-height: 1.05;
+  text-align: center;
+  margin: 0;
+  color: #000000;
+  display: inline-block;
+}
+
+.videoScrollMediaContainer {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100vw;
+  height: 55vh;
+  border-radius: 0;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  will-change: width, height, border-radius, margin;
+}
+
+.videoScrollVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .videoScrollMediaContainer {
+    width: 85vw;
+    height: 60vw;
+    margin: 0 2vw;
+    border-radius: 4vw;
+  }
+}
+
+/* =========================================
+   WORKSHOP CURRICULUM FLOW
+========================================= */
+.curriculumFlowSection {
+  position: relative;
+  width: 100%;
+  background: #ffffff; /* White background as requested */
+  padding: 8vw 0;
+  overflow: hidden;
+}
+
+.flowContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  aspect-ratio: 1400 / 900;
+}
+
+.flowLines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.flowNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.nodeLabel {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: #000000; /* Black text for white background */
+}
+
+.nodeBox {
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nodeBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.nodeBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nodeBox li {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 20px;
+}
+
+.nodeBox li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Light Node Variant */
+.node-light .nodeBox {
+  background: #dafd55; /* Lime green */
+  color: #000;
+}
+.node-light .nodeLabel {
+  color: #000000;
+}
+.node-light .nodeBox li::before {
+  background: #000;
+}
+
+/* Dark Node Variant */
+.node-dark .nodeBox {
+  background: #1a1a1a;
+  color: #fff;
+}
+.node-dark .nodeLabel {
+  color: #000000;
+}
+.node-dark .nodeBox li::before {
+  background: #dafd55;
+}
+
+/* Responsive Fallback for Mobile */
+@media (max-width: 1024px) {
+  .flowContainer {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  .flowLines {
+    display: none;
+  }
+  .flowNode {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100%;
+    max-width: 400px;
+  }
+}

@@ -9,6 +9,7 @@ import TiltedCard from "../TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
 import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
 import WorkshopDrawSvg from "./WorkshopDrawSvg";
+import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -268,6 +269,29 @@ export default function WorkshopPage() {
           <div className="servicesModelTarget" aria-hidden="true" />
         </div>
       </section>
+
+      <section className="workshopVideoScrollSection workshopGsapSection" id="video-scroll" aria-label="Video Showcase">
+        <div className="videoScrollStickyContainer">
+          <div className="videoScrollCenter">
+            <h2 className="videoScrollHeading">
+              We create 
+              <span className="videoScrollMediaContainer">
+                <video 
+                  src="/images/Brand Commercial/SunscreenAD_May22 V2.mp4" 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  className="videoScrollVideo"
+                />
+              </span>
+              videos for people, brands & digital products.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <WorkshopCurriculumFlow />
 
       <section className="longCourseCurriculum workshopGsapSection" id="curriculum" aria-label="Workshop curriculum">
         <LazyCurriculumDotField />

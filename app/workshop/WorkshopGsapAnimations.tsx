@@ -200,6 +200,34 @@ export default function WorkshopGsapAnimations() {
         }
       }
 
+      // Video Scroll Animation
+      const videoScrollSection = document.querySelector(".workshopVideoScrollSection");
+      const videoMediaContainer = document.querySelector(".videoScrollMediaContainer");
+
+      if (videoScrollSection && videoMediaContainer) {
+        ScrollTrigger.create({
+          trigger: videoScrollSection,
+          start: "top top",
+          end: "bottom bottom",
+          pin: ".videoScrollStickyContainer",
+          pinSpacing: false,
+        });
+
+        gsap.to(videoMediaContainer, {
+          width: "15vw",
+          height: "8vw",
+          borderRadius: "5vw",
+          margin: "0 1.5vw",
+          ease: "none",
+          scrollTrigger: {
+            trigger: videoScrollSection,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          }
+        });
+      }
+
       smoother.refresh();
     });
 

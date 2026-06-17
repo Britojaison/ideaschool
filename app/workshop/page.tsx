@@ -214,6 +214,10 @@ export default function WorkshopPage() {
 
         <div className="longCourseHeroInner">
           <div className="longCourseHeroCopy">
+            <p>
+              Learn the editing workflow, AI tools, and creative decisions that help your videos
+              feel sharper than a stack of pretty transitions.
+            </p>
             <div className="longCourseHeroCtas">
               <a className="primaryCta programCta" href="#apply">
                 <span className="primaryCtaText">{workshop.ctaLabel}</span>
@@ -222,9 +226,13 @@ export default function WorkshopPage() {
           </div>
 
           <h1 className="workshopHeroDisplay">
-            Your Edits{" "}
-            <span>Deserve More</span>{" "}
-            Than Pretty Transitions.
+            <span>Your Edits</span>
+            <span className="workshopHeroDisplayAccent">Deserve</span>
+            <span>
+              <em>More</em> Than
+            </span>
+            <span>Pretty</span>
+            <span>Transitions.</span>
           </h1>
 
           <WorkshopHeroModel3D />

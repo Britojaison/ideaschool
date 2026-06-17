@@ -235,62 +235,40 @@ export default function WorkshopGsapAnimations() {
         const flowPaths = gsap.utils.toArray<SVGPathElement>(".flowLines path");
         const flowCircles = gsap.utils.toArray<SVGCircleElement>(".flowLines circle");
 
-        // Prepare paths for drawing
-        flowPaths.forEach(path => {
-          const length = path.getTotalLength();
-          gsap.set(path, {
-            strokeDasharray: length,
-            strokeDashoffset: length,
-          });
+        const allElements = [...flowNodes, ...flowPaths, ...flowCircles];
+
+        // Sort elements from left to right for sequential highlighting
+        allElements.sort((a, b) => {
+          const rectA = (a as Element).getBoundingClientRect();
+          const rectB = (b as Element).getBoundingClientRect();
+          return rectA.left - rectB.left;
+        });
+
+        // Set initial dimmed state
+        gsap.set(allElements, {
+          opacity: 0.15,
+          filter: "grayscale(100%)",
+          scale: (index, target) => target.classList?.contains("flowNode") ? 0.95 : 1
         });
 
         const flowTl = gsap.timeline({
           scrollTrigger: {
             trigger: curriculumFlowSection,
-            start: "top 75%",
-            end: "bottom 25%",
-            toggleActions: "play none none reverse",
+            start: "top 60%",
+            end: "bottom 20%",
+            scrub: 1,
           }
         });
 
-        // 1. Draw the paths
-        if (flowPaths.length) {
-          flowTl.to(flowPaths, {
-            strokeDashoffset: 0,
-            duration: 1.5,
-            ease: "power2.inOut",
-            stagger: 0.1
-          }, 0);
-        }
-
-        // 2. Pop in the circles
-        if (flowCircles.length) {
-          flowTl.fromTo(flowCircles, {
-            scale: 0,
-            transformOrigin: "center center"
-          }, {
-            scale: 1,
-            duration: 0.5,
-            ease: "back.out(1.7)",
-            stagger: 0.05
-          }, 0.4);
-        }
-
-        // 3. Fade and slide in the nodes
-        if (flowNodes.length) {
-          flowTl.fromTo(flowNodes, {
-            y: 40,
-            autoAlpha: 0,
-            filter: "blur(8px)"
-          }, {
-            y: 0,
-            autoAlpha: 1,
-            filter: "blur(0px)",
-            duration: 0.84,
-            ease: "power3.out",
-            stagger: 0.1
-          }, 0.6);
-        }
+        // Sequentially highlight from left to right
+        flowTl.to(allElements, {
+          opacity: 1,
+          filter: "grayscale(0%)",
+          scale: 1,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power2.out",
+        });
       }
 
       smoother.refresh();

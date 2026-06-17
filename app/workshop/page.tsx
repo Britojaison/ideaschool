@@ -8,6 +8,7 @@ import ScrollTextReveal from "../ScrollTextReveal";
 import TiltedCard from "../TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
 import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
+import WorkshopDrawSvg from "./WorkshopDrawSvg";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -222,6 +223,7 @@ export default function WorkshopPage() {
               <a className="primaryCta programCta" href="#apply">
                 <span className="primaryCtaText">{workshop.ctaLabel}</span>
               </a>
+              <WorkshopDrawSvg />
             </div>
           </div>
 

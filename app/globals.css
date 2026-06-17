@@ -12161,3 +12161,18 @@ html.isHeroGlassCursorActive .hero * {
     order: 4;
   }
 }
+
+.workshopSvgContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.workshopSvgStage {
+  width: 100%;
+  max-width: 160px;
+  overflow: visible;
+}

@@ -115,49 +115,34 @@ export default function WorkshopGsapAnimations() {
       const modelTarget = document.querySelector<HTMLElement>(".servicesModelTarget");
 
       if (servicesSection) {
-        gsap.to(".servicesHeadingTop", {
+        const servicesTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: servicesSection,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          }
+        });
+
+
+        // Phase 1: Circle rotates, Top text moves up
+        servicesTl.to(".servicesHeadingTop", {
           y: () => -window.innerHeight * 1.5,
           ease: "none",
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        });
+          duration: 1
+        }, 0);
 
-        gsap.to(".servicesHeadingBottom", {
-          y: () => -window.innerHeight * 1.2,
-          ease: "none",
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        });
-
-        gsap.to(".servicesCircleWrapper", {
+        servicesTl.to(".servicesCircleWrapper", {
           rotation: 90,
           ease: "none",
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        });
+          duration: 1
+        }, 0);
         
-        gsap.to(".servicesLabel", {
+        servicesTl.to(".servicesLabel", {
           rotation: -90,
           ease: "none",
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        });
+          duration: 1
+        }, 0);
 
         ScrollTrigger.create({
           trigger: servicesSection,

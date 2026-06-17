@@ -12167,7 +12167,7 @@ html.isHeroGlassCursorActive .hero * {
   position: relative;
   height: 250vh;
   background: #ffffff;
-  overflow: visible;
+  overflow: hidden;
   z-index: 10;
 }
 
@@ -12231,11 +12231,12 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .servicesHeadingTop {
-  top: 6%;
+  top: 0%;
 }
 
 .servicesHeadingBottom {
-  top: 85%;
+  top: auto;
+  bottom: 0%;
 }
 
 .servicesHeading .textGreen {
@@ -12244,7 +12245,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .servicesCenter {
   position: relative;
-  width: clamp(320px, 45vw, 600px);
+  width: clamp(280px, 36vw, 480px);
   aspect-ratio: 1;
   z-index: 3;
   display: flex;

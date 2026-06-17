@@ -244,9 +244,7 @@ export default function WorkshopPage() {
             <h2 className="servicesHeading servicesHeadingTop">
               WE ARE <span className="textGreen">GOOD</span> AT
             </h2>
-            <h2 className="servicesHeading servicesHeadingBottom">
-              MORE THAN A PRETTY<br/>WEBSITE.
-            </h2>
+
           </div>
 
           <div className="servicesCenter">

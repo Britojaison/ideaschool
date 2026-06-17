@@ -34,13 +34,6 @@ const workshop = {
   ctaLabel: "Reserve your workshop seat",
 };
 
-const heroStats = [
-  { label: "Duration", value: "2 Days" },
-  { label: "Format", value: "Live Online" },
-  { label: "Focus", value: "Editing + AI" },
-  { label: "Outcome", value: "Project Skills + Freelance Roadmap" },
-];
-
 const outcomes = [
   "High-income editing skills used by brands, creators, agencies, and businesses",
   "Practical video editing workflow for better-paying freelance projects",
@@ -214,28 +207,13 @@ export default function WorkshopPage() {
               className="brandLogo"
             />
           </Link>
-          <a className="headerCta" href="#apply">
-            <span className="headerCtaText">Register now</span>
-          </a>
         </header>
 
         <div className="longCourseHeroInner">
           <div className="longCourseHeroCopy">
-            <div className="programEyebrowRow">
-              <span className="programPill">{workshop.eyebrow}</span>
-              <span className="programTag">
-                <span>Editing</span>
-                <span>Freelance</span>
-                <span>AI</span>
-              </span>
-            </div>
-            <p>{workshop.description}</p>
             <div className="longCourseHeroCtas">
               <a className="primaryCta programCta" href="#apply">
                 <span className="primaryCtaText">{workshop.ctaLabel}</span>
-              </a>
-              <a className="programCta brochureCta" href="#work">
-                <span className="primaryCtaText">Watch recent projects</span>
               </a>
             </div>
           </div>
@@ -247,15 +225,6 @@ export default function WorkshopPage() {
           </h1>
 
           <WorkshopHeroModel3D />
-
-          <dl className="programStats longCourseStats">
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <dt>{stat.label}</dt>
-                <dd>{stat.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 

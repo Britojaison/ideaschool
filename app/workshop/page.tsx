@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import DecryptedText from "../DecryptedText";
 import DetailsSectionMotion from "../creative-editing-course/DetailsSectionMotion";
-import HeroDotField from "../HeroDotField";
 import OutcomeCards from "../creative-editing-course/OutcomeCards";
-import ProgramMenu from "../ProgramMenu";
 import ScrollTextReveal from "../ScrollTextReveal";
 import TiltedCard from "../TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
+import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -196,11 +194,12 @@ export default function WorkshopPage() {
   return (
     <main className="longCoursePage workshopCoursePage">
       <WorkshopGsapAnimations />
-      <ScrollTextReveal />
+      <div id="smooth-wrapper" className="workshopSmoothWrapper">
+        <div id="smooth-content" className="workshopSmoothContent">
+          <ScrollTextReveal />
 
       <section className="longCourseHero workshopHero" aria-label={workshop.title}>
         <div className="longCourseHeroMedia">
-          <HeroDotField />
         </div>
         <div className="longCourseHeroShade" />
 
@@ -215,13 +214,6 @@ export default function WorkshopPage() {
               className="brandLogo"
             />
           </Link>
-          <nav className="desktopNav" aria-label="Workshop navigation">
-            <a href="#curriculum">Curriculum</a>
-            <ProgramMenu />
-            <a href="#tools">Tools</a>
-            <a href="#work">Our Work</a>
-            <a href="#faq">FAQ</a>
-          </nav>
           <a className="headerCta" href="#apply">
             <span className="headerCtaText">Register now</span>
           </a>
@@ -237,20 +229,6 @@ export default function WorkshopPage() {
                 <span>AI</span>
               </span>
             </div>
-            <h1>
-              {workshop.title}
-              <DecryptedText
-                text={workshop.accent}
-                animateOn="view"
-                sequential
-                revealDirection="start"
-                speed={24}
-                characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*"
-                parentClassName="longCourseHeroAccentDecrypt"
-                className="longCourseHeroAccentRevealed"
-                encryptedClassName="longCourseHeroAccentEncrypted"
-              />
-            </h1>
             <p>{workshop.description}</p>
             <div className="longCourseHeroCtas">
               <a className="primaryCta programCta" href="#apply">
@@ -262,18 +240,13 @@ export default function WorkshopPage() {
             </div>
           </div>
 
-          <aside className="longCourseHeroCard workshopHeroPreview" aria-label="Workshop preview">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster="/images/Brand Commercial/CampaAD_Seedance_May22.webp"
-              aria-label="Video editing workshop project preview"
-            >
-              <source src="/images/Brand Commercial/CampaAD_Seedance_May22.mp4" type="video/mp4" />
-            </video>
-          </aside>
+          <h1 className="workshopHeroDisplay">
+            Your Edits{" "}
+            <span>Deserve More</span>{" "}
+            Than Pretty Transitions.
+          </h1>
+
+          <WorkshopHeroModel3D />
 
           <dl className="programStats longCourseStats">
             {heroStats.map((stat) => (
@@ -394,7 +367,7 @@ export default function WorkshopPage() {
 
           <div className="workshopProjectGrid">
             {projects.map((project) => (
-              <article className="workshopProjectCard" key={project.title}>
+              <article className="workshopProjectCard" data-speed={project.title === "AI Campaign Film" ? "clamp(0.92)" : "clamp(1.08)"} key={project.title}>
                 <video muted loop playsInline preload="metadata" poster={project.poster} aria-label={project.title}>
                   <source src={project.src} type="video/mp4" />
                 </video>
@@ -433,7 +406,7 @@ export default function WorkshopPage() {
                 innerClassName="courseMentorTiltInner"
               >
                 <article className={`courseMentorCard ${mentor.accent}`}>
-                  <div className="courseMentorImageWrap">
+                  <div className="courseMentorImageWrap" data-speed="clamp(0.94)">
                     <Image
                       src={mentor.image}
                       alt={mentor.name}
@@ -548,6 +521,8 @@ export default function WorkshopPage() {
           IDEA SCHOOL
         </Link>
       </footer>
+        </div>
+      </div>
     </main>
   );
 }

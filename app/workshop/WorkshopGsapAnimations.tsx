@@ -2,9 +2,10 @@
 
 import { useEffect } from "react";
 import gsap from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function WorkshopGsapAnimations() {
   useEffect(() => {
@@ -14,7 +15,19 @@ export default function WorkshopGsapAnimations() {
       return;
     }
 
+    let smoother: ScrollSmoother | undefined;
+
     const ctx = gsap.context(() => {
+      ScrollSmoother.get()?.kill();
+      smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.6,
+        effects: true,
+        normalizeScroll: true,
+        smoothTouch: 0.12,
+      });
+
       gsap.set(
         [
           ".workshopHero .programEyebrowRow",
@@ -96,10 +109,13 @@ export default function WorkshopGsapAnimations() {
         );
       });
 
-      ScrollTrigger.refresh();
+      smoother.refresh();
     });
 
-    return () => ctx.revert();
+    return () => {
+      smoother?.kill();
+      ctx.revert();
+    };
   }, []);
 
   return null;

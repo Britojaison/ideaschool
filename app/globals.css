@@ -12488,7 +12488,7 @@ html.isHeroGlassCursorActive .hero * {
   font-size: clamp(10rem, 30vw, 35rem);
   font-weight: 800;
   white-space: nowrap;
-  color: #d4bafb;
+  color: #000000;
   line-height: 0.8;
   padding-left: 10vw;
   will-change: transform;

@@ -6,7 +6,7 @@ export default function WorkshopCurriculumFlow() {
       <div className="curriculumFlowBgText">
         <div className="whatYouWillLearnHugeText">WHAT YOU&apos;LL LEARN</div>
       </div>
-      <div className="flowContainer">
+      <div className="flowContainer" style={{ marginTop: "60vh", paddingBottom: "20vh" }}>
         
         {/* SVG Connectors for Desktop */}
         <svg className="flowLines" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid meet">

@@ -274,7 +274,7 @@ export default function WorkshopGsapAnimations() {
             trigger: curriculumFlowSection,
             start: "top bottom",
             end: "bottom top",
-            scrub: true,
+            scrub: 1,
             invalidateOnRefresh: true,
           }
         });
@@ -302,11 +302,12 @@ export default function WorkshopGsapAnimations() {
           scale: (index, target) => target.classList?.contains("flowNode") ? 0.95 : 1
         });
 
+        const flowContainer = document.querySelector(".flowContainer");
         const flowTl = gsap.timeline({
           scrollTrigger: {
-            trigger: curriculumFlowSection,
-            start: "top 60%",
-            end: "bottom 20%",
+            trigger: flowContainer,
+            start: "top 70%",
+            end: "bottom 85%",
             scrub: 1,
           }
         });

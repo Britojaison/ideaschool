@@ -46,20 +46,28 @@ export default function WorkshopGsapAnimations() {
         { autoAlpha: 0 },
       );
 
-      gsap
-        .timeline({ defaults: { ease: "power3.out" } })
-        .fromTo(".workshopHero .siteHeader", { y: -28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.75 })
-        .fromTo(".workshopHero .programEyebrowRow", { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.72 }, "-=0.28")
-        .fromTo(".workshopHero h1", { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1 }, "-=0.34")
-        .fromTo(".workshopHero .longCourseHeroCopy > p", { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.46")
-        .fromTo(".workshopHero .longCourseHeroCtas", { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.48")
-        .fromTo(
-          ".workshopHeroModel3D",
-          { autoAlpha: 0, filter: "blur(8px)" },
-          { autoAlpha: 1, filter: "blur(0px)", duration: 0.9 },
-          "-=0.76",
-        )
-        .fromTo(".workshopHero .longCourseStats", { y: 30 }, { y: 0, autoAlpha: 1, duration: 0.72 }, "-=0.5");
+      const initHeroAnimations = () => {
+        gsap
+          .timeline({ defaults: { ease: "power3.out" } })
+          .fromTo(".workshopHero .siteHeader", { y: -28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.75 })
+          .fromTo(".workshopHero .programEyebrowRow", { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.72 }, "-=0.28")
+          .fromTo(".workshopHero h1", { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1 }, "-=0.34")
+          .fromTo(".workshopHero .longCourseHeroCopy > p", { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.46")
+          .fromTo(".workshopHero .longCourseHeroCtas", { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.48")
+          .fromTo(
+            ".workshopHeroModel3D",
+            { autoAlpha: 0, filter: "blur(8px)" },
+            { autoAlpha: 1, filter: "blur(0px)", duration: 0.9 },
+            "-=0.76",
+          )
+          .fromTo(".workshopHero .longCourseStats", { y: 30 }, { y: 0, autoAlpha: 1, duration: 0.72 }, "-=0.5");
+      };
+
+      if (document.querySelector(".workshop-loading-bg")) {
+        window.addEventListener("workshopLoaderFinished", initHeroAnimations, { once: true });
+      } else {
+        initHeroAnimations();
+      }
 
       gsap.utils.toArray<HTMLElement>(".workshopGsapSection").forEach((section) => {
         const targets = section.querySelectorAll<HTMLElement>(

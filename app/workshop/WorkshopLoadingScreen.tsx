@@ -8,8 +8,29 @@ export default function WorkshopLoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const inTl = gsap.timeline();
+    
+    // Initial states
+    gsap.set(".workshop-loading-bg", { yPercent: 100 });
+    gsap.set(".workshop-loading-spinner", { opacity: 0, scale: 0.9, y: 10 });
+
+    // Animate in
+    inTl.to(".workshop-loading-bg", {
+      yPercent: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power3.out",
+    });
+    inTl.to(".workshop-loading-spinner", {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.5,
+      ease: "back.out(1.5)",
+    }, "-=0.2");
+
     const startLoadTime = Date.now();
-    const minDisplayTime = 2500; // minimum time to show the loader (2.5 seconds)
+    const minDisplayTime = 2500; // minimum time to show the loader
 
     const handleLoad = () => {
       const elapsed = Date.now() - startLoadTime;
@@ -20,6 +41,7 @@ export default function WorkshopLoadingScreen() {
           onComplete: () => {
             setIsLoading(false);
             document.body.style.overflow = "";
+            window.dispatchEvent(new Event("workshopLoaderFinished"));
           },
         });
 
@@ -97,7 +119,7 @@ export default function WorkshopLoadingScreen() {
           width={104}
           height={54}
           priority
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: "contain", filter: "brightness(0)" }}
         />
         <span style={{
           fontSize: "2.6rem",

@@ -394,15 +394,33 @@ export default function WorkshopPage() {
             <p>Current local project videos are placed here. You can upload the final showcase videos later.</p>
           </div>
 
-          <div className="workshopProjectGrid">
-            {projects.map((project) => (
-              <article className="workshopProjectCard" data-speed={project.title === "AI Campaign Film" ? "clamp(0.92)" : "clamp(1.08)"} key={project.title}>
-                <video muted loop playsInline preload="metadata" poster={project.poster} aria-label={project.title}>
-                  <source src={project.src} type="video/mp4" />
-                </video>
-                <h3>{project.title}</h3>
-              </article>
-            ))}
+          <div className="gallery-wrap">
+            <div className="gallery gallery--bento gallery--switch" id="gallery-8">
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-pattern-1.jpg" alt="" />
+              </div>
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-image-12.jpg" alt="" />
+              </div>
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-image-8.jpg" alt="" />
+              </div>
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-pattern-2.jpg" alt="" />
+              </div>
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-image-4.jpg" alt="" />
+              </div>
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-image-3.jpg" alt="" />
+              </div>
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-pattern-3.jpg" alt="" />
+              </div>
+              <div className="gallery__item">
+                <img src="https://assets.codepen.io/16327/portrait-image-1.jpg" alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

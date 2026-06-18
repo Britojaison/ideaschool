@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Flip } from "gsap/Flip";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
 type TravelStartVars = {
   x: number;
@@ -146,24 +147,32 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      gsap.utils.toArray<HTMLElement>(".workshopProjectCard").forEach((card) => {
-        const video = card.querySelector("video");
+      const galleryElement = document.querySelector("#gallery-8");
+      if (galleryElement) {
+        const galleryItems = galleryElement.querySelectorAll<HTMLElement>(".gallery__item");
 
-        gsap.fromTo(
-          video,
-          { scale: 1.12 },
-          {
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            },
+        galleryElement.classList.remove("gallery--final");
+
+        galleryElement.classList.add("gallery--final");
+        const flipState = Flip.getState(galleryItems);
+        galleryElement.classList.remove("gallery--final");
+
+        const flip = Flip.to(flipState, {
+          simple: true,
+          ease: "expoScale(1, 5)",
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: galleryElement.parentElement,
+            start: "center center",
+            end: "+=100%",
+            scrub: true,
+            pin: true,
           },
-        );
-      });
+        });
+        tl.add(flip);
+      }
 
       // New Services Section Animation
       // Pin Hero Section so Services scrolls over it

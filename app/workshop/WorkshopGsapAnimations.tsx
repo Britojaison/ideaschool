@@ -147,25 +147,48 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      gsap.utils.toArray<HTMLElement>(".gallery__item").forEach((item) => {
-        const img = item.querySelector("img");
-        if (img) {
-          gsap.fromTo(
-            img,
-            { scale: 1.18 },
-            {
-              scale: 1,
-              ease: "none",
-              scrollTrigger: {
-                trigger: item,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true,
-              },
-            },
-          );
+      // Gallery Flip Animation
+      let flipCtx: gsap.Context | undefined;
+      const galleryElement = document.querySelector("#gallery-8");
+
+      const createGalleryTween = () => {
+        if (!galleryElement) return;
+        const galleryItems = galleryElement.querySelectorAll(".gallery__item");
+
+        if (flipCtx) {
+          flipCtx.revert();
         }
-      });
+
+        galleryElement.classList.remove("gallery--final");
+
+        flipCtx = gsap.context(() => {
+          galleryElement.classList.add("gallery--final");
+          const flipState = Flip.getState(galleryItems);
+          galleryElement.classList.remove("gallery--final");
+
+          const flip = Flip.to(flipState, {
+            simple: true,
+            ease: "expoScale(1, 5)",
+          });
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: galleryElement,
+              start: "center center",
+              end: "+=100%",
+              scrub: true,
+              pin: galleryElement.parentNode as HTMLElement,
+            },
+          });
+          tl.add(flip);
+          return () => gsap.set(galleryItems, { clearProps: "all" });
+        }, galleryElement);
+      };
+
+      createGalleryTween();
+
+      const handleResize = () => createGalleryTween();
+      window.addEventListener("resize", handleResize);
       // New Services Section Animation
       // Pin Hero Section so Services scrolls over it
       const workshopHero = document.querySelector(".workshopHero");
@@ -450,6 +473,11 @@ export default function WorkshopGsapAnimations() {
       }
 
       smoother.refresh();
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        if (flipCtx) flipCtx.revert();
+      };
     });
 
     return () => {

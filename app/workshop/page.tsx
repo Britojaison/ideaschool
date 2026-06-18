@@ -474,35 +474,35 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCourseDetails workshopProofSection workshopGsapSection" aria-label="Student testimonials">
-        <DetailsSectionMotion />
-        <div className="longCourseSectionInner detailsGlanceGrid">
-          <article className="detailsPanel programGlancePanel">
-            <span className="sectionPill">What Our Students Say</span>
-            <h2>Workshop Proof</h2>
-            <div className="workshopTestimonialList">
-              {testimonials.map((testimonial) => (
-                <figure className="workshopTestimonial" key={testimonial.quote}>
-                  <div aria-label="5 star rating">★★★★★</div>
-                  <blockquote>{testimonial.quote}</blockquote>
-                  <figcaption>{testimonial.name}</figcaption>
-                </figure>
-              ))}
-            </div>
-          </article>
-
-          <article className="detailsPanel enrollmentPanel">
-            <span className="sectionPill">What This Includes</span>
-            <h2>Program Highlights</h2>
-            <div className="highlightsChecklist">
-              {programHighlights.map((highlight) => (
-                <div className="highlightItem" key={highlight}>
-                  <span className="checkIcon" aria-hidden="true">✓</span>
-                  <span>{highlight}</span>
+      <section className="workshopTestimonialSection bg-[#F7F5F4] py-24 md:py-32 px-6 md:px-12" aria-label="Student testimonials">
+        <div className="max-w-[1440px] mx-auto">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-20 md:mb-32 max-w-5xl leading-tight text-black tracking-tight">
+            We believe in the best practical training, because we know it helps our students land high-paying projects.
+          </h2>
+          
+          <div className="flex flex-col md:flex-row border-t md:border-t-0 border-black/20 pt-10 md:pt-0">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className={`flex flex-col justify-between flex-1 ${index !== testimonials.length - 1 ? 'md:border-r border-black/20 pb-12 md:pb-0 mb-12 md:mb-0 border-b md:border-b-0' : ''} ${index !== 0 ? 'md:pl-10 lg:pl-16' : 'pl-0'} ${index !== testimonials.length - 1 ? 'md:pr-10 lg:pr-16' : 'pr-0'}`}
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-6">
+                    <p className="text-xl md:text-2xl font-medium leading-snug text-black max-w-md pr-6">
+                      {testimonial.quote}
+                    </p>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 mt-1">
+                      <path d="M10 8V12C10 14.2091 8.20914 16 6 16H5V14H6C7.10457 14 8 13.1046 8 12V11H4V5H10V8ZM20 8V12C20 14.2091 18.2091 16 16 16H15V14H16C17.1045 14 18 13.1046 18 12V11H14V5H20V8Z" fill="black"/>
+                    </svg>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </article>
+                <div className="mt-16 md:mt-24">
+                  <p className="font-bold text-black text-lg">{testimonial.name}</p>
+                  <p className="text-gray-500 text-sm mt-1">Workshop Attendee</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

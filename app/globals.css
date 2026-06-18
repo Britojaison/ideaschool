@@ -12167,7 +12167,7 @@ html.isHeroGlassCursorActive .hero * {
 .workshopServicesSection {
   position: relative;
   height: 250vh;
-  background: #ffffff;
+  background: #fefffe;
   overflow: hidden;
   z-index: 10;
 }
@@ -12179,7 +12179,7 @@ html.isHeroGlassCursorActive .hero * {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: #fefffe;
 }
 
 .servicesStickyContainer::before {

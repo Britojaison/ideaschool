@@ -110,7 +110,21 @@ export default function WorkshopGsapAnimations() {
       });
 
       // New Services Section Animation
+      // Pin Hero Section so Services scrolls over it
+      const workshopHero = document.querySelector(".workshopHero");
       const servicesSection = document.querySelector(".workshopServicesSection");
+
+      if (workshopHero && servicesSection) {
+        ScrollTrigger.create({
+          trigger: workshopHero,
+          start: "top top",
+          endTrigger: servicesSection,
+          end: "top top",
+          pin: true,
+          pinSpacing: false,
+        });
+      }
+
       const heroModel = document.querySelector<HTMLElement>(".workshopHeroModel3D");
       const modelTarget = document.querySelector<HTMLElement>(".servicesModelTarget");
 

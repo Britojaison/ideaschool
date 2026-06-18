@@ -47,16 +47,34 @@ export default function WorkshopAttendeesList() {
       onMouseLeave={() => setHoveredIndex(null)}
       style={{ position: "relative" }}
     >
+      {/* Top line before the first item */}
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: "100%" }}
+        viewport={{ once: false, amount: 0.8 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        style={{ height: "1px", background: "rgba(0, 0, 0, 0.15)" }}
+      />
+
       {attendeesData.map((attendee, index) => (
-        <div 
-          className="attendeeCard" 
-          key={index}
-          onMouseEnter={() => setHoveredIndex(index)}
-        >
-          <div className="attendeeCardInner">
-            <p>{attendee.text}</p>
+        <React.Fragment key={index}>
+          <div 
+            className="attendeeCard" 
+            onMouseEnter={() => setHoveredIndex(index)}
+          >
+            <div className="attendeeCardInner" style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+              <div style={{ width: "12px", height: "12px", background: "#000", borderRadius: "50%", flexShrink: 0 }} />
+              <p>{attendee.text}</p>
+            </div>
           </div>
-        </div>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            viewport={{ once: false, amount: 0.8 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            style={{ height: "1px", background: "rgba(0, 0, 0, 0.15)" }}
+          />
+        </React.Fragment>
       ))}
 
       {/* Floating Image */}

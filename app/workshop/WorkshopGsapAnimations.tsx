@@ -227,6 +227,18 @@ export default function WorkshopGsapAnimations() {
           pinSpacing: false,
         });
 
+        const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
+        if (curriculumFlowSection) {
+          ScrollTrigger.create({
+            trigger: videoScrollSection,
+            start: "bottom bottom",
+            endTrigger: curriculumFlowSection,
+            end: "top top",
+            pin: true,
+            pinSpacing: false,
+          });
+        }
+
         gsap.to(videoMediaContainer, {
           width: "15vw",
           height: "8vw",
@@ -241,9 +253,34 @@ export default function WorkshopGsapAnimations() {
           }
         });
       }
+      // What You'll Learn Background Text Animation
+      const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
+      const curriculumFlowBgText = document.querySelector(".curriculumFlowBgText");
+      const whatYouWillLearnHugeText = document.querySelector(".whatYouWillLearnHugeText");
+
+      if (curriculumFlowSection && curriculumFlowBgText && whatYouWillLearnHugeText) {
+        ScrollTrigger.create({
+          trigger: curriculumFlowSection,
+          start: "top top",
+          end: "bottom bottom",
+          pin: curriculumFlowBgText,
+          pinSpacing: false,
+        });
+
+        gsap.to(whatYouWillLearnHugeText, {
+          x: () => -(whatYouWillLearnHugeText.scrollWidth),
+          ease: "none",
+          scrollTrigger: {
+            trigger: curriculumFlowSection,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            invalidateOnRefresh: true,
+          }
+        });
+      }
 
       // Curriculum Flow Animation
-      const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
       if (curriculumFlowSection) {
         const flowNodes = gsap.utils.toArray<HTMLElement>(".flowNode");
         const flowPaths = gsap.utils.toArray<SVGPathElement>(".flowLines path");

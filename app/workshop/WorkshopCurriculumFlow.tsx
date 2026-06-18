@@ -3,6 +3,9 @@ import React from "react";
 export default function WorkshopCurriculumFlow() {
   return (
     <section className="curriculumFlowSection workshopGsapSection" aria-label="Workshop Curriculum">
+      <div className="curriculumFlowBgText">
+        <div className="whatYouWillLearnHugeText">WHAT YOU&apos;LL LEARN</div>
+      </div>
       <div className="flowContainer">
         
         {/* SVG Connectors for Desktop */}

@@ -12241,7 +12241,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .servicesHeading .textGreen {
-  color: #93e400;
+  color: #d4bafb;
 }
 
 .servicesCenter {
@@ -12467,18 +12467,48 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 /* =========================================
+   WHAT YOU'LL LEARN BACKGROUND TEXT
+========================================= */
+.curriculumFlowBgText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.whatYouWillLearnHugeText {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  font-family: "Bebas Neue", var(--font-heading);
+  font-size: clamp(10rem, 30vw, 35rem);
+  font-weight: 800;
+  white-space: nowrap;
+  color: #d4bafb;
+  line-height: 0.8;
+  padding-left: 10vw;
+  will-change: transform;
+}
+
+/* =========================================
    WORKSHOP CURRICULUM FLOW
 ========================================= */
 .curriculumFlowSection {
   position: relative;
   width: 100%;
-  background: #ffffff; /* White background as requested */
+  background: #ffffff;
   padding: 8vw 0;
   overflow: hidden;
+  z-index: 20;
 }
 
 .flowContainer {
   position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;

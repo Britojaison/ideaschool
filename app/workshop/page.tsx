@@ -331,30 +331,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCourseSchedule workshopSchedule workshopGsapSection" aria-label="Workshop schedule">
-        <div className="longCourseSectionInner splitSection">
-          <div className="longCourseIntro">
-            <span className="sectionPill">Workshop Flow</span>
-            <h2>Live Training, Practical Exercises, Recordings</h2>
-            <p>
-              The format is simple: join live, practice during the workshop, and revise later
-              with the provided recordings.
-            </p>
-          </div>
 
-          <div className="scheduleList">
-            {schedule.map((item) => (
-              <article className="scheduleItem" key={item.label}>
-                <span>{item.label}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <WorkshopToolsInteractive />
 

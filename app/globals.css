@@ -11580,8 +11580,6 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopCoursePage .longCourseHero,
 .workshopCoursePage .longCourseOutcomes,
-.workshopCoursePage .longCourseCurriculum,
-.workshopCoursePage .longCourseSchedule,
 .workshopCoursePage .longCourseMentors,
 .workshopCoursePage .longCoursePortfolio,
 .workshopCoursePage .longCourseDetails,
@@ -11589,6 +11587,12 @@ html.isHeroGlassCursorActive .hero * {
 .workshopCoursePage .longCourseApply,
 .workshopCoursePage .siteFooter {
   background: #ffffff;
+  color: #151515;
+}
+
+.workshopCoursePage .longCourseCurriculum,
+.workshopCoursePage .longCourseSchedule {
+  background: #F7F6F5;
   color: #151515;
 }
 
@@ -11964,7 +11968,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopSchedule {
-  background: #ffffff;
+  background: #F7F6F5;
 }
 
 .workshopProjectGrid {

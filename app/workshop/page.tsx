@@ -274,7 +274,7 @@ export default function WorkshopPage() {
         <div className="videoScrollStickyContainer">
           <div className="videoScrollCenter">
             <h2 className="videoScrollHeading">
-              We create 
+              <span className="videoScrollHighlight">We create</span>{" "}
               <span className="videoScrollMediaContainer">
                 <video 
                   src="/images/Brand Commercial/SunscreenAD_May22 V2.mp4" 

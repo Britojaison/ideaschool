@@ -11600,6 +11600,7 @@ html.isHeroGlassCursorActive .hero * {
   min-height: 100svh;
   display: flex;
   align-items: stretch;
+  background: #fefffe;
   padding: clamp(92px, 8vw, 124px) clamp(28px, 5.8vw, 112px) clamp(28px, 4.2vw, 70px);
 }
 
@@ -11620,7 +11621,7 @@ html.isHeroGlassCursorActive .hero * {
     linear-gradient(rgba(21, 21, 21, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(21, 21, 21, 0.045) 1px, transparent 1px),
     radial-gradient(circle at 12% 88%, rgba(218, 253, 85, 0.18), transparent 18%),
-    #ffffff;
+    #fefffe;
   background-position: 0 0, calc(50% - 0.5px) 0, 0 0, 0 0;
   background-size: 44px 44px, 44px 44px, 100% 100%, auto;
 }
@@ -12240,7 +12241,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .servicesHeading .textGreen {
-  color: var(--course-green);
+  color: #93e400;
 }
 
 .servicesCenter {
@@ -12420,7 +12421,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .videoScrollHeading {
   font-family: var(--font-heading);
-  font-size: clamp(3.5rem, 8.5vw, 9rem);
+  font-size: clamp(2.5rem, 6.5vw, 7rem);
   font-weight: 800;
   line-height: 1.05;
   text-align: center;
@@ -12429,11 +12430,17 @@ html.isHeroGlassCursorActive .hero * {
   display: inline-block;
 }
 
+.videoScrollHighlight {
+  background-color: #d1b3ff;
+  padding: 0.05em 0.15em;
+  border-radius: 0.15em;
+}
+
 .videoScrollMediaContainer {
   display: inline-block;
   vertical-align: middle;
   width: 100vw;
-  height: 55vh;
+  height: 40vh;
   border-radius: 0;
   overflow: hidden;
   margin: 0;

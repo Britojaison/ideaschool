@@ -405,73 +405,57 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCourseMentors workshopGsapSection flex flex-col justify-center min-h-[100vh]" aria-label="About the instructor" style={{ padding: "80px 0" }}>
-        <div className="longCourseSectionInner flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 w-full max-w-7xl mx-auto px-4 md:px-8">
-          
-          <div className="mentorSectionIntro flex-1 text-left w-full" style={{ textAlign: "left", margin: 0, padding: 0 }}>
-            <span 
-              className="sectionPill inline-block mb-6"
-              style={{
-                background: "#dafd55",
-                color: "#000",
-                fontWeight: 800,
-                fontSize: "0.9rem",
-                padding: "10px 24px",
-                border: "none",
-                textTransform: "uppercase",
-                letterSpacing: "1.5px",
-                boxShadow: "0 4px 14px rgba(218, 253, 85, 0.4)",
-              }}
-            >
-              About The Instructor
-            </span>
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display w-full" style={{ textAlign: "left", maxWidth: "100%", margin: "0 0 1.5rem 0" }}>
-              Learn From a Working Creative Professional
-            </h2>
-            <p className="text-gray-600 text-lg md:text-xl font-light w-full" style={{ textAlign: "left", margin: 0, maxWidth: "100%" }}>
-              Instructor biography content can go here once you share it. For now, this follows the
-              same mentor-card layout as the creative page and uses existing local photos.
-            </p>
-          </div>
-
-          <div className="workshopMentorGrid flex-1 flex justify-center lg:justify-end w-full m-0" style={{ margin: 0, maxWidth: "100%" }}>
-            {mentors.map((mentor) => (
-              <TiltedCard
-                key={mentor.name}
-                captionText={`${mentor.name} - ${mentor.role}`}
-                containerHeight="auto"
-                containerWidth="100%"
-                imageHeight="auto"
-                imageWidth="100%"
-                rotateAmplitude={10}
-                scaleOnHover={1.04}
-                showMobileWarning={false}
-                showTooltip
-                className="courseMentorTilt w-full max-w-[450px]"
-                innerClassName="courseMentorTiltInner w-full"
-              >
-                <article className={`courseMentorCard ${mentor.accent} w-full`}>
-                  <div className="courseMentorImageWrap" data-speed="clamp(0.94)">
-                    <Image
-                      src={mentor.image}
-                      alt={mentor.name}
-                      fill
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 760px) 88vw, (max-width: 1180px) 42vw, 290px"
-                      className="courseMentorImage"
-                    />
-                  </div>
-                  <div className="workshopMentorCopy">
-                    <h3>{mentor.name}</h3>
-                    <p>{mentor.role}</p>
-                  </div>
-                </article>
-              </TiltedCard>
-            ))}
-          </div>
-          
+      <section className="workshopGsapSection flex flex-col lg:flex-row justify-center min-h-[100vh] relative p-0 overflow-hidden bg-white" aria-label="About the instructor">
+        
+        {/* Left Side: Text Content */}
+        <div className="flex-1 flex flex-col justify-center items-start w-full px-8 md:px-12 lg:pl-[max(4rem,calc(50vw-720px))] lg:pr-16 py-20 z-10" style={{ textAlign: "left" }}>
+          <span 
+            className="inline-block mb-6"
+            style={{
+              background: "#dafd55",
+              color: "#000",
+              fontWeight: 800,
+              fontSize: "0.9rem",
+              padding: "10px 24px",
+              border: "none",
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+              boxShadow: "0 4px 14px rgba(218, 253, 85, 0.4)",
+              borderRadius: "999px"
+            }}
+          >
+            About The Instructor
+          </span>
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display max-w-2xl">
+            Learn From a Working Creative Professional
+          </h2>
+          <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl">
+            Instructor biography content can go here once you share it. For now, this follows the
+            same mentor-card layout as the creative page and uses existing local photos.
+          </p>
         </div>
+
+        {/* Right Side: Full Bleed Image */}
+        <div className="flex-1 relative w-full h-[60vh] lg:h-auto min-h-[100vh] m-0">
+          {mentors.length > 0 && (
+            <>
+              <Image
+                src={mentors[0].image}
+                alt={mentors[0].name}
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              
+              {/* Nameplate */}
+              <div className="absolute bottom-8 left-8 right-8 lg:bottom-12 lg:left-12 lg:right-auto lg:min-w-[360px] bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-2xl z-10 shadow-2xl">
+                <h3 className="text-2xl md:text-3xl font-bold text-black m-0 mb-2">{mentors[0].name}</h3>
+                <p className="text-gray-600 m-0 text-base md:text-lg">{mentors[0].role}</p>
+              </div>
+            </>
+          )}
+        </div>
+        
       </section>
 
       <section className="workshopTestimonialSection bg-[#F7F5F4] py-24 md:py-32 px-6 md:px-12" aria-label="Student testimonials">

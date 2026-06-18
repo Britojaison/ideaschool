@@ -244,12 +244,12 @@ export default function WorkshopGsapAnimations() {
           height: "8vw",
           borderRadius: "5vw",
           margin: "0 1.5vw",
-          ease: "none",
+          ease: "power2.inOut",
           scrollTrigger: {
             trigger: videoScrollSection,
             start: "top top",
             end: "bottom bottom",
-            scrub: true,
+            scrub: 2,
           }
         });
       }

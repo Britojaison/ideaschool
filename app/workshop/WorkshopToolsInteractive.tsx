@@ -5,19 +5,19 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 const tools = [
   { 
-    label: "Premiere Pro", bg: "#ffffff", color: "#000000", width: "65%", borderRadius: "24px", zIndex: 1,
+    label: "Premiere Pro", bg: "#ffffff", color: "#000000", width: "55%", borderRadius: "24px", zIndex: 1,
     xRange: [-80, 80], yRange: [-40, 40], rotateRange: [-12, 12] 
   },
   { 
-    label: "After Effects", bg: "#dafd55", color: "#000000", width: "90%", borderRadius: "100px", zIndex: 2,
+    label: "After Effects", bg: "#dafd55", color: "#000000", width: "75%", borderRadius: "100px", zIndex: 2,
     xRange: [-40, 40], yRange: [-20, 20], rotateRange: [-6, 6] 
   },
   { 
-    label: "Audio Tools", bg: "#d2bbf4", color: "#000000", width: "80%", borderRadius: "32px", zIndex: 3,
+    label: "Audio Tools", bg: "#d2bbf4", color: "#000000", width: "65%", borderRadius: "32px", zIndex: 3,
     xRange: [40, -40], yRange: [20, -20], rotateRange: [5, -5] 
   },
   { 
-    label: "Higgsfield AI", bg: "#000000", color: "#ffffff", width: "70%", borderRadius: "100px", zIndex: 4,
+    label: "Higgsfield AI", bg: "#000000", color: "#ffffff", width: "60%", borderRadius: "100px", zIndex: 4,
     xRange: [90, -90], yRange: [50, -50], rotateRange: [15, -15] 
   },
 ];
@@ -57,12 +57,12 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
           backgroundColor: tool.bg,
           color: tool.color,
           width: tool.width,
-          padding: "clamp(20px, 3vw, 40px) 20px",
+          padding: "clamp(16px, 2.5vw, 32px) 20px",
           borderRadius: tool.borderRadius,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: "clamp(32px, 6vw, 72px)",
+          fontSize: "clamp(28px, 4.5vw, 56px)",
           fontWeight: "500",
           fontFamily: "var(--font-heading)",
           letterSpacing: "-0.04em",

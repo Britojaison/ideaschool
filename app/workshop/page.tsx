@@ -299,9 +299,45 @@ export default function WorkshopPage() {
       <section className="longCourseCurriculum workshopGsapSection" id="curriculum" aria-label="Workshop curriculum">
         <LazyCurriculumDotField />
         <div className="longCourseSectionInner">
-          <div className="curriculumIntro">
-            <h2>2-Day Session Plan</h2>
-            <p>Day 1 and Day 2 are ready for your final topic details when you add more content.</p>
+          <div className="curriculumIntro" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: "40px" }}>
+            <h2 
+              style={{ 
+                background: "#d2bbf4", 
+                color: "#000", 
+                borderRadius: "999px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", 
+                padding: "14px 36px",
+                margin: 0,
+                textTransform: "uppercase",
+                fontFamily: "var(--font-heading)",
+                fontWeight: 900,
+                lineHeight: 1,
+                width: "fit-content"
+              }}
+            >
+              2-Day Session Plan
+            </h2>
+            <p 
+              style={{ 
+                background: "#dafd55", 
+                color: "#000", 
+                borderRadius: "999px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1rem",
+                padding: "10px 28px",
+                margin: 0,
+                fontWeight: 600,
+                width: "fit-content",
+                textAlign: "center"
+              }}
+            >
+              Day 1 and Day 2 are ready for your final topic details when you add more content.
+            </p>
           </div>
 
           <div className="courseWeekList">

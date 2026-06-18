@@ -405,11 +405,12 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCourseMentors workshopGsapSection" aria-label="About the instructor" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-        <div className="longCourseSectionInner">
-          <div className="mentorSectionIntro">
+      <section className="longCourseMentors workshopGsapSection flex flex-col justify-center min-h-[100vh]" aria-label="About the instructor" style={{ padding: "80px 0" }}>
+        <div className="longCourseSectionInner flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 w-full max-w-7xl mx-auto px-4 md:px-8">
+          
+          <div className="mentorSectionIntro flex-1 text-left w-full" style={{ textAlign: "left", margin: 0, padding: 0 }}>
             <span 
-              className="sectionPill"
+              className="sectionPill inline-block mb-6"
               style={{
                 background: "#dafd55",
                 color: "#000",
@@ -424,14 +425,16 @@ export default function WorkshopPage() {
             >
               About The Instructor
             </span>
-            <h2>Learn From a Working Creative Professional</h2>
-            <p>
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display w-full" style={{ textAlign: "left", maxWidth: "100%", margin: "0 0 1.5rem 0" }}>
+              Learn From a Working Creative Professional
+            </h2>
+            <p className="text-gray-600 text-lg md:text-xl font-light w-full" style={{ textAlign: "left", margin: 0, maxWidth: "100%" }}>
               Instructor biography content can go here once you share it. For now, this follows the
               same mentor-card layout as the creative page and uses existing local photos.
             </p>
           </div>
 
-          <div className="mentorCardGrid workshopMentorGrid" style={{ display: "flex", justifyContent: "center", gap: "2rem", maxWidth: "600px", margin: "48px auto 0" }}>
+          <div className="workshopMentorGrid flex-1 flex justify-center lg:justify-end w-full m-0" style={{ margin: 0, maxWidth: "100%" }}>
             {mentors.map((mentor) => (
               <TiltedCard
                 key={mentor.name}
@@ -444,10 +447,10 @@ export default function WorkshopPage() {
                 scaleOnHover={1.04}
                 showMobileWarning={false}
                 showTooltip
-                className="courseMentorTilt"
-                innerClassName="courseMentorTiltInner"
+                className="courseMentorTilt w-full max-w-[450px]"
+                innerClassName="courseMentorTiltInner w-full"
               >
-                <article className={`courseMentorCard ${mentor.accent}`}>
+                <article className={`courseMentorCard ${mentor.accent} w-full`}>
                   <div className="courseMentorImageWrap" data-speed="clamp(0.94)">
                     <Image
                       src={mentor.image}
@@ -467,6 +470,7 @@ export default function WorkshopPage() {
               </TiltedCard>
             ))}
           </div>
+          
         </div>
       </section>
 

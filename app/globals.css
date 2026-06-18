@@ -12525,7 +12525,7 @@ html.isHeroGlassCursorActive .hero * {
   height: 40vh;
   border-radius: 0;
   overflow: hidden;
-  margin: 0;
+  margin: 3vw 0;
   position: relative;
   will-change: width, height, border-radius, margin;
 }
@@ -12543,7 +12543,7 @@ html.isHeroGlassCursorActive .hero * {
   .videoScrollMediaContainer {
     width: 85vw;
     height: 60vw;
-    margin: 0 2vw;
+    margin: 4vw 2vw;
     border-radius: 4vw;
   }
 }

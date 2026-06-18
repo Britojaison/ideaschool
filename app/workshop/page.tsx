@@ -372,14 +372,14 @@ export default function WorkshopPage() {
 
       <WorkshopToolsInteractive />
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "120px", paddingBottom: "120px", paddingLeft: "4vw", paddingRight: "4vw" }}>
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "120px", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block" }}>
         <WorkshopAttendeesList />
       </section>
 
-      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work">
+      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px" }}>
         <DetailsSectionMotion />
-        <div className="longCourseSectionInner">
-          <div className="mentorSectionIntro">
+        <div className="longCourseSectionInner" style={{ marginBottom: "80px" }}>
+          <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>
             <span className="sectionPill">Our Work</span>
             <h2>Watch Some Of Our Recent Projects</h2>
             <p>Current local project videos are placed here. You can upload the final showcase videos later.</p>

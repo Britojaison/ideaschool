@@ -373,7 +373,7 @@ export default function WorkshopPage() {
 
       <WorkshopToolsInteractive />
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "120px", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block" }}>
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "120px", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "#E6E6E6" }}>
         <WorkshopAttendeesList />
       </section>
 

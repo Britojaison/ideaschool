@@ -472,6 +472,25 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
+      // Footer Stacking Animation
+      const footer = document.querySelector(".workshopSiteFooter");
+      if (footer) {
+        gsap.fromTo(
+          footer,
+          { y: () => -window.innerHeight * 0.5 },
+          {
+            y: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: footer,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: true,
+            },
+          }
+        );
+      }
+
       smoother.refresh();
 
       return () => {

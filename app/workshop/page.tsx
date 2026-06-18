@@ -13,6 +13,7 @@ import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
 import WorkshopLoadingScreen from "./WorkshopLoadingScreen";
 import WorkshopAttendeesList from "./WorkshopAttendeesList";
+import WorkshopFooter from "./WorkshopFooter";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -528,37 +529,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <footer className="siteFooter">
-        <div className="footerInner">
-          <p>Idea School is where you build real skills for the creative industry.</p>
-          <nav className="footerLinks" aria-label="Footer navigation">
-            <div>
-              <h2>Workshop</h2>
-              <a href="#curriculum">Curriculum</a>
-              <a href="#tools">Tools</a>
-              <a href="#apply">Register</a>
-            </div>
-            <div>
-              <h2>Company</h2>
-              <Link href="/#about">About</Link>
-              <Link href="/#testimonials">Testimonials</Link>
-              <Link href="/#contact">Contact</Link>
-            </div>
-            <div>
-              <h2>Socials</h2>
-              <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">
-                Instagram
-              </a>
-              <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-            </div>
-          </nav>
-        </div>
-        <Link className="footerHeroLink" href="/#hero" aria-label="Back to home hero">
-          IDEA SCHOOL
-        </Link>
-      </footer>
+      <WorkshopFooter />
         </div>
       </div>
     </main>

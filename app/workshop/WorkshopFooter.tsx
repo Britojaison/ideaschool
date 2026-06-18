@@ -17,7 +17,7 @@ export default function WorkshopFooter() {
       gsap.to(marqueeRef.current, {
         xPercent: -50,
         ease: "none",
-        duration: 45, // Reduced speed (increased duration)
+        duration: 45,
         repeat: -1,
       });
     }
@@ -35,14 +35,14 @@ export default function WorkshopFooter() {
   return (
     <footer className="siteFooter workshopSiteFooter" ref={footerRef}>
       <div className="footerMarqueeContainer">
-        <div className="footerMarquee" ref={marqueeRef} style={{ display: "flex", width: "max-content" }}>
-          <div style={{ display: "flex" }}>
-            <span>POWERED BY 88GB</span>
-            <span>POWERED BY 88GB</span>
+        <div className="footerMarquee" ref={marqueeRef} style={{ display: "flex", width: "max-content", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <span>IDEASCHOOLOF88GB</span>
+            <span className="marqueeAsterisk">✱</span>
           </div>
-          <div style={{ display: "flex" }}>
-            <span>POWERED BY 88GB</span>
-            <span>POWERED BY 88GB</span>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <span>IDEASCHOOLOF88GB</span>
+            <span className="marqueeAsterisk">✱</span>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ export default function WorkshopFooter() {
 
       <div className="footerLegal">
         <div className="legalLeft">Idea School</div>
-        <div className="legalCenter">All rights reserved by Idea School, 2024</div>
+        <div className="legalCenter">All rights reserved by Idea School, 2026</div>
         <div className="legalRight">Powered by 88GB</div>
       </div>
     </footer>

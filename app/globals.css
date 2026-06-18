@@ -12636,7 +12636,7 @@ html.isHeroGlassCursorActive .hero * {
 .workshopAttendeesSection {
   position: relative;
   height: 200vh;
-  background: #111111;
+  background: #fefffe;
   color: #fff;
   z-index: 10;
   overflow: hidden;
@@ -12672,7 +12672,7 @@ html.isHeroGlassCursorActive .hero * {
   left: 10%;
   width: 40vw;
   height: 40vw;
-  background: #50218f;
+  background: #d2bbf4;
 }
 
 .attendeesBgCircle.two {
@@ -12680,7 +12680,7 @@ html.isHeroGlassCursorActive .hero * {
   right: -5%;
   width: 35vw;
   height: 35vw;
-  background: #7a9c00;
+  background: #dafd55;
 }
 
 .workshopCoursePage .attendeesPanel {
@@ -12688,11 +12688,11 @@ html.isHeroGlassCursorActive .hero * {
   width: 90%;
   padding: clamp(30px, 5vw, 60px);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   z-index: 2;
   position: relative;
 }
@@ -12702,7 +12702,7 @@ html.isHeroGlassCursorActive .hero * {
   font-size: clamp(3rem, 6vw, 4.5rem);
   text-align: center;
   margin-bottom: 40px;
-  color: #dafd55;
+  color: #08090b;
   font-weight: 900;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -12718,8 +12718,8 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopCoursePage .attendeeCard {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 16px;
   padding: 24px 32px;
   text-align: left;
@@ -12749,7 +12749,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopCoursePage .attendeeCard p {
   margin: 0;
-  color: #ffffff;
+  color: #08090b;
   font-size: clamp(1rem, 1.2vw, 1.2rem);
   font-weight: 500;
   line-height: 1.6;

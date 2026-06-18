@@ -30,7 +30,7 @@ const attendeesData = [
 
 export default function WorkshopAttendeesList() {
   return (
-    <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 4vw" }}>
+    <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
       
       {/* Main Section Header */}
       <motion.div
@@ -38,11 +38,11 @@ export default function WorkshopAttendeesList() {
         whileInView={{ width: "100%" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: "#000", marginBottom: "30px" }}
+        style={{ height: "1px", background: "#000" }}
       />
       
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "80px" }}>
-         <h2 style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 900, color: "#000", fontFamily: "var(--font-heading)", margin: 0, textTransform: "uppercase", letterSpacing: "-0.02em" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "30px 0" }}>
+         <h2 style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 900, color: "#000", fontFamily: "var(--font-heading)", margin: 0, textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 1 }}>
            (WHO SHOULD ATTEND)
          </h2>
          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>

@@ -9328,7 +9328,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .siteFooter {
   position: relative;
-  z-index: 1001;
+  z-index: 0;
   overflow: hidden;
   min-height: 330px;
   padding: 58px var(--page-gutter) 40px;

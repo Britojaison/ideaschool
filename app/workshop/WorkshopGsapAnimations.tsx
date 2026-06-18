@@ -475,12 +475,13 @@ export default function WorkshopGsapAnimations() {
       // FAQ Stacking Animation
       const faqSection = document.querySelector("#faq");
       const applySection = document.querySelector("#apply");
+      const footerSection = document.querySelector(".workshopSiteFooter");
 
-      if (faqSection && applySection) {
+      if (faqSection && applySection && footerSection) {
         ScrollTrigger.create({
           trigger: faqSection,
           start: "top top",
-          endTrigger: applySection,
+          endTrigger: footerSection,
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,

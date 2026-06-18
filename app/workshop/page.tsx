@@ -490,7 +490,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="workshopGsapSection sticky top-0 z-0 flex flex-col bg-[#F7F5F4] min-h-[100vh] py-24 md:py-32" id="faq" aria-label="Workshop FAQ">
+      <section className="workshopGsapSection flex flex-col bg-[#F7F5F4] min-h-[100vh] py-24 md:py-32" id="faq" aria-label="Workshop FAQ">
         <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 flex flex-col h-full justify-center">
           
           <div className="text-center mb-12">
@@ -547,7 +547,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCourseApply workshopGsapSection relative z-10" id="apply" aria-label="Register for workshop">
+      <section className="longCourseApply workshopGsapSection relative z-10 rounded-t-[2rem] md:rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]" id="apply" aria-label="Register for workshop">
         <div className="longCourseApplyInner">
           <h2>Ready To Learn Video Editing Skills That Can Pay?</h2>
           <p>

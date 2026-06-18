@@ -86,18 +86,6 @@ const schedule = [
 
 const mentors = [
   {
-    name: "Ajay Karthik",
-    role: "Video Editor, 88GB",
-    image: "/images/mentor_AJAY.webp",
-    accent: "lime",
-  },
-  {
-    name: "Dhananjayan . S",
-    role: "CEO, 88GB",
-    image: "/images/mentor_ARJUN.webp",
-    accent: "green",
-  },
-  {
     name: "Elamparidhi",
     role: "Head of Design, 88GB",
     image: "/images/mentor_PARIDHI.webp",
@@ -417,18 +405,33 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCourseMentors workshopGsapSection" aria-label="About the instructor">
+      <section className="longCourseMentors workshopGsapSection" aria-label="About the instructor" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div className="longCourseSectionInner">
           <div className="mentorSectionIntro">
-            <span className="sectionPill">About The Instructor</span>
-            <h2>Learn From Working Creative Professionals</h2>
+            <span 
+              className="sectionPill"
+              style={{
+                background: "#dafd55",
+                color: "#000",
+                fontWeight: 800,
+                fontSize: "0.9rem",
+                padding: "10px 24px",
+                border: "none",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                boxShadow: "0 4px 14px rgba(218, 253, 85, 0.4)",
+              }}
+            >
+              About The Instructor
+            </span>
+            <h2>Learn From a Working Creative Professional</h2>
             <p>
               Instructor biography content can go here once you share it. For now, this follows the
               same mentor-card layout as the creative page and uses existing local photos.
             </p>
           </div>
 
-          <div className="mentorCardGrid workshopMentorGrid">
+          <div className="mentorCardGrid workshopMentorGrid" style={{ display: "flex", justifyContent: "center", gap: "2rem", maxWidth: "600px", margin: "48px auto 0" }}>
             {mentors.map((mentor) => (
               <TiltedCard
                 key={mentor.name}

@@ -472,25 +472,7 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      // FAQ Stacking Animation
-      const faqSection = document.querySelector("#faq");
-      const applySection = document.querySelector("#apply");
-      const footerSection = document.querySelector(".workshopSiteFooter");
-
-      if (faqSection && applySection && footerSection) {
-        ScrollTrigger.create({
-          trigger: faqSection,
-          start: () => {
-            const faqHeight = (faqSection as HTMLElement).offsetHeight;
-            return faqHeight < window.innerHeight ? "top top" : "bottom bottom";
-          },
-          endTrigger: footerSection,
-          end: "bottom bottom",
-          pin: true,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        });
-      }
+      // FAQ stacking animation removed as it overlaps content.
 
       // Footer Stacking Animation
       const footer = document.querySelector(".workshopSiteFooter");

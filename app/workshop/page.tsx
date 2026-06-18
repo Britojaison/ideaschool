@@ -10,6 +10,7 @@ import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
 import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
 import WorkshopDrawSvg from "./WorkshopDrawSvg";
 import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
+import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -353,19 +354,12 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCoursePortfolio workshopGsapSection" id="tools" aria-label="Tools and attendees">
-        <div className="longCourseSectionInner portfolioGrid">
-          <div className="portfolioPanel">
-            <h2>Tools You&apos;ll Learn</h2>
-            <div className="toolPillGrid">
-              {tools.map((tool) => (
-                <span key={tool}>{tool}</span>
-              ))}
-            </div>
-          </div>
+      <WorkshopToolsInteractive />
 
-          <div className="portfolioPanel">
-            <h2>Who Should Attend?</h2>
+      <section className="longCoursePortfolio workshopGsapSection" id="attendees" aria-label="Who Should Attend">
+        <div className="longCourseSectionInner" style={{ display: "flex", justifyContent: "center" }}>
+          <div className="portfolioPanel" style={{ maxWidth: "800px", width: "100%" }}>
+            <h2 style={{ textAlign: "center" }}>Who Should Attend?</h2>
             <div className="portfolioMilestones">
               {attendees.map((attendee) => (
                 <span key={attendee}>{attendee}</span>

@@ -11,6 +11,7 @@ import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
 import WorkshopDrawSvg from "./WorkshopDrawSvg";
 import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
+import WorkshopLoadingScreen from "./WorkshopLoadingScreen";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -189,6 +190,7 @@ const faqs = [
 export default function WorkshopPage() {
   return (
     <main className="longCoursePage workshopCoursePage">
+      <WorkshopLoadingScreen />
       <WorkshopGsapAnimations />
       <WorkshopHeroModel3D />
       <div id="smooth-wrapper" className="workshopSmoothWrapper">

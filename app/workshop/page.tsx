@@ -254,10 +254,10 @@ export default function WorkshopPage() {
           <div className="servicesCenter">
             <div className="servicesCircleWrapper">
               <div className="servicesCircleTicks"></div>
-              <span className="servicesLabel top"><span className="dot"></span>DEVELOPMENT</span>
-              <span className="servicesLabel right"><span className="dot"></span>SEO</span>
-              <span className="servicesLabel bottom"><span className="dot"></span>E-COMMERCE</span>
-              <span className="servicesLabel left"><span className="dot"></span>DESIGN</span>
+              <span className="servicesLabel top">DEVELOPMENT</span>
+              <span className="servicesLabel right">AI EDITING</span>
+              <span className="servicesLabel bottom">MOTION GRAPHICS</span>
+              <span className="servicesLabel left">DESIGN</span>
             </div>
           </div>
 

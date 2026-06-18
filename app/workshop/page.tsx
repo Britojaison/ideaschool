@@ -506,30 +506,60 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="workshopGsapSection sticky top-0 z-0 flex flex-col justify-center bg-[#ffffff] min-h-[100vh] py-20" id="faq" aria-label="Workshop FAQ">
-        <div className="max-w-4xl mx-auto w-full px-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-16 text-black uppercase tracking-tight font-display">
-            FREQUENTLY ASKED QUESTIONS
-          </h2>
-          <div className="flex flex-col gap-4">
-            {faqs.map((item) => (
-              <details className="group" key={item.question} open={item.open}>
-                <summary className="flex items-center gap-4 cursor-pointer list-none outline-none [&::-webkit-details-marker]:hidden">
-                  <div className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center font-bold text-black flex-shrink-0 transition-colors">
-                    ?
-                  </div>
-                  <div className="flex-1 bg-[#F7F5F4] rounded-full px-6 py-4 font-bold text-black">
-                    Q: {item.question}
-                  </div>
-                </summary>
-                <div className="pl-14 pt-2 pb-2">
-                  <div className="bg-[#F7F5F4] rounded-full px-6 py-4 text-black/80">
-                    A: {item.answer}
-                  </div>
-                </div>
-              </details>
-            ))}
+      <section className="workshopGsapSection sticky top-0 z-0 flex flex-col bg-[#F7F5F4] min-h-[100vh] py-24 md:py-32" id="faq" aria-label="Workshop FAQ">
+        <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 flex flex-col h-full justify-center">
+          
+          <div className="text-center mb-12">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-black mb-6 block">
+              FAQS
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif text-black tracking-tight font-medium">
+              Frequently Asked Questions
+            </h2>
           </div>
+
+          <div className="w-full aspect-[21/9] md:aspect-[24/9] relative rounded-2xl md:rounded-[32px] overflow-hidden mb-16 md:mb-24 shadow-sm border border-black/5">
+            <Image
+              src="/images/DSC01035.webp"
+              alt="Workshop FAQ"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 max-w-[1200px] mx-auto w-full">
+            {/* FAQ Accordion - Left Side */}
+            <div className="flex-1">
+              {faqs.map((item, index) => (
+                <details className="group border-t border-black/20 [&:last-child]:border-b" key={item.question} open={item.open}>
+                  <summary className="flex justify-between items-center py-6 md:py-8 cursor-pointer list-none outline-none [&::-webkit-details-marker]:hidden">
+                    <div className="text-lg md:text-xl font-medium font-serif text-black pr-8">
+                      {item.question}
+                    </div>
+                    <div className="text-black transition-transform duration-300 group-open:rotate-180 flex-shrink-0">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </summary>
+                  <div className="pb-8 text-black/70 text-sm md:text-base leading-relaxed pr-8 max-w-3xl">
+                    {item.answer}
+                  </div>
+                </details>
+              ))}
+            </div>
+
+            {/* Contact - Right Side */}
+            <div className="lg:w-[320px] xl:w-[380px] flex-shrink-0 pt-6">
+              <h3 className="text-3xl md:text-4xl font-medium font-serif text-black mb-8 leading-tight">
+                Didn't find the answer you were looking for?
+              </h3>
+              <a href="#contact" className="inline-block text-[11px] font-bold uppercase tracking-[0.15em] text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity">
+                SEND US AN EMAIL
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 

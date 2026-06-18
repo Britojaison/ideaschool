@@ -372,17 +372,12 @@ export default function WorkshopPage() {
 
       <WorkshopToolsInteractive />
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend">
-        <div className="attendeesStickyContainer">
-          <div className="attendeesBgElements">
-            <div className="attendeesBgCircle one" />
-            <div className="attendeesBgCircle two" />
-          </div>
-          <div className="attendeesPanel">
-            <h2 className="attendeesTitle" style={{ textAlign: "center" }}>WHO SHOULD ATTEND?</h2>
-            <WorkshopAttendeesList />
-          </div>
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
+        <div className="attendeesBgElements">
+          <div className="attendeesBgCircle one" />
+          <div className="attendeesBgCircle two" />
         </div>
+        <WorkshopAttendeesList />
       </section>
 
       <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work">

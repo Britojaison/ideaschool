@@ -1,119 +1,117 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import React from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 const attendeesData = [
   {
-    text: "Freelancers who want to offer video editing services and increase their income",
-    image: "/images/whoContent Creators.webp"
+    num: "S / 01",
+    title: "FREELANCERS",
+    text: "Freelancers who want to offer video editing services and increase their income.",
+    image: "/images/whoContent Creators.webp",
+    services: "Video Editing / Motion Graphics"
   },
   {
-    text: "College students seeking a high-demand skill with freelancing and career opportunities",
-    image: "/images/whoStudents & Career Switchers.webp"
+    num: "S / 02",
+    title: "STUDENTS",
+    text: "College students seeking a high-demand skill with freelancing and career opportunities.",
+    image: "/images/whoStudents & Career Switchers.webp",
+    services: "Skill Building / Freelance"
   },
   {
-    text: "Video editors with basic skills who want to level up, increase earning potential, and work on higher-value projects",
-    image: "/images/whoPhotographers & Videographers.webp"
+    num: "S / 03",
+    title: "VIDEO EDITORS",
+    text: "Video editors with basic skills who want to level up, increase earning potential, and work on higher-value projects.",
+    image: "/images/whoPhotographers & Videographers.webp",
+    services: "Advanced Workflow / High-Paying Projects"
   }
 ];
 
 export default function WorkshopAttendeesList() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  // Mouse tracking
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Spring animation for smooth following
-  const smoothX = useSpring(mouseX, { damping: 30, stiffness: 150, mass: 0.5 });
-  const smoothY = useSpring(mouseY, { damping: 30, stiffness: 150, mass: 0.5 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    // Calculate position relative to container center
-    mouseX.set(e.clientX - rect.left - rect.width / 2);
-    mouseY.set(e.clientY - rect.top - rect.height / 2);
-  };
-
   return (
-    <div 
-      className="attendeesList" 
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => setHoveredIndex(null)}
-      style={{ position: "relative" }}
-    >
-      {/* Top line before the first item */}
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: "100%" }}
-        viewport={{ once: false, amount: 0.8 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: "rgba(0, 0, 0, 0.15)" }}
-      />
+    <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 4vw" }}>
+      
+      {/* Main Section Header (similar to SERVICES in reference) */}
+      <div style={{ marginBottom: "60px" }}>
+         <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#000", fontFamily: "var(--font-heading)", margin: 0 }}>
+           WHO SHOULD ATTEND?
+         </h2>
+      </div>
 
       {attendeesData.map((attendee, index) => (
-        <React.Fragment key={index}>
-          <div 
-            className="attendeeCard" 
-            onMouseEnter={() => setHoveredIndex(index)}
-          >
-            <div className="attendeeCardInner" style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-              <div style={{ width: "12px", height: "12px", background: "#000", borderRadius: "50%", flexShrink: 0 }} />
-              <p>{attendee.text}</p>
-            </div>
-          </div>
+        <div key={index} style={{ width: "100%", marginBottom: "60px" }}>
+          
+          {/* Animated Horizontal Line */}
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: "100%" }}
-            viewport={{ once: false, amount: 0.8 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            style={{ height: "1px", background: "rgba(0, 0, 0, 0.15)" }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            style={{ height: "1px", background: "#000", marginBottom: "40px" }}
           />
-        </React.Fragment>
-      ))}
 
-      {/* Floating Image */}
+          {/* Row Content */}
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "60px" }}>
+            
+            {/* Left Column (Text) */}
+            <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column" }}>
+              <div style={{ fontSize: "14px", fontWeight: "bold", color: "#000", marginBottom: "30px", letterSpacing: "1px" }}>
+                <span style={{ marginRight: "8px" }}>•</span>{attendee.num}
+              </div>
+              
+              <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#000", margin: "0 0 24px 0", display: "flex", alignItems: "center", gap: "12px", fontFamily: "var(--font-heading)" }}>
+                <div style={{ width: "16px", height: "16px", background: "#000", borderRadius: "50%", flexShrink: 0 }} />
+                {attendee.title}
+              </h3>
+              
+              <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.25rem)", color: "#000", lineHeight: 1.6, margin: 0, maxWidth: "80%" }}>
+                {attendee.text}
+              </p>
+
+              <button style={{ 
+                marginTop: "30px",
+                padding: "10px 24px", 
+                background: "#e0e0e0", 
+                border: "none", 
+                borderRadius: "20px", 
+                fontWeight: "bold", 
+                fontSize: "12px", 
+                width: "fit-content",
+                cursor: "pointer",
+                color: "#000"
+              }}>
+                LEARN MORE
+              </button>
+              
+              <div style={{ marginTop: "auto", paddingTop: "40px" }}>
+                <div style={{ fontWeight: 800, fontSize: "14px", color: "#000", marginBottom: "4px" }}>SERVICES</div>
+                <div style={{ fontSize: "14px", color: "#000" }}>{attendee.services}</div>
+              </div>
+            </div>
+
+            {/* Right Column (Image) */}
+            <div style={{ flex: "1 1 500px", position: "relative", minHeight: "500px", borderRadius: "8px", overflow: "hidden", backgroundColor: "#f5f5f5" }}>
+              <Image
+                src={attendee.image}
+                alt={attendee.title}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+
+          </div>
+        </div>
+      ))}
+      
+      {/* Final line at the bottom */}
       <motion.div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          x: smoothX,
-          y: smoothY,
-          width: "300px",
-          height: "200px",
-          marginTop: "-100px", // half height to center
-          marginLeft: "-150px", // half width to center
-          pointerEvents: "none",
-          zIndex: 10,
-          opacity: hoveredIndex !== null ? 1 : 0,
-          scale: hoveredIndex !== null ? 1 : 0.8,
-          rotate: hoveredIndex !== null ? (hoveredIndex % 2 === 0 ? 3 : -3) : 0,
-          borderRadius: "16px",
-          overflow: "hidden",
-          boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-        }}
-        transition={{ opacity: { duration: 0.3 }, scale: { duration: 0.4, type: "spring" }, rotate: { duration: 0.4 } }}
-      >
-        {attendeesData.map((attendee, index) => (
-          <Image
-            key={index}
-            src={attendee.image}
-            alt="Attendee"
-            fill
-            style={{
-              objectFit: "cover",
-              opacity: hoveredIndex === index ? 1 : 0,
-              transition: "opacity 0.3s ease",
-            }}
-          />
-        ))}
-      </motion.div>
+        initial={{ width: 0 }}
+        whileInView={{ width: "100%" }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        style={{ height: "1px", background: "#000", marginTop: "40px" }}
+      />
     </div>
   );
 }

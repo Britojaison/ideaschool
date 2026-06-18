@@ -71,32 +71,76 @@ export default function WorkshopGsapAnimations() {
 
       gsap.utils.toArray<HTMLElement>(".workshopGsapSection").forEach((section) => {
         const targets = section.querySelectorAll<HTMLElement>(
-          ".longCourseIntro, .curriculumIntro, .mentorSectionIntro, .portfolioPanel, .courseWeek, .scheduleItem, .workshopProjectCard, .courseMentorTilt, .detailsPanel, .programFaqItem, .longCourseApplyInner",
+          ".longCourseIntro, .mentorSectionIntro, .portfolioPanel, .scheduleItem, .workshopProjectCard, .courseMentorTilt, .detailsPanel, .programFaqItem, .longCourseApplyInner",
         );
 
-        if (!targets.length) {
-          return;
+        if (targets.length) {
+          gsap.fromTo(
+            targets,
+            { y: 54, autoAlpha: 0, filter: "blur(8px)" },
+            {
+              y: 0,
+              autoAlpha: 1,
+              filter: "blur(0px)",
+              duration: 0.84,
+              ease: "power3.out",
+              stagger: 0.08,
+              scrollTrigger: {
+                trigger: section,
+                start: "top 78%",
+                end: "bottom 35%",
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
         }
+      });
 
+      // Curriculum Intro specific animation (Pills)
+      const curriculumIntroPills = document.querySelectorAll<HTMLElement>(".curriculumIntro h2, .curriculumIntro p");
+      if (curriculumIntroPills.length) {
         gsap.fromTo(
-          targets,
-          { y: 54, autoAlpha: 0, filter: "blur(8px)" },
+          curriculumIntroPills,
+          { scale: 0.6, y: 30, autoAlpha: 0, filter: "blur(10px)" },
           {
+            scale: 1,
             y: 0,
             autoAlpha: 1,
             filter: "blur(0px)",
-            duration: 0.84,
-            ease: "power3.out",
-            stagger: 0.08,
+            duration: 0.8,
+            ease: "back.out(1.7)",
+            stagger: 0.15,
             scrollTrigger: {
-              trigger: section,
-              start: "top 78%",
-              end: "bottom 35%",
+              trigger: ".curriculumIntro",
+              start: "top 85%",
               toggleActions: "play none none reverse",
             },
-          },
+          }
         );
-      });
+      }
+
+      // Course Week Cards Animation
+      const courseWeeks = document.querySelectorAll<HTMLElement>(".courseWeek");
+      if (courseWeeks.length) {
+        courseWeeks.forEach((card, index) => {
+          gsap.fromTo(
+            card,
+            { x: 150, autoAlpha: 0, filter: "blur(8px)" },
+            {
+              x: 0,
+              autoAlpha: 1,
+              filter: "blur(0px)",
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        });
+      }
 
       gsap.utils.toArray<HTMLElement>(".workshopProjectCard").forEach((card) => {
         const video = card.querySelector("video");

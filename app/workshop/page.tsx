@@ -12,6 +12,7 @@ import WorkshopDrawSvg from "./WorkshopDrawSvg";
 import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
 import WorkshopLoadingScreen from "./WorkshopLoadingScreen";
+import WorkshopAttendeesList from "./WorkshopAttendeesList";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -379,15 +380,7 @@ export default function WorkshopPage() {
           </div>
           <div className="attendeesPanel">
             <h2 className="attendeesTitle" style={{ textAlign: "center" }}>WHO SHOULD ATTEND?</h2>
-            <div className="attendeesList">
-              {attendees.map((attendee, index) => (
-                <div className="attendeeCard" key={index}>
-                  <div className="attendeeCardInner">
-                    <p>{attendee}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <WorkshopAttendeesList />
           </div>
         </div>
       </section>

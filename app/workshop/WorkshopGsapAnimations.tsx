@@ -28,10 +28,10 @@ export default function WorkshopGsapAnimations() {
       smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 1.6,
+        smooth: 3.2,
         effects: true,
         normalizeScroll: true,
-        smoothTouch: 0.12,
+        smoothTouch: 0.5,
       });
 
       gsap.set(

@@ -371,13 +371,15 @@ export default function WorkshopPage() {
 
       <WorkshopToolsInteractive />
 
-      <section className="longCoursePortfolio workshopGsapSection" id="attendees" aria-label="Who Should Attend">
-        <div className="longCourseSectionInner" style={{ display: "flex", justifyContent: "center" }}>
-          <div className="portfolioPanel" style={{ maxWidth: "800px", width: "100%" }}>
-            <h2 style={{ textAlign: "center" }}>Who Should Attend?</h2>
-            <div className="portfolioMilestones">
+      <section className="longCoursePortfolio workshopAttendeesSection workshopGsapSection" id="attendees" aria-label="Who Should Attend">
+        <div className="longCourseSectionInner" style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+          <div className="attendeesPanel portfolioPanel">
+            <h2 style={{ textAlign: "center" }}>WHO SHOULD ATTEND?</h2>
+            <div className="attendeesList">
               {attendees.map((attendee) => (
-                <span key={attendee}>{attendee}</span>
+                <div className="attendeeCard" key={attendee}>
+                  <p>{attendee}</p>
+                </div>
               ))}
             </div>
           </div>

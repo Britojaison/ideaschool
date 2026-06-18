@@ -12631,3 +12631,63 @@ html.isHeroGlassCursorActive .hero * {
     max-width: 400px;
   }
 }
+
+/* Workshop Attendees Section */
+.workshopAttendeesSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent !important;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.workshopCoursePage .attendeesPanel {
+  max-width: 760px;
+  width: 100%;
+  padding: clamp(30px, 4vw, 50px);
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.06);
+}
+
+.workshopCoursePage .attendeesPanel h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  text-align: center;
+  margin-bottom: 30px;
+  color: #151515;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.workshopCoursePage .attendeesList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.workshopCoursePage .attendeeCard {
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 100px;
+  padding: 16px 28px;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workshopCoursePage .attendeeCard:hover {
+  background: #f0f0f0;
+  border-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.workshopCoursePage .attendeeCard p {
+  margin: 0;
+  color: #151515;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.4;
+}

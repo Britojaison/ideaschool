@@ -119,15 +119,17 @@ export default function WorkshopGsapAnimations() {
         );
       }
 
-      // Course Week Cards Animation
+      // Course Week Cards Animation - Stacking
       const courseWeeks = document.querySelectorAll<HTMLElement>(".courseWeek");
       if (courseWeeks.length) {
-        courseWeeks.forEach((card, index) => {
+        const courseWeeksArray = Array.from(courseWeeks);
+        courseWeeksArray.forEach((card, i) => {
+          // Initial reveal animation
           gsap.fromTo(
             card,
-            { x: 150, autoAlpha: 0, filter: "blur(8px)" },
+            { y: 100, autoAlpha: 0, filter: "blur(8px)" },
             {
-              x: 0,
+              y: 0,
               autoAlpha: 1,
               filter: "blur(0px)",
               duration: 1,
@@ -139,6 +141,33 @@ export default function WorkshopGsapAnimations() {
               },
             }
           );
+
+          // Stacking pin
+          ScrollTrigger.create({
+            trigger: card,
+            start: `top ${15 + i * 2}%`,
+            endTrigger: ".courseWeekList",
+            end: "bottom bottom",
+            pin: true,
+            pinSpacing: false,
+          });
+
+          // Scale and dim effect as it gets stacked
+          if (i !== courseWeeksArray.length - 1) {
+            gsap.to(card, {
+              scale: 0.94 - (courseWeeksArray.length - 1 - i) * 0.02,
+              opacity: 0.5,
+              transformOrigin: "top center",
+              ease: "none",
+              scrollTrigger: {
+                trigger: card,
+                start: `top ${15 + i * 2}%`,
+                endTrigger: ".courseWeekList",
+                end: "bottom bottom",
+                scrub: true,
+              }
+            });
+          }
         });
       }
 

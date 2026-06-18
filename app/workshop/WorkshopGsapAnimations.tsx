@@ -387,39 +387,30 @@ export default function WorkshopGsapAnimations() {
       const bgCircles = gsap.utils.toArray<HTMLElement>(".attendeesBgCircle");
 
       if (attendeesSection && attendeesStickyContainer && attendeesCards.length) {
-        ScrollTrigger.create({
-          trigger: attendeesSection,
-          start: "top top",
-          end: "bottom bottom",
-          pin: attendeesStickyContainer,
-          pinSpacing: false,
-        });
-
         // Set initial states
         gsap.set(attendeesCards, {
           autoAlpha: 0,
-          y: 100,
-          rotationX: 30,
-          scale: 0.9,
+          y: 60,
+          rotationX: 15,
+          scale: 0.95,
           transformOrigin: "center bottom",
         });
         
         gsap.set(bgCircles, { scale: 0.5, opacity: 0 });
-        gsap.set(attendeesTitle, { autoAlpha: 0, y: -40, scale: 0.95 });
+        gsap.set(attendeesTitle, { autoAlpha: 0, y: -20, scale: 0.95 });
 
         const attendeesTl = gsap.timeline({
           scrollTrigger: {
             trigger: attendeesSection,
-            start: "top top", 
-            end: "bottom bottom",
-            scrub: 1.5,
+            start: "top 60%", 
+            toggleActions: "play none none reverse",
           }
         });
 
         attendeesTl.to(bgCircles, {
           scale: 1,
           opacity: 0.5,
-          duration: 1,
+          duration: 1.2,
           stagger: 0.2,
           ease: "power2.out"
         }, 0);
@@ -428,7 +419,7 @@ export default function WorkshopGsapAnimations() {
           autoAlpha: 1,
           y: 0,
           scale: 1,
-          duration: 1,
+          duration: 0.8,
           ease: "back.out(1.5)",
         }, 0.2);
 
@@ -438,9 +429,9 @@ export default function WorkshopGsapAnimations() {
             y: 0,
             rotationX: 0,
             scale: 1,
-            duration: 1.5,
+            duration: 0.8,
             ease: "power3.out"
-          }, 0.5 + index * 0.4);
+          }, 0.4 + index * 0.15);
         });
         
         // Add floating animation to circles regardless of scroll

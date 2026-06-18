@@ -12635,21 +12635,23 @@ html.isHeroGlassCursorActive .hero * {
 /* Workshop Attendees Section */
 .workshopAttendeesSection {
   position: relative;
-  height: 200vh;
+  min-height: 100vh;
   background: #fefffe;
   color: #fff;
   z-index: 10;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
 }
 
 .attendeesStickyContainer {
   position: relative;
-  height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 /* Background floating elements */

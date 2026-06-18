@@ -51,9 +51,9 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
       <motion.div
         whileHover={{ scale: 1.03 }}
         style={{
-          x,
-          y,
-          rotate,
+          x: x as any,
+          y: y as any,
+          rotate: rotate as any,
           backgroundColor: tool.bg,
           color: tool.color,
           width: tool.width,

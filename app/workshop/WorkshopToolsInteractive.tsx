@@ -117,6 +117,52 @@ export default function WorkshopToolsInteractive() {
         padding: "10vh 20px"
       }}
     >
+      <motion.div 
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.1 }}
+        style={{
+          position: "absolute",
+          top: "4vw",
+          left: "1vw",
+          fontSize: "clamp(80px, 15vw, 220px)",
+          fontFamily: "var(--font-heading)",
+          fontWeight: 800,
+          color: "#000000",
+          opacity: 1,
+          zIndex: 0,
+          pointerEvents: "none",
+          lineHeight: 0.8,
+          letterSpacing: "-0.05em"
+        }}
+      >
+        TOOLS
+      </motion.div>
+      <motion.div 
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.1 }}
+        style={{
+          position: "absolute",
+          bottom: "2vw",
+          right: "1vw",
+          fontSize: "clamp(80px, 15vw, 220px)",
+          fontFamily: "var(--font-heading)",
+          fontWeight: 800,
+          color: "#000000",
+          opacity: 1,
+          zIndex: 0,
+          pointerEvents: "none",
+          lineHeight: 0.8,
+          letterSpacing: "-0.05em",
+          textAlign: "right"
+        }}
+      >
+        YOU'LL LEARN
+      </motion.div>
+
       <div style={{ 
         position: "relative", 
         width: "100%",
@@ -124,6 +170,7 @@ export default function WorkshopToolsInteractive() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        zIndex: 10
       }}>
         {tools.map((tool, index) => (
           <ToolCard 

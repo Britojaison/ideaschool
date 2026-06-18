@@ -506,24 +506,34 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="programFaqContact longCourseFaq workshopGsapSection" id="faq" aria-label="Workshop FAQ">
-        <div className="programFaqInner">
-          <h2>Frequently Asked Questions</h2>
-          <div className="programFaqList">
+      <section className="workshopGsapSection sticky top-0 z-0 flex flex-col justify-center bg-[#ffffff] min-h-[100vh] py-20" id="faq" aria-label="Workshop FAQ">
+        <div className="max-w-4xl mx-auto w-full px-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-16 text-black uppercase tracking-tight font-display">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+          <div className="flex flex-col gap-4">
             {faqs.map((item) => (
-              <details className="programFaqItem" key={item.question} open={item.open}>
-                <summary>
-                  <span>?</span>
-                  <strong>Q: {item.question}</strong>
+              <details className="group" key={item.question} open={item.open}>
+                <summary className="flex items-center gap-4 cursor-pointer list-none outline-none [&::-webkit-details-marker]:hidden">
+                  <div className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center font-bold text-black flex-shrink-0 transition-colors">
+                    ?
+                  </div>
+                  <div className="flex-1 bg-[#F7F5F4] rounded-full px-6 py-4 font-bold text-black">
+                    Q: {item.question}
+                  </div>
                 </summary>
-                <p>A: {item.answer}</p>
+                <div className="pl-14 pt-2 pb-2">
+                  <div className="bg-[#F7F5F4] rounded-full px-6 py-4 text-black/80">
+                    A: {item.answer}
+                  </div>
+                </div>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="longCourseApply workshopGsapSection" id="apply" aria-label="Register for workshop">
+      <section className="longCourseApply workshopGsapSection relative z-10" id="apply" aria-label="Register for workshop">
         <div className="longCourseApplyInner">
           <h2>Ready To Learn Video Editing Skills That Can Pay?</h2>
           <p>

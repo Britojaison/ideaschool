@@ -142,33 +142,7 @@ export default function WorkshopGsapAnimations() {
             }
           );
 
-          // Stacking pin
-          ScrollTrigger.create({
-            trigger: card,
-            start: `top ${15 + i * 2}%`,
-            endTrigger: ".courseWeekList",
-            end: "bottom bottom",
-            pin: true,
-            pinSpacing: false,
-          });
-
-          // Scale and dim effect as it gets stacked
-          if (i !== courseWeeksArray.length - 1) {
-            gsap.to(card, {
-              y: -60 * (courseWeeksArray.length - 1 - i),
-              scale: 0.92 - (courseWeeksArray.length - 1 - i) * 0.03,
-              opacity: 0.5,
-              transformOrigin: "top center",
-              ease: "none",
-              scrollTrigger: {
-                trigger: card,
-                start: `top ${15 + i * 2}%`,
-                endTrigger: ".courseWeekList",
-                end: "bottom bottom",
-                scrub: true,
-              }
-            });
-          }
+          // Removed stacking and pinning animation to prevent overlap
         });
       }
 

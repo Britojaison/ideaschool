@@ -480,11 +480,15 @@ export default function WorkshopGsapAnimations() {
       if (faqSection && applySection && footerSection) {
         ScrollTrigger.create({
           trigger: faqSection,
-          start: "top top",
+          start: () => {
+            const faqHeight = (faqSection as HTMLElement).offsetHeight;
+            return faqHeight < window.innerHeight ? "top top" : "bottom bottom";
+          },
           endTrigger: footerSection,
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,
+          invalidateOnRefresh: true,
         });
       }
 

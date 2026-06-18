@@ -145,7 +145,7 @@ export default function WorkshopGsapAnimations() {
           // Stacking pin
           ScrollTrigger.create({
             trigger: card,
-            start: `top ${15 + i * 2}%`,
+            start: `top ${15 + i * 10}%`,
             endTrigger: ".courseWeekList",
             end: "bottom bottom",
             pin: true,
@@ -161,7 +161,7 @@ export default function WorkshopGsapAnimations() {
               ease: "none",
               scrollTrigger: {
                 trigger: card,
-                start: `top ${15 + i * 2}%`,
+                start: `top ${15 + i * 10}%`,
                 endTrigger: ".courseWeekList",
                 end: "bottom bottom",
                 scrub: true,

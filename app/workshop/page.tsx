@@ -373,10 +373,6 @@ export default function WorkshopPage() {
       <WorkshopToolsInteractive />
 
       <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
-        <div className="attendeesBgElements">
-          <div className="attendeesBgCircle one" />
-          <div className="attendeesBgCircle two" />
-        </div>
         <WorkshopAttendeesList />
       </section>
 

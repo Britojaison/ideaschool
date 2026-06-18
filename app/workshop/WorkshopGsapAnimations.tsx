@@ -472,6 +472,21 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
+      // FAQ Stacking Animation
+      const faqSection = document.querySelector("#faq");
+      const applySection = document.querySelector("#apply");
+
+      if (faqSection && applySection) {
+        ScrollTrigger.create({
+          trigger: faqSection,
+          start: "top top",
+          endTrigger: applySection,
+          end: "bottom bottom",
+          pin: true,
+          pinSpacing: false,
+        });
+      }
+
       // Footer Stacking Animation
       const footer = document.querySelector(".workshopSiteFooter");
       if (footer) {

@@ -36,32 +36,32 @@ export default function WorkshopGsapAnimations() {
       });
 
       gsap.set(
-        [
+        gsap.utils.toArray([
           ".workshopHero .programEyebrowRow",
           ".workshopHero h1",
           ".workshopHero .longCourseHeroCopy > p",
           ".workshopHero .longCourseHeroCtas",
           ".workshopHeroModel3D",
           ".workshopHero .longCourseStats",
-        ],
+        ]),
         { autoAlpha: 0 },
       );
 
       const initHeroAnimations = () => {
         gsap
           .timeline({ defaults: { ease: "power3.out" } })
-          .fromTo(".workshopHero .siteHeader", { y: -28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.75 })
-          .fromTo(".workshopHero .programEyebrowRow", { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.72 }, "-=0.28")
-          .fromTo(".workshopHero h1", { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1 }, "-=0.34")
-          .fromTo(".workshopHero .longCourseHeroCopy > p", { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.46")
-          .fromTo(".workshopHero .longCourseHeroCtas", { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.48")
+          .fromTo(gsap.utils.toArray(".workshopHero .siteHeader"), { y: -28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.75 })
+          .fromTo(gsap.utils.toArray(".workshopHero .programEyebrowRow"), { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.72 }, "-=0.28")
+          .fromTo(gsap.utils.toArray(".workshopHero h1"), { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1 }, "-=0.34")
+          .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCopy > p"), { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.46")
+          .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCtas"), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.48")
           .fromTo(
-            ".workshopHeroModel3D",
+            gsap.utils.toArray(".workshopHeroModel3D"),
             { autoAlpha: 0, filter: "blur(8px)" },
             { autoAlpha: 1, filter: "blur(0px)", duration: 0.9 },
             "-=0.76",
           )
-          .fromTo(".workshopHero .longCourseStats", { y: 30 }, { y: 0, autoAlpha: 1, duration: 0.72 }, "-=0.5");
+          .fromTo(gsap.utils.toArray(".workshopHero .longCourseStats"), { y: 30 }, { y: 0, autoAlpha: 1, duration: 0.72 }, "-=0.5");
       };
 
       if (document.querySelector(".workshop-loading-bg")) {
@@ -147,33 +147,25 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      const galleryElement = document.querySelector("#gallery-8");
-      if (galleryElement) {
-        const galleryItems = galleryElement.querySelectorAll<HTMLElement>(".gallery__item");
-
-        galleryElement.classList.remove("gallery--final");
-
-        galleryElement.classList.add("gallery--final");
-        const flipState = Flip.getState(galleryItems);
-        galleryElement.classList.remove("gallery--final");
-
-        const flip = Flip.to(flipState, {
-          simple: true,
-          ease: "expoScale(1, 5)",
-        });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: galleryElement.parentElement,
-            start: "center center",
-            end: "+=100%",
-            scrub: true,
-            pin: true,
-          },
-        });
-        tl.add(flip);
-      }
-
+      gsap.utils.toArray<HTMLElement>(".gallery__item").forEach((item) => {
+        const img = item.querySelector("img");
+        if (img) {
+          gsap.fromTo(
+            img,
+            { scale: 1.18 },
+            {
+              scale: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: item,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            },
+          );
+        }
+      });
       // New Services Section Animation
       // Pin Hero Section so Services scrolls over it
       const workshopHero = document.querySelector(".workshopHero");

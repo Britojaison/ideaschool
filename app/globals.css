@@ -11976,6 +11976,14 @@ html.isHeroGlassCursorActive .hero * {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: visible !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.workshopWorkSection .longCourseSectionInner {
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
 }
 
 .workshopWorkSection .sectionPill {

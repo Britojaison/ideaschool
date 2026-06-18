@@ -29,6 +29,9 @@ export default function WorkshopLoadingScreen() {
       ease: "back.out(1.5)",
     }, "-=0.2");
 
+    let timeoutId: NodeJS.Timeout;
+    let tl: gsap.core.Timeline;
+
     const startLoadTime = Date.now();
     const minDisplayTime = 2500; // minimum time to show the loader
 
@@ -36,8 +39,8 @@ export default function WorkshopLoadingScreen() {
       const elapsed = Date.now() - startLoadTime;
       const remainingTime = Math.max(0, minDisplayTime - elapsed);
 
-      setTimeout(() => {
-        const tl = gsap.timeline({
+      timeoutId = setTimeout(() => {
+        tl = gsap.timeline({
           onComplete: () => {
             setIsLoading(false);
             document.body.style.overflow = "";
@@ -45,14 +48,14 @@ export default function WorkshopLoadingScreen() {
           },
         });
 
-        tl.to(".workshop-loading-spinner", {
+        tl.to(gsap.utils.toArray(".workshop-loading-spinner"), {
           opacity: 0,
           y: -20,
           duration: 0.4,
           ease: "power2.inOut",
         });
 
-        tl.to(".workshop-loading-bg", {
+        tl.to(gsap.utils.toArray(".workshop-loading-bg"), {
           yPercent: -100,
           duration: 0.8,
           stagger: 0.1,
@@ -63,17 +66,21 @@ export default function WorkshopLoadingScreen() {
 
     document.body.style.overflow = "hidden";
 
+    let fallback: NodeJS.Timeout;
     if (document.readyState === "complete") {
       handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
-      const fallback = setTimeout(handleLoad, 5000);
-      return () => {
-        window.removeEventListener("load", handleLoad);
-        clearTimeout(fallback);
-        document.body.style.overflow = "";
-      };
+      fallback = setTimeout(handleLoad, 5000);
     }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      clearTimeout(fallback);
+      clearTimeout(timeoutId);
+      if (tl) tl.kill();
+      document.body.style.overflow = "";
+    };
   }, []);
 
   if (!isLoading) return null;
@@ -119,7 +126,7 @@ export default function WorkshopLoadingScreen() {
           width={104}
           height={54}
           priority
-          style={{ objectFit: "contain", filter: "brightness(0)" }}
+          style={{ objectFit: "contain", filter: "brightness(0)", width: "auto", height: "auto" }}
         />
         <span style={{
           fontSize: "2.6rem",

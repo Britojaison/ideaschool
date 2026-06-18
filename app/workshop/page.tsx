@@ -393,33 +393,33 @@ export default function WorkshopPage() {
             <h2>Watch Some Of Our Recent Projects</h2>
             <p>Current local project videos are placed here. You can upload the final showcase videos later.</p>
           </div>
+        </div>
 
-          <div className="gallery-wrap">
-            <div className="gallery gallery--bento gallery--switch" id="gallery-8">
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-pattern-1.jpg" alt="" />
-              </div>
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-image-12.jpg" alt="" />
-              </div>
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-image-8.jpg" alt="" />
-              </div>
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-pattern-2.jpg" alt="" />
-              </div>
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-image-4.jpg" alt="" />
-              </div>
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-image-3.jpg" alt="" />
-              </div>
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-pattern-3.jpg" alt="" />
-              </div>
-              <div className="gallery__item">
-                <img src="https://assets.codepen.io/16327/portrait-image-1.jpg" alt="" />
-              </div>
+        <div className="gallery-wrap">
+          <div className="gallery gallery--bento gallery--switch" id="gallery-8">
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-pattern-1.jpg" alt="" />
+            </div>
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-image-12.jpg" alt="" />
+            </div>
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-image-8.jpg" alt="" />
+            </div>
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-pattern-2.jpg" alt="" />
+            </div>
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-image-4.jpg" alt="" />
+            </div>
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-image-3.jpg" alt="" />
+            </div>
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-pattern-3.jpg" alt="" />
+            </div>
+            <div className="gallery__item">
+              <img src="https://assets.codepen.io/16327/portrait-image-1.jpg" alt="" />
             </div>
           </div>
         </div>

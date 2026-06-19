@@ -476,6 +476,14 @@ export default function WorkshopGsapAnimations() {
           duration: 1.15,
           ease: "none",
         });
+
+        if (isMobileLearn) {
+          learnTimeline.to(whatYouWillLearnHugeText, {
+            autoAlpha: 0,
+            duration: 0.18,
+            ease: "none",
+          });
+        }
       }
 
       // Curriculum Flow Animation
@@ -505,10 +513,10 @@ export default function WorkshopGsapAnimations() {
 
         if (isMobileFlow) {
           gsap.set(flowNodes, {
-            autoAlpha: 0.08,
-            y: 72,
-            scale: 0.96,
-            filter: "blur(8px) grayscale(100%)",
+            autoAlpha: 0.42,
+            y: 56,
+            scale: 0.98,
+            filter: "none",
           });
 
           flowNodes.forEach((node, index) => {
@@ -516,7 +524,7 @@ export default function WorkshopGsapAnimations() {
               autoAlpha: 1,
               y: 0,
               scale: 1,
-              filter: "blur(0px) grayscale(0%)",
+              filter: "none",
               ease: "power3.out",
               scrollTrigger: {
                 trigger: node,

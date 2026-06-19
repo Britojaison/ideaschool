@@ -12748,6 +12748,7 @@ html.isHeroGlassCursorActive .hero * {
   .curriculumFlowBgText {
     height: 100svh;
     overflow: hidden;
+    z-index: 0;
   }
 
   .whatYouWillLearnHugeText {
@@ -12768,12 +12769,14 @@ html.isHeroGlassCursorActive .hero * {
 
   .flowContainer {
     aspect-ratio: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 34px;
+    width: min(100%, 414px);
     margin-top: 455svh !important;
-    padding: 0 clamp(18px, 7vw, 32px) 34svh !important;
+    padding: 0 clamp(20px, 7vw, 34px) 34svh !important;
+    isolation: isolate;
   }
 
   .flowLines {
@@ -12785,61 +12788,124 @@ html.isHeroGlassCursorActive .hero * {
     left: auto !important;
     top: auto !important;
     transform: none;
-    width: 100%;
-    max-width: 630px;
-    gap: 16px;
+    width: min(100%, 264px);
+    max-width: 264px;
+    gap: 8px;
     z-index: 3;
+    filter: none !important;
     will-change: transform, opacity, filter;
   }
 
-  .flowNode:nth-of-type(even) {
-    margin-left: 8vw;
+  .flowNode::before {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 50%;
+    z-index: 0;
+    width: 2px;
+    height: 34px;
+    content: "";
+    border-radius: 999px;
+    background: rgba(16, 16, 16, 0.12);
+    transform: translateX(-50%);
+    pointer-events: none;
   }
 
-  .flowNode:nth-of-type(odd) {
-    margin-left: -8vw;
+  .flowNode::after {
+    position: absolute;
+    left: 50%;
+    bottom: -17px;
+    z-index: 2;
+    width: 15px;
+    height: 15px;
+    content: "";
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    background: #d7d7d7;
+    box-shadow: 0 0 0 1px rgba(16, 16, 16, 0.08);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .flowNode:last-of-type::before,
+  .flowNode:last-of-type::after {
+    content: none;
+  }
+
+  .flowNode:nth-of-type(2),
+  .flowNode:nth-of-type(4),
+  .flowNode:nth-of-type(6) {
+    justify-self: start;
+    margin-left: clamp(18px, 8vw, 34px);
+  }
+
+  .flowNode:nth-of-type(3),
+  .flowNode:nth-of-type(5) {
+    justify-self: end;
+    margin-right: clamp(18px, 8vw, 34px);
   }
 
   .nodeLabel,
   .node-dark .nodeLabel,
   .node-light .nodeLabel {
-    color: rgba(16, 16, 16, 0.16);
-    font-size: clamp(1.45rem, 8vw, 2.2rem);
+    color: #1a1a1a;
+    font-size: clamp(1rem, 6.2vw, 1.42rem);
+    font-weight: 950;
     line-height: 0.95;
     letter-spacing: 0;
+    text-shadow: none;
   }
 
-  .nodeBox,
-  .node-light .nodeBox,
+  .nodeBox {
+    position: relative;
+    z-index: 1;
+    min-height: 128px;
+    border: 0;
+    border-radius: 14px;
+    padding: 22px 20px;
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.14);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .node-light .nodeBox {
+    background: linear-gradient(135deg, #d9ff4b 0%, #aef65a 100%);
+    color: #050505;
+  }
+
   .node-dark .nodeBox {
-    border-radius: 0;
-    padding: clamp(26px, 8vw, 44px);
-    background: rgba(255, 255, 255, 0.9);
-    color: rgba(16, 16, 16, 0.46);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.055);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: #191919;
+    color: #ffffff;
   }
 
   .nodeBox ul {
-    gap: 20px;
+    gap: 9px;
   }
 
   .nodeBox li {
     display: grid;
-    grid-template-columns: 16px 1fr;
-    gap: 18px;
+    grid-template-columns: 10px 1fr;
+    gap: 8px;
     padding-left: 0;
-    color: rgba(16, 16, 16, 0.45);
-    font-size: clamp(1rem, 6.2vw, 1.45rem);
-    line-height: 1.35;
+    color: inherit;
+    font-size: clamp(0.92rem, 4.65vw, 1.08rem);
+    font-weight: 800;
+    line-height: 1.28;
   }
 
   .nodeBox li::before {
     position: static;
     align-self: start;
-    margin-top: 0.55em;
-    background: rgba(16, 16, 16, 0.14);
+    width: 6px;
+    height: 6px;
+    margin-top: 0.52em;
+  }
+
+  .node-light .nodeBox li::before {
+    background: #111111;
+  }
+
+  .node-dark .nodeBox li::before {
+    background: #d9ff4b;
   }
 }
 

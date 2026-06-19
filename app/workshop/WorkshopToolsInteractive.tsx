@@ -60,7 +60,7 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
           fontFamily: "var(--font-heading)",
           letterSpacing: "-0.04em",
           textAlign: "center",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+          boxShadow: tool.bg === "#ffffff" ? "0 10px 40px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.04)" : "0 10px 30px rgba(0,0,0,0.08)",
           whiteSpace: "nowrap",
           userSelect: "none",
           cursor: "default"
@@ -110,11 +110,7 @@ export default function WorkshopToolsInteractive() {
         padding: "10vh 20px"
       }}
     >
-      <motion.div 
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.1 }}
+      <div 
         style={{
           position: "absolute",
           top: "4vw",
@@ -131,12 +127,8 @@ export default function WorkshopToolsInteractive() {
         }}
       >
         TOOLS
-      </motion.div>
-      <motion.div 
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.1 }}
+      </div>
+      <div 
         style={{
           position: "absolute",
           bottom: "2vw",
@@ -153,8 +145,8 @@ export default function WorkshopToolsInteractive() {
           textAlign: "right"
         }}
       >
-        YOU'LL LEARN
-      </motion.div>
+        YOU&apos;LL LEARN
+      </div>
 
       <div style={{ 
         position: "relative", 

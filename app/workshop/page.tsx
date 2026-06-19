@@ -527,7 +527,7 @@ export default function WorkshopPage() {
             {/* Contact - Right Side */}
             <div className="lg:w-[320px] xl:w-[380px] flex-shrink-0 pt-6">
               <h3 className="text-3xl md:text-4xl font-medium font-serif text-black mb-8 leading-tight">
-                Didn't find the answer you were looking for?
+                Didn&apos;t find the answer you were looking for?
               </h3>
               <a href="#contact" className="inline-block text-[11px] font-bold uppercase tracking-[0.15em] text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity">
                 SEND US AN EMAIL

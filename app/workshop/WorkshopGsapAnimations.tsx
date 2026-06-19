@@ -634,7 +634,7 @@ export default function WorkshopGsapAnimations() {
       if (toolsSection && toolsCards.length >= 4) {
         // Set initial states for cards 1, 2, 3 (leaving card 0 visible at start)
         gsap.set(toolsCards.slice(1), {
-          y: 450,
+          y: "50vh",
           autoAlpha: 0,
         });
 

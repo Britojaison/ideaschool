@@ -12640,7 +12640,8 @@ html.isHeroGlassCursorActive .hero * {
 @media (max-width: 768px) {
   .workshopToolsInteractiveSection {
     min-height: 112vh !important;
-    padding: 16vh 16px !important;
+    overflow: hidden !important;
+    padding: 18vh 16px 20vh !important;
   }
 
   .workshopToolCard {
@@ -12652,11 +12653,29 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .workshopToolCardInner {
-    width: min(92vw, 520px) !important;
+    width: min(82vw, 440px) !important;
     min-height: clamp(82px, 20vw, 118px);
     padding: clamp(22px, 6vw, 34px) 24px !important;
-    font-size: clamp(2.55rem, 10.8vw, 4.25rem) !important;
+    font-size: clamp(2.2rem, 9.2vw, 3.65rem) !important;
     line-height: 0.92;
+  }
+
+  .workshopToolsEyebrow {
+    top: 5vh !important;
+    left: 50% !important;
+    width: 100% !important;
+    font-size: clamp(4.9rem, 22vw, 7.6rem) !important;
+    text-align: center;
+    transform: translateX(-50%) !important;
+  }
+
+  .workshopToolsFooterWord {
+    right: 50% !important;
+    bottom: 4vh !important;
+    width: 100% !important;
+    font-size: clamp(4.4rem, 19vw, 6.8rem) !important;
+    text-align: center !important;
+    transform: translateX(50%) !important;
   }
 }
 

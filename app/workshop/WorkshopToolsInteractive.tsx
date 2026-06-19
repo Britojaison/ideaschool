@@ -124,8 +124,8 @@ export default function WorkshopToolsInteractive() {
 
     const animateMobileTools = (now: number) => {
       const elapsed = (now - startedAt) / 1000;
-      mouseX.set(Math.sin(elapsed * 0.85) * 0.9);
-      mouseY.set(Math.cos(elapsed * 0.65) * 0.75);
+      mouseX.set(Math.sin(elapsed * 0.85) * 0.42);
+      mouseY.set(Math.cos(elapsed * 0.65) * 0.5);
       frameId = requestAnimationFrame(animateMobileTools);
     };
 
@@ -151,6 +151,7 @@ export default function WorkshopToolsInteractive() {
       }}
     >
       <motion.div 
+        className="workshopToolsEyebrow"
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
@@ -173,6 +174,7 @@ export default function WorkshopToolsInteractive() {
         TOOLS
       </motion.div>
       <motion.div 
+        className="workshopToolsFooterWord"
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}

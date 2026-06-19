@@ -513,7 +513,8 @@ export default function WorkshopPage() {
             href={workshopPaymentUrl} 
             target="_blank" 
             rel="noreferrer"
-            className="inline-flex items-center justify-center bg-black text-white px-10 py-5 rounded-full text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+            className="inline-flex items-center justify-center bg-black !text-white px-10 py-5 rounded-full text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+            style={{ color: "#ffffff" }}
           >
             Register Now
           </a>

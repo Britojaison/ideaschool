@@ -383,6 +383,19 @@ export default function WorkshopGsapAnimations() {
             invalidateOnRefresh: true,
           }
         });
+
+        // Drop down near the end
+        gsap.to(whatYouWillLearnHugeText, {
+          y: "120vh",
+          ease: "power2.in",
+          scrollTrigger: {
+            trigger: curriculumFlowSection,
+            start: "75% top",
+            end: "bottom bottom",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          }
+        });
       }
 
       // Curriculum Flow Animation

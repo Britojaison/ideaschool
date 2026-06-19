@@ -275,7 +275,7 @@ export default function WorkshopPage() {
                 padding: "14px 36px",
                 margin: 0,
                 textTransform: "uppercase",
-                fontFamily: "var(--font-heading)",
+                fontFamily: "\"Bebas Neue\", var(--font-heading)",
                 fontWeight: 900,
                 lineHeight: 1,
                 width: "fit-content"

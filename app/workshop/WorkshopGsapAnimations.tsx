@@ -358,12 +358,14 @@ export default function WorkshopGsapAnimations() {
           }
         });
       }
-      // What You'll Learn Background Text Animation
+      // What You'll Learn Background Text + Image Travel Animation
       const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
       const curriculumFlowBgText = document.querySelector(".curriculumFlowBgText");
       const whatYouWillLearnHugeText = document.querySelector(".whatYouWillLearnHugeText");
+      const curriculumRevealImage = document.querySelector<HTMLElement>(".curriculumFlowRevealImage");
 
       if (curriculumFlowSection && curriculumFlowBgText && whatYouWillLearnHugeText) {
+        // Pin the sticky container for the whole scroll duration
         ScrollTrigger.create({
           trigger: curriculumFlowSection,
           start: "top top",
@@ -372,30 +374,68 @@ export default function WorkshopGsapAnimations() {
           pinSpacing: false,
         });
 
+        // Phase 1 (0% → 70%): Text + image travel LEFT together
         gsap.to(whatYouWillLearnHugeText, {
           x: () => -(whatYouWillLearnHugeText.scrollWidth),
           ease: "none",
           scrollTrigger: {
             trigger: curriculumFlowSection,
             start: "top top",
-            end: "bottom bottom",
+            end: "70% top",
             scrub: 1,
             invalidateOnRefresh: true,
-          }
+          },
         });
 
-        // Drop down near the end
-        gsap.to(whatYouWillLearnHugeText, {
-          y: "120vh",
-          ease: "power2.in",
-          scrollTrigger: {
+        if (curriculumRevealImage) {
+          // Image starts fully off-screen to the right with a full clip
+          // Phase 1 (0% → 70%): Image slides from 100vw → 0 (arrives when text exits)
+          gsap.fromTo(curriculumRevealImage,
+            {
+              x: "100vw",
+              clipPath: "inset(0 0 0 100%)",
+            },
+            {
+              x: 0,
+              clipPath: "inset(0 0 0 0%)",
+              ease: "none",
+              scrollTrigger: {
+                trigger: curriculumFlowSection,
+                start: "top top",
+                end: "80% top",
+                scrub: 1,
+                invalidateOnRefresh: true,
+              },
+            }
+          );
+
+          // Text drops away as image reveals in Phase 2
+          gsap.to(whatYouWillLearnHugeText, {
+            y: "150vh",
+            opacity: 0,
+            ease: "power2.in",
+            scrollTrigger: {
+              trigger: curriculumFlowSection,
+              start: "65% top",
+              end: "80% top",
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+
+          // Phase 3 (85% → bottom): Auto-scroll to next section once image is fully revealed
+          ScrollTrigger.create({
             trigger: curriculumFlowSection,
-            start: "75% top",
-            end: "bottom bottom",
-            scrub: 1,
-            invalidateOnRefresh: true,
-          }
-        });
+            start: "85% top",
+            onEnter: () => {
+              const nextSection = curriculumFlowSection.nextElementSibling as HTMLElement;
+              if (nextSection && smoother) {
+                smoother.scrollTo(nextSection, true, "top top");
+              }
+            },
+            once: true,
+          });
+        }
       }
 
       // Curriculum Flow Animation

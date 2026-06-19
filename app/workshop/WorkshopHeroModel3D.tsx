@@ -66,28 +66,37 @@ function BrandModel() {
     }
 
     const t = state.clock.elapsedTime;
+    const pointerX = state.pointer.x;
+    const pointerY = state.pointer.y;
+
     groupRef.current.rotation.y = THREE.MathUtils.damp(
       groupRef.current.rotation.y,
-      -0.48 + Math.sin(t * 0.72) * 0.1,
-      3.1,
+      -0.48 + pointerX * 0.42 + Math.sin(t * 0.72) * 0.04,
+      4.8,
       delta,
     );
     groupRef.current.rotation.x = THREE.MathUtils.damp(
       groupRef.current.rotation.x,
-      -0.04 + Math.sin(t * 0.58) * 0.05,
-      2.6,
+      -0.04 - pointerY * 0.26 + Math.sin(t * 0.58) * 0.025,
+      4.2,
       delta,
     );
     groupRef.current.rotation.z = THREE.MathUtils.damp(
       groupRef.current.rotation.z,
-      -0.08 + Math.sin(t * 0.64) * 0.035,
-      2.8,
+      -0.08 - pointerX * 0.08 + Math.sin(t * 0.64) * 0.02,
+      4.2,
       delta,
     );
     groupRef.current.position.y = THREE.MathUtils.damp(
       groupRef.current.position.y,
-      Math.sin(t * 1.12) * 0.16,
+      0.18 + pointerY * 0.08 + Math.sin(t * 1.12) * 0.08,
       3,
+      delta,
+    );
+    groupRef.current.position.x = THREE.MathUtils.damp(
+      groupRef.current.position.x,
+      -0.18 + pointerX * 0.1,
+      3.6,
       delta,
     );
   });

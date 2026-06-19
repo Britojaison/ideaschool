@@ -23,7 +23,7 @@ export default function WorkshopGsapAnimations() {
       smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 2.0, // Luxurious smoothing length
+        smooth: 1.0, // Balanced smoothing
         effects: true,
         normalizeScroll: true, // Use GSAP's native normalization for touch & mobile
       });
@@ -47,7 +47,7 @@ export default function WorkshopGsapAnimations() {
         targetY = gsap.utils.clamp(0, document.documentElement.scrollHeight - window.innerHeight, targetY);
         
         // STRICT SPEED LIMIT: Cap the maximum distance the target can be ahead of the current scroll
-        const maxDistance = 400; 
+        const maxDistance = 180; 
         if (targetY > currentY + maxDistance) targetY = currentY + maxDistance;
         if (targetY < currentY - maxDistance) targetY = currentY - maxDistance;
         
@@ -219,103 +219,6 @@ export default function WorkshopGsapAnimations() {
 
       const handleResize = () => createGalleryTween();
       window.addEventListener("resize", handleResize);
-      // New Services Section Animation
-      // Pin Hero Section so Services scrolls over it
-      const workshopHero = document.querySelector(".workshopHero");
-      const servicesSection = document.querySelector(".workshopServicesSection");
-
-      if (workshopHero && servicesSection) {
-        ScrollTrigger.create({
-          trigger: workshopHero,
-          start: "top top",
-          endTrigger: servicesSection,
-          end: "top top",
-          pin: true,
-          pinSpacing: false,
-        });
-      }
-
-      if (servicesSection) {
-        const servicesTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          }
-        });
-
-
-        gsap.set(".servicesKicker, .servicesHeading, .servicesCopy p", { autoAlpha: 0, y: 34 });
-        gsap.set(".servicesSkillItem", { autoAlpha: 0, x: 42, scale: 0.98 });
-        gsap.set(".servicesFocus", { autoAlpha: 0, scale: 0.9, rotation: -10 });
-
-        servicesTl
-          .to(".servicesKicker, .servicesHeading, .servicesCopy p", {
-            autoAlpha: 1,
-            y: 0,
-            ease: "power3.out",
-            stagger: 0.045,
-            duration: 0.24,
-          }, 0)
-          .to(".servicesFocus", {
-            autoAlpha: 1,
-            scale: 1,
-            rotation: 0,
-            ease: "power2.out",
-            duration: 0.24,
-          }, 0.04)
-          .to(".servicesSkillItem", {
-            autoAlpha: 1,
-            x: 0,
-            scale: 1,
-            ease: "power2.out",
-            stagger: 0.025,
-            duration: 0.2,
-          }, 0.12);
-
-        servicesTl.to(".servicesFocus", {
-          rotation: 24,
-          ease: "none",
-          duration: 1,
-        }, 0);
-
-        ScrollTrigger.create({
-          trigger: servicesSection,
-          start: "top top",
-          end: "bottom bottom",
-          pin: ".servicesStickyContainer",
-          pinSpacing: false,
-        });
-      }
-
-      // Video Scroll Animation
-      const videoScrollSection = document.querySelector(".workshopVideoScrollSection");
-      const videoMediaContainer = document.querySelector(".videoScrollMediaContainer");
-
-      if (videoScrollSection && videoMediaContainer) {
-        ScrollTrigger.create({
-          trigger: videoScrollSection,
-          start: "top top",
-          end: "bottom bottom",
-          pin: ".videoScrollStickyContainer",
-          pinSpacing: false,
-        });
-
-        gsap.to(videoMediaContainer, {
-          width: "15vw",
-          height: "8vw",
-          borderRadius: "5vw",
-          margin: "0 1.5vw",
-          ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: videoScrollSection,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 2,
-          }
-        });
-      }
       // What You'll Learn Background Text + Image Travel Animation
       const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
       const curriculumFlowBgText = document.querySelector(".curriculumFlowBgText");

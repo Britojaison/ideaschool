@@ -255,65 +255,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="workshopServicesSection workshopGsapSection" id="services" aria-label="Our Services">
-        <div className="servicesStickyContainer">
-          <div className="servicesBgImage" aria-hidden="true" />
-          <div className="servicesContent">
-            <div className="servicesCopy">
-              <span className="servicesKicker">Inside the workshop</span>
-              <h2 className="servicesHeading">
-                Learn the skills that make edits look expensive.
-              </h2>
-              <p>
-                Practical training across design, editing, motion, and AI workflows so every project
-                feels sharper from the first frame.
-              </p>
-            </div>
 
-            <div className="servicesFocus" aria-hidden="true" />
-
-            <div className="servicesSkillGrid" aria-label="Workshop skills">
-              <div className="servicesSkillItem">
-                <span>01</span>
-                <strong>Attention Engineering</strong>
-              </div>
-              <div className="servicesSkillItem">
-                <span>02</span>
-                <strong>Retention-Driven Storytelling</strong>
-              </div>
-              <div className="servicesSkillItem">
-                <span>03</span>
-                <strong>Visual Storytelling</strong>
-              </div>
-              <div className="servicesSkillItem">
-                <span>04</span>
-                <strong>Future-Proof Creator Workflow</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="workshopVideoScrollSection workshopGsapSection" id="video-scroll" aria-label="Video Showcase">
-        <div className="videoScrollStickyContainer">
-          <div className="videoScrollCenter">
-            <h2 className="videoScrollHeading">
-              <span className="videoScrollHighlight">We create</span>{" "}
-              <span className="videoScrollMediaContainer">
-                <video 
-                  src="/images/ideaschool1.mp4" 
-                  autoPlay 
-                  muted 
-                  loop 
-                  playsInline
-                  className="videoScrollVideo"
-                />
-              </span>
-              videos for people, brands & digital products.
-            </h2>
-          </div>
-        </div>
-      </section>
 
       <WorkshopCurriculumFlow />
 

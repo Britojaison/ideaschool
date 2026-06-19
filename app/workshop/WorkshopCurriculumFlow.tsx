@@ -32,19 +32,6 @@ export default function WorkshopCurriculumFlow() {
             <path d="M 1030 450 L 1120 450" />
           </g>
 
-          {/* Connection Dots */}
-          <g fill="#000000">
-            <circle cx="330" cy="450" r="4" />
-            <circle cx="420" cy="180" r="4" />
-            <circle cx="420" cy="450" r="4" />
-            <circle cx="420" cy="720" r="4" />
-            <circle cx="680" cy="180" r="4" />
-            <circle cx="680" cy="450" r="4" />
-            <circle cx="680" cy="720" r="4" />
-            <circle cx="770" cy="450" r="4" />
-            <circle cx="1030" cy="450" r="4" />
-            <circle cx="1120" cy="450" r="4" />
-          </g>
         </svg>
 
         {/* Node 1 */}

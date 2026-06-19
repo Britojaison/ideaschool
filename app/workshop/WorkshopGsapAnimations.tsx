@@ -262,12 +262,6 @@ export default function WorkshopGsapAnimations() {
           ease: "none",
           duration: 1
         }, 0);
-        
-        servicesTl.to(".servicesLabel", {
-          rotation: -90,
-          ease: "none",
-          duration: 1
-        }, 0);
 
         ScrollTrigger.create({
           trigger: servicesSection,

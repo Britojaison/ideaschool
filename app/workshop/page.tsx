@@ -211,6 +211,13 @@ export default function WorkshopPage() {
         </header>
 
         <div className="longCourseHeroInner">
+          <h1 className="workshopHeroDisplay">
+            <span>Master</span>
+            <span className="workshopHeroDisplayAccent">High-Paying</span>
+            <span>Video Editing</span>
+            <span>in 2 Days</span>
+          </h1>
+
           <div className="longCourseHeroCopy">
             <p>
               Learn in-demand editing skills for brands, creators, agencies, and AI-powered video
@@ -223,13 +230,6 @@ export default function WorkshopPage() {
               <WorkshopDrawSvg />
             </div>
           </div>
-
-          <h1 className="workshopHeroDisplay">
-            <span>Master</span>
-            <span className="workshopHeroDisplayAccent">High-Paying</span>
-            <span>Video Editing</span>
-            <span>in 2 Days</span>
-          </h1>
 
         </div>
       </section>
@@ -246,11 +246,11 @@ export default function WorkshopPage() {
           <div className="servicesCenter">
             <div className="servicesCircleWrapper">
               <div className="servicesCircleTicks"></div>
-              <span className="servicesLabel top">DEVELOPMENT</span>
-              <span className="servicesLabel right">AI EDITING</span>
-              <span className="servicesLabel bottom">MOTION GRAPHICS</span>
-              <span className="servicesLabel left">DESIGN</span>
             </div>
+            <span className="servicesLabel top">Attention Engineering</span>
+            <span className="servicesLabel right">Retention-Driven Storytelling</span>
+            <span className="servicesLabel bottom">Visual Storytelling</span>
+            <span className="servicesLabel left">Future-Proof Creator Workflow</span>
           </div>
 
           <div className="servicesHexPattern">

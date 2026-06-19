@@ -6,7 +6,6 @@ import {
   AdaptiveDpr,
   Bounds,
   Center,
-  ContactShadows,
   Environment,
   Preload,
   useGLTF,
@@ -93,8 +92,8 @@ function BrandModel() {
   });
 
   return (
-    <group ref={groupRef} rotation={[-0.04, -0.48, -0.08]}>
-      <Center>
+    <group ref={groupRef} rotation={[-0.04, -0.48, -0.08]} position={[-0.18, 0.18, 0]}>
+      <Center disableZ>
         <primitive object={model} />
       </Center>
     </group>
@@ -107,17 +106,9 @@ function BrandModelScene() {
       <ambientLight intensity={0.36} />
       <directionalLight position={[-3.2, 4.4, 3.6]} intensity={5.2} color="#ffffff" castShadow />
       <directionalLight position={[2.8, 1.8, 2.2]} intensity={2.4} color={BRAND_GREEN} />
-      <Bounds fit clip observe margin={1.42}>
+      <Bounds fit clip observe margin={1.12}>
         <BrandModel />
       </Bounds>
-      <ContactShadows
-        position={[0, -2.15, 0]}
-        opacity={0.28}
-        scale={5.5}
-        blur={2.8}
-        far={4}
-        color="#84c600"
-      />
       <Environment preset="studio" resolution={128} />
       <Preload all />
     </>
@@ -125,7 +116,21 @@ function BrandModelScene() {
 }
 
 export default function WorkshopHeroModel3D() {
-  return null;
+  return (
+    <div className="workshopHeroModel3D" aria-hidden="true">
+      <Canvas
+        dpr={[1, 1.75]}
+        shadows
+        camera={{ position: [0, 0.45, 6.2], fov: 34 }}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      >
+        <Suspense fallback={null}>
+          <BrandModelScene />
+          <AdaptiveDpr pixelated />
+        </Suspense>
+      </Canvas>
+    </div>
+  );
 }
 
 useGLTF.preload(MODEL_PATH);

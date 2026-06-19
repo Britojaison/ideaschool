@@ -274,12 +274,13 @@ export default function WorkshopGsapAnimations() {
 
           const getServiceTargetOffset = (): TravelStartVars => {
             const modelRect = heroModel.getBoundingClientRect();
-            const targetWidth = (modelTarget.offsetWidth || modelRect.width) * 0.76;
-            const scale = Math.max(1, Math.min(2.4, targetWidth / (modelRect.width || 1)));
+            const targetRect = modelTarget.getBoundingClientRect();
+            const targetWidth = (modelTarget.offsetWidth || modelRect.width) * 0.48;
+            const scale = Math.max(1, Math.min(1.72, targetWidth / (modelRect.width || 1)));
 
             return {
-              x: window.innerWidth / 2 - (modelRect.left + modelRect.width / 2),
-              y: window.innerHeight * 0.5 - (modelRect.top + modelRect.height / 2),
+              x: targetRect.left + targetRect.width / 2 - (modelRect.left + modelRect.width / 2),
+              y: targetRect.top + targetRect.height / 2 - (modelRect.top + modelRect.height / 2),
               scale,
             };
           };

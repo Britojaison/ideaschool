@@ -174,12 +174,15 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      // Gallery Flip Animation
+      // Gallery Flip Animation — desktop only (pinning causes blank gap on mobile)
       let flipCtx: gsap.Context | undefined;
       const galleryElement = document.querySelector("#gallery-8");
 
       const createGalleryTween = () => {
         if (!galleryElement) return;
+        // Skip on mobile — the pin creates a large empty gap
+        if (window.innerWidth < 1024) return;
+
         const galleryItems = galleryElement.querySelectorAll(".gallery__item");
 
         if (flipCtx) {

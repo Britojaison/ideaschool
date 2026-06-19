@@ -12001,7 +12001,7 @@ html.isHeroGlassCursorActive .hero * {
 .workshopHeroDisplay {
   position: absolute;
   top: var(--workshop-hero-text-top);
-  left: calc(50% + var(--workshop-hero-gap));
+  right: var(--workshop-hero-side);
   z-index: 2;
   width: max-content;
   max-width: none;
@@ -12304,6 +12304,7 @@ html.isHeroGlassCursorActive .hero * {
     position: relative;
     top: auto;
     left: auto;
+    right: auto;
     order: 0;
     align-self: stretch;
     width: 100%;

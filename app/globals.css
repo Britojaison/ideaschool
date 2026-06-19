@@ -12051,6 +12051,13 @@ html.isHeroGlassCursorActive .hero * {
   margin-top: clamp(40px, 6vw, 60px);
 }
 
+@media (max-width: 1023px) {
+  .gallery-wrap {
+    height: auto;
+    min-height: 0;
+  }
+}
+
 .gallery {
   position: relative;
   width: 100%;

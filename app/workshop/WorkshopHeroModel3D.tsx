@@ -7,6 +7,7 @@ import {
   Bounds,
   Center,
   Environment,
+  OrbitControls,
   Preload,
   useGLTF,
 } from "@react-three/drei";
@@ -109,6 +110,13 @@ function BrandModelScene() {
       <Bounds fit clip observe margin={1.12}>
         <BrandModel />
       </Bounds>
+      <OrbitControls
+        enableDamping
+        enablePan={false}
+        enableZoom={false}
+        rotateSpeed={0.6}
+        dampingFactor={0.08}
+      />
       <Environment preset="studio" resolution={128} />
       <Preload all />
     </>

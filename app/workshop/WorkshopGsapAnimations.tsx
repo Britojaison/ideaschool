@@ -299,18 +299,6 @@ export default function WorkshopGsapAnimations() {
           pinSpacing: false,
         });
 
-        const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
-        if (curriculumFlowSection) {
-          ScrollTrigger.create({
-            trigger: videoScrollSection,
-            start: "bottom bottom",
-            endTrigger: curriculumFlowSection,
-            end: "top top",
-            pin: true,
-            pinSpacing: false,
-          });
-        }
-
         gsap.to(videoMediaContainer, {
           width: "15vw",
           height: "8vw",

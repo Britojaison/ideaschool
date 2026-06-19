@@ -12560,7 +12560,7 @@ html.isHeroGlassCursorActive .hero * {
 /* Workshop Video Scroll Section */
 .workshopVideoScrollSection {
   position: relative;
-  height: 350vh;
+  height: 190vh;
   background: #fdfcee; /* light yellowish background like dotsandlines */
   z-index: 10;
   clip-path: inset(0); /* Prevent bleeding out of section boundaries */
@@ -12620,6 +12620,10 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 @media (max-width: 768px) {
+  .workshopVideoScrollSection {
+    height: 150vh;
+  }
+
   .videoScrollMediaContainer {
     width: 85vw;
     height: 60vw;

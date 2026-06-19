@@ -12740,7 +12740,7 @@ html.isHeroGlassCursorActive .hero * {
 /* Responsive Fallback for Mobile */
 @media (max-width: 1024px) {
   .curriculumFlowSection {
-    min-height: 560svh;
+    min-height: 660svh;
     padding: 0;
     background: #fefffe;
   }
@@ -12772,7 +12772,7 @@ html.isHeroGlassCursorActive .hero * {
     flex-direction: column;
     align-items: center;
     gap: 28px;
-    margin-top: 315svh !important;
+    margin-top: 455svh !important;
     padding: 0 clamp(18px, 7vw, 32px) 34svh !important;
   }
 

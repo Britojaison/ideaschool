@@ -398,7 +398,7 @@ export default function WorkshopGsapAnimations() {
           scrollTrigger: {
             trigger: curriculumFlowSection,
             start: "top top",
-            end: isMobileLearn ? "72% bottom" : "bottom top",
+            end: isMobileLearn ? "58% bottom" : "bottom top",
             scrub: isMobileLearn ? 0.45 : 0.8,
             invalidateOnRefresh: true,
           }

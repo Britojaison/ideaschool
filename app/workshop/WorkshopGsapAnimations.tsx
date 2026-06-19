@@ -250,15 +250,9 @@ export default function WorkshopGsapAnimations() {
         });
 
 
-        // Phase 1: Circle rotates, Top text moves up
-        servicesTl.to(".servicesHeadingTop", {
-          y: () => -window.innerHeight * 1.5,
-          ease: "none",
-          duration: 1
-        }, 0);
-
+        // Only the circle rotates on scroll
         servicesTl.to(".servicesCircleWrapper", {
-          rotation: 90,
+          rotation: 360,
           ease: "none",
           duration: 1
         }, 0);

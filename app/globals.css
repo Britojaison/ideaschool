@@ -11655,7 +11655,7 @@ html.isHeroGlassCursorActive .hero * {
 .workshopCoursePage .workshopHero {
   --workshop-hero-side: clamp(30px, 5.8vw, 112px);
   --workshop-hero-gap: clamp(28px, 3vw, 58px);
-  --workshop-hero-text-top: clamp(240px, 30vh, 340px);
+  --workshop-hero-text-top: clamp(160px, 22vh, 260px);
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -12277,6 +12277,7 @@ html.isHeroGlassCursorActive .hero * {
     position: relative;
     top: auto;
     left: auto;
+    transform: none;
     order: 1;
     width: 100%;
     max-width: 100%;
@@ -12305,6 +12306,7 @@ html.isHeroGlassCursorActive .hero * {
     top: auto;
     left: auto;
     right: auto;
+    transform: none;
     order: 0;
     align-self: stretch;
     width: 100%;

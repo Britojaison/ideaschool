@@ -257,7 +257,7 @@ export default function WorkshopGsapAnimations() {
           scrollTrigger: {
             trigger: curriculumFlowSection,
             start: "top top",
-            end: "70% top",
+            end: "40% top",
             scrub: 1,
             invalidateOnRefresh: true,
           },
@@ -278,7 +278,7 @@ export default function WorkshopGsapAnimations() {
               scrollTrigger: {
                 trigger: curriculumFlowSection,
                 start: "top top",
-                end: "80% top",
+                end: "40% top",
                 scrub: 1,
                 invalidateOnRefresh: true,
               },
@@ -292,17 +292,17 @@ export default function WorkshopGsapAnimations() {
             ease: "power2.in",
             scrollTrigger: {
               trigger: curriculumFlowSection,
-              start: "65% top",
-              end: "80% top",
+              start: "35% top",
+              end: "40% top",
               scrub: 1,
               invalidateOnRefresh: true,
             },
           });
 
-          // Phase 3 (85% → bottom): Auto-scroll to next section once image is fully revealed
+          // Phase 3: Wait and auto-scroll to next section once image has stayed
           ScrollTrigger.create({
             trigger: curriculumFlowSection,
-            start: "85% top",
+            start: "80% top",
             onEnter: () => {
               const nextSection = curriculumFlowSection.nextElementSibling as HTMLElement;
               if (nextSection && smoother) {

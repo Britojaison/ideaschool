@@ -98,6 +98,14 @@ const curriculumDays = [
         title: "Viral Edit Framework",
         items: [
           "Structure videos for maximum watch time",
+          "Breakdown of successful viral edits",
+          "Create content optimized for Reels, Shorts & Social Media",
+        ],
+      },
+      {
+        title: "Bonus",
+        items: [
+          "Access to Stock Videos & Assets",
         ],
       },
     ],

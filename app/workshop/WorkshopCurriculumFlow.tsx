@@ -18,7 +18,7 @@ export default function WorkshopCurriculumFlow() {
           ))}
         </div>
       </div>
-      <div className="flowContainer" style={{ marginTop: "60vh", paddingBottom: "20vh" }}>
+      <div className="flowContainer" style={{ paddingBottom: "20vh", paddingTop: 0 }}>
         
         {/* SVG Connectors for Desktop */}
         <svg className="flowLines" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid meet">

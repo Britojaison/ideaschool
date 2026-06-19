@@ -29,11 +29,26 @@ export default function WorkshopGsapAnimations() {
       smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 3.2,
+        smooth: 1.5, // Reduced from 3.2 to prevent massive delayed rubber-banding
         effects: true,
         normalizeScroll: true,
-        smoothTouch: 0.5,
+        smoothTouch: 0.1,
       });
+
+      // Clamp wheel events to prevent "scrolling like crazy" from building up massive velocity
+      const clampWheel = (e: WheelEvent) => {
+        if (!smoother) return;
+        const maxDelta = 100;
+        if (Math.abs(e.deltaY) > maxDelta) {
+          e.preventDefault();
+          const clampedDelta = e.deltaY > 0 ? maxDelta : -maxDelta;
+          // Calculate new position and apply it smoothly
+          const target = Math.max(0, Math.min(smoother.scroll() + clampedDelta * 1.5, document.documentElement.scrollHeight - window.innerHeight));
+          smoother.scrollTo(target, true);
+        }
+      };
+
+      window.addEventListener("wheel", clampWheel, { passive: false });
 
       gsap.set(
         gsap.utils.toArray([
@@ -497,6 +512,7 @@ export default function WorkshopGsapAnimations() {
 
       return () => {
         window.removeEventListener("resize", handleResize);
+        window.removeEventListener("wheel", clampWheel);
         if (flipCtx) flipCtx.revert();
       };
     });

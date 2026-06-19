@@ -56,9 +56,9 @@ export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) 
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none"></div>
       
       {/* Nameplate */}
-      <div className="absolute bottom-4 left-4 right-4 lg:bottom-12 lg:left-12 lg:right-auto lg:min-w-[360px] bg-white/95 backdrop-blur-md p-3 lg:p-8 rounded-xl lg:rounded-2xl z-20 shadow-xl">
-        <h3 className="text-base lg:text-2xl xl:text-3xl font-bold text-black m-0 mb-1">{mentor.name}</h3>
-        <p className="text-gray-600 m-0 text-xs lg:text-lg">{mentor.role}</p>
+      <div className="absolute bottom-4 left-4 right-4 lg:bottom-12 lg:left-12 lg:right-auto lg:min-w-[280px] w-auto bg-gradient-to-br from-[#ffffff] to-[#eef2f6] p-4 lg:px-6 lg:py-5 rounded-xl lg:rounded-2xl z-20 shadow-xl border border-white/50 backdrop-blur-sm">
+        <h3 className="text-lg lg:text-2xl font-bold text-black m-0 mb-1">{mentor.name}</h3>
+        <p className="text-slate-600 m-0 text-sm lg:text-base">{mentor.role}</p>
       </div>
     </div>
   );

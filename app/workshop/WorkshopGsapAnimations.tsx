@@ -381,6 +381,26 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
+      // Pricing Section Stacking Animation
+      const pricingSection = document.querySelector(".pricingCtaSection");
+      const marketStatsSection = document.querySelector(".marketStatsSection");
+      if (pricingSection && marketStatsSection) {
+        gsap.fromTo(
+          pricingSection,
+          { y: 0 },
+          {
+            y: () => window.innerHeight * 0.5,
+            ease: "none",
+            scrollTrigger: {
+              trigger: marketStatsSection,
+              start: "top bottom",
+              end: "top top",
+              scrub: true,
+            },
+          }
+        );
+      }
+
       // FAQ stacking animation removed as it overlaps content.
 
       // Footer Stacking Animation

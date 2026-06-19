@@ -4,7 +4,9 @@ export default function WorkshopCurriculumFlow() {
   return (
     <section className="curriculumFlowSection workshopGsapSection" aria-label="Workshop Curriculum" style={{ minHeight: "250vh" }}>
       <div className="curriculumFlowBgText">
-        <div className="whatYouWillLearnHugeText">WHAT YOU&apos;LL LEARN</div>
+        <div className="whatYouWillLearnHugeText">
+          WHAT YOU&apos;LL <span style={{ color: "#dafd55" }}>LEARN</span>
+        </div>
         {/* Full-screen image that travels with the text then reveals */}
         <div className="curriculumFlowRevealImage">
           <img

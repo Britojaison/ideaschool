@@ -444,7 +444,83 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="workshopGsapSection flex flex-col bg-[#F7F5F4] min-h-[100vh] py-12 md:py-24 lg:py-32" id="faq" aria-label="Workshop FAQ">
+      {/* Pricing / CTA Section */}
+      <section className="pricingCtaSection flex flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-0 overflow-hidden min-h-[100vh]" aria-label="Reserve Your Seat">
+        <div className="max-w-[800px] mx-auto text-center relative z-10 w-full">
+          <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
+            Reserve Your Seat
+          </h2>
+          <div className="text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold leading-none mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
+            ₹99
+          </div>
+          <p className="text-lg md:text-2xl font-medium mb-12" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+            Access the complete live workshop experience.
+          </p>
+          <a 
+            href={workshopPaymentUrl} 
+            target="_blank" 
+            rel="noreferrer"
+            className="inline-flex items-center justify-center bg-black text-white px-10 py-5 rounded-full text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+          >
+            Register Now
+          </a>
+        </div>
+      </section>
+
+      {/* Market Stats Section */}
+      <section className="marketStatsSection py-20 md:py-32 px-6 md:px-12 bg-[#0a0a0a] text-white min-h-[100vh] flex flex-col justify-center relative z-10 shadow-2xl" aria-label="Market Opportunities">
+        <div className="max-w-[1440px] mx-auto w-full">
+          <div className="text-center mb-16 md:mb-24">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#dafd55] mb-6 block">Career Potential</span>
+            <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-6 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
+              Where Idea School Editors Go
+            </h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">
+              The skills you build here are what the market is actively hiring for and paying a premium on - right now.
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+            {[
+              { stat: "₹25K–55K", label: "Monthly salary range for video editors at agencies in Bangalore" },
+              { stat: "₹3K–8K", label: "Per video for freelance short-form editors with a strong reel" },
+              { stat: "₹80K+", label: "Monthly freelance potential with 10–12 retainer clients" },
+              { stat: "12 weeks", label: "Until you have a portfolio ready to show these numbers" },
+            ].map((item, idx) => (
+              <div key={idx} className="bg-[#1a1a1a] border border-white/10 rounded-2xl p-8 hover:bg-[#222] transition-colors duration-300">
+                <div className="text-4xl md:text-5xl font-bold text-[#dafd55] mb-4" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>{item.stat}</div>
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Job Roles Grid */}
+          <div className="mb-12">
+            <h3 className="text-2xl md:text-4xl font-medium mb-10 text-center uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>Job roles you&apos;ll be qualified for</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { role: "Video Editor", salary: "₹25,000 – ₹45,000/mo", type: "Agency" },
+                { role: "Motion Graphics Editor", salary: "₹30,000 – ₹55,000/mo", type: "Agency" },
+                { role: "Social Media Editor", salary: "₹20,000 – ₹40,000/mo", type: "Brand-side" },
+                { role: "Content Creator Editor", salary: "₹25,000 – ₹50,000/mo", type: "Brand-side" },
+                { role: "Freelance Editor", salary: "₹40,000 – ₹1,20,000/mo", type: "Freelance - Agency" },
+                { role: "AI Video Producer", salary: "₹35,000 – ₹65,000/mo", type: "Freelance / Agency" },
+              ].map((job, idx) => (
+                <div key={idx} className="flex flex-col justify-between p-6 bg-white/5 rounded-xl border border-white/5 hover:border-[#dafd55]/30 transition-all">
+                  <div className="flex justify-between items-start mb-4">
+                    <h4 className="text-lg font-bold text-white">{job.role}</h4>
+                    <span className="text-xs font-semibold px-2 py-1 bg-white/10 rounded-md text-gray-300">{job.type}</span>
+                  </div>
+                  <div className="text-[#dafd55] font-medium">{job.salary}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="workshopGsapSection flex flex-col bg-[#F7F5F4] min-h-[100vh] py-12 md:py-24 lg:py-32 relative z-10 shadow-2xl" id="faq" aria-label="Workshop FAQ">
         <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 flex flex-col h-full justify-center">
           
           <div className="text-center mb-12">
@@ -494,7 +570,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="longCourseApply workshopGsapSection relative z-10 rounded-t-[2rem] md:rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]" id="apply" aria-label="Register for workshop">
+      <section className="longCourseApply workshopGsapSection relative z-10 shadow-[0_-10px_40px_rgba(0,0,0,0.08)]" id="apply" aria-label="Register for workshop">
         <div className="longCourseApplyInner">
           <h2 style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>Ready To Learn Video Editing Skills That Can Pay?</h2>
           <p>

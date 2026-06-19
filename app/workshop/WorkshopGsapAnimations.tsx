@@ -373,12 +373,12 @@ export default function WorkshopGsapAnimations() {
         });
 
         gsap.to(whatYouWillLearnHugeText, {
-          x: () => -(whatYouWillLearnHugeText.scrollWidth),
+          x: () => -(whatYouWillLearnHugeText.scrollWidth - window.innerWidth),
           ease: "none",
           scrollTrigger: {
             trigger: curriculumFlowSection,
-            start: "top bottom",
-            end: "bottom top",
+            start: "top top",
+            end: "bottom bottom",
             scrub: 1,
             invalidateOnRefresh: true,
           }

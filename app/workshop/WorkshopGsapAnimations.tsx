@@ -627,6 +627,104 @@ export default function WorkshopGsapAnimations() {
 
       // FAQ stacking animation removed as it overlaps content.
 
+      // Tools Interactive Stacking Animation
+      const toolsSection = document.querySelector(".workshopToolsInteractiveSection");
+      const toolsCards = gsap.utils.toArray<HTMLElement>(".workshopToolCardWrapper");
+      
+      if (toolsSection && toolsCards.length >= 4) {
+        // Set initial states for cards 1, 2, 3 (leaving card 0 visible at start)
+        gsap.set(toolsCards.slice(1), {
+          y: 450,
+          autoAlpha: 0,
+        });
+
+        const toolsTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: toolsSection,
+            start: "top top",
+            end: "+=160%",
+            pin: true,
+            scrub: 0.8,
+            invalidateOnRefresh: true,
+          }
+        });
+
+        // Step 1: Card 1 stacks onto Card 0
+        toolsTl.to(toolsCards[0], {
+          y: -25,
+          scale: 0.95,
+          duration: 1,
+          ease: "power2.out",
+        }, 0);
+        
+        toolsTl.to(toolsCards[1], {
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.out",
+        }, 0);
+
+        // Brief hold
+        toolsTl.to({}, { duration: 0.3 });
+
+        // Step 2: Card 2 stacks onto Card 1
+        toolsTl.to(toolsCards[0], {
+          y: -50,
+          scale: 0.90,
+          duration: 1,
+          ease: "power2.out",
+        }, 1.3);
+
+        toolsTl.to(toolsCards[1], {
+          y: -25,
+          scale: 0.95,
+          duration: 1,
+          ease: "power2.out",
+        }, 1.3);
+
+        toolsTl.to(toolsCards[2], {
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.out",
+        }, 1.3);
+
+        // Brief hold
+        toolsTl.to({}, { duration: 0.3 });
+
+        // Step 3: Card 3 stacks onto Card 2
+        toolsTl.to(toolsCards[0], {
+          y: -75,
+          scale: 0.85,
+          duration: 1,
+          ease: "power2.out",
+        }, 2.6);
+
+        toolsTl.to(toolsCards[1], {
+          y: -50,
+          scale: 0.90,
+          duration: 1,
+          ease: "power2.out",
+        }, 2.6);
+
+        toolsTl.to(toolsCards[2], {
+          y: -25,
+          scale: 0.95,
+          duration: 1,
+          ease: "power2.out",
+        }, 2.6);
+
+        toolsTl.to(toolsCards[3], {
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power2.out",
+        }, 2.6);
+
+        // Final hold space at the end
+        toolsTl.to({}, { duration: 0.4 });
+      }
+
       // Footer Stacking Animation
       const footer = document.querySelector(".workshopSiteFooter");
       if (footer) {

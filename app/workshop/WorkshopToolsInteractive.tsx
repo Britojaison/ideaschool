@@ -29,16 +29,8 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
   const rotate = useTransform(smoothX, [-1, 1], tool.rotateRange);
 
   return (
-    <motion.div
-      initial={{ y: 150, opacity: 0, scale: 0.9 }}
-      whileInView={{ y: 0, opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 120, 
-        damping: 20,
-        delay: 0.1
-      }}
+    <div
+      className={`workshopToolCardWrapper workshopToolCardWrapper${index + 1}`}
       style={{
         width: "100%",
         display: "flex",
@@ -76,7 +68,7 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
       >
         {tool.label}
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 

@@ -8,12 +8,6 @@ import { Flip } from "gsap/Flip";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 
-type TravelStartVars = {
-  x: number;
-  y: number;
-  scale: number;
-};
-
 export default function WorkshopGsapAnimations() {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -236,9 +230,6 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      const heroModel = document.querySelector<HTMLElement>(".workshopHeroModel3D");
-      const modelTarget = document.querySelector<HTMLElement>(".servicesModelTarget");
-
       if (servicesSection) {
         const servicesTl = gsap.timeline({
           scrollTrigger: {
@@ -250,11 +241,50 @@ export default function WorkshopGsapAnimations() {
         });
 
 
-        // Only the circle rotates on scroll
+        gsap.set(".servicesHeading", { autoAlpha: 0, y: 70, scale: 0.94 });
+        gsap.set(".servicesLabel", { autoAlpha: 0, scale: 0.84 });
+        gsap.set(".servicesCircleModel3D", { autoAlpha: 0, y: 42, scale: 0.82 });
+        gsap.set(".servicesCircleWrapper", { scale: 0.88 });
+        gsap.set(".servicesCircleTicks", { scale: 0.88, autoAlpha: 0 });
+
+        servicesTl
+          .to(".servicesHeading", {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            ease: "power3.out",
+            duration: 0.22,
+          }, 0)
+          .to(".servicesCircleWrapper", {
+            scale: 1,
+            ease: "power2.out",
+            duration: 0.24,
+          }, 0.04)
+          .to(".servicesCircleTicks", {
+            autoAlpha: 1,
+            scale: 1,
+            ease: "power2.out",
+            duration: 0.18,
+          }, 0.08)
+          .to(".servicesLabel", {
+            autoAlpha: 1,
+            scale: 1,
+            ease: "back.out(1.5)",
+            stagger: 0.025,
+            duration: 0.2,
+          }, 0.12)
+          .to(".servicesCircleModel3D", {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            ease: "power3.out",
+            duration: 0.22,
+          }, 0.14);
+
         servicesTl.to(".servicesCircleWrapper", {
           rotation: 360,
           ease: "none",
-          duration: 1
+          duration: 1,
         }, 0);
 
         ScrollTrigger.create({
@@ -264,54 +294,6 @@ export default function WorkshopGsapAnimations() {
           pin: ".servicesStickyContainer",
           pinSpacing: false,
         });
-
-        if (heroModel && modelTarget) {
-          gsap.set(heroModel, {
-            x: 0,
-            y: 0,
-            scale: 1,
-          });
-
-          const getServiceTargetOffset = (): TravelStartVars => {
-            const modelRect = heroModel.getBoundingClientRect();
-            const targetRect = modelTarget.getBoundingClientRect();
-            const targetWidth = (modelTarget.offsetWidth || modelRect.width) * 0.48;
-            const scale = Math.max(1, Math.min(1.72, targetWidth / (modelRect.width || 1)));
-
-            return {
-              x: targetRect.left + targetRect.width / 2 - (modelRect.left + modelRect.width / 2),
-              y: targetRect.top + targetRect.height / 2 - (modelRect.top + modelRect.height / 2),
-              scale,
-            };
-          };
-
-          const travelTimeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: servicesSection,
-              start: "top bottom",
-              end: "top top",
-              scrub: true,
-              invalidateOnRefresh: true,
-            },
-          });
-
-          travelTimeline.fromTo(
-            heroModel,
-            {
-              autoAlpha: 1,
-              x: 0,
-              y: 0,
-              scale: 1,
-            },
-            {
-              autoAlpha: 1,
-              x: () => getServiceTargetOffset().x,
-              y: () => getServiceTargetOffset().y,
-              scale: () => getServiceTargetOffset().scale,
-              ease: "none",
-            },
-          );
-        }
       }
 
       // Video Scroll Animation

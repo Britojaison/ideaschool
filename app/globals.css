@@ -12319,23 +12319,23 @@ html.isHeroGlassCursorActive .hero * {
 
 .servicesHeading {
   font-family: "Bebas Neue", var(--font-heading);
-  font-size: clamp(3.2rem, 5.6vw, 6.25rem);
+  font-size: clamp(5rem, 9.2vw, 11rem);
   font-weight: 800;
   color: #151515;
-  line-height: 0.9;
+  line-height: 0.84;
   text-transform: uppercase;
   margin: 0;
   text-align: center;
   position: absolute;
-  width: min(100vw - 48px, 1080px);
+  width: min(100vw - 48px, 1320px);
   left: 50%;
   white-space: nowrap;
   z-index: 5;
 }
 
 .servicesHeadingTop {
-  bottom: calc(100% + clamp(70px, 5vw, 100px));
-  margin-left: max(calc((100vw - 48px) / -2), -540px);
+  bottom: calc(100% + clamp(48px, 4.6vw, 78px));
+  margin-left: max(calc((100vw - 48px) / -2), -660px);
 }
 
 .servicesHeadingBottom {
@@ -12379,7 +12379,7 @@ html.isHeroGlassCursorActive .hero * {
 .servicesLabel {
   position: absolute;
   font-family: "Bebas Neue", var(--font-heading);
-  font-size: clamp(1.4rem, 2.5vw, 2.5rem);
+  font-size: clamp(1.9rem, 3.2vw, 3.45rem);
   font-weight: 800;
   color: #151515;
   display: flex;
@@ -12434,14 +12434,14 @@ html.isHeroGlassCursorActive .hero * {
   .servicesHeading {
     width: calc(100vw - 28px);
     max-width: calc(100vw - 28px);
-    font-size: clamp(2.7rem, 10.5vw, 4.8rem);
+    font-size: clamp(3.2rem, 13vw, 6rem);
     line-height: 0.9;
     white-space: normal;
     text-wrap: balance;
   }
 
   .servicesHeadingTop {
-    bottom: calc(100% + clamp(48px, 14vw, 78px));
+    bottom: calc(100% + clamp(42px, 12vw, 72px));
     margin-left: calc((100vw - 28px) / -2);
   }
 

@@ -244,10 +244,10 @@ export default function WorkshopPage() {
               <span />
             </div>
             <WorkshopHeroModel3D className="servicesCircleModel3D" />
-            <span className="servicesLabel top">Attention Engineering</span>
-            <span className="servicesLabel right">Retention-Driven Storytelling</span>
-            <span className="servicesLabel bottom">Visual Storytelling</span>
-            <span className="servicesLabel left">Future-Proof Creator Workflow</span>
+            <span className="servicesLabel top">Development</span>
+            <span className="servicesLabel right">AI Editing</span>
+            <span className="servicesLabel bottom">Motion Graphics</span>
+            <span className="servicesLabel left">Design</span>
           </div>
 
           <div className="servicesHexPattern">

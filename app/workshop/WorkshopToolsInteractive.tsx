@@ -29,8 +29,16 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
   const rotate = useTransform(smoothX, [-1, 1], tool.rotateRange);
 
   return (
-    <div
-      className={`workshopToolCardWrapper workshopToolCardWrapper${index + 1}`}
+    <motion.div
+      initial={{ y: 150, opacity: 0, scale: 0.9 }}
+      whileInView={{ y: 0, opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 120, 
+        damping: 20,
+        delay: 0.1
+      }}
       style={{
         width: "100%",
         display: "flex",
@@ -41,7 +49,6 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
       }}
     >
       <motion.div
-        className={`workshopToolCardInner workshopToolCardInner${index + 1}`}
         whileHover={{ scale: 1.03 }}
         style={{
           x: x as any,
@@ -68,7 +75,7 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
       >
         {tool.label}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -95,78 +102,88 @@ export default function WorkshopToolsInteractive() {
   }, [mouseX, mouseY]);
 
   return (
-    <section 
-      className="workshopToolsInteractiveSection" 
-      id="tools"
-      style={{ 
-        minHeight: "100vh",
-        display: "flex", 
-        flexDirection: "column",
-        justifyContent: "center", 
-        alignItems: "center", 
-        overflow: "hidden",
-        position: "relative",
-        background: "radial-gradient(circle at center, rgba(218, 253, 85, 0.05) 0%, transparent 60%)",
-        padding: "10vh 20px"
-      }}
-    >
-      <div 
-        style={{
-          position: "absolute",
-          top: "4vw",
-          left: "1vw",
-          fontSize: "clamp(80px, 15vw, 220px)",
-          fontFamily: "var(--font-heading)",
-          fontWeight: 800,
-          color: "#000000",
-          opacity: 1,
-          zIndex: 0,
-          pointerEvents: "none",
-          lineHeight: 0.8,
-          letterSpacing: "-0.05em"
+    <>
+      <section 
+        className="workshopToolsInteractiveSection" 
+        id="tools"
+        style={{ 
+          minHeight: "100vh",
+          display: "flex", 
+          flexDirection: "column",
+          justifyContent: "center", 
+          alignItems: "center", 
+          overflow: "hidden",
+          position: "relative",
+          background: "radial-gradient(circle at center, rgba(218, 253, 85, 0.05) 0%, transparent 60%)",
+          padding: "10vh 20px"
         }}
       >
-        TOOLS
-      </div>
-      <div 
-        style={{
-          position: "absolute",
-          bottom: "2vw",
-          right: "1vw",
-          fontSize: "clamp(80px, 15vw, 220px)",
-          fontFamily: "var(--font-heading)",
-          fontWeight: 800,
-          color: "#000000",
-          opacity: 1,
-          zIndex: 0,
-          pointerEvents: "none",
-          lineHeight: 0.8,
-          letterSpacing: "-0.05em",
-          textAlign: "right"
-        }}
-      >
-        YOU&apos;LL LEARN
-      </div>
+        <motion.div 
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.1 }}
+          style={{
+            position: "absolute",
+            top: "4vw",
+            left: "1vw",
+            fontSize: "clamp(80px, 15vw, 220px)",
+            fontFamily: "var(--font-heading)",
+            fontWeight: 800,
+            color: "#000000",
+            opacity: 1,
+            zIndex: 0,
+            pointerEvents: "none",
+            lineHeight: 0.8,
+            letterSpacing: "-0.05em"
+          }}
+        >
+          TOOLS
+        </motion.div>
+        <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.1 }}
+          style={{
+            position: "absolute",
+            bottom: "2vw",
+            right: "1vw",
+            fontSize: "clamp(80px, 15vw, 220px)",
+            fontFamily: "var(--font-heading)",
+            fontWeight: 800,
+            color: "#000000",
+            opacity: 1,
+            zIndex: 0,
+            pointerEvents: "none",
+            lineHeight: 0.8,
+            letterSpacing: "-0.05em",
+            textAlign: "right"
+          }}
+        >
+          YOU&apos;LL LEARN
+        </motion.div>
 
-      <div style={{ 
-        position: "relative", 
-        width: "100%",
-        maxWidth: "1000px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        zIndex: 10
-      }}>
-        {tools.map((tool, index) => (
-          <ToolCard 
-            key={index} 
-            tool={tool} 
-            smoothX={smoothX} 
-            smoothY={smoothY} 
-            index={index} 
-          />
-        ))}
-      </div>
-    </section>
+        <div style={{ 
+          position: "relative", 
+          width: "100%",
+          maxWidth: "1000px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          zIndex: 10
+        }}>
+          {tools.map((tool, index) => (
+            <ToolCard 
+              key={index} 
+              tool={tool} 
+              smoothX={smoothX} 
+              smoothY={smoothY} 
+              index={index} 
+            />
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

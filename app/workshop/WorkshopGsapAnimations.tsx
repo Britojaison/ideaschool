@@ -29,26 +29,42 @@ export default function WorkshopGsapAnimations() {
       smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 1.5, // Reduced from 3.2 to prevent massive delayed rubber-banding
+        smooth: 2.0, // Luxurious smoothing length
         effects: true,
-        normalizeScroll: true,
-        smoothTouch: 0.1,
+        normalizeScroll: true, // Use GSAP's native normalization for touch & mobile
       });
 
-      // Clamp wheel events to prevent "scrolling like crazy" from building up massive velocity
+      let targetY = smoother.scrollTop();
+
+      // Custom constant-velocity wheel logic to guarantee slow, elegant scroll regardless of wheel spin speed
       const clampWheel = (e: WheelEvent) => {
-        if (!smoother) return;
-        const maxDelta = 100;
-        if (Math.abs(e.deltaY) > maxDelta) {
-          e.preventDefault();
-          const clampedDelta = e.deltaY > 0 ? maxDelta : -maxDelta;
-          // Calculate new position and apply it smoothly
-          const target = Math.max(0, Math.min(smoother.scroll() + clampedDelta * 1.5, document.documentElement.scrollHeight - window.innerHeight));
-          smoother.scrollTo(target, true);
+        // Prevent GSAP's normalizeScroll from seeing the fast wheel event directly
+        e.stopPropagation();
+        e.preventDefault();
+        
+        const currentY = smoother ? smoother.scrollTop() : window.scrollY;
+        
+        // Sync if external scroll (scrollbar drag, touch) occurred
+        if (Math.abs(targetY - currentY) > 500) {
+           targetY = currentY;
+        }
+        
+        targetY += e.deltaY;
+        targetY = gsap.utils.clamp(0, document.documentElement.scrollHeight - window.innerHeight, targetY);
+        
+        // STRICT SPEED LIMIT: Cap the maximum distance the target can be ahead of the current scroll
+        const maxDistance = 400; 
+        if (targetY > currentY + maxDistance) targetY = currentY + maxDistance;
+        if (targetY < currentY - maxDistance) targetY = currentY - maxDistance;
+        
+        // Feed the carefully clamped target directly to ScrollSmoother for buttery rendering
+        if (smoother) {
+          smoother.scrollTo(targetY, true);
         }
       };
 
-      window.addEventListener("wheel", clampWheel, { passive: false });
+      // Use capture: true so we intercept the event BEFORE GSAP does
+      window.addEventListener("wheel", clampWheel, { passive: false, capture: true });
 
       gsap.set(
         gsap.utils.toArray([
@@ -512,7 +528,7 @@ export default function WorkshopGsapAnimations() {
 
       return () => {
         window.removeEventListener("resize", handleResize);
-        window.removeEventListener("wheel", clampWheel);
+        window.removeEventListener("wheel", clampWheel, { capture: true } as EventListenerOptions);
         if (flipCtx) flipCtx.revert();
       };
     });

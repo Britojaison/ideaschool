@@ -269,10 +269,22 @@ export default function WorkshopPage() {
             <div className="servicesFocus" aria-hidden="true" />
 
             <div className="servicesSkillGrid" aria-label="Workshop skills">
-              <span>Attention Engineering</span>
-              <span>Retention-Driven Storytelling</span>
-              <span>Visual Storytelling</span>
-              <span>Future-Proof Creator Workflow</span>
+              <div className="servicesSkillItem">
+                <span>01</span>
+                <strong>Attention Engineering</strong>
+              </div>
+              <div className="servicesSkillItem">
+                <span>02</span>
+                <strong>Retention-Driven Storytelling</strong>
+              </div>
+              <div className="servicesSkillItem">
+                <span>03</span>
+                <strong>Visual Storytelling</strong>
+              </div>
+              <div className="servicesSkillItem">
+                <span>04</span>
+                <strong>Future-Proof Creator Workflow</strong>
+              </div>
             </div>
           </div>
         </div>

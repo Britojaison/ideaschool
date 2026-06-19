@@ -244,7 +244,7 @@ export default function WorkshopGsapAnimations() {
 
 
         gsap.set(".servicesKicker, .servicesHeading, .servicesCopy p", { autoAlpha: 0, y: 34 });
-        gsap.set(".servicesSkillGrid span", { autoAlpha: 0, y: 36, scale: 0.96 });
+        gsap.set(".servicesSkillItem", { autoAlpha: 0, x: 42, scale: 0.98 });
         gsap.set(".servicesFocus", { autoAlpha: 0, scale: 0.9, rotation: -10 });
 
         servicesTl
@@ -262,9 +262,9 @@ export default function WorkshopGsapAnimations() {
             ease: "power2.out",
             duration: 0.24,
           }, 0.04)
-          .to(".servicesSkillGrid span", {
+          .to(".servicesSkillItem", {
             autoAlpha: 1,
-            y: 0,
+            x: 0,
             scale: 1,
             ease: "power2.out",
             stagger: 0.025,

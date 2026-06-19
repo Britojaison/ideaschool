@@ -14,6 +14,8 @@ import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
 import WorkshopLoadingScreen from "./WorkshopLoadingScreen";
 import WorkshopAttendeesList from "./WorkshopAttendeesList";
 import WorkshopFooter from "./WorkshopFooter";
+import WorkshopInstructorImage from "./WorkshopInstructorImage";
+import WorkshopFaqImage from "./WorkshopFaqImage";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -436,25 +438,11 @@ export default function WorkshopPage() {
         </div>
 
         {/* Right Side: Full Bleed Image */}
-        <div className="flex-1 relative w-full h-[60vh] lg:h-auto min-h-[100vh] m-0">
-          {mentors.length > 0 && (
-            <>
-              <Image
-                src={mentors[0].image}
-                alt={mentors[0].name}
-                fill
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-              
-              {/* Nameplate */}
-              <div className="absolute bottom-8 left-8 right-8 lg:bottom-12 lg:left-12 lg:right-auto lg:min-w-[360px] bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-2xl z-10 shadow-2xl">
-                <h3 className="text-2xl md:text-3xl font-bold text-black m-0 mb-2">{mentors[0].name}</h3>
-                <p className="text-gray-600 m-0 text-base md:text-lg">{mentors[0].role}</p>
-              </div>
-            </>
-          )}
-        </div>
+        {mentors.length > 0 ? (
+          <WorkshopInstructorImage mentor={mentors[0]} />
+        ) : (
+          <div className="flex-1 relative w-full h-[60vh] lg:h-auto min-h-[100vh] m-0"></div>
+        )}
         
       </section>
 
@@ -502,14 +490,7 @@ export default function WorkshopPage() {
             </h2>
           </div>
 
-          <div className="w-full aspect-[21/9] md:aspect-[24/9] relative rounded-2xl md:rounded-[32px] overflow-hidden mb-16 md:mb-24 shadow-sm border border-black/5">
-            <Image
-              src="/images/DSC01035.webp"
-              alt="Workshop FAQ"
-              fill
-              className="object-cover"
-            />
-          </div>
+          <WorkshopFaqImage />
 
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 max-w-[1200px] mx-auto w-full">
             {/* FAQ Accordion - Left Side */}

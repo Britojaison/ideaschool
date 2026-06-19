@@ -1,0 +1,65 @@
+"use client";
+
+import React, { useRef, useEffect } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+interface Mentor {
+  name: string;
+  role: string;
+  image: string;
+  accent: string;
+}
+
+export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !imageRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        imageRef.current,
+        { yPercent: -10 },
+        {
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="flex-1 relative w-full h-[60vh] lg:h-auto min-h-[100vh] m-0 overflow-hidden">
+      <div ref={imageRef} style={{ position: "absolute", top: "-20%", left: 0, right: 0, bottom: "-20%" }}>
+        <Image
+          src={mentor.image}
+          alt={mentor.name}
+          fill
+          className="object-cover object-center"
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+      
+      {/* Nameplate */}
+      <div className="absolute bottom-8 left-8 right-8 lg:bottom-12 lg:left-12 lg:right-auto lg:min-w-[360px] bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-2xl z-20 shadow-2xl">
+        <h3 className="text-2xl md:text-3xl font-bold text-black m-0 mb-2">{mentor.name}</h3>
+        <p className="text-gray-600 m-0 text-base md:text-lg">{mentor.role}</p>
+      </div>
+    </div>
+  );
+}

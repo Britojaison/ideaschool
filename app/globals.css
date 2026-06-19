@@ -4728,7 +4728,8 @@ html.isHeroGlassCursorActive .hero * {
   text-transform: uppercase;
 }
 
-.courseWeekGrid p {
+.courseWeekGrid p,
+.courseWeekGrid ul {
   margin: 10px 0 0;
   color: rgba(255, 255, 255, 0.78);
   font-size: 15px;
@@ -11765,6 +11766,7 @@ html.isHeroGlassCursorActive .hero * {
 .workshopCoursePage .mentorSectionIntro p,
 .workshopCoursePage .longCourseApplyInner p,
 .workshopCoursePage .courseWeekGrid p,
+.workshopCoursePage .courseWeekGrid ul,
 .workshopCoursePage .scheduleItem p,
 .workshopCoursePage .footerInner > p {
   color: rgba(21, 21, 21, 0.68);

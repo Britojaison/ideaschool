@@ -56,17 +56,51 @@ const outcomes = [
 const curriculumDays = [
   {
     week: "Day 1",
-    module: "Session Topics",
-    recorded: "Editing foundations, project setup, timeline flow, and the mindset of premium edits",
-    live: "Hands-on Premiere Pro workflow, cuts, pacing, audio cleanup, and client-ready polish",
-    assignment: "Create a clean short-form edit using the workshop footage and editing framework",
+    module: "High-Retention Editing",
+    sections: [
+      {
+        title: "Hook Engineering",
+        items: [
+          "Create attention-grabbing hooks in the first 3 seconds",
+          "Hook frameworks used by top creators",
+          "Curiosity and retention strategies",
+        ],
+      },
+      {
+        title: "Retention Editing",
+        items: [
+          "Keep viewers engaged till the end",
+          "Pacing, cuts, visual storytelling & motion graphics",
+          "Retention techniques behind viral content",
+        ],
+      },
+      {
+        title: "Bonus",
+        items: [
+          "AI-Powered Editing Workflow with Higgsfield AI",
+        ],
+      },
+    ],
   },
   {
     week: "Day 2",
-    module: "Session Topics",
-    recorded: "Motion enhancement, AI-assisted planning, and faster creative production systems",
-    live: "After Effects basics, CapCut workflow, Higgsfield AI, and AI tools for faster video editing",
-    assignment: "Build a premium sample edit and map your first freelance video editing offer",
+    module: "Viral Content Editing",
+    sections: [
+      {
+        title: "Typography & Sound Design",
+        items: [
+          "Animated captions and engaging typography",
+          "Sound effects, music, and audio transitions",
+          "Using audio to enhance viewer experience",
+        ],
+      },
+      {
+        title: "Viral Edit Framework",
+        items: [
+          "Structure videos for maximum watch time",
+        ],
+      },
+    ],
   },
 ];
 
@@ -283,24 +317,6 @@ export default function WorkshopPage() {
             >
               2-Day Session Plan
             </h2>
-            <p 
-              style={{ 
-                background: "#dafd55", 
-                color: "#000", 
-                borderRadius: "999px",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1rem",
-                padding: "10px 28px",
-                margin: 0,
-                fontWeight: 600,
-                width: "fit-content",
-                textAlign: "center"
-              }}
-            >
-              Day 1 and Day 2 are ready for your final topic details when you add more content.
-            </p>
           </div>
 
           <div className="courseWeekList">
@@ -311,18 +327,16 @@ export default function WorkshopPage() {
                   <h3>{day.module}</h3>
                 </div>
                 <div className="courseWeekGrid">
-                  <div>
-                    <strong>Session focus</strong>
-                    <p>{day.recorded}</p>
-                  </div>
-                  <div>
-                    <strong>Live training</strong>
-                    <p>{day.live}</p>
-                  </div>
-                  <div>
-                    <strong>Practical exercise</strong>
-                    <p>{day.assignment}</p>
-                  </div>
+                  {day.sections.map((section, idx) => (
+                    <div key={idx}>
+                      <strong>{section.title}</strong>
+                      <ul style={{ paddingLeft: "16px", listStyleType: "disc" }}>
+                        {section.items.map((item, i) => (
+                          <li key={i} style={{ paddingBottom: "6px" }}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </article>
             ))}

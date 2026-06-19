@@ -360,7 +360,7 @@ export default function WorkshopPage() {
         <WorkshopAttendeesList />
       </section>
 
-      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px" }}>
+      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
         <DetailsSectionMotion />
         <div className="longCourseSectionInner" style={{ marginBottom: "80px" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>

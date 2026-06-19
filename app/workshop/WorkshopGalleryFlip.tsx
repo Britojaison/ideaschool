@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 const images = [
   // 1. Tall Left
@@ -23,6 +24,11 @@ const images = [
 
 export default function WorkshopGalleryFlip() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <>
@@ -38,15 +44,17 @@ export default function WorkshopGalleryFlip() {
         ))}
       </div>
 
-      {activeIndex !== null && (
+      {mounted && activeIndex !== null && createPortal(
         <div className="flipGalleryModal flipGalleryModalOpen" onClick={() => setActiveIndex(null)}>
           <div className="flipGalleryOverlay" />
           <img
             src={images[activeIndex].src}
             alt=""
             className="flipGalleryModalImg"
+            onClick={(e) => e.stopPropagation()}
           />
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

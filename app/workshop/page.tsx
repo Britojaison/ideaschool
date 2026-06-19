@@ -211,6 +211,23 @@ export default function WorkshopPage() {
         </header>
 
         <div className="longCourseHeroInner">
+          <h1 className="workshopHeroDisplay">
+            <span>Master</span>
+            <span className="workshopHeroDisplayAccent">High-Paying</span>
+            <span>Video Editing</span>
+            <span>in 2 Days</span>
+          </h1>
+
+          <div className="workshopHeroVideoContainer">
+            <video 
+              src="/images/Brand Commercial/SunscreenAD_May22 V2.mp4" 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            />
+          </div>
+
           <div className="longCourseHeroCopy">
             <p>
               Learn in-demand editing skills for brands, creators, agencies, and AI-powered video
@@ -223,13 +240,6 @@ export default function WorkshopPage() {
               <WorkshopDrawSvg />
             </div>
           </div>
-
-          <h1 className="workshopHeroDisplay">
-            <span>Master</span>
-            <span className="workshopHeroDisplayAccent">High-Paying</span>
-            <span>Video Editing</span>
-            <span>in 2 Days</span>
-          </h1>
 
         </div>
       </section>

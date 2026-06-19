@@ -12060,6 +12060,8 @@ html.isHeroGlassCursorActive .hero * {
   overflow: visible !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+  background: #000000;
+  color: #ffffff;
 }
 
 .workshopWorkSection .longCourseSectionInner {
@@ -12759,6 +12761,7 @@ html.isHeroGlassCursorActive .hero * {
   color: #ffffff;
   line-height: 0.8;
   padding-left: 10vw;
+  padding-right: 10vw;
   will-change: transform;
   position: relative;
   z-index: 2;

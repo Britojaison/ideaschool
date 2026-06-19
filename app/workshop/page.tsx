@@ -365,8 +365,8 @@ export default function WorkshopPage() {
         <div className="longCourseSectionInner" style={{ marginBottom: "80px" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>
             <span className="sectionPill">Our Work</span>
-            <h2>Watch Some Of Our Recent Projects</h2>
-            <p>Current local project videos are placed here. You can upload the final showcase videos later.</p>
+            <h2 style={{ color: "#ffffff" }}>Watch Some Of Our Recent Projects</h2>
+            <p style={{ color: "rgba(255,255,255,0.7)" }}>Current local project videos are placed here. You can upload the final showcase videos later.</p>
           </div>
         </div>
 

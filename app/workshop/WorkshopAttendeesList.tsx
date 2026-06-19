@@ -62,7 +62,7 @@ function AttendeeRow({ attendee }: { attendee: typeof attendeesData[0] }) {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ width: "100%", marginBottom: "60px" }}>
+    <div ref={containerRef} style={{ width: "100%", marginBottom: "36px" }}>
 
       {/* Animated Horizontal Line */}
       <motion.div
@@ -70,19 +70,19 @@ function AttendeeRow({ attendee }: { attendee: typeof attendeesData[0] }) {
         whileInView={{ width: "100%" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: "#000", marginBottom: "40px" }}
+        style={{ height: "1px", background: "#000", marginBottom: "28px" }}
       />
 
       {/* Row Content */}
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "60px" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "34px" }}>
 
         {/* Left Column (Text) */}
         <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: "14px", fontWeight: "bold", color: "#000", marginBottom: "30px", letterSpacing: "1px" }}>
+          <div style={{ fontSize: "14px", fontWeight: "bold", color: "#000", marginBottom: "20px", letterSpacing: "1px" }}>
             <span style={{ marginRight: "8px" }}>•</span>{attendee.num}
           </div>
 
-          <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#000", margin: "0 0 24px 0", display: "flex", alignItems: "center", gap: "12px", fontFamily: "var(--font-heading)" }}>
+          <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#000", margin: "0 0 18px 0", display: "flex", alignItems: "center", gap: "12px", fontFamily: "var(--font-heading)" }}>
             <div style={{ width: "16px", height: "16px", background: "#000", borderRadius: "50%", flexShrink: 0 }} />
             {attendee.title}
           </h3>
@@ -91,22 +91,7 @@ function AttendeeRow({ attendee }: { attendee: typeof attendeesData[0] }) {
             {attendee.text}
           </p>
 
-          <button style={{
-            marginTop: "30px",
-            padding: "10px 24px",
-            background: "#e0e0e0",
-            border: "none",
-            borderRadius: "20px",
-            fontWeight: "bold",
-            fontSize: "12px",
-            width: "fit-content",
-            cursor: "pointer",
-            color: "#000"
-          }}>
-            LEARN MORE
-          </button>
-
-          <div style={{ marginTop: "auto", paddingTop: "40px" }}>
+          <div style={{ marginTop: "auto", paddingTop: "26px" }}>
             <div style={{ fontWeight: 800, fontSize: "14px", color: "#000", marginBottom: "4px" }}>SERVICES</div>
             <div style={{ fontSize: "14px", color: "#000" }}>{attendee.services}</div>
           </div>
@@ -142,7 +127,7 @@ export default function WorkshopAttendeesList() {
         style={{ height: "1px", background: "#000" }}
       />
 
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "30px 0" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "22px 0" }}>
         <h2 style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 900, color: "#000", fontFamily: "var(--font-heading)", margin: 0, textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 1 }}>
           (WHO SHOULD ATTEND)
         </h2>

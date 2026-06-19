@@ -12632,6 +12632,34 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
+.workshopToolCardInner {
+  width: var(--tool-width);
+  border-radius: var(--tool-radius);
+}
+
+@media (max-width: 768px) {
+  .workshopToolsInteractiveSection {
+    min-height: 112vh !important;
+    padding: 16vh 16px !important;
+  }
+
+  .workshopToolCard {
+    margin-top: clamp(-24px, -5vw, -34px) !important;
+  }
+
+  .workshopToolCard:first-child {
+    margin-top: 0 !important;
+  }
+
+  .workshopToolCardInner {
+    width: min(92vw, 520px) !important;
+    min-height: clamp(82px, 20vw, 118px);
+    padding: clamp(22px, 6vw, 34px) 24px !important;
+    font-size: clamp(2.55rem, 10.8vw, 4.25rem) !important;
+    line-height: 0.92;
+  }
+}
+
 /* =========================================
    WHAT YOU'LL LEARN BACKGROUND TEXT
 ========================================= */

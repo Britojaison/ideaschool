@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 const tools = [
@@ -30,9 +30,10 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
 
   return (
     <motion.div
+      className="workshopToolCard"
       initial={{ y: 150, opacity: 0, scale: 0.9 }}
       whileInView={{ y: 0, opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, margin: "-18% 0px -12%" }}
       transition={{ 
         type: "spring", 
         stiffness: 120, 
@@ -49,16 +50,19 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
       }}
     >
       <motion.div
+        className="workshopToolCardInner"
         whileHover={{ scale: 1.03 }}
         style={{
+          "--tool-width": tool.width,
+          "--tool-radius": tool.borderRadius,
           x: x as any,
           y: y as any,
           rotate: rotate as any,
           backgroundColor: tool.bg,
           color: tool.color,
-          width: tool.width,
+          width: "var(--tool-width)",
           padding: "clamp(16px, 2.5vw, 32px) 20px",
-          borderRadius: tool.borderRadius,
+          borderRadius: "var(--tool-radius)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -71,7 +75,7 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
           whiteSpace: "nowrap",
           userSelect: "none",
           cursor: "default"
-        }}
+        } as any}
       >
         {tool.label}
       </motion.div>
@@ -82,13 +86,18 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
 export default function WorkshopToolsInteractive() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const [isMobileMotion, setIsMobileMotion] = useState(false);
 
   // Smooth out the mouse values with a spring for that fluid, delayed feeling
   const smoothX = useSpring(mouseX, { damping: 40, stiffness: 150 });
   const smoothY = useSpring(mouseY, { damping: 40, stiffness: 150 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    const mobileQuery = window.matchMedia("(hover: none), (pointer: coarse)");
+    const updateMotionMode = () => setIsMobileMotion(mobileQuery.matches);
+    updateMotionMode();
+
+    const handlePointerMove = (e: PointerEvent) => {
       // Normalize mouse coordinates between -1 and 1
       const normalizedX = (e.clientX / window.innerWidth) * 2 - 1;
       const normalizedY = (e.clientY / window.innerHeight) * 2 - 1;
@@ -97,9 +106,33 @@ export default function WorkshopToolsInteractive() {
       mouseY.set(normalizedY);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    mobileQuery.addEventListener("change", updateMotionMode);
+    window.addEventListener("pointermove", handlePointerMove);
+    return () => {
+      mobileQuery.removeEventListener("change", updateMotionMode);
+      window.removeEventListener("pointermove", handlePointerMove);
+    };
   }, [mouseX, mouseY]);
+
+  useEffect(() => {
+    if (!isMobileMotion) {
+      return;
+    }
+
+    let frameId = 0;
+    const startedAt = performance.now();
+
+    const animateMobileTools = (now: number) => {
+      const elapsed = (now - startedAt) / 1000;
+      mouseX.set(Math.sin(elapsed * 0.85) * 0.9);
+      mouseY.set(Math.cos(elapsed * 0.65) * 0.75);
+      frameId = requestAnimationFrame(animateMobileTools);
+    };
+
+    frameId = requestAnimationFrame(animateMobileTools);
+
+    return () => cancelAnimationFrame(frameId);
+  }, [isMobileMotion, mouseX, mouseY]);
 
   return (
     <section 
@@ -160,7 +193,7 @@ export default function WorkshopToolsInteractive() {
           textAlign: "right"
         }}
       >
-        YOU'LL LEARN
+        YOU&apos;LL LEARN
       </motion.div>
 
       <div style={{ 

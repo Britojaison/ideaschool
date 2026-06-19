@@ -32,6 +32,54 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/Helvetica_Neue/HelveticaNeueRoman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/Helvetica_Neue/HelveticaNeueLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/Helvetica_Neue/HelveticaNeueMedium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/Helvetica_Neue/HelveticaNeueBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/Helvetica_Neue/HelveticaNeueItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/Helvetica_Neue/HelveticaNeueBoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --background: #08090b;
   --foreground: #ffffff;
@@ -39,7 +87,7 @@
   --blue: #0a8cff;
   --cyan: #04c8ff;
   --font-heading: "Manrope", Arial, Helvetica, sans-serif;
-  --font-subject: "Urbanist", Arial, Helvetica, sans-serif;
+  --font-subject: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --page-gutter: clamp(20px, 7vw, 88px);
   --page-max: 1290px;
   --wide-page-max: 1540px;
@@ -11616,25 +11664,11 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopCoursePage .workshopHero::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(50% - 0.5px);
-  z-index: 1;
-  width: 1px;
-  content: "";
-  background: rgba(21, 21, 21, 0.1);
-  pointer-events: none;
+  display: none;
 }
 
 .workshopCoursePage .longCourseHeroMedia {
-  background:
-    linear-gradient(rgba(21, 21, 21, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21, 21, 21, 0.045) 1px, transparent 1px),
-    radial-gradient(circle at 12% 88%, rgba(218, 253, 85, 0.18), transparent 18%),
-    #fefffe;
-  background-position: 0 0, calc(50% - 0.5px) 0, 0 0, 0 0;
-  background-size: 44px 44px, 44px 44px, 100% 100%, auto;
+  background: #fefffe;
 }
 
 .workshopCoursePage .longCourseHeroShade,

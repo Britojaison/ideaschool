@@ -246,7 +246,9 @@ export default function WorkshopPage() {
               <a className="primaryCta programCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
                 <span className="primaryCtaText">{workshop.ctaLabel}</span>
               </a>
-              <WorkshopDrawSvg />
+              <div className="hidden lg:block">
+                <WorkshopDrawSvg />
+              </div>
             </div>
           </div>
 

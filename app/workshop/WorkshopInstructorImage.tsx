@@ -44,7 +44,7 @@ export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) 
   }, []);
 
   return (
-    <div ref={containerRef} className="flex-1 relative w-full h-[50vh] lg:h-auto lg:min-h-[100vh] mx-4 mb-8 lg:mx-0 lg:mb-0 rounded-2xl lg:rounded-none overflow-hidden">
+    <div ref={containerRef} className="relative w-[calc(100%-2rem)] aspect-square lg:flex-1 lg:w-auto lg:aspect-auto lg:min-h-[100vh] mx-4 mb-8 lg:mx-0 lg:mb-0 rounded-2xl lg:rounded-none overflow-hidden">
       <div ref={imageRef} style={{ position: "absolute", top: "-20%", left: 0, right: 0, bottom: "-20%" }}>
         <Image
           src={mentor.image}
@@ -56,9 +56,9 @@ export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) 
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none"></div>
       
       {/* Nameplate */}
-      <div className="absolute bottom-8 left-8 right-8 lg:bottom-12 lg:left-12 lg:right-auto lg:min-w-[360px] bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-2xl z-20 shadow-2xl">
-        <h3 className="text-2xl md:text-3xl font-bold text-black m-0 mb-2">{mentor.name}</h3>
-        <p className="text-gray-600 m-0 text-base md:text-lg">{mentor.role}</p>
+      <div className="absolute bottom-4 left-4 right-4 lg:bottom-12 lg:left-12 lg:right-auto lg:min-w-[360px] bg-white/95 backdrop-blur-md p-3 lg:p-8 rounded-xl lg:rounded-2xl z-20 shadow-xl">
+        <h3 className="text-base lg:text-2xl xl:text-3xl font-bold text-black m-0 mb-1">{mentor.name}</h3>
+        <p className="text-gray-600 m-0 text-xs lg:text-lg">{mentor.role}</p>
       </div>
     </div>
   );

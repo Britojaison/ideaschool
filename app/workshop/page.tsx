@@ -459,8 +459,7 @@ export default function WorkshopPage() {
             Learn From a Working Creative Professional
           </h2>
           <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl">
-            Instructor biography content can go here once you share it. For now, this follows the
-            same mentor-card layout as the creative page and uses existing local photos.
+            With years of experience in video editing, motion graphics, and visual storytelling, Elamparidhi has worked with brands, creators, and agencies to produce content that performs. He brings real-world production workflows into every session — so you learn what actually works, not just theory.
           </p>
         </div>
 

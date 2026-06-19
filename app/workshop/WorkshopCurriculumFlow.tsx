@@ -95,7 +95,7 @@ export default function WorkshopCurriculumFlow() {
 
         {/* Node 4 */}
         <div className="flowNode node-dark" style={{ left: '39.28%', top: '80%' }}>
-          <h3 className="nodeLabel"><span className="videoScrollHighlight">TYPOGRAPHY & SOUND</span></h3>
+          <h3 className="nodeLabel">TYPOGRAPHY & SOUND</h3>
           <div className="nodeBox">
             <ul>
               <li>Animated captions and engaging typography</li>

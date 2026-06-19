@@ -11663,18 +11663,7 @@ html.isHeroGlassCursorActive .hero * {
   padding: clamp(92px, 8vw, 124px) clamp(28px, 5.8vw, 112px) clamp(28px, 4.2vw, 70px);
 }
 
-/* Smooth fade-out at bottom of hero into black */
-.workshopCoursePage .workshopHero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 220px;
-  background: linear-gradient(to bottom, transparent, #fefffe 70%, #ffffff);
-  pointer-events: none;
-  z-index: 3;
-}
+
 
 .workshopCoursePage .workshopHero::before {
   display: none;
@@ -12807,18 +12796,7 @@ html.isHeroGlassCursorActive .hero * {
   z-index: 20;
 }
 
-/* Smooth fade from white into black at top of section */
-.curriculumFlowSection::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 280px;
-  background: linear-gradient(to bottom, #ffffff, #000000);
-  pointer-events: none;
-  z-index: 0;
-}
+
 
 .flowContainer {
   position: relative;

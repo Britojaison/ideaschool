@@ -226,6 +226,21 @@ export default function WorkshopGsapAnimations() {
       const curriculumRevealImage = document.querySelector<HTMLElement>(".curriculumFlowRevealImage");
 
       if (curriculumFlowSection && curriculumFlowBgText && whatYouWillLearnHugeText) {
+        // Smooth background color fade from white to black
+        gsap.fromTo(curriculumFlowSection,
+          { backgroundColor: "#fefffe" },
+          {
+            backgroundColor: "#000000",
+            ease: "none",
+            scrollTrigger: {
+              trigger: curriculumFlowSection,
+              start: "top bottom",
+              end: "top 30%",
+              scrub: true,
+            }
+          }
+        );
+
         // Pin the sticky container for the whole scroll duration
         ScrollTrigger.create({
           trigger: curriculumFlowSection,

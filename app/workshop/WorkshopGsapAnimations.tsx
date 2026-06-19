@@ -367,9 +367,12 @@ export default function WorkshopGsapAnimations() {
       // What You'll Learn Background Text Animation
       const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
       const curriculumFlowBgText = document.querySelector(".curriculumFlowBgText");
-      const whatYouWillLearnHugeText = document.querySelector(".whatYouWillLearnHugeText");
+      const whatYouWillLearnHugeText = document.querySelector<HTMLElement>(".whatYouWillLearnHugeText");
 
       if (curriculumFlowSection && curriculumFlowBgText && whatYouWillLearnHugeText) {
+        const isMobileLearn = window.matchMedia("(max-width: 1024px)").matches;
+        const learnLetters = gsap.utils.toArray<HTMLElement>(".learnHugeLetter");
+
         ScrollTrigger.create({
           trigger: curriculumFlowSection,
           start: "top top",
@@ -378,16 +381,55 @@ export default function WorkshopGsapAnimations() {
           pinSpacing: false,
         });
 
-        gsap.to(whatYouWillLearnHugeText, {
-          x: () => -(whatYouWillLearnHugeText.scrollWidth),
+        gsap.set(whatYouWillLearnHugeText, {
+          x: 0,
+          y: 0,
+        });
+
+        gsap.set(learnLetters, {
+          y: () => window.innerHeight * (isMobileLearn ? 0.82 : 0.62),
+          opacity: 0,
+          scale: 0.92,
+          rotate: (index) => (isMobileLearn ? [-9, 5, -4, 7, -6, 4][index % 6] : 0),
+        });
+
+        const learnTimeline = gsap.timeline({
           ease: "none",
           scrollTrigger: {
             trigger: curriculumFlowSection,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
+            start: "top top",
+            end: isMobileLearn ? "72% bottom" : "bottom top",
+            scrub: isMobileLearn ? 0.45 : 0.8,
             invalidateOnRefresh: true,
           }
+        });
+
+        learnTimeline.to(learnLetters, {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          rotate: 0,
+          duration: 0.82,
+          ease: "power3.out",
+          stagger: {
+            each: isMobileLearn ? 0.095 : 0.065,
+            from: "start",
+          },
+        });
+
+        learnTimeline.to(whatYouWillLearnHugeText, {
+          x: () => {
+            if (!isMobileLearn) {
+              return -whatYouWillLearnHugeText.scrollWidth;
+            }
+
+            return -Math.max(
+              whatYouWillLearnHugeText.scrollWidth - window.innerWidth + window.innerWidth * 0.12,
+              0,
+            );
+          },
+          duration: 1.15,
+          ease: "none",
         });
       }
 
@@ -414,24 +456,52 @@ export default function WorkshopGsapAnimations() {
         });
 
         const flowContainer = document.querySelector(".flowContainer");
-        const flowTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: flowContainer,
-            start: "top 70%",
-            end: "bottom 85%",
-            scrub: 1,
-          }
-        });
+        const isMobileFlow = window.matchMedia("(max-width: 1024px)").matches;
 
-        // Sequentially highlight from left to right
-        flowTl.to(allElements, {
-          opacity: 1,
-          filter: "grayscale(0%)",
-          scale: 1,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power2.out",
-        });
+        if (isMobileFlow) {
+          gsap.set(flowNodes, {
+            autoAlpha: 0.08,
+            y: 72,
+            scale: 0.96,
+            filter: "blur(8px) grayscale(100%)",
+          });
+
+          flowNodes.forEach((node, index) => {
+            gsap.to(node, {
+              autoAlpha: 1,
+              y: 0,
+              scale: 1,
+              filter: "blur(0px) grayscale(0%)",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: node,
+                start: "top 78%",
+                end: "top 44%",
+                scrub: 0.8,
+              },
+              delay: index * 0.02,
+            });
+          });
+        } else {
+          const flowTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: flowContainer,
+              start: "top 70%",
+              end: "bottom 85%",
+              scrub: 1,
+            }
+          });
+
+          // Sequentially highlight from left to right
+          flowTl.to(allElements, {
+            opacity: 1,
+            filter: "grayscale(0%)",
+            scale: 1,
+            duration: 1,
+            stagger: 0.15,
+            ease: "power2.out",
+          });
+        }
       }
 
       // Attendees Section Animation

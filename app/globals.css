@@ -12599,6 +12599,7 @@ html.isHeroGlassCursorActive .hero * {
 .whatYouWillLearnHugeText {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   font-family: "Bebas Neue", var(--font-heading);
   font-size: clamp(10rem, 30vw, 35rem);
@@ -12606,8 +12607,23 @@ html.isHeroGlassCursorActive .hero * {
   white-space: nowrap;
   color: #000000;
   line-height: 0.8;
-  padding-left: 10vw;
+  padding-inline: 8vw;
   will-change: transform;
+}
+
+.learnHugeLetter,
+.learnHugeSpace {
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.learnHugeLetter {
+  transform-origin: center 78%;
+  will-change: transform, opacity;
+}
+
+.learnHugeSpace {
+  width: 0.16em;
 }
 
 /* =========================================
@@ -12723,24 +12739,107 @@ html.isHeroGlassCursorActive .hero * {
 
 /* Responsive Fallback for Mobile */
 @media (max-width: 1024px) {
+  .curriculumFlowSection {
+    min-height: 560svh;
+    padding: 0;
+    background: #fefffe;
+  }
+
+  .curriculumFlowBgText {
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .whatYouWillLearnHugeText {
+    align-items: center;
+    justify-content: flex-start;
+    height: 100svh;
+    padding-inline: 0;
+    padding-bottom: 0;
+    font-size: clamp(9.25rem, 42vw, 13.25rem);
+    line-height: 0.76;
+    letter-spacing: 0;
+    color: #101010;
+  }
+
+  .learnHugeSpace {
+    width: 0.1em;
+  }
+
   .flowContainer {
     aspect-ratio: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-    padding: 0 20px;
+    gap: 28px;
+    margin-top: 315svh !important;
+    padding: 0 clamp(18px, 7vw, 32px) 34svh !important;
   }
+
   .flowLines {
     display: none;
   }
+
   .flowNode {
     position: relative !important;
     left: auto !important;
     top: auto !important;
-    transform: none !important;
+    transform: none;
     width: 100%;
-    max-width: 400px;
+    max-width: 630px;
+    gap: 16px;
+    z-index: 3;
+    will-change: transform, opacity, filter;
+  }
+
+  .flowNode:nth-of-type(even) {
+    margin-left: 8vw;
+  }
+
+  .flowNode:nth-of-type(odd) {
+    margin-left: -8vw;
+  }
+
+  .nodeLabel,
+  .node-dark .nodeLabel,
+  .node-light .nodeLabel {
+    color: rgba(16, 16, 16, 0.16);
+    font-size: clamp(1.45rem, 8vw, 2.2rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+  }
+
+  .nodeBox,
+  .node-light .nodeBox,
+  .node-dark .nodeBox {
+    border-radius: 0;
+    padding: clamp(26px, 8vw, 44px);
+    background: rgba(255, 255, 255, 0.9);
+    color: rgba(16, 16, 16, 0.46);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.055);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .nodeBox ul {
+    gap: 20px;
+  }
+
+  .nodeBox li {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 18px;
+    padding-left: 0;
+    color: rgba(16, 16, 16, 0.45);
+    font-size: clamp(1rem, 6.2vw, 1.45rem);
+    line-height: 1.35;
+  }
+
+  .nodeBox li::before {
+    position: static;
+    align-self: start;
+    margin-top: 0.55em;
+    background: rgba(16, 16, 16, 0.14);
   }
 }
 

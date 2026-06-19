@@ -1,10 +1,22 @@
 import React from "react";
 
+const learnHeading = "WHAT YOU'LL LEARN".split("");
+
 export default function WorkshopCurriculumFlow() {
   return (
     <section className="curriculumFlowSection workshopGsapSection" aria-label="Workshop Curriculum">
       <div className="curriculumFlowBgText">
-        <div className="whatYouWillLearnHugeText">WHAT YOU&apos;LL LEARN</div>
+        <div className="whatYouWillLearnHugeText" aria-label="What you'll learn">
+          {learnHeading.map((letter, index) => (
+            <span
+              className={letter === " " ? "learnHugeSpace" : "learnHugeLetter"}
+              aria-hidden="true"
+              key={`${letter}-${index}`}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </span>
+          ))}
+        </div>
       </div>
       <div className="flowContainer" style={{ marginTop: "60vh", paddingBottom: "20vh" }}>
         

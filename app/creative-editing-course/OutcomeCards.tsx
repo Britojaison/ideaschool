@@ -26,7 +26,9 @@ export default function OutcomeCards({ outcomes }: OutcomeCardsProps) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(Boolean(entry?.isIntersecting && entry.intersectionRatio >= 0.18));
+        if (entry?.isIntersecting && entry.intersectionRatio >= 0.18) {
+          setIsVisible(true);
+        }
       },
       {
         rootMargin: "0px 0px -18% 0px",

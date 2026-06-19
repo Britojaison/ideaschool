@@ -236,16 +236,13 @@ export default function WorkshopPage() {
 
       <section className="workshopServicesSection workshopGsapSection" id="services" aria-label="Our Services">
         <div className="servicesStickyContainer">
-          <div className="servicesTextWrapper">
+          <div className="servicesCenter">
             <h2 className="servicesHeading servicesHeadingTop">
               WE ARE <span className="textGreen">GOOD</span> AT
             </h2>
-
-          </div>
-
-          <div className="servicesCenter">
-            <div className="servicesCircleWrapper">
-              <div className="servicesCircleTicks"></div>
+            <div className="servicesCircleWrapper" />
+            <div className="servicesCircleTicks" aria-hidden="true">
+              <span />
             </div>
             <span className="servicesLabel top">Attention Engineering</span>
             <span className="servicesLabel right">Retention-Driven Storytelling</span>

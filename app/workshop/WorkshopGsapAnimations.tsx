@@ -250,14 +250,14 @@ export default function WorkshopGsapAnimations() {
           pinSpacing: false,
         });
 
-        // Phase 1 (0% → 70%): Text + image travel LEFT together
+        // Phase 1 (0% → 40%): Text travels LEFT quickly
         gsap.to(whatYouWillLearnHugeText, {
           x: () => -(whatYouWillLearnHugeText.scrollWidth),
           ease: "none",
           scrollTrigger: {
             trigger: curriculumFlowSection,
             start: "top top",
-            end: "70% top",
+            end: "40% top",
             scrub: 1,
             invalidateOnRefresh: true,
           },
@@ -265,7 +265,7 @@ export default function WorkshopGsapAnimations() {
 
         if (curriculumRevealImage) {
           // Image starts fully off-screen to the right with a full clip
-          // Phase 1 (0% → 70%): Image slides from 100vw → 0 (arrives when text exits)
+          // Image slides from 100vw → 0 (fully revealed by 40%)
           gsap.fromTo(curriculumRevealImage,
             {
               x: "100vw",
@@ -278,31 +278,31 @@ export default function WorkshopGsapAnimations() {
               scrollTrigger: {
                 trigger: curriculumFlowSection,
                 start: "top top",
-                end: "70% top",
+                end: "40% top",
                 scrub: 1,
                 invalidateOnRefresh: true,
               },
             }
           );
 
-          // Text drops away as image reveals in Phase 2
+          // Text drops away as image reveals
           gsap.to(whatYouWillLearnHugeText, {
             y: "150vh",
             opacity: 0,
             ease: "power2.in",
             scrollTrigger: {
               trigger: curriculumFlowSection,
-              start: "65% top",
-              end: "80% top",
+              start: "30% top",
+              end: "40% top",
               scrub: 1,
               invalidateOnRefresh: true,
             },
           });
 
-          // Phase 3: Auto-scroll when image is ~80% revealed
+          // Phase 3: Auto-scroll after user has seen the full image
           ScrollTrigger.create({
             trigger: curriculumFlowSection,
-            start: "75% top",
+            start: "90% top",
             onEnter: () => {
               const nextSection = curriculumFlowSection.nextElementSibling as HTMLElement;
               if (nextSection && smoother) {

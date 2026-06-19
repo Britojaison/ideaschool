@@ -91,10 +91,6 @@ function AttendeeRow({ attendee }: { attendee: typeof attendeesData[0] }) {
             {attendee.text}
           </p>
 
-          <div style={{ marginTop: "auto", paddingTop: "26px" }}>
-            <div style={{ fontWeight: 800, fontSize: "14px", color: "#000", marginBottom: "4px" }}>SERVICES</div>
-            <div style={{ fontSize: "14px", color: "#000" }}>{attendee.services}</div>
-          </div>
         </div>
 
         {/* Right Column (Image) */}

@@ -395,7 +395,7 @@ export default function WorkshopPage() {
           >
             About The Instructor
           </span>
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display max-w-2xl">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display max-w-2xl" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
             Learn From a Working Creative Professional
           </h2>
           <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl">
@@ -414,7 +414,7 @@ export default function WorkshopPage() {
 
       <section className="workshopTestimonialSection bg-[#F7F5F4] py-12 md:py-24 lg:py-32 px-6 md:px-12" aria-label="Student testimonials">
         <div className="max-w-[1440px] mx-auto">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-20 lg:mb-32 max-w-5xl leading-tight text-black tracking-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-20 lg:mb-32 max-w-5xl leading-tight text-black tracking-tight" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
             We believe in the best practical training, because we know it helps our students land high-paying projects.
           </h2>
           
@@ -426,7 +426,7 @@ export default function WorkshopPage() {
               >
                 <div>
                   <div className="flex justify-between items-start mb-6">
-                    <p className="text-xl md:text-2xl font-medium leading-snug text-black max-w-md pr-6">
+                    <p className="text-xl md:text-2xl font-medium leading-snug text-black max-w-md pr-6" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                       {testimonial.quote}
                     </p>
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 mt-1">
@@ -451,7 +451,7 @@ export default function WorkshopPage() {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-black mb-6 block">
               FAQS
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif text-black tracking-tight font-medium">
+            <h2 className="text-4xl md:text-5xl lg:text-[4rem] text-black tracking-tight font-medium" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
               Frequently Asked Questions
             </h2>
           </div>
@@ -464,7 +464,7 @@ export default function WorkshopPage() {
               {faqs.map((item, index) => (
                 <details className="group border-t border-black/20 [&:last-child]:border-b" key={item.question} open={item.open}>
                   <summary className="flex justify-between items-center py-6 md:py-8 cursor-pointer list-none outline-none [&::-webkit-details-marker]:hidden">
-                    <div className="text-lg md:text-xl font-medium font-serif text-black pr-8">
+                    <div className="text-lg md:text-xl font-medium text-black pr-8" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                       {item.question}
                     </div>
                     <div className="text-black transition-transform duration-300 group-open:rotate-180 flex-shrink-0">
@@ -473,7 +473,7 @@ export default function WorkshopPage() {
                       </svg>
                     </div>
                   </summary>
-                  <div className="pb-8 text-black/70 text-sm md:text-base leading-relaxed pr-8 max-w-3xl">
+                  <div className="pb-8 text-black/70 text-sm md:text-base leading-relaxed pr-8 max-w-3xl" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                     {item.answer}
                   </div>
                 </details>
@@ -482,7 +482,7 @@ export default function WorkshopPage() {
 
             {/* Contact - Right Side */}
             <div className="lg:w-[320px] xl:w-[380px] flex-shrink-0 pt-6">
-              <h3 className="text-3xl md:text-4xl font-medium font-serif text-black mb-8 leading-tight">
+              <h3 className="text-3xl md:text-4xl font-medium text-black mb-8 leading-tight" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                 Didn&apos;t find the answer you were looking for?
               </h3>
               <a href="#contact" className="inline-block text-[11px] font-bold uppercase tracking-[0.15em] text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity">

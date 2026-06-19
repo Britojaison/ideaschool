@@ -170,7 +170,7 @@ export default function WorkshopLoadingScreen() {
           textTransform: "uppercase",
           letterSpacing: "-0.02em",
           color: "#000",
-          fontFamily: "var(--font-sans, system-ui, sans-serif)",
+          fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
           lineHeight: 1,
           marginTop: "4px"
         }}>

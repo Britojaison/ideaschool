@@ -474,9 +474,9 @@ export default function WorkshopPage() {
         
       </section>
 
-      <section className="workshopTestimonialSection bg-[#F7F5F4] py-24 md:py-32 px-6 md:px-12" aria-label="Student testimonials">
+      <section className="workshopTestimonialSection bg-[#F7F5F4] py-12 md:py-24 lg:py-32 px-6 md:px-12" aria-label="Student testimonials">
         <div className="max-w-[1440px] mx-auto">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-20 md:mb-32 max-w-5xl leading-tight text-black tracking-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-20 lg:mb-32 max-w-5xl leading-tight text-black tracking-tight">
             We believe in the best practical training, because we know it helps our students land high-paying projects.
           </h2>
           
@@ -496,7 +496,7 @@ export default function WorkshopPage() {
                     </svg>
                   </div>
                 </div>
-                <div className="mt-16 md:mt-24">
+                <div className="mt-8 md:mt-16 lg:mt-24">
                   <p className="font-bold text-black text-lg">{testimonial.name}</p>
                   <p className="text-gray-500 text-sm mt-1">Workshop Attendee</p>
                 </div>
@@ -506,7 +506,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="workshopGsapSection flex flex-col bg-[#F7F5F4] min-h-[100vh] py-24 md:py-32" id="faq" aria-label="Workshop FAQ">
+      <section className="workshopGsapSection flex flex-col bg-[#F7F5F4] min-h-[100vh] py-12 md:py-24 lg:py-32" id="faq" aria-label="Workshop FAQ">
         <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 flex flex-col h-full justify-center">
           
           <div className="text-center mb-12">

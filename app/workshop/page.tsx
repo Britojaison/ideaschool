@@ -272,7 +272,7 @@ export default function WorkshopPage() {
               <span className="videoScrollHighlight">We create</span>{" "}
               <span className="videoScrollMediaContainer">
                 <video 
-                  src="/images/Brand Commercial/SunscreenAD_May22 V2.mp4" 
+                  src="/images/ideaschool1.mp4" 
                   autoPlay 
                   muted 
                   loop 

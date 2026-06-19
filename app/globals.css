@@ -11987,6 +11987,32 @@ html.isHeroGlassCursorActive .hero * {
   background: #F7F6F5;
 }
 
+@media (max-width: 640px) {
+  .workshopToolCardInner {
+    min-height: 72px !important;
+    padding: 18px 22px !important;
+    font-size: clamp(2.35rem, 13vw, 3.45rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .workshopToolCardInner1 {
+    width: min(86vw, 322px) !important;
+  }
+
+  .workshopToolCardInner2 {
+    width: min(94vw, 352px) !important;
+  }
+
+  .workshopToolCardInner3 {
+    width: min(88vw, 330px) !important;
+  }
+
+  .workshopToolCardInner4 {
+    width: min(84vw, 315px) !important;
+  }
+}
+
 .workshopWorkSection {
   min-height: 100vh;
   display: flex;
@@ -12740,7 +12766,7 @@ html.isHeroGlassCursorActive .hero * {
 /* Responsive Fallback for Mobile */
 @media (max-width: 1024px) {
   .curriculumFlowSection {
-    min-height: 520svh;
+    min-height: 360svh;
     padding: 0;
     background: #fefffe;
   }
@@ -12774,8 +12800,8 @@ html.isHeroGlassCursorActive .hero * {
     justify-items: center;
     gap: 34px;
     width: min(100%, 414px);
-    margin-top: 300svh !important;
-    padding: 0 clamp(20px, 7vw, 34px) 34svh !important;
+    margin-top: 205svh !important;
+    padding: 0 clamp(20px, 7vw, 34px) 8svh !important;
     isolation: isolate;
   }
 

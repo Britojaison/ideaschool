@@ -403,7 +403,7 @@ export default function WorkshopGsapAnimations() {
           scrollTrigger: {
             trigger: curriculumFlowSection,
             start: "top top",
-            end: isMobileLearn ? "68% bottom" : "bottom top",
+            end: isMobileLearn ? "56% bottom" : "bottom top",
             scrub: isMobileLearn ? 0.45 : 0.8,
             invalidateOnRefresh: true,
           }
@@ -501,19 +501,12 @@ export default function WorkshopGsapAnimations() {
           return rectA.left - rectB.left;
         });
 
-        // Set initial dimmed state
-        gsap.set(allElements, {
-          opacity: 0.15,
-          filter: "grayscale(100%)",
-          scale: (index, target) => target.classList?.contains("flowNode") ? 0.95 : 1
-        });
-
         const flowContainer = document.querySelector(".flowContainer");
         const isMobileFlow = window.matchMedia("(max-width: 1024px)").matches;
 
         if (isMobileFlow) {
           gsap.set(flowNodes, {
-            autoAlpha: 0.42,
+            autoAlpha: 1,
             y: 56,
             scale: 0.98,
             filter: "none",
@@ -521,7 +514,6 @@ export default function WorkshopGsapAnimations() {
 
           flowNodes.forEach((node, index) => {
             gsap.to(node, {
-              autoAlpha: 1,
               y: 0,
               scale: 1,
               filter: "none",
@@ -536,6 +528,13 @@ export default function WorkshopGsapAnimations() {
             });
           });
         } else {
+          // Set initial dimmed state
+          gsap.set(allElements, {
+            opacity: 0.15,
+            filter: "grayscale(100%)",
+            scale: (index, target) => target.classList?.contains("flowNode") ? 0.95 : 1
+          });
+
           const flowTl = gsap.timeline({
             scrollTrigger: {
               trigger: flowContainer,

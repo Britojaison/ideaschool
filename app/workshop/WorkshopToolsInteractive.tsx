@@ -49,6 +49,7 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
       }}
     >
       <motion.div
+        className={`workshopToolCardInner workshopToolCardInner${index + 1}`}
         whileHover={{ scale: 1.03 }}
         style={{
           x: x as any,

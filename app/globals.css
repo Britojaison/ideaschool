@@ -11997,28 +11997,6 @@ html.isHeroGlassCursorActive .hero * {
   height: 100%;
 }
 
-.servicesCircleModel3D {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 4;
-  width: 52%;
-  height: 52%;
-  cursor: grab;
-  pointer-events: auto;
-  transform: translate(-50%, -50%);
-}
-
-.servicesCircleModel3D:active {
-  cursor: grabbing;
-}
-
-.servicesCircleModel3D canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .workshopSchedule {
   background: #F7F6F5;
 }
@@ -12321,6 +12299,7 @@ html.isHeroGlassCursorActive .hero * {
   align-items: center;
   justify-content: center;
   background: #fefffe;
+  isolation: isolate;
 }
 
 .servicesStickyContainer::before {
@@ -12356,23 +12335,22 @@ html.isHeroGlassCursorActive .hero * {
 
 .servicesHeading {
   font-family: "Bebas Neue", var(--font-heading);
-  font-size: clamp(5rem, 9.2vw, 11rem);
+  font-size: clamp(4.2rem, min(7.6vw, 14vh), 8.6rem);
   font-weight: 800;
   color: #151515;
-  line-height: 0.84;
+  line-height: 0.86;
   text-transform: uppercase;
   margin: 0;
-  text-align: center;
+  text-align: right;
   position: absolute;
-  width: min(100vw - 48px, 1320px);
-  left: 50%;
+  width: min(100vw - 40px, 1360px);
+  right: clamp(-500px, -28vw, -300px);
   white-space: nowrap;
   z-index: 5;
 }
 
 .servicesHeadingTop {
-  bottom: calc(100% + clamp(48px, 4.6vw, 78px));
-  margin-left: max(calc((100vw - 48px) / -2), -660px);
+  bottom: calc(100% + clamp(128px, 15vh, 178px));
 }
 
 .servicesHeadingBottom {
@@ -12386,7 +12364,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .servicesCenter {
   position: relative;
-  width: clamp(280px, 36vw, 480px);
+  width: clamp(260px, min(34vw, 44vh), 440px);
   aspect-ratio: 1;
   z-index: 3;
   display: flex;
@@ -12437,7 +12415,7 @@ html.isHeroGlassCursorActive .hero * {
 .servicesLabel.top {
   top: 0;
   left: 50%;
-  translate: -50% calc(-100% - 16px);
+  transform: translate(-50%, calc(-100% - clamp(26px, 3vh, 42px)));
 }
 .servicesLabel.top .dot {
   order: -1;
@@ -12446,7 +12424,7 @@ html.isHeroGlassCursorActive .hero * {
 .servicesLabel.bottom {
   bottom: 0;
   left: 50%;
-  translate: -50% calc(100% + 16px);
+  transform: translate(-50%, calc(100% + clamp(26px, 3vh, 42px)));
 }
 .servicesLabel.bottom .dot {
   order: -1;
@@ -12455,13 +12433,13 @@ html.isHeroGlassCursorActive .hero * {
 .servicesLabel.left {
   top: 50%;
   left: 0;
-  translate: calc(-100% - 16px) -50%;
+  transform: translate(calc(-100% - clamp(22px, 2.4vw, 36px)), -50%);
 }
 
 .servicesLabel.right {
   top: 50%;
   right: 0;
-  translate: calc(100% + 16px) -50%;
+  transform: translate(calc(100% + clamp(22px, 2.4vw, 36px)), -50%);
 }
 .servicesLabel.right .dot {
   order: -1;
@@ -12471,19 +12449,19 @@ html.isHeroGlassCursorActive .hero * {
   .servicesHeading {
     width: calc(100vw - 28px);
     max-width: calc(100vw - 28px);
-    font-size: clamp(3.2rem, 13vw, 6rem);
+    font-size: clamp(3rem, min(12vw, 12vh), 5.2rem);
     line-height: 0.9;
+    right: clamp(-80px, -12vw, -34px);
     white-space: normal;
     text-wrap: balance;
   }
 
   .servicesHeadingTop {
-    bottom: calc(100% + clamp(42px, 12vw, 72px));
-    margin-left: calc((100vw - 28px) / -2);
+    bottom: calc(100% + clamp(86px, 13vh, 118px));
   }
 
   .servicesCenter {
-    width: clamp(150px, 42vw, 230px);
+    width: clamp(165px, min(40vw, 40vh), 230px);
   }
 
   .servicesLabel {
@@ -12528,16 +12506,6 @@ html.isHeroGlassCursorActive .hero * {
   height: 2px;
   left: -7px;
   top: calc(50% - 1px);
-}
-
-.servicesModelTarget {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: clamp(320px, 45vw, 600px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
 }
 
 .servicesHexPattern {

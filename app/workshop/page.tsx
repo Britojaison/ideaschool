@@ -261,7 +261,6 @@ export default function WorkshopPage() {
             <div className="servicesCircleTicks" aria-hidden="true">
               <span />
             </div>
-            <WorkshopHeroModel3D className="servicesCircleModel3D" />
             <span className="servicesLabel top">Development</span>
             <span className="servicesLabel right">AI Editing</span>
             <span className="servicesLabel bottom">Motion Graphics</span>
@@ -275,8 +274,6 @@ export default function WorkshopPage() {
               <path d="M100 10 L180 50 L180 150 L100 190 L20 150 L20 50 Z" stroke="#dafd55" strokeWidth="2" strokeOpacity="0.1" transform="scale(0.6) translate(66.6, 66.6)"/>
             </svg>
           </div>
-
-          <div className="servicesModelTarget" aria-hidden="true" />
         </div>
       </section>
 

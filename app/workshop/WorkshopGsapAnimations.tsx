@@ -243,16 +243,14 @@ export default function WorkshopGsapAnimations() {
         });
 
 
-        gsap.set(".servicesHeading", { autoAlpha: 0, y: 70, scale: 0.94 });
-        gsap.set(".servicesLabel", { autoAlpha: 0, scale: 0.84 });
-        gsap.set(".servicesCircleModel3D", { autoAlpha: 0, y: 42, scale: 0.82 });
+        gsap.set(".servicesHeading", { autoAlpha: 0, scale: 0.94 });
+        gsap.set(".servicesLabel", { autoAlpha: 0 });
         gsap.set(".servicesCircleWrapper", { scale: 0.88 });
         gsap.set(".servicesCircleTicks", { scale: 0.88, autoAlpha: 0 });
 
         servicesTl
           .to(".servicesHeading", {
             autoAlpha: 1,
-            y: 0,
             scale: 1,
             ease: "power3.out",
             duration: 0.22,
@@ -270,18 +268,10 @@ export default function WorkshopGsapAnimations() {
           }, 0.08)
           .to(".servicesLabel", {
             autoAlpha: 1,
-            scale: 1,
-            ease: "back.out(1.5)",
+            ease: "power2.out",
             stagger: 0.025,
-            duration: 0.2,
-          }, 0.12)
-          .to(".servicesCircleModel3D", {
-            autoAlpha: 1,
-            y: 0,
-            scale: 1,
-            ease: "power3.out",
-            duration: 0.22,
-          }, 0.14);
+            duration: 0.16,
+          }, 0.12);
 
         servicesTl.to(".servicesCircleWrapper", {
           rotation: 360,

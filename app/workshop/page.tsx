@@ -366,7 +366,7 @@ export default function WorkshopPage() {
         <div className="longCourseSectionInner" style={{ marginBottom: "40px" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>
             <span className="sectionPill">Our Work</span>
-            <h2 style={{ color: "#ffffff" }}>Watch Some Of Our Recent Projects</h2>
+            <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)" }}>Watch Some Of Our Recent Projects</h2>
             <p style={{ color: "rgba(255,255,255,0.7)" }}>Current local project videos are placed here. You can upload the final showcase videos later.</p>
           </div>
         </div>
@@ -496,7 +496,7 @@ export default function WorkshopPage() {
 
       <section className="longCourseApply workshopGsapSection relative z-10 rounded-t-[2rem] md:rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]" id="apply" aria-label="Register for workshop">
         <div className="longCourseApplyInner">
-          <h2>Ready To Learn Video Editing Skills That Can Pay?</h2>
+          <h2 style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>Ready To Learn Video Editing Skills That Can Pay?</h2>
           <p>
             Join the 2-day live workshop and start building the practical editing and AI workflow
             confidence needed for better projects.

@@ -82,7 +82,7 @@ function AttendeeRow({ attendee }: { attendee: typeof attendeesData[0] }) {
             <span style={{ marginRight: "8px" }}>•</span>{attendee.num}
           </div>
 
-          <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#000", margin: "0 0 18px 0", display: "flex", alignItems: "center", gap: "12px", fontFamily: "var(--font-heading)" }}>
+          <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#000", margin: "0 0 18px 0", display: "flex", alignItems: "center", gap: "12px", fontFamily: "'Bebas Neue', var(--font-heading)" }}>
             <div style={{ width: "16px", height: "16px", background: "#000", borderRadius: "50%", flexShrink: 0 }} />
             {attendee.title}
           </h3>

@@ -11654,9 +11654,10 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopCoursePage .siteHeader .headerCta {
   margin-left: auto;
-  min-width: clamp(164px, 13vw, 194px);
-  height: 45px;
-  min-height: 45px;
+  min-width: clamp(128px, 10vw, 154px);
+  height: 38px;
+  min-height: 38px;
+  padding-inline: 18px;
   border-radius: 8px;
   box-shadow: none;
   background-color: #dafd55;
@@ -11665,6 +11666,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopCoursePage .siteHeader .headerCtaText {
   color: #151515;
+  font-size: clamp(0.8rem, 0.82vw, 0.9rem);
 }
 
 .workshopCoursePage .brandLogo {
@@ -12360,7 +12362,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .servicesCenter {
   position: relative;
-  width: clamp(280px, 36vw, 480px);
+  width: clamp(260px, 32vw, 420px);
   aspect-ratio: 1;
   z-index: 3;
   display: flex;
@@ -12421,14 +12423,14 @@ html.isHeroGlassCursorActive .hero * {
 .servicesLabel.left {
   top: 50%;
   left: 0;
-  transform: translate(-100%, -50%);
+  transform: translate(-84%, -50%);
 }
 
 .servicesLabel.right {
   top: 50%;
   right: 0;
-  transform: translate(100%, -50%);
-  padding-left: 10px;
+  transform: translate(84%, -50%);
+  padding-left: 8px;
 }
 .servicesLabel.right .dot {
   order: -1;

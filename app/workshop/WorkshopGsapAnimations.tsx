@@ -243,38 +243,36 @@ export default function WorkshopGsapAnimations() {
         });
 
 
-        gsap.set(".servicesHeading", { autoAlpha: 0, scale: 0.94 });
-        gsap.set(".servicesLabel", { autoAlpha: 0 });
-        gsap.set(".servicesCircleWrapper", { scale: 0.88 });
-        gsap.set(".servicesCircleTicks", { scale: 0.88, autoAlpha: 0 });
+        gsap.set(".servicesKicker, .servicesHeading, .servicesCopy p", { autoAlpha: 0, y: 34 });
+        gsap.set(".servicesSkillGrid span", { autoAlpha: 0, y: 36, scale: 0.96 });
+        gsap.set(".servicesFocus", { autoAlpha: 0, scale: 0.9, rotation: -10 });
 
         servicesTl
-          .to(".servicesHeading", {
+          .to(".servicesKicker, .servicesHeading, .servicesCopy p", {
+            autoAlpha: 1,
+            y: 0,
+            ease: "power3.out",
+            stagger: 0.045,
+            duration: 0.24,
+          }, 0)
+          .to(".servicesFocus", {
             autoAlpha: 1,
             scale: 1,
-            ease: "power3.out",
-            duration: 0.22,
-          }, 0)
-          .to(".servicesCircleWrapper", {
-            scale: 1,
+            rotation: 0,
             ease: "power2.out",
             duration: 0.24,
           }, 0.04)
-          .to(".servicesCircleTicks", {
+          .to(".servicesSkillGrid span", {
             autoAlpha: 1,
+            y: 0,
             scale: 1,
             ease: "power2.out",
-            duration: 0.18,
-          }, 0.08)
-          .to(".servicesLabel", {
-            autoAlpha: 1,
-            ease: "power2.out",
             stagger: 0.025,
-            duration: 0.16,
+            duration: 0.2,
           }, 0.12);
 
-        servicesTl.to(".servicesCircleWrapper", {
-          rotation: 360,
+        servicesTl.to(".servicesFocus", {
+          rotation: 24,
           ease: "none",
           duration: 1,
         }, 0);

@@ -253,26 +253,27 @@ export default function WorkshopPage() {
 
       <section className="workshopServicesSection workshopGsapSection" id="services" aria-label="Our Services">
         <div className="servicesStickyContainer">
-          <div className="servicesCenter">
-            <h2 className="servicesHeading servicesHeadingTop">
-              WE ARE <span className="textGreen">GOOD</span> AT
-            </h2>
-            <div className="servicesCircleWrapper" />
-            <div className="servicesCircleTicks" aria-hidden="true">
-              <span />
+          <div className="servicesBgImage" aria-hidden="true" />
+          <div className="servicesContent">
+            <div className="servicesCopy">
+              <span className="servicesKicker">Inside the workshop</span>
+              <h2 className="servicesHeading">
+                Learn the skills that make edits look expensive.
+              </h2>
+              <p>
+                Practical training across design, editing, motion, and AI workflows so every project
+                feels sharper from the first frame.
+              </p>
             </div>
-            <span className="servicesLabel top">Development</span>
-            <span className="servicesLabel right">AI Editing</span>
-            <span className="servicesLabel bottom">Motion Graphics</span>
-            <span className="servicesLabel left">Design</span>
-          </div>
 
-          <div className="servicesHexPattern">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
-              <path d="M100 10 L180 50 L180 150 L100 190 L20 150 L20 50 Z" stroke="#dafd55" strokeWidth="2" strokeOpacity="0.3"/>
-              <path d="M100 10 L180 50 L180 150 L100 190 L20 150 L20 50 Z" fill="#dafd55" fillOpacity="0.1" transform="scale(0.8) translate(25, 25)"/>
-              <path d="M100 10 L180 50 L180 150 L100 190 L20 150 L20 50 Z" stroke="#dafd55" strokeWidth="2" strokeOpacity="0.1" transform="scale(0.6) translate(66.6, 66.6)"/>
-            </svg>
+            <div className="servicesFocus" aria-hidden="true" />
+
+            <div className="servicesSkillGrid" aria-label="Workshop skills">
+              <span>Attention Engineering</span>
+              <span>Retention-Driven Storytelling</span>
+              <span>Visual Storytelling</span>
+              <span>Future-Proof Creator Workflow</span>
+            </div>
           </div>
         </div>
       </section>
@@ -529,7 +530,7 @@ export default function WorkshopPage() {
             {/* Contact - Right Side */}
             <div className="lg:w-[320px] xl:w-[380px] flex-shrink-0 pt-6">
               <h3 className="text-3xl md:text-4xl font-medium font-serif text-black mb-8 leading-tight">
-                Didn't find the answer you were looking for?
+                Didn&apos;t find the answer you were looking for?
               </h3>
               <a href="#contact" className="inline-block text-[11px] font-bold uppercase tracking-[0.15em] text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity">
                 SEND US AN EMAIL

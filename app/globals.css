@@ -12285,8 +12285,8 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopServicesSection {
   position: relative;
-  height: 250vh;
-  background: #fefffe;
+  height: 180vh;
+  background: #08090b;
   overflow: hidden;
   z-index: 10;
 }
@@ -12298,230 +12298,209 @@ html.isHeroGlassCursorActive .hero * {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fefffe;
+  padding: clamp(34px, 6vw, 96px);
+  background: #08090b;
   isolation: isolate;
+}
+
+.servicesBgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100vh;
+  background-image: url("/images/DSC01109.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.96;
+  filter: brightness(0.88) saturate(1.02) contrast(1.02);
+  pointer-events: none;
 }
 
 .servicesStickyContainer::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: rgba(0, 0, 0, 0.08);
-  transform: translateX(-50%);
+  inset: 0;
   z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 7, 0.62) 0%, rgba(3, 5, 7, 0.38) 44%, rgba(3, 5, 7, 0.12) 72%, rgba(3, 5, 7, 0.38) 100%),
+    linear-gradient(180deg, rgba(3, 5, 7, 0.5) 0%, rgba(3, 5, 7, 0.04) 48%, rgba(3, 5, 7, 0.62) 100%);
+  pointer-events: none;
 }
 
 .servicesStickyContainer::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.08);
-  transform: translateY(-50%);
+  inset: auto 0 0;
+  height: 34vh;
   z-index: 1;
+  background: linear-gradient(180deg, transparent 0%, #08090b 100%);
+  pointer-events: none;
 }
 
-.servicesTextWrapper {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 4;
+.servicesContent {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.58fr);
+  align-items: center;
+  gap: clamp(34px, 7vw, 112px);
+  width: min(calc(100% - clamp(28px, 5vw, 72px)), 1420px);
+  min-height: min(760px, calc(100svh - clamp(44px, 10vw, 156px)));
+  margin: 0 auto;
+}
+
+.servicesCopy {
+  align-self: center;
+  max-width: 760px;
 }
 
 .servicesHeading {
-  font-family: "Bebas Neue", var(--font-heading);
-  font-size: clamp(4.2rem, min(7.6vw, 14vh), 8.6rem);
-  font-weight: 800;
-  color: #151515;
-  line-height: 0.86;
-  text-transform: uppercase;
+  max-width: 10.8ch;
   margin: 0;
-  text-align: right;
-  position: absolute;
-  width: min(100vw - 40px, 1360px);
-  right: clamp(-500px, -28vw, -300px);
-  white-space: nowrap;
-  z-index: 5;
-}
-
-.servicesHeadingTop {
-  bottom: calc(100% + clamp(128px, 15vh, 178px));
-}
-
-.servicesHeadingBottom {
-  top: auto;
-  bottom: 0%;
-}
-
-.servicesHeading .textGreen {
-  color: #d4bafb;
-}
-
-.servicesCenter {
-  position: relative;
-  width: clamp(260px, min(34vw, 44vh), 440px);
-  aspect-ratio: 1;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.servicesCircleWrapper {
-  position: absolute;
-  inset: 0;
-  border: 2px dashed #a4d200;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fefffe;
-}
-
-.servicesCircleTicks {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.servicesLabel {
-  position: absolute;
-  font-family: "Bebas Neue", var(--font-heading);
-  font-size: clamp(1.9rem, 3.2vw, 3.45rem);
+  font-family: var(--font-heading);
+  font-size: clamp(3.15rem, 6.35vw, 7.25rem);
   font-weight: 800;
-  color: #151515;
-  display: flex;
+  line-height: 0.96;
+  letter-spacing: 0;
+  text-wrap: balance;
+  color: #ffffff;
+  text-shadow: 0 18px 60px rgba(0, 0, 0, 0.58);
+}
+
+.servicesKicker {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  white-space: nowrap;
+  min-height: 36px;
+  margin-bottom: clamp(16px, 2.8vh, 26px);
+  padding: 0 14px;
+  border: 1px solid rgba(218, 253, 85, 0.4);
+  border-radius: 999px;
+  background: rgba(218, 253, 85, 0.12);
+  color: #e9ff8d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.servicesLabel .dot {
-  width: 10px;
-  height: 10px;
-  background-color: var(--course-green);
+.servicesCopy p {
+  max-width: 590px;
+  margin: clamp(18px, 2.6vh, 28px) 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(1rem, 1.25vw, 1.22rem);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.servicesFocus {
+  position: absolute;
+  right: clamp(210px, 27vw, 460px);
+  bottom: clamp(56px, 9vh, 120px);
+  width: clamp(190px, 23vw, 360px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(218, 253, 85, 0.62);
   border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 10px var(--course-green);
+  background: radial-gradient(circle, rgba(218, 253, 85, 0.13) 0%, rgba(218, 253, 85, 0.05) 48%, transparent 70%);
+  box-shadow: inset 0 0 0 26px rgba(255, 255, 255, 0.035), 0 0 90px rgba(218, 253, 85, 0.14);
+  pointer-events: none;
 }
 
-.servicesLabel.top {
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, calc(-100% - clamp(26px, 3vh, 42px)));
-}
-.servicesLabel.top .dot {
-  order: -1;
-}
-
-.servicesLabel.bottom {
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, calc(100% + clamp(26px, 3vh, 42px)));
-}
-.servicesLabel.bottom .dot {
-  order: -1;
+.servicesFocus::before,
+.servicesFocus::after {
+  content: "";
+  position: absolute;
+  inset: 13%;
+  border: 1px dashed rgba(218, 253, 85, 0.32);
+  border-radius: 50%;
 }
 
-.servicesLabel.left {
-  top: 50%;
-  left: 0;
-  transform: translate(calc(-100% - clamp(22px, 2.4vw, 36px)), -50%);
+.servicesFocus::after {
+  inset: 50%;
+  width: 58%;
+  height: 1px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(218, 253, 85, 0.5);
+  transform: translate(-50%, -50%);
+  transform-origin: center;
 }
 
-.servicesLabel.right {
-  top: 50%;
-  right: 0;
-  transform: translate(calc(100% + clamp(22px, 2.4vw, 36px)), -50%);
+.servicesSkillGrid {
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(128px, 1fr));
+  gap: 12px;
+  width: min(100%, 430px);
+  margin-left: auto;
 }
-.servicesLabel.right .dot {
-  order: -1;
+
+.servicesSkillGrid span {
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(118px, 14vw, 166px);
+  padding: clamp(15px, 1.7vw, 20px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+  color: #ffffff;
+  font-size: clamp(1.04rem, 1.55vw, 1.5rem);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: 0;
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
 }
 
 @media (max-width: 980px) {
+  .workshopServicesSection {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .servicesStickyContainer {
+    min-height: 100svh;
+    height: auto;
+    padding: 92px 22px 42px;
+  }
+
+  .servicesContent {
+    grid-template-columns: 1fr;
+    align-items: end;
+    min-height: calc(100svh - 138px);
+    gap: 28px;
+  }
+
   .servicesHeading {
-    width: calc(100vw - 28px);
-    max-width: calc(100vw - 28px);
-    font-size: clamp(3rem, min(12vw, 12vh), 5.2rem);
-    line-height: 0.9;
-    right: clamp(-80px, -12vw, -34px);
-    white-space: normal;
-    text-wrap: balance;
+    max-width: 11ch;
+    font-size: clamp(2.75rem, 12vw, 4.9rem);
   }
 
-  .servicesHeadingTop {
-    bottom: calc(100% + clamp(86px, 13vh, 118px));
+  .servicesCopy p {
+    font-size: 1rem;
   }
 
-  .servicesCenter {
-    width: clamp(165px, min(40vw, 40vh), 230px);
+  .servicesFocus {
+    right: -74px;
+    bottom: 31%;
+    width: 230px;
+    opacity: 0.7;
   }
 
-  .servicesLabel {
-    font-size: clamp(0.85rem, 2.5vw, 1.15rem);
-    white-space: normal;
-    text-align: center;
-    max-width: 110px;
-    line-height: 1.1;
+  .servicesSkillGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin-left: 0;
   }
-}
 
-/* Adding ticks to the circle */
-.servicesCircleTicks::before,
-.servicesCircleTicks::after,
-.servicesCircleTicks span::before,
-.servicesCircleTicks span::after {
-  content: "";
-  position: absolute;
-  background: #a4d200;
-}
-.servicesCircleTicks::before {
-  width: 2px;
-  height: 14px;
-  left: calc(50% - 1px);
-  top: -7px;
-}
-.servicesCircleTicks::after {
-  width: 14px;
-  height: 2px;
-  right: -7px;
-  top: calc(50% - 1px);
-}
-
-.servicesCircleTicks span::before {
-  width: 2px;
-  height: 14px;
-  left: calc(50% - 1px);
-  bottom: -7px;
-}
-.servicesCircleTicks span::after {
-  width: 14px;
-  height: 2px;
-  left: -7px;
-  top: calc(50% - 1px);
-}
-
-.servicesHexPattern {
-  position: absolute;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20vw;
-  max-width: 300px;
-  opacity: 0.8;
-  z-index: 1;
-}
-
-.servicesHexPattern svg {
-  width: 100%;
-  height: auto;
+  .servicesSkillGrid span {
+    min-height: 98px;
+    padding: 14px;
+    font-size: 0.96rem;
+    line-height: 1.12;
+  }
 }
 
 /* Workshop Video Scroll Section */

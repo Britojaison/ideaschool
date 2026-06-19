@@ -444,31 +444,8 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      {/* Pricing / CTA Section */}
-      <section className="pricingCtaSection flex flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-0 overflow-hidden min-h-[100vh]" aria-label="Reserve Your Seat">
-        <div className="max-w-[800px] mx-auto text-center relative z-10 w-full">
-          <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
-            Reserve Your Seat
-          </h2>
-          <div className="text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold leading-none mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
-            ₹99
-          </div>
-          <p className="text-lg md:text-2xl font-medium mb-12" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-            Access the complete live workshop experience.
-          </p>
-          <a 
-            href={workshopPaymentUrl} 
-            target="_blank" 
-            rel="noreferrer"
-            className="inline-flex items-center justify-center bg-black text-white px-10 py-5 rounded-full text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
-          >
-            Register Now
-          </a>
-        </div>
-      </section>
-
       {/* Market Stats Section */}
-      <section className="marketStatsSection py-20 md:py-32 px-6 md:px-12 bg-[#0a0a0a] text-white min-h-[100vh] flex flex-col justify-center relative z-10 shadow-2xl" aria-label="Market Opportunities">
+      <section className="marketStatsSection py-20 md:py-32 px-6 md:px-12 bg-[#0a0a0a] text-white min-h-[100vh] flex flex-col justify-center relative z-0" aria-label="Market Opportunities">
         <div className="max-w-[1440px] mx-auto w-full">
           <div className="text-center mb-16 md:mb-24">
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#dafd55] mb-6 block">Career Potential</span>
@@ -517,6 +494,29 @@ export default function WorkshopPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Pricing / CTA Section */}
+      <section className="pricingCtaSection flex flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-10 min-h-[100vh] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" aria-label="Reserve Your Seat">
+        <div className="max-w-[800px] mx-auto text-center relative z-10 w-full">
+          <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
+            Reserve Your Seat
+          </h2>
+          <div className="text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold leading-none mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
+            ₹99
+          </div>
+          <p className="text-lg md:text-2xl font-medium mb-12" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+            Access the complete live workshop experience.
+          </p>
+          <a 
+            href={workshopPaymentUrl} 
+            target="_blank" 
+            rel="noreferrer"
+            className="inline-flex items-center justify-center bg-black text-white px-10 py-5 rounded-full text-lg md:text-xl font-bold uppercase tracking-wider hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+          >
+            Register Now
+          </a>
         </div>
       </section>
 

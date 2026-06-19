@@ -381,18 +381,18 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      // Pricing Section Stacking Animation
-      const pricingSection = document.querySelector(".pricingCtaSection");
+      // Stacking Animation: Fake Pin Market Stats so Pricing slides perfectly over it
       const marketStatsSection = document.querySelector(".marketStatsSection");
-      if (pricingSection && marketStatsSection) {
+      const pricingSection = document.querySelector(".pricingCtaSection");
+      if (marketStatsSection && pricingSection) {
         gsap.fromTo(
-          pricingSection,
+          marketStatsSection,
           { y: 0 },
           {
-            y: () => window.innerHeight * 0.5,
+            y: () => window.innerHeight, // Move down exactly 100vh to simulate a perfect pin
             ease: "none",
             scrollTrigger: {
-              trigger: marketStatsSection,
+              trigger: pricingSection,
               start: "top bottom",
               end: "top top",
               scrub: true,

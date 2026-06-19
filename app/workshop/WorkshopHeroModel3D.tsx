@@ -115,9 +115,13 @@ function BrandModelScene() {
   );
 }
 
-export default function WorkshopHeroModel3D() {
+type WorkshopHeroModel3DProps = {
+  className?: string;
+};
+
+export default function WorkshopHeroModel3D({ className = "workshopHeroModel3D" }: WorkshopHeroModel3DProps) {
   return (
-    <div className="workshopHeroModel3D" aria-hidden="true">
+    <div className={className} aria-hidden="true">
       <Canvas
         dpr={[1, 1.75]}
         shadows

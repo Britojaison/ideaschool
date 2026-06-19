@@ -184,7 +184,6 @@ export default function WorkshopPage() {
     <main className="longCoursePage workshopCoursePage">
       <WorkshopLoadingScreen />
       <WorkshopGsapAnimations />
-      <WorkshopHeroModel3D />
       <div id="smooth-wrapper" className="workshopSmoothWrapper">
         <div id="smooth-content" className="workshopSmoothContent">
           <ScrollTextReveal />
@@ -244,6 +243,7 @@ export default function WorkshopPage() {
             <div className="servicesCircleTicks" aria-hidden="true">
               <span />
             </div>
+            <WorkshopHeroModel3D className="servicesCircleModel3D" />
             <span className="servicesLabel top">Attention Engineering</span>
             <span className="servicesLabel right">Retention-Driven Storytelling</span>
             <span className="servicesLabel bottom">Visual Storytelling</span>

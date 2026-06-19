@@ -11966,6 +11966,23 @@ html.isHeroGlassCursorActive .hero * {
   height: 100%;
 }
 
+.servicesCircleModel3D {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  width: 52%;
+  height: 52%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.servicesCircleModel3D canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .workshopSchedule {
   background: #F7F6F5;
 }

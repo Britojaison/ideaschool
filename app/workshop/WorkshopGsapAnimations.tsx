@@ -65,6 +65,7 @@ export default function WorkshopGsapAnimations() {
           ".workshopHero .programEyebrowRow",
           ".workshopHero h1",
           ".workshopHero .longCourseHeroCopy > p",
+          ".workshopHero .workshopHeroMeta",
           ".workshopHero .longCourseHeroCtas",
           ".workshopHeroModel3D",
           ".workshopHero .longCourseStats",
@@ -79,6 +80,7 @@ export default function WorkshopGsapAnimations() {
           .fromTo(gsap.utils.toArray(".workshopHero .programEyebrowRow"), { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.72 }, "-=0.28")
           .fromTo(gsap.utils.toArray(".workshopHero h1"), { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1 }, "-=0.34")
           .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCopy > p"), { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.46")
+          .fromTo(gsap.utils.toArray(".workshopHero .workshopHeroMeta"), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.66 }, "-=0.5")
           .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCtas"), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.48")
           .fromTo(
             gsap.utils.toArray(".workshopHeroModel3D"),

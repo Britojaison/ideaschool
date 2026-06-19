@@ -222,6 +222,24 @@ export default function WorkshopPage() {
               Learn in-demand editing skills for brands, creators, agencies, and AI-powered video
               creation with Higgsfield AI.
             </p>
+            <dl className="workshopHeroMeta" aria-label="Workshop details">
+              <div>
+                <dt>Date</dt>
+                <dd>19th-20th-21st June 2026</dd>
+              </div>
+              <div>
+                <dt>Time</dt>
+                <dd>06:30 PM - 9 PM</dd>
+              </div>
+              <div>
+                <dt>Live</dt>
+                <dd>On Zoom</dd>
+              </div>
+              <div>
+                <dt>Language</dt>
+                <dd>English</dd>
+              </div>
+            </dl>
             <div className="longCourseHeroCtas">
               <a className="primaryCta programCta" href="#apply">
                 <span className="primaryCtaText">{workshop.ctaLabel}</span>

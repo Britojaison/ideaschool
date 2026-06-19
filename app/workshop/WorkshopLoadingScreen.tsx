@@ -1,11 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
+const scrollKeys = new Set(["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "]);
+
 export default function WorkshopLoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
+
+  useLayoutEffect(() => {
+    if (!isLoading) {
+      return;
+    }
+
+    const lockScroll = (event: Event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    };
+
+    const lockKeyScroll = (event: KeyboardEvent) => {
+      if (scrollKeys.has(event.key)) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    };
+
+    window.scrollTo(0, 0);
+    document.documentElement.classList.add("workshop-loader-lock");
+    document.body.classList.add("workshop-loader-lock");
+    window.addEventListener("wheel", lockScroll, { passive: false, capture: true });
+    window.addEventListener("touchmove", lockScroll, { passive: false, capture: true });
+    window.addEventListener("keydown", lockKeyScroll, { capture: true });
+
+    return () => {
+      window.removeEventListener("wheel", lockScroll, { capture: true });
+      window.removeEventListener("touchmove", lockScroll, { capture: true });
+      window.removeEventListener("keydown", lockKeyScroll, { capture: true });
+      document.documentElement.classList.remove("workshop-loader-lock");
+      document.body.classList.remove("workshop-loader-lock");
+    };
+  }, [isLoading]);
 
   useEffect(() => {
     const inTl = gsap.timeline();
@@ -42,8 +77,8 @@ export default function WorkshopLoadingScreen() {
       timeoutId = setTimeout(() => {
         tl = gsap.timeline({
           onComplete: () => {
+            window.scrollTo(0, 0);
             setIsLoading(false);
-            document.body.style.overflow = "";
             window.dispatchEvent(new Event("workshopLoaderFinished"));
           },
         });
@@ -64,8 +99,6 @@ export default function WorkshopLoadingScreen() {
       }, remainingTime);
     };
 
-    document.body.style.overflow = "hidden";
-
     let fallback: NodeJS.Timeout;
     if (document.readyState === "complete") {
       handleLoad();
@@ -79,7 +112,8 @@ export default function WorkshopLoadingScreen() {
       clearTimeout(fallback);
       clearTimeout(timeoutId);
       if (tl) tl.kill();
-      document.body.style.overflow = "";
+      document.documentElement.classList.remove("workshop-loader-lock");
+      document.body.classList.remove("workshop-loader-lock");
     };
   }, []);
 
@@ -91,7 +125,7 @@ export default function WorkshopLoadingScreen() {
         position: "fixed",
         inset: 0,
         zIndex: 99999,
-        pointerEvents: "none",
+        pointerEvents: "auto",
         display: "flex",
       }}
     >

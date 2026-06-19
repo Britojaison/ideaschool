@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+
+const workshopPaymentUrl = "https://rzp.io/rzp/L5kyyQlg";
 
 export default function WorkshopFooter() {
   const footerRef = useRef<HTMLElement>(null);
@@ -52,25 +53,13 @@ export default function WorkshopFooter() {
           <h2>
             Idea School is where you build real skills for the creative industry.
           </h2>
-          <a href="#apply" className="footerExploreLink">
+          <a href={workshopPaymentUrl} className="footerExploreLink" target="_blank" rel="noreferrer">
             Explore Courses →
           </a>
         </div>
 
         <div className="footerRight">
           <nav className="footerLinksGrid" aria-label="Footer navigation">
-            <div className="footerLinkCol">
-              <h3>Workshop</h3>
-              <a href="#curriculum">Curriculum</a>
-              <a href="#tools">Tools</a>
-              <a href="#apply">Register</a>
-            </div>
-            <div className="footerLinkCol">
-              <h3>Company</h3>
-              <Link href="/#about">About</Link>
-              <Link href="/#testimonials">Testimonials</Link>
-              <Link href="/#contact">Contact</Link>
-            </div>
             <div className="footerLinkCol">
               <h3>Social Media</h3>
               <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">Instagram</a>

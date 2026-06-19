@@ -83,6 +83,13 @@ body {
   overflow-x: hidden;
 }
 
+html.workshop-loader-lock,
+body.workshop-loader-lock {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
 html.isHeroGlassCursorActive,
 html.isHeroGlassCursorActive * {
   cursor: none !important;
@@ -12245,11 +12252,11 @@ html.isHeroGlassCursorActive .hero * {
     position: relative;
     top: auto;
     left: auto;
-    order: 2;
+    order: 0;
     align-self: stretch;
     width: 100%;
     max-width: 100%;
-    padding-top: 0;
+    padding-top: clamp(44px, 12vw, 86px);
     font-size: clamp(3.1rem, 15.2vw, 7rem);
   }
 

@@ -42,6 +42,8 @@ const workshop = {
   ctaLabel: "Reserve your workshop seat",
 };
 
+const workshopPaymentUrl = "https://rzp.io/rzp/L5kyyQlg";
+
 const outcomes = [
   "High-income editing skills used by brands, creators, agencies, and businesses",
   "Practical video editing workflow for better-paying freelance projects",
@@ -204,7 +206,7 @@ export default function WorkshopPage() {
               className="brandLogo"
             />
           </Link>
-          <a className="headerCta" href="#apply">
+          <a className="headerCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
             <span className="headerCtaText">Register now</span>
           </a>
         </header>
@@ -241,7 +243,7 @@ export default function WorkshopPage() {
               </div>
             </dl>
             <div className="longCourseHeroCtas">
-              <a className="primaryCta programCta" href="#apply">
+              <a className="primaryCta programCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
                 <span className="primaryCtaText">{workshop.ctaLabel}</span>
               </a>
               <WorkshopDrawSvg />
@@ -560,7 +562,7 @@ export default function WorkshopPage() {
             Join the 2-day live workshop and start building the practical editing and AI workflow
             confidence needed for better projects.
           </p>
-          <a className="primaryCta programCta" href="https://rzp.io/rzp/NwcRrEel" target="_blank" rel="noreferrer">
+          <a className="primaryCta programCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
             <span className="primaryCtaText">Register for the workshop</span>
           </a>
         </div>

@@ -16,6 +16,7 @@ import WorkshopAttendeesList from "./WorkshopAttendeesList";
 import WorkshopFooter from "./WorkshopFooter";
 import WorkshopInstructorImage from "./WorkshopInstructorImage";
 import WorkshopFaqImage from "./WorkshopFaqImage";
+import WorkshopGalleryFlip from "./WorkshopGalleryFlip";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -360,9 +361,9 @@ export default function WorkshopPage() {
         <WorkshopAttendeesList />
       </section>
 
-      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
+      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
         <DetailsSectionMotion />
-        <div className="longCourseSectionInner" style={{ marginBottom: "80px" }}>
+        <div className="longCourseSectionInner" style={{ marginBottom: "40px" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>
             <span className="sectionPill">Our Work</span>
             <h2 style={{ color: "#ffffff" }}>Watch Some Of Our Recent Projects</h2>
@@ -370,34 +371,7 @@ export default function WorkshopPage() {
           </div>
         </div>
 
-        <div className="gallery-wrap">
-          <div className="gallery gallery--bento gallery--switch" id="gallery-8">
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-pattern-1.jpg" alt="" />
-            </div>
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-image-12.jpg" alt="" />
-            </div>
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-image-8.jpg" alt="" />
-            </div>
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-pattern-2.jpg" alt="" />
-            </div>
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-image-4.jpg" alt="" />
-            </div>
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-image-3.jpg" alt="" />
-            </div>
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-pattern-3.jpg" alt="" />
-            </div>
-            <div className="gallery__item">
-              <img src="https://assets.codepen.io/16327/portrait-image-1.jpg" alt="" />
-            </div>
-          </div>
-        </div>
+        <WorkshopGalleryFlip />
       </section>
 
       <section className="workshopGsapSection flex flex-col lg:flex-row justify-center lg:min-h-[100vh] relative p-0 overflow-hidden bg-white" aria-label="About the instructor">

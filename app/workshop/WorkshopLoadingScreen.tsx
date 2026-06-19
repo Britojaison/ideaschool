@@ -152,6 +152,8 @@ export default function WorkshopLoadingScreen() {
           justifyContent: "center",
           alignItems: "center",
           gap: "8px",
+          width: "max-content",
+          whiteSpace: "nowrap",
         }}
       >
         <Image

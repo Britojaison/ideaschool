@@ -12086,6 +12086,114 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow: 0 8px 30px rgba(218, 253, 85, 0.6);
 }
 
+/* =========================================
+   FLIP GALLERY
+========================================= */
+.flipGalleryWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.flipGalleryBoxesContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flipGalleryBox {
+  width: 25vw;
+  height: 25vw;
+  min-width: 200px;
+  padding: 10px;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  margin: 0.2rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.flipGalleryBoxContent {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flipGalleryBoxContent:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.flipGalleryModal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.flipGalleryModalContent {
+  height: 90vh;
+  aspect-ratio: 4/5;
+  position: relative;
+}
+
+.flipGalleryModalContent .flipGalleryBoxContent {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.flipGalleryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .flipGalleryBox {
+    width: 42vw;
+    height: 42vw;
+    min-width: 140px;
+  }
+
+  .flipGalleryModalContent {
+    height: 80vh;
+    aspect-ratio: 3/4;
+  }
+}
+
 .gallery-wrap {
   position: relative;
   width: 100%;

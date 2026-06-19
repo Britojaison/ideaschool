@@ -174,51 +174,6 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      // Gallery Flip Animation — desktop only (pinning causes blank gap on mobile)
-      let flipCtx: gsap.Context | undefined;
-      const galleryElement = document.querySelector("#gallery-8");
-
-      const createGalleryTween = () => {
-        if (!galleryElement) return;
-        // Skip on mobile — the pin creates a large empty gap
-        if (window.innerWidth < 1024) return;
-
-        const galleryItems = galleryElement.querySelectorAll(".gallery__item");
-
-        if (flipCtx) {
-          flipCtx.revert();
-        }
-
-        galleryElement.classList.remove("gallery--final");
-
-        flipCtx = gsap.context(() => {
-          galleryElement.classList.add("gallery--final");
-          const flipState = Flip.getState(galleryItems);
-          galleryElement.classList.remove("gallery--final");
-
-          const flip = Flip.to(flipState, {
-            simple: true,
-            ease: "expoScale(1, 5)",
-          });
-
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: galleryElement,
-              start: "center center",
-              end: "+=100%",
-              scrub: true,
-              pin: galleryElement.parentNode as HTMLElement,
-            },
-          });
-          tl.add(flip);
-          return () => gsap.set(galleryItems, { clearProps: "all" });
-        }, galleryElement);
-      };
-
-      createGalleryTween();
-
-      const handleResize = () => createGalleryTween();
-      window.addEventListener("resize", handleResize);
       // What You'll Learn Background Text + Image Travel Animation
       const curriculumFlowSection = document.querySelector(".curriculumFlowSection");
       const curriculumFlowBgText = document.querySelector(".curriculumFlowBgText");
@@ -450,9 +405,7 @@ export default function WorkshopGsapAnimations() {
       smoother.refresh();
 
       return () => {
-        window.removeEventListener("resize", handleResize);
         window.removeEventListener("wheel", clampWheel, { capture: true } as EventListenerOptions);
-        if (flipCtx) flipCtx.revert();
       };
     });
 

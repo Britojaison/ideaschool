@@ -371,6 +371,7 @@ export default function WorkshopGsapAnimations() {
 
       if (curriculumFlowSection && curriculumFlowBgText && whatYouWillLearnHugeText) {
         const isMobileLearn = window.matchMedia("(max-width: 1024px)").matches;
+        const learnChars = gsap.utils.toArray<HTMLElement>(".learnHugeLetter, .learnHugeSpace");
         const learnLetters = gsap.utils.toArray<HTMLElement>(".learnHugeLetter");
 
         ScrollTrigger.create({
@@ -384,6 +385,10 @@ export default function WorkshopGsapAnimations() {
         gsap.set(whatYouWillLearnHugeText, {
           x: 0,
           y: 0,
+        });
+
+        gsap.set(learnChars, {
+          x: 0,
         });
 
         gsap.set(learnLetters, {
@@ -404,18 +409,58 @@ export default function WorkshopGsapAnimations() {
           }
         });
 
-        learnTimeline.to(learnLetters, {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          rotate: 0,
-          duration: 0.82,
-          ease: "power3.out",
-          stagger: {
-            each: isMobileLearn ? 0.095 : 0.065,
-            from: "start",
-          },
-        });
+        if (isMobileLearn) {
+          const getVisibleWordShift = (activeIndex: number) => {
+            const firstChar = learnChars[0];
+            const activeChar = learnChars[activeIndex];
+
+            if (!firstChar || !activeChar) {
+              return 0;
+            }
+
+            const containerLeft = whatYouWillLearnHugeText.getBoundingClientRect().left;
+            const visibleLeft = containerLeft + firstChar.offsetLeft;
+            const visibleRight = containerLeft + activeChar.offsetLeft + activeChar.offsetWidth;
+            const visibleCenter = (visibleLeft + visibleRight) / 2;
+
+            return window.innerWidth / 2 - visibleCenter;
+          };
+
+          learnChars.forEach((char, index) => {
+            const visibleChars = learnChars.slice(0, index + 1);
+            const isSpace = char.classList.contains("learnHugeSpace");
+
+            learnTimeline.to(visibleChars, {
+              x: () => getVisibleWordShift(index),
+              duration: isSpace ? 0.14 : 0.26,
+              ease: "power2.out",
+            });
+
+            if (!isSpace) {
+              learnTimeline.to(char, {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                rotate: 0,
+                duration: 0.34,
+                ease: "power3.out",
+              }, "<");
+            }
+          });
+        } else {
+          learnTimeline.to(learnLetters, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            duration: 0.82,
+            ease: "power3.out",
+            stagger: {
+              each: 0.065,
+              from: "start",
+            },
+          });
+        }
 
         learnTimeline.to(whatYouWillLearnHugeText, {
           x: () => {
@@ -424,7 +469,7 @@ export default function WorkshopGsapAnimations() {
             }
 
             return -Math.max(
-              whatYouWillLearnHugeText.scrollWidth - window.innerWidth + window.innerWidth * 0.12,
+              whatYouWillLearnHugeText.scrollWidth - window.innerWidth + window.innerWidth * 0.08,
               0,
             );
           },

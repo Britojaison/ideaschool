@@ -11668,7 +11668,13 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopCoursePage .longCourseHeroMedia {
-  background: #fefffe;
+  background:
+    linear-gradient(rgba(21, 21, 21, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 21, 21, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 12% 88%, rgba(218, 253, 85, 0.18), transparent 18%),
+    #fefffe;
+  background-position: 0 0, calc(50% - 0.5px) 0, 0 0, 0 0;
+  background-size: 44px 44px, 44px 44px, 100% 100%, auto;
 }
 
 .workshopCoursePage .longCourseHeroShade,
@@ -12236,7 +12242,7 @@ html.isHeroGlassCursorActive .hero * {
 @media (max-width: 980px) {
   .workshopCoursePage .workshopHero {
     align-items: flex-start;
-    padding-top: clamp(96px, 18vw, 132px);
+    padding-top: clamp(140px, 28vw, 180px);
   }
 
   .workshopCoursePage .workshopHero::before {
@@ -12280,9 +12286,10 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .workshopHeroMeta {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    width: min(100%, 360px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 20px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .workshopHero .longCourseHeroCtas {
@@ -12742,7 +12749,7 @@ html.isHeroGlassCursorActive .hero * {
   font-size: clamp(10rem, 30vw, 35rem);
   font-weight: 800;
   white-space: nowrap;
-  color: #000000;
+  color: #ffffff;
   line-height: 0.8;
   padding-left: 10vw;
   will-change: transform;
@@ -12781,7 +12788,7 @@ html.isHeroGlassCursorActive .hero * {
 .curriculumFlowSection {
   position: relative;
   width: 100%;
-  background: #ffffff;
+  background: #000000;
   padding: 8vw 0;
   overflow: hidden;
   z-index: 20;
@@ -12821,7 +12828,7 @@ html.isHeroGlassCursorActive .hero * {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
-  color: #000000; /* Black text for white background */
+  color: #ffffff;
 }
 
 .nodeBox {

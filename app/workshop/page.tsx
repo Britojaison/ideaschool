@@ -434,10 +434,10 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      <section className="workshopGsapSection flex flex-col lg:flex-row justify-center min-h-[100vh] relative p-0 overflow-hidden bg-white" aria-label="About the instructor">
+      <section className="workshopGsapSection flex flex-col lg:flex-row justify-center lg:min-h-[100vh] relative p-0 overflow-hidden bg-white" aria-label="About the instructor">
         
         {/* Left Side: Text Content */}
-        <div className="flex-1 flex flex-col justify-center items-start w-full px-8 md:px-12 lg:pl-[max(4rem,calc(50vw-720px))] lg:pr-16 py-20 z-10" style={{ textAlign: "left" }}>
+        <div className="flex-1 flex flex-col justify-center items-start w-full px-8 md:px-12 lg:pl-[max(4rem,calc(50vw-720px))] lg:pr-16 pt-12 pb-8 lg:py-20 z-10" style={{ textAlign: "left" }}>
           <span 
             className="inline-block mb-6"
             style={{

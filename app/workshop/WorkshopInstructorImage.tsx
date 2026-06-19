@@ -44,7 +44,7 @@ export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) 
   }, []);
 
   return (
-    <div ref={containerRef} className="flex-1 relative w-full h-[60vh] lg:h-auto min-h-[100vh] m-0 overflow-hidden">
+    <div ref={containerRef} className="flex-1 relative w-full h-[50vh] lg:h-auto lg:min-h-[100vh] mx-4 mb-8 lg:mx-0 lg:mb-0 rounded-2xl lg:rounded-none overflow-hidden">
       <div ref={imageRef} style={{ position: "absolute", top: "-20%", left: 0, right: 0, bottom: "-20%" }}>
         <Image
           src={mentor.image}

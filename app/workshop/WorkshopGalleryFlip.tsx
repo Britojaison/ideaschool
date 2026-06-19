@@ -3,14 +3,22 @@
 import { useState } from "react";
 
 const images = [
-  { src: "https://assets.codepen.io/16327/portrait-pattern-1.jpg", alt: "Project 1" },
-  { src: "https://assets.codepen.io/16327/portrait-image-12.jpg", alt: "Project 2" },
-  { src: "https://assets.codepen.io/16327/portrait-pattern-3.jpg", alt: "Project 3" },
-  { src: "https://assets.codepen.io/16327/portrait-image-8.jpg", alt: "Project 4" },
-  { src: "https://assets.codepen.io/16327/portrait-image-2.jpg", alt: "Project 5" },
-  { src: "https://assets.codepen.io/16327/portrait-image-1.jpg", alt: "Project 6" },
-  { src: "https://assets.codepen.io/16327/portrait-image-4.jpg", alt: "Project 7" },
-  { src: "https://assets.codepen.io/16327/portrait-image-14.jpg", alt: "Project 8" },
+  // 1. Tall Left
+  { src: "https://assets.codepen.io/16327/portrait-image-1.jpg", alt: "Project 1" }, // Pink clouds
+  // 2. Top Center
+  { src: "https://assets.codepen.io/16327/portrait-image-12.jpg", alt: "Project 2" }, // Face
+  // 3. Tall Center
+  { src: "https://assets.codepen.io/16327/portrait-image-2.jpg", alt: "Project 3" }, // Shoe
+  // 4. Tall Right Top
+  { src: "https://assets.codepen.io/16327/portrait-image-8.jpg", alt: "Project 4" }, // Green pattern
+  // 5. Bottom Left 1
+  { src: "https://assets.codepen.io/16327/portrait-image-4.jpg", alt: "Project 5" }, // Keys
+  // 6. Tall Right Bottom
+  { src: "https://assets.codepen.io/16327/portrait-pattern-1.jpg", alt: "Project 6" }, // Pink lightning
+  // 7. Bottom Left 2
+  { src: "https://assets.codepen.io/16327/portrait-image-14.jpg", alt: "Project 7" }, // Black cat
+  // 8. Bottom Center
+  { src: "https://assets.codepen.io/16327/portrait-pattern-3.jpg", alt: "Project 8" }, // Orange pattern
 ];
 
 export default function WorkshopGalleryFlip() {

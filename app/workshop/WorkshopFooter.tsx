@@ -38,11 +38,11 @@ export default function WorkshopFooter() {
       <div className="footerMarqueeContainer">
         <div className="footerMarquee" ref={marqueeRef} style={{ display: "flex", width: "max-content", alignItems: "center" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <span>IDEA SCHOOL OF 88GB</span>
+            <span>IDEA CREATIVE SCHOOOL</span>
             <span className="marqueeAsterisk">✱</span>
           </div>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <span>IDEA SCHOOL OF 88GB</span>
+            <span>IDEA CREATIVE SCHOOL</span>
             <span className="marqueeAsterisk">✱</span>
           </div>
         </div>

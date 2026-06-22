@@ -13254,7 +13254,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopSiteFooter .marqueeAsterisk {
   color: #dafd55; /* The theme green */
-  padding: 0 2vw 0 5vw; /* Unequal padding to optically center it, compensating for the 'B' sticking out due to negative letter-spacing */
+  margin: 0 3vw; /* Add plenty of space on both sides so it doesn't touch the letters */
   font-size: clamp(4rem, 12vw, 10rem); /* slightly smaller than the text */
   transform: translateY(0.1em); /* optical alignment */
   display: inline-block;

@@ -385,20 +385,23 @@ export default function WorkshopGsapAnimations() {
       const marketStatsSection = document.querySelector(".marketStatsSection");
       const pricingSection = document.querySelector(".pricingCtaSection");
       if (marketStatsSection && pricingSection) {
-        gsap.fromTo(
-          marketStatsSection,
-          { y: 0 },
-          {
-            y: () => window.innerHeight, // Move down exactly 100vh to simulate a perfect pin
-            ease: "none",
-            scrollTrigger: {
-              trigger: pricingSection,
-              start: "top bottom",
-              end: "top top",
-              scrub: true,
-            },
-          }
-        );
+        const mm = gsap.matchMedia();
+        mm.add("(min-width: 768px)", () => {
+          gsap.fromTo(
+            marketStatsSection,
+            { y: 0 },
+            {
+              y: () => window.innerHeight, // Move down exactly 100vh to simulate a perfect pin
+              ease: "none",
+              scrollTrigger: {
+                trigger: pricingSection,
+                start: "top bottom",
+                end: "top top",
+                scrub: true,
+              },
+            }
+          );
+        });
       }
 
       // FAQ stacking animation removed as it overlaps content.

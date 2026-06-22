@@ -11664,6 +11664,209 @@ html.isHeroGlassCursorActive .hero * {
   padding: clamp(92px, 8vw, 124px) clamp(28px, 5.8vw, 112px) clamp(28px, 4.2vw, 70px);
 }
 
+.workshopThankYouPage {
+  --apply-section-x: clamp(28px, 5.8vw, 112px);
+  --course-green: #dafd55;
+  background: #fefffe;
+  color: #151515;
+}
+
+.workshopThankYouPage .thankYouHero {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(82px, 7.4vw, 108px) var(--apply-section-x) clamp(18px, 3vw, 34px);
+  background: #fefffe;
+}
+
+.workshopThankYouPage .thankYouHeroMedia {
+  background:
+    linear-gradient(rgba(21, 21, 21, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 21, 21, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 12% 88%, rgba(218, 253, 85, 0.18), transparent 18%),
+    #fefffe;
+  background-position: 0 0, calc(50% - 0.5px) 0, 0 0, 0 0;
+  background-size: 44px 44px, 44px 44px, 100% 100%, auto;
+}
+
+.workshopThankYouPage .thankYouHeroShade,
+.workshopThankYouPage .thankYouHero::after {
+  display: none;
+}
+
+.workshopThankYouPage .siteHeader {
+  justify-content: space-between;
+  min-height: clamp(78px, 8.2vw, 104px);
+  padding: 20px var(--apply-section-x);
+  background: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.workshopThankYouPage .brandLogo {
+  filter: invert(1);
+}
+
+.workshopThankYouPage .headerCta {
+  margin-left: auto;
+  min-width: clamp(164px, 13vw, 194px);
+  height: 45px;
+  min-height: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: var(--course-green);
+  color: #151515;
+  box-shadow: none;
+}
+
+.workshopThankYouPage .headerCta:hover,
+.workshopThankYouPage .headerCta:focus-visible {
+  border-color: rgba(0, 0, 0, 0.18);
+  background: #c9ef35;
+  box-shadow: none;
+  filter: none;
+}
+
+.workshopThankYouPage .headerCtaText,
+.workshopThankYouPage .primaryCtaText {
+  height: auto;
+  color: inherit;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-weight: 600;
+}
+
+.workshopThankYouPage .thankYouCard {
+  width: min(100%, 920px);
+  max-height: calc(100svh - clamp(112px, 11vw, 142px));
+  padding: clamp(24px, 3.4vw, 44px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.06);
+  color: #151515;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .workshopThankYouPage .thankYouCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 0, 0, 0.18);
+    box-shadow: 0 26px 58px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.workshopThankYouPage .thankYouPill {
+  min-height: 44px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(94.17deg, #151515 20.37%, #8eb80c 100%) border-box;
+  box-shadow: none;
+  color: #151515;
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  font-weight: 500;
+}
+
+.workshopThankYouPage .thankYouCard h1 {
+  max-width: 760px;
+  margin-top: clamp(18px, 2vw, 24px);
+  color: #151515;
+  font-family: "Bebas Neue", var(--font-heading);
+  font-size: clamp(4.5rem, 8vw, 8.9rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  word-spacing: 0.028em;
+  -webkit-text-stroke: 1.5px currentColor;
+}
+
+.workshopThankYouPage .thankYouCard h1 span {
+  display: block;
+  color: #93e400;
+}
+
+.workshopThankYouPage .thankYouCard p {
+  max-width: 680px;
+  margin-top: clamp(16px, 1.8vw, 22px);
+  color: rgba(21, 21, 21, 0.68);
+  font-size: clamp(1rem, 1.18vw, 1.18rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.workshopThankYouPage .thankYouMeta {
+  width: min(100%, 760px);
+  gap: 16px;
+  margin-top: clamp(18px, 2.4vw, 28px);
+}
+
+.workshopThankYouPage .thankYouMeta span {
+  min-height: 104px;
+  padding: 16px;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #f7f8f3;
+}
+
+.workshopThankYouPage .thankYouMeta strong {
+  color: #151515;
+}
+
+.workshopThankYouPage .thankYouMeta small {
+  color: rgba(21, 21, 21, 0.68);
+}
+
+.workshopThankYouPage .thankYouActions {
+  width: min(100%, 420px);
+  margin-top: clamp(20px, 2.8vw, 32px);
+}
+
+.workshopThankYouPage .thankYouActions .thankYouPrimaryCta {
+  width: min(100%, 320px);
+  min-height: 46px;
+  height: 46px;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 8px;
+  background: var(--course-green) !important;
+  box-shadow: none !important;
+  color: #151515;
+}
+
+.workshopThankYouPage .thankYouActions .thankYouPrimaryCta:hover {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+  background: #c9ef35 !important;
+  box-shadow: none !important;
+  filter: none;
+}
+
+@media (max-width: 720px) {
+  .workshopThankYouPage .thankYouHero {
+    padding-top: 92px;
+  }
+
+  .workshopThankYouPage .thankYouCard {
+    max-height: none;
+    padding: 24px 18px;
+  }
+
+  .workshopThankYouPage .thankYouCard h1 {
+    font-size: clamp(3.6rem, 15vw, 5.4rem);
+  }
+
+  .workshopThankYouPage .thankYouPill {
+    min-height: 40px;
+    padding: 0 22px;
+    font-size: 0.9rem;
+  }
+
+  .workshopThankYouPage .thankYouMeta span {
+    min-height: 0;
+  }
+}
+
 
 
 .workshopCoursePage .workshopHero::before {

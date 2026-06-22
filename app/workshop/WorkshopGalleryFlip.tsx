@@ -5,21 +5,21 @@ import { createPortal } from "react-dom";
 
 const images = [
   // 1. Tall Left
-  { src: "https://assets.codepen.io/16327/portrait-image-1.jpg", alt: "Project 1" }, // Pink clouds
+  { src: "/images/work1.webp", alt: "Project 1" },
   // 2. Top Center
-  { src: "https://assets.codepen.io/16327/portrait-image-12.jpg", alt: "Project 2" }, // Face
+  { src: "/images/work2.webp", alt: "Project 2" },
   // 3. Tall Center
-  { src: "https://assets.codepen.io/16327/portrait-image-2.jpg", alt: "Project 3" }, // Shoe
+  { src: "/images/WORK.webp", alt: "Project 3" },
   // 4. Tall Right Top
-  { src: "https://assets.codepen.io/16327/portrait-image-8.jpg", alt: "Project 4" }, // Green pattern
+  { src: "/images/WORK 2.webp", alt: "Project 4" },
   // 5. Bottom Left 1
-  { src: "https://assets.codepen.io/16327/portrait-image-4.jpg", alt: "Project 5" }, // Keys
+  { src: "/images/WORK heren.webp", alt: "Project 5" },
   // 6. Tall Right Bottom
-  { src: "https://assets.codepen.io/16327/portrait-pattern-1.jpg", alt: "Project 6" }, // Pink lightning
+  { src: "/images/Offline Campaign V2.webp", alt: "Project 6" },
   // 7. Bottom Left 2
-  { src: "https://assets.codepen.io/16327/portrait-image-14.jpg", alt: "Project 7" }, // Black cat
+  { src: "/images/Static 5.webp", alt: "Project 7" },
   // 8. Bottom Center
-  { src: "https://assets.codepen.io/16327/portrait-pattern-3.jpg", alt: "Project 8" }, // Orange pattern
+  { src: "/images/Static 7.webp", alt: "Project 8" },
 ];
 
 export default function WorkshopGalleryFlip() {

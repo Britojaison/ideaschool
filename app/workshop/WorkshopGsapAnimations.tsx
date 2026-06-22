@@ -381,28 +381,8 @@ export default function WorkshopGsapAnimations() {
         });
       }
 
-      // Stacking Animation: Fake Pin Market Stats so Pricing slides perfectly over it
-      const marketStatsSection = document.querySelector(".marketStatsSection");
-      const pricingSection = document.querySelector(".pricingCtaSection");
-      if (marketStatsSection && pricingSection) {
-        const mm = gsap.matchMedia();
-        mm.add("(min-width: 768px)", () => {
-          gsap.fromTo(
-            marketStatsSection,
-            { y: 0 },
-            {
-              y: () => window.innerHeight, // Move down exactly 100vh to simulate a perfect pin
-              ease: "none",
-              scrollTrigger: {
-                trigger: pricingSection,
-                start: "top bottom",
-                end: "top top",
-                scrub: true,
-              },
-            }
-          );
-        });
-      }
+      // Stacking animation for Market Stats and Pricing Section removed
+      // so that users can read the bottom cards without them being covered early by the next section.
 
       // FAQ stacking animation removed as it overlaps content.
 

@@ -162,7 +162,7 @@ export default function WorkshopLoadingScreen() {
           width={104}
           height={54}
           priority
-          style={{ objectFit: "contain", filter: "brightness(0)", width: "auto", height: "auto" }}
+          style={{ objectFit: "contain", filter: "brightness(0)" }}
         />
         <span style={{
           fontSize: "2.6rem",

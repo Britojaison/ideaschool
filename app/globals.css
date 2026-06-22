@@ -12864,6 +12864,12 @@ html.isHeroGlassCursorActive .hero * {
   pointer-events: none;
 }
 
+@media (max-width: 768px) {
+  .curriculumFlowBgText {
+    display: none !important;
+  }
+}
+
 .whatYouWillLearnHugeText {
   display: flex;
   align-items: center;

@@ -68,7 +68,7 @@ export default function WorkshopLoadingScreen() {
     let tl: gsap.core.Timeline;
 
     const startLoadTime = Date.now();
-    const minDisplayTime = 2500; // minimum time to show the loader
+    const minDisplayTime = 500; // minimum time to show the loader
 
     const handleLoad = () => {
       const elapsed = Date.now() - startLoadTime;

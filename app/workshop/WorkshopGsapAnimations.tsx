@@ -76,19 +76,19 @@ export default function WorkshopGsapAnimations() {
       const initHeroAnimations = () => {
         gsap
           .timeline({ defaults: { ease: "power3.out" } })
-          .fromTo(gsap.utils.toArray(".workshopHero .siteHeader"), { y: -28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.75 })
-          .fromTo(gsap.utils.toArray(".workshopHero .programEyebrowRow"), { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.72 }, "-=0.28")
-          .fromTo(gsap.utils.toArray(".workshopHero h1"), { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 1 }, "-=0.34")
-          .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCopy > p"), { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.46")
-          .fromTo(gsap.utils.toArray(".workshopHero .workshopHeroMeta"), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.66 }, "-=0.5")
-          .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCtas"), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.7 }, "-=0.48")
+          .fromTo(gsap.utils.toArray(".workshopHero .siteHeader"), { y: -28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4 })
+          .fromTo(gsap.utils.toArray(".workshopHero .programEyebrowRow"), { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.4 }, "-=0.2")
+          .fromTo(gsap.utils.toArray(".workshopHero h1"), { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 0.6 }, "-=0.2")
+          .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCopy > p"), { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.3")
+          .fromTo(gsap.utils.toArray(".workshopHero .workshopHeroMeta"), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.3")
+          .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCtas"), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.3")
           .fromTo(
             gsap.utils.toArray(".workshopHeroModel3D"),
             { autoAlpha: 0, filter: "blur(8px)" },
-            { autoAlpha: 1, filter: "blur(0px)", duration: 0.9 },
-            "-=0.76",
+            { autoAlpha: 1, filter: "blur(0px)", duration: 0.5 },
+            "-=0.4",
           )
-          .fromTo(gsap.utils.toArray(".workshopHero .longCourseStats"), { y: 30 }, { y: 0, autoAlpha: 1, duration: 0.72 }, "-=0.5");
+          .fromTo(gsap.utils.toArray(".workshopHero .longCourseStats"), { y: 30 }, { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.3");
       };
 
       if (document.querySelector(".workshop-loading-bg")) {
@@ -110,9 +110,9 @@ export default function WorkshopGsapAnimations() {
               y: 0,
               autoAlpha: 1,
               filter: "blur(0px)",
-              duration: 0.84,
+              duration: 0.45,
               ease: "power3.out",
-              stagger: 0.08,
+              stagger: 0.04,
               scrollTrigger: {
                 trigger: section,
                 start: "top 78%",
@@ -135,9 +135,9 @@ export default function WorkshopGsapAnimations() {
             y: 0,
             autoAlpha: 1,
             filter: "blur(0px)",
-            duration: 0.8,
+            duration: 0.45,
             ease: "back.out(1.7)",
-            stagger: 0.15,
+            stagger: 0.08,
             scrollTrigger: {
               trigger: ".curriculumIntro",
               start: "top 85%",
@@ -160,7 +160,7 @@ export default function WorkshopGsapAnimations() {
               y: 0,
               autoAlpha: 1,
               filter: "blur(0px)",
-              duration: 1,
+              duration: 0.5,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: card,
@@ -306,8 +306,8 @@ export default function WorkshopGsapAnimations() {
           opacity: 1,
           filter: "grayscale(0%)",
           scale: 1,
-          duration: 1,
-          stagger: 0.15,
+          duration: 0.6,
+          stagger: 0.08,
           ease: "power2.out",
         });
       }
@@ -343,8 +343,8 @@ export default function WorkshopGsapAnimations() {
         attendeesTl.to(bgCircles, {
           scale: 1,
           opacity: 0.5,
-          duration: 1.2,
-          stagger: 0.2,
+          duration: 0.6,
+          stagger: 0.1,
           ease: "power2.out"
         }, 0);
 
@@ -352,7 +352,7 @@ export default function WorkshopGsapAnimations() {
           autoAlpha: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
+          duration: 0.45,
           ease: "back.out(1.5)",
         }, 0.2);
 
@@ -362,9 +362,9 @@ export default function WorkshopGsapAnimations() {
             y: 0,
             rotationX: 0,
             scale: 1,
-            duration: 0.8,
+            duration: 0.5,
             ease: "power3.out"
-          }, 0.4 + index * 0.15);
+          }, 0.3 + index * 0.1);
         });
         
         // Add floating animation to circles regardless of scroll

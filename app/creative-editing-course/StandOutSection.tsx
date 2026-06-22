@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const standOutAvoids = [
@@ -156,14 +155,15 @@ export default function StandOutSection() {
           </div>
 
           <div className="standOutImageWrap">
-            <Image
-              src="/images/DSC01109.webp"
-              alt="Idea School mentor guiding a creative training session"
-              fill
-              loading="lazy"
-              decoding="async"
-              sizes="(max-width: 980px) 100vw, 620px"
+            <video
               className="standOutImage"
+              src="/images/edit_1.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-label="Video editing preview from Idea School"
             />
           </div>
         </div>

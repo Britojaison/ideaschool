@@ -367,42 +367,52 @@ export default function WorkshopPage() {
         <WorkshopGalleryFlip />
       </section>
 
-      <section className="workshopGsapSection flex flex-col lg:flex-row justify-center lg:min-h-[100vh] relative p-0 overflow-hidden bg-white" aria-label="About the instructor">
-        
-        {/* Left Side: Text Content */}
-        <div className="flex-1 flex flex-col justify-center items-start w-full px-8 md:px-12 lg:pl-[max(4rem,calc(50vw-720px))] lg:pr-16 pt-12 pb-8 lg:py-20 z-10" style={{ textAlign: "left" }}>
-          <span 
-            className="inline-block mb-6"
-            style={{
-              background: "#dafd55",
-              color: "#000",
-              fontWeight: 800,
-              fontSize: "0.9rem",
-              padding: "10px 24px",
-              border: "none",
-              textTransform: "uppercase",
-              letterSpacing: "1.5px",
-              boxShadow: "0 4px 14px rgba(218, 253, 85, 0.4)",
-              borderRadius: "999px"
-            }}
-          >
-            About The Instructor
-          </span>
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display max-w-2xl" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
-            Learn From a Working Creative Professional
-          </h2>
-          <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl">
-            With years of experience in video editing, motion graphics, and visual storytelling, Elamparidhi has worked with brands, creators, and agencies to produce content that performs. He brings real-world production workflows into every session — so you learn what actually works, not just theory.
-          </p>
-        </div>
+      <section className="workshopGsapSection flex flex-col justify-center lg:min-h-[100vh] relative p-0 overflow-hidden bg-white" aria-label="About the instructor">
+        <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row items-center justify-between">
+          {/* Left Side: Text Content */}
+          <div className="flex-1 flex flex-col justify-center items-start w-full px-6 md:px-12 lg:px-16 pt-12 pb-16 lg:py-24 z-10" style={{ textAlign: "left" }}>
+            <span 
+              className="inline-block mb-6"
+              style={{
+                background: "#dafd55",
+                color: "#000",
+                fontWeight: 800,
+                fontSize: "0.9rem",
+                padding: "10px 24px",
+                border: "none",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                boxShadow: "0 4px 14px rgba(218, 253, 85, 0.4)",
+                borderRadius: "999px"
+              }}
+            >
+              About The Instructor
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display max-w-2xl" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
+              Learn From a Working Creative Professional
+            </h2>
+            <p className="text-gray-600 text-lg md:text-xl font-light max-w-xl mb-8 leading-relaxed">
+              With over a decade of experience in video editing, motion graphics, and visual storytelling, Elamparidhi has collaborated with top-tier brands, creators, and agencies to produce high-performing content that drives results.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-xl border-t border-gray-200 pt-8">
+              <div>
+                <h4 className="text-black font-bold text-lg mb-2">Real-World Experience</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Head of Design at 88GB, leading high-stakes commercial projects and viral digital campaigns.</p>
+              </div>
+              <div>
+                <h4 className="text-black font-bold text-lg mb-2">Practical Approach</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Zero fluff. Learn the exact timelines, tools, and techniques used in professional studios today.</p>
+              </div>
+            </div>
+          </div>
 
-        {/* Right Side: Full Bleed Image */}
-        {mentors.length > 0 ? (
-          <WorkshopInstructorImage mentor={mentors[0]} />
-        ) : (
-          <div className="flex-1 relative w-full h-[60vh] lg:h-auto min-h-[100vh] m-0"></div>
-        )}
-        
+          {/* Right Side: Full Bleed Image */}
+          {mentors.length > 0 ? (
+            <WorkshopInstructorImage mentor={mentors[0]} />
+          ) : (
+            <div className="flex-1 relative w-full h-[60vh] lg:h-auto min-h-[100vh] m-0"></div>
+          )}
+        </div>
       </section>
 
       <section className="workshopTestimonialSection bg-[#F7F5F4] py-12 md:py-24 lg:py-32 px-6 md:px-12" aria-label="Student testimonials">

@@ -40,7 +40,7 @@ const workshop = {
   accent: "Master the skills top video editors use\nto land high-paying projects.",
   description:
     "Learn high-income video editing skills that are in demand by brands, creators, agencies and businesses, and master AI-powered video creation with Higgsfield AI.",
-  ctaLabel: "Reserve your workshop seat",
+  ctaLabel: "Register Now",
 };
 
 const workshopPaymentUrl = "https://rzp.io/rzp/L5kyyQlg";
@@ -250,7 +250,7 @@ export default function WorkshopPage() {
             />
           </Link>
           <a className="headerCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
-            <span className="headerCtaText">Register now</span>
+            <span className="headerCtaText">Register Now</span>
           </a>
         </header>
 
@@ -285,14 +285,7 @@ export default function WorkshopPage() {
                 <dd>English</dd>
               </div>
             </dl>
-            <div className="longCourseHeroCtas">
-              <a className="primaryCta programCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
-                <span className="primaryCtaText">{workshop.ctaLabel}</span>
-              </a>
-              <div className="hidden lg:block">
-                <WorkshopDrawSvg />
-              </div>
-            </div>
+
           </div>
 
         </div>
@@ -498,10 +491,10 @@ export default function WorkshopPage() {
       </section>
 
       {/* Pricing / CTA Section */}
-      <section className="pricingCtaSection flex flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-10 min-h-[100vh] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" aria-label="Reserve Your Seat">
+      <section className="pricingCtaSection flex flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-10 min-h-[100vh] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" aria-label="Register Now">
         <div className="max-w-[800px] mx-auto text-center relative z-10 w-full">
           <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
-            Reserve Your Seat
+            Register Now
           </h2>
           <div className="text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold leading-none mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
             ₹99
@@ -579,7 +572,7 @@ export default function WorkshopPage() {
             confidence needed for better projects.
           </p>
           <a className="primaryCta programCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
-            <span className="primaryCtaText">Register for the workshop</span>
+            <span className="primaryCtaText">Register Now</span>
           </a>
         </div>
       </section>

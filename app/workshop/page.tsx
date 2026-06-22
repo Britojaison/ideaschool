@@ -285,6 +285,12 @@ export default function WorkshopPage() {
                 <dd>English</dd>
               </div>
             </dl>
+            
+            <div className="longCourseHeroCtas">
+              <div className="hidden lg:block">
+                <WorkshopDrawSvg />
+              </div>
+            </div>
 
           </div>
 
@@ -360,7 +366,7 @@ export default function WorkshopPage() {
           <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>
             <span className="sectionPill">Our Work</span>
             <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)" }}>Watch Some Of Our Recent Projects</h2>
-            <p style={{ color: "rgba(255,255,255,0.7)" }}>Current local project videos are placed here. You can upload the final showcase videos later.</p>
+            <p style={{ color: "rgba(255,255,255,0.7)" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>
         </div>
 

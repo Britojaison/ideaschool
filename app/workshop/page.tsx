@@ -580,8 +580,13 @@ export default function WorkshopPage() {
               <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                 Register Now
               </h2>
-              <div className="text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold leading-none mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
-                ₹99
+              <div className="mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
+                <div className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none line-through decoration-[0.08em] decoration-black/80 opacity-75 mb-3">
+                  ₹1299
+                </div>
+                <div className="text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold leading-none">
+                  ₹99
+                </div>
               </div>
               <p className="text-lg md:text-2xl font-medium mb-12" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                 Access the complete live workshop experience.

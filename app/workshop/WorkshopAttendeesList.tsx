@@ -43,25 +43,15 @@ function AttendeeItem({ attendee, index }: { attendee: typeof attendeesData[0], 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: "32px",
-        backgroundColor: "#ffffff",
-        border: "1px solid rgba(0,0,0,0.1)",
-        borderRadius: "16px",
-        boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
-        height: "100%",
-      }}
-      whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.08)", transition: { duration: 0.3 } }}
+      className="group bg-white border-2 border-black rounded-2xl p-8 shadow-[6px_6px_0_0_#151515] hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none transition-all duration-200 flex flex-col h-full"
     >
-      <div style={{ fontSize: "16px", fontWeight: "bold", color: "#666", marginBottom: "16px", fontFamily: "var(--font-mono)", letterSpacing: "1px" }}>
-        / {attendee.num}
+      <div className="inline-flex items-center justify-center px-4 py-1.5 bg-[#dafd55] border-2 border-black rounded-full text-sm font-black text-black mb-6 w-fit font-mono">
+        {attendee.num}
       </div>
       <h3 style={{ fontSize: "clamp(1.5rem, 2vw, 2rem)", fontWeight: 900, color: "#000", margin: "0 0 16px 0", fontFamily: "'Bebas Neue', var(--font-heading)", letterSpacing: "0.5px" }}>
         {attendee.title}
       </h3>
-      <p style={{ fontSize: "1.1rem", color: "#333", lineHeight: 1.6, margin: 0, flex: 1 }}>
+      <p style={{ fontSize: "1.1rem", color: "#333", lineHeight: 1.6, margin: 0, flex: 1, fontWeight: 500 }}>
         {attendee.text}
       </p>
     </motion.div>

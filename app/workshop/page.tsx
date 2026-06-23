@@ -581,7 +581,7 @@ export default function WorkshopPage() {
                 Register Now
               </h2>
               <div className="mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
-                <div className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none line-through decoration-[0.08em] decoration-black/80 opacity-75 mb-3">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold leading-none line-through decoration-[0.08em] decoration-black/80 opacity-70 mb-3">
                   ₹1299
                 </div>
                 <div className="text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold leading-none">

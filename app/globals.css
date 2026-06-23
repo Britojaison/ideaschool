@@ -12300,11 +12300,12 @@ html.isHeroGlassCursorActive .hero * {
 .bentoGallery {
   display: grid;
   gap: 1vh;
-  grid-template-columns: repeat(3, 32.5vw);
-  grid-template-rows: repeat(4, 23vh);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 25vh 45vh 25vh;
   justify-content: center;
   align-content: center;
   width: 100%;
+  max-width: 98vw;
   margin: 0 auto;
 }
 
@@ -12329,15 +12330,19 @@ html.isHeroGlassCursorActive .hero * {
   transform: scale(1.05);
 }
 
-/* Row 1-4 grid mappings based on user layout */
-.bentoItem1 { grid-area: 1 / 1 / 3 / 2; }
-.bentoItem2 { grid-area: 1 / 2 / 2 / 3; }
-.bentoItem3 { grid-area: 2 / 2 / 4 / 3; }
-.bentoItem4 { grid-area: 1 / 3 / 3 / 4; }
-.bentoItem5 { grid-area: 3 / 1 / 4 / 2; }
-.bentoItem6 { grid-area: 3 / 3 / 5 / 4; }
-.bentoItem7 { grid-area: 4 / 1 / 5 / 2; }
-.bentoItem8 { grid-area: 4 / 2 / 5 / 3; }
+/* Top row: 3 images */
+.bentoItem1 { grid-area: 1 / 1 / 2 / 5; }
+.bentoItem2 { grid-area: 1 / 5 / 2 / 9; }
+.bentoItem4 { grid-area: 1 / 9 / 2 / 13; }
+
+/* Middle row: 1 video full width */
+.bentoItem3 { grid-area: 2 / 1 / 3 / 13; }
+
+/* Bottom row: 4 images */
+.bentoItem5 { grid-area: 3 / 1 / 4 / 4; }
+.bentoItem6 { grid-area: 3 / 4 / 4 / 7; }
+.bentoItem7 { grid-area: 3 / 7 / 4 / 10; }
+.bentoItem8 { grid-area: 3 / 10 / 4 / 13; }
 .bentoItem9 { display: none; }
 
 /* Modal */
@@ -12402,11 +12407,16 @@ html.isHeroGlassCursorActive .hero * {
     gap: 8px;
   }
 
-  .bentoItem1, .bentoItem2, .bentoItem3, .bentoItem4,
+  .bentoItem1, .bentoItem2, .bentoItem4,
   .bentoItem5, .bentoItem6, .bentoItem7, .bentoItem8 {
     grid-column: auto;
     grid-row: auto;
     grid-area: auto;
+  }
+  
+  .bentoItem3 {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 }
 

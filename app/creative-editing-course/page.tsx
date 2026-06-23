@@ -295,7 +295,7 @@ export default function CreativeEditingCoursePage() {
   return (
     <main className="longCoursePage">
       <ScrollTextReveal />
-      <RogMonitorHero3D className="longCourseFloatingModel3D" scrollZigZag travelAcrossPage />
+      {/* <RogMonitorHero3D className="longCourseFloatingModel3D" scrollZigZag travelAcrossPage /> */}
 
       <section className="longCourseHero" aria-label={course.title}>
         <div className="longCourseHeroMedia">
@@ -365,7 +365,7 @@ export default function CreativeEditingCoursePage() {
               </a>
             </div>
             <div className="longCourseHeroMobileModel" aria-hidden="true">
-              <RogMonitorHero3D />
+              {/* <RogMonitorHero3D /> */}
             </div>
           </div>
 

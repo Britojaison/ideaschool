@@ -1,118 +1,76 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { motion } from "motion/react";
-import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const attendeesData = [
   {
-    num: "S / 01",
+    num: "01",
     title: "FREELANCERS",
     text: "Freelancers who want to offer video editing services and increase their income.",
-    image: "/images/whoContent Creators.webp",
-    services: "Video Editing / Motion Graphics"
   },
   {
-    num: "S / 02",
-    title: "STUDENTS",
-    text: "College students seeking a high-demand skill with freelancing and career opportunities.",
-    image: "/images/whoStudents & Career Switchers.webp",
-    services: "Skill Building / Freelance"
+    num: "02",
+    title: "COLLEGE STUDENTS",
+    text: "College Students seeking a high-demand skill with freelancing and career opportunities.",
   },
   {
-    num: "S / 03",
+    num: "03",
     title: "VIDEO EDITORS",
-    text: "Video editors with basic skills who want to level up, increase earning potential, and work on higher-value projects.",
-    image: "/images/whoPhotographers & Videographers.webp",
-    services: "Advanced Workflow / High-Paying Projects"
+    text: "Video Editors with Basic Skills who want to level up, increase their earning potential, and work on higher-value projects.",
+  },
+  {
+    num: "04",
+    title: "CONTENT CREATORS",
+    text: "Content Creators who want to produce professional-quality content and grow faster on social media.",
+  },
+  {
+    num: "05",
+    title: "AGENCY OWNERS",
+    text: "Agency Owners who want to build an in-house video editing capability and reduce outsourcing costs.",
+  },
+  {
+    num: "06",
+    title: "CREATIVE PROFESSIONALS",
+    text: "Aspiring Creative Professionals who want to build a long-term career in the creator economy.",
   }
 ];
 
-function AttendeeRow({ attendee }: { attendee: typeof attendeesData[0] }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current || !imageRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        imageRef.current,
-        { yPercent: -10 },
-        {
-          yPercent: 10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
+function AttendeeItem({ attendee, index }: { attendee: typeof attendeesData[0], index: number }) {
   return (
-    <div ref={containerRef} style={{ width: "100%", marginBottom: "36px" }}>
-
-      {/* Animated Horizontal Line */}
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: "100%" }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: "#000", marginBottom: "28px" }}
-      />
-
-      {/* Row Content */}
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "34px" }}>
-
-        {/* Left Column (Text) */}
-        <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: "14px", fontWeight: "bold", color: "#000", marginBottom: "20px", letterSpacing: "1px" }}>
-            <span style={{ marginRight: "8px" }}>•</span>{attendee.num}
-          </div>
-
-          <h3 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#000", margin: "0 0 18px 0", display: "flex", alignItems: "center", gap: "12px", fontFamily: "'Bebas Neue', var(--font-heading)" }}>
-            <div style={{ width: "16px", height: "16px", background: "#000", borderRadius: "50%", flexShrink: 0 }} />
-            {attendee.title}
-          </h3>
-
-          <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.25rem)", color: "#000", lineHeight: 1.6, margin: 0, maxWidth: "80%" }}>
-            {attendee.text}
-          </p>
-
-        </div>
-
-        {/* Right Column (Image) */}
-        <div style={{ flex: "1 1 500px", position: "relative", minHeight: "500px", borderRadius: "8px", overflow: "hidden", backgroundColor: "#f5f5f5" }}>
-          <div ref={imageRef} style={{ position: "absolute", top: "-20%", left: 0, right: 0, bottom: "-20%" }}>
-            <Image
-              src={attendee.image}
-              alt={attendee.title}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        </div>
-
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        padding: "32px",
+        backgroundColor: "#ffffff",
+        border: "1px solid rgba(0,0,0,0.1)",
+        borderRadius: "16px",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
+        height: "100%",
+      }}
+      whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.08)", transition: { duration: 0.3 } }}
+    >
+      <div style={{ fontSize: "16px", fontWeight: "bold", color: "#666", marginBottom: "16px", fontFamily: "var(--font-mono)", letterSpacing: "1px" }}>
+        / {attendee.num}
       </div>
-    </div>
+      <h3 style={{ fontSize: "clamp(1.5rem, 2vw, 2rem)", fontWeight: 900, color: "#000", margin: "0 0 16px 0", fontFamily: "'Bebas Neue', var(--font-heading)", letterSpacing: "0.5px" }}>
+        {attendee.title}
+      </h3>
+      <p style={{ fontSize: "1.1rem", color: "#333", lineHeight: 1.6, margin: 0, flex: 1 }}>
+        {attendee.text}
+      </p>
+    </motion.div>
   );
 }
 
 export default function WorkshopAttendeesList() {
   return (
-    <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
+    <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 20px" }}>
 
       {/* Main Section Header */}
       <motion.div
@@ -120,23 +78,28 @@ export default function WorkshopAttendeesList() {
         whileInView={{ width: "100%" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: "#000" }}
+        style={{ height: "1px", background: "#000", marginBottom: "40px" }}
       />
 
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "22px 0" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px", gap: "20px" }}>
         <h2 style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 900, color: "#000", fontFamily: "var(--font-heading)", margin: 0, textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 1 }}>
           (WHO SHOULD ATTEND)
         </h2>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 4v16M19 13l-7 7-7-7" />
-          </svg>
+        <div style={{ fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)", fontWeight: 500, color: "#555", maxWidth: "500px", lineHeight: 1.4 }}>
+          Discover if this workshop is the right fit for your career goals.
         </div>
       </div>
 
-      {attendeesData.map((attendee, index) => (
-        <AttendeeRow key={index} attendee={attendee} />
-      ))}
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
+        gap: "24px",
+        marginBottom: "80px"
+      }}>
+        {attendeesData.map((attendee, index) => (
+          <AttendeeItem key={index} attendee={attendee} index={index} />
+        ))}
+      </div>
 
       {/* Final line at the bottom */}
       <motion.div

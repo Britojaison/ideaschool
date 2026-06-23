@@ -45,7 +45,7 @@ export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) 
 
   return (
     <div className="flex-1 w-full flex items-center justify-center p-6 md:p-12 lg:p-16 bg-white lg:bg-transparent">
-      <div ref={containerRef} className="relative w-full max-w-[500px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-black/5 transform transition-all duration-500 hover:shadow-3xl hover:-translate-y-2">
+      <div ref={containerRef} className="relative w-full max-w-[500px] aspect-[4/5] rounded-[2rem] overflow-hidden border-[3px] border-black shadow-[10px_10px_0_0_#151515] hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none transition-all duration-300">
         <div ref={imageRef} style={{ position: "absolute", top: "-10%", left: 0, right: 0, bottom: "-10%" }}>
           <Image
             src={mentor.image}
@@ -56,16 +56,16 @@ export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) 
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none"></div>
         
-        {/* Sleek Glass Nameplate */}
-        <div className="absolute bottom-6 left-6 right-6 lg:bottom-8 lg:left-8 lg:right-8 bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl z-20 shadow-2xl transition-transform hover:-translate-y-1 duration-300">
+        {/* Brutalist Pop Nameplate */}
+        <div className="absolute bottom-6 left-6 right-6 lg:bottom-8 lg:left-8 lg:right-8 bg-white border-[3px] border-black p-5 rounded-2xl z-20 shadow-[6px_6px_0_0_#151515] transition-transform hover:-translate-y-1 duration-300 group">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-xl lg:text-3xl font-bold text-white m-0 mb-1 drop-shadow-md">{mentor.name}</h3>
-              <p className="text-[#dafd55] font-semibold m-0 tracking-wide uppercase text-xs lg:text-sm">{mentor.role}</p>
+              <h3 className="text-2xl lg:text-3xl font-black text-black m-0 mb-1 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)", letterSpacing: "1px" }}>{mentor.name}</h3>
+              <p className="text-black font-bold m-0 tracking-wider uppercase text-xs lg:text-sm">{mentor.role}</p>
             </div>
-            <div className="w-10 h-10 rounded-full bg-[#dafd55] flex items-center justify-center shadow-[0_0_15px_rgba(218,253,85,0.5)] flex-shrink-0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12L10 17L20 7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <div className="w-12 h-12 rounded-full bg-[#dafd55] border-2 border-black shadow-[2px_2px_0_0_#151515] flex items-center justify-center flex-shrink-0 group-hover:bg-[#d2bbf4] transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12L10 17L20 7" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
           </div>

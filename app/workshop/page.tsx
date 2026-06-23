@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Script from "next/script";
-import Link from "next/link";
 import DetailsSectionMotion from "../creative-editing-course/DetailsSectionMotion";
 import OutcomeCards from "../creative-editing-course/OutcomeCards";
 import ScrollTextReveal from "../ScrollTextReveal";
@@ -237,29 +235,6 @@ const faqs = [
 export default function WorkshopPage() {
   return (
     <main className="longCoursePage workshopCoursePage">
-      <Script id="workshop-meta-pixel" strategy="afterInteractive">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '918701714590381');
-          fbq('track', 'PageView');
-        `}
-      </Script>
-      <noscript>
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          src="https://www.facebook.com/tr?id=918701714590381&ev=PageView&noscript=1"
-          alt=""
-        />
-      </noscript>
       <WorkshopLoadingScreen />
       <WorkshopGsapAnimations />
       <div id="smooth-wrapper" className="workshopSmoothWrapper">
@@ -272,7 +247,7 @@ export default function WorkshopPage() {
             <div className="longCourseHeroShade" />
 
             <header className="siteHeader">
-              <Link className="brand" href="/" aria-label="Idea School home">
+              <a className="brand" href="/workshop" aria-label="Refresh workshop page">
                 <Image
                   src="/images/idea logo.webp"
                   alt="Idea"
@@ -281,7 +256,7 @@ export default function WorkshopPage() {
                   priority
                   className="brandLogo"
                 />
-              </Link>
+              </a>
               <a className="headerCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
                 <span className="headerCtaText">Register Now</span>
               </a>

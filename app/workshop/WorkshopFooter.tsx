@@ -61,7 +61,7 @@ export default function WorkshopFooter() {
         <div className="footerRight">
           <nav className="footerLinksGrid" aria-label="Footer navigation">
             <div className="footerLinkCol">
-              <h3 style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Social Media</h3>
+              <h3>Social Media</h3>
               <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">Instagram</a>
               <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>

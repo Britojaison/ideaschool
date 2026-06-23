@@ -224,6 +224,14 @@ const faqs = [
     question: "How long is the workshop?",
     answer: "2 days of intensive live training with practical exercises.",
   },
+  {
+    question: "Can I ask questions during the workshop?",
+    answer: "Yes. There will be dedicated Q&A sessions where you can interact directly with the instructor.",
+  },
+  {
+    question: "What makes this workshop different from YouTube tutorials?",
+    answer: "Instead of random tutorials, you'll learn a structured editing system focused on retention, storytelling, and professional workflows.",
+  },
 ];
 
 export default function WorkshopPage() {
@@ -589,7 +597,7 @@ export default function WorkshopPage() {
             {/* FAQ Accordion - Left Side */}
             <div className="flex-1">
               {faqs.map((item, index) => (
-                <details className="group border-t border-black/20 [&:last-child]:border-b" key={item.question} open={item.open}>
+                <details className="group border-t border-black/20 [&:last-child]:border-b" key={item.question} open={item.open} name="workshop-faq">
                   <summary className="flex justify-between items-center py-6 md:py-8 cursor-pointer list-none outline-none [&::-webkit-details-marker]:hidden">
                     <div className="text-lg md:text-xl font-medium text-black pr-8" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                       {item.question}

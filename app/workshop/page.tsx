@@ -487,7 +487,7 @@ export default function WorkshopPage() {
                   >
                     <div>
                       <div className="flex justify-between items-start mb-6">
-                        <p className="text-xl md:text-2xl font-medium leading-snug text-black max-w-md pr-6" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+                        <p className="text-xl md:text-2xl font-normal leading-snug text-black max-w-md pr-6" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                           {testimonial.quote}
                         </p>
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 mt-1">

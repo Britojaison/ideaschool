@@ -12596,7 +12596,7 @@ html.isHeroGlassCursorActive .hero * {
 @media (max-width: 980px) {
   .workshopCoursePage .workshopHero {
     align-items: flex-start;
-    padding-top: clamp(80px, 15vw, 110px);
+    padding-top: clamp(100px, 18vw, 130px);
   }
 
   .workshopCoursePage .workshopHero::before {
@@ -12661,7 +12661,7 @@ html.isHeroGlassCursorActive .hero * {
     align-self: stretch;
     width: 100%;
     max-width: 100%;
-    padding-top: clamp(10px, 4vw, 30px);
+    padding-top: clamp(20px, 5.5vw, 50px);
     font-size: clamp(3.1rem, 15.2vw, 7rem);
   }
 

@@ -381,15 +381,15 @@ export default function WorkshopPage() {
 
               <div className="courseWeekList">
                 {curriculumDays.map((day) => (
-                  <article className="courseWeek" key={day.week}>
+                  <article className="courseWeek bg-white border-2 border-black rounded-2xl shadow-[6px_6px_0_0_#151515] hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none transition-all duration-200" style={{ borderColor: "#000" }} key={day.week}>
                     <div className="courseWeekMeta">
-                      <span>{day.week}</span>
+                      <span className="inline-flex items-center justify-center px-4 py-1 bg-[#dafd55] border-2 border-black rounded-full text-sm font-black text-black font-mono w-fit" style={{ background: "#dafd55", color: "#000" }}>{day.week}</span>
                       <h3>{day.module}</h3>
                     </div>
                     <div className="courseWeekGrid">
                       {day.sections.map((section, idx) => (
-                        <div key={idx}>
-                          <strong>{section.title}</strong>
+                        <div key={idx} className="border-2 !border-black rounded-xl shadow-[4px_4px_0_0_#151515] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all duration-200" style={{ borderColor: "#000" }}>
+                          <strong className="inline-flex px-3 py-1 bg-[#d2bbf4] border-2 border-black rounded-full text-black text-xs font-black uppercase mb-4 shadow-[2px_2px_0_0_#151515] w-fit tracking-wider" style={{ color: "#000" }}>{section.title}</strong>
                           <ul style={{ paddingLeft: "16px", listStyleType: "disc" }}>
                             {section.items.map((item, i) => (
                               <li key={i} style={{ paddingBottom: "6px" }}>{item}</li>

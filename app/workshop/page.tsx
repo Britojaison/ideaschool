@@ -300,20 +300,20 @@ export default function WorkshopPage() {
                   Learn in-demand editing skills for brands, creators, agencies, and AI-powered video
                   creation with Higgsfield AI.
                 </p>
-                <dl className="workshopHeroMeta" aria-label="Workshop details">
-                  <div>
+                <dl className="workshopHeroMeta !gap-4" aria-label="Workshop details">
+                  <div className="bg-white/80 backdrop-blur-md border border-black/10 shadow-sm rounded-2xl p-4 hover:-translate-y-1 transition-transform duration-300">
                     <dt>Date</dt>
                     <dd>Coming Soon</dd>
                   </div>
-                  <div>
+                  <div className="bg-white/80 backdrop-blur-md border border-black/10 shadow-sm rounded-2xl p-4 hover:-translate-y-1 transition-transform duration-300">
                     <dt>Time</dt>
                     <dd>6 PM - 8 PM</dd>
                   </div>
-                  <div>
+                  <div className="bg-white/80 backdrop-blur-md border border-black/10 shadow-sm rounded-2xl p-4 hover:-translate-y-1 transition-transform duration-300">
                     <dt>Live</dt>
                     <dd>On Zoom</dd>
                   </div>
-                  <div>
+                  <div className="bg-white/80 backdrop-blur-md border border-black/10 shadow-sm rounded-2xl p-4 hover:-translate-y-1 transition-transform duration-300">
                     <dt>Language</dt>
                     <dd>English</dd>
                   </div>

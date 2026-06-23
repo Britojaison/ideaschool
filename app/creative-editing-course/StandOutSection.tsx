@@ -154,18 +154,7 @@ export default function StandOutSection() {
             ))}
           </div>
 
-          <div className="standOutImageWrap">
-            <video
-              className="standOutImage"
-              src="/images/edit_1.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              aria-label="Video editing preview from Idea School"
-            />
-          </div>
+
         </div>
       </div>
     </section>

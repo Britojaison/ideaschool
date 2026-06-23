@@ -14,6 +14,7 @@ import RogMonitorHero3D from "./RogMonitorHero3D";
 import ScheduleSection from "./ScheduleSection";
 import BeforeAfterSplit from "./BeforeAfterSplit";
 import CountdownTimer from "./CountdownTimer";
+import ContactForm from "../ContactForm";
 
 const LazyCurriculumDotField = dynamic(() => import("./LazyCurriculumDotField"), {
   loading: () => null,
@@ -692,16 +693,22 @@ export default function CreativeEditingCoursePage() {
         </div>
       </section>
 
-      <section className="longCourseApply" id="apply" aria-label="Apply for course">
-        <div className="longCourseApplyInner">
-          <h2>Ready To Build Your Editing Career?</h2>
-          <p>
-            Join the next Idea School cohort and move from software practice to portfolio
-            work, feedback, and internship delivery.
-          </p>
-          <Link className="primaryCta programCta" href="/#contact">
-            <span className="primaryCtaText">Talk to Idea School</span>
-          </Link>
+      <section className="contactSection" id="apply" aria-label="Apply for course">
+        <div className="contactInner">
+          <div className="contactCopy">
+            <h2>
+              Ready To Build Your Editing Career?
+            </h2>
+            <p>
+              Join the next Idea School cohort and move from software practice to portfolio
+              work, feedback, and internship delivery.
+            </p>
+            <a className="contactPhone" href="tel:+918618894857">
+              Contact us : 8618894857
+            </a>
+          </div>
+
+          <ContactForm />
         </div>
       </section>
 

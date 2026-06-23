@@ -18,6 +18,7 @@ import WorkshopFooter from "./WorkshopFooter";
 import WorkshopInstructorImage from "./WorkshopInstructorImage";
 import WorkshopFaqImage from "./WorkshopFaqImage";
 import WorkshopGalleryFlip from "./WorkshopGalleryFlip";
+import WorkshopStickyBanner from "./WorkshopStickyBanner";
 
 const LazyCurriculumDotField = dynamic(
   () => import("../creative-editing-course/LazyCurriculumDotField"),
@@ -294,11 +295,11 @@ export default function WorkshopPage() {
             <dl className="workshopHeroMeta" aria-label="Workshop details">
               <div>
                 <dt>Date</dt>
-                <dd>19th-20th-21st June 2026</dd>
+                <dd>Coming Soon</dd>
               </div>
               <div>
                 <dt>Time</dt>
-                <dd>06:30 PM - 9 PM</dd>
+                <dd>6 PM - 8 PM</dd>
               </div>
               <div>
                 <dt>Live</dt>
@@ -620,6 +621,7 @@ export default function WorkshopPage() {
       <WorkshopFooter />
         </div>
       </div>
+      <WorkshopStickyBanner />
     </main>
   );
 }

@@ -5,19 +5,19 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 const tools = [
   { 
-    label: "Premiere Pro", bg: "#ffffff", color: "#000000", width: "55%", borderRadius: "24px", zIndex: 1,
+    label: "Premiere Pro", icon: "/images/adobepremierepro.svg", bg: "#ffffff", color: "#000000", width: "55%", borderRadius: "24px", zIndex: 1,
     xRange: [-80, 80], yRange: [-40, 40], rotateRange: [-12, 12] 
   },
   { 
-    label: "After Effects", bg: "#dafd55", color: "#000000", width: "75%", borderRadius: "100px", zIndex: 2,
+    label: "After Effects", icon: "/images/after effects.png", bg: "#dafd55", color: "#000000", width: "75%", borderRadius: "100px", zIndex: 2,
     xRange: [-40, 40], yRange: [-20, 20], rotateRange: [-6, 6] 
   },
   { 
-    label: "Audio Tools", bg: "#d2bbf4", color: "#000000", width: "65%", borderRadius: "32px", zIndex: 3,
+    label: "Audio Tools", icon: "/images/Audio tools.jpg.avif", bg: "#d2bbf4", color: "#000000", width: "65%", borderRadius: "32px", zIndex: 3,
     xRange: [40, -40], yRange: [20, -20], rotateRange: [5, -5] 
   },
   { 
-    label: "Higgsfield AI", bg: "#000000", color: "#ffffff", width: "60%", borderRadius: "100px", zIndex: 4,
+    label: "Higgsfield AI", icon: "/images/higgsfiled.png", bg: "#000000", color: "#ffffff", width: "60%", borderRadius: "100px", zIndex: 4,
     xRange: [90, -90], yRange: [50, -50], rotateRange: [15, -15] 
   },
 ];
@@ -66,6 +66,7 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          gap: "clamp(12px, 2vw, 24px)",
           fontSize: "clamp(28px, 4.5vw, 56px)",
           fontWeight: "500",
           fontFamily: "var(--font-heading)",
@@ -77,6 +78,20 @@ function ToolCard({ tool, smoothX, smoothY, index }: any) {
           cursor: "default"
         } as any}
       >
+        {tool.icon && (
+          <img 
+            src={tool.icon} 
+            alt={tool.label} 
+            style={{ 
+              height: "1.2em",
+              width: "auto",
+              objectFit: "contain",
+              display: "block",
+              pointerEvents: "none",
+              borderRadius: "8px"
+            }} 
+          />
+        )}
         {tool.label}
       </motion.div>
     </motion.div>

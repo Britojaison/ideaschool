@@ -618,7 +618,7 @@ export default function CreativeEditingCoursePage() {
         <div className="longCourseSectionInner">
           <div className="careersIntro">
             <span className="sectionPill">Where Idea School editors go</span>
-            <h2>The skills you build here are what the market is actively hiring for and paying a premium on - right now.</h2>
+            <h2>Build the exact skills the market pays a premium for right now.</h2>
           </div>
 
           <div className="careerStatsGrid">

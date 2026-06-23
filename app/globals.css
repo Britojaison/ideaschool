@@ -5238,6 +5238,20 @@ html.isHeroGlassCursorActive .hero * {
   letter-spacing: -0.01em;
 }
 
+.feeCallout .priceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.feeCallout .priceContainer .strikethroughPrice {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  text-decoration: line-through;
+  text-shadow: none;
+}
+
 .feeCallout p {
   max-width: 480px;
   margin: 8px auto 0;

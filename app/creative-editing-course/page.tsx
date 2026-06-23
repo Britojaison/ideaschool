@@ -571,7 +571,10 @@ export default function CreativeEditingCoursePage() {
             <h2>Fees And Enrollment</h2>
             <div className="feeCallout">
               <span>Full Program Fee</span>
-              <strong>₹69,999</strong>
+              <div className="priceContainer">
+                <strong className="strikethroughPrice">₹69,999</strong>
+                <strong>₹39,999</strong>
+              </div>
               <p>Seats are limited so every learner gets attention, feedback, and room to practice.</p>
             </div>
             <dl className="programDetailTable">

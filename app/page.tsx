@@ -3,6 +3,7 @@ import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
 import FeedbackTestimonials from "./FeedbackTestimonials";
 import HashScrollFix from "./HashScrollFix";
+import ContactForm from "./ContactForm";
 import LiquidApplyButton from "./LiquidApplyButton";
 import LiquidBatchNotice from "./LiquidBatchNotice";
 import LiquidQuickActions from "./LiquidQuickActions";
@@ -532,32 +533,7 @@ export default function Home() {
             </a>
           </div>
 
-          <form className="applyForm" id="apply">
-            <div className="formRow">
-              <label>
-                <span>First Name</span>
-                <input type="text" name="firstName" autoComplete="given-name" />
-              </label>
-              <label>
-                <span>Last Name</span>
-                <input type="text" name="lastName" autoComplete="family-name" />
-              </label>
-            </div>
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" autoComplete="email" />
-            </label>
-            <label>
-              <span>Phone</span>
-              <input type="tel" name="phone" autoComplete="tel" />
-            </label>
-            <label>
-              <span>Message (optional)</span>
-              <textarea name="message" rows={4} />
-            </label>
-            <button type="submit">Apply now</button>
-            <p>Limited seats available for the upcoming batch.</p>
-          </form>
+          <ContactForm />
         </div>
       </section>
 

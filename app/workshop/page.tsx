@@ -482,7 +482,23 @@ export default function WorkshopPage() {
       <section className="marketStatsSection py-20 md:py-32 px-6 md:px-12 bg-[#0a0a0a] text-white min-h-[100vh] flex flex-col justify-center relative z-0" aria-label="Market Opportunities">
         <div className="max-w-[1440px] mx-auto w-full">
           <div className="text-center mb-16 md:mb-24">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#dafd55] mb-6 block">Career Potential</span>
+            <span 
+              className="inline-block mb-6"
+              style={{
+                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                background: "#dafd55",
+                color: "#000",
+                fontWeight: 800,
+                fontSize: "0.9rem",
+                padding: "10px 24px",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                boxShadow: "0 4px 14px rgba(218, 253, 85, 0.4)",
+                borderRadius: "999px"
+              }}
+            >
+              Career Potential
+            </span>
             <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-6 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
               Where Idea School Editors Go
             </h2>

@@ -22,7 +22,7 @@ export default function WorkshopStickyBanner() {
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed bottom-0 left-0 right-0 z-[9999] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-8 bg-[#dafd55] shadow-[0_-10px_40px_rgba(0,0,0,0.15)] p-5 md:px-6 md:py-4"
+          className="fixed bottom-0 left-0 right-0 z-[9999] flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-8 bg-[#dafd55] shadow-[0_-10px_40px_rgba(0,0,0,0.15)] p-3 md:px-6 md:py-4"
         >
           {/* Mobile Close Button (Absolute top right) */}
           <button 
@@ -37,7 +37,7 @@ export default function WorkshopStickyBanner() {
 
           <div className="flex-1 flex flex-col lg:flex-row items-start lg:items-center gap-2 lg:gap-12 w-full md:w-auto pr-8 md:pr-0">
             <h3 
-              className="text-xl md:text-3xl lg:text-4xl font-bold leading-none text-black m-0 p-0 tracking-tight"
+              className="text-lg md:text-3xl lg:text-4xl font-bold leading-tight md:leading-none text-black m-0 p-0 tracking-tight"
               style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
             >
               Ready to learn video editing skills that pay?
@@ -52,7 +52,7 @@ export default function WorkshopStickyBanner() {
               href="https://rzp.io/rzp/L5kyyQlg" 
               target="_blank" 
               rel="noreferrer"
-              className="flex items-center justify-center border border-black rounded-full px-6 py-3 w-full md:w-auto text-black font-medium text-base hover:bg-black hover:text-white hover:!text-white transition-colors group"
+              className="flex items-center justify-center border border-black rounded-full px-6 py-2 md:py-3 w-full md:w-auto text-black font-medium text-sm md:text-base hover:bg-black hover:text-white hover:!text-white transition-colors group"
               style={{ whiteSpace: "nowrap" }}
             >
               <span className="group-hover:text-white transition-colors">Register Now</span>

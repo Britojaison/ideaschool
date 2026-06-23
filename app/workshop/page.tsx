@@ -475,7 +475,7 @@ export default function WorkshopPage() {
 
           <section className="workshopTestimonialSection bg-[#F7F5F4] py-12 md:py-24 lg:py-32 px-6 md:px-12" aria-label="Student testimonials">
             <div className="max-w-[1440px] mx-auto">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-20 lg:mb-32 max-w-5xl leading-tight text-black tracking-tight" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-20 lg:mb-32 max-w-5xl leading-[1.1] text-black tracking-wide uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                 We believe in the best practical training, because we know it helps our students land high-paying projects.
               </h2>
 

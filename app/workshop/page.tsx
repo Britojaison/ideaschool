@@ -135,7 +135,7 @@ const schedule = [
 
 const mentors = [
   {
-    name: "Elamparidhi",
+    name: "Elamparithi",
     role: "Head of Design, 88GB",
     image: "/images/mentor_PARIDHI.webp",
     accent: "mint",
@@ -450,7 +450,7 @@ export default function WorkshopPage() {
                   Learn From a Working Creative Professional
                 </h2>
                 <p className="text-gray-600 text-lg md:text-xl font-light max-w-xl mb-8 leading-relaxed">
-                  With over a decade of experience in video editing, motion graphics, and visual storytelling, Elamparidhi has collaborated with top-tier brands, creators, and agencies to produce high-performing content that drives results.
+                  With over a decade of experience in video editing, motion graphics, and visual storytelling, Elamparithi has collaborated with top-tier brands, creators, and agencies to produce high-performing content that drives results.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-xl border-t border-gray-200 pt-8">
                   <div>

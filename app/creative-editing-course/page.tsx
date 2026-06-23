@@ -202,7 +202,7 @@ const mentors = [
     accent: "green",
   },
   {
-    name: "Elamparidhi",
+    name: "Elamparithi",
     role: "Head of Design, 88GB",
     image: "/images/mentor_PARIDHI.webp",
     accent: "mint",

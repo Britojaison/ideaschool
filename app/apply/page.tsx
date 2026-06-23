@@ -147,7 +147,7 @@ const attendees = [
 
 const instructors = [
   { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.webp" },
-  { name: "Elamparidhi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.webp" },
+  { name: "Elamparithi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.webp" },
   { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.webp" },
   { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.webp" },
 ];

@@ -12226,14 +12226,6 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow: 8px 8px 0 0 #151515;
   outline: 3px solid var(--course-green);
   outline-offset: -5px;
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .workshopHeroVideoPanel:hover {
-    box-shadow: none;
-    transform: translate(8px, 8px);
-  }
 }
 
 .workshopHeroVideo {

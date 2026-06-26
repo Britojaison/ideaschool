@@ -12257,27 +12257,45 @@ html.isHeroGlassCursorActive .hero * {
   pointer-events: none;
 }
 
-.workshopHeroVideoPlay {
+.workshopHeroVideoPanel .videoMuteButton {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 16px;
+  right: 16px;
+  bottom: auto;
   z-index: 4;
-  display: grid;
-  place-items: center;
-  width: clamp(58px, 5.2vw, 78px);
-  height: clamp(58px, 5.2vw, 78px);
+  color: #151515;
+}
+
+.workshopHeroVideoPanel .videoMuteButton:hover {
+  transform: translate(3px, 3px);
+  filter: none;
+}
+
+.workshopHeroVideoPanel .videoMuteGlass {
+  width: 46px;
+  height: 46px;
+  flex-basis: 46px;
   border: 2px solid #151515;
   border-radius: 999px;
   background: var(--course-green);
-  color: #151515;
   box-shadow: 4px 4px 0 0 #151515;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
 }
 
-.workshopHeroVideoPlay svg {
-  display: block;
-  margin-left: 4px;
+.workshopHeroVideoPanel .videoMuteButton:hover .videoMuteGlass {
+  box-shadow: 1px 1px 0 0 #151515;
+}
+
+.workshopHeroVideoPanel .videoMuteButton:focus-visible .videoMuteGlass {
+  box-shadow:
+    4px 4px 0 0 #151515,
+    0 0 0 3px rgba(218, 253, 85, 0.42);
+}
+
+.workshopHeroVideoPanel .videoMuteIcon {
+  width: 30px;
+  height: 30px;
+  color: #151515;
+  filter: none;
 }
 
 .workshopHeroModel3D {

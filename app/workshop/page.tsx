@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import DetailsSectionMotion from "../creative-editing-course/DetailsSectionMotion";
+import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
 import OutcomeCards from "../creative-editing-course/OutcomeCards";
 import ScrollTextReveal from "../ScrollTextReveal";
 import TiltedCard from "../TiltedCard";
@@ -266,18 +267,19 @@ export default function WorkshopPage() {
             <div className="longCourseHeroInner">
               <div className="workshopHeroVideoPanel" aria-label="Workshop preview video">
                 <video
+                  id="workshop-hero-video"
                   className="workshopHeroVideo"
                   src={workshopHeroVideoSrc}
                   autoPlay
                   muted
                   loop
                   playsInline
+                  disablePictureInPicture
+                  disableRemotePlayback
+                  controlsList="nodownload noplaybackrate noremoteplayback"
+                  preload="auto"
                 />
-                <div className="workshopHeroVideoPlay" aria-hidden="true">
-                  <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
+                <LiquidVideoMuteButton targetId="workshop-hero-video" />
               </div>
 
               <div className="longCourseHeroCopy">

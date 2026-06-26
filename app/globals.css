@@ -11959,7 +11959,6 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopCoursePage .longCourseHeroCopy h1,
-.workshopCoursePage .workshopHeroDisplay,
 .workshopCoursePage .longCourseHeroCopy h1>span,
 .workshopCoursePage .longCourseHeroAccentEncrypted,
 .workshopCoursePage .longCourseHeroAccentRevealed,
@@ -11974,10 +11973,6 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopCoursePage .longCourseHeroCopy h1>span {
   color: #5f8100;
-}
-
-.workshopCoursePage .workshopHeroDisplay span {
-  color: #93e400;
 }
 
 .workshopCoursePage .longCourseHeroCopy>p,
@@ -12115,7 +12110,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopCoursePage .longCourseHeroCopy .programEyebrowRow,
 .workshopCoursePage .longCourseHeroCopy h1,
-.workshopCoursePage .workshopHeroDisplay,
+.workshopCoursePage .workshopHeroVideoPanel,
 .workshopCoursePage .longCourseHeroCopy>p,
 .workshopCoursePage .longCourseHeroCopy .longCourseHeroCtas,
 .workshopCoursePage .longCourseStats,
@@ -12146,24 +12141,25 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopHero .longCourseHeroInner {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 2;
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 3vw, 32px);
+  align-items: center;
   width: 100%;
-  min-height: 0;
-  margin: 0;
+  max-width: 1440px;
+  min-height: calc(100svh - clamp(148px, 13vw, 194px));
+  margin: 0 auto;
   transform: none;
 }
 
 .workshopHero .longCourseHeroCopy {
-  position: absolute;
-  top: var(--workshop-hero-text-top);
-  left: var(--workshop-hero-side);
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  width: min(calc(50vw - var(--workshop-hero-side) - var(--workshop-hero-gap)), 520px);
+  justify-content: center;
+  width: min(100%, 520px);
   max-width: 520px;
   min-height: 0;
   padding-top: 0;
@@ -12216,35 +12212,72 @@ html.isHeroGlassCursorActive .hero * {
   margin-top: clamp(28px, 3.8vw, 48px);
 }
 
-.workshopHeroDisplay {
-  position: absolute;
-  top: var(--workshop-hero-text-top);
-  right: var(--workshop-hero-side);
-  z-index: 2;
-  width: max-content;
-  max-width: none;
-  margin: 0;
-  padding-top: 0;
-  font-family: "Bebas Neue", var(--font-heading);
-  font-size: clamp(7.15rem, 8.25vw, 12.25rem);
-  font-weight: 800;
-  -webkit-text-stroke: 2px currentColor;
-  line-height: 0.95;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  word-spacing: 0.024em;
+.workshopHeroVideoPanel {
+  position: relative;
+  order: 2;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 2px solid #151515;
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(218, 253, 85, 0.22), rgba(218, 253, 85, 0) 36%),
+    #050608;
+  box-shadow: 8px 8px 0 0 #151515;
+  outline: 3px solid var(--course-green);
+  outline-offset: -5px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-.workshopCoursePage .workshopHeroDisplay span {
+@media (hover: hover) and (pointer: fine) {
+  .workshopHeroVideoPanel:hover {
+    box-shadow: none;
+    transform: translate(8px, 8px);
+  }
+}
+
+.workshopHeroVideo {
   display: block;
-  color: #151515;
-  white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.workshopCoursePage .workshopHeroDisplay em,
-.workshopCoursePage .workshopHeroDisplay .workshopHeroDisplayAccent {
-  color: #93e400;
-  font-style: normal;
+.workshopHeroVideoPanel::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(rgba(218, 253, 85, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(218, 253, 85, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 44%, rgba(0, 0, 0, 0.28) 100%);
+  background-size: 18px 18px, 18px 18px, auto;
+  mix-blend-mode: screen;
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+.workshopHeroVideoPlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: clamp(58px, 5.2vw, 78px);
+  height: clamp(58px, 5.2vw, 78px);
+  border: 2px solid #151515;
+  border-radius: 999px;
+  background: var(--course-green);
+  color: #151515;
+  box-shadow: 4px 4px 0 0 #151515;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.workshopHeroVideoPlay svg {
+  display: block;
+  margin-left: 4px;
 }
 
 .workshopHeroModel3D {
@@ -12664,8 +12697,8 @@ html.isHeroGlassCursorActive .hero * {
   .workshopHero .longCourseHeroInner {
     position: relative;
     inset: auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 24px;
     width: min(100%, 720px);
     min-height: 0;
@@ -12677,7 +12710,7 @@ html.isHeroGlassCursorActive .hero * {
     top: auto;
     left: auto;
     transform: none;
-    order: 1;
+    order: 2;
     width: 100%;
     max-width: 100%;
     min-height: 0;
@@ -12700,18 +12733,16 @@ html.isHeroGlassCursorActive .hero * {
     margin-top: 24px;
   }
 
-  .workshopHeroDisplay {
+  .workshopHeroVideoPanel {
     position: relative;
     top: auto;
     left: auto;
     right: auto;
     transform: none;
-    order: 0;
+    order: 1;
     align-self: stretch;
     width: 100%;
     max-width: 100%;
-    padding-top: clamp(20px, 5.5vw, 50px);
-    font-size: clamp(3.1rem, 15.2vw, 7rem);
   }
 
   .workshopHeroModel3D {

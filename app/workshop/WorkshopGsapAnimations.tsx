@@ -63,6 +63,7 @@ export default function WorkshopGsapAnimations() {
       gsap.set(
         gsap.utils.toArray([
           ".workshopHero .programEyebrowRow",
+          ".workshopHero .workshopHeroVideoPanel",
           ".workshopHero h1",
           ".workshopHero .longCourseHeroCopy > p",
           ".workshopHero .workshopHeroMeta",
@@ -79,6 +80,7 @@ export default function WorkshopGsapAnimations() {
           .timeline({ defaults: { ease: "power3.out" } })
           .fromTo(gsap.utils.toArray(".workshopHero .siteHeader"), { y: -28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4 })
           .fromTo(gsap.utils.toArray(".workshopHero .programEyebrowRow"), { x: -40 }, { x: 0, autoAlpha: 1, duration: 0.4 }, "-=0.2")
+          .fromTo(gsap.utils.toArray(".workshopHero .workshopHeroVideoPanel"), { x: 58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 0.6 }, "-=0.2")
           .fromTo(gsap.utils.toArray(".workshopHero h1"), { x: -58, filter: "blur(8px)" }, { x: 0, autoAlpha: 1, filter: "blur(0px)", duration: 0.6 }, "-=0.2")
           .fromTo(gsap.utils.toArray(".workshopHero .longCourseHeroCopy > p"), { y: 28 }, { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.3")
           .fromTo(gsap.utils.toArray([".workshopHero .workshopHeroMeta", ".workshopHero .workshopHeroMetaCards"]), { y: 24 }, { y: 0, autoAlpha: 1, duration: 0.4 }, "-=0.3")

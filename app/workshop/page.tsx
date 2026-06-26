@@ -44,6 +44,7 @@ const workshop = {
 };
 
 const workshopPaymentUrl = "https://rzp.io/rzp/L5kyyQlg";
+const workshopHeroVideoSrc = "/images/Ideaschool_workshop.mp4";
 
 const outcomes = [
   "High-income editing skills used by brands, creators, agencies, and businesses",
@@ -263,12 +264,21 @@ export default function WorkshopPage() {
             </header>
 
             <div className="longCourseHeroInner">
-              <h1 className="workshopHeroDisplay">
-                <span>Master</span>
-                <span className="workshopHeroDisplayAccent">High-Paying</span>
-                <span>Video Editing</span>
-                <span>in 2 Days</span>
-              </h1>
+              <div className="workshopHeroVideoPanel" aria-label="Workshop preview video">
+                <video
+                  className="workshopHeroVideo"
+                  src={workshopHeroVideoSrc}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="workshopHeroVideoPlay" aria-hidden="true">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
 
               <div className="longCourseHeroCopy">
                 <p>

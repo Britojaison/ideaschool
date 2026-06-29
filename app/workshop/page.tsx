@@ -283,10 +283,7 @@ export default function WorkshopPage() {
               </div>
 
               <div className="longCourseHeroCopy">
-                <p>
-                  Learn in-demand editing skills for brands, creators, agencies, and AI-powered video
-                  creation with Higgsfield AI.
-                </p>
+                <h1>MASTER HIGH-PAYING <span style={{ whiteSpace: "nowrap", color: "inherit" }}>VIDEO EDITING</span> <span style={{ whiteSpace: "nowrap", color: "inherit" }}>IN 2-DAYS</span></h1>
                 <dl className="workshopHeroMetaCards grid grid-cols-2 gap-4 md:gap-6 mt-10 w-full max-w-[520px]" aria-label="Workshop details">
                   {/* Date Card */}
                   <div className="group bg-white border-2 border-black rounded-xl p-4 md:p-5 shadow-[4px_4px_0_0_#151515] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all duration-200 cursor-default flex flex-col justify-center relative overflow-hidden">
@@ -294,7 +291,7 @@ export default function WorkshopPage() {
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                       Date
                     </dt>
-                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>Coming Soon</dd>
+                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>July 11, 12</dd>
                   </div>
 
                   {/* Time Card */}

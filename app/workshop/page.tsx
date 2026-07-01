@@ -283,7 +283,7 @@ export default function WorkshopPage() {
               </div>
 
               <div className="longCourseHeroCopy">
-                <h1>MASTER HIGH-PAYING <span style={{ whiteSpace: "nowrap", color: "inherit" }}>VIDEO EDITING</span> <span style={{ whiteSpace: "nowrap", color: "inherit" }}>IN 2-DAYS</span></h1>
+                <h1>MASTER <span style={{ whiteSpace: "nowrap", display: "inline", fontSize: "inherit", color: "inherit", margin: 0 }}>HIGH-PAYING</span> <span style={{ whiteSpace: "nowrap", display: "inline", fontSize: "inherit", color: "inherit", margin: 0 }}>VIDEO EDITING</span> <span style={{ whiteSpace: "nowrap", display: "inline", fontSize: "inherit", color: "inherit", margin: 0 }}>IN 2-DAYS</span></h1>
                 <dl className="workshopHeroMetaCards grid grid-cols-2 gap-4 md:gap-6 mt-10 w-full max-w-[520px]" aria-label="Workshop details">
                   {/* Date Card */}
                   <div className="group bg-white border-2 border-black rounded-xl p-4 md:p-5 shadow-[4px_4px_0_0_#151515] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all duration-200 cursor-default flex flex-col justify-center relative overflow-hidden">

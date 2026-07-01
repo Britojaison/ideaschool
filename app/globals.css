@@ -12716,15 +12716,11 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .workshopHero .longCourseHeroCopy {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    order: 2;
-    width: 100%;
-    max-width: 100%;
-    min-height: 0;
-    padding-top: 0;
+    display: contents;
+  }
+
+  .workshopHero .longCourseHeroCopy h1 {
+    order: 1;
   }
 
   .workshopHero .longCourseHeroCopy>p {
@@ -12737,10 +12733,16 @@ html.isHeroGlassCursorActive .hero * {
     gap: 16px 20px;
     width: 100%;
     max-width: 100%;
+    order: 3;
+  }
+
+  .workshopHeroMetaCards {
+    order: 3;
   }
 
   .workshopHero .longCourseHeroCtas {
     margin-top: 24px;
+    order: 4;
   }
 
   .workshopHeroVideoPanel {
@@ -12749,7 +12751,7 @@ html.isHeroGlassCursorActive .hero * {
     left: auto;
     right: auto;
     transform: none;
-    order: 1;
+    order: 2;
     align-self: stretch;
     width: 100%;
     max-width: 100%;

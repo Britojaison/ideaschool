@@ -22,11 +22,11 @@ export default function WorkshopStickyBanner() {
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed bottom-0 left-0 right-0 z-[9999] flex flex-col md:flex-row items-center justify-between gap-0 md:gap-8 bg-transparent md:bg-[#dafd55] shadow-none md:shadow-[0_-10px_40px_rgba(0,0,0,0.15)] p-4 md:px-6 md:py-2 pointer-events-none md:pointer-events-auto"
+          className="fixed bottom-0 left-0 right-0 z-[9999] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-12 lg:gap-24 bg-transparent md:bg-[#dafd55] shadow-none md:shadow-[0_-10px_40px_rgba(0,0,0,0.15)] p-4 md:px-6 md:py-4 pointer-events-none md:pointer-events-auto"
         >
-          <div className="hidden md:flex flex-1 flex-col lg:flex-row items-start lg:items-center gap-2 lg:gap-12 w-full md:w-auto">
+          <div className="hidden md:flex flex-none flex-row items-center gap-6 lg:gap-12 w-full md:w-auto">
             <h3 
-              className="text-lg md:text-3xl lg:text-4xl font-bold leading-tight md:leading-none text-black m-0 p-0 tracking-tight"
+              className="text-lg md:text-xl lg:text-2xl font-bold leading-tight text-black m-0 p-0 tracking-tight"
               style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
             >
               Ready to learn video editing skills that pay?

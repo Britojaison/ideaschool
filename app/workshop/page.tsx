@@ -209,17 +209,14 @@ const testimonials = [
 const faqs = [
   {
     question: "Do I need prior experience?",
-    answer: "No. This workshop is designed for complete beginners.",
+    answer: "No. This workshop is designed for everyone—from complete beginners to experienced editors looking to upgrade their skills and learn modern editing workflows.",
     open: true,
   },
   {
     question: "Will the sessions be live?",
     answer: "Yes, both days will be conducted live online.",
   },
-  {
-    question: "Will I get recordings?",
-    answer: "Yes, workshop recordings will be provided.",
-  },
+
   {
     question: "How long is the workshop?",
     answer: "2 days of intensive live training with practical exercises.",

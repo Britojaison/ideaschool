@@ -6151,18 +6151,18 @@ html.isHeroGlassCursorActive .hero * {
   right: 24px;
   bottom: 38px;
   z-index: 3;
-  text-align: center;
+  text-align: left;
   transition: transform 260ms ease;
 }
 
 .workshopCardCopy h3 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 276px;
   max-width: 100%;
   height: 19px;
-  margin: 0 auto;
+  margin: 0;
   color: #fff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
@@ -6170,18 +6170,18 @@ html.isHeroGlassCursorActive .hero * {
   font-style: normal;
   line-height: 1.18;
   letter-spacing: 0;
-  text-align: center;
+  text-align: left;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.82);
 }
 
 .workshopCardCopy p {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 296px;
   max-width: 100%;
   min-height: 48px;
-  margin: 12px auto 0;
+  margin: 12px 0 0;
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-subject);
   font-size: 20px;
@@ -6189,7 +6189,7 @@ html.isHeroGlassCursorActive .hero * {
   font-style: normal;
   line-height: 1;
   letter-spacing: 0;
-  text-align: center;
+  text-align: left;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.82);
 }
 

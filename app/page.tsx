@@ -146,8 +146,8 @@ const workshops = [
   },
   {
     title: "High-Income Video Editing Workshop",
-    description: "Learn high-income video editing skills that are in demand by brands, creators, agencies and businesses, and master AI-powered video creation with Higgsfield AI.",
-    image: "/images/359586b8b594b653726bbda2883862b8a820e37b.webp",
+    description: "Master high-income editing skills and AI video creation tools.",
+    image: "/images/video-editing.jpeg",
     href: "/workshop",
   },
   {

@@ -8,7 +8,7 @@ import ScrollTextReveal from "../ScrollTextReveal";
 import TiltedCard from "../TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
 import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
-import WorkshopDrawSvg from "./WorkshopDrawSvg";
+
 import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
 import WorkshopLoadingScreen from "./WorkshopLoadingScreen";
@@ -319,11 +319,7 @@ export default function WorkshopPage() {
                   </div>
                 </dl>
 
-                <div className="longCourseHeroCtas">
-                  <div className="hidden lg:block">
-                    <WorkshopDrawSvg />
-                  </div>
-                </div>
+
 
               </div>
 

@@ -69,7 +69,7 @@ export default function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
         };
         const cardContent = (
           <>
-            {index === 1 ? (
+            {workshop.href ? (
               <span className="availability">Apply Now</span>
             ) : null}
             <Image

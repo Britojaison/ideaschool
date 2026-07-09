@@ -143,13 +143,12 @@ const workshops = [
     title: "AI AD FILM MAKING MASTERCLASS",
     description: "Learn editing, content, and AI tools through real-world projects.",
     image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
-    href: "/apply",
   },
   {
-    title: "Performance Marketing",
-    description: "Learn how content drives growth and results.",
+    title: "High-Income Video Editing Workshop",
+    description: "Learn high-income video editing skills that are in demand by brands, creators, agencies and businesses, and master AI-powered video creation with Higgsfield AI.",
     image: "/images/359586b8b594b653726bbda2883862b8a820e37b.webp",
-    comingSoon: true,
+    href: "/workshop",
   },
   {
     title: "Advanced Content Systems",

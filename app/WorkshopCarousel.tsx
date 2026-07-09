@@ -82,9 +82,9 @@ export default function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
             {workshop.comingSoon ? (
               <span className="comingSoonLabel">Coming Soon</span>
             ) : null}
-            <div className="workshopCardCopy">
-              <h3>{workshop.title}</h3>
-              <p>{workshop.description}</p>
+            <div className="workshopCardCopy" style={{ textAlign: "left", alignItems: "flex-start" }}>
+              <h3 style={{ display: "block", textAlign: "left", margin: 0, width: "100%" }}>{workshop.title}</h3>
+              <p style={{ display: "block", textAlign: "left", margin: "12px 0 0", width: "100%" }}>{workshop.description}</p>
             </div>
           </>
         );

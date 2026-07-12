@@ -4515,13 +4515,9 @@ html.isHeroGlassCursorActive .hero * {
 
 .standOutPrinciples {
   min-width: 0;
-  max-height: min(620px, calc(100svh - 176px));
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  max-height: none;
+  overflow: visible;
   padding-right: clamp(12px, 1.6vw, 22px);
-  scrollbar-color: rgba(218, 253, 85, 0.58) rgba(255, 255, 255, 0.08);
-  scrollbar-width: thin;
 }
 
 .standOutPrinciples::-webkit-scrollbar {

@@ -28,45 +28,7 @@ const standOutPrinciples = [
 
 export default function StandOutSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const scrollPanelRef = useRef<HTMLDivElement | null>(null);
   const scrollDirectionRef = useRef<"down" | "up">("down");
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const handleWheel = (event: WheelEvent) => {
-      if (window.innerWidth <= 980) return;
-
-      const panel = scrollPanelRef.current;
-      if (!panel || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-
-      const sectionRect = section.getBoundingClientRect();
-      const isPinnedView = sectionRect.top <= 2 && sectionRect.bottom >= window.innerHeight - 2;
-      if (!isPinnedView) return;
-
-      const maxScroll = panel.scrollHeight - panel.clientHeight;
-      if (maxScroll <= 1) return;
-
-      const isScrollingDown = event.deltaY > 0;
-      const canScrollDown = panel.scrollTop < maxScroll - 1;
-      const canScrollUp = panel.scrollTop > 1;
-
-      if ((isScrollingDown && canScrollDown) || (!isScrollingDown && canScrollUp)) {
-        event.preventDefault();
-        if (Math.abs(sectionRect.top) > 1) {
-          window.scrollBy({ top: sectionRect.top, behavior: "auto" });
-        }
-        panel.scrollTop += event.deltaY;
-      }
-    };
-
-    section.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => {
-      section.removeEventListener("wheel", handleWheel);
-    };
-  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -141,7 +103,7 @@ export default function StandOutSection() {
           </a>
         </div>
 
-        <div className="standOutPrinciples" ref={scrollPanelRef}>
+        <div className="standOutPrinciples">
           <h3>This program is shaped by three studio principles:</h3>
           <div className="standOutPrincipleList">
             {standOutPrinciples.map((principle, index) => (
@@ -153,8 +115,6 @@ export default function StandOutSection() {
               </article>
             ))}
           </div>
-
-
         </div>
       </div>
     </section>

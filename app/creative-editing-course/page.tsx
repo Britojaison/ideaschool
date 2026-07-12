@@ -12,9 +12,8 @@ import OutcomeCards from "./OutcomeCards";
 import PortfolioSectionMotion from "./PortfolioSectionMotion";
 import RogMonitorHero3D from "./RogMonitorHero3D";
 import ScheduleSection from "./ScheduleSection";
-import BeforeAfterSplit from "./BeforeAfterSplit";
-import CountdownTimer from "./CountdownTimer";
 import ContactForm from "../ContactForm";
+import MobileMenu from "../MobileMenu";
 
 const LazyCurriculumDotField = dynamic(() => import("./LazyCurriculumDotField"), {
   loading: () => null,
@@ -344,6 +343,7 @@ export default function CreativeEditingCoursePage() {
           <a className="headerCta" href="#apply">
             <span className="headerCtaText">Apply now</span>
           </a>
+          <MobileMenu />
         </header>
 
         <div className="longCourseHeroInner">
@@ -591,13 +591,39 @@ export default function CreativeEditingCoursePage() {
             <h2>Fees And Enrollment</h2>
             <div className="feeCallout">
               <span>Full Program Fee</span>
-              <div className="priceContainer">
-                <strong className="strikethroughPrice">₹69,999</strong>
-                <strong>₹39,999</strong>
+              <div className="priceContainerWrapper">
+                <div className="priceContainer priceBlurred">
+                  <strong className="strikethroughPrice">₹69,999</strong>
+                  <strong>₹39,999</strong>
+                </div>
+                <Link
+                  className="priceOverlayButton"
+                  href="#apply"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    backgroundColor: "#dafd55",
+                    color: "#030405",
+                    fontWeight: 900,
+                    textTransform: "uppercase",
+                    padding: "10px 24px",
+                    borderRadius: "8px",
+                    letterSpacing: "0.05em",
+                    whiteSpace: "nowrap",
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "0.85rem",
+                    boxShadow: "0 8px 24px rgba(218, 253, 85, 0.25)",
+                    textDecoration: "none",
+                    zIndex: 2,
+                  }}
+                >
+                  Talk to Idea School
+                </Link>
               </div>
               <p>Seats are limited so every learner gets attention, feedback, and room to practice.</p>
             </div>
-            <CountdownTimer targetDate="2026-06-30T23:59:59" className="courseUrgencyTimer" />
             <dl className="programDetailTable">
               {enrollmentDetails.map((item) => (
                 <div key={item.label}>
@@ -606,9 +632,6 @@ export default function CreativeEditingCoursePage() {
                 </div>
               ))}
             </dl>
-            <Link className="primaryCta programCta enrollmentCta" href="/#contact">
-              <span className="primaryCtaText">Talk to Idea School</span>
-            </Link>
           </article>
         </div>
       </section>
@@ -747,7 +770,6 @@ export default function CreativeEditingCoursePage() {
       <div className="floatingRegisterWrapper">
         <Link href="#apply" className="floatingRegisterBtn">
           <span className="floatingBtnText">Register Now</span>
-          <CountdownTimer targetDate="2026-06-30T23:59:59" className="floatingTimer" />
         </Link>
       </div>
     </main>

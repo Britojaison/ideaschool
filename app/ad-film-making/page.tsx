@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
 import ScrollTextReveal from "../ScrollTextReveal";
+import MobileMenu from "../MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
@@ -270,6 +272,12 @@ const applyFaqs = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "AD Film Making | Idea School",
+  description:
+    "Master AI-Powered AD Film Making in 1 day. Hands-on creative offline workshop to produce agency-level commercial ad films.",
+};
+
 export default function ApplyPage() {
   return (
     <main className="applyPage">
@@ -294,6 +302,7 @@ export default function ApplyPage() {
           <a className="headerCta" href="#enroll">
             <span className="headerCtaText">Book your class</span>
           </a>
+          <MobileMenu />
         </header>
 
         <div className="programHeroInner">
@@ -332,7 +341,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>June 13</dd>
+              <dd>August 1</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>

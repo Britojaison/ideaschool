@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
 import DetailsSectionMotion from "../creative-editing-course/DetailsSectionMotion";
 import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
 import OutcomeCards from "../creative-editing-course/OutcomeCards";
@@ -8,6 +9,7 @@ import ScrollTextReveal from "../ScrollTextReveal";
 import TiltedCard from "../TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
 import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
+import MobileMenu from "../MobileMenu";
 
 import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
@@ -30,14 +32,14 @@ const ScrollFadeArrow = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "2-Day Video Editing Workshop | Idea School",
+  title: "master VIDEO EDITING | Idea School",
   description:
     "A live 2-day workshop to learn high-income video editing skills, Premiere Pro, After Effects, CapCut, audio tools, and AI-powered video creation with Higgsfield AI.",
 };
 
 const workshop = {
   eyebrow: "2-day live workshop",
-  title: "High-Income Video Editing Workshop",
+  title: "master VIDEO EDITING",
   accent: "Master the skills top video editors use\nto land high-paying projects.",
   description:
     "Learn high-income video editing skills that are in demand by brands, creators, agencies and businesses, and master AI-powered video creation with Higgsfield AI.",
@@ -246,7 +248,7 @@ export default function WorkshopPage() {
             <div className="longCourseHeroShade" />
 
             <header className="siteHeader">
-              <a className="brand" href="/workshop" aria-label="Refresh workshop page">
+              <Link className="brand" href="/" aria-label="Idea School home">
                 <Image
                   src="/images/idea logo.webp"
                   alt="Idea"
@@ -255,10 +257,11 @@ export default function WorkshopPage() {
                   priority
                   className="brandLogo"
                 />
-              </a>
+              </Link>
               <a className="headerCta" href={workshopPaymentUrl} target="_blank" rel="noreferrer">
                 <span className="headerCtaText">Register Now</span>
               </a>
+              <MobileMenu />
             </header>
 
             <div className="longCourseHeroInner">

@@ -29,7 +29,7 @@ export default function WorkshopThankYouPage() {
             />
           </Link>
 
-          <Link className="headerCta" href="/workshop">
+          <Link className="headerCta" href="/master-video-editing">
             <span className="headerCtaText">Back to workshop</span>
           </Link>
         </header>

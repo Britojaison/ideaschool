@@ -12,6 +12,7 @@ import ProgramMenu from "./ProgramMenu";
 import ScrollTextReveal from "./ScrollTextReveal";
 import StarBorder from "./StarBorder";
 import WorkshopCarousel from "./WorkshopCarousel";
+import MobileMenu from "./MobileMenu";
 
 type Brand =
   | {
@@ -143,12 +144,13 @@ const workshops = [
     title: "AI AD FILM MAKING MASTERCLASS",
     description: "Learn editing, content, and AI tools through real-world projects.",
     image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
+    href: "/ad-film-making",
   },
   {
     title: "High-Income Video Editing Workshop",
     description: "Master high-income editing skills and AI video creation tools.",
     image: "/images/video-editing.jpeg",
-    href: "/workshop",
+    href: "/master-video-editing",
   },
   {
     title: "Advanced Content Systems",
@@ -237,9 +239,10 @@ export default function Home() {
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
           </nav>
-          <Link className="headerCta" href="/apply">
+          <Link className="headerCta" href="/ad-film-making">
             <span className="headerCtaText">Book your class</span>
           </Link>
+          <MobileMenu />
         </header>
 
         <div className="heroContent">
@@ -545,7 +548,7 @@ export default function Home() {
               <h2>Program</h2>
               <a href="#program">Program</a>
               <Link href="/creative-editing-course">Creative Editing Program</Link>
-              <Link href="/apply">Get early bird pass now</Link>
+              <Link href="/ad-film-making">Get early bird pass now</Link>
             </div>
             <div>
               <h2>Company</h2>

@@ -33,7 +33,7 @@ export default function ApplyThankYouPage() {
             <ProgramMenu />
           </nav>
 
-          <Link className="headerCta" href="/apply">
+          <Link className="headerCta" href="/ad-film-making">
             <span className="headerCtaText">Back to program</span>
           </Link>
         </header>

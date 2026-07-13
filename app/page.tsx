@@ -148,6 +148,7 @@ const workshops = [
     description: "Learn editing, content, and AI tools through real-world projects.",
     image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
     href: "/ad-film-making",
+    hideApplyButton: true,
   },
   {
     title: "High-Income Video Editing Workshop",

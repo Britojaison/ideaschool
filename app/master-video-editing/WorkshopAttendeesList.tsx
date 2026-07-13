@@ -42,7 +42,7 @@ function AttendeeItem({ attendee, index }: { attendee: typeof attendeesData[0], 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.38, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
       className="group bg-white border-2 border-black rounded-2xl p-8 shadow-[6px_6px_0_0_#151515] hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none transition-all duration-200 flex flex-col h-full"
     >
       <div className="inline-flex items-center justify-center px-4 py-1.5 bg-[#dafd55] border-2 border-black rounded-full text-sm font-black text-black mb-6 w-fit font-mono">

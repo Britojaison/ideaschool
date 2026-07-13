@@ -94,7 +94,7 @@ export default function ScrollTextReveal() {
 
     revealItems.forEach((item, index) => {
       item.classList.add("scrollTextReveal");
-      item.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 70}ms`);
+      item.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 35}ms`);
     });
 
     const observer = new IntersectionObserver(

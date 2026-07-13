@@ -13,7 +13,7 @@ const videos = [
   },
   {
     id: "zaman",
-    title: "Zaman Case Study",
+    title: "Case Study",
     src: "/images/workshop/zaman_case_study.mp4",
     aspectRatio: "9/16",
     maxWidth: "380px",

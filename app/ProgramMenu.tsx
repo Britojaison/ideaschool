@@ -32,22 +32,51 @@ const courses = [
   },
 ];
 
-export default function ProgramMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+interface ProgramMenuProps {
+  isOpen?: boolean;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}
+
+export default function ProgramMenu({
+  isOpen: controlledIsOpen,
+  onMouseEnter: controlledOnMouseEnter,
+  onMouseLeave: controlledOnMouseLeave,
+}: ProgramMenuProps = {}) {
+  const [localIsOpen, setLocalIsOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : localIsOpen;
+
   const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
+    if (isControlled) {
+      controlledOnMouseEnter?.();
+    } else {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+      setLocalIsOpen(true);
     }
-    setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setIsOpen(false);
-    }, 150); // 150ms buffer to allow cursor to cross the gap
+    if (isControlled) {
+      controlledOnMouseLeave?.();
+    } else {
+      timeoutRef.current = setTimeout(() => {
+        setLocalIsOpen(false);
+      }, 150); // 150ms buffer to allow cursor to cross the gap
+    }
+  };
+
+  const handleClose = () => {
+    if (isControlled) {
+      controlledOnMouseLeave?.();
+    } else {
+      setLocalIsOpen(false);
+    }
   };
 
   return (
@@ -79,7 +108,7 @@ export default function ProgramMenu() {
               href={course.link}
               className="programMenuBanner"
               role="menuitem"
-              onClick={() => setIsOpen(false)}
+              onClick={handleClose}
             >
               <Image
                 src={course.image}

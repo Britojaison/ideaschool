@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AlumniWorks from "./AlumniWorks";
@@ -201,6 +204,23 @@ const notCoursePillars = [
 ];
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMenuMouseEnter = () => {
+    if (menuTimeoutRef.current) {
+      clearTimeout(menuTimeoutRef.current);
+      menuTimeoutRef.current = null;
+    }
+    setIsMenuOpen(true);
+  };
+
+  const handleMenuMouseLeave = () => {
+    menuTimeoutRef.current = setTimeout(() => {
+      setIsMenuOpen(false);
+    }, 150);
+  };
+
   return (
     <main>
       <HashScrollFix />
@@ -235,11 +255,21 @@ export default function Home() {
           </Link>
           <nav className="desktopNav" aria-label="Primary navigation">
             <a href="#about">About</a>
-            <ProgramMenu />
+            <ProgramMenu
+              isOpen={isMenuOpen}
+              onMouseEnter={handleMenuMouseEnter}
+              onMouseLeave={handleMenuMouseLeave}
+            />
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
           </nav>
-          <Link className="headerCta" href="/ad-film-making">
+          <Link
+            className="headerCta"
+            href="/ad-film-making"
+            onMouseEnter={handleMenuMouseEnter}
+            onMouseLeave={handleMenuMouseLeave}
+            onClick={(e) => e.preventDefault()}
+          >
             <span className="headerCtaText">Book your class</span>
           </Link>
           <MobileMenu />

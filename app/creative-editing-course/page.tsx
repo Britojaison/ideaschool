@@ -19,9 +19,6 @@ const LazyCurriculumDotField = dynamic(() => import("./LazyCurriculumDotField"),
   loading: () => null,
 });
 
-const ScrollFadeArrow = dynamic(() => import("./ScrollFadeArrow"), {
-  loading: () => null,
-});
 const StandOutSection = dynamic(() => import("./StandOutSection"), {
   loading: () => <section className="longCourseStandOut longCourseStandOutLoading" aria-hidden="true" />,
 });
@@ -424,7 +421,6 @@ export default function CreativeEditingCoursePage() {
 
       <section className="longCourseOutcomes" aria-label="Course outcomes">
         <div className="longCourseSectionInner">
-          <ScrollFadeArrow />
           <div className="outcomesArjunPortrait" aria-hidden="true">
             <Image
               src="/images/arjun-cutout.webp"

@@ -3779,6 +3779,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .longCourseHeroCard {
+  display: none;
   grid-column: 2;
   grid-row: 1;
   align-self: start;
@@ -3829,13 +3830,14 @@ html.isHeroGlassCursorActive .hero * {
 
 .longCourseStats {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
+  align-self: center;
   justify-self: end;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px 28px;
   width: min(100%, 420px);
   max-width: 420px;
-  margin-top: 22px;
+  margin-top: 0;
 }
 
 .longCourseStats dt {

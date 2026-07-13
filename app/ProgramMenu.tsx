@@ -25,7 +25,7 @@ const courses = [
   {
     title: "Master Video Editing",
     subtitle: "Higgsfield, Premiere & AE",
-    badge: "Online Course",
+    badge: "Online Workshop",
     badgeClass: "isOnline",
     link: "/master-video-editing",
     image: "/images/video-editing.jpeg",

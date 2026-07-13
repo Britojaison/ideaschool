@@ -29,7 +29,7 @@ const StandOutSection = dynamic(() => import("./StandOutSection"), {
 export const metadata: Metadata = {
   title: "Creative Editing & AI Pro Course | Idea School",
   description:
-    "A 24-week video editing, motion graphics, AI content creation, portfolio, and internship program from Idea School.",
+    "A 24-week video editing, motion graphics, AI content creation, portfolio, and Industry Experience Program from Idea School.",
 };
 
 const course = {
@@ -45,7 +45,7 @@ const course = {
 const heroStats = [
   { label: "Duration", value: "24 Weeks" },
   { label: "Core Training", value: "12 Weeks" },
-  { label: "Internship", value: "12 Weeks" },
+  { label: "Industry Experience Program", value: "12 Weeks" },
   { label: "Outcome", value: "Portfolio + Placement Eligibility" },
 ];
 
@@ -55,10 +55,19 @@ const outcomes = [
   "Visual effects, roto, tracking, and green matte keying",
   "Thumbnail, cover image, and portfolio design",
   "AI-assisted editing, voice, clipping, image, and video generation",
-  "Industrial internship experience with global brand workflows",
+  "Industry Experience Program with live projects and brand workflows",
 ];
 
-const curriculumWeeks = [
+type CurriculumWeek = {
+  week: string;
+  module: string;
+  recorded: string;
+  live: string;
+  assignment: string;
+  highlights?: string[];
+};
+
+const curriculumWeeks: CurriculumWeek[] = [
   {
     week: "Week 1",
     module: "Premiere Pro Basics",
@@ -145,10 +154,19 @@ const curriculumWeeks = [
   },
   {
     week: "Weeks 13-24",
-    module: "Industrial Internship",
-    recorded: "Brand workflow preparation",
-    live: "Work with global brand style briefs and studio review systems",
-    assignment: "Internship delivery, portfolio refinement, and placement readiness",
+    module: "Industry Experience Program + Live Projects",
+    recorded: "Weeks 13-24: Industry Experience Program",
+    live: "Work on live brand briefs, solve real client problems, and present work like a professional editor and visual designer",
+    assignment: "Agency-level portfolio, multiple revision cycles, weekly mentor reviews, and experience certificate from the agency (3 Months)",
+    highlights: [
+      "Work on live brand briefs",
+      "Solve real client problems",
+      "Weekly mentor reviews",
+      "Multiple revision cycles",
+      "Build an agency-level portfolio",
+      "Present work like a professional editor & visual designer",
+      "Experience certificate from the agency (3 Months)",
+    ],
   },
 ];
 
@@ -279,7 +297,7 @@ const faqs = [
   {
     question: "Is this beginner friendly?",
     answer:
-      "Yes. The first weeks cover tool fundamentals before moving into advanced editing, motion graphics, visual effects, AI workflows, and internship delivery.",
+      "Yes. The first weeks cover tool fundamentals before moving into advanced editing, motion graphics, visual effects, AI workflows, and the Industry Experience Program.",
   },
   {
     question: "What makes me eligible for placement assistance?",
@@ -289,7 +307,7 @@ const faqs = [
   {
     question: "Will I work on real brand style projects?",
     answer:
-      "Yes. The final 12 weeks are designed around industrial internship work, brand style briefs, feedback, delivery discipline, and portfolio refinement.",
+      "Yes. Weeks 13-24 are designed as an Industry Experience Program where you work on live brand briefs, solve real client problems, go through revision cycles, and build an agency-level portfolio.",
   },
 ];
 
@@ -437,7 +455,7 @@ export default function CreativeEditingCoursePage() {
         <div className="longCourseSectionInner">
           <div className="curriculumIntro">
             <h2>Curriculum</h2>
-            <p>12 weeks of guided training followed by 12 weeks of industrial internship.</p>
+            <p>12 weeks of guided training followed by 12 weeks of Industry Experience Program + Live Projects.</p>
           </div>
 
           <div className="courseWeekList">
@@ -489,6 +507,13 @@ export default function CreativeEditingCoursePage() {
                       <div>
                         <strong>Assignment</strong>
                         <p>{week.assignment}</p>
+                        {week.highlights && (
+                          <ul className="courseWeekHighlights">
+                            {week.highlights.map((highlight) => (
+                              <li key={highlight}>{highlight}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   </article>
@@ -666,7 +691,7 @@ export default function CreativeEditingCoursePage() {
 
           <div className="jobRolesAndFreelance">
             <div className="jobRolesPanel">
-              <h3>Job roles you'll be qualified for</h3>
+              <h3>Job roles you&apos;ll be qualified for</h3>
               <ul className="jobRolesList">
                 {careerRoles.map((role) => (
                   <li key={role.role}>
@@ -724,7 +749,7 @@ export default function CreativeEditingCoursePage() {
             </h2>
             <p>
               Join the next Idea School cohort and move from software practice to portfolio
-              work, feedback, and internship delivery.
+              work, feedback, and live project delivery.
             </p>
             <a className="contactPhone" href="tel:+918618894857">
               Contact us : 8618894857

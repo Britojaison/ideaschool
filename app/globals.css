@@ -4754,6 +4754,16 @@ html.isHeroGlassCursorActive .hero * {
   line-height: 1.4;
 }
 
+.courseWeekHighlights {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+}
+
+.courseWeekHighlights li::marker {
+  color: var(--course-green);
+}
+
 .longCourseSchedule {
   padding: 86px var(--apply-section-x);
   background:

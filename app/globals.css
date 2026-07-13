@@ -670,35 +670,35 @@ html.isHeroGlassCursorActive .hero * {
 .heroActions {
   opacity: 0;
   translate: 0 44px;
-  animation: heroTextRise 820ms cubic-bezier(0.2, 0.82, 0.22, 1) forwards;
+  animation: heroTextRise 520ms cubic-bezier(0.2, 0.82, 0.22, 1) forwards;
 }
 
 .heroCopy h1 {
-  animation-delay: 160ms;
+  animation-delay: 80ms;
 }
 
 .heroCopy p {
-  animation-delay: 300ms;
+  animation-delay: 150ms;
 }
 
 .heroCopy .primaryCta {
-  animation-delay: 440ms;
+  animation-delay: 220ms;
 }
 
 .heroCopy .liquidApplyMount {
-  animation-delay: 440ms;
+  animation-delay: 220ms;
 }
 
 .heroCopy .heroInlineActions {
-  animation-delay: 500ms;
+  animation-delay: 250ms;
 }
 
 .heroVisual {
-  animation-delay: 480ms;
+  animation-delay: 240ms;
 }
 
 .heroActions {
-  animation-delay: 560ms;
+  animation-delay: 280ms;
 }
 
 @keyframes heroTextRise {
@@ -717,13 +717,13 @@ html.isHeroGlassCursorActive .hero * {
 
 .scrollTextReveal {
   opacity: 0;
-  transform: translate3d(0, 46px, 0) scale(0.94);
+  transform: translate3d(0, 26px, 0) scale(0.97);
   transform-origin: center bottom;
-  filter: blur(7px);
+  filter: blur(4px);
   transition:
-    opacity 760ms ease,
-    transform 780ms cubic-bezier(0.18, 0.89, 0.32, 1.24),
-    filter 760ms ease;
+    opacity 420ms ease,
+    transform 460ms cubic-bezier(0.18, 0.89, 0.32, 1.12),
+    filter 420ms ease;
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform, filter;
 }
@@ -739,9 +739,9 @@ html.isHeroGlassCursorActive .hero * {
   transform: translate3d(72px, 0, 0) scale(0.98);
   transform-origin: right center;
   transition:
-    opacity 900ms ease,
-    transform 980ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 900ms ease;
+    opacity 480ms ease,
+    transform 540ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 480ms ease;
 }
 
 .longCourseOutcomes .longCourseIntro h2.scrollTextReveal.is-visible,
@@ -3669,28 +3669,28 @@ html.isHeroGlassCursorActive .hero * {
   opacity: 0;
   transform: translate3d(-72px, 0, 0);
   filter: blur(9px);
-  animation: longCourseHeroContentIn 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: longCourseHeroContentIn 620ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: opacity, transform, filter;
 }
 
 .longCourseHeroCopy .programEyebrowRow {
-  animation-delay: 140ms;
+  animation-delay: 70ms;
 }
 
 .longCourseHeroCopy h1 {
-  animation-delay: 300ms;
+  animation-delay: 150ms;
 }
 
 .longCourseHeroCopy>p {
-  animation-delay: 500ms;
+  animation-delay: 240ms;
 }
 
 .longCourseHeroCopy .longCourseHeroCtas {
-  animation-delay: 690ms;
+  animation-delay: 320ms;
 }
 
 .longCourseStats {
-  animation-delay: 860ms;
+  animation-delay: 400ms;
 }
 
 @keyframes longCourseHeroContentIn {
@@ -4065,7 +4065,7 @@ html.isHeroGlassCursorActive .hero * {
   filter: drop-shadow(0 26px 54px rgba(0, 0, 0, 0.48));
   opacity: 0;
   transform: translate3d(140px, 0, 0);
-  transition: opacity 720ms cubic-bezier(0.16, 1, 0.3, 1), transform 920ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1), transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
@@ -4228,8 +4228,8 @@ html.isHeroGlassCursorActive .hero * {
   .outcomeCard {
     opacity: 0;
     transition:
-      opacity 980ms ease,
-      transform 1320ms cubic-bezier(0.16, 1, 0.3, 1);
+      opacity 520ms ease,
+      transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
   }
 
@@ -4253,12 +4253,12 @@ html.isHeroGlassCursorActive .hero * {
 
   .outcomeGrid.is-visible .outcomeCard:nth-child(2),
   .outcomeGrid.is-visible .outcomeCard:nth-child(5) {
-    transition-delay: 180ms;
+    transition-delay: 90ms;
   }
 
   .outcomeGrid.is-visible .outcomeCard:nth-child(3),
   .outcomeGrid.is-visible .outcomeCard:nth-child(6) {
-    transition-delay: 360ms;
+    transition-delay: 180ms;
   }
 }
 
@@ -4337,8 +4337,8 @@ html.isHeroGlassCursorActive .hero * {
   opacity: 0;
   transform: translate3d(110px, 0, 0);
   transition:
-    opacity 940ms ease,
-    transform 1280ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 500ms ease,
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
@@ -4841,17 +4841,17 @@ html.isHeroGlassCursorActive .hero * {
   opacity: 0;
   transform: translate3d(110px, 0, 0);
   transition:
-    opacity 940ms ease,
-    transform 1280ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 500ms ease,
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
 .longCourseSchedule .longCourseIntro .scheduleTitleWrap {
-  transition-delay: 120ms;
+  transition-delay: 70ms;
 }
 
 .longCourseSchedule .longCourseIntro>p {
-  transition-delay: 240ms;
+  transition-delay: 140ms;
 }
 
 .longCourseSchedule.is-content-visible .longCourseIntro .sectionPill,
@@ -5001,9 +5001,10 @@ html.isHeroGlassCursorActive .hero * {
 
 .courseMentorInfo {
   display: grid;
-  gap: 8px;
-  min-height: 84px;
-  padding: 12px 14px 15px;
+  align-content: start;
+  gap: 10px;
+  min-height: 112px;
+  padding: 14px 16px 18px;
   border-top: 1px solid rgba(218, 253, 85, 0.16);
   background:
     radial-gradient(circle at 0% 0%, rgba(218, 253, 85, 0.1), transparent 42%),
@@ -5014,7 +5015,7 @@ html.isHeroGlassCursorActive .hero * {
   margin: 0;
   color: #fff;
   font-family: var(--font-heading);
-  font-size: clamp(0.86rem, 1vw, 1.02rem);
+  font-size: clamp(0.84rem, 1vw, 1rem);
   font-weight: 950;
   line-height: 1.02;
   text-transform: uppercase;
@@ -5022,22 +5023,33 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .courseMentorRole {
-  display: grid;
-  gap: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
   margin: 0;
-  color: var(--course-green);
-  font-size: 11px;
-  font-weight: 900;
-  line-height: 1.22;
-  text-transform: uppercase;
+  color: rgba(218, 253, 85, 0.94);
+  font-family: var(--font-subject);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: none;
   overflow-wrap: anywhere;
 }
 
 .courseMentorRole span {
-  color: rgba(255, 255, 255, 0.46);
-  font-size: 8px;
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 8px;
+  border: 1px solid rgba(218, 253, 85, 0.22);
+  border-radius: 999px;
+  background: rgba(218, 253, 85, 0.08);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 9px;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .longCoursePortfolio {
@@ -5094,11 +5106,11 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCourseDetails.has-details-motion.is-details-visible .detailsPanel {
-    animation: detailsPanelEnter 2.25s cubic-bezier(0.16, 0.82, 0.28, 1) both;
+    animation: detailsPanelEnter 900ms cubic-bezier(0.16, 0.82, 0.28, 1) both;
   }
 
   .longCourseDetails.has-details-motion.is-details-visible .enrollmentPanel {
-    animation-delay: 160ms;
+    animation-delay: 80ms;
   }
 
   .longCourseDetails.has-details-motion .detailsPanel :is(.sectionPill,
@@ -5114,61 +5126,61 @@ html.isHeroGlassCursorActive .hero * {
     filter: blur(7px);
     transform: translate3d(-44px, 0, 0);
     transition:
-      opacity 1.25s ease,
-      filter 1.25s ease,
-      transform 1.35s cubic-bezier(0.16, 0.82, 0.28, 1);
-    transition-delay: var(--details-text-delay, 240ms);
+      opacity 520ms ease,
+      filter 520ms ease,
+      transform 580ms cubic-bezier(0.16, 0.82, 0.28, 1);
+    transition-delay: var(--details-text-delay, 100ms);
     will-change: opacity, transform, filter;
   }
 
   .longCourseDetails.has-details-motion .detailsPanel h2 {
-    --details-text-delay: 340ms;
+    --details-text-delay: 140ms;
   }
 
   /* Row 1 highlights, and fee callout header */
   .longCourseDetails.has-details-motion .highlightItem:nth-child(1),
   .longCourseDetails.has-details-motion .highlightItem:nth-child(2),
   .longCourseDetails.has-details-motion .feeCallout>span {
-    --details-text-delay: 460ms;
+    --details-text-delay: 190ms;
   }
 
   /* Row 2 highlights, and fee callout strong */
   .longCourseDetails.has-details-motion .highlightItem:nth-child(3),
   .longCourseDetails.has-details-motion .highlightItem:nth-child(4),
   .longCourseDetails.has-details-motion .feeCallout strong {
-    --details-text-delay: 560ms;
+    --details-text-delay: 240ms;
   }
 
   /* Row 3 highlights, and fee callout p */
   .longCourseDetails.has-details-motion .highlightItem:nth-child(5),
   .longCourseDetails.has-details-motion .highlightItem:nth-child(6),
   .longCourseDetails.has-details-motion .feeCallout p {
-    --details-text-delay: 660ms;
+    --details-text-delay: 290ms;
   }
 
   /* Row 4 highlights, and table row 1 */
   .longCourseDetails.has-details-motion .highlightItem:nth-child(7),
   .longCourseDetails.has-details-motion .highlightItem:nth-child(8),
   .longCourseDetails.has-details-motion .programDetailTable div:nth-child(1) :is(dt, dd) {
-    --details-text-delay: 760ms;
+    --details-text-delay: 340ms;
   }
 
   /* Row 5 highlights, and table row 2 */
   .longCourseDetails.has-details-motion .highlightItem:nth-child(9),
   .longCourseDetails.has-details-motion .highlightItem:nth-child(10),
   .longCourseDetails.has-details-motion .programDetailTable div:nth-child(2) :is(dt, dd) {
-    --details-text-delay: 860ms;
+    --details-text-delay: 390ms;
   }
 
   /* Row 6 highlights, and table row 3 */
   .longCourseDetails.has-details-motion .highlightItem:nth-child(11),
   .longCourseDetails.has-details-motion .programDetailTable div:nth-child(3) :is(dt, dd) {
-    --details-text-delay: 960ms;
+    --details-text-delay: 440ms;
   }
 
   /* CTA Button */
   .longCourseDetails.has-details-motion .enrollmentCta {
-    --details-text-delay: 1060ms;
+    --details-text-delay: 490ms;
   }
 
   .longCourseDetails.has-details-motion.is-details-visible .detailsPanel :is(.sectionPill,
@@ -5478,11 +5490,11 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .longCoursePortfolio.has-portfolio-motion.is-portfolio-visible .portfolioPanel {
-    animation: portfolioPanelEnter 1.8s cubic-bezier(0.16, 0.82, 0.28, 1) both;
+    animation: portfolioPanelEnter 780ms cubic-bezier(0.16, 0.82, 0.28, 1) both;
   }
 
   .longCoursePortfolio.has-portfolio-motion.is-portfolio-visible .portfolioPanel:last-child {
-    animation-delay: 120ms;
+    animation-delay: 70ms;
   }
 }
 

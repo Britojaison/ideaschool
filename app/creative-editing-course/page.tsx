@@ -55,120 +55,20 @@ const outcomes = [
   "Industry Experience Program with live projects and brand workflows",
 ];
 
-type CurriculumWeek = {
-  week: string;
-  module: string;
-  recorded: string;
-  live: string;
-  assignment: string;
-  highlights?: string[];
-};
-
-const curriculumWeeks: CurriculumWeek[] = [
+const curriculumBrochureHighlights = [
   {
-    week: "Week 1",
-    module: "Premiere Pro Basics",
-    recorded: "Premiere Pro interface",
-    live: "Simple cut, importing, exporting, and proxies",
-    assignment: "Paced cut of the given footage",
+    label: "Core training",
+    value: "Premiere Pro, Photoshop, After Effects, sound design, and AI workflows",
   },
   {
-    week: "Week 2",
-    module: "Premiere Pro Advanced",
-    recorded: "Types of cuts and applying effects",
-    live: "Captions, creative supers, roto, and must-have plugins",
-    assignment: "Add B-rolls, transitions, effects, and Premiere object selection",
+    label: "Live practice",
+    value: "Offline sessions, mentor reviews, assignments, and production tasks",
   },
   {
-    week: "Week 3",
-    module: "Photoshop Basics",
-    recorded: "Photoshop layout and basic tools",
-    live: "Lumetri colors, LUTs, and replicating a movie look",
-    assignment: "Color grade based on the mood and tone being set",
-  },
-  {
-    week: "Week 4",
-    module: "After Effects Beginner",
-    recorded: "Layout of After Effects",
-    live: "Linking with AE, seamless workflow, and motion graphics",
-    assignment: "Motion graphics integrated animation in video",
-  },
-  {
-    week: "Week 5",
-    module: "After Effects Intermediate",
-    recorded: "Principles of animation, ease in, ease out, and fluid animation",
-    live: "Advanced motion graphics and plugins for AE",
-    assignment: "Make seamless animation and storytelling in animation",
-  },
-  {
-    week: "Week 6",
-    module: "After Effects Advanced",
-    recorded: "Visual effects principles, interaction, and factors",
-    live: "Explosions, rotoscopy, green matte keying, and lighting",
-    assignment: "Visual effects with 3D tracking and 2D tracking",
-  },
-  {
-    week: "Week 7",
-    module: "After Effects Advanced",
-    recorded: "3D workflow, depth of field, and camera",
-    live: "3D in After Effects, camera, and tracking",
-    assignment: "Add a 3D object into the video",
-  },
-  {
-    week: "Week 8",
-    module: "Sound Mixing",
-    recorded: "Music, sound effects, and ambience explained",
-    live: "BGM selection, sound effects, mixing, and additional effects",
-    assignment: "Add BGM and sound design",
-  },
-  {
-    week: "Week 9",
-    module: "AI Gen Basics",
-    recorded: "Creating a custom lower third",
-    live: "Captions.ai, OpusClip, and ElevenLabs voice cloning",
-    assignment: "Create a 90-second promo cut with the help of AI",
-  },
-  {
-    week: "Week 10",
-    module: "Art of Creating Thumbnails",
-    recorded: "Principles of graphic design",
-    live: "Thumbnail creation, AI image generation, Canva, best models, and usage",
-    assignment: "Create a cover image and thumbnail for your videos",
-  },
-  {
-    week: "Week 11",
-    module: "Portfolio",
-    recorded: "Portfolio fundamentals",
-    live: "Portfolio creation with Framer or Figma",
-    assignment: "Build your personal portfolio",
-  },
-  {
-    week: "Week 12",
-    module: "AI Gen Advanced",
-    recorded: "Types of video generation, available models, and tool limits",
-    live: "AI tool exploration, video generation, InVideo, HeyGen, and next workshop pitch",
-    assignment: "Complete your portfolio",
-  },
-  {
-    week: "Weeks 13-24",
-    module: "Industry Experience Program + Live Projects",
-    recorded: "Weeks 13-24: Industry Experience Program",
-    live: "Work on live brand briefs, solve real client problems, and present work like a professional editor and visual designer",
-    assignment: "Agency-level portfolio, multiple revision cycles, weekly mentor reviews, and experience certificate from the agency (3 Months)",
-    highlights: [
-      "Work on live brand briefs",
-      "Solve real client problems",
-      "Weekly mentor reviews",
-      "Multiple revision cycles",
-      "Build an agency-level portfolio",
-      "Present work like a professional editor & visual designer",
-      "Experience certificate from the agency (3 Months)",
-    ],
+    label: "Industry experience",
+    value: "Live projects, revision cycles, brand briefs, and portfolio outcomes",
   },
 ];
-
-const visibleCurriculumWeeks = curriculumWeeks.slice(0, 4);
-const additionalCurriculumWeeks = curriculumWeeks.slice(4);
 
 const weeklySchedule = [
   {
@@ -454,68 +354,43 @@ export default function CreativeEditingCoursePage() {
             <p>12 weeks of guided training followed by 12 weeks of Industry Experience Program + Live Projects.</p>
           </div>
 
-          <div className="courseWeekList">
-            {visibleCurriculumWeeks.map((week) => (
-              <article className="courseWeek" key={`${week.week}-${week.module}`}>
-                <div className="courseWeekMeta">
-                  <span>{week.week}</span>
-                  <h3>{week.module}</h3>
-                </div>
-                <div className="courseWeekGrid">
-                  <div>
-                    <strong>Recorded session</strong>
-                    <p>{week.recorded}</p>
-                  </div>
-                  <div>
-                    <strong>Offline / online session</strong>
-                    <p>{week.live}</p>
-                  </div>
-                  <div>
-                    <strong>Assignment</strong>
-                    <p>{week.assignment}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
+          <div className="curriculumBrochureShell">
+            <div className="curriculumBrochureCopy">
+              <span className="sectionPill">Program Roadmap</span>
+              <h3>Explore the full curriculum in the brochure</h3>
+              <p>
+                See the complete learning path, tools covered, project flow, mentor
+                feedback structure, and industry experience details in one place.
+              </p>
+              <a
+                className="primaryCta programCta curriculumBrochureCta"
+                href="/pdf/Program%20Brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="primaryCtaText">View brochure</span>
+              </a>
+            </div>
 
-            <details className="courseWeekDropdown">
-              <summary>
-                <span>View full curriculum</span>
-                <strong>{additionalCurriculumWeeks.length} more modules</strong>
-              </summary>
-
-              <div className="courseWeekDropdownList">
-                {additionalCurriculumWeeks.map((week) => (
-                  <article className="courseWeek" key={`${week.week}-${week.module}`}>
-                    <div className="courseWeekMeta">
-                      <span>{week.week}</span>
-                      <h3>{week.module}</h3>
-                    </div>
-                    <div className="courseWeekGrid">
-                      <div>
-                        <strong>Recorded session</strong>
-                        <p>{week.recorded}</p>
-                      </div>
-                      <div>
-                        <strong>Offline / online session</strong>
-                        <p>{week.live}</p>
-                      </div>
-                      <div>
-                        <strong>Assignment</strong>
-                        <p>{week.assignment}</p>
-                        {week.highlights && (
-                          <ul className="courseWeekHighlights">
-                            {week.highlights.map((highlight) => (
-                              <li key={highlight}>{highlight}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    </div>
-                  </article>
+            <div className="curriculumBrochurePreview" aria-label="Brochure contents preview">
+              <div className="curriculumBrochurePreviewHeader">
+                <span>Creative Editing & AI Pro</span>
+                <strong>24-week roadmap</strong>
+              </div>
+              <div className="curriculumBrochureRows">
+                {curriculumBrochureHighlights.map((item) => (
+                  <div className="curriculumBrochureRow" key={item.label}>
+                    <span>{item.label}</span>
+                    <p>{item.value}</p>
+                  </div>
                 ))}
               </div>
-            </details>
+              <div className="curriculumBrochureFooter" aria-hidden="true">
+                <span>Training</span>
+                <span>Projects</span>
+                <span>Portfolio</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -537,7 +412,6 @@ export default function CreativeEditingCoursePage() {
             {mentors.map((mentor) => (
               <TiltedCard
                 key={mentor.name}
-                captionText={`${mentor.name} - ${mentor.role}`}
                 containerHeight="auto"
                 containerWidth="100%"
                 imageHeight="auto"
@@ -545,7 +419,7 @@ export default function CreativeEditingCoursePage() {
                 rotateAmplitude={10}
                 scaleOnHover={1.04}
                 showMobileWarning={false}
-                showTooltip
+                showTooltip={false}
                 className="courseMentorTilt"
                 innerClassName="courseMentorTiltInner"
               >
@@ -560,6 +434,13 @@ export default function CreativeEditingCoursePage() {
                       sizes="(max-width: 760px) 88vw, (max-width: 1180px) 42vw, 290px"
                       className="courseMentorImage"
                     />
+                  </div>
+                  <div className="courseMentorInfo">
+                    <h3>{mentor.name}</h3>
+                    <p className="courseMentorRole">
+                      <span>Designation</span>
+                      {mentor.role}
+                    </p>
                   </div>
                 </article>
               </TiltedCard>

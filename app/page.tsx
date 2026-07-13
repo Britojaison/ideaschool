@@ -144,7 +144,7 @@ function BrandLogo({ brand }: { brand: Brand }) {
 
 const workshops = [
   {
-    title: "AI AD FILM MAKING MASTERCLASS",
+    title: "AI Ad Film Making Masterclass",
     description: "Learn editing, content, and AI tools through real-world projects.",
     image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
     href: "/ad-film-making",

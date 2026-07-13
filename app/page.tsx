@@ -16,6 +16,7 @@ import ScrollTextReveal from "./ScrollTextReveal";
 import StarBorder from "./StarBorder";
 import WorkshopCarousel from "./WorkshopCarousel";
 import MobileMenu from "./MobileMenu";
+import GoogleReviews from "./GoogleReviews";
 
 type Brand =
   | {
@@ -493,6 +494,8 @@ export default function Home() {
               </article>
             ))}
           </div>
+
+          <GoogleReviews />
 
           <div className="faq">
             <div className="faqIntro">

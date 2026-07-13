@@ -5917,8 +5917,8 @@ html.isHeroGlassCursorActive .hero * {
   min-width: 202px;
   width: max-content;
   max-width: calc(100% - 40px);
-  height: 41px;
-  margin: 0 auto 24px;
+  height: auto;
+  margin: 20px auto 24px;
   border-radius: 999px;
   color: #fff;
   font-family: var(--font-subject);
@@ -5937,14 +5937,14 @@ html.isHeroGlassCursorActive .hero * {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 37px;
-  padding: 0 28px;
+  height: auto;
+  padding: 10px 28px;
   border: 1px solid rgba(175, 82, 223, 0.72);
   border-radius: 999px;
   background: #101010;
   color: inherit;
   font: inherit;
-  line-height: 1;
+  line-height: 1.2;
   box-shadow: inset 0 0 18px rgba(175, 82, 223, 0.08);
 }
 
@@ -6617,14 +6617,14 @@ html.isHeroGlassCursorActive .hero * {
   .workshopTitle.star-border-container {
     width: min(100%, 360px);
     min-width: 0;
-    height: 58px;
+    height: auto;
     margin: 82px auto 46px;
     font-size: 1.55rem;
   }
 
   .workshopTitle .inner-content {
-    height: 54px;
-    padding: 0 24px;
+    height: auto;
+    padding: 12px 24px;
     border-width: 2px;
   }
 

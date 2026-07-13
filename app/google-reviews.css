@@ -160,14 +160,90 @@
 }
 
 .googleReviewsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
   gap: 18px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.googleReviewsGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.googleReviewsCarousel {
+  position: relative;
+  min-width: 0;
+}
+
+.googleReviewsCarousel::before,
+.googleReviewsCarousel::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 62px;
+  content: "";
+  pointer-events: none;
+}
+
+.googleReviewsCarousel::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(17, 16, 20, 0.92), transparent);
+}
+
+.googleReviewsCarousel::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(17, 16, 20, 0.92), transparent);
+}
+
+.googleReviewsArrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.94);
+  color: #080808;
+  cursor: pointer;
+  transform: translateY(-50%);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.32);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.googleReviewsArrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.04);
+  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.38);
+}
+
+.googleReviewsArrow:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+.googleReviewsArrow.previous {
+  left: -22px;
+}
+
+.googleReviewsArrow.next {
+  right: -22px;
 }
 
 .googleReviewCard {
   position: relative;
   display: grid;
+  flex: 0 0 calc((100% - 54px) / 4);
   align-content: start;
   gap: 16px;
   min-height: 270px;
@@ -177,6 +253,7 @@
   border-radius: 14px;
   background: rgba(10, 10, 12, 0.72);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  scroll-snap-align: start;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
@@ -256,6 +333,16 @@
   line-height: 1;
 }
 
+.googleReviewProfileMeta {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .googleReviewStars {
   display: flex;
   gap: 3px;
@@ -273,66 +360,17 @@
   line-height: 1.56;
 }
 
-.googleReviewsEmpty {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 10px;
-  max-width: 620px;
-  min-height: 190px;
-  margin-top: clamp(28px, 4vw, 48px);
-  padding: 28px;
-  align-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  background: rgba(0, 0, 0, 0.34);
-}
-
-.googleReviewsEmpty strong {
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 2vw, 1.85rem);
-  font-weight: 900;
-  line-height: 1.05;
-}
-
-.googleReviewsEmpty p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.68);
-  font-family: var(--font-subject);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.45;
-}
-
-.googleReviewSkeleton {
-  position: relative;
-  overflow: hidden;
-}
-
-.googleReviewSkeleton::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: linear-gradient(
-    110deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 42%,
-    transparent 72%
-  );
-  transform: translateX(-100%);
-  animation: googleReviewShimmer 1.2s ease-in-out infinite;
-}
-
-@keyframes googleReviewShimmer {
-  to {
-    transform: translateX(100%);
-  }
+.googleReviewTextMuted {
+  color: rgba(255, 255, 255, 0.52);
 }
 
 @media (max-width: 1180px) {
   .googleReviewsPanel {
     grid-template-columns: 1fr;
+  }
+
+  .googleReviewCard {
+    flex-basis: calc((100% - 18px) / 2);
   }
 
   .googleReviewsSummary {
@@ -365,8 +403,16 @@
     margin-top: 8px;
   }
 
-  .googleReviewsGrid {
-    grid-template-columns: 1fr;
+  .googleReviewCard {
+    flex-basis: min(86%, 390px);
+  }
+
+  .googleReviewsArrow.previous {
+    left: -8px;
+  }
+
+  .googleReviewsArrow.next {
+    right: -8px;
   }
 }
 
@@ -393,5 +439,15 @@
   .googleReviewCard {
     min-height: 0;
     padding: 20px;
+  }
+
+  .googleReviewsCarousel::before,
+  .googleReviewsCarousel::after {
+    width: 36px;
+  }
+
+  .googleReviewsArrow {
+    width: 40px;
+    height: 40px;
   }
 }

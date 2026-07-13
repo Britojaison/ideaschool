@@ -28,7 +28,6 @@ const standOutPrinciples = [
 
 export default function StandOutSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const scrollDirectionRef = useRef<"down" | "up">("down");
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -36,33 +35,20 @@ export default function StandOutSection() {
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduceMotion.matches) {
-      section.classList.add("is-stroke-drawn", "is-content-visible", "stroke-from-top");
+      section.classList.add("is-content-visible");
       return;
     }
-
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      scrollDirectionRef.current = currentScrollY >= lastScrollY ? "down" : "up";
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
 
         if (!entry.isIntersecting) {
-          section.classList.remove("is-stroke-drawn", "is-content-visible");
+          section.classList.remove("is-content-visible");
           return;
         }
 
-        const directionClass = scrollDirectionRef.current === "up" ? "stroke-from-bottom" : "stroke-from-top";
-        section.classList.remove("is-stroke-drawn", "is-content-visible", "stroke-from-top", "stroke-from-bottom");
-        void section.offsetWidth;
-        section.classList.add(directionClass, "is-stroke-drawn", "is-content-visible");
+        section.classList.add("is-content-visible");
       },
       { threshold: 0.34 }
     );
@@ -70,7 +56,6 @@ export default function StandOutSection() {
     observer.observe(section);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, []);
@@ -81,11 +66,6 @@ export default function StandOutSection() {
         <div className="standOutIntro">
           <span className="sectionPill">Why We Stand Out</span>
           <div className="standOutTitleWrap">
-            <div className="standOutBrushStrokes" aria-hidden="true">
-              {Array.from({ length: 5 }, (_, index) => (
-                <span className="standOutBrushStroke" key={index} />
-              ))}
-            </div>
             <h2>Built For Editors Who Need More Than Software Lessons</h2>
           </div>
 

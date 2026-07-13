@@ -1667,7 +1667,7 @@ html.isHeroGlassCursorActive .hero * {
   color: rgba(255, 255, 255, 0.76);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  font-weight: 4s00;
+  font-weight: 400;
 }
 
 .programStats dd {
@@ -3842,6 +3842,28 @@ html.isHeroGlassCursorActive .hero * {
   margin-top: 0;
 }
 
+.longCoursePage:not(.workshopCoursePage) .longCourseStats {
+  gap: 28px 42px;
+  width: min(100%, 470px);
+  max-width: 470px;
+}
+
+.longCoursePage:not(.workshopCoursePage) .longCourseStats div {
+  position: relative;
+  padding-left: 16px;
+}
+
+.longCoursePage:not(.workshopCoursePage) .longCourseStats div::before {
+  position: absolute;
+  top: 3px;
+  bottom: 2px;
+  left: 0;
+  width: 2px;
+  content: "";
+  background: linear-gradient(180deg, var(--course-green), rgba(218, 253, 85, 0.08));
+  box-shadow: 0 0 18px rgba(218, 253, 85, 0.34);
+}
+
 .longCourseStats dt {
   font-size: 14px;
 }
@@ -3850,7 +3872,28 @@ html.isHeroGlassCursorActive .hero * {
   font-size: clamp(1.12rem, 1.55vw, 1.52rem);
 }
 
-.longCourseStats div:last-child dd {
+.longCoursePage:not(.workshopCoursePage) .longCourseStats dt {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.18;
+}
+
+.longCoursePage:not(.workshopCoursePage) .longCourseStats dd {
+  color: #ffffff;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.longCoursePage:not(.workshopCoursePage) .longCourseStats div:last-child {
+  grid-column: 1 / -1;
+}
+
+.longCoursePage:not(.workshopCoursePage) .longCourseStats div:last-child dd {
+  max-width: 360px;
   white-space: normal;
 }
 

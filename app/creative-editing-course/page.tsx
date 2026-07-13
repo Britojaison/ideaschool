@@ -308,7 +308,7 @@ export default function CreativeEditingCoursePage() {
             <div className="longCourseHeroModelSpace" aria-hidden="true" />
           </aside>
 
-          <dl className="programStats longCourseStats">
+          <dl className="programStats longCourseStats" aria-label="Program snapshot">
             {heroStats.map((stat) => (
               <div key={stat.label}>
                 <dt>{stat.label}</dt>

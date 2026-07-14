@@ -16,6 +16,7 @@ import ScrollTextReveal from "./ScrollTextReveal";
 import StarBorder from "./StarBorder";
 import WorkshopCarousel from "./WorkshopCarousel";
 import MobileMenu from "./MobileMenu";
+import GoogleReviews from "./GoogleReviews";
 
 type Brand =
   | {
@@ -144,10 +145,11 @@ function BrandLogo({ brand }: { brand: Brand }) {
 
 const workshops = [
   {
-    title: "AI AD FILM MAKING MASTERCLASS",
+    title: "AI Ad Film Making Masterclass",
     description: "Learn editing, content, and AI tools through real-world projects.",
     image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
     href: "/ad-film-making",
+    hideApplyButton: true,
   },
   {
     title: "High-Income Video Editing Workshop",
@@ -492,6 +494,8 @@ export default function Home() {
               </article>
             ))}
           </div>
+
+          <GoogleReviews />
 
           <div className="faq">
             <div className="faqIntro">

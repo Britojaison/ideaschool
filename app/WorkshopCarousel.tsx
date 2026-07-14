@@ -10,6 +10,7 @@ type Workshop = {
   image: string;
   href?: string;
   comingSoon?: boolean;
+  hideApplyButton?: boolean;
 };
 
 type WorkshopCarouselProps = {
@@ -69,7 +70,7 @@ export default function WorkshopCarousel({ workshops }: WorkshopCarouselProps) {
         };
         const cardContent = (
           <>
-            {workshop.href ? (
+            {workshop.href && !workshop.hideApplyButton ? (
               <span className="availability">Apply Now</span>
             ) : null}
             <Image

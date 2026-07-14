@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
-const whatsappCommunityUrl = "https://chat.whatsapp.com/L6QMzPkypb43YgoKnuLiJe";
+const whatsappCommunityUrl = "https://chat.whatsapp.com/Iz3mpN9HQ6KGDEUbedsUBW";
 
 export const metadata: Metadata = {
   title: "Registration Successful | Video Editing Workshop",

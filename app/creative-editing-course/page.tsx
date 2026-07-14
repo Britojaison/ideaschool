@@ -152,7 +152,8 @@ const tools = [
   "OpusClip",
   "ElevenLabs",
   "Framer",
-  "Figma",
+  "higgsfield",
+  "Seedance 2.0",
   "InVideo",
   "HeyGen",
 ];

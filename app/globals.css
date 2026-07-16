@@ -9560,9 +9560,9 @@ html.isHeroGlassCursorActive .hero * {
 
   .contactInner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(550px, 550px);
+    grid-template-columns: minmax(0, 1fr) minmax(400px, 550px);
     align-items: start;
-    gap: clamp(72px, 8vw, 128px);
+    gap: clamp(40px, 5vw, 128px);
     width: min(100%, 1420px);
     min-height: 687px;
     margin: 0 auto;
@@ -9576,9 +9576,10 @@ html.isHeroGlassCursorActive .hero * {
   .contactCopy h2 {
     display: flex;
     align-items: center;
-    width: 579px;
-    height: 180px;
-    max-width: none;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 180px;
     font-family: var(--font-heading);
     font-size: 48px;
     font-weight: 700;
@@ -9588,8 +9589,8 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .contactCopy p {
-    width: 578px;
-    height: 39px;
+    width: 100%;
+    height: auto;
     margin-top: 38px;
     margin-left: 1px;
     color: #fff;
@@ -9601,8 +9602,9 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyForm {
-    width: 550px;
-    height: 570px;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
     align-self: center;
     justify-self: end;
     min-height: 0;
@@ -14569,23 +14571,30 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 @media (max-width: 768px) {
+  .clientBrandsGridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
   .clientBrandCard {
-    width: calc(33.33% - 1rem);
+    width: 100%;
     height: 100px;
-    padding: 1rem;
+    padding: 0.4rem;
     border-radius: 12px;
   }
-  .clientBrandsGridContainer {
-    gap: 1rem;
+  .clientBrandCard .cincoLogo,
+  .clientBrandCard .saravanaLogo {
+    transform: scale(2.2);
   }
 }
 @media (max-width: 480px) {
-  .clientBrandCard {
-    width: calc(50% - 0.75rem);
-    height: 90px;
-  }
   .clientBrandsGridContainer {
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
+  }
+  .clientBrandCard {
+    width: 100%;
+    height: 90px;
+    padding: 0.25rem;
   }
 }
 
@@ -14668,3 +14677,40 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
+@media (max-width: 480px) {
+  .courseGallerySection {
+    padding: 4rem 0;
+  }
+  .courseGalleryInner {
+    gap: 1.5rem;
+  }
+  .galleryImageWrapper {
+    width: 200px;
+    height: 130px;
+    border-radius: 8px;
+  }
+  .galleryTrack {
+    gap: 0.75rem;
+  }
+  .courseGalleryInner .mentorSectionIntro {
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .courseGalleryInner .mentorSectionIntro h2 {
+    font-size: 2.2rem !important;
+    text-align: center !important;
+  }
+  @keyframes scrollRightToLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-33.333333% - 0.25rem)); }
+  }
+  
+  @keyframes scrollLeftToRight {
+    0% { transform: translateX(calc(-33.333333% - 0.25rem)); }
+    100% { transform: translateX(0); }
+  }
+}

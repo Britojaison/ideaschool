@@ -152,7 +152,7 @@ function BrandLogo({ brand }: { brand: Brand }) {
       <img
         src={`${brand.image}?v=4`}
         alt={brand.name}
-        className={`clientBrandImage${brand.name === "Mapro" ? " maproLogo" : ""}`}
+        className={`clientBrandImage${brand.name === "Mapro" ? " maproLogo" : ""}${brand.name === "Cinco" ? " cincoLogo" : ""}${brand.name === "Saravana Store" ? " saravanaLogo" : ""}`}
         style={{ width: "85%", height: "85%", objectFit: "contain" }}
       />
     );

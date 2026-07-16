@@ -16,6 +16,7 @@ import ContactForm from "../ContactForm";
 import MobileMenu from "../MobileMenu";
 import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
+import LiquidQuickActions from "../LiquidQuickActions";
 const LazyCurriculumDotField = dynamic(() => import("./LazyCurriculumDotField"), {
   loading: () => null,
 });
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const course = {
-  eyebrow: "24-week career program",
+  eyebrow: "12-week career program",
   title: "Creative Editing & AI Pro Course",
   accent: "Build editor-ready craft, AI speed,\nand a real portfolio.",
   description:
@@ -41,7 +42,7 @@ const course = {
 };
 
 const heroStats = [
-  { label: "Duration", value: "24 Weeks" },
+  { label: "Duration", value: "12 Weeks" },
   { label: "Core Training", value: "12 Weeks" },
   { label: "Industry Experience Program", value: "12 Weeks" },
   { label: "Outcome", value: "Portfolio + Placement Eligibility" },
@@ -136,12 +137,15 @@ const mentors = [
   },
 ];
 
-const portfolioMilestones = [
-  "Website or portfolio page",
-  "Brochure of the cohort",
-  "Two edited shoot sets",
-  "Consolidation of free source tools for video making",
-  "Completed portfolio for placement assistance eligibility",
+const industryExperiencePoints = [
+  "12 Weeks of Industry Experience Program",
+  "Work on live brand briefs",
+  "Solve real client problems",
+  "Weekly mentor reviews",
+  "Multiple revision cycles",
+  "Build an agency-level portfolio",
+  "Present work like a professional editor & visual designer",
+  "Experience certificate from the agency (3 Months)",
 ];
 
 const tools = [
@@ -160,7 +164,7 @@ const tools = [
 ];
 
 const programHighlights = [
-  "24 Week Intensive Program (12 + 12 Weeks)",
+  "12 Week Intensive Program",
   "Creative Editing & Storytelling Training",
   "AI-Powered Editing Workflows",
   "Motion Graphics & Content Systems",
@@ -353,7 +357,7 @@ export default function CreativeEditingCoursePage() {
         <div className="longCourseSectionInner">
           <div className="curriculumIntro">
             <h2>Curriculum</h2>
-            <p>12 weeks of guided training followed by 12 weeks of Industry Experience Program + Live Projects.</p>
+            <p>12 weeks of guided training having Industry Experience Program + Live Projects.</p>
           </div>
 
           <div className="curriculumBrochureShell">
@@ -377,7 +381,7 @@ export default function CreativeEditingCoursePage() {
             <div className="curriculumBrochurePreview" aria-label="Brochure contents preview">
               <div className="curriculumBrochurePreviewHeader">
                 <span>Creative Editing & AI Pro</span>
-                <strong>24-week roadmap</strong>
+                <strong>12-week roadmap</strong>
               </div>
               <div className="curriculumBrochureRows">
                 {curriculumBrochureHighlights.map((item) => (
@@ -455,10 +459,10 @@ export default function CreativeEditingCoursePage() {
         <PortfolioSectionMotion />
         <div className="longCourseSectionInner portfolioGrid">
           <div className="portfolioPanel">
-            <h2>Portfolio Milestones</h2>
+            <h2>Industry Experience Program + Live Projects</h2>
             <div className="portfolioMilestones">
-              {portfolioMilestones.map((milestone) => (
-                <span key={milestone}>{milestone}</span>
+              {industryExperiencePoints.map((point) => (
+                <span key={point}>{point}</span>
               ))}
             </div>
           </div>
@@ -680,6 +684,8 @@ export default function CreativeEditingCoursePage() {
           <span className="floatingBtnText">Register Now</span>
         </Link>
       </div>
+      
+      <LiquidQuickActions />
     </main>
   );
 }

@@ -190,9 +190,6 @@ export default function AlumniWorks() {
                 {String(index + 1).padStart(2, "0")}
               </button>
             ))}
-            <button type="button" onClick={selectNext} aria-label="Next work">
-              +
-            </button>
           </small>
         </div>
       </div>

@@ -185,6 +185,8 @@
 .googleReviewsGrid {
   display: flex;
   gap: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-behavior: smooth;

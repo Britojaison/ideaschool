@@ -98,7 +98,7 @@ export default function ContactForm() {
             </p>
           )}
           
-          <p style={{ marginTop: status === "idle" || status === "submitting" ? "1rem" : "0.5rem" }}>
+          <p style={{ marginTop: status === "idle" || status === "submitting" ? "0.5rem" : "0.25rem" }}>
             Limited seats available for the upcoming batch.
           </p>
         </form>

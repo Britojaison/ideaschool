@@ -5667,15 +5667,19 @@ html.isHeroGlassCursorActive .hero * {
   min-height: 100px;
   padding: 18px;
   overflow: hidden;
-  border: 1px solid rgba(218, 253, 85, 0.26);
+  border: 0;
   border-radius: 18px;
-  background: #fff;
+  background-color: #000 !important;
 }
 
 .toolLogo {
   width: 100%;
   height: 62px;
   object-fit: contain;
+}
+
+.toolLogoLight {
+  filter: invert(1);
 }
 
 .longCourseFaq {

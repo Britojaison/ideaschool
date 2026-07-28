@@ -478,7 +478,13 @@ export default function CreativeEditingCoursePage() {
                     width={160}
                     height={72}
                     sizes="(max-width: 520px) 38vw, (max-width: 900px) 22vw, 150px"
-                    className="toolLogo"
+                    className={`toolLogo ${
+                      ["Premiere Pro", "OpusClip", "ElevenLabs", "Framer", "InVideo"].includes(
+                        tool.name,
+                      )
+                        ? "toolLogoLight"
+                        : ""
+                    }`}
                   />
                 </div>
               ))}

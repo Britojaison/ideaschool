@@ -334,7 +334,9 @@ export default function CreativeEditingCoursePage() {
             />
           </div>
           <div className="longCourseIntro">
-            <span className="sectionPill">What You Build</span>
+            <span className="sectionPill">
+              <span className="sectionPillText">What You Build</span>
+            </span>
             <h2>Graduate With Work That Shows Your Range</h2>
             <p>
               Every module ends with a practical output, so your final portfolio is not a

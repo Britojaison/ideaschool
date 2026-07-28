@@ -628,6 +628,10 @@ html.isHeroGlassCursorActive .hero * {
   opacity: 1;
 }
 
+.headerCtaText {
+  transform: translateY(2px);
+}
+
 .heroContent {
   position: relative;
   z-index: 3;
@@ -8635,6 +8639,11 @@ html.isHeroGlassCursorActive .hero * {
   font-size: 17px;
   line-height: 1;
   box-shadow: 0 0 28px rgba(137, 85, 153, 0.42);
+}
+
+.sectionPillText {
+  display: inline-block;
+  transform: translateY(2px);
 }
 
 .whyIdea h2 {

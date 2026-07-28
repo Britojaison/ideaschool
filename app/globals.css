@@ -4198,7 +4198,7 @@ html.isHeroGlassCursorActive .hero * {
 .outcomeGrid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: auto 180px auto;
+  grid-template-rows: repeat(3, auto);
   column-gap: clamp(16px, 2vw, 30px);
   row-gap: clamp(52px, 7vw, 104px);
   margin-top: 64px;
@@ -4252,7 +4252,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .outcomeCard:nth-child(4) {
   grid-column: 8 / span 5;
-  grid-row: 2 / span 2;
+  grid-row: 2;
 }
 
 .outcomeCard:nth-child(4) .outcomeCardMedia {

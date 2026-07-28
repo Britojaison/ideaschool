@@ -42,7 +42,7 @@ const course = {
 };
 
 const heroStats = [
-  { label: "Duration", value: "12 Weeks" },
+  { label: "Duration", value: "24 Weeks" },
   { label: "Core Training", value: "12 Weeks" },
   { label: "Industry Experience Program", value: "12 Weeks" },
   { label: "Outcome", value: "Portfolio + Placement Eligibility" },
@@ -684,7 +684,7 @@ export default function CreativeEditingCoursePage() {
           <span className="floatingBtnText">Register Now</span>
         </Link>
       </div>
-      
+
       <LiquidQuickActions />
     </main>
   );

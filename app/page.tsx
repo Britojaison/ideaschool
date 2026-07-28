@@ -223,6 +223,11 @@ export default function Home() {
     }, 150);
   };
 
+  const handleMenuClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
     <main>
       <HashScrollFix />
@@ -270,7 +275,7 @@ export default function Home() {
             href="/ad-film-making"
             onMouseEnter={handleMenuMouseEnter}
             onMouseLeave={handleMenuMouseLeave}
-            onClick={(e) => e.preventDefault()}
+            onClick={handleMenuClick}
           >
             <span className="headerCtaText">Book your class</span>
           </Link>

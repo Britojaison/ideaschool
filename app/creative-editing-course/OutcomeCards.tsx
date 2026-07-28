@@ -1,10 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type OutcomeCardsProps = {
   outcomes: string[];
 };
+
+const outcomeImages = [
+  "/images/Editing.jpg",
+  "/images/Motion Graphics.jpg",
+  "/images/VFX.jpg",
+  "/images/Graphic Design.jpg",
+  "/images/Artboard 2 (1).jpg",
+  "/images/Industry.jpg",
+];
 
 export default function OutcomeCards({ outcomes }: OutcomeCardsProps) {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -20,8 +30,8 @@ export default function OutcomeCards({ outcomes }: OutcomeCardsProps) {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     if (reduceMotion.matches) {
-      setIsVisible(true);
-      return;
+      const frame = window.requestAnimationFrame(() => setIsVisible(true));
+      return () => window.cancelAnimationFrame(frame);
     }
 
     const observer = new IntersectionObserver(
@@ -45,7 +55,13 @@ export default function OutcomeCards({ outcomes }: OutcomeCardsProps) {
     <div className={`outcomeGrid ${isVisible ? "is-visible" : ""}`} ref={gridRef}>
       {outcomes.map((outcome, index) => (
         <article className="outcomeCard" key={outcome}>
-          <span>{String(index + 1).padStart(2, "0")}</span>
+          <Image
+            src={outcomeImages[index]}
+            alt=""
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            className="outcomeCardImage"
+          />
           <p>{outcome}</p>
         </article>
       ))}

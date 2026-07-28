@@ -3927,7 +3927,10 @@ html.isHeroGlassCursorActive .hero * {
   background:
     radial-gradient(circle at 82% 10%, rgba(180, 255, 57, 0.085), transparent 26%),
     radial-gradient(circle at 88% 18%, rgba(139, 92, 255, 0.16), transparent 34%),
+    linear-gradient(rgba(218, 253, 85, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(218, 253, 85, 0.045) 1px, transparent 1px),
     #0c0d0f;
+  background-size: auto, auto, 32px 32px, 32px 32px, auto;
 }
 
 .longCourseOutcomes::before {

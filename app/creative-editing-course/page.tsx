@@ -449,7 +449,6 @@ export default function CreativeEditingCoursePage() {
                   <div className="courseMentorInfo">
                     <h3>{mentor.name}</h3>
                     <p className="courseMentorRole">
-                      <span>Designation</span>
                       {mentor.role}
                     </p>
                   </div>

@@ -4091,6 +4091,13 @@ html.isHeroGlassCursorActive .hero * {
   z-index: 1;
 }
 
+.longCourseOutcomes .sectionPill {
+  width: max-content;
+  min-width: 0;
+  padding-inline: 24px;
+  justify-self: start;
+}
+
 .rogMonitorHero3D {
   position: absolute;
   top: -44px;

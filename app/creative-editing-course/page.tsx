@@ -341,6 +341,21 @@ export default function CreativeEditingCoursePage() {
               last-minute task. It grows week by week.
             </p>
           </div>
+          <aside className="outcomesEditorialIndex" aria-label="Portfolio output index">
+            <div>
+              <span>001</span>
+              <p>Editing &amp; promo</p>
+            </div>
+            <div>
+              <span>002</span>
+              <p>Motion &amp; VFX</p>
+            </div>
+            <div>
+              <span>003</span>
+              <p>Design &amp; industry</p>
+            </div>
+            <strong>06 / Portfolio outputs</strong>
+          </aside>
           <OutcomeCards outcomes={outcomes} />
         </div>
       </section>

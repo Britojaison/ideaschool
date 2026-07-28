@@ -173,7 +173,7 @@ const programHighlights = [
   "Weekly Mentorship & Feedback Sessions",
   "Portfolio Development Support",
   "Community Access & Networking",
-  "Industry Exposure Opportunities",
+  "12 Week Industry Exposure Opportunities",
   "Certificate of Completion",
 ];
 
@@ -381,7 +381,7 @@ export default function CreativeEditingCoursePage() {
             <div className="curriculumBrochurePreview" aria-label="Brochure contents preview">
               <div className="curriculumBrochurePreviewHeader">
                 <span>Creative Editing & AI Pro</span>
-                <strong>12-week roadmap</strong>
+                <strong>24-week roadmap</strong>
               </div>
               <div className="curriculumBrochureRows">
                 {curriculumBrochureHighlights.map((item) => (

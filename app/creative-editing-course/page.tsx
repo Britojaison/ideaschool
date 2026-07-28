@@ -145,7 +145,7 @@ const portfolioMilestones = [
 
 const tools = [
   { name: "Premiere Pro", logo: "/images/adobepremierepro.svg" },
-  { name: "Photoshop", logo: "/images/ps logo.jpg" },
+  { name: "Photoshop", logo: "/images/ps-logo-transparent.png" },
   { name: "After Effects", logo: "/images/Ae_logo.webp" },
   { name: "Canva", logo: "/images/Canva_icon.png" },
   { name: "Captions.ai", logo: "/images/captionsai.avif" },

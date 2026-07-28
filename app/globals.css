@@ -6961,26 +6961,7 @@ html.isHeroGlassCursorActive .hero * {
     width: 91px;
   }
 
-  .programMenuPanel .programMenuBanner,
-  .programMenuPanel .programMenuBanner:nth-child(n) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: auto;
-    min-width: 0;
-    min-height: 80px;
-    height: 80px;
-    padding: 0 16px;
-  }
-
-  .programMenuPanel .programMenuBadge {
-    display: none;
-  }
-
-  .programMenuPanel .programMenuCopy em {
-    display: none;
-  }
+  /* Banners are styled by base styles on desktop */
 
   .headerCta {
     position: absolute;
@@ -14729,5 +14710,36 @@ html.isHeroGlassCursorActive .hero * {
   @keyframes scrollLeftToRight {
     0% { transform: translateX(calc(-33.333333% - 0.25rem)); }
     100% { transform: translateX(0); }
+  }
+}
+
+@media (max-width: 980px) {
+  .programMenuPanel {
+    grid-template-columns: 1fr;
+    width: calc(100vw - 32px);
+    max-height: calc(100svh - 120px);
+    overflow-y: auto;
+    gap: 12px;
+  }
+
+  .programMenuPanel .programMenuBanner,
+  .programMenuPanel .programMenuBanner:nth-child(n) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: auto;
+    min-width: 0;
+    min-height: 140px;
+    height: 140px;
+    padding: 16px 20px 24px 20px;
+  }
+
+  .programMenuPanel .programMenuBadge {
+    display: none;
+  }
+
+  .programMenuPanel .programMenuCopy em {
+    display: none;
   }
 }

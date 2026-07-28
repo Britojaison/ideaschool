@@ -343,7 +343,9 @@ html.isHeroGlassCursorActive .hero * {
   width: 86px;
   min-height: 17px;
   padding: 0;
-  border: 0;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
   background: transparent;
   color: #fff;
   cursor: pointer;

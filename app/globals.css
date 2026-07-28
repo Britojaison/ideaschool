@@ -3929,12 +3929,16 @@ html.isHeroGlassCursorActive .hero * {
   overflow: hidden;
   padding: 70px var(--apply-section-x) 92px;
   background:
-    linear-gradient(rgba(218, 253, 85, 0.085) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(218, 253, 85, 0.085) 1px, transparent 1px),
+    linear-gradient(
+      to top,
+      rgba(74, 38, 145, 0.42) 0%,
+      rgba(79, 49, 139, 0.24) 24%,
+      rgba(53, 46, 91, 0.1) 48%,
+      transparent 76%
+    ),
     radial-gradient(circle at 82% 10%, rgba(180, 255, 57, 0.085), transparent 26%),
     radial-gradient(circle at 88% 18%, rgba(139, 92, 255, 0.16), transparent 34%),
     #0c0d0f;
-  background-size: 32px 32px, 32px 32px, auto, auto, auto;
 }
 
 .longCourseOutcomes::before {

@@ -144,18 +144,18 @@ const portfolioMilestones = [
 ];
 
 const tools = [
-  "Premiere Pro",
-  "Photoshop",
-  "After Effects",
-  "Canva",
-  "Captions.ai",
-  "OpusClip",
-  "ElevenLabs",
-  "Framer",
-  "higgsfield",
-  "Seedance 2.0",
-  "InVideo",
-  "HeyGen",
+  { name: "Premiere Pro", logo: "/images/adobepremierepro.svg" },
+  { name: "Photoshop", logo: "/images/ps logo.jpg" },
+  { name: "After Effects", logo: "/images/Ae_logo.webp" },
+  { name: "Canva", logo: "/images/Canva_icon.png" },
+  { name: "Captions.ai", logo: "/images/captionsai.avif" },
+  { name: "OpusClip", logo: "/images/opus_clip.png" },
+  { name: "ElevenLabs", logo: "/images/elevenlabs-official-logo.svg" },
+  { name: "Framer", logo: "/images/framer.webp" },
+  { name: "Higgsfield", logo: "/images/higgsfield.png" },
+  { name: "Seedance 2.0", logo: "/images/seedance-2.png" },
+  { name: "InVideo", logo: "/images/InVideo.webp" },
+  { name: "HeyGen", logo: "/images/heygen.webp" },
 ];
 
 const programHighlights = [
@@ -337,7 +337,10 @@ export default function CreativeEditingCoursePage() {
             <span className="sectionPill">
               <span className="sectionPillText">What You Build</span>
             </span>
-            <h2>Graduate With Work That Shows Your Range</h2>
+            <h2>
+              Graduate With Work That{" "}
+              <span className="outcomesTitleAccent">Shows Your Range</span>
+            </h2>
             <p>
               Every module ends with a practical output, so your final portfolio is not a
               last-minute task. It grows week by week.
@@ -468,7 +471,16 @@ export default function CreativeEditingCoursePage() {
             <h2>Tools Covered</h2>
             <div className="toolPillGrid">
               {tools.map((tool) => (
-                <span key={tool}>{tool}</span>
+                <div className="toolLogoCard" key={tool.name}>
+                  <Image
+                    src={tool.logo}
+                    alt={`${tool.name} logo`}
+                    width={160}
+                    height={72}
+                    sizes="(max-width: 520px) 38vw, (max-width: 900px) 22vw, 150px"
+                    className="toolLogo"
+                  />
+                </div>
               ))}
             </div>
           </div>

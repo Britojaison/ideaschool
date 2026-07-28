@@ -55,14 +55,21 @@ export default function OutcomeCards({ outcomes }: OutcomeCardsProps) {
     <div className={`outcomeGrid ${isVisible ? "is-visible" : ""}`} ref={gridRef}>
       {outcomes.map((outcome, index) => (
         <article className="outcomeCard" key={outcome}>
-          <Image
-            src={outcomeImages[index]}
-            alt=""
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
-            className="outcomeCardImage"
-          />
-          <p>{outcome}</p>
+          <div className="outcomeCardMedia">
+            <Image
+              src={outcomeImages[index]}
+              alt=""
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 55vw"
+              className="outcomeCardImage"
+            />
+          </div>
+          <div className="outcomeCardMeta">
+            <p>{outcome}</p>
+            <span aria-hidden="true">
+              {String(index + 1).padStart(3, "0")} / <i>{String(outcomes.length).padStart(3, "0")}</i>
+            </span>
+          </div>
         </article>
       ))}
     </div>

@@ -357,7 +357,7 @@ export default function CreativeEditingCoursePage() {
         <div className="longCourseSectionInner">
           <div className="curriculumIntro">
             <h2>Curriculum</h2>
-            <p>12 weeks of guided training having Industry Experience Program + Live Projects.</p>
+            <p>24 weeks of guided training having Industry Experience Program + Live Projects.</p>
           </div>
 
           <div className="curriculumBrochureShell">

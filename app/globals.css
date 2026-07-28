@@ -14571,3 +14571,36 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow: 0 12px 32px rgba(218, 253, 85, 0.4);
   background: #fff;
 }
+
+@media (max-width: 900px) {
+  .longCoursePage .portfolioPanel:has(.toolPillGrid) {
+    padding: 18px;
+  }
+
+  .longCoursePage .portfolioPanel:has(.toolPillGrid) h2 {
+    font-size: clamp(1.8rem, 7vw, 2.25rem);
+  }
+
+  .longCoursePage .toolPillGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .longCoursePage .toolLogoCard {
+    aspect-ratio: 1 / 0.82;
+    min-height: 0;
+    padding: 9px;
+    border-radius: 12px;
+  }
+
+  .longCoursePage .toolLogo {
+    height: clamp(30px, 7vw, 42px);
+  }
+}
+
+@media (max-width: 480px) {
+  .longCoursePage .toolPillGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const course = {
-  eyebrow: "12-week career program",
+  eyebrow: "24-week career program",
   title: "Creative Editing & AI Pro Course",
   accent: "Build editor-ready craft, AI speed,\nand a real portfolio.",
   description:

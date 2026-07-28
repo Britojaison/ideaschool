@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -44,10 +45,15 @@ export default function ProgramMenu({
   onMouseLeave: controlledOnMouseLeave,
 }: ProgramMenuProps = {}) {
   const [localIsOpen, setLocalIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const isControlled = controlledIsOpen !== undefined;
   const isOpen = isControlled ? controlledIsOpen : localIsOpen;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleMouseEnter = () => {
     if (isControlled) {
@@ -79,6 +85,29 @@ export default function ProgramMenu({
     }
   };
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const panel = document.querySelector(".programMenuPanel");
+      const trigger = document.querySelector(".programMenuTrigger");
+      const cta = document.querySelector(".headerCta");
+
+      if (
+        panel && !panel.contains(event.target as Node) &&
+        trigger && !trigger.contains(event.target as Node) &&
+        cta && !cta.contains(event.target as Node)
+      ) {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <div
       className="programMenu"
@@ -95,7 +124,7 @@ export default function ProgramMenu({
         Courses
       </button>
 
-      {isOpen && (
+      {isOpen && mounted && createPortal(
         <div
           className="programMenuPanel"
           role="menu"
@@ -127,7 +156,8 @@ export default function ProgramMenu({
               </div>
             </Link>
           ))}
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

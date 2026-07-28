@@ -6956,8 +6956,8 @@ html.isHeroGlassCursorActive .hero * {
     width: 91px;
   }
 
-  .desktopNav .programMenuPanel .programMenuBanner,
-  .desktopNav .programMenuPanel .programMenuBanner:nth-child(n) {
+  .programMenuPanel .programMenuBanner,
+  .programMenuPanel .programMenuBanner:nth-child(n) {
     display: block;
     width: auto;
     min-width: 0;

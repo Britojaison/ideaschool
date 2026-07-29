@@ -315,12 +315,30 @@ export default function CreativeEditingCoursePage() {
           </aside>
 
           <dl className="programStats longCourseStats" aria-label="Program snapshot">
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <dt>{stat.label}</dt>
-                <dd>{stat.value}</dd>
+            <div className="statBlock statDuration">
+              <dt>Total Duration</dt>
+              <dd>24 Weeks</dd>
+              <div className="phaseTimeline" aria-label="Breakdown: first 12 weeks core training, next 12 weeks industry experience">
+                <div className="phaseBar" aria-hidden="true">
+                  <div className="phaseSegment phaseCore" />
+                  <div className="phaseSegment phaseExp" />
+                </div>
+                <div className="phaseLabels">
+                  <div className="phaseItem">
+                    <span className="phaseDot phaseDotCore" aria-hidden="true" />
+                    <span className="phaseText">First 12 Weeks — Core Training</span>
+                  </div>
+                  <div className="phaseItem">
+                    <span className="phaseDot phaseDotExp" aria-hidden="true" />
+                    <span className="phaseText">Next 12 Weeks — Industry Experience</span>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
+            <div className="statBlock statOutcome">
+              <dt>Outcome</dt>
+              <dd>Portfolio + Placement Eligibility</dd>
+            </div>
           </dl>
         </div>
       </section>

@@ -523,7 +523,7 @@ export default function WorkshopPage() {
                   { stat: "12 weeks", label: "Until you have a portfolio ready to show these numbers" },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-[#1a1a1a] border border-white/10 rounded-2xl p-8 hover:bg-[#222] transition-colors duration-300">
-                    <div className="text-4xl md:text-5xl font-bold text-[#dafd55] mb-4" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>{item.stat}</div>
+                    <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#dafd55] mb-4 whitespace-nowrap" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>{item.stat}</div>
                     <p className="text-gray-300 leading-relaxed text-sm md:text-base">{item.label}</p>
                   </div>
                 ))}

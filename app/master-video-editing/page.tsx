@@ -517,9 +517,9 @@ export default function WorkshopPage() {
               {/* Stats Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
                 {[
-                  { stat: "₹25K–55K", label: "Monthly salary range for video editors at agencies in Bangalore" },
-                  { stat: "₹3K–8K", label: "Per video for freelance short-form editors with a strong reel" },
-                  { stat: "₹80K+", label: "Monthly freelance potential with 10–12 retainer clients" },
+                  { stat: "₹25K-55K", label: "Monthly salary range for video editors at agencies in Bangalore" },
+                  { stat: "₹3K-8K", label: "Per video for freelance short-form editors with a strong reel" },
+                  { stat: "₹80K+", label: "Monthly freelance potential with 10-12 retainer clients" },
                   { stat: "12 weeks", label: "Until you have a portfolio ready to show these numbers" },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-[#1a1a1a] border border-white/10 rounded-2xl p-8 hover:bg-[#222] transition-colors duration-300">
@@ -534,12 +534,12 @@ export default function WorkshopPage() {
                 <h3 className="text-2xl md:text-4xl font-medium mb-10 text-center uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>Job roles you&apos;ll be qualified for</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
-                    { role: "Video Editor", salary: "₹25,000 – ₹45,000/mo", type: "Agency" },
-                    { role: "Motion Graphics Editor", salary: "₹30,000 – ₹55,000/mo", type: "Agency" },
-                    { role: "Social Media Editor", salary: "₹20,000 – ₹40,000/mo", type: "Brand-side" },
-                    { role: "Content Creator Editor", salary: "₹25,000 – ₹50,000/mo", type: "Brand-side" },
-                    { role: "Freelance Editor", salary: "₹40,000 – ₹1,20,000/mo", type: "Freelance - Agency" },
-                    { role: "AI Video Producer", salary: "₹35,000 – ₹65,000/mo", type: "Freelance / Agency" },
+                    { role: "Video Editor", salary: "₹25,000 - ₹45,000/mo", type: "Agency" },
+                    { role: "Motion Graphics Editor", salary: "₹30,000 - ₹55,000/mo", type: "Agency" },
+                    { role: "Social Media Editor", salary: "₹20,000 - ₹40,000/mo", type: "Brand-side" },
+                    { role: "Content Creator Editor", salary: "₹25,000 - ₹50,000/mo", type: "Brand-side" },
+                    { role: "Freelance Editor", salary: "₹40,000 - ₹1,20,000/mo", type: "Freelance - Agency" },
+                    { role: "AI Video Producer", salary: "₹35,000 - ₹65,000/mo", type: "Freelance / Agency" },
                   ].map((job, idx) => (
                     <div key={idx} className="flex flex-col justify-between p-6 bg-white/5 rounded-xl border border-white/5 hover:border-[#dafd55]/30 transition-all">
                       <div className="flex justify-between items-start mb-4">

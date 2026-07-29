@@ -215,20 +215,20 @@ const faqs = [
 ];
 
 const careerRoles = [
-  { role: "Video Editor", salary: "₹25,000 – ₹45,000/mo", type: "Agency" },
-  { role: "Motion Graphics Editor", salary: "₹30,000 – ₹55,000/mo", type: "Agency" },
-  { role: "Social Media Editor", salary: "₹20,000 – ₹40,000/mo", type: "Brand-side" },
-  { role: "Content Creator Editor", salary: "₹25,000 – ₹50,000/mo", type: "Brand-side" },
-  { role: "Freelance Editor", salary: "₹40,000 – ₹1,20,000/mo", type: "Freelance - Agency" },
-  { role: "AI Video Producer", salary: "₹35,000 – ₹65,000/mo", type: "Optional" },
+  { role: "Video Editor", salary: "₹25,000 - ₹45,000/mo", type: "Agency" },
+  { role: "Motion Graphics Editor", salary: "₹30,000 - ₹55,000/mo", type: "Agency" },
+  { role: "Social Media Editor", salary: "₹20,000 - ₹40,000/mo", type: "Brand-side" },
+  { role: "Content Creator Editor", salary: "₹25,000 - ₹50,000/mo", type: "Brand-side" },
+  { role: "Freelance Editor", salary: "₹40,000 - ₹1,20,000/mo", type: "Freelance - Agency" },
+  { role: "AI Video Producer", salary: "₹35,000 - ₹65,000/mo", type: "Optional" },
 ];
 
 const freelanceRates = [
-  { service: "Short-form Reel / Short (edited + captions)", rate: "₹2,000 – ₹5,000" },
-  { service: "Podcast edit (45 min - highlight reel)", rate: "₹4,000 – ₹8,000" },
-  { service: "Brand video with colour grade + audio", rate: "₹8,000 – ₹20,000" },
-  { service: "AI B-roll integration into client video", rate: "₹5,000 – ₹12,000" },
-  { service: "Monthly retainer (4 reels/week)", rate: "₹15,000 – ₹30,000/mo" },
+  { service: "Short-form Reel / Short (edited + captions)", rate: "₹2,000 - ₹5,000" },
+  { service: "Podcast edit (45 min - highlight reel)", rate: "₹4,000 - ₹8,000" },
+  { service: "Brand video with colour grade + audio", rate: "₹8,000 - ₹20,000" },
+  { service: "AI B-roll integration into client video", rate: "₹5,000 - ₹12,000" },
+  { service: "Monthly retainer (4 reels/week)", rate: "₹15,000 - ₹30,000/mo" },
 ];
 
 export default function CreativeEditingCoursePage() {
@@ -326,11 +326,11 @@ export default function CreativeEditingCoursePage() {
                 <div className="phaseLabels">
                   <div className="phaseItem">
                     <span className="phaseDot phaseDotCore" aria-hidden="true" />
-                    <span className="phaseText">First 12 Weeks — Core Training</span>
+                    <span className="phaseText">First 12 Weeks (Core Training)</span>
                   </div>
                   <div className="phaseItem">
                     <span className="phaseDot phaseDotExp" aria-hidden="true" />
-                    <span className="phaseText">Next 12 Weeks — Industry Experience</span>
+                    <span className="phaseText">Next 12 Weeks (Industry Experience)</span>
                   </div>
                 </div>
               </div>
@@ -594,16 +594,16 @@ export default function CreativeEditingCoursePage() {
 
           <div className="careerStatsGrid">
             <div className="careerStat">
-              <h3>₹25K–55K</h3>
+              <h3>₹25K-55K</h3>
               <p>Monthly salary range for video editors at agencies in Bangalore</p>
             </div>
             <div className="careerStat">
-              <h3>₹3K–8K</h3>
+              <h3>₹3K-8K</h3>
               <p>Per video for freelance short-form editors with a strong reel</p>
             </div>
             <div className="careerStat">
               <h3>₹80K+</h3>
-              <p>Monthly freelance potential with 10–12 retainer clients</p>
+              <p>Monthly freelance potential with 10-12 retainer clients</p>
             </div>
             <div className="careerStat">
               <h3>12 weeks</h3>
@@ -628,7 +628,7 @@ export default function CreativeEditingCoursePage() {
             </div>
 
             <div className="freelancePanel">
-              <h3>What you can charge as a freelancer — per project</h3>
+              <h3>What you can charge as a freelancer (per project)</h3>
               <ul className="freelanceRatesList">
                 {freelanceRates.map((item) => (
                   <li key={item.service}>

@@ -17,7 +17,7 @@ const tools = [
     xRange: [40, -40], yRange: [20, -20], rotateRange: [5, -5] 
   },
   { 
-    label: "Higgsfield AI", icon: "/images/higgsfiled.png", bg: "#000000", color: "#ffffff", width: "60%", borderRadius: "100px", zIndex: 4,
+    label: "Higgsfield AI", icon: "/images/higgsfield_ai.webp", bg: "#000000", color: "#ffffff", width: "60%", borderRadius: "100px", zIndex: 4,
     xRange: [90, -90], yRange: [50, -50], rotateRange: [15, -15] 
   },
 ];

@@ -95,8 +95,8 @@ const weeklySchedule = [
   },
   {
     day: "Tuesday",
-    activity: "Completion of task",
-    objective: "Ship website, campaign assets, or assigned creative output.",
+    activity: "Submission of task",
+    objective: "Submit website, campaign assets, or assigned creative output.",
   },
   {
     day: "Wednesday",
@@ -105,8 +105,8 @@ const weeklySchedule = [
   },
   {
     day: "Thursday",
-    activity: "1:1 feedback session",
-    objective: "Shoot two sets of videos: one for class practice and one for assignment.",
+    activity: "Completion of task",
+    objective: "Ship website, campaign assets, or assigned creative output.",
   },
 ];
 
@@ -157,7 +157,7 @@ const tools = [
   { name: "OpusClip", logo: "/images/opus_clip.png" },
   { name: "ElevenLabs", logo: "/images/elevenlabs-official-logo.svg" },
   { name: "Framer", logo: "/images/framer.webp" },
-  { name: "Higgsfield", logo: "/images/higgsfield.png" },
+  { name: "Higgsfield", logo: "/images/higgsfield_ai.webp" },
   { name: "Seedance 2.0", logo: "/images/seedance-2.png" },
   { name: "InVideo", logo: "/images/InVideo.webp" },
   { name: "HeyGen", logo: "/images/heygen.webp" },

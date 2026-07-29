@@ -3926,7 +3926,8 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .longCoursePage:not(.workshopCoursePage) .phaseExp {
-  background: rgba(218, 253, 85, 0.3);
+  background: #a855f7;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.45);
 }
 
 .longCoursePage:not(.workshopCoursePage) .phaseLabels {
@@ -3954,7 +3955,8 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .longCoursePage:not(.workshopCoursePage) .phaseDotExp {
-  background: rgba(218, 253, 85, 0.35);
+  background: #a855f7;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
 }
 
 .longCoursePage:not(.workshopCoursePage) .phaseText {

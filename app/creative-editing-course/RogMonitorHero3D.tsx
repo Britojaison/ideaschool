@@ -354,41 +354,64 @@ export default function RogMonitorHero3D({
     };
     const targetMotion = { ...currentMotion };
     let targetOpacity = 1;
+    let cachedSections: Array<{ center: number; nextCenter: number; isDetails: boolean }> = [];
+    let cachedPageHeight = 1;
+    let cachedHorizontalTravel = 0;
+    let lastWidth = window.innerWidth;
+
+    const updateSectionCache = () => {
+      if (typeof window === "undefined") return;
+      const width = window.innerWidth;
+      const rect = wrapperRef.current?.getBoundingClientRect();
+      const sideGap = width < 700 ? 14 : Math.max(width * 0.045, 28);
+      cachedHorizontalTravel = Math.max(width - (rect?.width || 0) - sideGap * 2, 0);
+      cachedPageHeight = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        1,
+      );
+
+      const sections = Array.from(
+        document.querySelectorAll<HTMLElement>(".longCoursePage > section, .longCoursePage > footer"),
+      );
+
+      cachedSections = sections.map((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = Math.max(section.offsetHeight, 1);
+        const nextSection = sections[index + 1];
+        const sectionCenter = sectionTop + sectionHeight * 0.5;
+        const nextCenter = nextSection
+          ? nextSection.offsetTop + Math.max(nextSection.offsetHeight, 1) * 0.5
+          : sectionCenter + sectionHeight;
+        return {
+          center: sectionCenter,
+          nextCenter,
+          isDetails: section.classList.contains("longCourseDetails"),
+        };
+      });
+    };
+
+    updateSectionCache();
 
     const updateTargetTravel = () => {
       if (!wrapperRef.current) {
         return;
       }
 
-      const pageHeight = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        1,
-      );
-      const pageProgress = THREE.MathUtils.clamp(window.scrollY / pageHeight, 0, 1);
-      const rect = wrapperRef.current.getBoundingClientRect();
-      const sideGap = window.innerWidth < 700 ? 14 : Math.max(window.innerWidth * 0.045, 28);
-      const horizontalTravel = Math.max(window.innerWidth - rect.width - sideGap * 2, 0);
-      const sections = Array.from(
-        document.querySelectorAll<HTMLElement>(".longCoursePage > section, .longCoursePage > footer"),
-      );
+      if (cachedSections.length === 0) {
+        updateSectionCache();
+      }
+
+      const pageProgress = THREE.MathUtils.clamp(window.scrollY / cachedPageHeight, 0, 1);
       const viewportCenter = window.scrollY + window.innerHeight * 0.5;
       let sectionIndex = 0;
       let sectionBlend = 0;
 
-      for (let index = 0; index < sections.length; index += 1) {
-        const section = sections[index];
-        const nextSection = sections[index + 1];
-        const sectionTop = section.offsetTop;
-        const sectionHeight = Math.max(section.offsetHeight, 1);
-        const sectionCenter = sectionTop + sectionHeight * 0.5;
-        const nextCenter = nextSection
-          ? nextSection.offsetTop + Math.max(nextSection.offsetHeight, 1) * 0.5
-          : sectionCenter + sectionHeight;
-
-        if (viewportCenter <= nextCenter || index === sections.length - 1) {
+      for (let index = 0; index < cachedSections.length; index += 1) {
+        const item = cachedSections[index];
+        if (viewportCenter <= item.nextCenter || index === cachedSections.length - 1) {
           sectionIndex = index;
           sectionBlend = THREE.MathUtils.clamp(
-            (viewportCenter - sectionCenter) / Math.max(nextCenter - sectionCenter, 1),
+            (viewportCenter - item.center) / Math.max(item.nextCenter - item.center, 1),
             0,
             1,
           );
@@ -396,8 +419,8 @@ export default function RogMonitorHero3D({
         }
       }
 
-      const currentSideX = sectionIndex % 2 === 0 ? 0 : -horizontalTravel;
-      const nextSideX = (sectionIndex + 1) % 2 === 0 ? 0 : -horizontalTravel;
+      const currentSideX = sectionIndex % 2 === 0 ? 0 : -cachedHorizontalTravel;
+      const nextSideX = (sectionIndex + 1) % 2 === 0 ? 0 : -cachedHorizontalTravel;
       const easedSectionBlend = THREE.MathUtils.smoothstep(sectionBlend, 0.18, 0.82);
       const sectionTravelX = THREE.MathUtils.lerp(currentSideX, nextSideX, easedSectionBlend);
       const sectionPulse = Math.sin((sectionBlend + sectionIndex) * Math.PI * 2);
@@ -407,8 +430,7 @@ export default function RogMonitorHero3D({
       const shrinkProgress = THREE.MathUtils.smoothstep(pageProgress, shrinkStart, shrinkEnd);
       const heroScale = window.innerWidth < 700 ? 0.82 : 1.22;
       const scrolledScale = window.innerWidth < 700 ? 0.7 : 0.72;
-      const activeSection = sections[sectionIndex];
-      const isDetailsSection = activeSection?.classList.contains("longCourseDetails");
+      const isDetailsSection = cachedSections[sectionIndex]?.isDetails;
       const modelScale = THREE.MathUtils.lerp(heroScale, scrolledScale, shrinkProgress) * (isDetailsSection ? 0.72 : 1);
 
       targetMotion.x = sectionTravelX;
@@ -440,19 +462,23 @@ export default function RogMonitorHero3D({
 
     const requestTravelUpdate = () => {
       updateTargetTravel();
-
-      if (animationFrame) {
-        return;
-      }
-
-      lastFrameTime = performance.now();
-      animationFrame = window.requestAnimationFrame(renderTravel);
     };
 
+    const handleResize = () => {
+      if (window.innerWidth !== lastWidth) {
+        lastWidth = window.innerWidth;
+        updateSectionCache();
+        updateTargetTravel();
+      }
+    };
+
+    updateSectionCache();
     updateTargetTravel();
-    requestTravelUpdate();
+    lastFrameTime = performance.now();
+    animationFrame = window.requestAnimationFrame(renderTravel);
+
     window.addEventListener("scroll", requestTravelUpdate, { passive: true });
-    window.addEventListener("resize", requestTravelUpdate);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       if (animationFrame) {
@@ -460,23 +486,35 @@ export default function RogMonitorHero3D({
       }
 
       window.removeEventListener("scroll", requestTravelUpdate);
-      window.removeEventListener("resize", requestTravelUpdate);
+      window.removeEventListener("resize", handleResize);
     };
   }, [travelAcrossPage]);
+
+  const isMobileDevice = typeof window !== "undefined" && window.innerWidth < 768;
 
   return (
     <div ref={wrapperRef} className={`rogMonitorHero3D ${className}`.trim()} aria-hidden="true">
       <Canvas
-        shadows
-        dpr={[1, 1.65]}
+        shadows={!isMobileDevice}
+        dpr={isMobileDevice ? 1 : [1, 1.5]}
         gl={{
           alpha: true,
-          antialias: true,
+          antialias: !isMobileDevice,
           powerPreference: "high-performance",
+          failIfMajorPerformanceCaveat: false,
+        }}
+        onCreated={({ gl }) => {
+          gl.domElement.addEventListener(
+            "webglcontextlost",
+            (event) => {
+              event.preventDefault();
+            },
+            false,
+          );
         }}
         camera={{ position: [0, 0.15, 4.15], fov: 31, near: 0.1, far: 16 }}
         eventPrefix="client"
-        performance={{ min: 0.55 }}
+        performance={{ min: 0.5 }}
       >
         <Suspense fallback={<MonitorFallback />}>
           <MonitorScene scrollZigZag={scrollZigZag} />

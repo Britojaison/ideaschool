@@ -137,13 +137,24 @@ type WorkshopHeroModel3DProps = {
 };
 
 export default function WorkshopHeroModel3D({ className = "workshopHeroModel3D" }: WorkshopHeroModel3DProps) {
+  const isMobileDevice = typeof window !== "undefined" && window.innerWidth < 768;
+
   return (
     <div className={className} aria-hidden="true">
       <Canvas
-        dpr={[1, 1.75]}
-        shadows
+        dpr={isMobileDevice ? 1 : [1, 1.5]}
+        shadows={!isMobileDevice}
         camera={{ position: [0, 0.45, 6.2], fov: 34 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        gl={{ antialias: !isMobileDevice, alpha: true, powerPreference: "high-performance", failIfMajorPerformanceCaveat: false }}
+        onCreated={({ gl }) => {
+          gl.domElement.addEventListener(
+            "webglcontextlost",
+            (event) => {
+              event.preventDefault();
+            },
+            false,
+          );
+        }}
       >
         <Suspense fallback={null}>
           <BrandModelScene />

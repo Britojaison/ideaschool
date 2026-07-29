@@ -318,7 +318,7 @@ export default function CreativeEditingCoursePage() {
             <div className="statBlock statDuration">
               <dt>Total Duration</dt>
               <dd>24 Weeks</dd>
-              <div className="phaseTimeline" aria-label="Breakdown: first 12 weeks core training, next 12 weeks industry experience">
+              <div className="phaseTimeline" aria-label="Breakdown: 1-12 weeks core training, 13-24 weeks industry experience">
                 <div className="phaseBar" aria-hidden="true">
                   <div className="phaseSegment phaseCore" />
                   <div className="phaseSegment phaseExp" />
@@ -326,11 +326,11 @@ export default function CreativeEditingCoursePage() {
                 <div className="phaseLabels">
                   <div className="phaseItem">
                     <span className="phaseDot phaseDotCore" aria-hidden="true" />
-                    <span className="phaseText">First 12 Weeks (Core Training)</span>
+                    <span className="phaseText">01-12 Weeks (Core Training)</span>
                   </div>
                   <div className="phaseItem">
                     <span className="phaseDot phaseDotExp" aria-hidden="true" />
-                    <span className="phaseText">Next 12 Weeks (Industry Experience)</span>
+                    <span className="phaseText">13-24 Weeks (Industry Experience)</span>
                   </div>
                 </div>
               </div>
@@ -500,13 +500,12 @@ export default function CreativeEditingCoursePage() {
                     width={160}
                     height={72}
                     sizes="(max-width: 520px) 38vw, (max-width: 900px) 22vw, 150px"
-                    className={`toolLogo ${
-                      ["Premiere Pro", "OpusClip", "ElevenLabs", "Framer", "InVideo"].includes(
-                        tool.name,
-                      )
+                    className={`toolLogo ${["Premiere Pro", "OpusClip", "ElevenLabs", "Framer", "InVideo"].includes(
+                      tool.name,
+                    )
                         ? "toolLogoLight"
                         : ""
-                    }`}
+                      }`}
                   />
                 </div>
               ))}

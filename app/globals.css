@@ -1461,6 +1461,108 @@ html.isHeroGlassCursorActive .hero * {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.longCourseThankYouPage {
+  --course-green: #dafd55;
+}
+
+.longCourseThankYouPage .thankYouHeroMedia {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(218, 253, 85, 0.18), transparent 34%),
+    radial-gradient(circle at 76% 74%, rgba(128, 86, 251, 0.14), transparent 30%),
+    linear-gradient(180deg, #050608 0%, #08090b 70%, #0c0d0f 100%);
+}
+
+.longCourseThankYouPage .thankYouCard {
+  border-color: rgba(218, 253, 85, 0.25);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+    radial-gradient(circle at top, rgba(218, 253, 85, 0.13), transparent 46%),
+    rgba(8, 9, 10, 0.86);
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.52);
+}
+
+.longCourseThankYouPage .thankYouPill {
+  border-color: rgba(218, 253, 85, 0.42);
+  background: rgba(218, 253, 85, 0.08);
+  box-shadow: 0 0 24px rgba(218, 253, 85, 0.16);
+  color: var(--course-green);
+}
+
+.longCourseThankYouPage .thankYouCard h1 span {
+  color: var(--course-green);
+}
+
+.longCourseThankYouIcon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+  place-items: center;
+  border: 1px solid rgba(218, 253, 85, 0.42);
+  border-radius: 50%;
+  background: rgba(218, 253, 85, 0.1);
+  color: var(--course-green);
+  font-size: 1.8rem;
+  font-weight: 900;
+  box-shadow: 0 0 34px rgba(218, 253, 85, 0.18);
+}
+
+.longCoursePhoneNotice {
+  display: flex;
+  width: min(100%, 520px);
+  align-items: center;
+  gap: 14px;
+  margin-top: 26px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  text-align: left;
+}
+
+.longCoursePhoneNotice > span {
+  color: var(--course-green);
+  font-size: 1.45rem;
+}
+
+.longCoursePhoneNotice div {
+  display: grid;
+  gap: 4px;
+}
+
+.longCoursePhoneNotice strong {
+  font-size: 0.95rem;
+}
+
+.longCoursePhoneNotice small,
+.longCourseThankYouHelp {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.longCourseThankYouPage .thankYouActions {
+  width: min(100%, 390px);
+}
+
+.longCourseThankYouPage .thankYouActions .thankYouPrimaryCta {
+  gap: 10px;
+  border-color: rgba(218, 253, 85, 0.75) !important;
+  background: linear-gradient(90deg, #dafd55, #aee63d) !important;
+  color: #08090a;
+}
+
+.longCourseThankYouPage .thankYouActions .thankYouPrimaryCta:hover {
+  border-color: #dafd55 !important;
+  background: linear-gradient(90deg, #e1ff6b, #b8ef44) !important;
+  box-shadow: 0 10px 32px rgba(218, 253, 85, 0.2) !important;
+}
+
+.longCourseThankYouHelp {
+  max-width: 370px;
+  margin-top: 12px;
+}
+
 .programHero {
   position: relative;
   display: flex;

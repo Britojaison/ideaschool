@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbymEzItkhHgnVO8JTZjQrjzX9QD-BcEFL39U5U5zt8rLFpllp4SvbKYBGUuYZAdrltxDA/exec";
 
-export default function ContactForm() {
+export default function ContactForm({ successRedirect }: { successRedirect?: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [showThankYou, setShowThankYou] = useState(false);
 
@@ -34,8 +34,12 @@ export default function ContactForm() {
       });
 
       setStatus("success");
-      setShowThankYou(true);
       (e.target as HTMLFormElement).reset();
+      if (successRedirect) {
+        window.location.assign(successRedirect);
+        return;
+      }
+      setShowThankYou(true);
     } catch (error) {
       setStatus("error");
     }

@@ -679,7 +679,7 @@ export default function CreativeEditingCoursePage() {
             </a>
           </div>
 
-          <ContactForm />
+          <ContactForm successRedirect="/creative-editing-course/thank-you" />
         </div>
       </section>
 

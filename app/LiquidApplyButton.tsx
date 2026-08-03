@@ -10,7 +10,7 @@ export default function LiquidApplyButton() {
   return (
     <Link
       className="liquidApplyMount"
-      href="/master-video-editing"
+      href="/creative-editing-course"
       onMouseMove={liquidMouse.handleMouseMove}
       onMouseLeave={liquidMouse.handleMouseLeave}
     >

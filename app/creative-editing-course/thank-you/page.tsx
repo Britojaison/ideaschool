@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroDotField from "../../HeroDotField";
 
-const whatsappUrl =
-  "https://wa.me/918618894857?text=Hi%20Idea%20School%2C%20I%20have%20applied%20for%20the%20Creative%20Editing%20%26%20AI%20Pro%20Course.%20Please%20add%20me%20to%20the%20WhatsApp%20community.";
+const whatsappUrl = "https://chat.whatsapp.com/KPOJNXzGGmXCdUh2BdF4En";
 
 export const metadata: Metadata = {
   title: "Application Received | Idea School",

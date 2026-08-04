@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import HeroDotField from "../../HeroDotField";
 
 const whatsappUrl = "https://chat.whatsapp.com/KPOJNXzGGmXCdUh2BdF4En";
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
 export default function CreativeEditingThankYouPage() {
   return (
     <main className="thankYouPage longCourseThankYouPage">
+      <Script id="fb-track-lead" strategy="afterInteractive">
+        {`fbq('track', 'Lead');`}
+      </Script>
       <section className="thankYouHero" aria-label="Application confirmation">
         <div className="thankYouHeroMedia"><HeroDotField /></div>
         <div className="thankYouHeroShade" />

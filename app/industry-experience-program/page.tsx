@@ -31,9 +31,6 @@ export default function IndustryExperienceProgramPage() {
           <Image src="/images/idea logo.webp" alt="Idea School" width={110} height={58} priority />
         </Link>
 
-        <p className="vslAttention">
-          Attention: Aspiring Video Editors, Creators &amp; Creative Professionals...
-        </p>
 
         <h1>
           Don&apos;t Just Learn <span>Video Editing.</span><br />
@@ -98,7 +95,7 @@ export default function IndustryExperienceProgramPage() {
           not guarantee employment or income. This program is designed to provide practical learning,
           project experience and professional guidance.
         </p>
-        <Image src="/images/idea logo.webp" alt="Idea School" width={76} height={42} />
+        <Image src="/images/idea logo.webp" alt="Idea School" width={110} height={58} className="vslFooterLogo" />
         <span>© {new Date().getFullYear()} Idea School</span>
         <nav><Link href="/">Home</Link><a href="mailto:hello@ideaschool.in">Contact</a></nav>
       </footer>

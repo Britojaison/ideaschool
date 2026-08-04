@@ -34,10 +34,10 @@
   width: 100%;
   max-width: 800px;
   max-height: 85vh;
-  border-radius: 12px;
-  border: 3px solid #000000;
+  border-radius: 24px;
+  border: 1.5px solid #000000;
   overflow: hidden;
-  box-shadow: 8px 8px 0 0 #000000;
+  box-shadow: 6px 6px 0 0 #000000;
   display: flex;
   flex-direction: column;
   color: var(--modal-text);
@@ -56,7 +56,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 12px;
-  border-bottom: 3px solid var(--modal-border);
+  border-bottom: 1.5px solid var(--modal-border);
 }
 
 .bookingHeader .poweredBy {
@@ -74,7 +74,7 @@
 
 .backBtn, .closeBtn {
   background: #ffffff;
-  border: 2px solid #000000;
+  border: 1.5px solid #000000;
   color: var(--modal-text);
   font-size: 16px;
   font-weight: bold;
@@ -107,7 +107,7 @@
 .leftPanel {
   width: 32%;
   padding: 24px;
-  border-right: 3px solid var(--modal-border);
+  border-right: 1.5px solid var(--modal-border);
   background: var(--modal-sidebar);
   overflow-y: auto;
   position: relative;
@@ -195,7 +195,7 @@
 .calendarSection {
   flex: 1;
   padding: 24px;
-  border-right: 3px solid var(--surface-border);
+  border-right: 1.5px solid var(--surface-border);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,7 +210,7 @@
   margin-bottom: 8px;
   background: var(--modal-green);
   padding: 4px 8px;
-  border: 2px solid #000;
+  border: 1.5px solid #000;
   border-radius: 4px;
   box-shadow: 2px 2px 0 0 #000;
 }
@@ -245,9 +245,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 50%;
   font-size: 13px;
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   background: none;
   cursor: pointer;
   color: var(--surface-text);
@@ -257,7 +257,7 @@
 
 .day:not(.blank):not(.disabled):hover {
   background: #f4f4f5;
-  border: 2px solid #000000;
+  border: 1.5px solid #000000;
   box-shadow: 2px 2px 0 0 #000000;
   transform: translate(-1px, -1px);
 }
@@ -266,7 +266,7 @@
   background: var(--modal-green);
   color: #000000;
   font-weight: 800;
-  border: 2px solid #000000;
+  border: 1.5px solid #000000;
   box-shadow: 2px 2px 0 0 #000000;
 }
 
@@ -285,9 +285,9 @@
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 999px;
   background: #ffffff;
-  border: 2px solid #000000;
+  border: 1.5px solid #000000;
   transition: all 0.2s;
   font-weight: 700;
   box-shadow: 2px 2px 0 0 #000000;
@@ -350,10 +350,10 @@
 .slotBtn {
   flex: 1;
   padding: 10px;
-  border: 2px solid var(--surface-border);
+  border: 1.5px solid var(--surface-border);
   background: var(--surface-input-bg);
   color: var(--surface-text);
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
@@ -377,16 +377,16 @@
 .nextBtn {
   flex: 1;
   padding: 10px;
-  border: 2px solid #000000;
+  border: 1.5px solid #000000;
   background: var(--modal-green);
   color: #000000;
-  border-radius: 6px;
+  border-radius: 999px;
   font-size: 13px;
   font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 3px 3px 0 0 #000000;
+  box-shadow: 2px 2px 0 0 #000000;
 }
 
 .nextBtn:hover {
@@ -421,7 +421,7 @@
   margin-bottom: 16px;
   color: var(--surface-text);
   padding-bottom: 12px;
-  border-bottom: 3px solid var(--surface-border);
+  border-bottom: 1.5px solid var(--surface-border);
   text-transform: uppercase;
 }
 
@@ -454,16 +454,16 @@
 .formGroup textarea,
 .formGroup select {
   padding: 10px 14px;
-  border: 2px solid var(--surface-border);
+  border: 1.5px solid var(--surface-border);
   background: var(--surface-input-bg);
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 13px;
   color: var(--surface-text);
   outline: none;
   transition: all 0.2s ease;
   font-family: inherit;
   width: 100%;
-  box-shadow: 3px 3px 0 0 #000000;
+  box-shadow: 2px 2px 0 0 #000000;
 }
 
 .formGroup textarea {
@@ -486,12 +486,12 @@
 
 .phoneInputWrap {
   display: flex;
-  border: 2px solid var(--surface-border);
+  border: 1.5px solid var(--surface-border);
   background: var(--surface-input-bg);
-  border-radius: 6px;
+  border-radius: 12px;
   overflow: hidden;
   transition: all 0.2s ease;
-  box-shadow: 3px 3px 0 0 #000000;
+  box-shadow: 2px 2px 0 0 #000000;
 }
 
 .phoneInputWrap:focus-within {
@@ -503,7 +503,7 @@
 .countryCode {
   padding: 10px 14px;
   background: transparent;
-  border-right: 2px solid var(--surface-border);
+  border-right: 1.5px solid var(--surface-border);
   font-size: 13px;
   color: #000000;
   white-space: nowrap;
@@ -527,15 +527,15 @@
   grid-column: 1 / -1;
   margin-top: 8px;
   padding-top: 16px;
-  border-top: 3px solid var(--surface-border);
+  border-top: 1.5px solid var(--surface-border);
 }
 
 .submitBtn {
   background: var(--modal-green);
   color: #000000;
-  border: 2px solid #000000;
+  border: 1.5px solid #000000;
   padding: 14px 24px;
-  border-radius: 8px;
+  border-radius: 999px;
   font-size: 15px;
   font-weight: 900;
   text-transform: uppercase;
@@ -543,7 +543,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
-  box-shadow: 4px 4px 0 0 #000000;
+  box-shadow: 3px 3px 0 0 #000000;
 }
 
 .submitBtn:hover {
@@ -590,15 +590,15 @@
 .doneBtn {
   background: var(--modal-green);
   color: #000000;
-  border: 2px solid #000000;
+  border: 1.5px solid #000000;
   padding: 16px 48px;
-  border-radius: 12px;
+  border-radius: 999px;
   font-size: 16px;
   font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 4px 4px 0 0 #000000;
+  box-shadow: 3px 3px 0 0 #000000;
 }
 
 .doneBtn:hover {
@@ -615,7 +615,7 @@
   .leftPanel {
     width: 100%;
     border-right: none;
-    border-bottom: 3px solid var(--modal-border);
+    border-bottom: 1.5px solid var(--modal-border);
     padding: 24px;
   }
   
@@ -625,7 +625,7 @@
   
   .calendarSection {
     border-right: none;
-    border-bottom: 3px solid var(--surface-border);
+    border-bottom: 1.5px solid var(--surface-border);
     padding: 30px 24px;
   }
   

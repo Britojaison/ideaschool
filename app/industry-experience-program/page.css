@@ -1,11 +1,10 @@
 .vslPage {
-  --vsl-bg: #ffffff;
+  --vsl-bg: #050505;
   --vsl-green: #dafd55;
   min-height: 100vh;
-  background: var(--vsl-bg);
-  background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
-  background-size: 20px 20px;
-  color: #000000;
+  background: radial-gradient(circle at bottom center, #30174c 0%, #050505 60%);
+  background-attachment: fixed;
+  color: #f4f4f5;
   font-family: var(--font-heading);
 }
 
@@ -29,7 +28,6 @@
   width: 100px;
   height: auto;
   object-fit: contain;
-  filter: invert(1);
 }
 
 .vslAttention {
@@ -37,37 +35,29 @@
   font-size: clamp(0.95rem, 1.35vw, 1.28rem);
   font-weight: 800;
   line-height: 1.4;
-  color: #000000;
-  background: var(--vsl-green);
-  display: inline-block;
-  padding: 6px 12px;
-  border: 2px solid #000000;
-  box-shadow: 2px 2px 0 0 #000000;
-  text-transform: uppercase;
+  color: #d4d4d8;
 }
 
 .vslFunnel h1 {
   max-width: 1370px;
   margin: 0 auto;
-  color: #000000;
-  font-size: clamp(2.7rem, 4.5vw, 5.1rem);
-  font-weight: 900;
+  color: #ffffff;
+  font-size: clamp(2rem, 3.8vw, 4rem);
+  font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.08;
-  text-transform: uppercase;
+  line-height: 1.1;
 }
 
 .vslFunnel h1 span {
-  color: #000000;
+  color: #ffffff;
 }
 
 .vslSubhead {
   max-width: 1190px;
-  margin: 72px auto 58px;
-  color: #3f3f46;
-  font-size: clamp(1rem, 1.4vw, 1.35rem);
-  font-style: italic;
-  font-weight: 600;
+  margin: 40px auto 58px;
+  color: #a1a1aa;
+  font-size: clamp(0.9rem, 1.3vw, 1.25rem);
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -75,9 +65,9 @@
   width: min(100%, 1160px);
   margin: auto;
   background: #000;
-  border: 3px solid #000000;
-  border-radius: 12px;
-  box-shadow: 8px 8px 0 0 #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
@@ -95,14 +85,14 @@
   justify-content: center;
   gap: clamp(9px, 1.5vw, 24px);
   margin: 40px auto 0;
-  color: #000000;
+  color: #e4e4e7;
   font-size: clamp(0.7rem, 1.15vw, 1rem);
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .vslJourney i {
-  color: #000000;
+  color: var(--vsl-green);
   font-size: 1.35em;
   font-style: normal;
 }
@@ -111,6 +101,7 @@
   margin: 48px auto 18px;
   font-size: clamp(1.2rem, 1.8vw, 1.7rem);
   font-weight: 800;
+  color: #ffffff;
 }
 
 .vslCta {
@@ -121,21 +112,21 @@
   justify-content: center;
   gap: 14px;
   margin: auto;
-  border-radius: 8px;
+  border-radius: 999px;
   background: var(--vsl-green);
   color: #000000;
-  border: 2px solid #000000;
-  box-shadow: 4px 4px 0 0 #000000;
+  box-shadow: 0 0 20px rgba(218, 253, 85, 0.2);
   font-size: clamp(0.9rem, 1.15vw, 1.08rem);
   font-weight: 900;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.2s;
+  border: none;
 }
 
 .vslCta:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 0 #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(218, 253, 85, 0.4);
 }
 
 .vslCta span {
@@ -159,10 +150,10 @@
   text-transform: capitalize;
   font-weight: 700;
   padding: 16px;
-  border: 2px solid #000000;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 3px 3px 0 0 #000000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
 }
 
 .vslProof div > span {
@@ -170,21 +161,20 @@
 }
 
 .vslExperienceLine {
-  width: min(100%, 1160px);
-  margin: 64px auto 0;
-  padding: 27px 32px;
-  border: 3px solid #000000;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 6px 6px 0 0 #000000;
+  width: fit-content;
+  max-width: 90%;
+  margin: 48px auto 0;
+  padding: 20px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .vslExperienceLine > strong {
   display: block;
-  color: #000000;
+  color: #ffffff;
   font-size: clamp(1rem, 1.55vw, 1.4rem);
-  text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .vslExperienceLine > div {
@@ -192,8 +182,8 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px 28px;
-  margin-top: 18px;
-  color: #3f3f46;
+  margin-top: 10px;
+  color: #a1a1aa;
   font-size: 0.82rem;
   font-weight: 600;
 }
@@ -204,14 +194,14 @@
 
 .vslClosing h2 {
   margin: 0;
-  font-size: clamp(1.7rem, 3vw, 3.1rem);
-  font-weight: 900;
-  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: #ffffff;
 }
 
 .vslClosing p {
   margin: 15px 0 30px;
-  color: #000000;
+  color: #d4d4d8;
   font-size: clamp(1rem, 1.65vw, 1.45rem);
   font-weight: 700;
 }
@@ -228,54 +218,62 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 42px clamp(20px, 5vw, 70px);
-  background: #ffffff;
-  border-top: 3px solid #000000;
-  color: #52525b;
+  padding: 60px clamp(20px, 5vw, 70px);
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #a1a1aa;
   text-align: center;
 }
 
 .vslFooter > p {
-  max-width: 1300px;
-  margin: 0 auto 38px;
-  font-size: 0.78rem;
-  line-height: 1.65;
-  font-weight: 600;
+  max-width: 900px;
+  margin: 0 auto 48px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #71717a;
 }
 
-.vslFooter img {
+.vslFooterLogo {
+  width: 100px;
   height: auto;
   object-fit: contain;
-  filter: invert(1);
+  margin-bottom: 8px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.vslFooterLogo:hover {
+  opacity: 1;
 }
 
 .vslFooter > span {
-  margin-top: 15px;
-  color: #3f3f46;
-  font-size: 0.76rem;
-  font-weight: 700;
+  margin-top: 8px;
+  color: #52525b;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .vslFooter nav {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 16px;
+  margin-top: 24px;
 }
 
 .vslFooter nav a {
-  color: #000000;
-  font-size: 0.75rem;
+  color: #a1a1aa;
+  font-size: 0.85rem;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
+  transition: color 0.2s;
 }
 
 .vslFooter nav a:hover {
-  text-decoration: underline;
+  color: #ffffff;
 }
 
 .vslFooter nav a + a::before {
-  margin-right: 10px;
-  color: #000000;
+  margin-right: 16px;
+  color: #3f3f46;
   content: '•';
 }
 
@@ -294,8 +292,8 @@
     font-size: 0.84rem;
   }
   .vslFunnel h1 {
-    font-size: clamp(2.15rem, 10.3vw, 3.3rem);
-    line-height: 1.08;
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.15;
   }
   .vslDesktopBreak {
     display: none;

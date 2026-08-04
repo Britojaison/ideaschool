@@ -25,21 +25,22 @@ export async function POST(request: Request) {
     console.log(`Goal: ${goal}`);
     console.log("============================");
 
-    // TODO: Connect to Google Sheets
-    // Option A: If you create a Google Apps Script Web App, you can fetch to it here:
-    /*
-    const GOOGLE_SCRIPT_URL = "YOUR_WEB_APP_URL_HERE";
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body)
-    });
-    */
-
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Connect to Google Sheets via Google Apps Script Web App
+    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
+    
+    if (GOOGLE_SCRIPT_URL) {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
+      });
+    } else {
+      console.warn("GOOGLE_SCRIPT_URL is not set in environment variables.");
+      // Simulate network delay if no URL is set
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
 
     return NextResponse.json({ success: true, message: "Booking confirmed" }, { status: 200 });
   } catch (error) {

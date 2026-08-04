@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ApplyButton from "../ApplyButton";
 import "./page.css";
 
 export const metadata: Metadata = {
@@ -65,9 +66,9 @@ export default function IndustryExperienceProgramPage() {
 
         <p className="vslPrompt">Apply below to start your 24-week industry experience.</p>
 
-        <a className="vslCta" href="/creative-editing-course#apply">
+        <ApplyButton className="vslCta" programName="Industry Experience Program">
           Apply for the program <span>→</span>
-        </a>
+        </ApplyButton>
 
         <div className="vslProof">
           {proofPoints.map((item) => (
@@ -85,9 +86,9 @@ export default function IndustryExperienceProgramPage() {
         <section className="vslClosing">
           <h2>Don&apos;t Graduate With Just a Certificate.</h2>
           <p>Graduate With Experience, Projects &amp; a Portfolio.</p>
-          <a className="vslCta" href="mailto:hello@ideaschool.in?subject=Industry Experience Program Application">
+          <ApplyButton className="vslCta" programName="Industry Experience Program">
             Apply now <span>→</span>
-          </a>
+          </ApplyButton>
         </section>
       </section>
 

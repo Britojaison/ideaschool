@@ -77,7 +77,7 @@ const toolLogos = [
 
 const attendeeImage = (fileName: string) => `/images/${fileName}`;
 const razorpayPaymentLink =
-  process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/NwcRrEel";
+  process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/XiQ2PDi";
 
 const attendees = [
   {
@@ -608,7 +608,6 @@ export default function ApplyPage() {
           <a className="programBatchCta" href="#enroll">
             Book seat now
           </a>
-          <span className="programBatchSeats">Only 2 seats left</span>
         </div>
       </div>
 

@@ -10,7 +10,7 @@ import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
-import BrandCommercialsSection from "./BrandCommercialsSection";
+import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 
 const curriculum = [
   {
@@ -198,15 +198,44 @@ const proofVideos = [
 
 const brandCommercials = [
   {
-    title: "Sunscreen",
-    src: "/images/Brand Commercial/SunscreenAD_May22 V2.mp4",
-    poster: "/images/Brand Commercial/SunscreenAD_May22 V2.webp",
+    id: "promo",
+    title: "Editing Promo",
+    src: "/images/edit_1.mp4",
+    aspectRatio: "16/9",
+    maxWidth: "900px",
+    description: "High-retention promo displaying storytelling, dynamic pacing, and visual effects."
   },
   {
+    id: "zaman",
+    title: "Case Study",
+    src: "/images/workshop/zaman_case_study.mp4",
+    aspectRatio: "9/16",
+    maxWidth: "380px",
+    description: "Vertical ad campaign project showcasing engaging hooks and retention edits."
+  },
+  {
+    id: "luis",
+    title: "Creative Reel",
+    src: "/images/workshop/luis_reel.mp4",
+    aspectRatio: "9/16",
+    maxWidth: "380px",
+    description: "Vertical creative edit demonstrating advanced motion graphics and sound design."
+  },
+  {
+    id: "sunscreen",
+    title: "Sunscreen",
+    src: "/images/Brand Commercial/SunscreenAD_May22 V2.mp4",
+    aspectRatio: "16/9",
+    maxWidth: "900px",
+    description: "Brand commercial ad film."
+  },
+  {
+    id: "campa",
     title: "Campa",
-    mobileHeading: "100% Made with AI.",
     src: "/images/Brand Commercial/CampaAD_Seedance_May22.mp4",
-    poster: "/images/Brand Commercial/CampaAD_Seedance_May22.webp",
+    aspectRatio: "16/9",
+    maxWidth: "900px",
+    description: "100% Made with AI."
   },
 ];
 
@@ -430,7 +459,17 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <BrandCommercialsSection commercials={brandCommercials} />
+      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
+        <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
+          <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px" }}>Our Work</span>
+            <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
+            <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px", fontSize: "18px", lineHeight: "1.5" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
+          </div>
+        </div>
+
+        <WorkshopGalleryFlip videos={brandCommercials} />
+      </section>
 
       <section className="programProof" aria-label="Client feedback">
         <div className="programProofInner">

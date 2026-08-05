@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 
-const videos = [
+export type WorkshopVideo = {
+  id: string;
+  title: string;
+  src: string;
+  aspectRatio: string;
+  maxWidth: string;
+  description: string;
+};
+
+const defaultVideos: WorkshopVideo[] = [
   {
     id: "promo",
     title: "Editing Promo",
@@ -29,7 +38,7 @@ const videos = [
   }
 ];
 
-export default function WorkshopGalleryFlip() {
+export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos?: WorkshopVideo[] } = {}) {
   const [activeIdx, setActiveIdx] = useState(0);
   const currentVideo = videos[activeIdx];
 

@@ -12,7 +12,7 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
       href={paymentLink}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Book the Idea School AI workshop now"
+      aria-label="Reserve your video editing sprint seat"
     >
       <span className="programNoticeEyebrow">
         <span>Early Bird Offer</span>
@@ -20,26 +20,26 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
       </span>
 
       <span className="programNoticeTitle">
-        Reserve your AI AD Masterclass seat
+        Reserve your video editing sprint seat
       </span>
 
       <span className="programNoticeContent">
         <span className="programNoticeBenefits">
           <span className="programNoticeBenefit">
             <strong className="programNoticeBenefitTitle">6+ Hours</strong>
-            <span className="programNoticeBenefitText">of practical AI learning</span>
+            <span className="programNoticeBenefitText">of hands-on video editing training</span>
           </span>
           <span className="programNoticeBenefit">
-            <strong className="programNoticeBenefitTitle">Real AI Tools</strong>
-            <span className="programNoticeBenefitText">hands-on training inside the workshop</span>
+            <strong className="programNoticeBenefitTitle">Industry Workflows</strong>
+            <span className="programNoticeBenefitText">learn directly from a global creative agency</span>
           </span>
           <span className="programNoticeBenefit">
-            <strong className="programNoticeBenefitTitle">Create Live</strong>
-            <span className="programNoticeBenefitText">AI ads, visuals &amp; content during the session</span>
+            <strong className="programNoticeBenefitTitle">Build Live</strong>
+            <span className="programNoticeBenefitText">Edit your professional video during the workshop</span>
           </span>
           <span className="programNoticeBenefit">
-            <strong className="programNoticeBenefitTitle">₹1500+ Credits</strong>
-            <span className="programNoticeBenefitText">AI tool usage included with your seat</span>
+            <strong className="programNoticeBenefitTitle">AI Workflows</strong>
+            <span className="programNoticeBenefitText">Learn how AI can speed up your editing process</span>
           </span>
         </span>
       </span>

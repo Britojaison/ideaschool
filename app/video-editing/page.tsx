@@ -60,7 +60,7 @@ const toolLogos = [
   },
   {
     name: "Audio Enhancement Tools",
-    image: "/images/tool3.webp",
+    image: "/images/image 1.svg",
     width: 1254,
     height: 1254,
     className: "audio",
@@ -281,18 +281,15 @@ export default function ApplyPage() {
           <div className="programHeroCopy">
             <div className="programEyebrowRow">
               <span className="programPill">Offline workshop</span>
-              <span className="programTag">
-                <span>Agency-Level Ad Film Training</span>
+              <span className="programTag" style={{ flexShrink: 0 }}>
+                <span>Agency-Level Video Editing Training</span>
                 <span>Led By Industry Experts</span>
               </span>
             </div>
 
             <h1>
-              Master{" "}
-              <span className="programHeroTitleAccent">
-                High-Paying<br />Video Editing
-              </span>{" "}
-              In <span className="programHeroTitleDay">1 Day</span>
+              Master <span className="programHeroTitleAccent">High-Paying</span><br />
+              <span className="programHeroTitleAccent">Video Editing</span> In <span className="programHeroTitleDay">1 Day</span>
             </h1>
             <p>
               Learn High-Income Video Editing Skills That Are in Demand by Brands, Creators, Agencies & Businesses, and Master AI-Powered Video Creation with Higgsfield AI.
@@ -312,7 +309,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>August 1</dd>
+              <dd>August 16</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>
@@ -362,17 +359,22 @@ export default function ApplyPage() {
         <div className="programAudienceInner">
           <div className="toolsBlock">
             <h2>Tools You Will Master</h2>
-            <div className="toolsRow">
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexWrap: 'wrap', gap: 'clamp(20px, 5vw, 60px)' }}>
               {toolLogos.map((tool) => (
-                <span className={`toolLogo ${tool.className}`} key={tool.name}>
-                  <Image
-                    src={tool.image}
-                    alt={tool.name}
-                    width={tool.width}
-                    height={tool.height}
-                    className="toolLogoImage"
-                  />
-                </span>
+                <div key={tool.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 'clamp(80px, 12vw, 120px)', flexShrink: 0 }}>
+                  <span className={`toolLogo ${tool.className}`} style={{ width: '100%', marginBottom: '12px' }}>
+                    <Image
+                      src={tool.image}
+                      alt={tool.name}
+                      width={tool.width}
+                      height={tool.height}
+                      className="toolLogoImage"
+                    />
+                  </span>
+                  <span style={{ color: '#fff', fontSize: 'clamp(12px, 1.2vw, 16px)', textAlign: 'center', fontWeight: '600', lineHeight: 1.3 }}>
+                    {tool.name}
+                  </span>
+                </div>
               ))}
             </div>
           </div>

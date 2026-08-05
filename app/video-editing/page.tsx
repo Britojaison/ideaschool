@@ -200,25 +200,15 @@ const brandCommercials = [
 
 const applyFaqs = [
   {
-    question: "Do I need any prior AI or design experience?",
+    question: "Do I need prior experience?",
     answer:
-      "No experience required. The workshop is designed to take you from zero to producing professional-quality AI AD films in a single day.",
+      "No. This workshop is designed for everyone—from complete beginners to experienced editors looking to upgrade their skills and learn modern editing workflows.",
     open: true,
   },
   {
     question: "What do I need to bring?",
     answer:
-      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session. Don’t have a laptop ? No worries — we’ll provide one for you during the workshop.",
-  },
-  {
-    question: "Is this workshop only for filmmakers?",
-    answer:
-      "No. It is useful for designers, editors, marketers, creators, entrepreneurs, students, and anyone who wants to create premium AI-powered ad content.",
-  },
-  {
-    question: "Is there a refund policy?",
-    answer:
-      "Seats are limited, so confirmed registrations are non-refundable. If you are unable to attend, please contact us before the workshop, and we will help you with the best available option.",
+      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session. Don’t have a laptop? No worries—we’ll provide one for you during the workshop.",
   },
   {
     question: "Will there be a recording?",
@@ -226,9 +216,19 @@ const applyFaqs = [
       "This workshop is designed to be a live, hands-on experience, and the full value comes from participating in person. Post-session resources and recap materials will be shared with all registered participants.",
   },
   {
+    question: "Will I receive a certificate?",
+    answer:
+      "Yes. Every participant who attends the workshop will receive a Certificate of Participation from Idea School.",
+  },
+  {
+    question: "Why should I attend this workshop instead of learning from YouTube?",
+    answer:
+      "YouTube can teach individual tools and techniques, but this workshop provides a structured learning experience, hands-on practice, mentor feedback, and real-world workflows used by a global agency.",
+  },
+  {
     question: "How many seats are available?",
     answer:
-      "Only 30 seats are available for this batch to keep the session practical, focused, and easy for participants to get individual guidance.",
+      "Only 25 seats are available to ensure every participant receives individual guidance and a better hands-on learning experience.",
   },
 ];
 

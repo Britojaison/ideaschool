@@ -50,9 +50,11 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
           : 'bg-white border-black shadow-[6px_6px_0_0_#151515]'
       }`}
     >
-      <div className="inline-flex items-center justify-center px-4 py-1.5 bg-[#dafd55] border-2 border-black rounded-full text-sm font-black text-black mb-6 w-fit font-mono">
-        {attendee.num}
-      </div>
+      {!isDark && (
+        <div className="inline-flex items-center justify-center px-4 py-1.5 bg-[#dafd55] border-2 border-black rounded-full text-sm font-black text-black mb-6 w-fit font-mono">
+          {attendee.num}
+        </div>
+      )}
       <h3 className="inline-flex px-4 py-1.5 bg-[#d2bbf4] border-2 border-black rounded-full text-black font-black uppercase mb-6 shadow-[3px_3px_0_0_#151515] w-fit" style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", color: "#000", fontFamily: "'Bebas Neue', var(--font-heading)", letterSpacing: "1px" }}>
         {attendee.title}
       </h3>

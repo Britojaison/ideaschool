@@ -2340,7 +2340,7 @@ html.isHeroGlassCursorActive .hero * {
   align-items: center;
   gap: clamp(18px, 3vw, 36px);
   width: 100%;
-  min-height: 80px;
+  min-height: 60px;
   padding: 0 clamp(48px, 7vw, 96px);
   border-top: 1px solid rgba(128, 86, 251, 0.24);
   background:
@@ -2383,6 +2383,7 @@ html.isHeroGlassCursorActive .hero * {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 7px;
 }
 
@@ -11664,8 +11665,9 @@ html.isHeroGlassCursorActive .hero * {
 
   .programBatchStrip {
     grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
     gap: clamp(6px, 1.8vw, 10px);
-    min-height: 56px;
+    min-height: 48px;
     padding: 8px 10px max(8px, env(safe-area-inset-bottom));
     text-align: center;
   }

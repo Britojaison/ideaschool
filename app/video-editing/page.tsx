@@ -7,10 +7,10 @@ import ScrollTextReveal from "../ScrollTextReveal";
 import MobileMenu from "../MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
-import ProgramCountdown from "./ProgramCountdown";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
+import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
 
 const curriculum = [
   {
@@ -75,49 +75,8 @@ const toolLogos = [
 
 ];
 
-const attendeeImage = (fileName: string) => `/images/${fileName}`;
 const razorpayPaymentLink =
   process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/XiQ2PDi";
-
-const attendees = [
-  {
-    title: "Entrepreneurs & Brand Owners",
-    description:
-      "Create agency-quality AD content for your own brand at a fraction of traditional production cost.",
-    image: attendeeImage("whoEntrepreneurs & Brand Owners.webp"),
-  },
-  {
-    title: "Marketing Professionals",
-    description:
-      "Produce stunning campaign visuals in-house and drastically cut production budgets without cutting quality.",
-    image: attendeeImage("whoMarketing Professionals.webp"),
-  },
-  {
-    title: "Students & Career Switchers",
-    description:
-      "Build a portfolio of AI filmmaking work and position yourself for one of the most in-demand creative roles.",
-    image: attendeeImage("whoStudents & Career Switchers.webp"),
-  },
-  {
-    title: "Photographers & Videographers",
-    description:
-      "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
-    image: attendeeImage("whoPhotographers & Videographers.webp"),
-  },
-  {
-    title: "Graphic Designers & Artists",
-    description:
-      "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
-    image: attendeeImage("whoGraphic Designers & Artists.webp"),
-  },
-  {
-    title: "Content Creators",
-    description:
-      "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
-    image: attendeeImage("whoContent Creators.webp"),
-  },
-
-];
 
 const instructors = [
   { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.webp" },
@@ -330,7 +289,6 @@ export default function ApplyPage() {
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
-            <ProgramCountdown targetDate="2026-08-01T00:00:00+05:30" />
             <ApplyHeroVideo />
 
           </aside>
@@ -407,29 +365,11 @@ export default function ApplyPage() {
               ))}
             </div>
           </div>
-
-          <h2 className="audienceTitle">Who Should Attend</h2>
-
-          <div className="audienceGrid">
-            {attendees.map((attendee) => (
-              <article className="audienceItem" key={attendee.title}>
-                <div className="audienceImageWrap" style={{ position: "relative" }}>
-                  <Image
-                    src={attendee.image}
-                    alt=""
-                    fill
-                    sizes="(max-width: 760px) 100vw, (max-width: 1180px) 30vw, 355px"
-                    className="audienceImage"
-                  />
-                </div>
-                <div className="audienceCopy">
-                  <h3>{attendee.title}</h3>
-                  <p>{attendee.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
+      </section>
+
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(56px, 8vw, 84px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "#E6E6E6" }}>
+        <WorkshopAttendeesList />
       </section>
 
       <section className="programOffer" aria-label="Early bird workshop offer">

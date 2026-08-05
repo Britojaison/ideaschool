@@ -1,0 +1,608 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import DotField from "../DotField";
+import HeroDotField from "../HeroDotField";
+import ScrollTextReveal from "../ScrollTextReveal";
+import MobileMenu from "../MobileMenu";
+import CurriculumAccordion from "./CurriculumAccordion";
+import ProgramNoticeCard from "./ProgramNoticeCard";
+import ProgramCountdown from "./ProgramCountdown";
+import ProofVideoCard from "./ProofVideoCard";
+import ApplyHeroVideo from "./ApplyHeroVideo";
+import BrandCommercialsSection from "./BrandCommercialsSection";
+
+const curriculum = [
+  {
+    title: "[01] Hook Engineering",
+    tools: "Retention Editing",
+    description:
+      "Create attention-grabbing hooks in the first 3 seconds. Master the hook frameworks used by top creators and implement powerful curiosity and retention strategies.",
+    images: ["/images/work1.webp", "/images/work2.webp"],
+  },
+  {
+    title: "[02] Retention Editing",
+    tools: "Pacing & Storytelling",
+    description:
+      "Keep viewers engaged till the end. Master pacing, cuts, visual storytelling, and motion graphics. Learn retention techniques behind viral content and AI-powered workflows with Higgsfield AI.",
+    images: ["/images/arjun.webp", "/images/359586b8b594b653726bbda2883862b8a820e37b.webp"],
+  },
+  {
+    title: "[03] Typography & Sound Design",
+    tools: "Audio Enhancement",
+    description:
+      "Enhance viewer experience with animated captions and engaging typography. Master sound effects, music, and seamless audio transitions.",
+    images: ["/images/automotive.webp", "/images/ce04d496a79858c7cfcdeeb68c3992c3b57447a2.webp"],
+  },
+  {
+    title: "[04] Viral Edit Framework",
+    tools: "Premiere Pro, After Effects",
+    description:
+      "Structure videos for maximum watch time. Breakdown successful viral edits and create content optimized for Reels, Shorts & Social Media.",
+    images: ["/images/bf2b72489ff720a0100b6ab10c6e86a70fbc6c43.webp", "/images/c988e78cfada134657e808cfb29a0523e125dde8.webp"],
+  }
+];
+
+const toolLogos = [
+  {
+    name: "Adobe Premiere Pro",
+    image: "/images/adobepremierepro.svg",
+    width: 1254,
+    height: 1254,
+    className: "adobe",
+  },
+  {
+    name: "Adobe After Effects",
+    image: "/images/Ae_logo.webp",
+    width: 1254,
+    height: 1254,
+    className: "adobe",
+  },
+  {
+    name: "Audio Enhancement Tools",
+    image: "/images/tool3.webp",
+    width: 1254,
+    height: 1254,
+    className: "audio",
+  },
+  {
+    name: "Higgsfield",
+    image: "/images/higgsfield.png",
+    width: 1254,
+    height: 1254,
+    className: "higgsfield",
+  },
+
+];
+
+const attendeeImage = (fileName: string) => `/images/${fileName}`;
+const razorpayPaymentLink =
+  process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/NwcRrEel";
+
+const attendees = [
+  {
+    title: "Entrepreneurs & Brand Owners",
+    description:
+      "Create agency-quality AD content for your own brand at a fraction of traditional production cost.",
+    image: attendeeImage("whoEntrepreneurs & Brand Owners.webp"),
+  },
+  {
+    title: "Marketing Professionals",
+    description:
+      "Produce stunning campaign visuals in-house and drastically cut production budgets without cutting quality.",
+    image: attendeeImage("whoMarketing Professionals.webp"),
+  },
+  {
+    title: "Students & Career Switchers",
+    description:
+      "Build a portfolio of AI filmmaking work and position yourself for one of the most in-demand creative roles.",
+    image: attendeeImage("whoStudents & Career Switchers.webp"),
+  },
+  {
+    title: "Photographers & Videographers",
+    description:
+      "Expand your offer with AI-generated visuals and cinematic AD films - without a full production crew.",
+    image: attendeeImage("whoPhotographers & Videographers.webp"),
+  },
+  {
+    title: "Graphic Designers & Artists",
+    description:
+      "Turn your creative instincts into high-value, motion-ready AD content for brands and agencies.",
+    image: attendeeImage("whoGraphic Designers & Artists.webp"),
+  },
+  {
+    title: "Content Creators",
+    description:
+      "Level up from reels to professional-grade AD films that attract paid brand collaborations.",
+    image: attendeeImage("whoContent Creators.webp"),
+  },
+
+];
+
+const instructors = [
+  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.webp" },
+  { name: "Elamparithi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.webp" },
+  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.webp" },
+  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.webp" },
+];
+
+const clientStories = [
+  {
+    name: "Balaji",
+    quote:
+      "The offline guidance was incredible, solving every doubt personally. Much better than any online program",
+    image: "/images/B1_BALAJI.webp",
+  },
+  {
+    name: "Manjunath",
+    quote:
+      "This workshop filled the market gap for hands-on AI training perfectly. Loved the interactive vibe.",
+    image: "/images/B1_MANJUNATH.webp",
+  },
+  {
+    name: "Hiren Metha",
+    quote:
+      "The workshop gave me the tools to turn my traditional family business into a modern brand.",
+    image: "/images/B1_metha.webp",
+  },
+  {
+    name: " ",
+    quote:
+      "Exploring tools I never knew existed. This workshop was worth my entire day.",
+    image: "/images/B1_QUOTE4.webp",
+  },
+  {
+    name: "",
+    quote:
+      "Skipping my travel plans for this offline training was worth it !. Excellent creative guidance ideas.",
+    image: "/images/B1_QUOTE5.webp",
+  },
+  {
+    name: "",
+    quote:
+      "Valuable hands-on experience you cannot get online. My first offline marketing event was simply great",
+    image: "/images/B1_QUOTE6.webp",
+  },
+];
+
+const proofVideos = [
+  {
+    src: "/images/proof-videos/student-feedback-1.mp4",
+    poster: "/images/proof-videos/student-feedback-1.webp",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-2.mp4",
+    poster: "/images/proof-videos/student-feedback-2.webp",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-3.mp4",
+    poster: "/images/proof-videos/student-feedback-3.webp",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-4.mp4",
+    poster: "/images/proof-videos/student-feedback-4.webp",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-5.mp4",
+    poster: "/images/proof-videos/student-feedback-5.webp",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-6.mp4",
+    poster: "/images/proof-videos/student-feedback-6.webp",
+  },
+  {
+    src: "/images/proof-videos/student-feedback-7.mp4",
+    poster: "/images/proof-videos/student-feedback-7.webp",
+  },
+];
+
+const brandCommercials = [
+  {
+    title: "Sunscreen",
+    src: "/images/Brand Commercial/SunscreenAD_May22 V2.mp4",
+    poster: "/images/Brand Commercial/SunscreenAD_May22 V2.webp",
+  },
+  {
+    title: "Campa",
+    mobileHeading: "100% Made with AI.",
+    src: "/images/Brand Commercial/CampaAD_Seedance_May22.mp4",
+    poster: "/images/Brand Commercial/CampaAD_Seedance_May22.webp",
+  },
+];
+
+const applyFaqs = [
+  {
+    question: "Do I need any prior AI or design experience?",
+    answer:
+      "No experience required. The workshop is designed to take you from zero to producing professional-quality AI AD films in a single day.",
+    open: true,
+  },
+  {
+    question: "What do I need to bring?",
+    answer:
+      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session. Don’t have a laptop ? No worries — we’ll provide one for you during the workshop.",
+  },
+  {
+    question: "Is this workshop only for filmmakers?",
+    answer:
+      "No. It is useful for designers, editors, marketers, creators, entrepreneurs, students, and anyone who wants to create premium AI-powered ad content.",
+  },
+  {
+    question: "Is there a refund policy?",
+    answer:
+      "Seats are limited, so confirmed registrations are non-refundable. If you are unable to attend, please contact us before the workshop, and we will help you with the best available option.",
+  },
+  {
+    question: "Will there be a recording?",
+    answer:
+      "This workshop is designed to be a live, hands-on experience, and the full value comes from participating in person. Post-session resources and recap materials will be shared with all registered participants.",
+  },
+  {
+    question: "How many seats are available?",
+    answer:
+      "Only 30 seats are available for this batch to keep the session practical, focused, and easy for participants to get individual guidance.",
+  },
+];
+
+export const metadata: Metadata = {
+  title: "Master High-Paying Video Editing | Idea School",
+  description:
+    "Master High-Paying Video Editing In 1 Day. Learn High-Income Video Editing Skills That Are in Demand.",
+};
+
+export default function ApplyPage() {
+  return (
+    <main className="applyPage">
+      <ScrollTextReveal />
+      <section className="programHero" aria-label="AI-powered ad film workshop">
+        <div className="programHeroMedia">
+          <HeroDotField />
+        </div>
+        <div className="programHeroShade" />
+
+        <header className="siteHeader">
+          <Link className="brand" href="/" aria-label="Idea School home">
+            <Image
+              src="/images/idea logo.webp"
+              alt="Idea"
+              width={104}
+              height={54}
+              priority
+              className="brandLogo"
+            />
+          </Link>
+          <a className="headerCta" href="#enroll">
+            <span className="headerCtaText">Book your class</span>
+          </a>
+          <MobileMenu />
+        </header>
+
+        <div className="programHeroInner">
+          <div className="programHeroCopy">
+            <div className="programEyebrowRow">
+              <span className="programPill">Offline workshop</span>
+              <span className="programTag">
+                <span>Agency-Level Ad Film Training</span>
+                <span>Led By Industry Experts</span>
+              </span>
+            </div>
+
+            <h1>
+              Master{" "}
+              <span className="programHeroTitleAccent">
+                High-Paying<br />Video Editing
+              </span>{" "}
+              In <span className="programHeroTitleDay">1 Day</span>
+            </h1>
+            <p>
+              Learn High-Income Video Editing Skills That Are in Demand by Brands, Creators, Agencies & Businesses, and Master AI-Powered Video Creation with Higgsfield AI.
+            </p>
+            <a className="primaryCta programCta" href="#enroll">
+              <span className="primaryCtaText">Get early bird pass now</span>
+            </a>
+            <span className="seatLimit">Limited to 25 seats Only</span>
+          </div>
+
+          <aside className="programHeroCard" aria-label="Workshop preview">
+            <ProgramCountdown targetDate="2026-08-01T00:00:00+05:30" />
+            <ApplyHeroVideo />
+
+          </aside>
+
+          <dl className="programStats">
+            <div>
+              <dt>Batch Date</dt>
+              <dd>August 1</dd>
+            </div>
+            <div>
+              <dt>Learning Mode</dt>
+              <dd>Offline </dd>
+            </div>
+            <div>
+              <dt>Full Day Session</dt>
+              <dd>Hands-on</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>88GB HQ, HSR Layout, Bengaluru</dd>
+            </div>
+          </dl>
+        </div>
+
+      </section>
+
+      <section className="programCurriculum" aria-label="What you will learn">
+        <div className="programCurriculumDots">
+          <DotField
+            dotRadius={2.8}
+            dotSpacing={16}
+            cursorRadius={500}
+            cursorForce={0.1}
+            bulgeOnly
+            bulgeStrength={67}
+            glowRadius={160}
+            sparkle={false}
+            waveAmplitude={0}
+            gradientFrom="rgba(168, 85, 247, 0.52)"
+            gradientTo="rgba(180, 151, 207, 0.38)"
+            glowColor="rgba(168, 85, 247, 0.18)"
+          />
+        </div>
+        <div className="programCurriculumInner">
+          <div className="curriculumIntro">
+            <h2>What You Will Learn</h2>
+            <p>A structured, hands-on journey from creative strategy to cinematic AI output.</p>
+          </div>
+
+          <CurriculumAccordion items={curriculum} />
+        </div>
+      </section>
+
+      <section className="programAudience" aria-label="Who should attend">
+        <div className="programAudienceInner">
+          <div className="toolsBlock">
+            <h2>Tools You Will Master</h2>
+            <div className="toolsRow">
+              {toolLogos.map((tool) => (
+                <span className={`toolLogo ${tool.className}`} key={tool.name}>
+                  <Image
+                    src={tool.image}
+                    alt={tool.name}
+                    width={tool.width}
+                    height={tool.height}
+                    className="toolLogoImage"
+                  />
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <h2 className="audienceTitle">Who Should Attend</h2>
+
+          <div className="audienceGrid">
+            {attendees.map((attendee) => (
+              <article className="audienceItem" key={attendee.title}>
+                <div className="audienceImageWrap" style={{ position: "relative" }}>
+                  <Image
+                    src={attendee.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 760px) 100vw, (max-width: 1180px) 30vw, 355px"
+                    className="audienceImage"
+                  />
+                </div>
+                <div className="audienceCopy">
+                  <h3>{attendee.title}</h3>
+                  <p>{attendee.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="programOffer" aria-label="Early bird workshop offer">
+        <ProgramNoticeCard paymentLink={razorpayPaymentLink} />
+      </section>
+
+      <section className="programInstructor" aria-label="Instructor and client feedback">
+        <div className="programInstructorInner">
+          <h2>Meet the Instructors</h2>
+          <div className="instructorGrid">
+            {instructors.map((instructor, index) => (
+              <article className="instructorCard" key={`${instructor.name}-${index}`}>
+                <div className="instructorImageWrap" style={{ position: "relative" }}>
+                  <Image
+                    src={instructor.image}
+                    alt={instructor.name}
+                    fill
+                    sizes="(max-width: 900px) 44vw, 234px"
+                    className="instructorImage"
+                  />
+                </div>
+                <p>{instructor.role}</p>
+                <h3>{instructor.name}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <BrandCommercialsSection commercials={brandCommercials} />
+
+      <section className="programProof" aria-label="Client feedback">
+        <div className="programProofInner">
+          <div className="proofIntro">
+            <h2>What Our Students Have to Say?</h2>
+            <p>
+              We&apos;ve already transformed hundreds of creators. Here&apos;s a
+              glimpse of what past participants built.
+            </p>
+          </div>
+
+          <div className="proofRail" aria-label="Testimonials">
+            <div className="proofTrack">
+              {[...clientStories, ...clientStories].map((story, index) => (
+                <article
+                  className="proofCard"
+                  key={`${story.name}-${index}`}
+                  aria-hidden={index >= clientStories.length}
+                >
+                  <div className="proofPerson" style={{ position: "relative" }}>
+                    <Image
+                      src={story.image}
+                      alt=""
+                      fill
+                      sizes="150px"
+                      className="proofPersonImage"
+                    />
+                  </div>
+                  <div className="proofQuote">
+                    <span aria-hidden="true">&ldquo;</span>
+                    <p>{story.quote}</p>
+                    <strong>{story.name}</strong>
+                    <small>Student</small>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="proofVideoRail" aria-label="Student video feedback">
+            {proofVideos.map((video, index) => (
+              <div className="proofVideoFrame" key={video.src}>
+                <ProofVideoCard src={video.src} poster={video.poster} index={index} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="videoSection" aria-label="Idea School video">
+        <video
+          id="applyHomePageVideo"
+          className="videoPoster"
+          autoPlay
+          loop
+          muted
+          playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload noplaybackrate noremoteplayback"
+          preload="metadata"
+          aria-label="Idea School classroom video"
+        >
+          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
+        </video>
+        <div className="videoSectionShade" aria-hidden="true" />
+      </section>
+
+      <section className="programFaqContact" aria-label="FAQ and application form">
+        <div className="programFaqInner">
+          <h2>Frequently Asked Questions</h2>
+          <div className="programFaqList">
+            {applyFaqs.map((item) => (
+              <details className="programFaqItem" key={item.question} open={item.open}>
+                <summary>
+                  <span>?</span>
+                  <strong>Q: {item.question}</strong>
+                </summary>
+                {item.answer ? <p>A: {item.answer}</p> : null}
+              </details>
+            ))}
+          </div>
+        </div>
+        {/* 
+        <section className="contactSection" id="contact" aria-label="Contact Idea School">
+          <div className="contactInner">
+            <div className="contactCopy">
+              <h2>
+                Ready to start your 
+                <br />
+                creative journey?
+                <br />
+                Contact us.
+              </h2>
+              <p>
+                Join Idea School and start learning editing, content creation, and
+                AI tools through real projects and hands-on sessions.
+              </p>
+            </div>
+
+            <form className="applyForm" id="apply-form">
+              <div className="formRow">
+                <label>
+                  <span>First Name</span>
+                  <input type="text" name="firstName" autoComplete="given-name" />
+                </label>
+                <label>
+                  <span>Last Name</span>
+                  <input type="text" name="lastName" autoComplete="family-name" />
+                </label>
+              </div>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" autoComplete="email" />
+              </label>
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" autoComplete="tel" />
+              </label>
+              <label>
+                <span>Message (optional)</span>
+                <textarea name="message" rows={4} />
+              </label>
+              <button type="submit">Get early bird pass now</button>
+              <p>Limited seats available for the upcoming batch.</p>
+            </form>
+          </div>
+        </section> */}
+
+      </section>
+
+      <div className="programBatchStrip" aria-label="Workshop batch announcement">
+        <span className="programBatchBadge">New Batch</span>
+        <p>HIGH-PAYING VIDEO EDITING</p>
+        <div className="programBatchAction">
+          <a className="programBatchCta" href="#enroll">
+            Book seat now
+          </a>
+          <span className="programBatchSeats">Only 2 seats left</span>
+        </div>
+      </div>
+
+      <footer className="siteFooter">
+        <div className="footerInner">
+          <p>Idea School is where you build real skills for the creative industry.</p>
+
+          <nav className="footerLinks" aria-label="Footer navigation">
+            <div>
+              <h2>Program</h2>
+              <Link href="/#program">Program</Link>
+              <Link href="/creative-editing-course">Creative Editing Program</Link>
+              <a href="#apply-form">Get early bird pass now</a>
+            </div>
+            <div>
+              <h2>Company</h2>
+              <Link href="/#about">About</Link>
+              <Link href="/#testimonials">Testimonials</Link>
+              <Link href="/#contact">Contact : 8618894857</Link>
+            </div>
+            <div>
+              <h2>Socials</h2>
+              <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </nav>
+        </div>
+        <Link className="footerHeroLink" href="/#hero" aria-label="Back to hero">
+          IDEA SCHOOL
+        </Link>
+      </footer>
+    </main>
+  );
+}

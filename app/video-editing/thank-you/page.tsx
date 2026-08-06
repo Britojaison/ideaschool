@@ -37,7 +37,7 @@ export default function ApplyThankYouPage() {
             <ProgramMenu />
           </nav>
 
-          <Link className="headerCta" href="/ad-film-making">
+          <Link className="headerCta" href="/video-editing">
             <span className="headerCtaText">Back to program</span>
           </Link>
         </header>
@@ -68,7 +68,7 @@ export default function ApplyThankYouPage() {
             <div className="thankYouActions">
               <a
                 className="primaryCta thankYouPrimaryCta"
-                href="https://chat.whatsapp.com/KWbeQryPQBO3z2drK3gPdE"
+                href="https://chat.whatsapp.com/CtF02jA8GAvFOc052tRZlb"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -249,7 +249,7 @@ export default function ApplyPage() {
         <div className="programHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
+          <div className="brand" aria-label="Idea School" style={{ cursor: "default" }}>
             <Image
               src="/images/idea logo.webp"
               alt="Idea"
@@ -258,7 +258,7 @@ export default function ApplyPage() {
               priority
               className="brandLogo"
             />
-          </Link>
+          </div>
           <a className="headerCta" href="#enroll">
             <span className="headerCtaText">Book your class</span>
           </a>

@@ -23,7 +23,7 @@ export default function ApplyThankYouPage() {
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
+          <div className="brand" aria-label="Idea School" style={{ cursor: "default" }}>
             <Image
               src="/images/idea logo.webp"
               alt="Idea"
@@ -32,7 +32,7 @@ export default function ApplyThankYouPage() {
               priority
               className="brandLogo"
             />
-          </Link>
+          </div>
           <nav className="desktopNav" aria-label="Program navigation">
             <ProgramMenu />
           </nav>

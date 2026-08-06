@@ -1790,7 +1790,7 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 2.5vw, 2.15rem);
   font-weight: 300;
-  line-height: 1.05;
+  line-height: 1.2;
   overflow-wrap: anywhere;
 }
 
@@ -11090,7 +11090,7 @@ html.isHeroGlassCursorActive .hero * {
 
   .programStats dd {
     font-size: clamp(1.2rem, 7vw, 1.6rem);
-    line-height: 1.15;
+    line-height: 1.2;
   }
 
   .programHeroCopy h1 {

@@ -279,9 +279,7 @@ export default function ApplyPage() {
               Master <span className="programHeroTitleAccent">High-Paying</span><br />
               <span className="programHeroTitleAccent">Video Editing</span> In <span className="programHeroTitleDay">1 Day</span>
             </h1>
-            <p>
-              Learn High-Income Video Editing Skills That Are in Demand by Brands, Creators, Agencies & Businesses, and Master AI-Powered Video Creation with Higgsfield AI.
-            </p>
+
             <a className="primaryCta programCta" href="#enroll">
               <span className="primaryCtaText">Get early bird pass now</span>
             </a>

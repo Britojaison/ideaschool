@@ -4,6 +4,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import HeroDotField from "../../HeroDotField";
 import ProgramMenu from "../../ProgramMenu";
+import MetaPixel from "../../MetaPixel";
 
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | Idea School",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function ApplyThankYouPage() {
   return (
     <main className="thankYouPage">
+      <MetaPixel />
       <Script id="fb-track-lead" strategy="afterInteractive">
         {`fbq('track', 'Lead');`}
       </Script>

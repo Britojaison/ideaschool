@@ -11,6 +11,7 @@ import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
+import MetaPixel from "../MetaPixel";
 
 const curriculum = [
   {
@@ -241,6 +242,7 @@ export const metadata: Metadata = {
 export default function ApplyPage() {
   return (
     <main className="applyPage">
+      <MetaPixel />
       <ScrollTextReveal />
       <section className="programHero" aria-label="AI-powered ad film workshop">
         <div className="programHeroMedia">

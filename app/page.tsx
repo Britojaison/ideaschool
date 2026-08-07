@@ -17,6 +17,7 @@ import StarBorder from "./StarBorder";
 import WorkshopCarousel from "./WorkshopCarousel";
 import MobileMenu from "./MobileMenu";
 import GoogleReviews from "./GoogleReviews";
+import MetaPixel from "./MetaPixel";
 
 type Brand =
   | {
@@ -230,6 +231,7 @@ export default function Home() {
 
   return (
     <main>
+      <MetaPixel />
       <HashScrollFix />
       <ScrollTextReveal />
 

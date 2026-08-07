@@ -47,10 +47,10 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
       <span className="programNoticeCheckout">
         <span className="programNoticePrice">
           <strong>
-            ₹1999
+            ₹499
             <span className="programNoticeTax">(Incl. Taxes)</span>
           </strong>
-          <del>₹5000</del>
+          <del>₹1999</del>
         </span>
         <span className="programNoticeMeta">
           <span>

@@ -60,7 +60,13 @@ export async function POST(request: Request) {
     }
 
     if (!googleResult.success) {
-      throw new Error(googleResult.error || "Google Apps Script could not create the booking");
+      const message = googleResult.error || "Google Apps Script could not create the booking";
+      const isSlotConflict = message.toLowerCase().includes("booked");
+
+      return NextResponse.json(
+        { error: message },
+        { status: isSlotConflict ? 409 : 502 },
+      );
     }
 
     return NextResponse.json({

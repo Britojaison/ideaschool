@@ -11,7 +11,7 @@ export default function ApplyHeroVideo() {
       <video
         id="apply-hero-video"
         className="programHeroVideo"
-        src="/images/advideo1-optimized.mp4"
+        src="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
         autoPlay
         muted={isMuted}
         loop

@@ -91,6 +91,10 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const bookingDate = selectedDate
+      ? `${selectedDate.getFullYear()}-${String(selectedDate.getMonth() + 1).padStart(2, "0")}-${String(selectedDate.getDate()).padStart(2, "0")}`
+      : null;
     
     try {
       const response = await fetch("/api/book", {
@@ -98,7 +102,7 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           program: programName,
-          date: selectedDate?.toISOString(),
+          date: bookingDate,
           slot: selectedSlot,
           name,
           email,
@@ -112,14 +116,16 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
         })
       });
 
-      if (response.ok) {
-        setIsSuccess(true);
-      } else {
-        alert("Something went wrong. Please try again.");
+      const result = await response.json().catch(() => null) as { error?: string } | null;
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Unable to schedule the appointment. Please try again.");
       }
+
+      setIsSuccess(true);
     } catch (err) {
       console.error(err);
-      alert("Failed to submit. Please try again.");
+      alert(err instanceof Error ? err.message : "Failed to submit. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

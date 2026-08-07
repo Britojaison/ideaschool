@@ -29,7 +29,11 @@ export async function POST(request: Request) {
     const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
     
     if (!GOOGLE_SCRIPT_URL) {
-      throw new Error("GOOGLE_SCRIPT_URL is not set in environment variables.");
+      console.error("Booking API is not configured: GOOGLE_SCRIPT_URL is missing.");
+      return NextResponse.json(
+        { error: "Booking service is not configured. Please contact us directly." },
+        { status: 503 },
+      );
     }
 
     const googleResponse = await fetch(GOOGLE_SCRIPT_URL, {
@@ -46,7 +50,14 @@ export async function POST(request: Request) {
       throw new Error(`Google Apps Script returned ${googleResponse.status}`);
     }
 
-    const googleResult = await googleResponse.json();
+    const responseText = await googleResponse.text();
+    let googleResult: { success?: boolean; error?: string; eventId?: string; meetLink?: string };
+
+    try {
+      googleResult = JSON.parse(responseText);
+    } catch {
+      throw new Error("Google Apps Script returned an invalid response");
+    }
 
     if (!googleResult.success) {
       throw new Error(googleResult.error || "Google Apps Script could not create the booking");
@@ -60,6 +71,9 @@ export async function POST(request: Request) {
     }, { status: 200 });
   } catch (error) {
     console.error("Booking API Error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Unable to schedule the appointment right now. Please try again later." },
+      { status: 502 },
+    );
   }
 }

@@ -26,14 +26,14 @@ const StandOutSection = dynamic(() => import("./StandOutSection"), {
 });
 
 export const metadata: Metadata = {
-  title: "Creative Editing & AI Pro Course | Idea School",
+  title: "Full Stack Video Editing and Creative AI Mastery | Idea School",
   description:
     "A 24-week video editing, motion graphics, AI content creation, portfolio, and Industry Experience Program from Idea School.",
 };
 
 const course = {
   eyebrow: "24-week career program",
-  title: "Creative Editing & AI Pro Course",
+  title: "Full Stack Video Editing and Creative AI Mastery",
   accent: "Build editor-ready craft, AI speed,\nand a real portfolio.",
   description:
     "A studio-led program for students, creators, designers, and career switchers who want to learn Premiere Pro, Photoshop, After Effects, sound design, AI tools, portfolio creation, and brand-ready production workflows.",
@@ -272,9 +272,9 @@ export default function CreativeEditingCoursePage() {
             <div className="programEyebrowRow">
               <span className="programPill">{course.eyebrow}</span>
               <span className="programTag">
-                <span>Editing</span>
-                <span>Motion</span>
-                <span>AI</span>
+                <span>You will be</span>
+                <span>not</span>
+                <span>replaced by AI</span>
               </span>
             </div>
             <h1>
@@ -403,7 +403,7 @@ export default function CreativeEditingCoursePage() {
 
             <div className="curriculumBrochurePreview" aria-label="Brochure contents preview">
               <div className="curriculumBrochurePreviewHeader">
-                <span>Creative Editing & AI Pro</span>
+                <span>Full Stack Video Editing & Creative AI Mastery</span>
                 <strong>24-week roadmap</strong>
               </div>
               <div className="curriculumBrochureRows">
@@ -503,8 +503,8 @@ export default function CreativeEditingCoursePage() {
                     className={`toolLogo ${["Premiere Pro", "OpusClip", "ElevenLabs", "Framer", "InVideo"].includes(
                       tool.name,
                     )
-                        ? "toolLogoLight"
-                        : ""
+                      ? "toolLogoLight"
+                      : ""
                       }`}
                   />
                 </div>

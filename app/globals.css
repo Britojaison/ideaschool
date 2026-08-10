@@ -11035,10 +11035,9 @@ html.isHeroGlassCursorActive .hero * {
     align-items: center;
     gap: 10px;
     margin-bottom: 24px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     max-width: calc(100vw - var(--apply-section-x, 20px) * 2);
-    overflow: hidden;
   }
 
   .programPill {
@@ -11061,9 +11060,7 @@ html.isHeroGlassCursorActive .hero * {
     font-weight: 600;
     line-height: 1.2;
     text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
   }
 
   .programTag::before,
@@ -11074,11 +11071,11 @@ html.isHeroGlassCursorActive .hero * {
 
   .programTag span {
     display: inline;
-    white-space: nowrap;
   }
 
   .programTag span+span::before {
     content: "|";
+    margin-inline: 4px;
   }
 
   .programStats {

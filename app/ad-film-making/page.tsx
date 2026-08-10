@@ -310,8 +310,7 @@ export default function ApplyPage() {
             <div className="programEyebrowRow">
               <span className="programPill">Offline workshop</span>
               <span className="programTag">
-                <span>Agency-Level Ad Film Training</span>
-                <span>Led By Industry Experts</span>
+                <span>AI Ad Film Training</span>
               </span>
             </div>
 

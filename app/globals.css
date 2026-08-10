@@ -11036,6 +11036,9 @@ html.isHeroGlassCursorActive .hero * {
     gap: 10px;
     margin-bottom: 24px;
     flex-wrap: nowrap;
+    width: 100%;
+    max-width: calc(100vw - var(--apply-section-x, 20px) * 2);
+    overflow: hidden;
   }
 
   .programPill {
@@ -11049,18 +11052,18 @@ html.isHeroGlassCursorActive .hero * {
   .programTag {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    align-content: center;
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     min-width: 0;
-    width: max-content;
+    max-width: 100%;
     min-height: 36px;
     padding-inline: 10px;
     font-size: 12px;
     font-weight: 600;
-    line-height: 1;
+    line-height: 1.2;
     text-align: left;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .programTag::before,
@@ -11075,7 +11078,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .programTag span+span::before {
-    content: " ";
+    content: "|";
   }
 
   .programStats {
@@ -12043,8 +12046,8 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .programTag {
-    flex-basis: auto;
-    width: max-content;
+    flex: 1 1 0;
+    min-width: 0;
     min-height: 34px;
     padding-inline: 8px;
     font-size: 11px;

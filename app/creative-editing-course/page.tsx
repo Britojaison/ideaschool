@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 const course = {
   eyebrow: "24-week career program",
-  title: "Full Stack Video Editing and Creative AI Mastery",
+  title: "Full Stack Video\u00a0Editing & Creative AI Mastery",
   accent: "Build editor-ready craft, AI speed,\nand a real portfolio.",
   description:
     "A studio-led program for students, creators, designers, and career switchers who want to learn Premiere Pro, Photoshop, After Effects, sound design, AI tools, portfolio creation, and brand-ready production workflows.",
@@ -716,7 +716,7 @@ export default function CreativeEditingCoursePage() {
       </footer>
 
       <div className="floatingRegisterWrapper">
-        <Link href="#apply" className="floatingRegisterBtn">
+        <Link href="#apply" className="floatingRegisterBtn" suppressHydrationWarning>
           <span className="floatingBtnText">Register Now</span>
         </Link>
       </div>

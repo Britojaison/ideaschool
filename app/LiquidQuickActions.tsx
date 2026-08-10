@@ -65,6 +65,7 @@ function QuickAction({ action }: { action: (typeof actions)[number] }) {
       onClick={handleClick}
       onMouseMove={liquidMouse.handleMouseMove}
       onMouseLeave={liquidMouse.handleMouseLeave}
+      suppressHydrationWarning
     >
       <span className="quickActionLabel">8618894857</span>
       <LiquidGlass

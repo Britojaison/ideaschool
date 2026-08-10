@@ -3820,7 +3820,7 @@ html.isHeroGlassCursorActive .hero * {
   margin: 0;
   max-width: 920px;
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5.4vw, 5.35rem);
+  font-size: clamp(2.4rem, 4.8vw, 4.8rem);
   font-weight: 950;
   line-height: 0.95;
   word-spacing: 0.08em;
@@ -11035,7 +11035,7 @@ html.isHeroGlassCursorActive .hero * {
     align-items: center;
     gap: 10px;
     margin-bottom: 24px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     max-width: calc(100vw - var(--apply-section-x, 20px) * 2);
   }
@@ -11074,8 +11074,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .programTag span+span::before {
-    content: "|";
-    margin-inline: 4px;
+    content: " ";
   }
 
   .programStats {

@@ -78,7 +78,7 @@ export default function StandOutSection() {
             ))}
           </div>
 
-          <a className="primaryCta programCta standOutCta" href="#apply">
+          <a className="primaryCta programCta standOutCta" href="#apply" suppressHydrationWarning>
             <span className="primaryCtaText">Apply Now</span>
           </a>
         </div>

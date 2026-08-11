@@ -5,12 +5,13 @@ import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
 
 export default function ApplyHeroVideo() {
   const [isMuted, setIsMuted] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   return (
     <div className="programHeroImageWrap" style={{ position: "relative" }}>
       <video
         id="apply-hero-video"
-        className="programHeroVideo"
+        className={`programHeroVideo${isReady ? " isReady" : ""}`}
         src="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
         autoPlay
         muted={isMuted}
@@ -20,8 +21,9 @@ export default function ApplyHeroVideo() {
         disableRemotePlayback
         controlsList="nodownload noplaybackrate noremoteplayback"
         preload="auto"
-        poster="/images/advideo1-poster.jpg"
-        aria-label="AI ad filmmaking workshop preview"
+        onLoadedData={() => setIsReady(true)}
+        onCanPlay={() => setIsReady(true)}
+        aria-label="Video editing workshop preview"
       />
       <LiquidVideoMuteButton
         targetId="apply-hero-video"

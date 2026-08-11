@@ -1822,6 +1822,15 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
 }
 
+.programHeroVideo {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.programHeroVideo.isReady {
+  opacity: 1;
+}
+
 .programHeroImage,
 .programHeroVideo {
   width: 100%;

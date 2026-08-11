@@ -11610,6 +11610,10 @@ html.isHeroGlassCursorActive .hero * {
     aspect-ratio: 4 / 5;
   }
 
+  .programHeroVideoTall {
+    aspect-ratio: 4 / 5.25;
+  }
+
   .programNotice {
     width: min(calc(100% - 28px), 420px);
     margin-top: 32px;

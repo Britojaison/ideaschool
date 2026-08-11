@@ -8,7 +8,7 @@ export default function ApplyHeroVideo() {
   const [isReady, setIsReady] = useState(false);
 
   return (
-    <div className="programHeroImageWrap" style={{ position: "relative" }}>
+    <div className="programHeroImageWrap programHeroVideoTall">
       <video
         id="apply-hero-video"
         className={`programHeroVideo${isReady ? " isReady" : ""}`}

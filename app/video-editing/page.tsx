@@ -271,9 +271,8 @@ export default function ApplyPage() {
           <div className="programHeroCopy">
             <div className="programEyebrowRow">
               <span className="programPill">Offline workshop</span>
-              <span className="programTag" style={{ flexShrink: 0 }}>
-                <span>Agency-Level Video Editing Training</span>
-                <span>Led By Industry Experts</span>
+              <span className="programTag programTagWide">
+                Agency-Level Video Editing Training Led By Industry Experts
               </span>
             </div>
 

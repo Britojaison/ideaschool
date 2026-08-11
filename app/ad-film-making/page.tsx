@@ -309,9 +309,7 @@ export default function ApplyPage() {
           <div className="programHeroCopy">
             <div className="programEyebrowRow">
               <span className="programPill">Offline workshop</span>
-              <span className="programTag">
-                <span>AI Ad Film Training</span>
-              </span>
+              <span className="programTag">AI Ad Film Training</span>
             </div>
 
             <h1>

@@ -271,11 +271,7 @@ export default function CreativeEditingCoursePage() {
           <div className="longCourseHeroCopy">
             <div className="programEyebrowRow">
               <span className="programPill">{course.eyebrow}</span>
-              <span className="programTag">
-                <span>You will be</span>
-                <span>not</span>
-                <span>replaced by AI</span>
-              </span>
+              <span className="programTag">You will not be replaced by AI</span>
             </div>
             <h1>
               {course.title}

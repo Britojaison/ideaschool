@@ -11063,18 +11063,30 @@ html.isHeroGlassCursorActive .hero * {
     white-space: normal;
   }
 
+  .longCoursePage .programTag {
+    white-space: nowrap;
+  }
+
+  .programTagWide {
+    justify-content: center;
+    min-height: 46px;
+    padding-block: 4px;
+    text-align: center;
+  }
+
   .programTag::before,
   .programTag::after {
     inset: -6px -9px;
     border-width: 1.5px;
   }
 
-  .programTag span {
-    display: inline;
+  .programTagWide::before,
+  .programTagWide::after {
+    inset-block: -3px;
   }
 
-  .programTag span+span::before {
-    content: " ";
+  .programTag span {
+    display: inline;
   }
 
   .programStats {
@@ -12049,9 +12061,22 @@ html.isHeroGlassCursorActive .hero * {
     font-size: 11px;
   }
 
+  .longCoursePage .programTag {
+    font-size: 10px;
+  }
+
   .programTag::before,
   .programTag::after {
     inset: -5px -8px;
+  }
+
+  .programTagWide {
+    min-height: 46px;
+  }
+
+  .programTagWide::before,
+  .programTagWide::after {
+    inset-block: -3px;
   }
 
   .programHeroCopy h1 {

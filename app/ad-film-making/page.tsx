@@ -593,7 +593,7 @@ export default function ApplyPage() {
           <a className="programBatchCta" href="#enroll">
             Book seat now
           </a>
-          <span className="programBatchSeats">Only 2 seats left</span>
+          <span className="programBatchSeats">Limited seats 2</span>
         </div>
       </div>
 

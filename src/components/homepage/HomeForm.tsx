@@ -112,7 +112,7 @@ export default function HomeForm() {
               </div>
             ) : <>
               <div className={styles.formHeader}>
-                <h2>Start your journey</h2>
+                <h2>Take the first step<br />Enquire today</h2>
                 <p>Apply now to join the next cohort.</p>
               </div>
 

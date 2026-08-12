@@ -416,8 +416,14 @@ export default function VisualSchoolPage() {
                   <span>Storytelling</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <button className={styles.btnPrimary}>View Showcase</button>
-                  <button className={styles.btnSecondary}>Apply Now <b>→</b></button>
+                  <Link href="/creative-editing-course" className={styles.btnPrimary}>View Showcase</Link>
+                  <button
+                    type="button"
+                    className={styles.btnSecondary}
+                    onClick={() => window.dispatchEvent(new Event("open-home-form"))}
+                  >
+                    Apply Now <b>→</b>
+                  </button>
                 </div>
               </div>
             </div>
@@ -440,7 +446,7 @@ export default function VisualSchoolPage() {
                   <span>Editing</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <button className={styles.btnPrimary}>View Case Study</button>
+                  <Link href="/ad-film-making" className={styles.btnPrimary}>View Case Study</Link>
                 </div>
               </div>
             </div>
@@ -461,7 +467,7 @@ export default function VisualSchoolPage() {
                   <span>Showreel</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <button className={styles.btnPrimary}>Watch Reel</button>
+                  <Link href="/master-video-editing" className={styles.btnPrimary}>Watch Reel</Link>
                 </div>
               </div>
             </div>

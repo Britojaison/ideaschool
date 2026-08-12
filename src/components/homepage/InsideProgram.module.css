@@ -41,7 +41,7 @@
 }
 
 .subtitle {
-  font-family: var(--font-sedgwick), cursive;
+  font-family: var(--font-insomnia-night), cursive;
   font-size: clamp(20px, 1.5vw, 26px);
   font-weight: 400;
   margin: 0;

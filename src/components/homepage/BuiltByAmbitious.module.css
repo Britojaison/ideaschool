@@ -28,7 +28,7 @@
 }
 
 .subtitle {
-  font-family: var(--font-sedgwick, inherit);
+  font-family: var(--font-insomnia-night, inherit);
   font-size: clamp(20px, 1.5vw, 26px);
   line-height: 1.4;
   color: #a0aab2;

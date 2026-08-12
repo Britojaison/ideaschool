@@ -90,7 +90,7 @@ export default function WorkshopsStrip() {
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
             <h2 className="title">UPCOMING WORKSHOPS</h2>
             <div style={{
-              fontFamily: "var(--font-sedgwick), cursive",
+              fontFamily: "var(--font-insomnia-night), cursive",
               color: "inherit",
               fontSize: "clamp(18px, 2vw, 24px)",
               transform: "rotate(-4deg) translateY(-30px)",

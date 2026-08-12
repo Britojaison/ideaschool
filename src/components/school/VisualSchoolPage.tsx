@@ -393,7 +393,7 @@ export default function VisualSchoolPage() {
             <div className={`${styles.heroShape} heroFadeOut`} aria-hidden="true" />
             <div className={`container ${styles.heroInner}`}>
               <div className={`${styles.heroCopy} heroFadeOut`}>
-                <p className={styles.kicker}>VISUAL SCHOOL</p>
+                <p className={styles.kicker}>Visual School</p>
                 <h1>Visual stories that<br />move people.</h1>
                 <p className={styles.heroIntro}>For editors, filmmakers and visual storytellers ready to turn their taste into industry ready work with an AI native workflow.</p>
                 <IconMarquee />

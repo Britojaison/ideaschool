@@ -16,7 +16,7 @@ const helveticaNow = localFont({
 });
 
 const damn = localFont({ src: "../fonts/damn.ttf", variable: "--font-damn", display: "swap" });
-const sedgwick = localFont({ src: "../fonts/Sedgwick_Ave/SedgwickAve-Regular.ttf", variable: "--font-sedgwick", display: "swap" });
+const insomniaNight = localFont({ src: "../public/fonts/Insomnia Night.otf", variable: "--font-insomnia-night", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Idea School | Creative Skills, AI Ad Filmmaking & Editing Programs",
@@ -46,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${helveticaNow.variable} ${damn.variable} ${sedgwick.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en" className={`${helveticaNow.variable} ${damn.variable} ${insomniaNight.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head />
       <body suppressHydrationWarning>
         <DisableImageActions />

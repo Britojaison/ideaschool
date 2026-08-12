@@ -79,7 +79,7 @@ export default function Testimonials() {
             <span>The Pipeline</span>
           </h2>
           <div style={{
-            fontFamily: "var(--font-sedgwick), cursive",
+            fontFamily: "var(--font-insomnia-night), cursive",
             color: "var(--ash)",
             fontSize: "clamp(18px, 2vw, 24px)",
             transform: "rotate(-3deg)",

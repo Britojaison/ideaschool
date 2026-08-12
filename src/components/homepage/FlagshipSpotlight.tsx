@@ -11,7 +11,7 @@ export default function FlagshipSpotlight() {
       <div className={styles.wrap}>
         <div className={styles.content}>
           <div style={{
-              fontFamily: "var(--font-sedgwick), cursive",
+              fontFamily: "var(--font-insomnia-night), cursive",
               color: "var(--ink)",
               fontSize: "clamp(22px, 2.5vw, 28px)",
               transform: "rotate(-3deg) translateY(-15px)",

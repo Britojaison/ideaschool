@@ -21,7 +21,7 @@ export default function Reviews() {
         <div className={styles.reviewsHeader}>
           <h2>What people are saying</h2>
           <div style={{
-            fontFamily: "var(--font-sedgwick), cursive",
+            fontFamily: "var(--font-insomnia-night), cursive",
             color: "var(--ash)",
             fontSize: "clamp(18px, 2vw, 24px)",
             transform: "rotate(2deg)",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ApplyButton from "../ApplyButton";
+import Footer from "@/components/global/Footer";
 import "./page.css";
 
 export const metadata: Metadata = {
@@ -89,16 +90,7 @@ export default function IndustryExperienceProgramPage() {
         </section>
       </section>
 
-      <footer className="vslFooter">
-        <p>
-          Results vary based on each student&apos;s effort, practice and participation. Idea School does
-          not guarantee employment or income. This program is designed to provide practical learning,
-          project experience and professional guidance.
-        </p>
-        <Image src="/images/idea logo.webp" alt="Idea School" width={110} height={58} className="vslFooterLogo" />
-        <span>© {new Date().getFullYear()} Idea School</span>
-        <nav><Link href="/">Home</Link><a href="mailto:hello@ideaschool.in">Contact</a></nav>
-      </footer>
+      <div className="newSite"><Footer /></div>
     </main>
   );
 }

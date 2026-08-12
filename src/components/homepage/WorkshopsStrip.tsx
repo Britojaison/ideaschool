@@ -16,9 +16,9 @@ if (typeof window !== "undefined") {
 }
 
 const workshops = [
-  { title: "Master Video Editing", date: "Oct 15 - 17", time: "10:00 AM - 1:00 PM", href: "/visual-school/master-video-editing", image: visualImage },
-  { title: "AI Ad Filmmaking", date: "Nov 02 - 04", time: "2:00 PM - 5:00 PM", href: "/visual-school/ai-ad-filmmaking", image: teamImage },
-  { title: "Advanced Visual Effects", date: "Dec 10 - 12", time: "11:00 AM - 4:00 PM", href: "/visual-school/advanced-vfx", image: miniImage },
+  { title: "Master Video Editing", href: "/master-video-editing", image: visualImage },
+  { title: "AI Ad Filmmaking", href: "/ad-film-making", image: teamImage },
+  { title: "Advanced Visual Effects", href: "/creative-editing-course", image: miniImage },
 ];
 
 export default function WorkshopsStrip() {
@@ -106,7 +106,6 @@ export default function WorkshopsStrip() {
               <span>Limited seats!</span>
             </div>
           </div>
-          <Link href="/workshops" className="btn">View calendar</Link>
         </div>
         
         <div className={styles.workshopGrid} ref={cardsRef}>
@@ -127,15 +126,7 @@ export default function WorkshopsStrip() {
               </div>
               
               <div className={styles.cardContent}>
-                <div className={styles.cardDateTag}>{w.date}</div>
                 <h3 className={styles.cardTitle}>{w.title}</h3>
-                <div className={styles.cardTime}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  {w.time}
-                </div>
               </div>
               
               <div className={styles.cardArrow}>

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import HeroDotField from "../../HeroDotField";
 import ProgramMenu from "../../ProgramMenu";
 import MetaPixel from "../../MetaPixel";
+import Footer from "@/components/global/Footer";
 
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | Idea School",
@@ -76,6 +77,7 @@ export default function ApplyThankYouPage() {
           </div>
         </div>
       </section>
+      <div className="newSite"><Footer /></div>
     </main>
   );
 }

@@ -15,7 +15,7 @@ import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
 import WorkshopLoadingScreen from "./WorkshopLoadingScreen";
 import WorkshopAttendeesList from "./WorkshopAttendeesList";
-import WorkshopFooter from "./WorkshopFooter";
+import Footer from "@/components/global/Footer";
 import WorkshopInstructorImage from "./WorkshopInstructorImage";
 import WorkshopFaqImage from "./WorkshopFaqImage";
 import WorkshopGalleryFlip from "./WorkshopGalleryFlip";
@@ -238,9 +238,7 @@ export default function WorkshopPage() {
     <main className="longCoursePage workshopCoursePage">
       <WorkshopLoadingScreen />
       <WorkshopGsapAnimations />
-      <div id="smooth-wrapper" className="workshopSmoothWrapper">
-        <div id="smooth-content" className="workshopSmoothContent">
-          <ScrollTextReveal />
+      <ScrollTextReveal />
 
           <section className="longCourseHero workshopHero" aria-label={workshop.title}>
             <div className="longCourseHeroMedia">
@@ -646,9 +644,7 @@ export default function WorkshopPage() {
             </div>
           </section>
 
-          <WorkshopFooter />
-        </div>
-      </div>
+      <div className="newSite"><Footer /></div>
       <WorkshopStickyBanner />
     </main>
   );

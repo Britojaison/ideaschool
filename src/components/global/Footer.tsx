@@ -15,7 +15,7 @@ export default function Footer() {
 
   useEffect(() => {
     // We handle the stacking animation in WorkshopGsapAnimations.tsx 
-    // to ensure it plays well with ScrollSmoother which is initialized there.
+    // Keep the marquee on the shared GSAP ticker so it remains in sync with page motion.
     // However, we can handle the marquee animation here.
     if (marqueeRef.current) {
       gsap.to(marqueeRef.current, {
@@ -28,6 +28,8 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => {
+    const event = new CustomEvent<number>("idea-scroll-to", { detail: 0, cancelable: true });
+    if (!window.dispatchEvent(event)) return;
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

@@ -11,6 +11,7 @@ import ProgramCountdown from "./ProgramCountdown";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import BrandCommercialsSection from "./BrandCommercialsSection";
+import Footer from "@/components/global/Footer";
 
 const curriculum = [
   {
@@ -597,38 +598,7 @@ export default function ApplyPage() {
         </div>
       </div>
 
-      <footer className="siteFooter">
-        <div className="footerInner">
-          <p>Idea School is where you build real skills for the creative industry.</p>
-
-          <nav className="footerLinks" aria-label="Footer navigation">
-            <div>
-              <h2>Program</h2>
-              <Link href="/#program">Program</Link>
-              <Link href="/creative-editing-course">Creative Editing Program</Link>
-              <a href="#apply-form">Get early bird pass now</a>
-            </div>
-            <div>
-              <h2>Company</h2>
-              <Link href="/#about">About</Link>
-              <Link href="/#testimonials">Testimonials</Link>
-              <Link href="/#contact">Contact : 8618894857</Link>
-            </div>
-            <div>
-              <h2>Socials</h2>
-              <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">
-                Instagram
-              </a>
-              <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-            </div>
-          </nav>
-        </div>
-        <Link className="footerHeroLink" href="/#hero" aria-label="Back to hero">
-          IDEA SCHOOL
-        </Link>
-      </footer>
+      <div className="newSite"><Footer /></div>
     </main>
   );
 }

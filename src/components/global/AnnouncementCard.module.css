@@ -129,6 +129,7 @@
   background: var(--ink);
   font-size: 14px;
   font-family: inherit;
+  text-decoration: none;
   cursor: pointer;
   transition: color .2s, background .2s;
 }

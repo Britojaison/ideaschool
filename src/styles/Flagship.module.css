@@ -100,7 +100,7 @@
   margin: 0 0 30px 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0;
 }
 
 .titleMain {
@@ -120,7 +120,7 @@
   line-height: 1;
   color: var(--red);
   display: block;
-  margin-top: 10px;
+  margin-top: -0.28em;
   transform: rotate(-2deg);
 }
 
@@ -257,7 +257,7 @@
     line-height: .86;
   }
   .accent {
-    margin-top: 4px;
+    margin-top: -0.25em;
     font-size: clamp(30px, 9vw, 38px);
   }
   .lede {

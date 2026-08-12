@@ -103,6 +103,8 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: background .25s, transform .25s;
+  border: 0;
+  cursor: pointer;
 }
 
 .apply:hover {

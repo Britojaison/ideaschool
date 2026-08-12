@@ -26,7 +26,13 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
         </nav>
         <div className={styles.actions}>
           <Link className={styles.contact} href="/success-stories">Stories</Link>
-          <Link className={styles.apply} href="/apply">Apply now</Link>
+          <button
+            className={styles.apply}
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("open-home-form"))}
+          >
+            Apply now
+          </button>
           <button
             className={`${styles.menuToggle} ${menuOpen ? styles.menuToggleOpen : ""}`}
             type="button"

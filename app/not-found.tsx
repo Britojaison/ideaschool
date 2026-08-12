@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/global/Header";
+import HomeForm from "@/components/homepage/HomeForm";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {
@@ -18,6 +19,7 @@ export default function NotFound() {
         <Link href="/">Back to home <span>↗</span></Link>
         <p className={styles.mark}>IDEA SCHOOL · CREATING FUTURE-READY PROs</p>
       </main>
+      <HomeForm />
     </div>
   );
 }

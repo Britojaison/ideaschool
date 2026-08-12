@@ -89,6 +89,31 @@ export default function VisualSchoolPage() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  const scrollToPrograms = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    window.dispatchEvent(new Event("visual-scroll-to-programs"));
+  };
+
+  useEffect(() => {
+    const goToPrograms = () => {
+      const trigger = ScrollTrigger.getById("visual-programs");
+      if (!trigger) return;
+
+      const target = trigger.start + (trigger.end - trigger.start) * 0.4;
+      window.dispatchEvent(new CustomEvent<number>("idea-scroll-to", { detail: target, cancelable: true }));
+    };
+
+    window.addEventListener("visual-scroll-to-programs", goToPrograms);
+    const initialTimer = window.location.hash === "#programs"
+      ? window.setTimeout(goToPrograms, 250)
+      : undefined;
+
+    return () => {
+      window.removeEventListener("visual-scroll-to-programs", goToPrograms);
+      if (initialTimer !== undefined) window.clearTimeout(initialTimer);
+    };
+  }, []);
+
   useGSAP(() => {
     const updateInitialPosition = () => {
       if (!cardWideRef.current || !overlayVideoRef.current || !heroRef.current) return;
@@ -115,6 +140,7 @@ export default function VisualSchoolPage() {
 
     const tl = gsap.timeline({
       scrollTrigger: {
+        id: "visual-programs",
         trigger: containerRef.current,
         start: "top top",
         end: "+=1100%",
@@ -371,7 +397,7 @@ export default function VisualSchoolPage() {
                 <h1>Visual stories that<br />move people.</h1>
                 <p className={styles.heroIntro}>For editors, filmmakers and visual storytellers ready to turn their taste into industry ready work with an AI native workflow.</p>
                 <IconMarquee />
-                <Link href="#programs" className={styles.heroCta}>Explore our programs <b>↘</b></Link>
+                <Link href="#programs" onClick={scrollToPrograms} className={styles.heroCta}>Explore our programs <b>↘</b></Link>
               </div>
               <div className={styles.collage} aria-label="A collage of visual storytelling work">
                 <div className={`${styles.shape} heroFadeOut`} aria-hidden="true" />
@@ -393,8 +419,8 @@ export default function VisualSchoolPage() {
                 <span className={`${styles.pixelTag} heroFadeOut`}>SHOWCASE</span>
                 <span className={`${styles.sparkOne} heroFadeOut`}>✣</span>
                 <span className={`${styles.sparkTwo} heroFadeOut`}>✣</span>
-                <Link href="#programs" className={`${styles.collageCta} heroFadeOut`}>What&apos;s new <b>↘</b></Link>
-                <Link href="#programs" className={`${styles.collageCtaExplore} heroFadeOut`}>Explore <b>↘</b></Link>
+                <Link href="#programs" onClick={scrollToPrograms} className={`${styles.collageCta} heroFadeOut`}>What&apos;s new <b>↘</b></Link>
+                <Link href="#programs" onClick={scrollToPrograms} className={`${styles.collageCtaExplore} heroFadeOut`}>Explore <b>↘</b></Link>
               </div>
             </div>
           </section>
@@ -498,7 +524,7 @@ export default function VisualSchoolPage() {
           </section>
 
           {/* Course Showcase Cards over Concept */}
-          <div className={styles.showcaseCardsContainer}>
+          <div className={styles.showcaseCardsContainer} id="programs">
             <div className={styles.cardsTrack} ref={cardsTrackRef}>
               {paths.map((path, idx) => {
                 const cardImages = [c1, c2, c3, c4];

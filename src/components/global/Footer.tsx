@@ -2,14 +2,15 @@
 
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import styles from "./Footer.module.css";
 import ImageMarquee from "./ImageMarquee";
 import creativeIndustryMark from "@public/assets/home/tumblr_c050d2fa4f5b9a2a88fa3f5196acd80f_1ccf7380_1280.webp";
 
-const workshopPaymentUrl = "https://rzp.io/rzp/L5kyyQlg";
-
 export default function Footer() {
+  const pathname = usePathname();
   const footerRef = useRef<HTMLElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
@@ -31,6 +32,12 @@ export default function Footer() {
     const event = new CustomEvent<number>("idea-scroll-to", { detail: 0, cancelable: true });
     if (!window.dispatchEvent(event)) return;
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const exploreCourses = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname !== "/visual-school") return;
+    event.preventDefault();
+    window.dispatchEvent(new Event("visual-scroll-to-programs"));
   };
 
   return (
@@ -59,9 +66,9 @@ export default function Footer() {
               className={styles.footerHeadlineImage}
             />
           </h2>
-          <a href={workshopPaymentUrl} className={styles.footerExploreLink} target="_blank" rel="noreferrer">
+          <Link href="/visual-school#programs" className={styles.footerExploreLink} onClick={exploreCourses}>
             Explore Courses →
-          </a>
+          </Link>
         </div>
 
         <div className={styles.footerRight}>

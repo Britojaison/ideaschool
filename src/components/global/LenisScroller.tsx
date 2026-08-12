@@ -18,6 +18,13 @@ export default function LenisScroller({ children }: { children: React.ReactNode 
     // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
     lenis.on('scroll', ScrollTrigger.update);
 
+    const handleProgrammaticScroll = (event: Event) => {
+      const scrollEvent = event as CustomEvent<number | string | HTMLElement>;
+      event.preventDefault();
+      lenis.scrollTo(scrollEvent.detail, { duration: 1.2 });
+    };
+    window.addEventListener("idea-scroll-to", handleProgrammaticScroll);
+
     // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
     // This ensures Lenis's smooth scroll animation updates on each GSAP tick
     const update = (time: number) => {
@@ -31,6 +38,7 @@ export default function LenisScroller({ children }: { children: React.ReactNode 
 
     return () => {
       gsap.ticker.remove(update);
+      window.removeEventListener("idea-scroll-to", handleProgrammaticScroll);
       lenis.destroy();
     };
   }, []);

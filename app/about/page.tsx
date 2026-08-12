@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import Shell from "@/components/global/Shell";
-import heroImage from "@public/assets/home/gallery10.webp";
-import industryImage from "@public/assets/home/creative_direction.jpeg";
-import learningImage from "@public/assets/home/visual_story.jpeg";
+import heroImage from "@public/assets/home/bg2.webp";
+import industryImage from "@public/assets/home/gallery10.webp";
+import learningImage from "@public/assets/home/work1.webp";
 import styles from "./About.module.css";
 
 const pillars = [

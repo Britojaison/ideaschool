@@ -17,9 +17,9 @@ import Testimonials from "@/components/homepage/Testimonials";
 import Reviews from "@/components/homepage/Reviews";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 import styles from "@/styles/Home.module.css";
-import visualStorytelling from "@public/assets/home/visual_story.jpeg";
-import creativeDirection from "@public/assets/home/creative_direction.jpeg";
-import marketing from "@public/assets/home/marketing.jpeg";
+import visualStorytelling from "@public/images/gallery5.webp";
+import creativeDirection from "@public/images/gallery7.webp";
+import marketing from "@public/images/gallery10.webp";
 import Image from "next/image";
 import fullBleedImage from "@public/assets/home/gallery10.webp";
 

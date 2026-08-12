@@ -44,7 +44,7 @@
   font-family: var(--font-insomnia-night), cursive;
   font-size: clamp(20px, 1.5vw, 26px);
   font-weight: 400;
-  margin: -0.35em 0 0;
+  margin: -2em 0 0;
   transform: rotate(-2deg);
   display: inline-block;
   opacity: 0.9;

@@ -1,0 +1,53 @@
+.marqueeContainer {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  padding: 18px 0;
+  max-width: 650px;
+  margin-bottom: 34px;
+  border-top: 1px solid rgba(10, 10, 12, .18);
+  border-bottom: 1px solid rgba(10, 10, 12, .18);
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+  padding-right: 50px; /* same as gap to make seamless loop */
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconImage {
+  max-height: 32px;
+  max-width: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: invert(1) grayscale(100%) opacity(0.6);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.iconImage:hover {
+  filter: invert(1) grayscale(100%) opacity(1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

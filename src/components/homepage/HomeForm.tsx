@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useRef } from 'react';
 import styles from './HomeForm.module.css';
 import gsap from "gsap";

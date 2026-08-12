@@ -15,3 +15,17 @@
 .cta{min-height:850px;padding:110px 7vw;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;background:var(--paper)}.cta>p:first-child{font-size:11px;letter-spacing:.2em}.cta h2{margin:50px 0;font-size:clamp(62px,8.5vw,130px);font-weight:300;line-height:.83;letter-spacing:-.055em}.ctaCopy{max-width:650px;color:#62625d;font-size:18px}.cta a{margin-top:50px;padding:17px 22px;border-bottom:1px solid #111;font-size:16px;text-transform:uppercase}.cta a span{margin-left:60px;color:var(--red)}
 @media(max-width:800px){.hero{display:block}.heroCopy{min-height:620px}.heroCopy h1{margin:auto 0 40px}.heroIntro{margin-left:0}.heroVisual{min-height:520px}.twoColCopy{grid-template-columns:1fr;margin-left:0;gap:15px}.origin,.philosophy,.learning,.experience{grid-template-columns:1fr}.futureGrid{grid-template-columns:1fr 1fr}.philosophyHead{position:static}.learningImage{min-height:520px}.visionMission{grid-template-columns:1fr}.visionMission article+article{border-left:0;border-top:1px solid #aaa}.promise>div{grid-template-columns:1fr}.hero{min-height:auto}.imageStory{min-height:720px}}
 @media(max-width:520px){.heroCopy{padding:50px 22px;min-height:570px}.heroCopy h1{font-size:60px}.editorial,.origin,.future,.philosophy,.experience,.tech,.promise,.cta{padding-left:22px;padding-right:22px}.editorial h2{margin-bottom:55px}.imageStory{padding:60px 22px}.futureGrid{grid-template-columns:1fr}.pillar{grid-template-columns:60px 1fr}.pillar>span{font-size:44px}.learningCopy{padding:75px 22px}.visionMission article{padding:80px 22px;min-height:auto}.promise h2{margin-bottom:60px}.cta{min-height:720px}.cta h2{font-size:55px}}
+
+.pillar{grid-template-columns:100px minmax(0,1fr)}
+.pillar>div{min-width:0}
+.pillar h3{overflow-wrap:anywhere}
+@media(max-width:520px){
+  .heroCopy{min-height:0;padding:42px 22px 46px}
+  .heroCopy h1{margin:64px 0 34px;font-size:56px;line-height:.86}
+  .heroIntro{font-size:16px}
+  .heroVisual{min-height:430px}
+  .pillar{grid-template-columns:44px minmax(0,1fr);gap:12px;padding:34px 0}
+  .pillar>span{font-size:40px}
+  .pillar h3{font-size:27px;letter-spacing:-.025em}
+  .pillar p{font-size:15px}
+}

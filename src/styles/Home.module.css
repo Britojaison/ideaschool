@@ -57,19 +57,19 @@
 }
 
 .lineOne {
-    margin-left: 23%;
-    transform: scaleX(.68) !important;
+    margin-left: 22%;
+    transform: scaleX(0.75) !important;
 }
 
 .lineTwo {
-    margin-left: 0;
-    transform: scaleX(.78) !important;
+    margin-left: 0%;
+    transform: scaleX(0.75) !important;
 }
 
 .titleAside {
     position: absolute;
-    left: 52%;
-    top: 51%;
+    left: 40%;
+    top: 55%;
     margin: 0;
     width: max-content;
     font-family: var(--font-helvetica), Arial, sans-serif;
@@ -574,7 +574,7 @@
     }
 
     .titleAside {
-        left: 68%;
+        left: 55%;
         top: 72%;
     }
 
@@ -647,12 +647,12 @@
         line-height: .78;
     }
 
-    .heroTitle > span {
+    .heroTitle>span {
         width: 100%;
         transform-origin: center center;
     }
 
-    .heroTitle > span > span {
+    .heroTitle>span>span {
         width: 100% !important;
         text-align: center;
         letter-spacing: 0;
@@ -815,7 +815,7 @@
         padding: 28px 0 52px;
     }
 
-    .schoolsSection > :global(.container) {
+    .schoolsSection> :global(.container) {
         width: calc(100% - 28px);
     }
 
@@ -844,7 +844,7 @@
         overflow: visible;
     }
 
-    .messageCopy > p:first-child {
+    .messageCopy>p:first-child {
         margin-bottom: 14px;
         color: #f5f4f1;
         font-size: 16px;
@@ -961,11 +961,17 @@
     width: 100%;
     padding: 0 52px;
 }
+
 @media (max-width: 1350px) {
-    .fullContainer { padding: 0 32px; }
+    .fullContainer {
+        padding: 0 32px;
+    }
 }
+
 @media (max-width: 720px) {
-    .fullContainer { padding: 0 18px; }
+    .fullContainer {
+        padding: 0 18px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -974,14 +980,14 @@
         margin-bottom: 0;
     }
 
-    .fullContainer :global(.sectionHead) > div {
+    .fullContainer :global(.sectionHead)>div {
         display: grid !important;
         grid-template-columns: minmax(0, 1fr) auto;
         gap: 18px;
         align-items: center !important;
     }
 
-    .fullContainer :global(.sectionHead) > div > div {
+    .fullContainer :global(.sectionHead)>div>div {
         align-self: center;
         gap: 8px !important;
         font-size: 17px !important;
@@ -989,12 +995,12 @@
         transform: none !important;
     }
 
-    .fullContainer :global(.sectionHead) > div > div svg {
+    .fullContainer :global(.sectionHead)>div>div svg {
         width: 36px;
         height: 24px;
     }
 
-    .fullContainer :global(.sectionHead) > :global(.btn) {
+    .fullContainer :global(.sectionHead)> :global(.btn) {
         display: none;
     }
 }
@@ -1203,7 +1209,7 @@
 .workshopStaggeredBtn {
     display: inline-block;
     padding: 14px 24px;
-    border: 1px solid rgba(10,10,12,0.3);
+    border: 1px solid rgba(10, 10, 12, 0.3);
     color: #0a0a0c;
     font-size: 14px;
     letter-spacing: 0.05em;
@@ -1224,19 +1230,23 @@
         grid-template-columns: 1fr;
         grid-auto-rows: 350px;
     }
+
     .workshopCard:nth-child(1) {
         grid-row: span 1;
         padding: 34px 30px;
     }
+
     .workshopCard:nth-child(1) .cardTitle {
         font-size: clamp(32px, 8vw, 42px);
     }
+
     .workshopCard:nth-child(1) .cardArrow {
         bottom: 30px;
         right: 30px;
         width: 48px;
         height: 48px;
     }
+
     .workshopCard:nth-child(1) .cardArrow svg {
         width: 24px;
         height: 24px;
@@ -1431,10 +1441,12 @@
         flex-direction: column;
         align-items: flex-start;
     }
+
     .valueLeft {
         max-width: 100%;
         margin-bottom: 20px;
     }
+
     .valueGrid {
         grid-template-columns: repeat(2, 1fr);
         width: 100%;
@@ -1446,6 +1458,7 @@
         grid-template-columns: 1fr;
     }
 }
+
 /* Full Bleed Image between Gallery and Testimonials */
 .fullBleedContainer {
     position: relative;
@@ -1469,6 +1482,7 @@
         border-radius: 24px;
     }
 }
+
 @media (max-width: 640px) {
     .fullBleedContainer {
         width: calc(100vw - 40px);

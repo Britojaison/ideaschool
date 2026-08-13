@@ -99,7 +99,7 @@ export default function Home() {
         ])}
       </div>
     </div>
-    <div className={styles.heroContent}><h1 className={styles.heroTitle}><span className={styles.lineOne}><span className="gsap-text-creating" style={{ display: "block" }}>CREATIVITY</span></span><span className={styles.lineTwo}><span className="gsap-text-becomes" style={{ display: "block" }}>BECOMES</span></span></h1><p className={`${styles.titleAside} gsap-title-aside`}>YOUR<br />CAREER</p><p className={styles.heroIntro}><span className="gsap-hero-intro-line">Learn real-world creative skills.</span><span className="gsap-hero-intro-line">Build work that gets noticed.</span><span className="gsap-hero-intro-line">Turn what you love into a career.</span></p></div>
+    <div className={styles.heroContent}><h1 className={styles.heroTitle}><span className={styles.lineOne}><span className="gsap-text-creating" style={{ display: "block" }}>SKILLS</span></span><span className={styles.lineTwo}><span className="gsap-text-becomes" style={{ display: "block" }}>BECOME</span></span></h1><p className={`${styles.titleAside} gsap-title-aside`}>YOUR<br />SUPERPOWER</p><p className={styles.heroIntro}><span className="gsap-hero-intro-line">Learn real-world creative skills.</span><span className="gsap-hero-intro-line">Build work that gets noticed.</span><span className="gsap-hero-intro-line">Turn what you love into a career.</span></p></div>
     <a className={styles.cornerArrow} href="#schools" aria-label="Explore schools">↙</a>
   </section><Schools /><WorkshopsStrip /></div><FlagshipSpotlight /><InsideProgram /><BuiltByAmbitious /><Gallery />
     <div className={styles.fullBleedContainer} ref={fullBleedRef}>

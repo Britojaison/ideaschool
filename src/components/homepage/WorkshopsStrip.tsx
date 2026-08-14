@@ -7,7 +7,7 @@ import styles from "@/styles/Home.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import teamImage from "@public/assets/home/video_edit.png";
+import teamImage from "@public/images/video_ed.png";
 import miniImage from "@public/assets/home/ai_flow.png";
 import masterImage from "@public/images/master1.png";
 

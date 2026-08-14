@@ -1,5 +1,7 @@
 import styles from "@/styles/Flagship.module.css";
 import Link from "next/link";
+import Image from "next/image";
+import curlyArrowImg from "@public/images/curly_arrow.png";
 
 export default function FlagshipSpotlight() {
   return (
@@ -15,15 +17,10 @@ export default function FlagshipSpotlight() {
               transform: "rotate(-3deg) translateY(-15px)",
               display: "flex",
               alignItems: "center",
-              gap: "12px",
               marginBottom: "10px",
               marginLeft: "5px"
           }}>
             <span>Flagship program</span>
-            <svg width="42" height="42" viewBox="0 0 60 60" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "translateY(8px) rotate(10deg)", marginLeft: "4px" }}>
-              <path d="M10 12 Q 48 10 40 45" />
-              <path d="M28 36 L 40 45 L 48 30" />
-            </svg>
           </div>
           <div className={styles.title}>
             <span className={styles.titleMain}>Creative Editing</span>
@@ -37,6 +34,16 @@ export default function FlagshipSpotlight() {
               Explore the program
             </Link>
           </div>
+        </div>
+
+        <div className={styles.centerArrow} aria-hidden="true">
+          <Image
+            src={curlyArrowImg}
+            alt=""
+            width={140}
+            height={115}
+            priority
+          />
         </div>
         
         <div className={styles.statsPanel}>

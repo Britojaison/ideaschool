@@ -58,6 +58,23 @@
   align-items: center; 
 }
 
+.centerArrow {
+  position: absolute;
+  left: 56%;
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(5deg);
+  z-index: 5;
+  pointer-events: none;
+  width: clamp(100px, 9vw, 150px);
+  height: auto;
+}
+
+.centerArrow img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .content {
   display: flex;
   flex-direction: column;

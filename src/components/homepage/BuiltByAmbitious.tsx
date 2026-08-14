@@ -3,10 +3,10 @@ import Image from 'next/image';
 import styles from './BuiltByAmbitious.module.css';
 
 const mentors = [
-  { name: 'Parithi', role: 'Head of Design', image: '/assets/images/mentor_PARITHI.png', color: '#d9a88a' },
   { name: 'Arjun', role: 'CEO', image: '/assets/images/mentor_ARJUN.png', color: '#a8d98a' }, // Greenish
-  { name: 'Ajay', role: 'Video Editor', image: '/assets/images/mentor_AJAY.png', color: '#b55e75' }, // Reddish
-  { name: 'Chandru', role: 'Senior Video Editor', image: '/assets/images/mentor_CHANDRU.png', color: '#d1ca64' }, // Yellowish
+  { name: 'Parithi', role: 'Head of Design', image: '/assets/images/mentor_PARITHI.png', color: '#d9a88a' },
+  { name: 'Chandru', role: 'Senior Creative Strategist & Visualiser', image: '/assets/images/mentor_CHANDRU.png', color: '#d1ca64' }, // Yellowish
+  { name: 'Ajay', role: 'Video Editor, Design', image: '/assets/images/mentor_AJAY.png', color: '#b55e75' }, // Reddish
   { name: 'Zaman', role: 'Head of Growth', image: '/assets/images/zaman.png', color: '#8aa3d9' }, 
 ];
 

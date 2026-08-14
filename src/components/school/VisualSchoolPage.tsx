@@ -42,11 +42,11 @@ const paths = [
   },
   {
     index: "03",
-    type: "Live workshop · 2 days",
-    title: "AI Ad Filmmaking",
-    copy: "Go from a sharp concept to a finished AI generated commercial with a repeatable workflow.",
+    type: "Live workshop · 1 day",
+    title: "Master Video Editing",
+    copy: "Learn the secrets to high-paying video editing projects in just 1 day.",
     image: "/assets/home/ai_flow.png",
-    href: "/ad-film-making",
+    href: "/master-video-editing",
   },
   {
     index: "04",

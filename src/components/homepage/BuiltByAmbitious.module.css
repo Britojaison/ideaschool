@@ -99,14 +99,14 @@
 
 .mentorName {
   font-family: var(--font-heading, inherit);
-  font-size: 2rem;
+  font-size: 2.75rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .mentorRole {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   opacity: 0.9;
 }

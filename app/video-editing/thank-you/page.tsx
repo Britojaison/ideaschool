@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import HeroDotField from "../../HeroDotField";
-import ProgramMenu from "../../ProgramMenu";
-import MetaPixel from "../../MetaPixel";
+import HeroDotField from "@/components/ui/HeroDotField";
+import ProgramMenu from "@/components/global/ProgramMenu";
+import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
 export const metadata: Metadata = {

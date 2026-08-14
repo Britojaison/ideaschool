@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
+import LiquidVideoMuteButton from "@/components/ui/LiquidVideoMuteButton";
 
 export default function ApplyHeroVideo() {
   const [isMuted, setIsMuted] = useState(true);

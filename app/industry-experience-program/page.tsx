@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import ApplyButton from "../ApplyButton";
+import ApplyButton from "@/components/shared/ApplyButton";
 import Footer from "@/components/global/Footer";
 import "./page.css";
 

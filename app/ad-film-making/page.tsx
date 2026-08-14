@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DotField from "../DotField";
-import HeroDotField from "../HeroDotField";
-import ScrollTextReveal from "../ScrollTextReveal";
-import MobileMenu from "../MobileMenu";
+import DotField from "@/components/ui/DotField";
+import HeroDotField from "@/components/ui/HeroDotField";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
+import MobileMenu from "@/components/global/MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";

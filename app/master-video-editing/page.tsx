@@ -3,13 +3,13 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import DetailsSectionMotion from "../creative-editing-course/DetailsSectionMotion";
-import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
+import LiquidVideoMuteButton from "@/components/ui/LiquidVideoMuteButton";
 import OutcomeCards from "../creative-editing-course/OutcomeCards";
-import ScrollTextReveal from "../ScrollTextReveal";
-import TiltedCard from "../TiltedCard";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
+import TiltedCard from "@/components/ui/TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
 import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
-import MobileMenu from "../MobileMenu";
+import MobileMenu from "@/components/global/MobileMenu";
 
 import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import DotField from "../DotField";
+import DotField from "@/components/ui/DotField";
 
 export default function LazyCurriculumDotField() {
   const mountRef = useRef<HTMLDivElement | null>(null);

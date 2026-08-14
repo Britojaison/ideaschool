@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import DisableImageActions from "./DisableImageActions";
+import DisableImageActions from "@/components/shared/DisableImageActions";
 import "./globals.css";
 
 const helveticaNow = localFont({

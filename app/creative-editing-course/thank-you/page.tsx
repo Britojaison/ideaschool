@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import HeroDotField from "../../HeroDotField";
+import HeroDotField from "@/components/ui/HeroDotField";
 import Footer from "@/components/global/Footer";
 
 const whatsappUrl = "https://chat.whatsapp.com/KPOJNXzGGmXCdUh2BdF4En";

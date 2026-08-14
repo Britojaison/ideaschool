@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DotField from "../DotField";
-import HeroDotField from "../HeroDotField";
-import ScrollTextReveal from "../ScrollTextReveal";
-import MobileMenu from "../MobileMenu";
+import DotField from "@/components/ui/DotField";
+import HeroDotField from "@/components/ui/HeroDotField";
+import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
+import MobileMenu from "@/components/global/MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
-import MetaPixel from "../MetaPixel";
+import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
 const curriculum = [

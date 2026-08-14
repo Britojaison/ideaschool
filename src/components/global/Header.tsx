@@ -7,7 +7,7 @@ import ideaLogo from "@public/assets/logo/idea logo.webp";
 import styles from "./Header.module.css";
 
 export function Logo() {
-  return <Link href="/" className={styles.logo} aria-label="Idea AI School home"><Image className={styles.logoImage} src={ideaLogo} alt="Idea AI School" priority style={{ width: "auto", height: "auto" }} /></Link>;
+  return <Link href="/" className={styles.logo} aria-label="Idea AI School home"><Image className={styles.logoImage} src={ideaLogo} alt="Idea AI School" priority width={112} style={{ width: "112px", height: "auto" }} /></Link>;
 }
 
 export default function Header({ overlay = false }: { overlay?: boolean }) {

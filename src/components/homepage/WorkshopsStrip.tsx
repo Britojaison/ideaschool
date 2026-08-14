@@ -16,9 +16,9 @@ if (typeof window !== "undefined") {
 }
 
 const workshops = [
-  { title: "Master Video Editing", href: "/master-video-editing", image: masterImage, objectPosition: "center" },
-  { title: "AI Ad Filmmaking", href: "/ad-film-making", image: teamImage },
-  { title: "Advanced Visual Effects", href: "/creative-editing-course", image: miniImage },
+  { title: "Creative Editing Course", href: "/creative-editing-course", image: masterImage, objectPosition: "center" },
+  { title: "Video Editing", href: "/video-editing", image: teamImage },
+  { title: "Master Video Editing", href: "/master-video-editing", image: miniImage },
 ];
 
 export default function WorkshopsStrip() {

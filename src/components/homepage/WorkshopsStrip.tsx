@@ -9,14 +9,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import teamImage from "@public/assets/home/video_edit.png";
 import miniImage from "@public/assets/home/ai_flow.png";
-import visualImage from "@public/assets/home/video.png";
+import masterImage from "@public/images/master1.png";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const workshops = [
-  { title: "Master Video Editing", href: "/master-video-editing", image: visualImage },
+  { title: "Master Video Editing", href: "/master-video-editing", image: masterImage, objectPosition: "center" },
   { title: "AI Ad Filmmaking", href: "/ad-film-making", image: teamImage },
   { title: "Advanced Visual Effects", href: "/creative-editing-course", image: miniImage },
 ];
@@ -120,7 +120,10 @@ export default function WorkshopsStrip() {
                   alt={w.title} 
                   placeholder="blur"
                   fill
-                  style={{ objectFit: 'cover' }} 
+                  style={{ 
+                    objectFit: 'cover',
+                    objectPosition: (w as any).objectPosition || 'center'
+                  }} 
                 />
               </div>
               

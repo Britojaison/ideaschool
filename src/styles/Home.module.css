@@ -1094,6 +1094,15 @@
     top: -15% !important;
 }
 
+.workshopCard:nth-child(1) .cardImageWrapper img {
+    height: 104% !important;
+    top: -2% !important;
+}
+
+.workshopCard:nth-child(1):hover .cardImageWrapper {
+    transform: scale(1.03);
+}
+
 .workshopCard:hover .cardImageWrapper img {
     filter: brightness(0.6);
 }

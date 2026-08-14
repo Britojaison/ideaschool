@@ -432,7 +432,7 @@ export default function VisualSchoolPage() {
                 <source src="/assets/videos/home-page-video.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
-                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} />
+                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "auto", height: "auto" }} />
                 <p className={styles.overlayLabel}>SHOWCASE PROJECT</p>
                 <h2>Creative Editing in Action</h2>
                 <p className={styles.overlayDesc}>See how our students use AI-native workflows to produce industry-ready work in record time.</p>
@@ -462,7 +462,7 @@ export default function VisualSchoolPage() {
                 <source src="/assets/videos/zaman_case_study.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
-                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} />
+                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "auto", height: "auto" }} />
                 <p className={styles.overlayLabel}>CASE STUDY</p>
                 <h2>Storytelling</h2>
                 <p className={styles.overlayDesc}>Explore how to weave compelling narratives through editing and motion design with this in-depth case study.</p>
@@ -483,7 +483,7 @@ export default function VisualSchoolPage() {
                 <source src="/assets/videos/luis_reel.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
-                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} />
+                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "auto", height: "auto" }} />
                 <p className={styles.overlayLabel}>STUDENT SPOTLIGHT</p>
                 <h2>Luis Creative Reel</h2>
                 <p className={styles.overlayDesc}>Witness the incredible evolution of visual storytelling skills directly from our recent graduates.</p>

@@ -36,8 +36,7 @@ export default function WorkshopsStrip() {
     });
 
     tl.to(".bg-overlay", { opacity: 1 }, 0)
-      .to(sectionRef.current, { color: "#0a0a0c" }, 0)
-      .to(".btn", { borderColor: "rgba(10, 10, 12, 0.3)", color: "#0a0a0c" }, 0);
+      .to(sectionRef.current, { color: "#0a0a0c" }, 0);
       
     gsap.fromTo(
       gsap.utils.toArray(cardsRef.current?.children || []),

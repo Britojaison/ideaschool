@@ -24,9 +24,12 @@ export default function HomeForm() {
   const [errorMessage, setErrorMessage] = useState('');
 
   useGSAP(() => {
+    const triggerEl = document.querySelector("#workshops");
+    if (!triggerEl) return;
+
     // Reveal form after the 3rd section (WorkshopsStrip)
     ScrollTrigger.create({
-      trigger: "#workshops", 
+      trigger: triggerEl, 
       start: "bottom center", // When bottom of workshops section passes the center
       onEnter: () => {
         if (!isClosed) setIsVisible(true);

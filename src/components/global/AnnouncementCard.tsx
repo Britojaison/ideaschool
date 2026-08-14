@@ -57,8 +57,8 @@ export default function AnnouncementCard() {
           <h2>Master the craft<br />of video editing.</h2>
           <Link
             className={styles.cta}
-            href="/master-video-editing"
-            aria-label="Explore the Master Video Editing workshop"
+            href="/video-editing"
+            aria-label="Explore the Video Editing workshop"
           >
             Explore workshop <span aria-hidden="true">↗</span>
           </Link>

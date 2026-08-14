@@ -1085,8 +1085,12 @@
     top: -2% !important;
 }
 
+.workshopCard:nth-child(1) .cardImageWrapper {
+    transform: scale(1.04);
+}
+
 .workshopCard:nth-child(1):hover .cardImageWrapper {
-    transform: scale(1.03);
+    transform: scale(1.20);
 }
 
 .workshopCard:hover .cardImageWrapper img {

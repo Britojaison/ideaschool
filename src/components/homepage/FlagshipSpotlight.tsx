@@ -1,8 +1,6 @@
-import Button from "@/components/ui/Button";
 import styles from "@/styles/Flagship.module.css";
 import Link from "next/link";
-import Image from "next/image";
-import videoEditImg from "@public/assets/home/video_edit.png";
+
 export default function FlagshipSpotlight() {
   return (
     <section className={`section ${styles.spotlight}`}>
@@ -49,17 +47,17 @@ export default function FlagshipSpotlight() {
           </div>
           
           <div className={styles.showreelCard}>
-            <Image src={videoEditImg} alt="Student Showreel" fill style={{ objectFit: 'cover' }} className={styles.showreelImg} />
-            <div className={styles.playOverlay}>
-              <div className={styles.playButton}>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-                </svg>
-              </div>
-            </div>
+            <video
+              src="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={styles.showreelImg}
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+            />
             <div className={styles.showreelLabel}>
               <span>STUDENT SHOWREEL</span>
-              <span>▶</span>
             </div>
           </div>
         </div>

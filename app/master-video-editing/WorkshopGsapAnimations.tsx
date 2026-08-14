@@ -8,6 +8,9 @@ import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
+// Suppress "GSAP target not found" warnings when some selectors are not present on the page
+gsap.config({ nullTargetWarn: false });
+
 export default function WorkshopGsapAnimations() {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -553,7 +553,7 @@ export default function WorkshopPage() {
           </section>
 
           {/* Pricing / CTA Section */}
-          <section className="pricingCtaSection flex flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-10 min-h-[100vh] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" aria-label="Register Now">
+          <section className="hidden pricingCtaSection flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-10 min-h-[100vh] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" aria-label="Register Now">
             <div className="max-w-[800px] mx-auto text-center relative z-10 w-full">
               <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                 Register Now

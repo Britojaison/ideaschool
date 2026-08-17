@@ -1,0 +1,598 @@
+.vslThankYouPage {
+  --vsl-bg: #050505;
+  --vsl-card-bg: rgba(18, 14, 28, 0.7);
+  --vsl-card-border: rgba(175, 82, 223, 0.22);
+  --vsl-green: #dafd55;
+  --vsl-purple: #af52df;
+  --vsl-purple-glow: rgba(175, 82, 223, 0.35);
+  
+  min-height: 100vh;
+  background: radial-gradient(circle at top center, #26113d 0%, #08050e 45%, #050505 100%);
+  background-attachment: fixed;
+  color: #f4f4f5;
+  font-family: var(--font-heading);
+  overflow-x: hidden;
+}
+
+.vslThankYouPage * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.vslThankYouHeader {
+  width: min(100%, 1400px);
+  margin: 0 auto;
+  padding: 32px clamp(20px, 4vw, 64px) 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 20;
+}
+
+.vslThankYouLogo img {
+  width: 105px;
+  height: auto;
+  object-fit: contain;
+}
+
+.vslBackBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e4e4e7;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.vslBackBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Main Container */
+.vslThankYouContainer {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  padding: 20px clamp(18px, 4vw, 56px) 96px;
+}
+
+/* Hero Status Card */
+.vslStatusCard {
+  background: linear-gradient(180deg, rgba(32, 20, 52, 0.75) 0%, rgba(15, 10, 26, 0.85) 100%);
+  border: 1px solid var(--vsl-card-border);
+  border-radius: 28px;
+  padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 64px);
+  text-align: center;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7), 0 0 40px -10px var(--vsl-purple-glow);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+
+.vslStatusCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--vsl-purple), var(--vsl-green), transparent);
+}
+
+.vslStatusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: rgba(218, 253, 85, 0.12);
+  border: 1px solid rgba(218, 253, 85, 0.35);
+  color: var(--vsl-green);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.vslStatusBadgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vsl-green);
+  box-shadow: 0 0 10px var(--vsl-green);
+  animation: vslPulse 2s infinite ease-in-out;
+}
+
+@keyframes vslPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.vslStatusCard h1 {
+  font-size: clamp(1.85rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 auto 20px;
+  max-width: 960px;
+  color: #ffffff;
+}
+
+.vslStatusCard h1 span {
+  color: var(--vsl-green);
+  display: inline;
+}
+
+.vslStatusSubhead {
+  font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+  font-weight: 500;
+  color: #d4d4d8;
+  line-height: 1.6;
+  max-width: 860px;
+  margin: 0 auto 36px;
+}
+
+/* Call Alert Banner */
+.vslNoticeBox {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(175, 82, 223, 0.12);
+  border: 1px solid rgba(175, 82, 223, 0.3);
+  border-radius: 18px;
+  padding: 18px 24px;
+  max-width: 780px;
+  margin: 0 auto 32px;
+  text-align: left;
+}
+
+.vslNoticeIcon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.vslNoticeText strong {
+  display: block;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.vslNoticeText span {
+  font-size: 0.88rem;
+  color: #a1a1aa;
+  line-height: 1.4;
+}
+
+/* WhatsApp / Quick Action */
+.vslQuickActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.vslWhatsappCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: #25d366;
+  color: #000000;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
+}
+
+.vslWhatsappCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.55);
+  background: #22bf5b;
+}
+
+/* Section Wrapper */
+.vslSection {
+  margin-bottom: 72px;
+}
+
+.vslSectionHeader {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.vslSectionNumber {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--vsl-green);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.vslSectionHeader h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px;
+  letter-spacing: -0.015em;
+}
+
+.vslSectionHeader p {
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  color: #a1a1aa;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* 1. Brand Work Showreel Card */
+.vslShowreelCard {
+  background: var(--vsl-card-bg);
+  border: 1px solid var(--vsl-card-border);
+  border-radius: 24px;
+  padding: clamp(20px, 3.5vw, 36px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6);
+}
+
+.vslTabsRow {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.vslTabBtn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #d4d4d8;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.vslTabBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.vslTabBtn.active {
+  background: var(--vsl-purple);
+  border-color: var(--vsl-purple);
+  color: #ffffff;
+  box-shadow: 0 4px 18px var(--vsl-purple-glow);
+}
+
+.vslShowreelPlayer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.vslShowreelVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vslShowreelTagline {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #e4e4e7;
+  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vslShowreelTagline span {
+  color: var(--vsl-green);
+}
+
+/* Brand Logos Grid */
+.vslBrandsGrid {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vslBrandsGridTitle {
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #71717a;
+  margin-bottom: 20px;
+}
+
+.vslBrandsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3vw, 36px);
+  opacity: 0.75;
+}
+
+.vslBrandLogoItem img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+}
+
+.vslBrandLogoItem:hover img {
+  opacity: 1;
+}
+
+/* 2. Student Testimonials Section */
+.vslStudentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.vslStudentCard {
+  background: var(--vsl-card-bg);
+  border: 1px solid var(--vsl-card-border);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 16px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vslStudentCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(175, 82, 223, 0.5);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.7), 0 0 25px -5px var(--vsl-purple-glow);
+}
+
+.vslStudentVideoWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+
+.vslStudentVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vslStudentInfo {
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vslStudentMeta strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.vslStudentMeta span {
+  font-size: 0.8rem;
+  color: #a1a1aa;
+}
+
+.vslStudentRating {
+  color: #eab308;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+/* 3. Next Steps Roadmap */
+.vslStepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.vslStepCard {
+  background: rgba(18, 14, 28, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.vslStepCard:hover {
+  border-color: rgba(218, 253, 85, 0.3);
+  background: rgba(25, 18, 38, 0.8);
+}
+
+.vslStepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(218, 253, 85, 0.15);
+  border: 1px solid var(--vsl-green);
+  color: var(--vsl-green);
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.vslStepCard h3 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.vslStepCard p {
+  font-size: 0.88rem;
+  color: #a1a1aa;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 4. Built By Industry Professionals (88GB) */
+.vslAgencyCard {
+  background: linear-gradient(135deg, rgba(35, 18, 56, 0.7) 0%, rgba(12, 8, 20, 0.9) 100%);
+  border: 1px solid var(--vsl-card-border);
+  border-radius: 28px;
+  padding: clamp(32px, 5vw, 56px);
+  text-align: center;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.vslAgencyCard h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+.vslAgencyCard p {
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  color: #d4d4d8;
+  max-width: 720px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.vslAgencyLinksGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.vslAgencyLinkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.vslAgencyLinkBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.vslAgencyLinkBtn.primary {
+  background: var(--vsl-purple);
+  border-color: var(--vsl-purple);
+  box-shadow: 0 8px 24px var(--vsl-purple-glow);
+}
+
+.vslAgencyLinkBtn.primary:hover {
+  background: #be64ee;
+  box-shadow: 0 12px 30px var(--vsl-purple-glow);
+}
+
+/* Footer */
+.vslThankYouFooter {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  color: #71717a;
+}
+
+.vslThankYouFooter p {
+  max-width: 680px;
+  margin: 0 auto 16px;
+  line-height: 1.5;
+}
+
+.vslThankYouFooterNav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.vslThankYouFooterNav a {
+  color: #a1a1aa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.vslThankYouFooterNav a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .vslThankYouHeader {
+    padding: 20px 16px 12px;
+  }
+  .vslThankYouContainer {
+    padding: 12px 14px 64px;
+  }
+  .vslNoticeBox {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .vslAgencyLinksGrid {
+    flex-direction: column;
+    width: 100%;
+  }
+  .vslAgencyLinkBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

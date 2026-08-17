@@ -123,6 +123,10 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
       }
 
       setIsSuccess(true);
+      if (programName === "Industry Experience Program") {
+        window.location.href = "/industry-experience-program/thank-you";
+        return;
+      }
     } catch (err) {
       console.error(err);
       alert(err instanceof Error ? err.message : "Failed to submit. Please try again.");

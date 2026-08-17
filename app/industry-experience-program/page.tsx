@@ -48,10 +48,10 @@ export default function IndustryExperienceProgramPage() {
             controls
             preload="metadata"
             playsInline
-            poster="/images/Hero 6.webp"
+            poster="/images/vsl-ideaschool-aug11-poster.webp"
             aria-label="Industry Experience Program video"
           >
-            <source src="/images/edit_1.mp4" type="video/mp4" />
+            <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
             Your browser does not support the video element.
           </video>
         </div>

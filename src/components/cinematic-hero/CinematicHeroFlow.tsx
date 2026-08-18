@@ -138,9 +138,10 @@ export default function CinematicHeroFlow({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=260%",
-          pin: pinRef.current,
-          scrub: 1.2, // Smoother scrub latency for true luxury momentum
+          end: "+=180%",
+          pin: true,
+          pinSpacing: true,
+          scrub: 1.0,
           anticipatePin: 1,
         }
       });
@@ -281,7 +282,6 @@ export default function CinematicHeroFlow({
       className={styles.wrapper}
       data-header-theme="dark"
       data-theme="dark"
-      style={{ height: "320vh" }}
     >
       <div ref={pinRef} className={styles.pinContainer}>
         {/* Background Video Canvas */}

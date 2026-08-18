@@ -316,6 +316,46 @@
   font-weight: 600;
 }
 
+/* Explore More Projects Footer */
+.exploreFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 8vh;
+  padding-top: 5vh;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.exploreLabel {
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 18, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 8px 12px 8px 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.viewAllBtn:hover {
+  background: rgba(30, 30, 30, 1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .projectRow {

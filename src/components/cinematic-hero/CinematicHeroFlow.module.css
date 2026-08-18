@@ -1,6 +1,9 @@
 .wrapper {
   position: relative;
   width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
   background-color: #000000;
   color: #FFFFFF;
   font-family: var(--font-helvetica), "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -8,12 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Master Pin Container */
+/* Master Inner Container */
 .pinContainer {
   position: relative;
   width: 100%;
-  height: 100vh;
-  height: 100svh;
+  height: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -76,10 +78,7 @@
   will-change: opacity;
 }
 
-/* 
-   Heavy Black Fade Layer that guarantees the lower 60% is 100% solid pitch black (#000000)
-   Matching Screenshot 10, 11, 12 from charlesalexandertv.com
-*/
+/* Heavy Black Fade Layer (Bottom 60% Solid Black) */
 .directorBlackFade {
   position: absolute;
   inset: 0;
@@ -97,7 +96,7 @@
   will-change: opacity;
 }
 
-/* Solid Black Overlay for full fade out of the top video (Screenshot 12) */
+/* Solid Black Overlay */
 .fullBlackOverlay {
   position: absolute;
   inset: 0;
@@ -312,7 +311,6 @@
 
 /* ==========================================================================
    SECOND SECTION LAYER ("DIRECTOR LED / STUDIO BUILT")
-   Exact Spatial Positioning & Solid Black Stacking
    ========================================================================== */
 .directorLayer {
   position: absolute;
@@ -372,7 +370,7 @@
   z-index: 16;
 }
 
-/* Center-Left Editorial Narrative Block (Sitting on solid black) */
+/* Center-Left Editorial Narrative Block */
 .editorialBlock {
   position: absolute;
   left: clamp(340px, 32vw, 480px);
@@ -393,7 +391,7 @@
   margin: 0;
 }
 
-/* Right Giant Typography (STUDIO BUILT. - Sitting on solid black) */
+/* Right Giant Typography (STUDIO BUILT.) */
 .giantTextRight {
   position: absolute;
   right: 3.5vw;

@@ -203,6 +203,15 @@ export default function SelectedProjects() {
           );
         })}
       </div>
+
+      {/* Explore More Projects Footer Bar */}
+      <div className={styles.exploreFooter}>
+        <span className={styles.exploreLabel}>Explore More Projects</span>
+        <a href="#all-projects" className={styles.viewAllBtn}>
+          <span>VIEW ALL CASE STUDIES</span>
+          <span className={styles.arrowIconBox}>↗</span>
+        </a>
+      </div>
     </section>
   );
 }

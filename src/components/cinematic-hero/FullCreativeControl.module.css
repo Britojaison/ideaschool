@@ -1,0 +1,183 @@
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 12vh 3.5vw 16vh 3.5vw;
+  z-index: 20;
+  font-family: var(--font-helvetica), "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+/* Header */
+.header {
+  margin-bottom: 8vh;
+  max-width: 480px;
+}
+
+.title {
+  font-family: "Bebas Neue", var(--font-helvetica), sans-serif;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 0.75rem 0;
+  line-height: 0.95;
+}
+
+.subtitle {
+  font-size: clamp(0.85rem, 0.98vw, 1.02rem);
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Interactive Process Reel / Stacker */
+.reelContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  margin: 4vh 0 8vh 0;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.stepItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 900px;
+  user-select: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Inactive Blurred Step */
+.inactiveStep {
+  opacity: 0.25;
+  filter: blur(3.5px);
+  transform: scale(0.88);
+}
+
+.inactiveStep:hover {
+  opacity: 0.5;
+  filter: blur(1.5px);
+  transform: scale(0.92);
+}
+
+/* Active Step */
+.activeStep {
+  opacity: 1;
+  filter: blur(0px);
+  transform: scale(1);
+  z-index: 10;
+}
+
+.stepHeadingRow {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1.2vw;
+}
+
+.stepIndex {
+  font-family: var(--font-helvetica), monospace;
+  font-size: clamp(1.2rem, 2.4vw, 2.5rem);
+  font-weight: 600;
+  color: #E63946;
+  letter-spacing: 0.04em;
+  transform: translateY(-0.35em);
+}
+
+.stepName {
+  font-family: "Bebas Neue", var(--font-helvetica), sans-serif;
+  font-size: clamp(4.5rem, 9.2vw, 9rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Active Step Subtitle Description */
+.stepDescription {
+  margin-top: 1.2rem;
+  max-width: 640px;
+  font-size: clamp(0.72rem, 0.82vw, 0.82rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-helvetica), sans-serif;
+  font-weight: 400;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bottom Manifest Quote */
+.manifestBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 6vh;
+}
+
+.manifestText {
+  font-size: clamp(0.95rem, 1.15vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  max-width: 700px;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stepName {
+    font-size: clamp(3.2rem, 13vw, 5rem);
+  }
+  .stepIndex {
+    font-size: 1.2rem;
+  }
+  .reelContainer {
+    min-height: 380px;
+  }
+}

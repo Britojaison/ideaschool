@@ -14075,8 +14075,8 @@ html.isHeroGlassCursorActive .hero * {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: clamp(30px, 6vw, 60px);
+  padding-top: clamp(80px, 10vh, 120px);
+  padding-bottom: clamp(20px, 3vh, 40px);
   /* Added padding below the marquee */
   position: relative;
 }

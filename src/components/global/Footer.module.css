@@ -18,8 +18,8 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: clamp(30px, 6vw, 60px);
+  padding-top: clamp(80px, 10vh, 120px);
+  padding-bottom: clamp(20px, 3vh, 40px);
   position: relative;
   z-index: 10;
 }
@@ -216,8 +216,8 @@
 
 @media (max-width: 720px) {
   .footerMarqueeContainer {
-    padding-top: 24px;
-    padding-bottom: 48px;
+    padding-top: 64px;
+    padding-bottom: 24px;
   }
 
   .footerMarquee {

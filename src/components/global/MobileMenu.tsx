@@ -34,7 +34,7 @@ export default function MobileMenu() {
         { label: "About", href: "/about" },
       ];
     }
-    if (pathname === "/creative-editing-course") {
+    if (pathname === "/creative-editing-course" || pathname === "/creative-editing-copy") {
       return [
         { label: "Curriculum", href: "#curriculum" },
         { label: "Schedule", href: "#schedule" },
@@ -118,7 +118,7 @@ export default function MobileMenu() {
             <div className="mobileNavSection">
               <h3>Flagship Program</h3>
               <Link
-                href="/creative-editing-course"
+                href="/creative-editing-copy"
                 onClick={() => setIsOpen(false)}
               >
                 Creative Editing & AI Pro (24 Wks)

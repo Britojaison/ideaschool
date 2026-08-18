@@ -55,7 +55,7 @@ type ModeComponentProps = {
 
 const defaultNavItems = [
   { label: "Home", link: "/#hero" },
-  { label: "Creative Editing", link: "/creative-editing-course" },
+  { label: "Creative Editing", link: "/creative-editing-copy" },
   { label: "AD Film Making", link: "/ad-film-making" },
   { label: "Master Video Editing", link: "/master-video-editing" },
 ];

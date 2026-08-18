@@ -29,7 +29,7 @@ const paths = [
     title: "Creative Editing & AI Pro",
     copy: "Editing, motion design and AI filmmaking built around the way modern studios actually work.",
     image: "/assets/home/video_edit.png",
-    href: "/creative-editing-course",
+    href: "/creative-editing-copy",
     featured: true,
   },
   {
@@ -442,7 +442,7 @@ export default function VisualSchoolPage() {
                   <span>Storytelling</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-course" className={styles.btnPrimary}>View Showcase</Link>
+                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>View Showcase</Link>
                   <button
                     type="button"
                     className={styles.btnSecondary}

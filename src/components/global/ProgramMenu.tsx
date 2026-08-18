@@ -11,7 +11,7 @@ const courses = [
     subtitle: "Art & systems of editing",
     badge: "6 Months Program",
     badgeClass: "isOffline",
-    link: "/creative-editing-course",
+    link: "/creative-editing-copy",
     image: "/images/DSC01109.webp",
     imageClass: "programMenuImageCreative",
   },

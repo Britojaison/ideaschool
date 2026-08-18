@@ -268,7 +268,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                     <span>FLAGSHIP PROGRAM · 24 WEEKS</span>
                   </div>
                   <Link
-                    href="/creative-editing-course"
+                    href="/creative-editing-copy"
                     className={styles.flagshipCard}
                     onClick={closeAll}
                   >
@@ -431,7 +431,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             <span className={styles.mobileSectionLabel}>PROGRAMS & WORKSHOPS</span>
             <div className={styles.mobileLinkList}>
               <Link
-                href="/creative-editing-course"
+                href="/creative-editing-copy"
                 className={styles.mobileSubLink}
                 onClick={closeAll}
               >

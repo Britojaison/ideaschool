@@ -6,15 +6,16 @@
   z-index: 90;
   width: 100%;
   height: 76px;
-  background: transparent;
-  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s ease,
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .overlay {
   background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* ============================================================
@@ -22,19 +23,19 @@
    ============================================================ */
 .headerScrolled {
   height: 60px;
-  background: rgba(245, 244, 240, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: none;
-  box-shadow: none;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .headerDark.headerScrolled {
-  background: rgba(10, 10, 12, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: none;
-  box-shadow: none;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .inner {

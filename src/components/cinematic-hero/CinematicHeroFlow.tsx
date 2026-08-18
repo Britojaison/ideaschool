@@ -26,20 +26,20 @@ interface CinematicHeroFlowProps {
 
 export default function CinematicHeroFlow({
   videoSrc = "/assets/videos/HOME PAGE VIDEO.mp4",
-  heroHeadline1 = "VISUALIZATION SHOWS.",
-  heroHeadline2 = "CINEMA SELLS.",
-  heroSubtitle = "[  Cinematic direction for luxury real estate  ]",
-  studioName = "CA Film Creatives",
-  tags = ["[ DIRECTION ]", "[ PRODUCTION ]", "[ POST ]"],
-  leftGiantTop = "DIRECTOR",
+  heroHeadline1 = "EDITING DEFINES.",
+  heroHeadline2 = "CRAFT SELLS.",
+  heroSubtitle = "[  Full Stack Video Editing & Creative AI Mastery  ]",
+  studioName = "Idea School",
+  tags = ["[ 24-WEEK PROGRAM ]", "[ LIVE BRAND BRIEFS ]", "[ PLACEMENT READY ]"],
+  leftGiantTop = "INDUSTRY",
   leftGiantBottom = "LED.",
-  rightGiantTop = "STUDIO",
+  rightGiantTop = "CRAFT",
   rightGiantBottom = "BUILT.",
   editorialParagraphs = [
-    "Most architectural visualization delivers precision. But precision no longer differentiates.",
-    "Luxury developments compete on perception, desire, & positioning. CA Film Creatives is a director-led studio founded by Charles Alexander.",
-    "We turn high-end 3D environments into cinematic campaigns for luxury real estate.",
-    "We direct the film that defines their market presence."
+    "Most editing courses only teach timeline shortcuts and buttons. But software alone doesn't build a career.",
+    "Top agencies and studios hire for pacing, emotional rhythm, and commercial judgment. Idea School is an industry-led program built by working commercial filmmakers and lead editors.",
+    "We transform ambitious creators, editors, and designers into high-tier commercial talent through live brand projects and 1-on-1 mentor critiques.",
+    "We teach the craft that builds high-performing creative careers."
   ],
   nextSectionId
 }: CinematicHeroFlowProps) {

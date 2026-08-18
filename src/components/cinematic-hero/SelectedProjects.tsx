@@ -21,17 +21,17 @@ const PROJECTS_DATA: ProjectItem[] = [
   {
     id: "01",
     index: "[ 01",
-    metricValue: "3.5M",
-    metricLabel: "views",
-    bracketName: "[ Mercedes-Benz Places ]",
-    title: "MERCEDES-BENZ PLACES",
-    category: "Promotional campaign film",
+    metricValue: "4.2M",
+    metricLabel: "impressions",
+    bracketName: "[ Milky Mist & Milton Campaign ]",
+    title: "MILKY MIST & MILTON",
+    category: "Brand Commercial & Fast-Cut Edit",
     videoSrc: "/assets/videos/HOME PAGE VIDEO.mp4",
     description: (
       <>
-        [ Mercedes-Benz Places is a cinematic luxury real estate campaign where
-        architectural visualization becomes positioning, atmosphere, and desire.{" "}
-        <strong className={styles.highlightMetric}>3.5M views.</strong> ]
+        [ High-octane commercial campaign combining product sound design, multi-camera
+        rhythm, and dynamic visual storytelling for national television & OTT.{" "}
+        <strong className={styles.highlightMetric}>4.2M impressions.</strong> ]
       </>
     ),
     thumbnails: [
@@ -45,16 +45,16 @@ const PROJECTS_DATA: ProjectItem[] = [
   {
     id: "02",
     index: "[ 02",
-    metricValue: "12K",
-    metricLabel: "live attendees",
-    bracketName: "[ AquaRise ]",
-    title: "AQUARISE",
-    category: "Promotional campaign film",
+    metricValue: "100K+",
+    metricLabel: "cohort viewers",
+    bracketName: "[ AI Fashion & Cinema Direction ]",
+    title: "CELINE & LUXURY AI",
+    category: "Generative AI & Cinema Direction",
     videoSrc: "/assets/videos/TAPO.mp4",
     description: (
       <>
-        [ AquaRise was conceived as a large-scale cinematic reveal for a landmark
-        Dubai development, combining full physical staging with hyper-realistic CGI. ]
+        [ Hybrid generative AI commercial directing photoreal talent, cinematic depth
+        of field, and hyper-realistic lighting physics for high-end fashion branding. ]
       </>
     ),
     thumbnails: [
@@ -68,16 +68,16 @@ const PROJECTS_DATA: ProjectItem[] = [
   {
     id: "03",
     index: "[ 03",
-    metricValue: "CGA",
-    metricLabel: "archviz award",
-    bracketName: "[ SkyRise ]",
-    title: "SKYRISE",
-    category: "Promotional campaign film",
+    metricValue: "88GB",
+    metricLabel: "industry network",
+    bracketName: "[ Automotive Motion & CGI ]",
+    title: "AUTOMOTIVE SPEED REEL",
+    category: "VFX Tracking & Color Grading",
     videoSrc: "/assets/videos/111.mp4",
     description: (
       <>
-        [ SkyRise architectural film showcasing next-generation CGI urban living
-        and lighting choreography for international luxury markets. ]
+        [ Precision motion graphics, dynamic speed ramping, rotoscoping, and DaVinci
+        Resolve color choreography engineered for premier automotive brands. ]
       </>
     ),
     thumbnails: [
@@ -110,7 +110,7 @@ export default function SelectedProjects() {
       <div className={styles.header}>
         <h2 className={styles.sectionTitle}>SELECTED PROJECTS</h2>
         <p className={styles.sectionSubtitle}>
-          Scale and performance directed in collaboration with leading 3D studios.
+          Commercial campaigns and portfolio films directed & edited in collaboration with Idea School.
         </p>
       </div>
 
@@ -206,7 +206,7 @@ export default function SelectedProjects() {
 
       {/* Explore More Projects Footer Bar */}
       <div className={styles.exploreFooter}>
-        <span className={styles.exploreLabel}>Explore More Projects</span>
+        <span className={styles.exploreLabel}>Explore More Student & Brand Films</span>
         <a href="#all-projects" className={styles.viewAllBtn}>
           <span>VIEW ALL CASE STUDIES</span>
           <span className={styles.arrowIconBox}>↗</span>

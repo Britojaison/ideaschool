@@ -1,0 +1,130 @@
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 10vh 3.5vw 16vh 3.5vw;
+  z-index: 20;
+  font-family: var(--font-helvetica), "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+/* Section Header */
+.header {
+  margin-bottom: 8vh;
+}
+
+.title {
+  font-family: "Bebas Neue", var(--font-helvetica), sans-serif;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 0.95;
+}
+
+/* 4-Column Grid with Vertical Dividers */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  min-height: 520px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 2vw 4vh 2vw;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background-color 0.3s ease;
+}
+
+.column:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Staggered vertical positioning matching the reference rhythm */
+.colA {
+  padding-top: 8vh;
+}
+
+.colB {
+  padding-top: 22vh;
+}
+
+.colC {
+  padding-top: 6vh;
+}
+
+.colD {
+  padding-top: 26vh;
+}
+
+/* Column Letter Marker (a ], b ], c ], d ]) */
+.letterTag {
+  font-family: var(--font-helvetica), monospace;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
+/* Giant Stat Number */
+.statNumber {
+  font-family: "Bebas Neue", var(--font-helvetica), sans-serif;
+  font-size: clamp(5.2rem, 9.2vw, 9.5rem);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  user-select: none;
+}
+
+/* Stat Label */
+.statLabel {
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(0.72rem, 0.82vw, 0.85rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 190px;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .column {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    min-height: 280px;
+  }
+
+  .colA, .colB, .colC, .colD {
+    padding-top: 4vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statNumber {
+    font-size: clamp(4.5rem, 16vw, 6.5rem);
+  }
+}

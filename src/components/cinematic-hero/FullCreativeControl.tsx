@@ -1,13 +1,7 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState, useRef } from "react";
 import styles from "./FullCreativeControl.module.css";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 interface StepItem {
   id: string;
@@ -20,30 +14,30 @@ const STEPS: StepItem[] = [
   {
     id: "01",
     index: "[01]",
-    name: "CONCEPT",
+    name: "STORY & CONCEPT",
     description:
-      "NARRATIVE ARCHITECTURE, CAMPAIGN POSITIONING, VISUAL IDENTITY, STORYBOARDS AND PREVISUALIZATION ALIGNED WITH YOUR 3D TEAM."
+      "NARRATIVE PACING, SCRIPT BREAKDOWNS, EDITORIAL HOOK ARCHITECTURE, STORYBOARDS, AND VISUAL PRE-VISUALIZATION ALIGNED WITH CLIENT BRIEFS."
   },
   {
     id: "02",
     index: "[02]",
-    name: "PRE-PRODUCTION",
+    name: "CORE CRAFT & EDITING",
     description:
-      "CINEMATOGRAPHY PLANNING, TALENT CASTING, LOCATION SCOUTING, LIGHTING DESIGN, AND SEAMLESS 3D ASSET INTEGRATION."
+      "PREMIERE PRO ADVANCED WORKFLOWS, MULTI-CAM SYNCHRONIZATION, RHYTHM-BASED CUTTING, SOUND DESIGN, AND AUDIO MIXING."
   },
   {
     id: "03",
     index: "[03]",
-    name: "PRODUCTION",
+    name: "MOTION & CREATIVE AI",
     description:
-      "DIRECTOR-LED SHOOTS — IN STUDIO, ON LOCATION, OR HYBRID. PRECISION CHOREOGRAPHY DESIGNED TO MERGE SEAMLESSLY WITH ARCHITECTURAL VISUALIZATION."
+      "AFTER EFFECTS VFX, ROTOSCOPING, 3D INTEGRATION, FLUX, SEEDANCE, RUNWAY, AND HIGH-END GENERATIVE COMMERCIAL PIPELINES."
   },
   {
     id: "04",
     index: "[04]",
-    name: "POST-PRODUCTION",
+    name: "COLOR & MASTERING",
     description:
-      "EDITORIAL CRAFT, COLOR GRADING, PHOTOREAL CGI COMPOSITING, SOUND DESIGN, AND CINEMATIC MASTERING."
+      "DAVINCI RESOLVE COLOR GRADING, CINEMATIC TEXTURE, SOUND MASTERING, EXPORT OPTIMIZATION, AND BRAND-READY PORTFOLIO DELIVERY."
   }
 ];
 
@@ -57,7 +51,7 @@ export default function FullCreativeControl() {
       <div className={styles.header}>
         <h2 className={styles.title}>FULL CREATIVE CONTROL</h2>
         <p className={styles.subtitle}>
-          Translating spatial design into emotional narrative, from the first concept to the final cut.
+          Translating raw footage and AI generation into emotional narrative, from the first cut to the final master.
         </p>
       </div>
 
@@ -98,7 +92,7 @@ export default function FullCreativeControl() {
       {/* Bottom Manifesto Statement */}
       <div className={styles.manifestBlock}>
         <p className={styles.manifestText}>
-          We architect the entire cinematic experience. We don&apos;t consult. We don&apos;t deliver parts.
+          We teach the entire cinematic editing pipeline. We don&apos;t teach shortcuts. We build industry leaders.
         </p>
       </div>
     </section>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import DecryptedText from "@/components/ui/DecryptedText";
 import DetailsSectionMotion from "./DetailsSectionMotion";
 import HeroDotField from "@/components/ui/HeroDotField";
-import ProgramMenu from "@/components/global/ProgramMenu";
+import Header from "@/components/global/Header";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import TiltedCard from "@/components/ui/TiltedCard";
 import OutcomeCards from "./OutcomeCards";
@@ -13,7 +13,6 @@ import PortfolioSectionMotion from "./PortfolioSectionMotion";
 import RogMonitorHero3D from "./RogMonitorHero3D";
 import ScheduleSection from "./ScheduleSection";
 import ContactForm from "@/components/shared/ContactForm";
-import MobileMenu from "@/components/global/MobileMenu";
 import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
 import LiquidQuickActions from "@/components/ui/LiquidQuickActions";
@@ -234,41 +233,19 @@ const freelanceRates = [
 
 export default function CreativeEditingCoursePage() {
   return (
-    <main className="longCoursePage">
-      <ScrollTextReveal />
-      {/* <RogMonitorHero3D className="longCourseFloatingModel3D" scrollZigZag travelAcrossPage /> */}
+    <div className="newSite">
+      <Header overlay />
+      <main className="longCoursePage" data-header-theme="dark">
+        <ScrollTextReveal />
+        {/* <RogMonitorHero3D className="longCourseFloatingModel3D" scrollZigZag travelAcrossPage /> */}
 
-      <section className="longCourseHero" aria-label={course.title}>
-        <div className="longCourseHeroMedia">
-          <HeroDotField />
-        </div>
-        <div className="longCourseHeroShade" />
+        <section className="longCourseHero" aria-label={course.title} data-header-theme="dark">
+          <div className="longCourseHeroMedia">
+            <HeroDotField />
+          </div>
+          <div className="longCourseHeroShade" />
 
-        <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
-            <Image
-              src="/images/idea logo.webp"
-              alt="Idea"
-              width={104}
-              height={54}
-              priority
-              className="brandLogo"
-            />
-          </Link>
-          <nav className="desktopNav" aria-label="Course navigation">
-            <a href="#curriculum">Curriculum</a>
-            <ProgramMenu />
-            <a href="#schedule">Schedule</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#faq">FAQ</a>
-          </nav>
-          <a className="headerCta" href="#apply">
-            <span className="headerCtaText">Apply now</span>
-          </a>
-          <MobileMenu />
-        </header>
-
-        <div className="longCourseHeroInner">
+          <div className="longCourseHeroInner">
           <div className="longCourseHeroCopy">
             <div className="programEyebrowRow">
               <span className="programPill">{course.eyebrow}</span>
@@ -680,7 +657,7 @@ export default function CreativeEditingCoursePage() {
         </div>
       </section>
 
-      <div className="newSite"><Footer /></div>
+      <Footer />
 
       <div className="floatingRegisterWrapper">
         <Link href="#apply" className="floatingRegisterBtn" suppressHydrationWarning>
@@ -690,5 +667,6 @@ export default function CreativeEditingCoursePage() {
 
       <LiquidQuickActions />
     </main>
+    </div>
   );
 }

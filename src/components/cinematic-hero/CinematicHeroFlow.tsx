@@ -20,7 +20,7 @@ interface CinematicHeroFlowProps {
   leftGiantBottom?: string;
   rightGiantTop?: string;
   rightGiantBottom?: string;
-  editorialParagraphs?: string[];
+  editorialParagraphs?: (string | React.ReactNode)[];
   nextSectionId?: string;
 }
 
@@ -48,8 +48,16 @@ export default function CinematicHeroFlow({
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const heroLayerRef = useRef<HTMLDivElement>(null);
+  const heroBottomShadeRef = useRef<HTMLDivElement>(null);
   const directorLayerRef = useRef<HTMLDivElement>(null);
-  const videoOverlayRef = useRef<HTMLDivElement>(null);
+  const directorBlackFadeRef = useRef<HTMLDivElement>(null);
+  const fullBlackOverlayRef = useRef<HTMLDivElement>(null);
+
+  // Staggered child refs for second section
+  const giantLeftRef = useRef<HTMLHeadingElement>(null);
+  const topRightTagsRef = useRef<HTMLDivElement>(null);
+  const giantRightRef = useRef<HTMLHeadingElement>(null);
+  const editorialBlockRef = useRef<HTMLDivElement>(null);
 
   // Player state
   const [isPlaying, setIsPlaying] = useState(true);
@@ -106,17 +114,19 @@ export default function CinematicHeroFlow({
     videoRef.current.currentTime = ratio * duration;
   };
 
-  // Smooth scroll handler
+  // Smooth scroll handler using Lenis
   const handleScrollToExplore = useCallback(() => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     // Scroll into the pinned sequence to reveal the Director section
-    const targetY = scrollTop + rect.height * 0.52;
-    window.scrollTo({
-      top: targetY,
-      behavior: "smooth"
-    });
+    const targetY = scrollTop + rect.height * 0.48;
+
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("idea-scroll-to", { detail: targetY })
+      );
+    }
   }, []);
 
   // Setup GSAP ScrollTrigger Sequence
@@ -128,57 +138,138 @@ export default function CinematicHeroFlow({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=150%",
+          end: "+=260%",
           pin: pinRef.current,
-          scrub: 0.8,
+          scrub: 1.2, // Smoother scrub latency for true luxury momentum
           anticipatePin: 1,
         }
       });
 
-      // Initial state
+      // Initial state setup
       gsap.set(heroLayerRef.current, { opacity: 1, y: 0, pointerEvents: "auto" });
-      gsap.set(directorLayerRef.current, { opacity: 0, visibility: "hidden", y: 40, pointerEvents: "none" });
+      gsap.set(directorLayerRef.current, { opacity: 1, visibility: "visible", pointerEvents: "auto" });
+      gsap.set(directorBlackFadeRef.current, { opacity: 0 });
+      gsap.set(fullBlackOverlayRef.current, { opacity: 0 });
 
-      // Step 1: Hero content fades out & video dims / scales slightly
-      tl.to(heroLayerRef.current, {
-        opacity: 0,
-        y: -40,
-        duration: 0.35,
-        ease: "power2.inOut",
-        onUpdate: () => {
-          if (heroLayerRef.current) {
-            heroLayerRef.current.style.pointerEvents = "none";
+      // Second section initial offsets (deep initial translate for graceful upward drift)
+      gsap.set(giantLeftRef.current, { opacity: 0, y: 100 });
+      gsap.set(topRightTagsRef.current, { opacity: 0, y: 50 });
+      gsap.set(giantRightRef.current, { opacity: 0, y: 120 });
+      gsap.set(editorialBlockRef.current, { opacity: 0, y: 70 });
+
+      // =========================================================================
+      // CONTINUOUS BLENDED FLOW SEQUENCE
+      // =========================================================================
+
+      // 1. Hero Content fades out & floats up gently (0.00 -> 0.35)
+      tl.fromTo(heroLayerRef.current,
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -80,
+          duration: 0.35,
+          ease: "power1.inOut",
+          onUpdate: () => {
+            if (heroLayerRef.current) {
+              heroLayerRef.current.style.pointerEvents = "none";
+            }
           }
-        }
-      }, 0);
+        },
+        0
+      );
 
+      // Hero bottom shade dissolves away
+      if (heroBottomShadeRef.current) {
+        tl.fromTo(heroBottomShadeRef.current,
+          { opacity: 1 },
+          {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power1.inOut"
+          },
+          0
+        );
+      }
+
+      // Parallax smooth video drift (0.00 -> 1.00)
       tl.to(videoWrapperRef.current, {
-        scale: 0.95,
-        borderRadius: "14px",
-        duration: 0.45,
-        ease: "power2.inOut"
+        y: "-12%",
+        duration: 1.0,
+        ease: "none"
       }, 0);
 
-      tl.to(videoOverlayRef.current, {
-        opacity: 0.88,
-        duration: 0.45,
-        ease: "power2.inOut"
-      }, 0);
+      // 2. Black gradient curtain rises smoothly from bottom (0.08 -> 0.55)
+      tl.fromTo(directorBlackFadeRef.current,
+        { opacity: 0, y: "30vh" },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.45,
+          ease: "sine.inOut"
+        },
+        0.08
+      );
 
-      // Step 2: Director/Studio section fades & slides in
-      tl.to(directorLayerRef.current, {
+      // 3. FIRST WAVE (Left & Right Giant Titles visibly rise UP from down below: 0.16 -> 0.65)
+      tl.fromTo(giantLeftRef.current,
+        { opacity: 0, y: "60vh" },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.48,
+          ease: "power2.out"
+        },
+        0.16
+      );
+
+      tl.to(topRightTagsRef.current, {
         opacity: 1,
-        visibility: "visible",
         y: 0,
-        duration: 0.45,
-        ease: "power3.out",
-        onUpdate: () => {
-          if (directorLayerRef.current) {
-            directorLayerRef.current.style.pointerEvents = "auto";
-          }
-        }
-      }, 0.35);
+        duration: 0.42,
+        ease: "power1.out"
+      }, 0.22);
 
+      tl.fromTo(giantRightRef.current,
+        { opacity: 0, y: "75vh" },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.50,
+          ease: "power2.out"
+        },
+        0.18
+      );
+
+      // 4. SECOND WAVE (Center Editorial text visibly rises UP from below AFTER left and right: 0.52 -> 0.90)
+      tl.fromTo(editorialBlockRef.current,
+        { opacity: 0, y: "45vh" },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.38,
+          ease: "power2.out"
+        },
+        0.52
+      );
+
+      // 5. Final solid black immersion (0.78 -> 1.00)
+      tl.fromTo(fullBlackOverlayRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.22,
+          ease: "sine.inOut"
+        },
+        0.78
+      );
+
+      const refreshTimeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 200);
+
+      return () => {
+        clearTimeout(refreshTimeout);
+      };
     }, containerRef);
 
     return () => ctx.revert();
@@ -190,10 +281,10 @@ export default function CinematicHeroFlow({
       className={styles.wrapper}
       data-header-theme="dark"
       data-theme="dark"
-      style={{ height: "250vh" }}
+      style={{ height: "320vh" }}
     >
       <div ref={pinRef} className={styles.pinContainer}>
-        {/* Background Cinematic Video Canvas */}
+        {/* Background Video Canvas */}
         <div ref={videoWrapperRef} className={styles.videoWrapper}>
           <video
             ref={videoRef}
@@ -207,9 +298,19 @@ export default function CinematicHeroFlow({
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
           />
-          <div ref={videoOverlayRef} className={styles.videoOverlay} />
-          <div className={styles.videoGradientBottom} />
+          <div className={styles.videoOverlay} />
+          <div ref={heroBottomShadeRef} className={styles.heroBottomShade} />
         </div>
+
+        {/* 
+            Heavy Black Fade Layer:
+            Guarantees the bottom 60% is 100% solid pitch black (#000000)
+            Top 35% retains video with feathered transition
+        */}
+        <div ref={directorBlackFadeRef} className={styles.directorBlackFade} />
+
+        {/* Full Solid Black Overlay */}
+        <div ref={fullBlackOverlayRef} className={styles.fullBlackOverlay} />
 
         {/* SECTION 1: HERO LAYER */}
         <div ref={heroLayerRef} className={styles.heroLayer}>
@@ -302,8 +403,8 @@ export default function CinematicHeroFlow({
 
         {/* SECTION 2: DIRECTOR LED / STUDIO BUILT LAYER */}
         <div ref={directorLayerRef} className={styles.directorLayer}>
-          {/* Top Right Studio Metadata */}
-          <div className={styles.directorTopRight}>
+          {/* Top Right Studio Metadata (Wave 1) */}
+          <div ref={topRightTagsRef} className={styles.directorTopRight}>
             <div className={styles.studioName}>{studioName}</div>
             <div className={styles.disciplineTags}>
               {tags.map((tag, idx) => (
@@ -312,14 +413,14 @@ export default function CinematicHeroFlow({
             </div>
           </div>
 
-          {/* Left Giant Typography */}
-          <h2 className={styles.giantTextLeft}>
+          {/* Left Giant Typography (DIRECTOR LED. - Wave 1) */}
+          <h2 ref={giantLeftRef} className={styles.giantTextLeft}>
             <div>{leftGiantTop}</div>
             <div>{leftGiantBottom}</div>
           </h2>
 
-          {/* Center-Left Editorial Narrative Block */}
-          <div className={styles.editorialBlock}>
+          {/* Center-Left Editorial Narrative Block (Wave 2 - Staggered AFTER Left & Right) */}
+          <div ref={editorialBlockRef} className={styles.editorialBlock}>
             {editorialParagraphs.map((para, idx) => (
               <p key={idx}>
                 {para}
@@ -327,8 +428,8 @@ export default function CinematicHeroFlow({
             ))}
           </div>
 
-          {/* Right Giant Typography */}
-          <h2 className={styles.giantTextRight}>
+          {/* Right Giant Typography (STUDIO BUILT. - Wave 1) */}
+          <h2 ref={giantRightRef} className={styles.giantTextRight}>
             <div>{rightGiantTop}</div>
             <div>{rightGiantBottom}</div>
           </h2>

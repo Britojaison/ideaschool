@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Shell from "@/components/global/Shell";
 import CinematicHeroFlow from "@/components/cinematic-hero/CinematicHeroFlow";
+import SelectedProjects from "@/components/cinematic-hero/SelectedProjects";
 
 export const metadata: Metadata = {
   title: "Creative Editing Course | Idea School",
@@ -24,11 +25,16 @@ export default function CreativeEditingCopyPage() {
         rightGiantBottom="BUILT."
         editorialParagraphs={[
           "Most architectural visualization delivers precision. But precision no longer differentiates.",
-          "Luxury developments compete on perception, desire, & positioning. CA Film Creatives is a director-led studio founded by Charles Alexander.",
+          <>
+            Luxury developments compete on perception, desire, & positioning.{" "}
+            <strong style={{ color: "#FFFFFF", fontWeight: 500 }}>CA Film Creatives</strong> is a
+            director-led studio founded by Charles Alexander.
+          </>,
           "We turn high-end 3D environments into cinematic campaigns for luxury real estate.",
-          "We direct the film that defines their market presence."
+          "We direct the film that defines their impact."
         ]}
       />
+      <SelectedProjects />
     </Shell>
   );
 }

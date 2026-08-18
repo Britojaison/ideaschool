@@ -14,8 +14,9 @@ export function Logo() {
         src={ideaLogo}
         alt="Idea AI School"
         priority
-        width={112}
-        style={{ width: "112px", height: "auto" }}
+        width={104}
+        height={32}
+        style={{ width: "104px", height: "auto" }}
       />
     </Link>
   );
@@ -23,8 +24,22 @@ export function Logo() {
 
 export default function Header({ overlay = false }: { overlay?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleMouseEnter = (name: string) => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
@@ -51,11 +66,13 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
   return (
     <header
       className={`${styles.header} ${overlay ? styles.overlay : ""} ${
-        menuOpen ? styles.headerOpen : ""
-      }`}
+        isScrolled ? styles.headerScrolled : ""
+      } ${menuOpen ? styles.headerOpen : ""}`}
     >
       <div className={styles.inner}>
-        <Logo />
+        <div className={styles.logoWrapper}>
+          <Logo />
+        </div>
 
         <nav className={styles.nav} aria-label="Main Navigation">
           {/* Schools Dropdown */}

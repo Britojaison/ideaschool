@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Shell from "@/components/global/Shell";
 import IconMarquee from "@/components/global/IconMarquee";
 import styles from "./VisualSchoolPage.module.css";
@@ -25,36 +26,39 @@ if (typeof window !== "undefined") {
 const paths = [
   {
     index: "01",
-    type: "Flagship program · 24 weeks",
+    category: "flagship",
     title: "Creative Editing & AI Pro",
-    copy: "Editing, motion design and AI filmmaking built around the way modern studios actually work.",
-    image: "/assets/home/video_edit.png",
+    tags: ["FLAGSHIP PROGRAM", "24 WEEKS"],
+    image: c1,
     href: "/creative-editing-copy",
-    featured: true,
+    isFlagship: true,
   },
   {
     index: "02",
-    type: "Live workshop · 2 days",
+    category: "workshop",
     title: "Master Video Editing",
-    copy: "Find the story, shape the rhythm and turn raw footage into a professional final cut.",
-    image: "/assets/home/visual_story.jpeg",
+    tags: ["OFFLINE WORKSHOP", "2 DAYS"],
+    image: c2,
     href: "/master-video-editing",
+    isFlagship: false,
   },
   {
     index: "03",
-    type: "Live workshop · 1 day",
+    category: "workshop",
     title: "High-Paying Video Editing",
-    copy: "Learn the secrets to high-paying video editing projects in just 1 day.",
-    image: "/assets/home/ai_flow.png",
+    tags: ["OFFLINE WORKSHOP", "1 DAY"],
+    image: c3,
     href: "/video-editing",
+    isFlagship: false,
   },
   {
     index: "04",
-    type: "Live workshop · 2 days",
-    title: "Design your Site",
-    copy: "Elevate your visual storytelling with advanced motion graphics and dynamic animation techniques.",
-    image: "/assets/home/visual_story.jpeg",
-    href: "/visual-school/advanced-motion-design",
+    category: "workshop",
+    title: "AI Ad Film Making",
+    tags: ["OFFLINE WORKSHOP", "WEEKEND"],
+    image: c4,
+    href: "/ad-film-making",
+    isFlagship: false,
   },
 ];
 
@@ -72,6 +76,7 @@ export default function VisualSchoolPage() {
   const conceptTextRef = useRef<SVGTextElement>(null);
   const curriculumWordRef = useRef<SVGGElement>(null);
   const curriculumTextRef = useRef<SVGTextElement>(null);
+  const showcaseCardsRef = useRef<HTMLDivElement>(null);
   const cardsTrackRef = useRef<HTMLDivElement>(null);
 
   // Curriculum Animation Refs
@@ -208,6 +213,11 @@ export default function VisualSchoolPage() {
     tl.fromTo(conceptSectionRef.current,
       { y: "100vh", opacity: 1, pointerEvents: "auto" },
       { y: "0%", duration: 1, ease: "power2.inOut" },
+      3.9
+    );
+    tl.fromTo(showcaseCardsRef.current,
+      { opacity: 0, pointerEvents: "none" },
+      { opacity: 1, pointerEvents: "auto", duration: 0.6 },
       3.9
     );
 
@@ -524,24 +534,95 @@ export default function VisualSchoolPage() {
           </section>
 
           {/* Course Showcase Cards over Concept */}
-          <div className={styles.showcaseCardsContainer} id="programs">
+          <div className={styles.showcaseCardsContainer} id="programs" ref={showcaseCardsRef}>
             <div className={styles.cardsTrack} ref={cardsTrackRef}>
-              {paths.map((path, idx) => {
-                const cardImages = [c1, c2, c3, c4];
-                const displayImage = cardImages[idx % cardImages.length];
+              
+              {/* Flagship Program Card */}
+              <Link
+                href="/creative-editing-copy"
+                className={`${styles.showcaseCard} ${styles.flagshipCard}`}
+              >
+                <div className={styles.cardHeaderBadge}>
+                  <span className={styles.flagshipHeaderPill}>
+                    <span className={styles.goldStar}>★</span> FLAGSHIP CAREER PROGRAM
+                  </span>
+                  <span className={styles.durationPillDark}>24 WEEKS</span>
+                </div>
 
-                return (
-                  <Link href={path.href} className={styles.showcaseCard} key={idx}>
-                    <div className={styles.showcaseImage}>
-                      <Image src={displayImage} alt={path.title} fill sizes="(max-width: 800px) 100vw, 400px" />
-                    </div>
+                <div className={`${styles.showcaseImage} ${styles.flagshipImage}`}>
+                  <Image
+                    src={c1}
+                    alt="Creative Editing & AI Pro"
+                    fill
+                    sizes="(max-width: 800px) 100vw, 460px"
+                    priority
+                  />
+                  <div className={styles.flagshipRibbon}>
+                    <span>CAREER TRACK · 24 WEEKS OFFLINE</span>
+                  </div>
+                </div>
+
+                <div className={styles.cardTitleRow}>
+                  <h3>Creative Editing & AI Pro</h3>
+                  <span className={styles.cardArrow}>↗</span>
+                </div>
+
+                <div className={styles.showcaseTags}>
+                  <span className={styles.flagshipTag}>FLAGSHIP PROGRAM</span>
+                  <span className={styles.flagshipTag}>24 WEEKS</span>
+                  <span className={styles.careerTag}>CAREER TRACK</span>
+                </div>
+              </Link>
+
+              {/* In-Track Minimalist Workshop Transition Divider */}
+              <div className={styles.trackDivider}>
+                <div className={styles.trackDividerLine} />
+                <div className={styles.trackDividerContent}>
+                  <span className={styles.dividerSparkle}>✣</span>
+                  <span className={styles.dividerLabel}>OFFLINE WORKSHOPS</span>
+                  <small className={styles.dividerSub}>1–2 Day Masterclasses</small>
+                </div>
+                <div className={styles.trackDividerLine} />
+              </div>
+
+              {/* Offline Workshop Cards */}
+              {paths.filter((p) => !p.isFlagship).map((path) => (
+                <Link
+                  href={path.href}
+                  className={`${styles.showcaseCard} ${styles.workshopCard}`}
+                  key={path.index}
+                >
+                  <div className={styles.cardHeaderBadge}>
+                    <span className={styles.workshopHeaderPill}>
+                      <span className={styles.studioDot} /> OFFLINE WORKSHOP
+                    </span>
+                    <span className={styles.durationPillLight}>{path.tags[1]}</span>
+                  </div>
+
+                  <div className={styles.showcaseImage}>
+                    <Image
+                      src={path.image}
+                      alt={path.title}
+                      fill
+                      sizes="(max-width: 800px) 100vw, 400px"
+                    />
+                  </div>
+
+                  <div className={styles.cardTitleRow}>
                     <h3>{path.title}</h3>
-                    <div className={styles.showcaseTags}>
-                      {path.type.split(' · ').map(tag => <span key={tag}>{tag.trim()}</span>)}
-                    </div>
-                  </Link>
-                );
-              })}
+                    <span className={styles.cardArrow}>↗</span>
+                  </div>
+
+                  <div className={styles.showcaseTags}>
+                    {path.tags.map((tag) => (
+                      <span key={tag} className={styles.workshopTag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              ))}
+
             </div>
           </div>
         </div>

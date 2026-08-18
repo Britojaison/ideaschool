@@ -551,12 +551,14 @@
   display: flex;
   align-items: center;
   overflow: visible;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .cardsTrack {
   display: flex;
   align-items: center;
-  gap: 6vw;
+  gap: 5vw;
   padding: 0 50vw;
   height: 100vh;
   width: max-content;
@@ -564,39 +566,135 @@
   transform: translateX(50vw);
 }
 
-
 .showcaseCard {
   position: relative;
   pointer-events: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   color: var(--ink);
   text-decoration: none;
-  width: 380px;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
-.showcaseCard:nth-child(even) {
-  transform: translateY(8vh);
+/* Flagship Card vs Workshop Card Dimensions & Stagger */
+.flagshipCard {
+  width: 420px;
+  transform: translateY(-5vh);
 }
 
-.showcaseCard:nth-child(odd) {
-  transform: translateY(-8vh);
+.workshopCard {
+  width: 360px;
+  transform: translateY(5vh);
+}
+
+.workshopCard:nth-child(even) {
+  transform: translateY(6vh);
+}
+
+.workshopCard:nth-child(odd) {
+  transform: translateY(-4vh);
 }
 
 .showcaseCard:hover {
-  z-index: 2;
+  z-index: 10;
 }
 
+/* Header Badges above Images */
+.cardHeaderBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.flagshipHeaderPill {
+  background: #0a0a0b;
+  color: #ffffff;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+.goldStar {
+  color: #f59e0b;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.durationPillDark {
+  background: rgba(10, 10, 12, 0.08);
+  color: #0a0a0b;
+  border: 1px solid rgba(10, 10, 12, 0.15);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workshopHeaderPill {
+  background: rgba(255, 255, 255, 0.92);
+  color: #0a0a0b;
+  border: 1px solid rgba(10, 10, 12, 0.2);
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.studioDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0a0a0b;
+  box-shadow: 0 0 0 3px rgba(10, 10, 12, 0.15);
+}
+
+.durationPillLight {
+  background: rgba(251, 250, 242, 0.8);
+  color: rgba(10, 10, 12, 0.85);
+  border: 1px solid rgba(10, 10, 12, 0.15);
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+/* Image Frames */
 .showcaseImage {
   position: relative;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   background: #eaeaea;
-  height: 480px;
   width: 100%;
+  height: 480px;
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(10, 10, 12, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.flagshipImage {
+  height: 520px;
+  box-shadow: 0 20px 44px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(10, 10, 12, 0.12);
 }
 
 .showcaseImage img {
@@ -605,52 +703,224 @@
 }
 
 .showcaseCard:hover .showcaseImage img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-.showcaseCard h3 {
+.flagshipRibbon {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  background: rgba(10, 10, 12, 0.88);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Titles & Arrows */
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.flagshipCard h3 {
   font-family: var(--font-damn), Impact, sans-serif;
-  font-size: 42px;
+  font-size: 44px;
   font-weight: 400;
   margin: 0;
-  line-height: 1;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
 }
 
+.workshopCard h3 {
+  font-family: var(--font-damn), Impact, sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.cardArrow {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(10, 10, 12, 0.35);
+  transition: transform 0.3s ease, color 0.3s ease;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.showcaseCard:hover .cardArrow {
+  transform: translate(3px, -3px);
+  color: var(--ink);
+}
+
+/* Tag Pills */
 .showcaseTags {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
-.showcaseTags span {
+.flagshipTag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: #0a0a0b;
+  color: #ffffff;
+  border: 1px solid #0a0a0b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.careerTag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: #e2f8f6;
+  color: #0e5a52;
+  border: 1px solid rgba(14, 90, 82, 0.25);
+}
+
+.workshopTag {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 8px 12px;
-  border: 1px solid rgba(10, 10, 12, 0.2);
+  padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(251, 250, 242, 0.5);
+  background: rgba(251, 250, 242, 0.75);
+  color: rgba(10, 10, 12, 0.85);
+  border: 1px solid rgba(10, 10, 12, 0.18);
   backdrop-filter: blur(4px);
+}
+
+/* In-Track Minimalist Workshop Divider */
+.trackDivider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 140px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.trackDividerLine {
+  width: 1px;
+  height: 90px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(10, 10, 12, 0.25) 0,
+    rgba(10, 10, 12, 0.25) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.trackDividerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(251, 250, 242, 0.8);
+  border: 1px solid rgba(10, 10, 12, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.dividerSparkle {
+  color: #ef4444;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.dividerLabel {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0a0a0b;
+  white-space: nowrap;
+}
+
+.dividerSub {
+  font-size: 9px;
+  color: rgba(10, 10, 12, 0.55);
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .cardsTrack {
+    gap: 4vw;
+  }
+
+  .flagshipCard {
+    width: 380px;
+  }
+
+  .workshopCard {
+    width: 320px;
+  }
+
+  .flagshipImage {
+    height: 460px;
+  }
+
+  .showcaseImage {
+    height: 420px;
+  }
 }
 
 @media (max-width: 800px) {
   .cardsTrack {
     padding: 0 50vw;
-    gap: 40px;
+    gap: 28px;
   }
   
-  .showcaseCard {
-    width: 300px;
+  .showcaseCard,
+  .flagshipCard,
+  .workshopCard {
+    width: 280px;
+    transform: translateY(0) !important;
   }
   
-  .showcaseImage {
+  .flagshipImage {
     height: 380px;
   }
+
+  .showcaseImage {
+    height: 350px;
+  }
   
-  .showcaseCard:nth-child(even),
-  .showcaseCard:nth-child(odd) {
-    transform: translateY(0);
+  .trackDivider {
+    width: 90px;
+  }
+
+  .flagshipCard h3 {
+    font-size: 34px;
+  }
+
+  .workshopCard h3 {
+    font-size: 30px;
   }
 }
 

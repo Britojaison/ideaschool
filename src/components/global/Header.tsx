@@ -289,7 +289,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                 {/* Workshops Column */}
                 <div className={styles.programsCol}>
                   <div className={styles.dropdownHeader}>
-                    <span>LIVE WORKSHOPS · 1-2 DAYS</span>
+                    <span>OFFLINE WORKSHOPS · 1-2 DAYS</span>
                   </div>
                   <div className={styles.workshopList}>
                     <Link
@@ -302,7 +302,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                           Master Video Editing
                         </span>
                         <span className={styles.workshopSub}>
-                          2 Days · Live Offline Masterclass
+                          2 Days · Offline Masterclass
                         </span>
                       </div>
                       <span className={styles.linkArrow}>↗</span>
@@ -449,7 +449,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               >
                 <div className={styles.mobileSubText}>
                   <strong>Master Video Editing</strong>
-                  <small>2-Day Live Workshop</small>
+                  <small>2-Day Offline Masterclass</small>
                 </div>
                 <span>↗</span>
               </Link>
@@ -461,7 +461,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               >
                 <div className={styles.mobileSubText}>
                   <strong>AI Ad Film Making</strong>
-                  <small>Weekend Workshop</small>
+                  <small>Weekend Offline Workshop</small>
                 </div>
                 <span>↗</span>
               </Link>
@@ -473,7 +473,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               >
                 <div className={styles.mobileSubText}>
                   <strong>High-Paying Video Editing</strong>
-                  <small>1-Day Workshop</small>
+                  <small>1-Day Offline Workshop</small>
                 </div>
                 <span>↗</span>
               </Link>

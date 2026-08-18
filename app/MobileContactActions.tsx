@@ -25,7 +25,13 @@ export default function MobileContactActions() {
         onClick={handleActionClick("whatsapp")}
       >
         <span className="mobileHeaderActionLabel">{PHONE_NUMBER}</span>
-        <Image src="/images/whatsapp.svg" alt="" width={26} height={26} />
+        <Image
+          src="/images/whatsapp.svg"
+          alt=""
+          width={26}
+          height={26}
+          style={{ width: "auto", height: "auto" }}
+        />
       </a>
     </div>
   );

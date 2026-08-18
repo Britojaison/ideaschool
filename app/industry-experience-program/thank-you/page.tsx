@@ -38,7 +38,7 @@ export default function IndustryExperienceThankYouPage() {
   return (
     <main className="vslThankYouPage">
       <Script id="fb-track-lead" strategy="afterInteractive">
-        {`fbq('track', 'Lead');`}
+        {`if (typeof fbq === 'function') { fbq('track', 'Lead'); }`}
       </Script>
 
       {/* Header */}
@@ -91,7 +91,13 @@ export default function IndustryExperienceThankYouPage() {
               target="_blank"
               rel="noreferrer"
             >
-              <Image src="/images/whatsapp.svg" alt="" width={20} height={20} />
+              <Image
+                src="/images/whatsapp.svg"
+                alt=""
+                width={20}
+                height={20}
+                style={{ width: "auto", height: "auto" }}
+              />
               <span>Join WhatsApp Community for Updates</span>
             </a>
           </div>

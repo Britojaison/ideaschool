@@ -16,7 +16,7 @@ export default function CreativeEditingThankYouPage() {
   return (
     <main className="thankYouPage longCourseThankYouPage">
       <Script id="fb-track-lead" strategy="afterInteractive">
-        {`fbq('track', 'Lead');`}
+        {`if (typeof fbq === 'function') { fbq('track', 'Lead'); }`}
       </Script>
       <section className="thankYouHero" aria-label="Application confirmation">
         <div className="thankYouHeroMedia"><HeroDotField /></div>
@@ -66,7 +66,13 @@ export default function CreativeEditingThankYouPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Image src="/images/whatsapp.svg" alt="" width={21} height={21} />
+                <Image
+                  src="/images/whatsapp.svg"
+                  alt=""
+                  width={21}
+                  height={21}
+                  style={{ width: "auto", height: "auto" }}
+                />
                 <span className="primaryCtaText">Join Our WhatsApp Community</span>
               </a>
             </div>

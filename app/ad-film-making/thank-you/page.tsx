@@ -14,7 +14,7 @@ export default function ApplyThankYouPage() {
   return (
     <main className="thankYouPage">
       <Script id="fb-track-lead" strategy="afterInteractive">
-        {`fbq('track', 'Lead');`}
+        {`if (typeof fbq === 'function') { fbq('track', 'Lead'); }`}
       </Script>
       <section className="thankYouHero" aria-label="Enrollment confirmation">
         <div className="thankYouHeroMedia">

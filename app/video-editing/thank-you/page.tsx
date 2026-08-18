@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import HeroDotField from "../../HeroDotField";
 import ProgramMenu from "../../ProgramMenu";
-import MetaPixel from "../../MetaPixel";
 
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | Idea School",
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
 export default function ApplyThankYouPage() {
   return (
     <main className="thankYouPage">
-      <MetaPixel />
       <section className="thankYouHero" aria-label="Enrollment confirmation">
         <div className="thankYouHeroMedia">
           <HeroDotField />

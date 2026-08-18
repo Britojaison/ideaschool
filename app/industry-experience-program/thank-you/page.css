@@ -200,6 +200,12 @@
   box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
 }
 
+.vslWhatsappCta img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
 .vslWhatsappCta:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.55);

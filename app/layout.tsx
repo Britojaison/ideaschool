@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import DisableImageActions from "./DisableImageActions";
+import MetaPixel from "./MetaPixel";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head />
       <body suppressHydrationWarning>
+        <MetaPixel />
         <DisableImageActions />
         {children}
       </body>

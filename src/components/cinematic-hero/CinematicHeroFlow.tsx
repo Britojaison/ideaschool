@@ -1,0 +1,339 @@
+"use client";
+
+import React, { useRef, useState, useEffect, useCallback } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./CinematicHeroFlow.module.css";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+interface CinematicHeroFlowProps {
+  videoSrc?: string;
+  heroHeadline1?: string;
+  heroHeadline2?: string;
+  heroSubtitle?: string;
+  studioName?: string;
+  tags?: string[];
+  leftGiantTop?: string;
+  leftGiantBottom?: string;
+  rightGiantTop?: string;
+  rightGiantBottom?: string;
+  editorialParagraphs?: string[];
+  nextSectionId?: string;
+}
+
+export default function CinematicHeroFlow({
+  videoSrc = "/assets/videos/HOME PAGE VIDEO.mp4",
+  heroHeadline1 = "VISUALIZATION SHOWS.",
+  heroHeadline2 = "CINEMA SELLS.",
+  heroSubtitle = "[  Cinematic direction for luxury real estate  ]",
+  studioName = "CA Film Creatives",
+  tags = ["[ DIRECTION ]", "[ PRODUCTION ]", "[ POST ]"],
+  leftGiantTop = "DIRECTOR",
+  leftGiantBottom = "LED.",
+  rightGiantTop = "STUDIO",
+  rightGiantBottom = "BUILT.",
+  editorialParagraphs = [
+    "Most architectural visualization delivers precision. But precision no longer differentiates.",
+    "Luxury developments compete on perception, desire, & positioning. CA Film Creatives is a director-led studio founded by Charles Alexander.",
+    "We turn high-end 3D environments into cinematic campaigns for luxury real estate.",
+    "We direct the film that defines their market presence."
+  ],
+  nextSectionId
+}: CinematicHeroFlowProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const videoWrapperRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const heroLayerRef = useRef<HTMLDivElement>(null);
+  const directorLayerRef = useRef<HTMLDivElement>(null);
+  const videoOverlayRef = useRef<HTMLDivElement>(null);
+
+  // Player state
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [currentTimeFormatted, setCurrentTimeFormatted] = useState("00:00");
+  const [progressRatio, setProgressRatio] = useState(0);
+
+  // Total ticks in scrubber
+  const TOTAL_TICKS = 60;
+
+  // Format seconds to MM:SS
+  const formatTime = (seconds: number) => {
+    if (isNaN(seconds)) return "00:00";
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  // Video timeupdate handler
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const current = videoRef.current.currentTime;
+    const duration = videoRef.current.duration || 60;
+    setCurrentTimeFormatted(formatTime(current));
+    setProgressRatio(Math.min(current / duration, 1));
+  };
+
+  // Play / Pause toggle
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  // Mute / Unmute toggle
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  // Scrub to position in video
+  const handleScrub = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!videoRef.current) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+    const duration = videoRef.current.duration || 60;
+    videoRef.current.currentTime = ratio * duration;
+  };
+
+  // Smooth scroll handler
+  const handleScrollToExplore = useCallback(() => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    // Scroll into the pinned sequence to reveal the Director section
+    const targetY = scrollTop + rect.height * 0.52;
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth"
+    });
+  }, []);
+
+  // Setup GSAP ScrollTrigger Sequence
+  useEffect(() => {
+    if (typeof window === "undefined" || !containerRef.current || !pinRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=150%",
+          pin: pinRef.current,
+          scrub: 0.8,
+          anticipatePin: 1,
+        }
+      });
+
+      // Initial state
+      gsap.set(heroLayerRef.current, { opacity: 1, y: 0, pointerEvents: "auto" });
+      gsap.set(directorLayerRef.current, { opacity: 0, visibility: "hidden", y: 40, pointerEvents: "none" });
+
+      // Step 1: Hero content fades out & video dims / scales slightly
+      tl.to(heroLayerRef.current, {
+        opacity: 0,
+        y: -40,
+        duration: 0.35,
+        ease: "power2.inOut",
+        onUpdate: () => {
+          if (heroLayerRef.current) {
+            heroLayerRef.current.style.pointerEvents = "none";
+          }
+        }
+      }, 0);
+
+      tl.to(videoWrapperRef.current, {
+        scale: 0.95,
+        borderRadius: "14px",
+        duration: 0.45,
+        ease: "power2.inOut"
+      }, 0);
+
+      tl.to(videoOverlayRef.current, {
+        opacity: 0.88,
+        duration: 0.45,
+        ease: "power2.inOut"
+      }, 0);
+
+      // Step 2: Director/Studio section fades & slides in
+      tl.to(directorLayerRef.current, {
+        opacity: 1,
+        visibility: "visible",
+        y: 0,
+        duration: 0.45,
+        ease: "power3.out",
+        onUpdate: () => {
+          if (directorLayerRef.current) {
+            directorLayerRef.current.style.pointerEvents = "auto";
+          }
+        }
+      }, 0.35);
+
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className={styles.wrapper}
+      data-header-theme="dark"
+      data-theme="dark"
+      style={{ height: "250vh" }}
+    >
+      <div ref={pinRef} className={styles.pinContainer}>
+        {/* Background Cinematic Video Canvas */}
+        <div ref={videoWrapperRef} className={styles.videoWrapper}>
+          <video
+            ref={videoRef}
+            className={styles.bgVideo}
+            src={videoSrc}
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            onTimeUpdate={handleTimeUpdate}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+          />
+          <div ref={videoOverlayRef} className={styles.videoOverlay} />
+          <div className={styles.videoGradientBottom} />
+        </div>
+
+        {/* SECTION 1: HERO LAYER */}
+        <div ref={heroLayerRef} className={styles.heroLayer}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>
+              <span className={styles.heroTitleLine}>{heroHeadline1}</span>
+              <span className={styles.heroTitleLine}>{heroHeadline2}</span>
+            </h1>
+
+            <div className={styles.heroMetaRow}>
+              <span className={styles.heroTag}>{heroSubtitle}</span>
+              <button
+                type="button"
+                className={styles.scrollPrompt}
+                onClick={handleScrollToExplore}
+                aria-label="Scroll to explore"
+              >
+                <span>Scroll to explore</span>
+                <span className={styles.scrollArrow}>↘</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom Timeline Controller Bar */}
+          <div className={styles.timelineBar}>
+            <button
+              type="button"
+              className={styles.playControl}
+              onClick={togglePlay}
+              aria-label={isPlaying ? "Pause video" : "Play video"}
+            >
+              <span>{isPlaying ? "PLAY" : "PAUSE"}</span>
+              <span className={styles.playIcon}>{isPlaying ? "▶" : "❚❚"}</span>
+              <span className={styles.timecode}>{currentTimeFormatted}</span>
+            </button>
+
+            {/* Visual Tick Track */}
+            <div
+              className={styles.tickerTrack}
+              onClick={handleScrub}
+              title="Click to scrub video"
+              role="slider"
+              aria-valuenow={Math.round(progressRatio * 100)}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label="Video timeline scrubber"
+            >
+              {Array.from({ length: TOTAL_TICKS }).map((_, i) => {
+                const tickRatio = i / TOTAL_TICKS;
+                const isActive = tickRatio <= progressRatio;
+                const isTall = i % 5 === 0;
+                return (
+                  <span
+                    key={i}
+                    className={`${styles.tick} ${isTall ? styles.tallTick : ""} ${
+                      isActive ? styles.activeTick : ""
+                    }`}
+                  />
+                );
+              })}
+              <div
+                className={styles.scrubberIndicator}
+                style={{ left: `${progressRatio * 100}%` }}
+              />
+            </div>
+
+            {/* Mute Audio Toggle Button */}
+            <button
+              type="button"
+              className={styles.soundBtn}
+              onClick={toggleMute}
+              aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+              title={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? (
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <line x1="23" y1="9" x2="17" y2="15" />
+                  <line x1="17" y1="9" x2="23" y2="15" />
+                </svg>
+              ) : (
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* SECTION 2: DIRECTOR LED / STUDIO BUILT LAYER */}
+        <div ref={directorLayerRef} className={styles.directorLayer}>
+          {/* Top Right Studio Metadata */}
+          <div className={styles.directorTopRight}>
+            <div className={styles.studioName}>{studioName}</div>
+            <div className={styles.disciplineTags}>
+              {tags.map((tag, idx) => (
+                <span key={idx}>{tag}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Left Giant Typography */}
+          <h2 className={styles.giantTextLeft}>
+            <div>{leftGiantTop}</div>
+            <div>{leftGiantBottom}</div>
+          </h2>
+
+          {/* Center-Left Editorial Narrative Block */}
+          <div className={styles.editorialBlock}>
+            {editorialParagraphs.map((para, idx) => (
+              <p key={idx}>
+                {para}
+              </p>
+            ))}
+          </div>
+
+          {/* Right Giant Typography */}
+          <h2 className={styles.giantTextRight}>
+            <div>{rightGiantTop}</div>
+            <div>{rightGiantBottom}</div>
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+}

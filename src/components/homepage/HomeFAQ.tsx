@@ -13,7 +13,7 @@ export default function HomeFAQ() {
 
 
   return (
-    <section className={styles.faqSection} ref={faqSectionRef}>
+    <section className={styles.faqSection} ref={faqSectionRef} data-header-theme="dark">
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div className={styles.faqHeader}>
           <h2>Frequently Asked Questions</h2>

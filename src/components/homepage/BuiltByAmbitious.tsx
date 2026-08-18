@@ -26,7 +26,7 @@ const BuiltByAmbitious = () => {
   };
 
   return (
-    <section className={styles.mentorSection} aria-label="Built by the ambitious">
+    <section className={styles.mentorSection} aria-label="Built by the ambitious" data-header-theme="dark">
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>BUILT BY THE AMBITIOUS</h2>

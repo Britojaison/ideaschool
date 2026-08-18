@@ -6,8 +6,11 @@
   z-index: 90;
   width: 100%;
   height: 76px;
-  background: transparent !important;
-  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
 .overlay {
@@ -19,9 +22,17 @@
    ============================================================ */
 .headerScrolled {
   height: 60px;
-  background: transparent !important;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: rgba(245, 244, 240, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.headerDark.headerScrolled {
+  background: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: none;
   box-shadow: none;
 }
@@ -59,7 +70,11 @@
   max-width: 104px;
   height: auto;
   filter: invert(1);
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.headerDark .logoImage {
+  filter: invert(0);
 }
 
 .headerScrolled .logoImage {
@@ -78,7 +93,11 @@
   font-size: 12.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.3s ease;
+  transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.3s ease, color 0.3s ease;
+}
+
+.headerDark .nav {
+  color: #FBFAF2;
 }
 
 .headerScrolled .nav {
@@ -117,6 +136,11 @@
 .navLink:hover,
 .navLinkActive {
   color: #6f1d1b;
+}
+
+.headerDark .navLink:hover,
+.headerDark .navLinkActive {
+  color: #ADBDAB;
 }
 
 .chevron {
@@ -393,6 +417,57 @@
   color: #0a0a0a;
 }
 
+/* Dark Theme for Dropdowns */
+.headerDark .dropdown {
+  background: rgba(18, 18, 20, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.headerDark .dropdownHeader {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.headerDark .schoolItemTitle,
+.headerDark .workshopTitle {
+  color: #FBFAF2;
+}
+
+.headerDark .schoolItemDesc,
+.headerDark .workshopSub {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.headerDark .schoolItem:hover:not(.disabledItem),
+.headerDark .workshopItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.headerDark .activeBadge {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.headerDark .soonBadge {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.headerDark .flagshipCard {
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerDark .linkArrow {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.headerDark .workshopItem:hover .linkArrow {
+  color: #FBFAF2;
+}
+
 /* ============================================================
    HEADER ACTIONS & BUTTONS
    ============================================================ */
@@ -427,6 +502,12 @@
   cursor: pointer;
 }
 
+.headerDark .apply,
+.headerDark .apply:visited {
+  background: #FBFAF2;
+  color: #0a0a0c;
+}
+
 .headerScrolled .apply {
   width: 135px;
   height: 32px;
@@ -435,6 +516,12 @@
 }
 
 .apply:hover {
+  background: #ADBDAB;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.headerDark .apply:hover {
   background: #ADBDAB;
   color: #000;
   transform: translateY(-2px);
@@ -539,6 +626,13 @@
     font-weight: 600;
   }
 
+  .headerDark .apply,
+  .headerDark .apply:visited {
+    color: #FBFAF2;
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
   .headerScrolled .apply {
     height: 30px;
     padding: 0 10px;
@@ -549,6 +643,11 @@
     color: #0a0a0a;
     background: rgba(255, 255, 255, 0.6);
     transform: none;
+  }
+
+  .headerDark .apply:hover {
+    color: #0a0a0a;
+    background: #FBFAF2;
   }
 
   .menuToggle {
@@ -569,8 +668,17 @@
     transition: background 0.25s, transform 0.25s;
   }
 
+  .headerDark .menuToggle {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.14);
+  }
+
   .menuToggle:hover {
     background: rgba(255, 255, 255, 0.6);
+  }
+
+  .headerDark .menuToggle:hover {
+    background: rgba(255, 255, 255, 0.25);
   }
 
   .menuToggle span {
@@ -579,7 +687,11 @@
     height: 1.5px;
     border-radius: 999px;
     background: #0a0a0a;
-    transition: transform 0.25s, opacity 0.2s, width 0.25s;
+    transition: transform 0.25s, opacity 0.2s, width 0.25s, background-color 0.25s;
+  }
+
+  .headerDark .menuToggle span {
+    background: #FBFAF2;
   }
 
   .menuToggle span:nth-child(2) {

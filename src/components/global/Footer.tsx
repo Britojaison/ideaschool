@@ -41,7 +41,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className={styles.workshopSiteFooter} ref={footerRef}>
+    <footer className={styles.workshopSiteFooter} ref={footerRef} data-header-theme="dark">
       <div className={styles.footerMarqueeContainer}>
         <div className={styles.footerMarquee} ref={marqueeRef} style={{ display: "flex", width: "max-content", alignItems: "center" }}>
           <div style={{ display: "flex", alignItems: "center" }}>

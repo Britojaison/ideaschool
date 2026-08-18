@@ -72,7 +72,7 @@ export default function Testimonials() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section ref={sectionRef} className={styles.section} data-header-theme="dark">
       <div className={styles.grid}>
         <div className={styles.titleWrapper}>
           <h2 className={styles.mainTitle}>

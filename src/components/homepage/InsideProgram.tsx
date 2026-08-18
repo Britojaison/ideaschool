@@ -58,7 +58,10 @@ const InsideProgram = () => {
     tl.to(containerRef.current, { 
       backgroundColor: "#0a0a0c", 
       color: "#FBFAF2",
-      duration: transitionDuration 
+      duration: transitionDuration,
+      onUpdate: () => {
+        window.dispatchEvent(new Event("header-theme-check"));
+      }
     }, transitionStart);
 
     if (galleryElement) {

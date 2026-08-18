@@ -16,7 +16,7 @@ const reviewsData = [
 
 export default function Reviews() {
   return (
-    <section className={styles.reviewsSection}>
+    <section className={styles.reviewsSection} data-header-theme="dark">
       <div className={styles.container}>
         <div className={styles.reviewsHeader}>
           <h2>What people are saying</h2>

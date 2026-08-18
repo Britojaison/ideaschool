@@ -30,9 +30,8 @@ export default function MobileMenu() {
   const getLinks = () => {
     if (pathname === "/") {
       return [
-        { label: "About", href: "#about" },
-        { label: "Testimonials", href: "#testimonials" },
-        { label: "Contact", href: "#contact" },
+        { label: "Visual School", href: "/visual-school" },
+        { label: "About", href: "/about" },
       ];
     }
     if (pathname === "/creative-editing-course") {
@@ -43,11 +42,18 @@ export default function MobileMenu() {
         { label: "FAQ", href: "#faq" },
       ];
     }
+    if (pathname === "/master-video-editing" || pathname === "/ad-film-making" || pathname === "/video-editing") {
+      return [
+        { label: "Overview", href: "#overview" },
+        { label: "Curriculum", href: "#curriculum" },
+        { label: "Mentor", href: "#mentor" },
+        { label: "FAQ", href: "#faq" },
+      ];
+    }
     // Default fallback link options
     return [
-      { label: "Home", href: "/" },
-      { label: "About", href: "/#about" },
-      { label: "Contact", href: "/#contact" },
+      { label: "Visual School", href: "/visual-school" },
+      { label: "About", href: "/about" },
     ];
   };
 
@@ -110,18 +116,25 @@ export default function MobileMenu() {
             })}
 
             <div className="mobileNavSection">
-              <h3>Courses</h3>
+              <h3>Flagship Program</h3>
               <Link
                 href="/creative-editing-course"
                 onClick={() => setIsOpen(false)}
               >
-                Creative Editing Program
+                Creative Editing & AI Pro (24 Wks)
+              </Link>
+            </div>
+
+            <div className="mobileNavSection">
+              <h3>Live Workshops</h3>
+              <Link href="/master-video-editing" onClick={() => setIsOpen(false)}>
+                Master Video Editing (2 Days)
               </Link>
               <Link href="/ad-film-making" onClick={() => setIsOpen(false)}>
-                AI Ad Filmmaking
+                AI Ad Filmmaking (Weekend)
               </Link>
-              <Link href="/master-video-editing" onClick={() => setIsOpen(false)}>
-                Master Video Editing
+              <Link href="/video-editing" onClick={() => setIsOpen(false)}>
+                High-Paying Video Editing (1 Day)
               </Link>
             </div>
           </nav>

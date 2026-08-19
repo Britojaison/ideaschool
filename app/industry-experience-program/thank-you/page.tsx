@@ -106,7 +106,6 @@ export default function IndustryExperienceThankYouPage() {
         {/* 1. See the Work Behind the Training */}
         <section className="vslSection" aria-labelledby="section-work-title">
           <div className="vslSectionHeader">
-            <span className="vslSectionNumber">01 / Experience</span>
             <h2 id="section-work-title">See the Work Behind the Training</h2>
             <p>
               This course is built from real-world experience working on projects for brands.
@@ -120,7 +119,6 @@ export default function IndustryExperienceThankYouPage() {
         {/* 2. Hear Directly From Our Students */}
         <section className="vslSection" aria-labelledby="section-students-title">
           <div className="vslSectionHeader">
-            <span className="vslSectionNumber">02 / Proof</span>
             <h2 id="section-students-title">Hear Directly From Our Students</h2>
             <p>See what students experienced during the program.</p>
           </div>
@@ -131,7 +129,6 @@ export default function IndustryExperienceThankYouPage() {
         {/* 3. What Happens Next? */}
         <section className="vslSection" aria-labelledby="section-next-title">
           <div className="vslSectionHeader">
-            <span className="vslSectionNumber">03 / Roadmap</span>
             <h2 id="section-next-title">What Happens Next?</h2>
             <p>Here is how we guide you from application to live agency projects.</p>
           </div>
@@ -150,7 +147,6 @@ export default function IndustryExperienceThankYouPage() {
         {/* 4. Built By Industry Professionals */}
         <section className="vslSection" aria-labelledby="section-agency-title">
           <div className="vslAgencyCard">
-            <span className="vslSectionNumber">04 / Backed By Agency</span>
             <h2 id="section-agency-title">Built By Industry Professionals</h2>
             <p>
               Ideas Creative School is backed by <strong>88GB</strong>, a creative agency actively

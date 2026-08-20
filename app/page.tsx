@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import Shell from "@/components/global/Shell";
 import Schools from "@/components/homepage/Schools";
+import IdeaPhilosophy from "@/components/homepage/IdeaPhilosophy";
 import WorkshopsStrip from "@/components/homepage/WorkshopsStrip";
 import FlagshipSpotlight from "@/components/homepage/FlagshipSpotlight";
 import InsideProgram from "@/components/homepage/InsideProgram";
@@ -324,6 +325,7 @@ export default function Home() {
           </a>
         </section>
         <Schools />
+        <IdeaPhilosophy />
         <WorkshopsStrip />
       </div>
       <FlagshipSpotlight />

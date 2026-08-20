@@ -1,0 +1,138 @@
+.section {
+  position: relative;
+  padding: clamp(76px, 9vw, 140px) 0;
+  color: #0a0a0c;
+  background: #e5e4e2;
+}
+
+.section :global(.container) {
+  width: min(1315px, calc(100% - 40px));
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.72fr) minmax(460px, 1.28fr);
+  gap: 40px;
+  padding-bottom: clamp(48px, 6vw, 84px);
+}
+
+.eyebrow {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro h2 {
+  max-width: 780px;
+  margin: 0;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(54px, 7.1vw, 104px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.intro p {
+  max-width: 520px;
+  margin: 28px 0 0;
+  color: #4f514e;
+  font-size: clamp(18px, 1.6vw, 23px);
+  line-height: 1.35;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(10, 10, 12, 0.45);
+}
+
+.pillar {
+  min-height: 430px;
+  height: 100%;
+  padding: 24px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(10, 10, 12, 0.25);
+}
+
+.pillars > :first-child .pillar {
+  border-left: 1px solid rgba(10, 10, 12, 0.25);
+}
+
+.letter {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(76px, 7vw, 112px);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+}
+
+.copy h3 {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.copy p {
+  margin: 0;
+  color: #4f514e;
+  font-size: 15px;
+  line-height: 1.52;
+}
+
+@media (max-width: 900px) {
+  .heading {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pillar {
+    min-height: 390px;
+    border-bottom: 1px solid rgba(10, 10, 12, 0.25);
+  }
+
+  .pillars > :nth-child(3) .pillar {
+    border-left: 1px solid rgba(10, 10, 12, 0.25);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .section :global(.container) {
+    width: calc(100% - 28px);
+  }
+
+  .heading {
+    padding-bottom: 46px;
+  }
+
+  .intro h2 {
+    font-size: clamp(48px, 16vw, 72px);
+  }
+
+  .intro p {
+    margin-top: 22px;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar {
+    min-height: 360px;
+    padding: 24px 20px 28px;
+    border-left: 1px solid rgba(10, 10, 12, 0.25);
+  }
+}

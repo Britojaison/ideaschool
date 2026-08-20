@@ -33,7 +33,6 @@ export default function IdeaPhilosophy() {
       <div className="container">
         <div className={styles.heading}>
           <div>
-            <p className={styles.eyebrow}>05 — Our Foundation</p>
             <h2 id="idea-philosophy-title">The IDEA<br />Philosophy</h2>
           </div>
           <p className={styles.intro}>Everything we build is rooted in four foundational pillars.</p>

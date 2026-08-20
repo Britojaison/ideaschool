@@ -1,4 +1,14 @@
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import styles from "./IdeaPhilosophy.module.css";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const pillars = [
   {
@@ -28,8 +38,36 @@ const pillars = [
 ];
 
 export default function IdeaPhilosophy() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      sectionRef.current,
+      {
+        "--philosophy-bg": "#0a0014",
+        "--philosophy-ink": "#fbfaf2",
+        "--philosophy-muted": "rgba(251, 250, 242, 0.72)",
+        "--philosophy-border": "rgba(251, 250, 242, 0.28)",
+      },
+      {
+        "--philosophy-bg": "#fbfaf2",
+        "--philosophy-ink": "#0a0a0c",
+        "--philosophy-muted": "#4f514e",
+        "--philosophy-border": "rgba(10, 10, 12, 0.3)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 92%",
+          end: "top 28%",
+          scrub: 1,
+          onUpdate: () => window.dispatchEvent(new Event("header-theme-check")),
+        },
+      }
+    );
+  }, { scope: sectionRef });
+
   return (
-    <section className={styles.section} aria-labelledby="idea-philosophy-title">
+    <section ref={sectionRef} className={styles.section} aria-labelledby="idea-philosophy-title">
       <div className="container">
         <div className={styles.heading}>
           <div>

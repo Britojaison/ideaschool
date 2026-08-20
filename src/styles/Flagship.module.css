@@ -129,7 +129,7 @@
   font-size: clamp(44px, 5.5vw, 86px);
   font-weight: 700;
   line-height: 0.92;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #0a0a0c;
 }
@@ -284,6 +284,7 @@
   .titleMain {
     font-size: clamp(34px, 10vw, 42px);
     line-height: .86;
+    letter-spacing: 0.01em;
   }
   .accent {
     margin-top: -0.25em;

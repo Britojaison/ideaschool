@@ -73,6 +73,8 @@
 
 .lineOne {
     margin-left: 0;
+    font-family: var(--font-stara), "Stara", Arial, sans-serif;
+    font-weight: 900;
     transform: scaleY(1.4) !important;
     transform-origin: center left !important;
 }
@@ -119,9 +121,9 @@
 
 .superpowerWord {
     grid-column: 1 / -1;
-    font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+    font-family: var(--font-stara), "Stara", Arial, sans-serif;
     font-size: clamp(136px, 16vw, 300px);
-    font-weight: 500;
+    font-weight: 900;
     line-height: .9;
     letter-spacing: .015em;
 }

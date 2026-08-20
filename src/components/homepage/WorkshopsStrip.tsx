@@ -26,18 +26,6 @@ export default function WorkshopsStrip() {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 65%",
-        end: "center center",
-        scrub: 1,
-      }
-    });
-
-    tl.to(".bg-overlay", { opacity: 1 }, 0)
-      .to(sectionRef.current, { color: "#0a0a0c" }, 0);
-      
     gsap.fromTo(
       gsap.utils.toArray(cardsRef.current?.children || []),
       { y: 60, opacity: 0 },
@@ -75,15 +63,7 @@ export default function WorkshopsStrip() {
   }, { scope: sectionRef });
 
   return (
-    <section id="workshops" ref={sectionRef} className="section" style={{ position: "relative", backgroundColor: "transparent", color: "#f2f6fc" }}>
-      <div className="bg-overlay" style={{
-        position: "absolute",
-        inset: 0,
-        background: "linear-gradient(to bottom, transparent 0%, #FBFAF2 25%, #FBFAF2 100%)",
-        opacity: 0,
-        zIndex: 0,
-        pointerEvents: "none"
-      }} />
+    <section id="workshops" ref={sectionRef} className="section" style={{ position: "relative", backgroundColor: "#FBFAF2", color: "#0a0a0c" }} data-header-theme="light">
       <div className={styles.fullContainer} style={{ position: "relative", zIndex: 1 }}>
         <div className="sectionHead">
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>

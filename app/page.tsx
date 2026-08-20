@@ -146,7 +146,7 @@ export default function Home() {
   return (
     <Shell headerOverlay>
       <div className={styles.topFlow}>
-        <section className={styles.hero} ref={heroRef}>
+        <section className={styles.hero} ref={heroRef} data-header-theme="dark">
           <div className={styles.floatOne} aria-hidden="true" />
           <div className={styles.floatTwo} aria-hidden="true" />
           <div className={styles.heroCards}>

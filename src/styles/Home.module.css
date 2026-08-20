@@ -41,20 +41,30 @@
     display: block;
     pointer-events: none;
     background-image:
-        repeating-linear-gradient(
-            to right,
-            transparent 0,
-            transparent calc(12.5% - 1px),
-            rgba(251, 250, 242, .2) calc(12.5% - 1px),
-            rgba(251, 250, 242, .2) 12.5%
-        ),
-        repeating-linear-gradient(
-            to bottom,
-            transparent 0,
-            transparent calc(25% - 1px),
-            rgba(251, 250, 242, .2) calc(25% - 1px),
-            rgba(251, 250, 242, .2) 25%
-        );
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(90deg, rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(90deg, rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(90deg, rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(90deg, rgba(251, 250, 242, .16), rgba(251, 250, 242, .16));
+    background-repeat: no-repeat;
+    background-size:
+        1px 100%, 1px 100%, 1px 100%, 1px 100%,
+        1px 100%, 1px 100%, 1px 100%, 1px 100%,
+        100% 1px, 100% 1px, 100% 1px, 100% 1px;
+    background-position:
+        10% 0, calc(10% + 18px) 0,
+        22% 0, calc(22% + 18px) 0,
+        calc(78% - 18px) 0, 78% 0,
+        calc(90% - 18px) 0, 90% 0,
+        0 29%, 0 calc(29% + 18px),
+        0 calc(70% - 18px), 0 70%;
 }
 
 .heroContent {

@@ -7,7 +7,25 @@
   padding: clamp(76px, 9vw, 130px) 0 0;
   color: var(--philosophy-ink);
   background: var(--philosophy-bg);
-  overflow: hidden;
+  overflow: visible;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: clamp(160px, 28vh, 360px);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--philosophy-bg) 20%, transparent) 34%,
+    color-mix(in srgb, var(--philosophy-bg) 72%, transparent) 72%,
+    var(--philosophy-bg) 100%
+  );
 }
 
 .section :global(.container) {

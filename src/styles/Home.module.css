@@ -1,7 +1,7 @@
 .topFlow {
     position: relative;
     background-color: #e5e4e2;
-    background-image: radial-gradient(ellipse 58% 35% at 18% 8%, rgba(229, 228, 226, .98) 0%, rgba(229, 228, 226, .52) 44%, transparent 72%), radial-gradient(ellipse 52% 35% at 86% 12%, rgba(83, 104, 120, .9) 0%, rgba(83, 104, 120, .45) 48%, transparent 74%), radial-gradient(ellipse 52% 32% at 12% 62%, rgba(240, 229, 222, .98) 0%, rgba(240, 229, 222, .58) 50%, transparent 75%), radial-gradient(ellipse 45% 35% at 56% 76%, rgba(111, 29, 27, .68) 0%, rgba(111, 29, 27, .28) 48%, transparent 75%), radial-gradient(ellipse 45% 32% at 96% 90%, rgba(173, 189, 171, .95) 0%, rgba(173, 189, 171, .5) 50%, transparent 76%), linear-gradient(135deg, #e5e4e2 0%, #536878 48%, #adbdab 100%);
+    background-image: radial-gradient(ellipse 58% 35% at 18% 8%, rgba(229, 228, 226, .98) 0%, rgba(229, 228, 226, .52) 44%, transparent 72%), radial-gradient(ellipse 52% 35% at 86% 12%, rgba(83, 104, 120, .9) 0%, rgba(83, 104, 120, .45) 48%, transparent 74%), radial-gradient(ellipse 52% 32% at 12% 62%, rgba(240, 229, 222, .98) 0%, rgba(240, 229, 222, .58) 50%, transparent 75%), radial-gradient(ellipse 45% 35% at 56% 76%, rgba(10, 10, 12, .5) 0%, rgba(10, 10, 12, .2) 48%, transparent 75%), radial-gradient(ellipse 45% 32% at 96% 90%, rgba(173, 189, 171, .95) 0%, rgba(173, 189, 171, .5) 50%, transparent 76%), linear-gradient(135deg, #e5e4e2 0%, #536878 48%, #adbdab 100%);
 }
 
 .topFlow::before {
@@ -374,7 +374,7 @@
     min-height: 52px;
     margin-bottom: 0;
     padding: 0 48px 0 20px;
-    border: 1px solid rgba(111, 29, 27, .28);
+    border: 1px solid rgba(10, 10, 12, .28);
     border-radius: 6px;
     color: #0a0a0c;
     background: #e5e4e2;
@@ -608,7 +608,7 @@
 }
 
 .workshopCardHover:hover {
-    background: linear-gradient(135deg, rgba(111, 29, 27, 0.25) 0%, rgba(83, 104, 120, 0.25) 100%);
+    background: linear-gradient(135deg, rgba(10, 10, 12, 0.25) 0%, rgba(83, 104, 120, 0.25) 100%);
     border-color: rgba(229, 228, 226, 0.35);
     transform: translateY(-6px);
 }
@@ -1010,7 +1010,7 @@
         width: 100%;
         min-height: 58px;
         padding: 0 42px 0 18px;
-        border-color: rgba(111, 29, 27, .28);
+        border-color: rgba(10, 10, 12, .28);
         border-radius: 5px;
         color: #0a0a0c;
         background: #e5e4e2;

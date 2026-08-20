@@ -4,8 +4,8 @@
   --frost: #fbfaf2;
   --alabaster: #e5e4e2;
   --slate: #536878;
-  --red: #fb1616;
-  --wine: #6f1d1b;
+  --red: #0a0a0c;
+  --wine: #0a0a0c;
   --linen: #f0e5de;
   --ash: #adbdab;
   --line: rgba(242, 246, 252, 0.14);
@@ -51,7 +51,7 @@
 }
 :where(.newSite) .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.45); }
 :where(.newSite) .btnPrimary { border-color: var(--red); background: var(--red); color: white; }
-:where(.newSite) .btnPrimary:hover { background: #d90000; border-color: #d90000; }
+:where(.newSite) .btnPrimary:hover { background: #222225; border-color: #222225; }
 :where(.newSite) .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
 :where(.newSite) .grid { display: grid; gap: 18px; }
 :where(.newSite) .grid3 { grid-template-columns: repeat(3, 1fr); }

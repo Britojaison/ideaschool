@@ -170,7 +170,7 @@ export default function HomeForm() {
               </div>
 
               {status === 'error' && (
-                <div style={{ color: '#ef4444', fontSize: '13px', marginTop: '-8px', textAlign: 'center' }}>
+                <div style={{ color: '#0a0a0c', fontSize: '13px', marginTop: '-8px', textAlign: 'center' }}>
                   {errorMessage}
                 </div>
               )}

@@ -22,7 +22,7 @@ export default function Page() {
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
             <p className={styles.kicker}>ABOUT IDEA SCHOOL</p>
-            <h1>Creating<br /><em>Future-Ready</em><br />PROs.</h1>
+            <h1>Creating<br /><em>Future Ready</em><br />PROs.</h1>
             <p className={styles.heroIntro}>A Creative Professional School built to prepare individuals for the future of the creative economy.</p>
           </div>
           <div className={styles.heroVisual}>

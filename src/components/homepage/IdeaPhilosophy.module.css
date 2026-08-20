@@ -1,8 +1,9 @@
 .section {
   position: relative;
-  padding: clamp(76px, 9vw, 140px) 0;
+  padding: clamp(76px, 9vw, 130px) 0 0;
   color: #0a0a0c;
   background: #e5e4e2;
+  overflow: hidden;
 }
 
 .section :global(.container) {
@@ -10,34 +11,34 @@
 }
 
 .heading {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.72fr) minmax(460px, 1.28fr);
-  gap: 40px;
-  padding-bottom: clamp(48px, 6vw, 84px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 60px;
+  padding-bottom: clamp(58px, 7vw, 100px);
 }
 
 .eyebrow {
-  margin: 8px 0 0;
+  margin: 0 0 24px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.intro h2 {
-  max-width: 780px;
+.heading h2 {
   margin: 0;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(54px, 7.1vw, 104px);
+  font-size: clamp(62px, 7.8vw, 118px);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 0.82;
   letter-spacing: -0.055em;
   text-transform: uppercase;
 }
 
-.intro p {
-  max-width: 520px;
-  margin: 28px 0 0;
+.intro {
+  max-width: 420px;
+  margin: 0 0 4px;
   color: #4f514e;
   font-size: clamp(18px, 1.6vw, 23px);
   line-height: 1.35;
@@ -46,29 +47,64 @@
 .pillars {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid rgba(10, 10, 12, 0.45);
+  border-top: 1px solid rgba(10, 10, 12, 0.35);
+  border-bottom: 1px solid rgba(10, 10, 12, 0.35);
 }
 
 .pillar {
-  min-height: 430px;
-  height: 100%;
-  padding: 24px 24px 30px;
+  min-width: 0;
+  min-height: clamp(600px, 66vw, 820px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid rgba(10, 10, 12, 0.25);
+  background: #e5e4e2;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-.pillars > :first-child .pillar {
+.pillar:first-child {
   border-left: 1px solid rgba(10, 10, 12, 0.25);
+}
+
+.pillar:hover {
+  color: #0a0a0c;
+  background: #adbdab;
+}
+
+.visual {
+  position: relative;
+  min-height: 55%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.index {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .letter {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(76px, 7vw, 112px);
+  font-size: clamp(150px, 16vw, 260px);
   font-weight: 700;
-  line-height: 0.8;
-  letter-spacing: -0.06em;
+  line-height: 1;
+  letter-spacing: -0.1em;
+  transform: scaleX(0.82);
+  transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
+}
+
+.pillar:hover .letter {
+  transform: scaleX(0.82) rotate(-6deg) scale(1.08);
+}
+
+.copy {
+  min-height: 280px;
+  padding: 28px 24px 36px;
 }
 
 .copy h3 {
@@ -87,8 +123,9 @@
 
 @media (max-width: 900px) {
   .heading {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 32px;
   }
 
   .pillars {
@@ -96,18 +133,18 @@
   }
 
   .pillar {
-    min-height: 390px;
+    min-height: 600px;
     border-bottom: 1px solid rgba(10, 10, 12, 0.25);
   }
 
-  .pillars > :nth-child(3) .pillar {
+  .pillar:nth-child(3) {
     border-left: 1px solid rgba(10, 10, 12, 0.25);
   }
 }
 
 @media (max-width: 640px) {
   .section {
-    padding: 72px 0;
+    padding: 72px 0 0;
   }
 
   .section :global(.container) {
@@ -118,12 +155,12 @@
     padding-bottom: 46px;
   }
 
-  .intro h2 {
+  .heading h2 {
     font-size: clamp(48px, 16vw, 72px);
   }
 
-  .intro p {
-    margin-top: 22px;
+  .intro {
+    margin: 0;
   }
 
   .pillars {
@@ -131,8 +168,15 @@
   }
 
   .pillar {
-    min-height: 360px;
-    padding: 24px 20px 28px;
+    min-height: 600px;
     border-left: 1px solid rgba(10, 10, 12, 0.25);
+  }
+
+  .visual {
+    min-height: 330px;
+  }
+
+  .letter {
+    font-size: clamp(190px, 62vw, 260px);
   }
 }

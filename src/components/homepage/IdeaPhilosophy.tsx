@@ -32,26 +32,28 @@ export default function IdeaPhilosophy() {
     <section className={styles.section} aria-labelledby="idea-philosophy-title">
       <div className="container">
         <div className={styles.heading}>
-          <p className={styles.eyebrow}>05 — Our Foundation</p>
-          <div className={styles.intro}>
-            <h2 id="idea-philosophy-title">The IDEA Philosophy</h2>
-            <p>Everything we build is rooted in four foundational pillars.</p>
+          <div>
+            <p className={styles.eyebrow}>05 — Our Foundation</p>
+            <h2 id="idea-philosophy-title">The IDEA<br />Philosophy</h2>
           </div>
+          <p className={styles.intro}>Everything we build is rooted in four foundational pillars.</p>
         </div>
-
-        <div className={styles.pillars}>
-          {pillars.map((pillar) => (
-            <article className={styles.pillar} key={pillar.letter}>
+      </div>
+      <div className={styles.pillars}>
+        {pillars.map((pillar, index) => (
+          <article className={styles.pillar} key={pillar.letter}>
+            <div className={styles.visual}>
+              <span className={styles.index}>0{index + 1}</span>
               <span className={styles.letter} aria-hidden="true">
                 {pillar.letter}
               </span>
-              <div className={styles.copy}>
-                <h3>{pillar.title}</h3>
-                <p>{pillar.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+            </div>
+            <div className={styles.copy}>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.description}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

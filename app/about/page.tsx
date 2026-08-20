@@ -34,7 +34,7 @@ export default function Page() {
 
         <section className={styles.editorial}>
           <div className={styles.editorialInner}>
-            <p className={styles.index}>01 — WHY WE EXIST</p>
+            <p className={styles.index}>WHY WE EXIST</p>
             <h2>The world changed.<br />Education didn’t keep pace.</h2>
             <div className={styles.twoColCopy}>
               <p>Technology is evolving. Creative industries are transforming. New careers are emerging, while traditional roles are being redefined. The way we learn, create, communicate, and work has fundamentally changed.</p>
@@ -50,7 +50,7 @@ export default function Page() {
           <Image src={industryImage} alt="Creative professionals collaborating" fill sizes="100vw" />
           <div className={styles.imageOverlay} />
           <div className={styles.imageStoryCopy}>
-            <p className={styles.index}>02 — OUR BELIEF</p>
+            <p className={styles.index}>OUR BELIEF</p>
             <h2>We Build Professionals,<br />Not Just Portfolios.</h2>
             <p>At IDEA School, learning goes far beyond mastering tools. We develop the skills AI can’t replace: creativity, critical thinking, storytelling, design thinking, communication, leadership, ownership, adaptability, and the ability to solve real problems.</p>
             <p>Software will change. These are the capabilities that shape exceptional professionals.</p>
@@ -59,7 +59,7 @@ export default function Page() {
 
         <section className={styles.origin}>
           <div className={styles.originTitle}>
-            <p className={styles.index}>03 — OUR ORIGIN</p>
+            <p className={styles.index}>OUR ORIGIN</p>
             <h2>Born from the<br />industry, not<br />a classroom.</h2>
           </div>
           <div className={styles.originBody}>
@@ -75,7 +75,7 @@ export default function Page() {
         </section>
 
         <section className={styles.future}>
-          <p className={styles.index}>04 — THE FUTURE</p>
+          <p className={styles.index}>THE FUTURE</p>
           <h2>The future belongs to<br /><em>multi-disciplinary</em> professionals.</h2>
           <div className={styles.futureGrid}>
             <p>A filmmaker needs branding.</p><p>A marketer needs storytelling.</p><p>A designer needs business awareness.</p><p>A creator needs strategy.</p><p>An entrepreneur needs communication.</p><p>A visual artist needs technology.</p>
@@ -85,7 +85,7 @@ export default function Page() {
 
         <section className={styles.philosophy}>
           <div className={styles.philosophyHead}>
-            <p className={styles.index}>05 — OUR FOUNDATION</p>
+            <p className={styles.index}>OUR FOUNDATION</p>
             <h2>The IDEA<br />Philosophy</h2>
             <p>Everything we build is rooted in four foundational pillars.</p>
           </div>
@@ -97,7 +97,7 @@ export default function Page() {
         <section className={styles.learning}>
           <div className={styles.learningImage}><Image src={learningImage} alt="Hands-on creative learning at IDEA School" fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
           <div className={styles.learningCopy}>
-            <p className={styles.index}>06 — HOW WE LEARN</p>
+            <p className={styles.index}>HOW WE LEARN</p>
             <h2>Real confidence comes from real experience.</h2>
             <p>Students don’t grow by simply consuming information. They grow by applying it. Every program is designed around experience, practice, mentorship, feedback, and execution.</p>
             <p>Students don’t just watch—they build. They don’t just submit assignments—they solve challenges. They collaborate, communicate, and create work with purpose.</p>
@@ -105,12 +105,12 @@ export default function Page() {
         </section>
 
         <section className={styles.experience}>
-          <div><p className={styles.index}>07 — BEYOND THE CLASSROOM</p><h2>Learning that mirrors the real world.</h2><p>Education should prepare students for the workplace—not surprise them when they enter it.</p></div>
-          <ol>{experience.map((item, i) => <li key={item}><span>{String(i + 1).padStart(2, "0")}</span>{item}</li>)}</ol>
+          <div><p className={styles.index}>BEYOND THE CLASSROOM</p><h2>Learning that mirrors the real world.</h2><p>Education should prepare students for the workplace—not surprise them when they enter it.</p></div>
+          <ol>{experience.map((item) => <li key={item}>{item}</li>)}</ol>
         </section>
 
         <section className={styles.tech}>
-          <p className={styles.index}>08 — OUR POINT OF VIEW</p>
+          <p className={styles.index}>OUR POINT OF VIEW</p>
           <h2>Technology is an enabler.<br /><em>Not the destination.</em></h2>
           <p>We embrace emerging technologies because they make creative professionals more capable. But tools will continue to change. The ability to think clearly, communicate effectively, tell meaningful stories, solve complex problems, and create value will remain timeless.</p>
         </section>
@@ -121,7 +121,7 @@ export default function Page() {
         </section>
 
         <section className={styles.promise}>
-          <p className={styles.index}>09 — OUR PROMISE</p>
+          <p className={styles.index}>OUR PROMISE</p>
           <h2>We don’t promise shortcuts.<br />We promise <em>transformation.</em></h2>
           <div><p>An environment that challenges students to think bigger, create better, and grow continuously.</p><p>Mentorship from professionals who actively build, create, and solve.</p><p>Learning rooted in practice, not theory alone.</p></div>
         </section>

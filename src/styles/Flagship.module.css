@@ -84,6 +84,43 @@
   flex-direction: column;
 }
 
+.flagshipLabel {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 28px 14px;
+  padding: 5px 15px 7px 12px;
+  background: #D9FA2F;
+  color: #0a0a0c;
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+/* Selection-frame detail inspired by the reference treatment. */
+.flagshipLabel::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 2px solid #D9FA2F;
+  pointer-events: none;
+}
+
+.flagshipLabel::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 50%;
+  background: #D9FA2F;
+  pointer-events: none;
+}
+
 .eyebrowWrapper {
   display: inline-flex;
   align-items: center;
@@ -272,10 +309,20 @@
     gap: 14px;
     align-items: start;
   }
-  .content > div:first-child {
-    margin: 0 0 8px !important;
-    font-size: 14px !important;
-    transform: rotate(-3deg) !important;
+  .flagshipLabel {
+    margin: 0 0 16px 7px;
+    padding: 4px 9px 5px 7px;
+    font-size: 14px;
+  }
+  .flagshipLabel::before {
+    inset: -4px;
+    border-width: 1px;
+  }
+  .flagshipLabel::after {
+    width: 6px;
+    height: 6px;
+    right: -7px;
+    bottom: -7px;
   }
   .title {
     gap: 2px;

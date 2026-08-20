@@ -31,7 +31,7 @@
     z-index: 3;
     width: min(72vw, 1100px);
     left: 50%;
-    top: 50%;
+    top: 53%;
     transform: translate(-50%, -50%);
 }
 
@@ -80,7 +80,7 @@
 .becomeWord {
     display: block;
     font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-    font-size: clamp(17px, 1.8vw, 34px);
+    font-size: clamp(24px, 2.5vw, 46px);
     font-weight: 300;
     line-height: .95;
     letter-spacing: -.03em;
@@ -93,7 +93,7 @@
 
 .yourWord {
     font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-    font-size: clamp(17px, 1.8vw, 34px);
+    font-size: clamp(24px, 2.5vw, 46px);
     font-weight: 300;
     line-height: .95;
     letter-spacing: -.03em;
@@ -597,7 +597,7 @@
     .heroContent {
         width: 86vw;
         left: 50%;
-        top: 50%;
+        top: 53%;
     }
 
     .heroTitle {

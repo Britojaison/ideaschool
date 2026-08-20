@@ -42,7 +42,7 @@
     margin: 0;
     color: #0a0a0a !important;
     font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
-    font-size: clamp(92px, 12.5vw, 220px);
+    font-size: clamp(136px, 16vw, 300px);
     font-weight: 500;
     line-height: 1.16;
     letter-spacing: .015em;
@@ -68,10 +68,10 @@
 
 .lineTwo {
     display: grid !important;
-    grid-template-columns: auto auto;
-    column-gap: clamp(14px, 1.5vw, 24px);
+    grid-template-columns: 1fr;
     row-gap: clamp(6px, .7vw, 12px);
     justify-content: center;
+    justify-items: center;
     align-items: baseline;
     margin-left: 0%;
     transform: none !important;
@@ -100,9 +100,9 @@
 }
 
 .superpowerWord {
-    grid-column: 1 / -1;
+    grid-column: 1;
     font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
-    font-size: clamp(72px, 8vw, 144px);
+    font-size: clamp(136px, 16vw, 300px);
     font-weight: 500;
     line-height: .9;
     letter-spacing: .015em;
@@ -701,9 +701,9 @@
     }
 
     .lineTwo {
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr;
         justify-content: center;
-        column-gap: 10px;
+        justify-items: center;
         row-gap: 8px;
         margin: 0 !important;
         transform: none !important;

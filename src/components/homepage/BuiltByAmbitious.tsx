@@ -52,7 +52,9 @@ const rawMentors = [
   },
 ];
 
-const mentors = rawMentors;
+// Keep enough slides for the wide coverflow layout and seamless looping.
+// The optimized WebP sources keep this duplication inexpensive.
+const mentors = [...rawMentors, ...rawMentors];
 
 const BuiltByAmbitious = () => {
   return (

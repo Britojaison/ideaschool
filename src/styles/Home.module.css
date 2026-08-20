@@ -22,6 +22,7 @@
     background-color: #0a0a0c;
     background-image:
         radial-gradient(ellipse 62% 56% at -8% 42%, rgba(85, 46, 173, .52) 0%, rgba(85, 46, 173, .25) 40%, transparent 76%),
+        radial-gradient(ellipse 62% 56% at 108% 42%, rgba(85, 46, 173, .42) 0%, rgba(85, 46, 173, .2) 40%, transparent 76%),
         radial-gradient(ellipse 52% 42% at 2% 104%, rgba(118, 116, 153, .48) 0%, rgba(74, 63, 112, .28) 34%, transparent 72%),
         linear-gradient(105deg, #16072d 0%, #0d011c 48%, #0a0014 100%);
 }
@@ -293,6 +294,7 @@
     background-color: #0a0a0c;
     background-image:
         radial-gradient(ellipse 62% 56% at -8% 42%, rgba(85, 46, 173, .52) 0%, rgba(85, 46, 173, .25) 40%, transparent 76%),
+        radial-gradient(ellipse 62% 56% at 108% 42%, rgba(85, 46, 173, .42) 0%, rgba(85, 46, 173, .2) 40%, transparent 76%),
         radial-gradient(ellipse 52% 42% at 2% 104%, rgba(118, 116, 153, .48) 0%, rgba(74, 63, 112, .28) 34%, transparent 72%),
         linear-gradient(105deg, #16072d 0%, #0d011c 48%, #0a0014 100%);
 }

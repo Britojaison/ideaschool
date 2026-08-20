@@ -499,10 +499,11 @@
 }
 
 .conceptSvg {
-  width: 90%;
+  display: block;
+  width: min(90vw, 1200px);
   max-width: 1200px;
   height: auto;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .conceptText {

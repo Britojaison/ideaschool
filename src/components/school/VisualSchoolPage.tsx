@@ -528,14 +528,14 @@ export default function VisualSchoolPage() {
               <svg viewBox="0 0 1000 300" className={styles.conceptSvg}>
                 {/* Concept text group */}
                 <g ref={conceptWordRef} style={{ transformOrigin: "center center" }}>
-                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className={styles.conceptTextBase}>concept</text>
-                  <text ref={conceptTextRef} x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className={styles.conceptText}>concept</text>
+                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.conceptTextBase}>concept</text>
+                  <text ref={conceptTextRef} x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.conceptText}>concept</text>
                 </g>
 
                 {/* Curriculum text group (starts hidden) */}
                 <g ref={curriculumWordRef} style={{ opacity: 0, transformOrigin: "center center" }}>
-                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className={styles.curriculumTextBase}>curriculum</text>
-                  <text ref={curriculumTextRef} x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className={styles.curriculumText}>curriculum</text>
+                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.curriculumTextBase}>curriculum</text>
+                  <text ref={curriculumTextRef} x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.curriculumText}>curriculum</text>
                 </g>
               </svg>
             </div>

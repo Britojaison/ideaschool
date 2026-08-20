@@ -153,10 +153,10 @@
     margin: 0;
     padding: clamp(4px, 0.5vw, 8px);
     padding-bottom: clamp(8px, 1vw, 12px);
-    border: 2px solid #0a0a0a;
+    border: 2px solid rgba(251, 250, 242, .38);
     border-radius: clamp(10px, 1vw, 16px);
-    background: #f5f4f1;
-    box-shadow: 6px 5px 0 #0a0a0a;
+    background: #21192d;
+    box-shadow: 6px 5px 0 rgba(5, 2, 10, .72);
     z-index: 10;
 }
 
@@ -171,7 +171,7 @@
 
 .heroCard figcaption {
     margin: clamp(6px, 0.8vw, 10px) 4px 0;
-    color: #0a0a0a;
+    color: #fbfaf2;
     font-family: var(--font-stara), "Stara", Arial, sans-serif;
     font-size: clamp(11px, .9vw, 14px);
     font-weight: 700;
@@ -785,11 +785,11 @@
         width: min(76vw, 290px);
         margin: 0;
         padding: 10px 10px 18px;
-        border: 2px solid #0a0a0a;
+        border: 2px solid rgba(251, 250, 242, .38);
         border-radius: 12px;
-        color: #0a0a0a;
-        background: #f5f4f1;
-        box-shadow: 4px 4px 0 #0a0a0a;
+        color: #fbfaf2;
+        background: #21192d;
+        box-shadow: 4px 4px 0 rgba(5, 2, 10, .72);
     }
 
     .mobileCarouselCard img {
@@ -820,7 +820,7 @@
         width: auto;
         padding: 10px;
         padding-bottom: 18px;
-        box-shadow: 4px 4px 0 #0a0a0a;
+        box-shadow: 4px 4px 0 rgba(5, 2, 10, .72);
         border-radius: 12px;
         scroll-snap-align: start;
         transform: none !important;

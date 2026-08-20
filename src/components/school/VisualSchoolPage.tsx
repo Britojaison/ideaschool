@@ -221,6 +221,14 @@ export default function VisualSchoolPage() {
       3.9
     );
 
+    // Once the concept section fully covers the stacked showcase, remove the
+    // underlying videos so they cannot leak into the following curriculum.
+    tl.to(
+      [overlayRef.current, stackedVideo1Ref.current, stackedVideo2Ref.current],
+      { autoAlpha: 0, pointerEvents: "none", duration: 0.15 },
+      4.9
+    );
+
     // Concept Draw Animation (Continuous Snake Effect)
     if (conceptTextRef.current) {
       gsap.set(conceptTextRef.current, {

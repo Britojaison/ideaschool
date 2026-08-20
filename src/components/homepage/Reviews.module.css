@@ -27,7 +27,7 @@
 
 .reviewsHeader h2 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(30px, 3.5vw, 48px);
+  font-size: clamp(26px, 2.8vw, 40px);
   margin: 0;
   line-height: 1;
   color: #FBFAF2;

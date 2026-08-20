@@ -411,8 +411,8 @@
 .messageCopy h2 {
     margin: 0;
     max-width: 520px;
-    font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
-    font-size: clamp(32px, 3.5vw, 48px);
+    font-family: var(--font-stara), "Stara", Arial, sans-serif;
+    font-size: clamp(30px, 3.5vw, 48px);
     font-weight: 700;
     line-height: .98;
     letter-spacing: .015em;
@@ -1014,6 +1014,8 @@
 }
 
 .fullContainer :global(.sectionHead .title) {
+    font-family: var(--font-stara), "Stara", Arial, sans-serif;
+    font-size: clamp(30px, 3.5vw, 48px);
     letter-spacing: .02em;
 }
 
@@ -1185,7 +1187,7 @@
 
 .cardTitle {
     font-size: clamp(22px, 2vw, 30px);
-    font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+    font-family: var(--font-stara), "Stara", Arial, sans-serif;
     font-weight: 700;
     line-height: 0.95;
     color: #fff;

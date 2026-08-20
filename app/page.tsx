@@ -23,6 +23,7 @@ import creativeDirection from "@public/assets/home/card2.png";
 import marketing from "@public/assets/home/card3.png";
 import Image from "next/image";
 import fullBleedImage from "@public/assets/home/gallery10.webp";
+import AmbientDots from "@/components/ui/AmbientDots";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -147,11 +148,7 @@ export default function Home() {
     <Shell headerOverlay>
       <div className={styles.topFlow}>
         <section className={styles.hero} ref={heroRef} data-header-theme="dark">
-          <div className={styles.ambientDots} aria-hidden="true">
-            {Array.from({ length: 32 }, (_, index) => (
-              <span key={index} />
-            ))}
-          </div>
+          <AmbientDots />
           <div className={styles.floatOne} aria-hidden="true" />
           <div className={styles.floatTwo} aria-hidden="true" />
           <div className={styles.heroCards}>

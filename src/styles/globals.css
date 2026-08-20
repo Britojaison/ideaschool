@@ -70,6 +70,15 @@
 :where(.newSite) .crumbs a:hover { color: white; }
 :where(.newSite) .rule { border: 0; border-top: 1px solid var(--line); }
 :where(.newSite) .darkPanel { background: #0d1013; border-block: 1px solid var(--line); }
+
+.ambient-dot-canvas {
+  position: absolute;
+  z-index: 1;
+  inset: 76px 0 0;
+  width: 100%;
+  height: calc(100% - 76px);
+  pointer-events: none;
+}
 :where(.newSite) .sectionHead { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 54px; }
 :where(.newSite) .sectionHead p { max-width: 430px; margin: 0; color: #9fa8ae; line-height: 1.55; }
 :where(.newSite) .form { display: grid; gap: 14px; }

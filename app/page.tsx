@@ -148,7 +148,7 @@ export default function Home() {
       <div className={styles.topFlow}>
         <section className={styles.hero} ref={heroRef} data-header-theme="dark">
           <div className={styles.ambientDots} aria-hidden="true">
-            {Array.from({ length: 16 }, (_, index) => (
+            {Array.from({ length: 32 }, (_, index) => (
               <span key={index} />
             ))}
           </div>

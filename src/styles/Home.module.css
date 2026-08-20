@@ -390,6 +390,7 @@
 
 .careerMessage {
     position: relative;
+    z-index: 3;
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -409,13 +410,14 @@
 
 .messageCopy h2 {
     margin: 0;
-    max-width: 570px;
+    max-width: 520px;
     font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
     font-size: clamp(32px, 3.5vw, 48px);
     font-weight: 700;
     line-height: .98;
-    letter-spacing: -.03em;
+    letter-spacing: .015em;
     text-transform: uppercase;
+    text-wrap: balance;
 }
 
 .messageBody {
@@ -545,28 +547,28 @@
 
 .note4 {
     top: 16%;
-    left: 54%;
+    left: 5%;
     animation-delay: 6s;
     --r: rotate(5deg);
 }
 
 .note5 {
     top: 12%;
-    left: 74%;
+    left: 18%;
     animation-delay: 8s;
     --r: rotate(-2deg);
 }
 
 .note6 {
     top: 70%;
-    left: 74%;
+    left: 5%;
     animation-delay: 10s;
     --r: rotate(3deg);
 }
 
 .note7 {
     top: 82%;
-    left: 54%;
+    left: 16%;
     animation-delay: 1s;
     --r: rotate(-4deg);
 }
@@ -909,7 +911,7 @@
         font-size: clamp(34px, 10vw, 42px);
         font-weight: 700;
         line-height: 1.08;
-        letter-spacing: -.045em;
+        letter-spacing: .005em;
     }
 
     .messageBody {
@@ -921,11 +923,7 @@
     }
 
     .note {
-        max-width: min(280px, 82vw);
-        padding: 7px 14px;
-        background: #adbdab;
-        font-size: 14px;
-        box-shadow: 0 8px 24px rgba(173, 189, 171, .18);
+        display: none;
     }
 
     .note::after {

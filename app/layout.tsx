@@ -3,15 +3,50 @@ import localFont from "next/font/local";
 import DisableImageActions from "@/components/shared/DisableImageActions";
 import "./globals.css";
 
+const stara = localFont({
+  src: [
+    { path: "../fonts/Stara/Stara-Medium.otf", weight: "400", style: "normal" },
+    { path: "../fonts/Stara/Stara-Medium.otf", weight: "500", style: "normal" },
+    { path: "../fonts/Stara/Stara-MediumItalic.otf", weight: "500", style: "italic" },
+    { path: "../fonts/Stara/Stara-SemiBold.otf", weight: "600", style: "normal" },
+    { path: "../fonts/Stara/Stara-SemiBoldItalic.otf", weight: "600", style: "italic" },
+    { path: "../fonts/Stara/Stara-Bold.otf", weight: "700", style: "normal" },
+    { path: "../fonts/Stara/Stara-BoldItalic.otf", weight: "700", style: "italic" },
+    { path: "../fonts/Stara/Stara-ExtraBold.otf", weight: "800", style: "normal" },
+    { path: "../fonts/Stara/Stara-ExtraBoldItalic.otf", weight: "800", style: "italic" },
+    { path: "../fonts/Stara/Stara-Black.otf", weight: "900", style: "normal" },
+    { path: "../fonts/Stara/Stara-BlackItalic.otf", weight: "900", style: "italic" }
+  ],
+  variable: "--font-stara",
+  display: "swap"
+});
+
 const helveticaNow = localFont({
   src: [
-    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Light.woff2", weight: "300" },
-    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Regular.woff2", weight: "400" },
-    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Medium.woff2", weight: "500" },
-    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-ExtraBold.woff2", weight: "800" },
-    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Black.woff2", weight: "900" }
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Thin.ttf", weight: "100", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-ExtLt.ttf", weight: "200", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Light.ttf", weight: "300", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-ExtraBold.ttf", weight: "800", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-Black.ttf", weight: "900", style: "normal" },
+    { path: "../fonts/helvetica-now-display/HelveticaNowDisplay-ExtBlk.ttf", weight: "950", style: "normal" }
   ],
   variable: "--font-helvetica",
+  display: "swap"
+});
+
+const magnu = localFont({
+  src: [
+    { path: "../fonts/Magnu/GCMagnu-Light.otf", weight: "300", style: "normal" },
+    { path: "../fonts/Magnu/GCMagnu-Regular.otf", weight: "400", style: "normal" },
+    { path: "../fonts/Magnu/GCMagnu-Medium.otf", weight: "500", style: "normal" },
+    { path: "../fonts/Magnu/GCMagnu-SemiBold.otf", weight: "600", style: "normal" },
+    { path: "../fonts/Magnu/GCMagnu-Bold.otf", weight: "700", style: "normal" },
+    { path: "../fonts/Magnu/GCMagnu-ExtraBold.otf", weight: "800", style: "normal" }
+  ],
+  variable: "--font-magnu",
   display: "swap"
 });
 
@@ -46,7 +81,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${helveticaNow.variable} ${damn.variable} ${insomniaNight.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${stara.variable} ${helveticaNow.variable} ${magnu.variable} ${damn.variable} ${insomniaNight.variable}`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head />
       <body suppressHydrationWarning>
         <DisableImageActions />

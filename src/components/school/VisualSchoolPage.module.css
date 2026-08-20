@@ -171,7 +171,7 @@
 .hero h1 {
   margin: 0;
   max-width: 920px;
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(68px, 7.25vw, 112px);
   font-weight: 400;
   line-height: .82;
@@ -362,7 +362,7 @@
   left: 26px;
   bottom: 22px;
   color: white;
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: 42px;
   line-height: .8;
 }
@@ -734,7 +734,7 @@
 }
 
 .flagshipCard h3 {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: 44px;
   font-weight: 400;
   margin: 0;
@@ -743,7 +743,7 @@
 }
 
 .workshopCard h3 {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: 38px;
   font-weight: 400;
   margin: 0;
@@ -942,7 +942,7 @@
 .manifesto h2 {
   max-width: 1100px;
   margin: 0;
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(55px, 8vw, 112px);
   font-weight: 300;
   line-height: .87;
@@ -982,7 +982,7 @@
 }
 
 .stats strong {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   color: var(--red);
   font-size: clamp(42px, 5vw, 70px);
   font-weight: 300;
@@ -1014,7 +1014,7 @@
   display: flex;
   align-items: center;
   gap: 13px;
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(38px, 5vw, 66px);
 }
 
@@ -1112,7 +1112,7 @@
 .cardBody h3 {
   max-width: 540px;
   margin: 14px 0 10px;
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(32px, 4vw, 54px);
   font-weight: 300;
   line-height: .95;
@@ -1158,7 +1158,7 @@
 
 .cta h2 {
   margin: 30px 0 45px;
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(65px, 10vw, 140px);
   font-weight: 300;
   line-height: .78;
@@ -1531,7 +1531,7 @@
 }
 
 .overlayContent h2 {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(32px, 4.5vw, 56px);
   font-weight: 300;
   line-height: .9;
@@ -1830,7 +1830,7 @@
 }
 
 .nikeLogoGraphic h2 {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(60px, 12vw, 180px);
   line-height: 0.75;
   color: var(--ink);
@@ -2087,7 +2087,7 @@
 }
 
 .whoHeader h2 {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(54px, 7vw, 90px);
   margin: 16px 0 0;
   line-height: 0.9;
@@ -2402,7 +2402,7 @@
 }
 
 .faqContact h3 {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: 36px;
   font-weight: 400;
   line-height: 1;

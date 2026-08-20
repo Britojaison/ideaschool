@@ -37,9 +37,9 @@
 .heroTitle {
     margin: 0;
     color: #0a0a0a !important;
-    font-family: var(--font-damn), Impact, sans-serif;
+    font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
     font-size: clamp(160px, 20.8vw, 400px);
-    font-weight: 400;
+    font-weight: 700;
     line-height: .8;
     letter-spacing: .0015em;
     text-transform: uppercase;
@@ -1126,8 +1126,8 @@
 
 .cardTitle {
     font-size: clamp(28px, 2.5vw, 36px);
-    font-family: var(--font-damn), Impact, sans-serif;
-    font-weight: 400;
+    font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
+    font-weight: 700;
     line-height: 0.9;
     color: #fff;
     margin: 0;

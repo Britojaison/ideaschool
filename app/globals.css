@@ -81,14 +81,106 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/stara/Stara-Medium.otf") format("opentype");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/stara/Stara-MediumItalic.otf") format("opentype");
+  font-weight: 400 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/stara/Stara-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/stara/Stara-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/stara/Stara-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/stara/Stara-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnu";
+  src: url("/fonts/magnu/GCMagnu-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnu";
+  src: url("/fonts/magnu/GCMagnu-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnu";
+  src: url("/fonts/magnu/GCMagnu-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnu";
+  src: url("/fonts/magnu/GCMagnu-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnu";
+  src: url("/fonts/magnu/GCMagnu-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #08090b;
   --foreground: #ffffff;
   --muted: rgba(255, 255, 255, 0.72);
   --blue: #0a8cff;
   --cyan: #04c8ff;
-  --font-heading: "Manrope", Arial, Helvetica, sans-serif;
-  --font-subject: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-primary: var(--font-stara), "Stara", Arial, Helvetica, sans-serif;
+  --font-subject: var(--font-stara), "Stara", Arial, Helvetica, sans-serif;
+  --font-playful: var(--font-helvetica), "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-magnu), "Magnu", "GCMagnu", var(--font-stara), sans-serif;
+  --font-display: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+  --font-big: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
   --page-gutter: clamp(20px, 7vw, 88px);
   --page-max: 1290px;
   --wide-page-max: 1540px;
@@ -122,6 +214,22 @@ h6 {
   font-family: var(--font-heading);
   letter-spacing: -0.01em;
   word-spacing: 0.04em;
+}
+
+.font-stara,
+.font-primary {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.font-helvetica,
+.font-playful {
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif !important;
+}
+
+.font-magnu,
+.font-display,
+.font-big {
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif !important;
 }
 
 html {

@@ -88,8 +88,9 @@
   position: absolute;
   left: 18px;
   top: 8px;
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: 88px;
+  font-weight: 700;
   line-height: 1;
   letter-spacing: .02em;
 }

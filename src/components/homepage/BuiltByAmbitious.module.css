@@ -19,9 +19,9 @@
 }
 
 .title {
-  font-family: var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
   font-size: clamp(48px, 6vw, 84px);
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   margin: 0;
   color: #fbfaf2;

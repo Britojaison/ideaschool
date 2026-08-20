@@ -147,7 +147,8 @@ export default function Home() {
   return (
     <Shell headerOverlay>
       <div className={styles.topFlow}>
-        <section className={styles.hero} ref={heroRef} data-header-theme="dark">
+        <div className={styles.gradientFlow}>
+          <section className={styles.hero} ref={heroRef} data-header-theme="dark">
           <AmbientDots />
           <div className={styles.floatOne} aria-hidden="true" />
           <div className={styles.floatTwo} aria-hidden="true" />
@@ -325,8 +326,9 @@ export default function Home() {
           >
             ↙
           </a>
-        </section>
-        <Schools />
+          </section>
+          <Schools />
+        </div>
         <IdeaPhilosophy />
         <WorkshopsStrip />
       </div>

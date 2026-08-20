@@ -19,7 +19,7 @@
 }
 
 .title {
-  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
   font-size: clamp(48px, 6vw, 84px);
   font-weight: 700;
   text-transform: uppercase;
@@ -30,7 +30,9 @@
 }
 
 .subtitle {
-  font-family: var(--font-insomnia-night, inherit);
+  font-family: var(--font-helvetica), sans-serif;
+  font-style: italic;
+  font-weight: 500;
   font-size: clamp(20px, 1.5vw, 26px);
   line-height: 1.4;
   color: #a0aab2;

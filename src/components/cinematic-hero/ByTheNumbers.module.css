@@ -16,7 +16,7 @@
 }
 
 .title {
-  font-family: "Bebas Neue", var(--font-helvetica), sans-serif;
+  font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(2.8rem, 5vw, 5.2rem);
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -116,7 +116,7 @@
 
 /* Giant Stat Number */
 .statNumber {
-  font-family: "Bebas Neue", var(--font-helvetica), sans-serif;
+  font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(5.2rem, 9.2vw, 9.5rem);
   font-weight: 400;
   line-height: 0.82;

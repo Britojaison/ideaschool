@@ -10,8 +10,10 @@
   position: absolute;
   top: 60px;
   right: 16px;
-  font-family: var(--font-insomnia-night), cursive;
-  font-size: 1.2rem;
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.15rem;
   color: #FBFAF2;
   transform: rotate(-3deg);
   white-space: nowrap;
@@ -87,12 +89,12 @@
 .artLabel {
   position: absolute;
   left: 18px;
-  top: 8px;
-  font-family: var(--font-magnu), "Magnu", "GCMagnu", var(--font-damn), Impact, sans-serif;
-  font-size: 88px;
+  top: 10px;
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+  font-size: 64px;
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: .02em;
+  line-height: 0.95;
+  letter-spacing: .01em;
 }
 
 .artCaption {
@@ -101,6 +103,7 @@
   right: 18px;
   bottom: 16px;
   text-align: right;
+  font-family: var(--font-helvetica), sans-serif;
   font-size: 12px;
   line-height: 1.05;
   letter-spacing: -.03em;
@@ -115,9 +118,9 @@
 .orbitTwo { width: 88px; height: 88px; left: 113px; top: 98px; }
 .spark { position: absolute; z-index: 2; left: 142px; top: 112px; color: var(--red); font-size: 28px; }
 
-.content { padding: 22px 24px 24px; }
-.eyebrow { color: #666b6f; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
-.content h2 { margin: 10px 0 20px; font-size: 30px; font-weight: 300; line-height: 1.02; letter-spacing: -.045em; }
+.content { padding: 22px 24px 24px; font-family: var(--font-stara), sans-serif; }
+.eyebrow { color: #666b6f; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-family: var(--font-helvetica), sans-serif; }
+.content h2 { margin: 10px 0 20px; font-size: 28px; font-weight: 600; line-height: 1.05; letter-spacing: -.03em; font-family: var(--font-stara), "Stara", Arial, sans-serif; }
 .cta {
   display: flex;
   width: 100%;
@@ -129,7 +132,8 @@
   color: white;
   background: var(--ink);
   font-size: 14px;
-  font-family: inherit;
+  font-family: var(--font-helvetica), sans-serif;
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   transition: color .2s, background .2s;

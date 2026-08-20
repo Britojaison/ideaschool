@@ -2,86 +2,6 @@
 @import "../src/styles/globals.css";
 
 @font-face {
-  font-family: "Manrope";
-  src: url("/fonts/Manrope/Manrope-VariableFont_wght.ttf") format("truetype");
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Urbanist";
-  src: url("/fonts/Urbanist/Urbanist-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Urbanist";
-  src: url("/fonts/Urbanist/Urbanist-Italic-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bebas Neue";
-  src: url("/fonts/Bebas_Neue/BebasNeue-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("/fonts/Helvetica_Neue/HelveticaNeueRoman.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("/fonts/Helvetica_Neue/HelveticaNeueLight.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("/fonts/Helvetica_Neue/HelveticaNeueMedium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("/fonts/Helvetica_Neue/HelveticaNeueBold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("/fonts/Helvetica_Neue/HelveticaNeueItalic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "HelveticaNeue";
-  src: url("/fonts/Helvetica_Neue/HelveticaNeueBoldItalic.otf") format("opentype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Stara";
   src: url("/fonts/stara/Stara-Medium.otf") format("opentype");
   font-weight: 400 500;
@@ -124,6 +44,46 @@
 @font-face {
   font-family: "Stara";
   src: url("/fonts/stara/Stara-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("/fonts/helvetica-now-display/HelveticaNowDisplay-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("/fonts/helvetica-now-display/HelveticaNowDisplay-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("/fonts/helvetica-now-display/HelveticaNowDisplay-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("/fonts/helvetica-now-display/HelveticaNowDisplay-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -175,12 +135,14 @@
   --muted: rgba(255, 255, 255, 0.72);
   --blue: #0a8cff;
   --cyan: #04c8ff;
-  --font-primary: var(--font-stara), "Stara", Arial, Helvetica, sans-serif;
-  --font-subject: var(--font-stara), "Stara", Arial, Helvetica, sans-serif;
-  --font-playful: var(--font-helvetica), "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-heading: var(--font-magnu), "Magnu", "GCMagnu", var(--font-stara), sans-serif;
-  --font-display: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
-  --font-big: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+  --font-primary: var(--font-stara, "Stara", Arial, sans-serif);
+  --font-subject: var(--font-stara, "Stara", Arial, sans-serif);
+  --font-playful: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
+  --font-heading: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
+  --font-display: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
+  --font-big: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
+  --font-insomnia-night: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
+  --font-damn: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
   --page-gutter: clamp(20px, 7vw, 88px);
   --page-max: 1290px;
   --wide-page-max: 1540px;
@@ -211,25 +173,24 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
   letter-spacing: -0.01em;
   word-spacing: 0.04em;
 }
 
 .font-stara,
 .font-primary {
-  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-family: var(--font-stara, "Stara"), "Stara", Arial, sans-serif !important;
 }
 
 .font-helvetica,
 .font-playful {
-  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif !important;
+  font-family: var(--font-helvetica, "Helvetica Now Display"), "Helvetica Now Display", Arial, sans-serif !important;
 }
 
 .font-magnu,
 .font-display,
 .font-big {
-  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif !important;
+  font-family: var(--font-magnu, "Magnu"), "Magnu", "GCMagnu", sans-serif !important;
 }
 
 html {
@@ -638,7 +599,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .programMenuCopy em {
   color: #fff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-helvetica, "Helvetica Now Display"), "Helvetica Now Display", Arial, sans-serif;
   font-size: clamp(1rem, 1.15vw, 1.25rem);
   font-style: italic;
   line-height: 0.95;
@@ -12379,7 +12340,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 760px;
   margin-top: clamp(18px, 2vw, 24px);
   color: #151515;
-  font-family: "Bebas Neue", var(--font-heading);
+  font-family: var(--font-heading);
   font-size: clamp(4.5rem, 8vw, 8.9rem);
   font-weight: 800;
   line-height: 0.9;
@@ -13787,7 +13748,7 @@ html.isHeroGlassCursorActive .hero * {
   display: flex;
   align-items: center;
   height: 100vh;
-  font-family: "Bebas Neue", var(--font-heading);
+  font-family: var(--font-heading);
   font-size: clamp(10rem, 30vw, 35rem);
   font-weight: 800;
   white-space: nowrap;
@@ -14191,7 +14152,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopSiteFooter .footerMarquee {
   display: inline-block;
-  font-family: 'Bebas Neue', var(--font-heading);
+  font-family: var(--font-heading);
   font-size: clamp(5rem, 16vw, 15rem);
   font-weight: 900;
   color: #151515;

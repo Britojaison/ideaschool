@@ -47,7 +47,9 @@ export default function FlagshipSpotlight() {
         <div className={styles.content}>
           <div
             style={{
-              fontFamily: "var(--font-insomnia-night), cursive",
+              fontFamily: "var(--font-helvetica), sans-serif",
+              fontStyle: "italic",
+              fontWeight: 700,
               color: "var(--ink)",
               fontSize: "clamp(22px, 2.5vw, 28px)",
               transform: "rotate(-3deg) translateY(-15px)",

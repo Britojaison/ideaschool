@@ -19,7 +19,9 @@ const Gallery = () => {
         <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
           <h2 className="title" style={{ color: "inherit" }}>GALLERY</h2>
           <div style={{
-            fontFamily: "var(--font-insomnia-night), cursive",
+            fontFamily: "var(--font-helvetica), sans-serif",
+            fontStyle: "italic",
+            fontWeight: 700,
             color: "var(--ash)",
             fontSize: "clamp(18px, 2vw, 24px)",
             transform: "rotate(3deg) translateY(5px)",

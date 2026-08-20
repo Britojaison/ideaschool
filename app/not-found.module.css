@@ -1,7 +1,7 @@
 .page{position:relative;min-height:calc(100svh - 134px);padding:80px 7vw 50px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;background:#ADBDAB;color:#0a0a0a}
 .code{position:relative;z-index:1;margin:0 0 34px;color:#4d594c;font-size:11px;letter-spacing:.18em}
 .page h1{position:relative;z-index:1;max-width:1050px;margin:0;font-family:var(--font-helvetica),Arial,sans-serif;font-size:clamp(62px,8.5vw,138px);font-weight:300;line-height:.83;letter-spacing:-.065em}
-.page h1 em{color:#fb1616;font-family:var(--font-insomnia-night),cursive;font-weight:400;letter-spacing:-.02em}
+.page h1 em{color:#fb1616;font-family:var(--font-helvetica),"Helvetica Now Display",Arial,sans-serif;font-style:italic;font-weight:700;letter-spacing:-.02em}
 .copy{position:relative;z-index:1;max-width:520px;margin:55px 0 0 42%;color:#374036;font-size:17px;line-height:1.55}
 .page>a{position:relative;z-index:1;width:max-content;margin:38px 0 0 42%;padding:15px 0;border-bottom:1px solid #687566;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 .page>a span{margin-left:75px;color:#fb1616;font-size:18px}

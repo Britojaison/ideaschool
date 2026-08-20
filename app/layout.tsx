@@ -50,9 +50,6 @@ const magnu = localFont({
   display: "swap"
 });
 
-const damn = localFont({ src: "../fonts/damn.ttf", variable: "--font-damn", display: "swap" });
-const insomniaNight = localFont({ src: "../public/fonts/Insomnia Night.otf", variable: "--font-insomnia-night", display: "swap" });
-
 export const metadata: Metadata = {
   title: "Idea School | Creative Skills, AI Ad Filmmaking & Editing Programs",
   description:
@@ -83,7 +80,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${stara.variable} ${helveticaNow.variable} ${magnu.variable} ${damn.variable} ${insomniaNight.variable}`}
+      className={`${stara.variable} ${helveticaNow.variable} ${magnu.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

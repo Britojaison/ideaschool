@@ -60,7 +60,7 @@ export default function WorkshopInstructorImage({ mentor }: { mentor: Mentor }) 
         <div className="absolute bottom-6 left-6 right-6 lg:bottom-8 lg:left-8 lg:right-8 bg-white border-[3px] border-black p-5 rounded-2xl z-20 shadow-[6px_6px_0_0_#151515] transition-transform hover:-translate-y-1 duration-300 group">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-2xl lg:text-3xl font-black text-black m-0 mb-1 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)", letterSpacing: "1px" }}>{mentor.name}</h3>
+              <h3 className="text-2xl lg:text-3xl font-black text-black m-0 mb-1 uppercase" style={{ fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>{mentor.name}</h3>
               <p className="text-black font-bold m-0 tracking-wider uppercase text-xs lg:text-sm">{mentor.role}</p>
             </div>
             <div className="w-12 h-12 rounded-full bg-[#dafd55] border-2 border-black shadow-[2px_2px_0_0_#151515] flex items-center justify-center flex-shrink-0 group-hover:bg-[#d2bbf4] transition-colors duration-300">

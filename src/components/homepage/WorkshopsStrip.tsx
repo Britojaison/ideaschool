@@ -89,13 +89,15 @@ export default function WorkshopsStrip() {
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
             <h2 className="title">UPCOMING WORKSHOPS</h2>
             <div style={{
-              fontFamily: "var(--font-insomnia-night), cursive",
+              fontFamily: "var(--font-helvetica), sans-serif",
+              fontStyle: "italic",
+              fontWeight: 700,
               color: "inherit",
-              fontSize: "clamp(18px, 2vw, 24px)",
-              transform: "rotate(-4deg) translateY(-30px)",
+              fontSize: "clamp(16px, 1.6vw, 22px)",
+              transform: "rotate(-3deg)",
               display: "flex",
               alignItems: "center",
-              gap: "12px",
+              gap: "10px",
               opacity: 0.9
             }}>
               <svg width="45" height="30" viewBox="0 0 100 50" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">

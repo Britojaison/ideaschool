@@ -23,37 +23,36 @@ const rawMentors = [
   {
     name: "Arjun",
     role: "CEO",
-    image: "/assets/images/mentor_ARJUN.png",
+    image: "/assets/images/mentor_ARJUN.webp",
     color: "#a8d98a",
   },
   {
     name: "Parithi",
     role: "Head of Design",
-    image: "/assets/images/mentor_PARITHI.png",
+    image: "/assets/images/mentor_PARITHI.webp",
     color: "#d9a88a",
   },
   {
     name: "Chandru",
     role: "Senior Creative Strategist & Visualiser",
-    image: "/assets/images/mentor_CHANDRU.png",
+    image: "/assets/images/mentor_CHANDRU.webp",
     color: "#d1ca64",
   },
   {
     name: "Ajay",
     role: "Video Editor, Design",
-    image: "/assets/images/mentor_AJAY.png",
+    image: "/assets/images/mentor_AJAY.webp",
     color: "#b55e75",
   },
   {
     name: "Zaman",
     role: "Head of Growth",
-    image: "/assets/images/zaman.png",
+    image: "/assets/images/zaman.webp",
     color: "#8aa3d9",
   },
 ];
 
-// Duplicate for smooth infinite loop in Swiper coverflow
-const mentors = [...rawMentors, ...rawMentors];
+const mentors = rawMentors;
 
 const BuiltByAmbitious = () => {
   return (
@@ -94,7 +93,7 @@ const BuiltByAmbitious = () => {
               stretch: 0,
               depth: 130,
               modifier: 1,
-              slideShadows: true,
+              slideShadows: false,
             }}
             pagination={{
               clickable: true,
@@ -118,7 +117,7 @@ const BuiltByAmbitious = () => {
                       alt={mentor.name}
                       fill
                       sizes="(max-width: 768px) 280px, 340px"
-                      priority={index < 4}
+                      priority={index < 2}
                       className={styles.mentorImage}
                     />
                     <div className={styles.imageGradientOverlay} />

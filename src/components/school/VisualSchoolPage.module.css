@@ -2420,6 +2420,28 @@
   color: #FBFAF2;
 }
 
+/* Shared homepage typography system: section titles use Stara; highlight
+   callouts continue to use Helvetica Now and the oversized hero keeps Magnu. */
+.page h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  letter-spacing: 0.025em;
+}
+
+.page h1 {
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+}
+
 .faqMailLink {
   font-size: 16px;
   font-weight: 600;

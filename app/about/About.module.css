@@ -29,3 +29,25 @@
   .pillar h3{font-size:27px;letter-spacing:-.025em}
   .pillar p{font-size:15px}
 }
+
+/* Match the homepage typography system across About sections. */
+.page h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.bridge {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  letter-spacing: 0.025em;
+}
+
+.page h1 {
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+}

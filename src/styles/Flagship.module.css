@@ -174,7 +174,7 @@
 .accent {
   font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
   font-style: italic;
-  font-size: clamp(36px, 4.2vw, 62px);
+  font-size: clamp(28px, 3vw, 44px);
   font-weight: 800;
   line-height: 1.05;
   color: var(--red);
@@ -335,7 +335,7 @@
   }
   .accent {
     margin-top: -0.25em;
-    font-size: clamp(27px, 8vw, 34px);
+    font-size: clamp(24px, 7vw, 30px);
   }
   .lede {
     margin-bottom: 18px;

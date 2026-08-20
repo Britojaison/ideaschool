@@ -15,6 +15,8 @@
 }
 
 .gradientFlow {
+    position: relative;
+    isolation: isolate;
     background-color: #0a0a0c;
     background-image:
         radial-gradient(ellipse 62% 32% at -8% 22%, rgba(85, 46, 173, .52) 0%, rgba(85, 46, 173, .25) 40%, transparent 76%),
@@ -23,6 +25,32 @@
         radial-gradient(ellipse 62% 34% at -8% 82%, rgba(85, 46, 173, .4) 0%, rgba(85, 46, 173, .18) 40%, transparent 76%),
         radial-gradient(ellipse 62% 34% at 108% 82%, rgba(85, 46, 173, .34) 0%, rgba(85, 46, 173, .16) 40%, transparent 76%),
         linear-gradient(105deg, #16072d 0%, #0d011c 48%, #0a0014 100%);
+}
+
+.gradientFlow::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
+        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
+        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16));
+    background-repeat: no-repeat;
+    background-size: 1px 100%;
+    background-position:
+        10% 0, calc(10% + 18px) 0,
+        22% 0, calc(22% + 18px) 0,
+        calc(78% - 18px) 0, 78% 0,
+        calc(90% - 18px) 0, 90% 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
 }
 
 .hero {
@@ -41,28 +69,13 @@
     display: block;
     pointer-events: none;
     background-image:
-        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
-        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
-        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
-        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
-        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
-        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
-        linear-gradient(rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
-        linear-gradient(rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
         linear-gradient(90deg, rgba(251, 250, 242, .16), rgba(251, 250, 242, .16)),
         linear-gradient(90deg, rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
         linear-gradient(90deg, rgba(251, 250, 242, .1), rgba(251, 250, 242, .1)),
         linear-gradient(90deg, rgba(251, 250, 242, .16), rgba(251, 250, 242, .16));
     background-repeat: no-repeat;
-    background-size:
-        1px 100%, 1px 100%, 1px 100%, 1px 100%,
-        1px 100%, 1px 100%, 1px 100%, 1px 100%,
-        100% 1px, 100% 1px, 100% 1px, 100% 1px;
+    background-size: 100% 1px, 100% 1px, 100% 1px, 100% 1px;
     background-position:
-        10% 0, calc(10% + 18px) 0,
-        22% 0, calc(22% + 18px) 0,
-        calc(78% - 18px) 0, 78% 0,
-        calc(90% - 18px) 0, 90% 0,
         0 34%, 0 calc(34% + 18px),
         0 calc(70% - 18px), 0 70%;
 }

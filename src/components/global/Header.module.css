@@ -43,16 +43,18 @@
   height: 100%;
   padding: 0 clamp(24px, 4vw, 60px);
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr) 180px;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 20px;
 }
 
 .logoWrapper {
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
+  justify-content: center;
+  width: auto;
 }
 
 .logo,
@@ -84,9 +86,11 @@
 }
 
 .nav {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(20px, 2.2vw, 40px);
   min-width: 0;
   color: #232526;
@@ -473,6 +477,8 @@
    HEADER ACTIONS & BUTTONS
    ============================================================ */
 .actions {
+  grid-column: 3;
+  grid-row: 1;
   justify-self: end;
   display: flex;
   align-items: center;
@@ -541,7 +547,7 @@
    ============================================================ */
 @media (max-width: 1350px) {
   .inner {
-    grid-template-columns: 140px minmax(0, 1fr) 140px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     padding: 0 32px;
   }
 
@@ -590,6 +596,7 @@
   }
 
   .logoWrapper {
+    order: 1;
     width: auto;
   }
 
@@ -608,6 +615,7 @@
   }
 
   .actions {
+    order: 2;
     width: auto;
     gap: 10px;
   }

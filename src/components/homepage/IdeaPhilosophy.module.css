@@ -75,15 +75,6 @@
   overflow: hidden;
 }
 
-.index {
-  position: absolute;
-  top: 22px;
-  left: 24px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
 .letter {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(150px, 16vw, 260px);

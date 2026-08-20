@@ -39,10 +39,9 @@ export default function IdeaPhilosophy() {
         </div>
       </div>
       <div className={styles.pillars}>
-        {pillars.map((pillar, index) => (
+        {pillars.map((pillar) => (
           <article className={styles.pillar} key={pillar.letter}>
             <div className={styles.visual}>
-              <span className={styles.index}>0{index + 1}</span>
               <span className={styles.letter} aria-hidden="true">
                 {pillar.letter}
               </span>

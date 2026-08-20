@@ -30,6 +30,58 @@
     display: none;
 }
 
+.ambientDots {
+    position: absolute;
+    z-index: 1;
+    inset: 76px 0 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.ambientDots span {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(251, 250, 242, .58);
+    box-shadow: 0 0 5px rgba(205, 187, 255, .28);
+    animation: ambientDotDrift 8s ease-in-out infinite alternate;
+}
+
+.ambientDots span:nth-child(1) { left: 7%; top: 20%; animation-delay: -2s; }
+.ambientDots span:nth-child(2) { left: 14%; top: 67%; animation-delay: -5s; }
+.ambientDots span:nth-child(3) { left: 23%; top: 39%; animation-delay: -1s; }
+.ambientDots span:nth-child(4) { left: 31%; top: 15%; animation-delay: -7s; }
+.ambientDots span:nth-child(5) { left: 39%; top: 76%; animation-delay: -3s; }
+.ambientDots span:nth-child(6) { left: 47%; top: 30%; animation-delay: -6s; }
+.ambientDots span:nth-child(7) { left: 55%; top: 61%; animation-delay: -4s; }
+.ambientDots span:nth-child(8) { left: 63%; top: 18%; animation-delay: -8s; }
+.ambientDots span:nth-child(9) { left: 72%; top: 44%; animation-delay: -2.5s; }
+.ambientDots span:nth-child(10) { left: 79%; top: 73%; animation-delay: -5.5s; }
+.ambientDots span:nth-child(11) { left: 88%; top: 27%; animation-delay: -1.5s; }
+.ambientDots span:nth-child(12) { left: 94%; top: 58%; animation-delay: -6.5s; }
+.ambientDots span:nth-child(13) { left: 18%; top: 86%; animation-delay: -4.5s; }
+.ambientDots span:nth-child(14) { left: 43%; top: 50%; animation-delay: -7.5s; }
+.ambientDots span:nth-child(15) { left: 67%; top: 88%; animation-delay: -3.5s; }
+.ambientDots span:nth-child(16) { left: 84%; top: 10%; animation-delay: -.5s; }
+
+.ambientDots span:nth-child(3n) {
+    width: 1px;
+    height: 1px;
+    opacity: .65;
+}
+
+@keyframes ambientDotDrift {
+    from { transform: translate3d(-3px, -5px, 0); opacity: .28; }
+    to { transform: translate3d(6px, 7px, 0); opacity: .82; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ambientDots span {
+        animation: none;
+    }
+}
+
 .heroContent {
     position: absolute;
     z-index: 3;

@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.galleryTitle {
+    letter-spacing: 0.035em;
+}
+
 .galleryGrid {
     display: flex;
     gap: 20px;

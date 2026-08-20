@@ -17,7 +17,7 @@ const Gallery = () => {
     <section id="gallery-section" className={styles.gallerySection} style={{ backgroundColor: "#f9f8f6", color: "#0a0a0c" }}>
       <div className="sectionHead">
         <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-          <h2 className="title" style={{ color: "inherit" }}>GALLERY</h2>
+          <h2 className={`title ${styles.galleryTitle}`} style={{ color: "inherit" }}>GALLERY</h2>
           <div style={{
             fontFamily: "var(--font-helvetica), sans-serif",
             fontStyle: "italic",

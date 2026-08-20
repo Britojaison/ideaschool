@@ -1013,6 +1013,10 @@
     padding: 0 52px;
 }
 
+.fullContainer :global(.sectionHead .title) {
+    letter-spacing: .02em;
+}
+
 @media (max-width: 1350px) {
     .fullContainer {
         padding: 0 32px;
@@ -1026,6 +1030,10 @@
 }
 
 @media (max-width: 640px) {
+    .fullContainer :global(.sectionHead .title) {
+        letter-spacing: .01em;
+    }
+
     .fullContainer :global(.sectionHead) {
         display: block;
         margin-bottom: 0;

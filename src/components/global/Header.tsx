@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
+import navMark from "@public/assets/home/tumblr_c050d2fa4f5b9a2a88fa3f5196acd80f_1ccf7380_1280.webp";
 import styles from "./Header.module.css";
 
 export function Logo() {
@@ -137,6 +138,14 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
         </div>
 
         <nav className={styles.nav} aria-label="Main Navigation">
+          <Image
+            src={navMark}
+            alt=""
+            aria-hidden="true"
+            className={styles.navMark}
+            priority
+          />
+
           {/* Schools Dropdown */}
           <div
             className={styles.navItem}

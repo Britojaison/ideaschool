@@ -105,6 +105,14 @@
   color: #FBFAF2;
 }
 
+.navMark {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
 .headerScrolled .nav {
   gap: clamp(16px, 1.8vw, 32px);
   font-size: 11.5px;

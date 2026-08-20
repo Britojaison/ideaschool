@@ -169,14 +169,14 @@
   box-shadow: 0 0 0 5px rgba(251, 22, 22, .17);
 }
 
-.hero h1 {
+.page .hero h1 {
   margin: 0;
   max-width: 920px;
-  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(68px, 7.25vw, 112px);
-  font-weight: 400;
+  font-weight: 700;
   line-height: .82;
-  letter-spacing: -.025em;
+  letter-spacing: -.04em;
 }
 
 .heroIntro {
@@ -2428,14 +2428,13 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.025em;
+  letter-spacing: -0.04em;
 }
 
-.page h1,
 .page h2,
 .page h3 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  letter-spacing: 0.025em;
+  letter-spacing: -0.04em;
 }
 
 .page h1 {

@@ -6,7 +6,7 @@
 .galleryTitle {
     font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
     font-size: clamp(26px, 2.8vw, 40px) !important;
-    letter-spacing: 0.035em;
+    letter-spacing: -0.04em;
 }
 
 .galleryGrid {

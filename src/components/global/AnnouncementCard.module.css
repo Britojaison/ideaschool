@@ -120,7 +120,7 @@
 
 .content { padding: 16px 18px 18px; font-family: var(--font-stara), sans-serif; }
 .eyebrow { color: #666b6f; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; font-family: var(--font-helvetica), sans-serif; }
-.content h2 { margin: 8px 0 14px; font-size: 23px; font-weight: 600; line-height: 1.05; letter-spacing: -.03em; font-family: var(--font-stara), "Stara", Arial, sans-serif; }
+.content h2 { margin: 8px 0 14px; font-size: 23px; font-weight: 600; line-height: 1.05; letter-spacing: -.04em; font-family: var(--font-stara), "Stara", Arial, sans-serif; }
 .cta {
   display: flex;
   width: 100%;

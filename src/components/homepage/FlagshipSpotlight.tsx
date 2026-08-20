@@ -41,8 +41,6 @@ export default function FlagshipSpotlight() {
 
   return (
     <section className={`section ${styles.spotlight}`}>
-      <div className={styles.floatOne} aria-hidden="true" />
-      <div className={styles.floatTwo} aria-hidden="true" />
       <div className={styles.wrap}>
         <div className={styles.content}>
           <div className={styles.flagshipLabel}>

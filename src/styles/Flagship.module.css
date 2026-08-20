@@ -10,49 +10,6 @@
   align-items: center;
 }
 
-/* Background elements for depth */
-.spotlight::after {
-  content: ""; 
-  position: absolute; 
-  width: 600px; 
-  height: 600px; 
-  right: -100px; 
-  top: -100px;
-  border-radius: 50%; 
-  background: var(--red); 
-  opacity: 0.05;
-  filter: blur(60px);
-  pointer-events: none;
-}
-
-.floatOne,
-.floatTwo {
-    position: absolute;
-    z-index: 0;
-    border-radius: 20px;
-    background: #6f1d1b;
-    box-shadow: 0 24px 72px rgba(10, 10, 12, .3);
-    filter: blur(15px);
-    opacity: .5;
-    pointer-events: none;
-}
-
-.floatOne {
-    width: 300px;
-    height: 90px;
-    left: 10%;
-    top: 60%;
-    transform: rotate(28deg);
-}
-
-.floatTwo {
-    width: 200px;
-    height: 60px;
-    right: 5%;
-    top: 20%;
-    transform: rotate(-21deg);
-}
-
 .wrap {
   position: relative;
   z-index: 1;

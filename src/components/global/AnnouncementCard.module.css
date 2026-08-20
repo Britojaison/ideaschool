@@ -1,8 +1,8 @@
 .wrapper {
   position: fixed;
   z-index: 100;
-  right: 24px;
-  bottom: 24px;
+  right: 16px;
+  bottom: 16px;
   animation: arrive .55s cubic-bezier(.22, 1, .36, 1) both;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .card {
-  width: min(354px, calc(100vw - 32px));
+  width: min(300px, calc(100vw - 32px));
   overflow: hidden;
   border: 1px solid rgba(10, 10, 12, .18);
   border-radius: 4px;
@@ -46,11 +46,11 @@
 .close {
   position: absolute;
   z-index: 3;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, .45);
@@ -62,13 +62,13 @@
   transition: background .2s, transform .2s;
 }
 
-.close span { font-size: 27px; font-weight: 300; line-height: 1; transform: translateY(-1px); }
+.close span { font-size: 24px; font-weight: 300; line-height: 1; transform: translateY(-1px); }
 .close:hover { background: var(--ink); transform: rotate(6deg); }
 .close:focus-visible, .cta:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
 .art {
   position: relative;
-  height: 176px;
+  height: 120px;
   overflow: hidden;
   color: white;
   background:
@@ -88,10 +88,10 @@
 
 .artLabel {
   position: absolute;
-  left: 18px;
-  top: 10px;
+  left: 16px;
+  top: 9px;
   font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
-  font-size: 64px;
+  font-size: 52px;
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: .01em;
@@ -100,11 +100,11 @@
 .artCaption {
   position: absolute;
   z-index: 2;
-  right: 18px;
-  bottom: 16px;
+  right: 14px;
+  bottom: 12px;
   text-align: right;
   font-family: var(--font-helvetica), sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.05;
   letter-spacing: -.03em;
 }
@@ -114,31 +114,31 @@
   border: 1px solid rgba(255, 255, 255, .62);
   border-radius: 50%;
 }
-.orbitOne { width: 142px; height: 142px; left: 86px; top: 71px; }
-.orbitTwo { width: 88px; height: 88px; left: 113px; top: 98px; }
-.spark { position: absolute; z-index: 2; left: 142px; top: 112px; color: var(--red); font-size: 28px; }
+.orbitOne { width: 112px; height: 112px; left: 73px; top: 50px; }
+.orbitTwo { width: 68px; height: 68px; left: 95px; top: 72px; }
+.spark { position: absolute; z-index: 2; left: 117px; top: 84px; color: var(--red); font-size: 22px; }
 
-.content { padding: 22px 24px 24px; font-family: var(--font-stara), sans-serif; }
-.eyebrow { color: #666b6f; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-family: var(--font-helvetica), sans-serif; }
-.content h2 { margin: 10px 0 20px; font-size: 28px; font-weight: 600; line-height: 1.05; letter-spacing: -.03em; font-family: var(--font-stara), "Stara", Arial, sans-serif; }
+.content { padding: 16px 18px 18px; font-family: var(--font-stara), sans-serif; }
+.eyebrow { color: #666b6f; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; font-family: var(--font-helvetica), sans-serif; }
+.content h2 { margin: 8px 0 14px; font-size: 23px; font-weight: 600; line-height: 1.05; letter-spacing: -.03em; font-family: var(--font-stara), "Stara", Arial, sans-serif; }
 .cta {
   display: flex;
   width: 100%;
-  min-height: 48px;
-  padding: 0 16px;
+  min-height: 42px;
+  padding: 0 14px;
   align-items: center;
   justify-content: space-between;
   border: 1px solid var(--ink);
   color: white;
   background: var(--ink);
-  font-size: 14px;
+  font-size: 13px;
   font-family: var(--font-helvetica), sans-serif;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   transition: color .2s, background .2s;
 }
-.cta span { font-size: 20px; }
+.cta span { font-size: 18px; }
 .cta:hover { color: var(--ink); background: transparent; }
 
 @keyframes arrive {
@@ -148,13 +148,19 @@
 
 @media (max-width: 640px) {
   .wrapper { display: none; }
-  .art { height: 112px; }
-  .artLabel { font-size: 62px; }
-  .orbitOne { width: 110px; height: 110px; top: 45px; }
-  .orbitTwo { display: none; }
-  .spark { top: 72px; }
-  .content { padding: 17px 18px 18px; }
-  .content h2 { margin: 8px 0 15px; font-size: 25px; }
+}
+
+@media (max-height: 720px) and (min-width: 641px) {
+  .card { width: 270px; }
+  .art { height: 92px; }
+  .artLabel { font-size: 44px; }
+  .artCaption { display: none; }
+  .orbitOne { top: 34px; }
+  .orbitTwo { top: 56px; }
+  .spark { top: 68px; }
+  .content { padding: 12px 16px 14px; }
+  .content h2 { margin: 6px 0 10px; font-size: 20px; }
+  .cta { min-height: 38px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

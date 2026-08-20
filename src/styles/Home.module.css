@@ -29,19 +29,23 @@
 .heroContent {
     position: absolute;
     z-index: 3;
-    width: 76%;
-    left: 24.5%;
-    top: 26%;
+    width: min(72vw, 1100px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .heroTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     color: #0a0a0a !important;
     font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
-    font-size: clamp(80px, 11vw, 200px);
-    font-weight: 700;
-    line-height: .86;
-    letter-spacing: -.025em;
+    font-size: clamp(92px, 12.5vw, 220px);
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: .015em;
     text-transform: uppercase;
 }
 
@@ -57,27 +61,51 @@
 }
 
 .lineOne {
-    margin-left: clamp(80px, 10vw, 160px);
-    transform: none !important;
+    margin-left: 0;
+    transform: scaleY(1.4) !important;
+    transform-origin: center left !important;
 }
 
 .lineTwo {
+    display: grid !important;
+    grid-template-columns: auto auto;
+    column-gap: clamp(14px, 1.5vw, 24px);
+    row-gap: clamp(6px, .7vw, 12px);
+    justify-content: center;
+    align-items: baseline;
     margin-left: 0%;
     transform: none !important;
 }
 
-.titleAside {
-    position: absolute;
-    left: clamp(420px, 52vw, 760px);
-    top: 50%;
-    margin: 0;
-    width: max-content;
+.becomeWord {
+    display: block;
     font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-    font-size: clamp(20px, 2.2vw, 42px);
+    font-size: clamp(17px, 1.8vw, 34px);
     font-weight: 300;
     line-height: .95;
     letter-spacing: -.03em;
-    text-transform: uppercase;
+}
+
+.yourWord,
+.superpowerWord {
+    display: block;
+}
+
+.yourWord {
+    font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
+    font-size: clamp(17px, 1.8vw, 34px);
+    font-weight: 300;
+    line-height: .95;
+    letter-spacing: -.03em;
+}
+
+.superpowerWord {
+    grid-column: 1 / -1;
+    font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+    font-size: clamp(72px, 8vw, 144px);
+    font-weight: 500;
+    line-height: .9;
+    letter-spacing: .015em;
 }
 
 .heroIntro {
@@ -161,10 +189,10 @@
     position: absolute;
     z-index: 10;
     font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-    font-weight: 600;
-    font-size: clamp(11px, 0.95vw, 14px);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(14px, 1.25vw, 19px);
+    letter-spacing: -0.01em;
     color: #1a1a1a;
     display: flex;
     flex-direction: column;
@@ -174,15 +202,15 @@
 }
 
 .noteCreative {
-    left: 21%;
-    bottom: 3%;
-    transform: rotate(-6deg);
+    left: 20%;
+    bottom: 2%;
+    transform: rotate(-10deg);
 }
 
 .noteVisual {
-    left: 17%;
-    top: 39%;
-    transform: rotate(-6deg);
+    left: 15%;
+    top: 38%;
+    transform: rotate(-8deg);
 }
 
 .handwrittenNote span {
@@ -568,8 +596,8 @@
 @media (max-width:900px) {
     .heroContent {
         width: 86vw;
-        left: 10%;
-        top: 25%;
+        left: 50%;
+        top: 50%;
     }
 
     .heroTitle {
@@ -673,6 +701,10 @@
     }
 
     .lineTwo {
+        grid-template-columns: auto auto;
+        justify-content: center;
+        column-gap: 10px;
+        row-gap: 8px;
         margin: 0 !important;
         transform: none !important;
     }

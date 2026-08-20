@@ -82,11 +82,11 @@ export default function Home() {
         delay: 0.6,
       });
       gsap.from(".gsap-title-aside", {
-        x: 200,
         opacity: 0,
-        duration: 1.2,
+        x: 30,
+        duration: 1.0,
         ease: "power3.out",
-        delay: 0.8,
+        delay: 0.4,
       });
       gsap.from(".gsap-hero-intro-line", {
         scale: 0.72,
@@ -296,14 +296,13 @@ export default function Home() {
                 </span>
               </span>
               <span className={styles.lineTwo}>
-                <span className="gsap-text-becomes" style={{ display: "block" }}>
+                <span className={`${styles.becomeWord} gsap-text-becomes`}>
                   BECOME
                 </span>
+                <span className={`${styles.yourWord} gsap-title-aside`}>YOUR</span>
+                <span className={`${styles.superpowerWord} gsap-title-aside`}>SUPERPOWER</span>
               </span>
             </h1>
-            <p className={`${styles.titleAside} gsap-title-aside`}>
-              YOUR<br />SUPERPOWER
-            </p>
             <p className={styles.heroIntro}>
               <span className="gsap-hero-intro-line">
                 Learn real-world creative skills.

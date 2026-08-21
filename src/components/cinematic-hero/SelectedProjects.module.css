@@ -14,6 +14,30 @@
   margin-bottom: 5vh;
 }
 
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #DAFD55;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #DAFD55;
+  box-shadow: 0 0 8px #DAFD55;
+}
+
 .sectionTitle {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(2.8rem, 5vw, 5.2rem);
@@ -111,6 +135,8 @@
   background-color: #080808;
   border: 1px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .mainVideo {
@@ -118,6 +144,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: translateZ(0);
 }
 
 /* Technical HUD Viewfinder Corners */
@@ -240,9 +267,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(18, 18, 18, 0.88);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(14, 14, 14, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
   padding: 6px 10px 6px 12px;
   font-size: 0.68rem;
@@ -256,9 +282,29 @@
 }
 
 .caseStudyBtn:hover {
-  background: rgba(30, 30, 30, 0.95);
-  border-color: rgba(255, 255, 255, 0.45);
+  background: #222222;
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-1px);
+}
+
+.playPromptBadge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: #DAFD55;
+  font-weight: 600;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 6;
+  border-radius: 2px;
 }
 
 .arrowIconBox {
@@ -276,60 +322,145 @@
 .rightCol {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1.5rem;
   height: 100%;
-  min-height: 280px;
 }
 
 .rightTop {
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.projectCategoryBadge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #DAFD55;
+  font-weight: 600;
 }
 
 .projectTitle {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 0.98;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin: 0 0 0.4rem 0;
+  margin: 0;
 }
 
-.projectCategory {
-  font-size: clamp(0.82rem, 0.9vw, 0.92rem);
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 300;
+/* Mentor Attribution Card */
+.mentorBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-top: 0.4rem;
+}
+
+.mentorIcon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.mentorMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mentorLabel {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.mentorName {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.mentorRole {
+  font-size: 0.72rem;
+  color: #DAFD55;
+  font-weight: 400;
   letter-spacing: 0.02em;
 }
 
 .rightDescription {
   font-size: clamp(0.82rem, 0.92vw, 0.92rem);
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 300;
-  max-width: 380px;
 }
 
 .highlightMetric {
-  color: #FFFFFF;
+  color: #DAFD55;
   font-weight: 600;
+}
+
+/* Takeaway Box */
+.takeawayBox {
+  background: rgba(18, 18, 18, 0.6);
+  border-left: 2px solid #DAFD55;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.takeawayLabel {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #DAFD55;
+  text-transform: uppercase;
+}
+
+.takeawayText {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
 }
 
 /* Explore More Projects Footer */
 .exploreFooter {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1.5rem;
   margin-top: 8vh;
   padding-top: 5vh;
   border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  flex-wrap: wrap;
+}
+
+.footerNote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerSparkle {
+  color: #DAFD55;
+  font-size: 1.1rem;
 }
 
 .exploreLabel {
-  font-size: clamp(0.85rem, 0.95vw, 1rem);
-  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.82rem, 0.95vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
 }
 
@@ -337,23 +468,24 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(18, 18, 18, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #FFFFFF;
-  padding: 8px 12px 8px 16px;
-  font-size: 0.72rem;
-  font-weight: 600;
+  background: #DAFD55;
+  border: 1px solid #DAFD55;
+  color: #030405;
+  padding: 10px 18px;
+  font-size: 0.74rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .viewAllBtn:hover {
-  background: rgba(30, 30, 30, 1);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 253, 85, 0.3);
+  opacity: 0.95;
 }
 
 /* Responsive */

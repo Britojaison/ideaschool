@@ -12,29 +12,34 @@ if (typeof window !== "undefined") {
 
 export default function LenisScroller({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Initialize a new Lenis instance for smooth scrolling
-    const lenis = new Lenis();
+    // Initialize a tuned Lenis instance for ultra-responsive smooth scrolling
+    const lenis = new Lenis({
+      duration: 1.0,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+    });
 
     // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on("scroll", ScrollTrigger.update);
 
     const handleProgrammaticScroll = (event: Event) => {
       const scrollEvent = event as CustomEvent<number | string | HTMLElement>;
       event.preventDefault();
-      lenis.scrollTo(scrollEvent.detail, { duration: 1.2 });
+      lenis.scrollTo(scrollEvent.detail, { duration: 1.0 });
     };
     window.addEventListener("idea-scroll-to", handleProgrammaticScroll);
 
-    // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-    // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+    // Sync Lenis with GSAP's ticker
     const update = (time: number) => {
-      lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+      lenis.raf(time * 1000);
     };
     
     gsap.ticker.add(update);
-
-    // Disable lag smoothing in GSAP to prevent any delay in scroll animations
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(500, 33);
 
     return () => {
       gsap.ticker.remove(update);

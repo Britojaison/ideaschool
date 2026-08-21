@@ -4,6 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./SelectedProjects.module.css";
 
+interface MentorInfo {
+  name: string;
+  role: string;
+  agency: string;
+  action: string;
+}
+
 interface ProjectItem {
   id: string;
   index: string;
@@ -13,6 +20,8 @@ interface ProjectItem {
   title: string;
   category: string;
   videoSrc: string;
+  mentor: MentorInfo;
+  learnOutcome: string;
   description: React.ReactNode;
   thumbnails: string[];
 }
@@ -22,16 +31,21 @@ const PROJECTS_DATA: ProjectItem[] = [
     id: "01",
     index: "[ 01",
     metricValue: "4.2M",
-    metricLabel: "impressions",
-    bracketName: "[ Milky Mist & Milton Campaign ]",
+    metricLabel: "campaign reach",
+    bracketName: "[ Commercial Campaign • Milky Mist & Milton ]",
     title: "MILKY MIST & MILTON",
-    category: "Brand Commercial & Fast-Cut Edit",
+    category: "Commercial Fast-Cut & Sound Design",
     videoSrc: "/assets/videos/HOME PAGE VIDEO.mp4",
+    mentor: {
+      name: "Ajay Karthik",
+      role: "Lead Commercial Editor",
+      agency: "88GB Agency",
+      action: "Edited by your mentor"
+    },
+    learnOutcome: "Ajay deconstructs how he structured the timeline rhythm, multi-cam pacing, and sub-frame sound design.",
     description: (
       <>
-        [ High-octane commercial campaign combining product sound design, multi-camera
-        rhythm, and dynamic visual storytelling for national television & OTT.{" "}
-        <strong className={styles.highlightMetric}>4.2M impressions.</strong> ]
+        A high-energy national commercial campaign delivered for TV & OTT. You will learn directly from the editor who cut this project—dissecting his real-world pacing frameworks, sound staging, and delivery standards that generated <strong className={styles.highlightMetric}>4.2M+ impressions.</strong>
       </>
     ),
     thumbnails: [
@@ -47,14 +61,20 @@ const PROJECTS_DATA: ProjectItem[] = [
     index: "[ 02",
     metricValue: "100K+",
     metricLabel: "cohort viewers",
-    bracketName: "[ AI Fashion & Cinema Direction ]",
+    bracketName: "[ Generative AI • Luxury Fashion Direction ]",
     title: "CELINE & LUXURY AI",
     category: "Generative AI & Cinema Direction",
     videoSrc: "/assets/videos/TAPO.mp4",
+    mentor: {
+      name: "Elamparithi",
+      role: "Head of Design",
+      agency: "88GB Agency",
+      action: "Directed by your mentor"
+    },
+    learnOutcome: "Elamparithi teaches the exact prompt architectures, photoreal lighting setups, and AI video pipelines he uses for fashion brands.",
     description: (
       <>
-        [ Hybrid generative AI commercial directing photoreal talent, cinematic depth
-        of field, and hyper-realistic lighting physics for high-end fashion branding. ]
+        A luxury generative film exploring photoreal digital talent and cinematic depth. Your mentor breaks down how he combines cutting-edge AI engines (Flux, Seedance, Midjourney) with commercial art direction to build broadcast-ready visuals.
       </>
     ),
     thumbnails: [
@@ -69,15 +89,21 @@ const PROJECTS_DATA: ProjectItem[] = [
     id: "03",
     index: "[ 03",
     metricValue: "88GB",
-    metricLabel: "industry network",
-    bracketName: "[ Automotive Motion & CGI ]",
+    metricLabel: "agency pipeline",
+    bracketName: "[ Automotive Motion • VFX & Color ]",
     title: "AUTOMOTIVE SPEED REEL",
-    category: "VFX Tracking & Color Grading",
+    category: "VFX Tracking & DaVinci Color Grading",
     videoSrc: "/assets/videos/111.mp4",
+    mentor: {
+      name: "Dhananjayan S.",
+      role: "Founder & Creative Director",
+      agency: "88GB Agency",
+      action: "Supervised by your mentor"
+    },
+    learnOutcome: "Dhananjayan breaks down dynamic speed ramping, 3D tracking, and DaVinci Resolve node trees.",
     description: (
       <>
-        [ Precision motion graphics, dynamic speed ramping, rotoscoping, and DaVinci
-        Resolve color choreography engineered for premier automotive brands. ]
+        Precision motion graphics, dynamic speed ramping, and DaVinci Resolve color science. Learn the high-end commercial post-production standards, client critique cycles, and finishing techniques applied every day at 88GB.
       </>
     ),
     thumbnails: [
@@ -89,6 +115,92 @@ const PROJECTS_DATA: ProjectItem[] = [
     ]
   }
 ];
+
+interface ViewfinderCanvasProps {
+  project: ProjectItem;
+  currentThumbIdx: number;
+}
+
+function ViewfinderCanvas({ project, currentThumbIdx }: ViewfinderCanvasProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const posterSrc = project.thumbnails[currentThumbIdx] || project.thumbnails[0];
+
+  return (
+    <div
+      className={styles.centerCol}
+      onMouseEnter={() => setIsPlaying(true)}
+      onMouseLeave={() => setIsPlaying(false)}
+      onClick={() => setIsPlaying((prev) => !prev)}
+      style={{ cursor: "pointer" }}
+    >
+      {/* 4 Viewfinder Corner Crop Marks */}
+      <span className={styles.cornerTL} />
+      <span className={styles.cornerTR} />
+      <span className={styles.cornerBL} />
+      <span className={styles.cornerBR} />
+
+      {/* Center Crosshair Marker */}
+      <span className={styles.reticleCenter}>+</span>
+
+      {/* Top Glass HUD Bar */}
+      <div className={styles.hudHeader}>
+        <div className={styles.metricBlock}>
+          <span className={styles.metricValue}>{project.metricValue}</span>
+          <span className={styles.metricLabel}>{project.metricLabel}</span>
+        </div>
+        <div className={styles.hudTagBlock}>
+          <div className={styles.hudBracketTitle}>{project.bracketName}</div>
+          <div className={styles.hudSubtitle}>{project.category}</div>
+        </div>
+      </div>
+
+      {/* High-res Frame Still (Instant Zero-Lag Display while scrolling) */}
+      <Image
+        src={posterSrc}
+        alt={project.title}
+        fill
+        className={styles.thumbImg}
+        sizes="(max-width: 900px) 100vw, 750px"
+        priority={project.id === "01"}
+        style={{
+          opacity: isPlaying ? 0 : 1,
+          transition: "opacity 0.3s ease",
+          zIndex: 1,
+          objectFit: "cover"
+        }}
+      />
+
+      {/* Video Loop (Only decodes & streams when hovered or clicked) */}
+      {isPlaying && (
+        <video
+          className={styles.mainVideo}
+          src={project.videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ zIndex: 2 }}
+        />
+      )}
+
+      {/* Interactive Badge */}
+      <div className={styles.playPromptBadge}>
+        {isPlaying ? "● PLAYING REEL" : "▶ HOVER TO PREVIEW"}
+      </div>
+
+      {/* Floating View Case Study CTA Button */}
+      <a
+        href="#contact"
+        className={styles.caseStudyBtn}
+        aria-label={`View Case Study for ${project.title}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <span>HOW THIS WAS MADE</span>
+        <span className={styles.arrowIconBox}>↗</span>
+      </a>
+    </div>
+  );
+}
 
 export default function SelectedProjects() {
   const [activeThumbs, setActiveThumbs] = useState<{ [key: string]: number }>({
@@ -108,9 +220,13 @@ export default function SelectedProjects() {
     <section className={styles.section} id="selected-projects" data-header-theme="dark">
       {/* Section Header */}
       <div className={styles.header}>
-        <h2 className={styles.sectionTitle}>SELECTED PROJECTS</h2>
+        <div className={styles.eyebrowBadge}>
+          <span className={styles.eyebrowDot} />
+          <span>PROVEN CRAFT • REAL COMMERCIAL WORK • ACTIVE AGENCY MENTORS</span>
+        </div>
+        <h2 className={styles.sectionTitle}>LEARN FROM PEOPLE WHO DO THE WORK</h2>
         <p className={styles.sectionSubtitle}>
-          Commercial campaigns and portfolio films directed & edited in collaboration with Idea School.
+          We don&apos;t teach textbook theory. These are real commercial campaigns directed and edited by the 88GB agency mentors who will be personally teaching and critiquing your work.
         </p>
       </div>
 
@@ -147,57 +263,37 @@ export default function SelectedProjects() {
                 </div>
               </div>
 
-              {/* Center Column: Viewfinder Video Canvas with HUD Overlay */}
-              <div className={styles.centerCol}>
-                {/* 4 Viewfinder Corner Crop Marks */}
-                <span className={styles.cornerTL} />
-                <span className={styles.cornerTR} />
-                <span className={styles.cornerBL} />
-                <span className={styles.cornerBR} />
+              {/* Center Column: Zero-Lag Interactive Viewfinder */}
+              <ViewfinderCanvas
+                project={project}
+                currentThumbIdx={currentThumbIdx}
+              />
 
-                {/* Center Crosshair Marker */}
-                <span className={styles.reticleCenter}>+</span>
-
-                {/* Top Glass HUD Bar */}
-                <div className={styles.hudHeader}>
-                  <div className={styles.metricBlock}>
-                    <span className={styles.metricValue}>{project.metricValue}</span>
-                    <span className={styles.metricLabel}>{project.metricLabel}</span>
-                  </div>
-                  <div className={styles.hudTagBlock}>
-                    <div className={styles.hudBracketTitle}>{project.bracketName}</div>
-                    <div className={styles.hudSubtitle}>{project.category}</div>
-                  </div>
-                </div>
-
-                {/* Main Video Loop */}
-                <video
-                  className={styles.mainVideo}
-                  src={project.videoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-
-                {/* Floating View Case Study CTA Button */}
-                <a
-                  href="#contact"
-                  className={styles.caseStudyBtn}
-                  aria-label={`View Case Study for ${project.title}`}
-                >
-                  <span>VIEW CASE STUDY</span>
-                  <span className={styles.arrowIconBox}>↗</span>
-                </a>
-              </div>
-
-              {/* Right Column: Title, Subtitle, and Narrative Paragraph */}
+              {/* Right Column: Title, Subtitle, Mentor Card, and Narrative */}
               <div className={styles.rightCol}>
                 <div className={styles.rightTop}>
+                  <div className={styles.projectCategoryBadge}>{project.category}</div>
                   <h3 className={styles.projectTitle}>{project.title}</h3>
-                  <span className={styles.projectCategory}>{project.category}</span>
+
+                  {/* Mentor Attribution Card */}
+                  <div className={styles.mentorBadge}>
+                    <div className={styles.mentorIcon}>🎬</div>
+                    <div className={styles.mentorMeta}>
+                      <span className={styles.mentorLabel}>{project.mentor.action.toUpperCase()}:</span>
+                      <strong className={styles.mentorName}>{project.mentor.name}</strong>
+                      <span className={styles.mentorRole}>{project.mentor.role} • {project.mentor.agency}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.rightDescription}>{project.description}</div>
+
+                <div className={styles.rightDescription}>
+                  {project.description}
+                </div>
+
+                <div className={styles.takeawayBox}>
+                  <span className={styles.takeawayLabel}>WHAT YOUR MENTORS TEACH YOU:</span>
+                  <p className={styles.takeawayText}>{project.learnOutcome}</p>
+                </div>
               </div>
             </div>
           );
@@ -206,9 +302,14 @@ export default function SelectedProjects() {
 
       {/* Explore More Projects Footer Bar */}
       <div className={styles.exploreFooter}>
-        <span className={styles.exploreLabel}>Explore More Student & Brand Films</span>
-        <a href="#all-projects" className={styles.viewAllBtn}>
-          <span>VIEW ALL CASE STUDIES</span>
+        <div className={styles.footerNote}>
+          <span className={styles.footerSparkle}>⚡</span>
+          <span className={styles.exploreLabel}>
+            Learn the exact timelines, storytelling judgment, and revision standards used on commercial sets.
+          </span>
+        </div>
+        <a href="#apply" className={styles.viewAllBtn}>
+          <span>APPLY FOR NEXT COHORT</span>
           <span className={styles.arrowIconBox}>↗</span>
         </a>
       </div>

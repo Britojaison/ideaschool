@@ -3,6 +3,7 @@ import Shell from "@/components/global/Shell";
 import CinematicHeroFlow from "@/components/cinematic-hero/CinematicHeroFlow";
 import SelectedProjects from "@/components/cinematic-hero/SelectedProjects";
 import FullCreativeControl from "@/components/cinematic-hero/FullCreativeControl";
+import ProgramBrochure from "@/components/cinematic-hero/ProgramBrochure";
 import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function CreativeEditingCopyPage() {
       />
       <SelectedProjects />
       <FullCreativeControl />
+      <ProgramBrochure />
       <ByTheNumbers />
     </Shell>
   );

@@ -642,25 +642,25 @@ export default function VisualSchoolPage() {
               <div className={styles.nikeScatteredContainer}>
                 <div className={`${styles.nikeScattered} ${styles.scatter1}`}>
                   <div className={styles.nikeModule}>
-                    <span>01 / Foundation <b className={styles.nikeModuleArrow}>↗</b></span>
+                    <span>Foundation <b className={styles.nikeModuleArrow}>↗</b></span>
                     <p>Master the basics of visual storytelling, scripting, and narrative pacing.</p>
                   </div>
                 </div>
                 <div className={`${styles.nikeScattered} ${styles.scatter2}`}>
                   <div className={styles.nikeModule}>
-                    <span>02 / Motion <b className={styles.nikeModuleArrow}>↗</b></span>
+                    <span>Motion <b className={styles.nikeModuleArrow}>↗</b></span>
                     <p>Dive deep into Premiere Pro and After Effects for dynamic cuts and motion graphics.</p>
                   </div>
                 </div>
                 <div className={`${styles.nikeScattered} ${styles.scatter3}`}>
                   <div className={styles.nikeModule}>
-                    <span>03 / AI Gen <b className={styles.nikeModuleArrow}>↗</b></span>
+                    <span>AI Gen <b className={styles.nikeModuleArrow}>↗</b></span>
                     <p>Utilize Midjourney, Runway, and Stable Diffusion to generate custom assets.</p>
                   </div>
                 </div>
                 <div className={`${styles.nikeScattered} ${styles.scatter4}`}>
                   <div className={styles.nikeModule}>
-                    <span>04 / Polish <b className={styles.nikeModuleArrow}>↗</b></span>
+                    <span>Polish <b className={styles.nikeModuleArrow}>↗</b></span>
                     <p>Bring it all together into an industry-ready portfolio piece and professional color grading.</p>
                   </div>
                 </div>

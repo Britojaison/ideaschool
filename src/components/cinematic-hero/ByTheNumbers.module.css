@@ -5,7 +5,7 @@
   color: #FFFFFF;
   padding: 10vh 3.5vw 16vh 3.5vw;
   z-index: 20;
-  font-family: var(--font-helvetica), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   border-top: 1px dashed rgba(255, 255, 255, 0.15);
 }
@@ -16,7 +16,7 @@
 }
 
 .title {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(2.8rem, 5vw, 5.2rem);
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -70,7 +70,7 @@
 
 /* Column Letter Marker (a ], b ], c ], d ]) */
 .letterTag {
-  font-family: var(--font-helvetica), monospace;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.06em;
@@ -116,7 +116,7 @@
 
 /* Giant Stat Number */
 .statNumber {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(5.2rem, 9.2vw, 9.5rem);
   font-weight: 400;
   line-height: 0.82;
@@ -136,7 +136,7 @@
 
 /* Stat Label */
 .statLabel {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(0.72rem, 0.82vw, 0.85rem);
   font-weight: 500;
   line-height: 1.45;

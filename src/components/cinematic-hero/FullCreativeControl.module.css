@@ -5,7 +5,7 @@
   color: #FFFFFF;
   padding: 12vh 3.5vw 16vh 3.5vw;
   z-index: 20;
-  font-family: var(--font-helvetica), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   border-top: 1px dashed rgba(255, 255, 255, 0.15);
 }
@@ -17,7 +17,7 @@
 }
 
 .title {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(2.8rem, 5vw, 5.2rem);
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -105,7 +105,7 @@
 }
 
 .stepIndex {
-  font-family: var(--font-helvetica), monospace;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(1.2rem, 2.4vw, 2.5rem);
   font-weight: 600;
   color: #E63946;
@@ -114,7 +114,7 @@
 }
 
 .stepName {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(4.5rem, 9.2vw, 9rem);
   font-weight: 400;
   line-height: 0.85;
@@ -134,7 +134,7 @@
   color: rgba(255, 255, 255, 0.72);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-weight: 400;
   animation: fadeIn 0.4s ease forwards;
 }

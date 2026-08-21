@@ -5,7 +5,7 @@
   color: #FFFFFF;
   padding: 8vh 3.5vw 16vh 3.5vw;
   z-index: 20;
-  font-family: var(--font-helvetica), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(2.8rem, 5vw, 5.2rem);
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -61,7 +61,7 @@
 }
 
 .projectIndex {
-  font-family: var(--font-helvetica), monospace;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
@@ -197,7 +197,7 @@
 }
 
 .metricValue {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(1.8rem, 2.8vw, 3rem);
   font-weight: 400;
   color: #FFFFFF;
@@ -218,7 +218,7 @@
 }
 
 .hudBracketTitle {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(0.85rem, 1vw, 1.05rem);
   font-weight: 500;
   color: #FFFFFF;
@@ -286,7 +286,7 @@
 }
 
 .projectTitle {
-  font-family: var(--font-helvetica), sans-serif;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(2rem, 3.2vw, 3.4rem);
   font-weight: 400;
   line-height: 0.95;

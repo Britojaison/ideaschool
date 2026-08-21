@@ -451,16 +451,16 @@ export default function VisualSchoolPage() {
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
                 <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
-                <p className={styles.overlayLabel}>SHOWCASE PROJECT</p>
-                <h2>Creative Editing in Action</h2>
-                <p className={styles.overlayDesc}>See how our students use AI-native workflows to produce industry-ready work in record time.</p>
+                <p className={styles.overlayLabel}>24-WEEK FLAGSHIP PROGRAM</p>
+                <h2>Creative Editing &amp; AI Pro</h2>
+                <p className={styles.overlayDesc}>Build professional editing, motion design, and AI-native production skills through one complete career-focused course.</p>
                 <div className={styles.overlayTags}>
                   <span>AI Editing</span>
                   <span>Motion Design</span>
                   <span>Storytelling</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>View Showcase</Link>
+                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>Explore Full Course</Link>
                   <button
                     type="button"
                     className={styles.btnSecondary}
@@ -481,16 +481,16 @@ export default function VisualSchoolPage() {
               </video>
               <div className={styles.overlayContent}>
                 <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
-                <p className={styles.overlayLabel}>CASE STUDY</p>
-                <h2>Storytelling</h2>
-                <p className={styles.overlayDesc}>Explore how to weave compelling narratives through editing and motion design with this in-depth case study.</p>
+                <p className={styles.overlayLabel}>COMPLETE COURSE CURRICULUM</p>
+                <h2>From Story to Final Cut</h2>
+                <p className={styles.overlayDesc}>Learn visual storytelling, professional editing, motion graphics, and AI workflows through structured, hands-on modules.</p>
                 <div className={styles.overlayTags}>
-                  <span>Filmmaking</span>
-                  <span>Case Study</span>
-                  <span>Editing</span>
+                  <span>Storytelling</span>
+                  <span>Premiere Pro</span>
+                  <span>After Effects</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <Link href="/ad-film-making" className={styles.btnPrimary}>View Case Study</Link>
+                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
             </div>
@@ -502,16 +502,16 @@ export default function VisualSchoolPage() {
               </video>
               <div className={styles.overlayContent}>
                 <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
-                <p className={styles.overlayLabel}>STUDENT SPOTLIGHT</p>
-                <h2>Luis Creative Reel</h2>
-                <p className={styles.overlayDesc}>Witness the incredible evolution of visual storytelling skills directly from our recent graduates.</p>
+                <p className={styles.overlayLabel}>CAREER-READY OUTCOMES</p>
+                <h2>Build an Industry-Ready Portfolio</h2>
+                <p className={styles.overlayDesc}>Graduate with polished portfolio projects, practical production experience, and the skills to work with real creative teams.</p>
                 <div className={styles.overlayTags}>
                   <span>Portfolio</span>
-                  <span>Graduates</span>
-                  <span>Showreel</span>
+                  <span>Mentorship</span>
+                  <span>Career Track</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <Link href="/master-video-editing" className={styles.btnPrimary}>Watch Reel</Link>
+                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
             </div>

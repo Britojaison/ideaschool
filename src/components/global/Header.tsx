@@ -354,14 +354,23 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             </div>
           </div>
 
-          {/* About */}
-          <Link href="/about" className={styles.navLink} onClick={closeAll}>
-            About
-          </Link>
+          {/* Community */}
+          <a
+            href="https://www.instagram.com/ideaschool.pro/"
+            className={styles.navLink}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeAll}
+          >
+            Community
+          </a>
         </nav>
 
         {/* Actions */}
         <div className={styles.actions}>
+          <Link href="/about" className={styles.actionLink} onClick={closeAll}>
+            About
+          </Link>
           <button
             className={styles.apply}
             type="button"

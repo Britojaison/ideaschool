@@ -374,9 +374,9 @@
 .editorialBlock {
   position: absolute;
   left: clamp(340px, 32vw, 480px);
-  bottom: 5vh;
-  max-width: 410px;
-  font-size: clamp(0.82rem, 0.95vw, 0.95rem);
+  bottom: 4vh;
+  max-width: 430px;
+  font-size: clamp(0.88rem, 1vw, 1rem);
   line-height: 1.48;
   color: rgba(255, 255, 255, 0.72);
   font-weight: 300;
@@ -416,10 +416,11 @@
    ========================================================================== */
 @media (max-width: 1024px) {
   .editorialBlock {
-    left: clamp(280px, 36vw, 440px);
-    max-width: 320px;
-    font-size: 0.85rem;
+    left: clamp(280px, 35vw, 400px);
+    max-width: 330px;
+    font-size: 0.9rem;
   }
+
   .giantTextLeft,
   .giantTextRight {
     font-size: clamp(5rem, 12vw, 9rem);
@@ -443,6 +444,11 @@
     position: static;
     text-align: left;
     max-width: 100%;
+  }
+
+  .editorialBlock {
+    margin-top: 1rem;
+    font-size: 0.95rem;
   }
 
   .giantTextLeft {

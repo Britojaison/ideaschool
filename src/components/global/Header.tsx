@@ -230,25 +230,25 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             </div>
           </div>
 
-          {/* Programs & Workshops Dropdown */}
+          {/* Full Course Dropdown */}
           <div
             className={styles.navItem}
-            onMouseEnter={() => handleMouseEnter("programs")}
+            onMouseEnter={() => handleMouseEnter("courses")}
             onMouseLeave={handleMouseLeave}
           >
             <button
               type="button"
               className={`${styles.navLink} ${styles.navButton} ${
-                activeDropdown === "programs" ? styles.navLinkActive : ""
+                activeDropdown === "courses" ? styles.navLinkActive : ""
               }`}
               onClick={() =>
-                setActiveDropdown(activeDropdown === "programs" ? null : "programs")
+                setActiveDropdown(activeDropdown === "courses" ? null : "courses")
               }
             >
-              <span>Programs & Workshops</span>
+              <span>Full Course</span>
               <svg
                 className={`${styles.chevron} ${
-                  activeDropdown === "programs" ? styles.chevronOpen : ""
+                  activeDropdown === "courses" ? styles.chevronOpen : ""
                 }`}
                 width="8"
                 height="5"
@@ -266,90 +266,90 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             </button>
 
             <div
-              className={`${styles.dropdown} ${styles.programsDropdown} ${
-                activeDropdown === "programs" ? styles.dropdownOpen : ""
+              className={`${styles.dropdown} ${styles.courseDropdown} ${
+                activeDropdown === "courses" ? styles.dropdownOpen : ""
               }`}
             >
-              <div className={styles.programsGrid}>
-                {/* Flagship Column */}
-                <div className={styles.programsCol}>
-                  <div className={styles.dropdownHeader}>
-                    <span>FLAGSHIP PROGRAM · 24 WEEKS</span>
-                  </div>
-                  <Link
-                    href="/creative-editing-copy"
-                    className={styles.flagshipCard}
-                    onClick={closeAll}
-                  >
-                    <div className={styles.flagshipTop}>
-                      <span className={styles.flagshipBadge}>Career Track</span>
-                      <span className={styles.flagshipArrow}>↗</span>
-                    </div>
-                    <h4 className={styles.flagshipTitle}>
-                      Creative Editing & AI Pro
-                    </h4>
-                    <p className={styles.flagshipDesc}>
-                      Complete career transformation in post-production, motion
-                      graphics, and next-generation AI filmmaking.
-                    </p>
-                  </Link>
+              <div className={styles.dropdownHeader}>
+                <span>FULL-TIME CAREER COURSE · 24 WEEKS</span>
+              </div>
+              <Link
+                href="/creative-editing-copy"
+                className={styles.flagshipCard}
+                onClick={closeAll}
+              >
+                <div className={styles.flagshipTop}>
+                  <span className={styles.flagshipBadge}>Visual School</span>
+                  <span className={styles.flagshipArrow}>↗</span>
                 </div>
+                <h4 className={styles.flagshipTitle}>Creative Editing & AI Pro</h4>
+                <p className={styles.flagshipDesc}>
+                  Complete career course in editing, motion design, storytelling,
+                  and AI filmmaking.
+                </p>
+              </Link>
+            </div>
+          </div>
 
-                {/* Workshops Column */}
-                <div className={styles.programsCol}>
-                  <div className={styles.dropdownHeader}>
-                    <span>OFFLINE WORKSHOPS · 1-2 DAYS</span>
+          {/* Short Workshops Dropdown */}
+          <div
+            className={styles.navItem}
+            onMouseEnter={() => handleMouseEnter("workshops")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button
+              type="button"
+              className={`${styles.navLink} ${styles.navButton} ${
+                activeDropdown === "workshops" ? styles.navLinkActive : ""
+              }`}
+              onClick={() =>
+                setActiveDropdown(activeDropdown === "workshops" ? null : "workshops")
+              }
+            >
+              <span>Workshops</span>
+              <svg
+                className={`${styles.chevron} ${
+                  activeDropdown === "workshops" ? styles.chevronOpen : ""
+                }`}
+                width="8"
+                height="5"
+                viewBox="0 0 8 5"
+                fill="none"
+              >
+                <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div className={`${styles.dropdown} ${styles.workshopsDropdown} ${
+              activeDropdown === "workshops" ? styles.dropdownOpen : ""
+            }`}>
+              <div className={styles.dropdownHeader}>
+                <span>FOCUSED, HANDS-ON CLASSES · 1–2 DAYS</span>
+              </div>
+              <div className={styles.workshopList}>
+                <Link href="/master-video-editing" className={styles.workshopItem} onClick={closeAll}>
+                  <div className={styles.workshopInfo}>
+                    <span className={styles.workshopTitle}>Master Video Editing</span>
+                    <span className={styles.workshopSub}>2 Days · Offline Workshop</span>
                   </div>
-                  <div className={styles.workshopList}>
-                    <Link
-                      href="/master-video-editing"
-                      className={styles.workshopItem}
-                      onClick={closeAll}
-                    >
-                      <div className={styles.workshopInfo}>
-                        <span className={styles.workshopTitle}>
-                          Master Video Editing
-                        </span>
-                        <span className={styles.workshopSub}>
-                          2 Days · Offline Masterclass
-                        </span>
-                      </div>
-                      <span className={styles.linkArrow}>↗</span>
-                    </Link>
+                  <span className={styles.linkArrow}>↗</span>
+                </Link>
 
-                    <Link
-                      href="/ad-film-making"
-                      className={styles.workshopItem}
-                      onClick={closeAll}
-                    >
-                      <div className={styles.workshopInfo}>
-                        <span className={styles.workshopTitle}>
-                          AI Ad Film Making
-                        </span>
-                        <span className={styles.workshopSub}>
-                          Weekend · Commercial AI Filmmaking
-                        </span>
-                      </div>
-                      <span className={styles.linkArrow}>↗</span>
-                    </Link>
-
-                    <Link
-                      href="/video-editing"
-                      className={styles.workshopItem}
-                      onClick={closeAll}
-                    >
-                      <div className={styles.workshopInfo}>
-                        <span className={styles.workshopTitle}>
-                          High-Paying Video Editing
-                        </span>
-                        <span className={styles.workshopSub}>
-                          1 Day · Strategy & Client Growth
-                        </span>
-                      </div>
-                      <span className={styles.linkArrow}>↗</span>
-                    </Link>
+                <Link href="/ad-film-making" className={styles.workshopItem} onClick={closeAll}>
+                  <div className={styles.workshopInfo}>
+                    <span className={styles.workshopTitle}>AI Ad Film Making</span>
+                    <span className={styles.workshopSub}>Weekend · Offline Workshop</span>
                   </div>
-                </div>
+                  <span className={styles.linkArrow}>↗</span>
+                </Link>
+
+                <Link href="/video-editing" className={styles.workshopItem} onClick={closeAll}>
+                  <div className={styles.workshopInfo}>
+                    <span className={styles.workshopTitle}>High-Paying Video Editing</span>
+                    <span className={styles.workshopSub}>1 Day · Offline Workshop</span>
+                  </div>
+                  <span className={styles.linkArrow}>↗</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -444,9 +444,9 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             </div>
           </div>
 
-          {/* Programs & Workshops */}
+          {/* Full Course */}
           <div className={styles.mobileSectionGroup}>
-            <span className={styles.mobileSectionLabel}>PROGRAMS & WORKSHOPS</span>
+            <span className={styles.mobileSectionLabel}>FULL COURSE · 24 WEEKS</span>
             <div className={styles.mobileLinkList}>
               <Link
                 href="/creative-editing-copy"
@@ -455,11 +455,17 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               >
                 <div className={styles.mobileSubText}>
                   <strong>Creative Editing & AI Pro</strong>
-                  <small>24-Week Flagship Program</small>
+                  <small>Visual School · Career Course</small>
                 </div>
                 <span>↗</span>
               </Link>
+            </div>
+          </div>
 
+          {/* Short Workshops */}
+          <div className={styles.mobileSectionGroup}>
+            <span className={styles.mobileSectionLabel}>WORKSHOPS · 1–2 DAYS</span>
+            <div className={styles.mobileLinkList}>
               <Link
                 href="/master-video-editing"
                 className={styles.mobileSubLink}

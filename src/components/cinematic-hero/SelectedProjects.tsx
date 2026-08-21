@@ -299,20 +299,6 @@ export default function SelectedProjects() {
           );
         })}
       </div>
-
-      {/* Explore More Projects Footer Bar */}
-      <div className={styles.exploreFooter}>
-        <div className={styles.footerNote}>
-          <span className={styles.footerSparkle}>⚡</span>
-          <span className={styles.exploreLabel}>
-            Learn the exact timelines, storytelling judgment, and revision standards used on commercial sets.
-          </span>
-        </div>
-        <a href="#apply" className={styles.viewAllBtn}>
-          <span>APPLY FOR NEXT COHORT</span>
-          <span className={styles.arrowIconBox}>↗</span>
-        </a>
-      </div>
     </section>
   );
 }

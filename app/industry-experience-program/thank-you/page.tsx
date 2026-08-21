@@ -5,7 +5,6 @@ import Script from "next/script";
 import { ShowreelSection, StudentTestimonialsSection } from "./ThankYouVideoTabs";
 import "./page.css";
 
-const whatsappCommunityUrl = "https://chat.whatsapp.com/KWbeQryPQBO3z2drK3gPdE";
 const ideaSchoolUrl = "https://ideaschool.pro";
 const agencyWebsiteUrl = "https://88gb.in";
 const instagramUrl = "https://www.instagram.com/ideaschool.pro/";
@@ -82,24 +81,6 @@ export default function IndustryExperienceThankYouPage() {
               <strong>Please keep your phone handy</strong>
               <span>Our admissions team will call you to walk you through the program details and schedule.</span>
             </div>
-          </div>
-
-          <div className="vslQuickActions">
-            <a
-              className="vslWhatsappCta"
-              href={whatsappCommunityUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                src="/images/whatsapp.svg"
-                alt=""
-                width={20}
-                height={20}
-                style={{ width: "auto", height: "auto" }}
-              />
-              <span>Join WhatsApp Community for Updates</span>
-            </a>
           </div>
         </section>
 

@@ -38,8 +38,8 @@ export default function CreativeEditingCopyPage() {
         ]}
       />
       <SelectedProjects />
-      <FullCreativeControl />
       <ProgramBrochure />
+      <FullCreativeControl />
       <ByTheNumbers />
     </Shell>
   );

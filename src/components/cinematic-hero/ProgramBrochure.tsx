@@ -35,7 +35,7 @@ export default function ProgramBrochure() {
   const brochurePdfUrl = "/pdf/Program%20Brochure.pdf";
 
   return (
-    <section className={styles.section} id="brochure" data-header-theme="dark">
+    <section className={styles.section} id="curriculum" data-header-theme="dark">
       <div className={styles.container}>
         {/* Left Column: Headline, Narrative & Highlights */}
         <div className={styles.leftCol}>

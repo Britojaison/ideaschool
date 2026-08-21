@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./CinematicHeroFlow.module.css";
 
+import MusicToggleButton from "@/components/ui/MusicToggleButton";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -76,6 +78,14 @@ export default function CinematicHeroFlow({
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
+  // Initialize video volume & mute state
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.volume = 1.0;
+    }
+  }, []);
+
   // Video timeupdate handler
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
@@ -87,21 +97,39 @@ export default function CinematicHeroFlow({
 
   // Play / Pause toggle
   const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play().catch(() => {});
       setIsPlaying(true);
     } else {
-      videoRef.current.pause();
+      video.pause();
       setIsPlaying(false);
     }
   };
 
-  // Mute / Unmute toggle
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(videoRef.current.muted);
+  // Mute / Unmute toggle - directly controls DOM video element
+  const toggleMute = (e?: React.MouseEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isMuted || video.muted) {
+      video.muted = false;
+      video.volume = 1.0;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn("Video play error:", err);
+        });
+      }
+      setIsMuted(false);
+    } else {
+      video.muted = true;
+      setIsMuted(true);
+    }
   };
 
   // Scrub to position in video
@@ -143,12 +171,21 @@ export default function CinematicHeroFlow({
           pinSpacing: true,
           scrub: 1.0,
           anticipatePin: 1,
+          onUpdate: (self) => {
+            if (self.progress > 0.25) {
+              if (directorLayerRef.current) directorLayerRef.current.style.pointerEvents = "auto";
+              if (heroLayerRef.current) heroLayerRef.current.style.pointerEvents = "none";
+            } else {
+              if (directorLayerRef.current) directorLayerRef.current.style.pointerEvents = "none";
+              if (heroLayerRef.current) heroLayerRef.current.style.pointerEvents = "auto";
+            }
+          }
         }
       });
 
       // Initial state setup
       gsap.set(heroLayerRef.current, { opacity: 1, y: 0, pointerEvents: "auto" });
-      gsap.set(directorLayerRef.current, { opacity: 1, visibility: "visible", pointerEvents: "auto" });
+      gsap.set(directorLayerRef.current, { opacity: 1, visibility: "visible", pointerEvents: "none" });
       gsap.set(directorBlackFadeRef.current, { opacity: 0 });
       gsap.set(fullBlackOverlayRef.current, { opacity: 0 });
 
@@ -170,11 +207,6 @@ export default function CinematicHeroFlow({
           y: -80,
           duration: 0.35,
           ease: "power1.inOut",
-          onUpdate: () => {
-            if (heroLayerRef.current) {
-              heroLayerRef.current.style.pointerEvents = "none";
-            }
-          }
         },
         0
       );
@@ -334,6 +366,20 @@ export default function CinematicHeroFlow({
             </div>
           </div>
 
+          {/* Bottom Center Music / Sound Toggle Button */}
+          <div className={styles.bottomCenterMusic}>
+            {isMuted && (
+              <div className={styles.musicPromptWrapper}>
+                <span className={styles.musicPromptText}>CLICK TO PLAY<br />THE SOUND</span>
+                <span className={styles.musicPromptLine} />
+              </div>
+            )}
+            <MusicToggleButton
+              isPlaying={!isMuted}
+              onToggle={toggleMute}
+            />
+          </div>
+
           {/* Bottom Timeline Controller Bar */}
           <div className={styles.timelineBar}>
             <button
@@ -376,28 +422,6 @@ export default function CinematicHeroFlow({
                 style={{ left: `${progressRatio * 100}%` }}
               />
             </div>
-
-            {/* Mute Audio Toggle Button */}
-            <button
-              type="button"
-              className={styles.soundBtn}
-              onClick={toggleMute}
-              aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-              title={isMuted ? "Unmute" : "Mute"}
-            >
-              {isMuted ? (
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                  <line x1="23" y1="9" x2="17" y2="15" />
-                  <line x1="17" y1="9" x2="23" y2="15" />
-                </svg>
-              ) : (
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
-                </svg>
-              )}
-            </button>
           </div>
         </div>
 

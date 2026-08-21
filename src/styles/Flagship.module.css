@@ -48,7 +48,7 @@
   width: fit-content;
   margin: 0 0 28px 14px;
   padding: 5px 15px 7px 12px;
-  background: #D9FA2F;
+  background: #CD0C41;
   color: #0a0a0c;
   font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
   font-size: clamp(22px, 2.5vw, 30px);
@@ -63,7 +63,7 @@
   content: "";
   position: absolute;
   inset: -7px;
-  border: 2px solid #D9FA2F;
+  border: 2px solid #CD0C41;
   pointer-events: none;
 }
 
@@ -75,7 +75,7 @@
   right: -12px;
   bottom: -12px;
   border-radius: 50%;
-  background: #D9FA2F;
+  background: #CD0C41;
   pointer-events: none;
 }
 

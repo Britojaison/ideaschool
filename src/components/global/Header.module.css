@@ -531,13 +531,13 @@
 }
 
 .apply:hover {
-  background: #D9FA2F;
+  background: #CD0C41;
   color: #000;
   transform: translateY(-2px);
 }
 
 .headerDark .apply:hover {
-  background: #D9FA2F;
+  background: #CD0C41;
   color: #000;
   transform: translateY(-2px);
 }

@@ -429,7 +429,7 @@
     z-index: 2;
     color: #0a0a0c;
     border-color: #0a0a0c;
-    background: #adbdab;
+    background: #D9FA2F;
     transform: translateX(8px);
 }
 
@@ -540,14 +540,14 @@
     padding: 8px 16px;
     color: #0a0a0c;
     border-radius: 999px;
-    background: #adbdab;
+    background: #D9FA2F;
     font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
     font-style: italic;
     font-size: 16px;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: .02em;
-    box-shadow: 0 8px 24px rgba(177, 250, 40, .15);
+    box-shadow: 0 8px 24px rgba(217, 250, 47, .2);
     opacity: 0;
     animation: popInOut 14s infinite;
 }
@@ -559,7 +559,7 @@
     bottom: -6px;
     width: 14px;
     height: 12px;
-    background: #adbdab;
+    background: #D9FA2F;
     clip-path: polygon(0 0, 100% 0, 18% 100%);
 }
 
@@ -995,7 +995,7 @@
     }
 
     .note::after {
-        background: #adbdab;
+        background: #D9FA2F;
     }
 
     .note1 {

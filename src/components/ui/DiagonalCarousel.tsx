@@ -69,8 +69,8 @@ export default function DiagonalCarousel({
       tabIndex={tabIndex ?? 0} onKeyDown={handleKeyDown}
       className={cn("relative isolate h-full w-full overflow-hidden", className)} {...props}>
       <div className={cn("absolute inset-0 overflow-hidden", viewportClassName)}>
-        <motion.div className="absolute left-1/2 top-[17%] flex w-fit"
-          animate={{ x: -(currentIndex * safeSlideSize + safeSlideSize / 2) }} transition={transition}>
+        <motion.div className="absolute left-1/2 top-1/2 flex w-fit"
+          animate={{ x: -(currentIndex * safeSlideSize + safeSlideSize / 2), y: "-50%" }} transition={transition}>
           {items.map((item, index) => {
             const isActive = currentIndex === index;
             const distance = index - currentIndex;

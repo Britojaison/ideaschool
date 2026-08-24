@@ -401,10 +401,11 @@
 }
 
 .rightDescription {
-  font-size: clamp(0.82rem, 0.92vw, 0.92rem);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 300;
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.5;
+  color: #a0aab2;
+  font-weight: 400;
 }
 
 .highlightMetric {
@@ -416,14 +417,14 @@
 .takeawayBox {
   background: rgba(18, 18, 18, 0.6);
   border-left: 2px solid #DAFD55;
-  padding: 8px 12px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .takeawayLabel {
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #DAFD55;
@@ -431,9 +432,11 @@
 }
 
 .takeawayText {
-  font-size: 0.78rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.5;
+  color: #a0aab2;
+  font-weight: 400;
   margin: 0;
 }
 

@@ -108,9 +108,10 @@
 }
 
 .featureText {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.4;
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(15px, 1.1vw, 18px);
+  color: #a0aab2;
+  line-height: 1.5;
   font-weight: 400;
 }
 

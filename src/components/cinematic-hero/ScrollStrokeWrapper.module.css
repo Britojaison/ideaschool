@@ -1,0 +1,30 @@
+.strokeContainer {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  /* NO overflow hidden — let the stroke extend naturally */
+}
+
+/* SVG layer — positioned absolute, covers container, sits between bg and content */
+.strokeSvg {
+  position: absolute;
+  right: -30%;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Foreground content layer */
+.contentLayer {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+/* Force nested sections to not create stacking contexts that hide the SVG */
+.strokeContainer :global(section) {
+  background-color: transparent !important;
+  z-index: auto !important;
+  position: relative;
+}

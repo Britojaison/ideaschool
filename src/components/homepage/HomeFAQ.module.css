@@ -1,6 +1,6 @@
 .faqSection {
   padding: 140px 0;
-  background: var(--ink); /* use dark background like reviews */
+  background: transparent;
   position: relative;
   z-index: 5;
   color: #FBFAF2;

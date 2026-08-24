@@ -142,8 +142,15 @@ function ViewfinderCanvas({ project, currentThumbIdx }: ViewfinderCanvasProps) {
       {/* Center Crosshair Marker */}
       <span className={styles.reticleCenter}>+</span>
 
-      {/* Top Glass HUD Bar */}
-      <div className={styles.hudHeader}>
+      {/* Top Glass HUD Bar - Fades out on hover/play */}
+      <div
+        className={styles.hudHeader}
+        style={{
+          opacity: isPlaying ? 0 : 1,
+          transition: "opacity 0.3s ease",
+          pointerEvents: isPlaying ? "none" : "auto",
+        }}
+      >
         <div className={styles.metricBlock}>
           <span className={styles.metricValue}>{project.metricValue}</span>
           <span className={styles.metricLabel}>{project.metricLabel}</span>
@@ -188,12 +195,17 @@ function ViewfinderCanvas({ project, currentThumbIdx }: ViewfinderCanvasProps) {
         {isPlaying ? "● PLAYING REEL" : "▶ HOVER TO PREVIEW"}
       </div>
 
-      {/* Floating View Case Study CTA Button */}
+      {/* Floating View Case Study CTA Button - Fades out on hover/play */}
       <a
         href="#contact"
         className={styles.caseStudyBtn}
         aria-label={`View Case Study for ${project.title}`}
         onClick={(e) => e.stopPropagation()}
+        style={{
+          opacity: isPlaying ? 0 : 1,
+          transition: "opacity 0.3s ease",
+          pointerEvents: isPlaying ? "none" : "auto",
+        }}
       >
         <span>HOW THIS WAS MADE</span>
         <span className={styles.arrowIconBox}>↗</span>

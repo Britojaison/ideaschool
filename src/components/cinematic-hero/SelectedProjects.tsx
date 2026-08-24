@@ -194,22 +194,6 @@ function ViewfinderCanvas({ project, currentThumbIdx }: ViewfinderCanvasProps) {
       <div className={styles.playPromptBadge}>
         {isPlaying ? "● PLAYING REEL" : "▶ HOVER TO PREVIEW"}
       </div>
-
-      {/* Floating View Case Study CTA Button - Fades out on hover/play */}
-      <a
-        href="#contact"
-        className={styles.caseStudyBtn}
-        aria-label={`View Case Study for ${project.title}`}
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          opacity: isPlaying ? 0 : 1,
-          transition: "opacity 0.3s ease",
-          pointerEvents: isPlaying ? "none" : "auto",
-        }}
-      >
-        <span>HOW THIS WAS MADE</span>
-        <span className={styles.arrowIconBox}>↗</span>
-      </a>
     </div>
   );
 }

@@ -5341,8 +5341,13 @@ html.isHeroGlassCursorActive .hero * {
 
 .mentorDiagonalCarousel {
   width: min(100%, 1120px);
-  height: clamp(500px, 50vw, 640px);
+  height: clamp(590px, 56vw, 720px);
   margin: 0 auto;
+}
+
+.mentorCarouselRoot,
+.mentorCarouselViewport {
+  overflow: visible !important;
 }
 
 .cinematicMentorsDiagonal {
@@ -5403,7 +5408,7 @@ html.isHeroGlassCursorActive .hero * {
 
   .mentorDiagonalCarousel {
     width: calc(100% + 32px);
-    height: 500px;
+    height: 580px;
     margin-left: -16px;
   }
 
@@ -5432,9 +5437,9 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .mentorCarouselImage {
-  border: 1px solid rgba(218, 253, 85, 0.22);
+  border: 0;
   background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.48), 0 0 44px rgba(218, 253, 85, 0.08);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.48);
 }
 
 .mentorCarouselControls {

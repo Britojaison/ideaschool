@@ -17,7 +17,7 @@ const STATS_DATA: StatItem[] = [
   {
     id: "a",
     tag: "a ]",
-    number: "500+",
+    number: "100+",
     label: "STUDENTS & CREATORS TRAINED",
     imageSrc: "/images/gallery10.webp",
     colClass: styles.colA

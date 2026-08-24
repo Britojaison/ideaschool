@@ -15,7 +15,7 @@ const SVG_PATH =
 export default function ScrollStrokeWrapper({
   children,
   strokeColor = "#C2F84F",
-  strokeWidth = 20,
+  strokeWidth = 8,
 }: ScrollStrokeWrapperProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -33,12 +33,13 @@ export default function ScrollStrokeWrapper({
         position: "relative",
         width: "100%",
         backgroundColor: "#000000",
+        overflow: "hidden",
       }}
       data-header-theme="dark"
     >
-      {/* SVG stroke — stretches full height of all sections */}
+      {/* SVG stroke — fills full container, draws on scroll */}
       <svg
-        viewBox="0 0 1278 2319"
+        viewBox="0 0 1278 2700"
         fill="none"
         overflow="visible"
         xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +52,7 @@ export default function ScrollStrokeWrapper({
           height: "100%",
           zIndex: 1,
           pointerEvents: "none",
+          opacity: 0.3,
         }}
         aria-hidden="true"
       >
@@ -66,7 +68,7 @@ export default function ScrollStrokeWrapper({
       </svg>
 
       {/* Content on top */}
-      <div style={{ position: "relative", zIndex: 2 }}>{children}</div>
+      <div style={{ position: "relative", zIndex: 10 }}>{children}</div>
     </div>
   );
 }

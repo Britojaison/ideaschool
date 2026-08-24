@@ -47,12 +47,11 @@ export default function ScrollStrokeWrapper({
         style={{
           position: "absolute",
           top: 0,
-          left: 0,
-          width: "100%",
+          right: 0,
+          width: "72%",
           height: "100%",
           zIndex: 1,
           pointerEvents: "none",
-          opacity: 0.3,
         }}
         aria-hidden="true"
       >

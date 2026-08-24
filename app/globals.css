@@ -15066,12 +15066,36 @@ html.isHeroGlassCursorActive .hero * {
   transform: translateY(0);
 }
 
+.clientBrandsCarouselViewport {
+  width: 100%;
+  overflow: hidden;
+}
+
 .clientBrandsGridContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, 140px);
   justify-content: center;
   gap: 1.5rem;
   width: 100%;
+}
+
+.clientBrandsCarouselTrack {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  padding: 6px 0 18px;
+  animation: clientBrandsMarquee 58s linear infinite;
+  will-change: transform;
+}
+
+.clientBrandsCarouselViewport:hover .clientBrandsCarouselTrack {
+  animation-play-state: paused;
+}
+
+@keyframes clientBrandsMarquee {
+  to {
+    transform: translateX(calc(-50% - 9px));
+  }
 }
 
 .clientBrandCard {
@@ -15086,6 +15110,34 @@ html.isHeroGlassCursorActive .hero * {
   transition: transform 0.3s ease, background-color 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.02);
   overflow: hidden;
+}
+
+.clientBrandsCarouselSection .clientBrandCard {
+  flex: 0 0 clamp(230px, 15.25vw, 300px);
+  width: clamp(230px, 15.25vw, 300px);
+  height: clamp(132px, 8.35vw, 164px);
+  background-color: #191919;
+  border-radius: 0;
+}
+
+.clientBrandsCarouselSection {
+  padding-inline: 0;
+}
+
+.clientBrandsCarouselSection .clientBrandsInner {
+  width: 100%;
+  max-width: none;
+}
+
+.clientBrandsCarouselSection .mentorSectionIntro {
+  width: min(100% - 40px, 1200px);
+}
+
+.clientBrandsCarouselSection .mentorSectionIntro h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(2rem, 3.9vw, 4rem);
+  letter-spacing: -0.035em;
+  line-height: 0.95;
 }
 
 .clientBrandCard:hover {
@@ -15137,6 +15189,26 @@ html.isHeroGlassCursorActive .hero * {
     padding: 0.4rem;
     border-radius: 12px;
   }
+  .clientBrandsCarouselSection {
+    padding-inline: 0;
+  }
+  .clientBrandsCarouselSection .clientBrandsInner {
+    max-width: none;
+  }
+  .clientBrandsCarouselSection .mentorSectionIntro {
+    padding-inline: 20px;
+  }
+  .clientBrandsCarouselTrack {
+    gap: 12px;
+    animation-duration: 42s;
+  }
+  .clientBrandsCarouselSection .clientBrandCard {
+    flex-basis: 190px;
+    width: 190px;
+    height: 132px;
+    padding: 0.4rem;
+    border-radius: 0;
+  }
   .clientBrandCard .cincoLogo,
   .clientBrandCard .saravanaLogo {
     transform: scale(2.2);
@@ -15151,6 +15223,18 @@ html.isHeroGlassCursorActive .hero * {
     width: 100%;
     height: 90px;
     padding: 0.25rem;
+  }
+  .clientBrandsCarouselSection .clientBrandCard {
+    flex-basis: 168px;
+    width: 168px;
+    height: 116px;
+    padding: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clientBrandsCarouselTrack {
+    animation-play-state: paused;
   }
 }
 

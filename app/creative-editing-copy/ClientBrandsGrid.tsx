@@ -177,22 +177,24 @@ function BrandLogo({ brand }: { brand: Brand }) {
 
 export default function ClientBrandsGrid() {
   return (
-    <section className="clientBrandsSection" aria-label="Client Brands">
+    <section className="clientBrandsSection clientBrandsCarouselSection" aria-label="Client Brands">
       <ClientBrandsMotion />
       <div className="clientBrandsInner">
         <div className="mentorSectionIntro">
           <h2>Learn by Working with Some of Our Client Brands</h2>
         </div>
-        <div className="clientBrandsGridContainer">
-          {brands.map((brand, idx) => (
-            <div 
-              key={brand.name} 
-              className="clientBrandCard"
-              style={{ transitionDelay: `${idx * 0.04}s` }}
-            >
-              <BrandLogo brand={brand} />
-            </div>
-          ))}
+        <div className="clientBrandsCarouselViewport">
+          <div className="clientBrandsCarouselTrack">
+            {[...brands, ...brands].map((brand, idx) => (
+              <div
+                key={`${brand.name}-${idx}`}
+                className="clientBrandCard"
+                aria-hidden={idx >= brands.length ? "true" : undefined}
+              >
+                <BrandLogo brand={brand} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

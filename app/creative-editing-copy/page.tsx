@@ -7,6 +7,7 @@ import ProgramBrochure from "@/components/cinematic-hero/ProgramBrochure";
 import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
 import ClientBrandsGrid from "./ClientBrandsGrid";
+import CourseGallery from "./CourseGallery";
 import ScrollStrokeWrapper from "@/components/cinematic-hero/ScrollStrokeWrapper";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 
@@ -48,8 +49,9 @@ export default function CreativeEditingCopyPage() {
         <ByTheNumbers />
         <MentorsDiagonal />
         <ClientBrandsGrid />
-        <HomeFAQ />
       </ScrollStrokeWrapper>
+      <CourseGallery />
+      <HomeFAQ />
     </Shell>
   );
 }

@@ -1,0 +1,16 @@
+.root { position:relative!important; z-index:10!important; width:100%; height:100vh; min-height:720px; background:#08070b!important; }
+.stage { position:relative; width:100%; height:100vh; min-height:720px; overflow:hidden; color:#fff; perspective:1400px; background:radial-gradient(circle at 72% 82%,rgba(102,16,140,.66),transparent 35%),radial-gradient(circle at 86% 25%,rgba(132,51,31,.55),transparent 32%),linear-gradient(112deg,#050409 0%,#100719 47%,#35161e 100%); }
+.intro { position:absolute; inset:0; z-index:100; display:flex; flex-direction:column; align-items:center; padding:clamp(125px,16vh,190px) 24px 0; text-align:center; }
+.intro p { max-width:900px; margin:0 0 40px; font:400 clamp(28px,3.1vw,52px)/1.06 var(--font-stara),Arial,sans-serif; letter-spacing:-.045em; }
+.scene { position:absolute; inset:0; }
+.scene h2 { position:absolute; z-index:70; top:15%; left:8%; margin:0; font:800 clamp(42px,4.6vw,76px)/.86 var(--font-stara),Arial,sans-serif; letter-spacing:-.065em; pointer-events:none; }
+.scene h2 span { display:block; }
+.cards { position:absolute; inset:0; }
+.card { position:absolute; top:0; left:0; width:110px; height:auto; will-change:transform,width,opacity; }
+.media { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#08090a; box-shadow:0 24px 75px rgba(0,0,0,.28); }
+.image { object-fit:cover; }
+.caption { display:flex; flex-direction:column; align-items:center; padding-top:4px; color:#fff; font-family:var(--font-stara),Arial,sans-serif; text-align:center; text-transform:uppercase; text-shadow:0 2px 15px #000; white-space:nowrap; }
+.caption strong { font-size:5px; line-height:1; }
+.caption span { margin-top:2px; font:4.5px/1 Georgia,serif; }
+.counter { position:absolute; right:3vw; bottom:3vh; color:rgba(255,255,255,.32); font:600 11px/1 var(--font-stara),Arial,sans-serif; letter-spacing:.16em; }
+@media(max-width:760px){.root,.stage{min-height:640px}.intro{padding-top:110px}.intro p{font-size:clamp(24px,7.5vw,35px)}.intro br{display:none}.scene h2{top:14%;left:20px;font-size:42px}.caption strong{font-size:13px}.caption span{font-size:12px}}

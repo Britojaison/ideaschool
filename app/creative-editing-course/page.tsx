@@ -513,6 +513,8 @@ export default function CreativeEditingCoursePage() {
 
       <ClientBrandsGrid />
 
+      <CourseGallery />
+
       <section className="longCourseDetails" aria-label="Program details and enrollment">
         <DetailsSectionMotion />
         <div className="longCourseSectionInner detailsGlanceGrid">
@@ -641,8 +643,6 @@ export default function CreativeEditingCoursePage() {
           </p>
         </div>
       </section>
-
-      <CourseGallery />
 
       <section className="programFaqContact longCourseFaq" id="faq" aria-label="Course FAQ">
         <div className="programFaqInner">

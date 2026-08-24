@@ -37,11 +37,12 @@ export default function ScrollStrokeWrapper({
       }}
       data-header-theme="dark"
     >
-      {/* SVG stroke — fills full container, draws on scroll */}
+      {/* Keep the reference's opening flower compact instead of stretching it
+          over the full height of this multi-section wrapper. */}
       <svg
-        viewBox="0 0 1278 2700"
+        viewBox="0 0 1278 562"
         fill="none"
-        overflow="visible"
+        overflow="hidden"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
         style={{
@@ -49,7 +50,36 @@ export default function ScrollStrokeWrapper({
           top: 0,
           right: 0,
           width: "72%",
-          height: "100%",
+          height: 760,
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      >
+        <motion.path
+          d={SVG_PATH}
+          stroke={strokeColor}
+          strokeWidth={strokeWidth}
+          style={{
+            pathLength,
+            strokeDashoffset: dashOffset,
+          }}
+        />
+      </svg>
+
+      {/* Continue the same stroke down the remaining sections. */}
+      <svg
+        viewBox="0 562 1278 2138"
+        fill="none"
+        overflow="hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{
+          position: "absolute",
+          top: 760,
+          right: 0,
+          width: "72%",
+          height: "calc(100% - 760px)",
           zIndex: 1,
           pointerEvents: "none",
         }}

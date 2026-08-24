@@ -5358,6 +5358,11 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
 }
 
+.cinematicMentorsDiagonal :where(h2, p, span, button),
+.clientBrandsCarouselSection :where(h2, p, span, button) {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
 .mentorSectionHeading {
   position: relative;
   z-index: 2;
@@ -15088,10 +15093,6 @@ html.isHeroGlassCursorActive .hero * {
   will-change: transform;
 }
 
-.clientBrandsCarouselViewport:hover .clientBrandsCarouselTrack {
-  animation-play-state: paused;
-}
-
 @keyframes clientBrandsMarquee {
   to {
     transform: translateX(calc(-50% - 9px));
@@ -15122,6 +15123,13 @@ html.isHeroGlassCursorActive .hero * {
 
 .clientBrandsCarouselSection {
   padding-inline: 0;
+  background: #000;
+  background-image: none;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+}
+
+.clientBrandsCarouselSection::before {
+  display: none;
 }
 
 .clientBrandsCarouselSection .clientBrandsInner {
@@ -15135,14 +15143,20 @@ html.isHeroGlassCursorActive .hero * {
 
 .clientBrandsCarouselSection .mentorSectionIntro h2 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(2rem, 3.9vw, 4rem);
-  letter-spacing: -0.035em;
-  line-height: 0.95;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
 .clientBrandCard:hover {
   transform: translateY(-4px);
   background-color: rgba(255, 255, 255, 0.06);
+}
+
+.clientBrandsCarouselSection .clientBrandCard:hover {
+  transform: none;
+  background-color: #191919;
 }
 
 .clientBrandCard img,
@@ -15162,6 +15176,11 @@ html.isHeroGlassCursorActive .hero * {
 .clientBrandCard:hover img,
 .clientBrandCard:hover .clientBrandImage {
   filter: brightness(1) contrast(1.1);
+}
+
+.clientBrandsCarouselSection .clientBrandCard:hover img,
+.clientBrandsCarouselSection .clientBrandCard:hover .clientBrandImage {
+  filter: brightness(0.9) contrast(1.1);
 }
 
 .clientBrandCard .xiaomiText,

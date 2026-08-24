@@ -18,19 +18,20 @@
 
 .title {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(2.8rem, 5vw, 5.2rem);
-  font-weight: 400;
-  letter-spacing: 0.015em;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0 0 0.75rem 0;
-  line-height: 0.95;
+  line-height: 1;
 }
 
 .subtitle {
-  font-size: clamp(0.85rem, 0.98vw, 1.02rem);
-  color: rgba(255, 255, 255, 0.65);
-  font-weight: 300;
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(15px, 1.1vw, 18px);
+  color: #a0aab2;
+  font-weight: 400;
   margin: 0;
   line-height: 1.5;
   letter-spacing: 0.01em;

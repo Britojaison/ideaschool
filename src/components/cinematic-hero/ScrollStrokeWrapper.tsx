@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import styles from "./ScrollStrokeWrapper.module.css";
 
 interface ScrollStrokeWrapperProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ export default function ScrollStrokeWrapper({
   return (
     <div
       ref={ref}
+      className={styles.strokeContainer}
       style={{
         position: "relative",
         width: "100%",
@@ -97,7 +99,7 @@ export default function ScrollStrokeWrapper({
       </svg>
 
       {/* Content on top */}
-      <div style={{ position: "relative", zIndex: 10 }}>{children}</div>
+      <div className={styles.contentLayer}>{children}</div>
     </div>
   );
 }

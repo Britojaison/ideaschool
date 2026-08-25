@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AdmissionEnrollment() {
   const enrollmentDetails = [
@@ -12,115 +13,111 @@ export default function AdmissionEnrollment() {
 
   return (
     <section 
-      style={{
-        backgroundColor: "#050505",
-        padding: "100px 4vw",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
+      className="flex justify-center items-center py-24 px-6 md:px-12 lg:px-24"
+      style={{ backgroundColor: "#050505" }}
     >
       <div 
+        className="w-full max-w-[1240px] flex flex-col lg:flex-row gap-10 lg:gap-16 p-6 md:p-10 lg:p-12"
         style={{
-          maxWidth: "800px",
-          width: "100%",
           backgroundColor: "#0a0a0c",
           borderRadius: "24px",
-          padding: "48px",
           border: "1px solid rgba(255,255,255,0.05)",
           boxShadow: "0 10px 40px rgba(0,0,0,0.5)"
         }}
       >
-        <div style={{ marginBottom: "40px" }}>
-          <span 
-            style={{
-              display: "inline-block",
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: "999px",
-              padding: "6px 16px",
-              fontSize: "0.75rem",
-              textTransform: "uppercase",
-              letterSpacing: "1px",
-              marginBottom: "16px",
-              color: "#a0a0a0",
-              fontFamily: 'var(--font-stara), "Stara", sans-serif'
-            }}
-          >
-            Admission & Enrollment
-          </span>
-          <h2 
-            style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontFamily: 'var(--font-stara), "Stara", sans-serif',
-              textTransform: "uppercase",
-              margin: 0,
-              color: "#ffffff"
-            }}
-          >
-            Fees And Enrollment
-          </h2>
+        {/* Left Side: Image */}
+        <div className="w-full lg:w-[45%] flex items-center justify-center relative rounded-2xl overflow-hidden min-h-[300px] lg:min-h-full border" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+          <Image 
+            src="/images/camlab-cam2.png" 
+            alt="Idea School Campus Lab" 
+            fill
+            className="object-contain scale-[1.3] md:scale-[1.4]"
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />
         </div>
 
-        <div 
-          style={{
-            backgroundColor: "#121215",
-            borderRadius: "16px",
-            padding: "32px",
-            marginBottom: "40px",
-            border: "1px solid rgba(255,255,255,0.03)"
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "20px", marginBottom: "20px" }}>
-            <div>
-              <span style={{ color: "#a0a0a0", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "1px", display: "block", marginBottom: "8px", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>
-                Full Program Fee
-              </span>
-            </div>
-            
-            <Link
-              href="https://www.ideaschool.pro/creative-editing-course#apply"
-              target="_blank"
+        {/* Right Side: Content */}
+        <div className="w-full lg:w-[55%] flex flex-col justify-center">
+          <div className="mb-10">
+            <span 
+              className="inline-block border rounded-full px-4 py-1.5 text-xs uppercase tracking-wider mb-4"
               style={{
-                backgroundColor: "#dafd55",
-                color: "#030405",
-                fontWeight: 900,
-                textTransform: "uppercase",
-                padding: "16px 32px",
-                borderRadius: "999px",
-                letterSpacing: "1px",
-                textDecoration: "none",
-                fontSize: "0.9rem",
-                fontFamily: 'var(--font-stara), "Stara", sans-serif',
-                transition: "transform 0.2s ease, filter 0.2s ease",
+                borderColor: "rgba(255,255,255,0.1)",
+                color: "#a0a0a0",
+                fontFamily: 'var(--font-stara), "Stara", sans-serif'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; e.currentTarget.style.filter = "brightness(1.1)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.filter = "brightness(1)"; }}
             >
-              Talk to Idea School
-            </Link>
+              Admission & Enrollment
+            </span>
+            <h2 
+              className="text-3xl md:text-5xl uppercase m-0 text-white"
+              style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+            >
+              Fees And Enrollment
+            </h2>
           </div>
-          <p style={{ color: "#888", fontSize: "0.9rem", margin: 0, lineHeight: 1.5, fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>
-            Seats are limited so every learner gets attention, feedback, and room to practice.
-          </p>
-        </div>
 
-        <dl style={{ display: "flex", flexDirection: "column", gap: "24px", margin: 0 }}>
-          {enrollmentDetails.map((item, index) => (
-            <div 
-              key={item.label}
-              style={{ 
-                display: "grid", 
-                gridTemplateColumns: "1fr 2fr", 
-                gap: "20px",
-                paddingBottom: index !== enrollmentDetails.length - 1 ? "24px" : "0",
-                borderBottom: index !== enrollmentDetails.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none"
-              }}
-            >
-              <dt style={{ color: "#ffffff", fontWeight: 600, fontSize: "1.1rem", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>{item.label}</dt>
-              <dd style={{ color: "#a0a0a0", margin: 0, lineHeight: 1.6, fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>{item.value}</dd>
+          <div 
+            className="rounded-2xl p-6 md:p-8 mb-10 border"
+            style={{
+              backgroundColor: "#121215",
+              borderColor: "rgba(255,255,255,0.03)"
+            }}
+          >
+            <div className="flex justify-between items-center flex-wrap gap-5 mb-5">
+              <div>
+                <span 
+                  className="block text-sm uppercase tracking-wider mb-2"
+                  style={{ color: "#a0a0a0", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                >
+                  Full Program Fee
+                </span>
+              </div>
+              
+              <Link
+                href="https://www.ideaschool.pro/creative-editing-course#apply"
+                target="_blank"
+                className="font-black uppercase px-8 py-4 rounded-full tracking-wider text-sm no-underline hover:scale-105 transition-transform duration-200"
+                style={{
+                  backgroundColor: "#dafd55",
+                  color: "#030405",
+                  fontFamily: 'var(--font-stara), "Stara", sans-serif',
+                }}
+              >
+                Talk to Idea School
+              </Link>
             </div>
-          ))}
-        </dl>
+            <p 
+              className="m-0 text-sm leading-relaxed"
+              style={{ color: "#888", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+            >
+              Seats are limited so every learner gets attention, feedback, and room to practice.
+            </p>
+          </div>
+
+          <dl className="flex flex-col gap-6 m-0">
+            {enrollmentDetails.map((item, index) => (
+              <div 
+                key={item.label}
+                className={`grid grid-cols-1 sm:grid-cols-[1fr_2fr] gap-2 sm:gap-5 ${index !== enrollmentDetails.length - 1 ? "pb-6 border-b" : ""}`}
+                style={{ borderColor: "rgba(255,255,255,0.05)" }}
+              >
+                <dt 
+                  className="font-semibold text-[1.05rem] text-white"
+                  style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                >
+                  {item.label}
+                </dt>
+                <dd 
+                  className="m-0 leading-relaxed text-[0.95rem]"
+                  style={{ color: "#a0a0a0", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                >
+                  {item.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </section>
   );

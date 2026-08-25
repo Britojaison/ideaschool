@@ -63,9 +63,6 @@ export default function ToolsMarquee() {
         .marquee-track-right {
           animation: scrollRight 30s linear infinite;
         }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
       `}} />
     </section>
   );

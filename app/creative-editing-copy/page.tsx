@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function CreativeEditingCopyPage() {
   return (
     <div className={styles.memeCursor}>
-      <Shell headerOverlay={true}>
+      <Shell headerOverlay={true} showAnnouncement={false}>
         <CinematicHeroFlow
           videoSrc="/assets/videos/HOME PAGE VIDEO.mp4"
           heroHeadline1="EDITING DEFINES."

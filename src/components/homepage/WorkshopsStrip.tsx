@@ -7,18 +7,18 @@ import styles from "@/styles/Home.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import teamImage from "@public/images/video_ed.png";
-import miniImage from "@public/assets/home/ai_flow.png";
-import masterImage from "@public/images/master1.png";
+import imageCreative from "@public/images/premium-editorial-campaign-poster-for-a-creative-v.png";
+import imageConceptual from "@public/images/premium-editorial-campaign-poster-for-an-exclusive.png";
+import imageCampaign from "@public/images/premium-editorial-campaign-poster-for-an-advanced-.png";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const workshops = [
-  { title: "Creative Editing Course", href: "/creative-editing-copy", image: masterImage, objectPosition: "center" },
-  { title: "Video Editing", href: "/video-editing", image: teamImage },
-  { title: "Master Video Editing", href: "/master-video-editing", image: miniImage },
+  { title: "Creative Editing Course", href: "/creative-editing-copy", image: imageCreative, objectPosition: "center" },
+  { title: "Video Editing", href: "/video-editing", image: imageConceptual },
+  { title: "Master Video Editing", href: "/master-video-editing", image: imageCampaign },
 ];
 
 export default function WorkshopsStrip() {
@@ -41,30 +41,16 @@ export default function WorkshopsStrip() {
         }
       }
     );
-
-    gsap.utils.toArray(cardsRef.current?.children || []).forEach((card: any) => {
-      const img = card.querySelector(`.${styles.cardImageWrapper} img`);
-      if (img) {
-        gsap.fromTo(img, 
-          { yPercent: -12 },
-          {
-            yPercent: 12,
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            }
-          }
-        );
-      }
-    });
   }, { scope: sectionRef });
 
   return (
-    <section id="workshops" ref={sectionRef} className="section" style={{ position: "relative", backgroundColor: "#FBFAF2", color: "#0a0a0c" }} data-header-theme="light">
-      <div className={styles.fullContainer} style={{ position: "relative", zIndex: 1 }}>
+    <section
+      id="workshops"
+      ref={sectionRef}
+      className={styles.workshopSection}
+      data-header-theme="light"
+    >
+      <div className={styles.fullContainer} style={{ position: "relative", zIndex: 1, width: "100%" }}>
         <div className="sectionHead">
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
             <h2 className="title">UPCOMING WORKSHOPS</h2>
@@ -88,31 +74,28 @@ export default function WorkshopsStrip() {
             </div>
           </div>
         </div>
-        
+
         <div className={styles.workshopGrid} ref={cardsRef}>
           {workshops.map((w, index) => (
-            <Link 
-              href={w.href} 
-              key={w.title} 
+            <Link
+              href={w.href}
+              key={w.title}
               className={styles.workshopCard}
+              aria-label={w.title}
             >
               <div className={styles.cardImageWrapper}>
-                <Image 
-                  src={w.image} 
-                  alt={w.title} 
+                <Image
+                  src={w.image}
+                  alt={w.title}
                   placeholder="blur"
                   fill
-                  style={{ 
-                    objectFit: 'cover',
+                  style={{
+                    objectFit: 'contain',
                     objectPosition: (w as any).objectPosition || 'center'
-                  }} 
+                  }}
                 />
               </div>
-              
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>{w.title}</h3>
-              </div>
-              
+
               <div className={styles.cardArrow}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>

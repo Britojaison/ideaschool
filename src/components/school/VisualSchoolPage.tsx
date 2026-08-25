@@ -9,9 +9,9 @@ import IconMarquee from "@/components/global/IconMarquee";
 import styles from "./VisualSchoolPage.module.css";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
 
-import c1 from "@public/assets/images/c1.png";
-import c2 from "@public/assets/images/c2.png";
-import c3 from "@public/assets/images/c3.png";
+import c1 from "@public/images/Gemini_Generated_Image_e3vatne3vatne3va.png";
+import c2 from "@public/images/Gemini_Generated_Image_n9gxwhn9gxwhn9gx.png";
+import c3 from "@public/images/Gemini_Generated_Image_72xeoz72xeoz72xe.png";
 import c4 from "@public/assets/images/c4.png";
 
 
@@ -565,9 +565,6 @@ export default function VisualSchoolPage() {
                     sizes="(max-width: 800px) 100vw, 460px"
                     priority
                   />
-                  <div className={styles.flagshipRibbon}>
-                    <span>CAREER TRACK · 24 WEEKS OFFLINE</span>
-                  </div>
                 </div>
 
                 <div className={styles.cardTitleRow}>

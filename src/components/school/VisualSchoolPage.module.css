@@ -591,12 +591,12 @@
 
 /* Flagship Card vs Workshop Card Dimensions & Stagger */
 .flagshipCard {
-  width: 420px;
+  width: 340px;
   transform: translateY(-5vh);
 }
 
 .workshopCard {
-  width: 360px;
+  width: 300px;
   transform: translateY(5vh);
 }
 
@@ -696,20 +696,23 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  background: #eaeaea;
   width: 100%;
-  height: 480px;
+  aspect-ratio: 9 / 16;
+  height: auto;
   box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(10, 10, 12, 0.06);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .flagshipImage {
-  height: 520px;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
   box-shadow: 0 20px 44px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(10, 10, 12, 0.12);
 }
 
-.showcaseImage img {
-  object-fit: cover;
+.showcaseImage img,
+.flagshipImage img {
+  object-fit: cover !important;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -885,19 +888,17 @@
   }
 
   .flagshipCard {
-    width: 380px;
+    width: 300px;
   }
 
   .workshopCard {
-    width: 320px;
+    width: 270px;
   }
 
-  .flagshipImage {
-    height: 460px;
-  }
-
+  .flagshipImage,
   .showcaseImage {
-    height: 420px;
+    height: auto;
+    aspect-ratio: 9 / 16;
   }
 }
 
@@ -910,16 +911,14 @@
   .showcaseCard,
   .flagshipCard,
   .workshopCard {
-    width: 280px;
+    width: 260px;
     transform: translateY(0) !important;
   }
   
-  .flagshipImage {
-    height: 380px;
-  }
-
+  .flagshipImage,
   .showcaseImage {
-    height: 350px;
+    height: auto;
+    aspect-ratio: 9 / 16;
   }
   
   .trackDivider {

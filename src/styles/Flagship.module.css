@@ -4,8 +4,7 @@
   overflow: hidden;
   color: #0a0a0c;
   background: #FBFAF2;
-  min-height: 100svh;
-  padding: 80px 60px;
+  padding: 48px 60px 80px;
   display: flex;
   align-items: center;
 }

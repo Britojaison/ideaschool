@@ -13,15 +13,15 @@ if (typeof window !== "undefined") {
 
 interface CinematicHeroFlowProps {
   videoSrc?: string;
-  heroHeadline1?: string;
-  heroHeadline2?: string;
+  heroHeadline1?: React.ReactNode;
+  heroHeadline2?: React.ReactNode;
   heroSubtitle?: string;
   studioName?: string;
   tags?: string[];
-  leftGiantTop?: string;
-  leftGiantBottom?: string;
-  rightGiantTop?: string;
-  rightGiantBottom?: string;
+  leftGiantTop?: React.ReactNode;
+  leftGiantBottom?: React.ReactNode;
+  rightGiantTop?: React.ReactNode;
+  rightGiantBottom?: React.ReactNode;
   editorialParagraphs?: (string | React.ReactNode)[];
   nextSectionId?: string;
 }
@@ -437,10 +437,10 @@ export default function CinematicHeroFlow({
             </div>
           </div>
 
-          {/* Left Giant Typography (DIRECTOR LED. - Wave 1) */}
+          {/* Left Giant Typography (INDUSTRY LED. / DIRECTOR LED. - Wave 1) */}
           <h2 ref={giantLeftRef} className={styles.giantTextLeft}>
             <div>{leftGiantTop}</div>
-            <div>{leftGiantBottom}</div>
+            <div className={styles.giantAccent}>{leftGiantBottom}</div>
           </h2>
 
           {/* Center-Left Editorial Narrative Block (Wave 2 - Staggered AFTER Left & Right) */}
@@ -452,9 +452,9 @@ export default function CinematicHeroFlow({
             ))}
           </div>
 
-          {/* Right Giant Typography (STUDIO BUILT. - Wave 1) */}
+          {/* Right Giant Typography (CRAFT BUILT. / STUDIO BUILT. - Wave 1) */}
           <h2 ref={giantRightRef} className={styles.giantTextRight}>
-            <div>{rightGiantTop}</div>
+            <div className={styles.giantAccent}>{rightGiantTop}</div>
             <div>{rightGiantBottom}</div>
           </h2>
         </div>

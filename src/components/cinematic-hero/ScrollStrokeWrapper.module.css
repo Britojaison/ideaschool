@@ -2,18 +2,17 @@
   position: relative;
   width: 100%;
   overflow: visible;
-  background-color: #0a0a0c;
+  background-color: #040208;
   background-image:
-    radial-gradient(ellipse 62% 32% at -8% 22%, rgba(85, 46, 173, .52) 0%, rgba(85, 46, 173, .25) 40%, transparent 76%),
-    radial-gradient(ellipse 62% 32% at 108% 22%, rgba(85, 46, 173, .42) 0%, rgba(85, 46, 173, .2) 40%, transparent 76%),
-    radial-gradient(ellipse 52% 28% at 2% 52%, rgba(118, 116, 153, .42) 0%, rgba(74, 63, 112, .24) 34%, transparent 72%),
-    radial-gradient(ellipse 62% 34% at -8% 82%, rgba(85, 46, 173, .4) 0%, rgba(85, 46, 173, .18) 40%, transparent 76%),
-    radial-gradient(ellipse 62% 34% at 108% 82%, rgba(85, 46, 173, .34) 0%, rgba(85, 46, 173, .16) 40%, transparent 76%),
-    linear-gradient(105deg, #16072d 0%, #0d011c 48%, #0a0014 100%);
+    radial-gradient(ellipse 70% 35% at 10% 20%, rgba(95, 45, 165, 0.16) 0%, rgba(95, 45, 165, 0.05) 45%, transparent 75%),
+    radial-gradient(ellipse 65% 35% at 95% 35%, rgba(90, 40, 160, 0.14) 0%, rgba(90, 40, 160, 0.04) 45%, transparent 75%),
+    radial-gradient(ellipse 60% 30% at 20% 65%, rgba(85, 35, 150, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 35% at 85% 85%, rgba(95, 45, 165, 0.13) 0%, transparent 75%),
+    linear-gradient(180deg, #000000 0%, #080311 35%, #05020a 75%, #000000 100%);
   /* NO overflow hidden — let the stroke extend naturally */
 }
 
-/* Smooth upward-bleed transition — same pattern as homepage IdeaPhilosophy */
+/* Smooth upward-bleed transition from previous section */
 .strokeContainer::before {
   content: "";
   position: absolute;
@@ -26,9 +25,9 @@
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    color-mix(in srgb, #0a0a0c 20%, transparent) 34%,
-    color-mix(in srgb, #0a0a0c 72%, transparent) 72%,
-    #0a0a0c 100%
+    color-mix(in srgb, #000000 20%, transparent) 34%,
+    color-mix(in srgb, #000000 72%, transparent) 72%,
+    #000000 100%
   );
 }
 

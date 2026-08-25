@@ -15,7 +15,7 @@ const SVG_PATH =
 
 export default function ScrollStrokeWrapper({
   children,
-  strokeColor = "#C2F84F",
+  strokeColor = "#DAFD55",
   strokeWidth = 8,
 }: ScrollStrokeWrapperProps) {
   const ref = useRef<HTMLDivElement>(null);

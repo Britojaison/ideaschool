@@ -8,7 +8,6 @@ import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
 import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
-import ScrollStrokeWrapper from "@/components/cinematic-hero/ScrollStrokeWrapper";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 import styles from "./MemeCursor.module.css";
 
@@ -45,13 +44,11 @@ export default function CreativeEditingCopyPage() {
           ]}
         />
         <SelectedProjects />
-        <ScrollStrokeWrapper>
-          <ProgramBrochure />
-          <FullCreativeControl />
-          <ByTheNumbers />
-          <MentorsDiagonal />
-          <ClientBrandsGrid />
-        </ScrollStrokeWrapper>
+        <ProgramBrochure />
+        <FullCreativeControl />
+        <ByTheNumbers />
+        <MentorsDiagonal />
+        <ClientBrandsGrid />
         <CourseGallery />
         <HomeFAQ />
       </Shell>

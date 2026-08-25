@@ -71,6 +71,7 @@ export default function ByTheNumbers({
   const imgSize = useRef({ w: 0, h: 0 });
   const rafId = useRef<number>(0);
   const isAnimating = useRef(false);
+  const lastMouseClient = useRef<{ x: number; y: number } | null>(null);
 
   // ── Sliding highlight ──
   const moveHighlight = useCallback((id: string) => {
@@ -129,6 +130,7 @@ export default function ByTheNumbers({
 
   // ── Mouse handlers ──
   const handleGridMouseMove = useCallback((e: React.MouseEvent) => {
+    lastMouseClient.current = { x: e.clientX, y: e.clientY };
     const grid = gridRef.current;
     if (!grid) return;
     const rect = grid.getBoundingClientRect();
@@ -144,20 +146,21 @@ export default function ByTheNumbers({
   }, []);
 
   const handleColEnter = useCallback((e: React.MouseEvent, colId: string) => {
+    lastMouseClient.current = { x: e.clientX, y: e.clientY };
     setHoveredCol(colId);
     activeRef.current = colId;
     moveHighlight(colId);
 
-    // On first enter, snap position to cursor (no lerp-in from a corner)
-    if (!isAnimating.current) {
-      const grid = gridRef.current;
-      if (grid) {
-        const rect = grid.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        targetPos.current = { x, y };
-        currentPos.current = { x, y };
+    const grid = gridRef.current;
+    if (grid) {
+      const rect = grid.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      targetPos.current = { x, y };
 
+      // On first enter, snap position to cursor (no lerp-in from a corner)
+      if (!isAnimating.current) {
+        currentPos.current = { x, y };
         const el = floatingRef.current;
         if (el) {
           imgSize.current.w = el.offsetWidth;
@@ -184,6 +187,65 @@ export default function ByTheNumbers({
   useEffect(() => {
     return () => cancelAnimationFrame(rafId.current);
   }, []);
+
+  // Scroll and global mouse tracking to update floating image while scrolling
+  useEffect(() => {
+    const updateFromMouse = () => {
+      if (!lastMouseClient.current) return;
+      const { x, y } = lastMouseClient.current;
+      const grid = gridRef.current;
+      if (!grid) return;
+      const rect = grid.getBoundingClientRect();
+
+      const isInside =
+        x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+
+      if (isInside) {
+        targetPos.current.x = x - rect.left;
+        targetPos.current.y = y - rect.top;
+
+        // Find which column the cursor is currently over
+        let foundCol: string | null = null;
+        for (const [id, cellEl] of cellRefs.current.entries()) {
+          const cellRect = cellEl.getBoundingClientRect();
+          if (
+            x >= cellRect.left &&
+            x <= cellRect.right &&
+            y >= cellRect.top &&
+            y <= cellRect.bottom
+          ) {
+            foundCol = id;
+            break;
+          }
+        }
+
+        if (foundCol) {
+          setHoveredCol(foundCol);
+          activeRef.current = foundCol;
+          moveHighlight(foundCol);
+          startAnimation();
+        }
+      } else if (activeRef.current !== null) {
+        handleGridLeave();
+      }
+    };
+
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      lastMouseClient.current = { x: e.clientX, y: e.clientY };
+    };
+
+    const handleScroll = () => {
+      updateFromMouse();
+    };
+
+    window.addEventListener("mousemove", handleGlobalMouseMove, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("mousemove", handleGlobalMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [moveHighlight, startAnimation, handleGridLeave]);
 
   // Resize
   useEffect(() => {

@@ -9,6 +9,7 @@ import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
 import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
+import AdmissionEnrollment from "./AdmissionEnrollment";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 import styles from "./MemeCursor.module.css";
 
@@ -52,6 +53,7 @@ export default function CreativeEditingCopyPage() {
         <MentorsDiagonal />
         <ClientBrandsGrid />
         <CourseGallery />
+        <AdmissionEnrollment />
         <HomeFAQ />
       </Shell>
     </div>

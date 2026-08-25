@@ -127,7 +127,6 @@ export function MagneticSpotlightMarquee({
     let hasPointerMoved = false;
 
     let targets: { el: HTMLElement; restCenterY: number; currentY: number }[] = [];
-    let rafId: number;
 
     const measureGeometry = () => {
       sectionHeight = spotlightSection.getBoundingClientRect().height;
@@ -214,16 +213,14 @@ export function MagneticSpotlightMarquee({
         line.currentY += (lineTarget - line.currentY) * config.lineSettleEase;
         gsap.set(line.el, { y: line.currentY });
       });
-
-      rafId = requestAnimationFrame(render);
     };
-    rafId = requestAnimationFrame(render);
+    gsap.ticker.add(render);
 
     return () => {
       window.removeEventListener('resize', measureGeometry);
       spotlightSection.removeEventListener('mousemove', handlePointerMove);
       spotlightSection.removeEventListener('mouseleave', handlePointerLeave);
-      cancelAnimationFrame(rafId);
+      gsap.ticker.remove(render);
     };
   }, []);
 
@@ -245,12 +242,12 @@ export function MagneticSpotlightMarquee({
       {/* Marquee Strip */}
       <div 
         ref={marqueeStripRef} 
-        className="spotlight-marquee absolute left-0 w-full z-20 h-[160px] md:h-[200px] pointer-events-none"
+        className="spotlight-marquee absolute left-0 w-full z-20 h-[160px] md:h-[200px] pointer-events-none will-change-transform"
         style={{ top: 0 }} 
       >
         <div 
           ref={marqueeTrackRef} 
-          className="spotlight-marquee-track flex gap-4 h-full items-center absolute top-0 left-0"
+          className="spotlight-marquee-track flex gap-4 h-full items-center absolute top-0 left-0 will-change-transform"
         >
           {clonedImages.map((img, idx) => (
             <div key={idx} className="w-[140px] h-[140px] md:w-[180px] md:h-[180px] shrink-0 rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
@@ -276,7 +273,7 @@ export function MagneticSpotlightMarquee({
           style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
         >
           {title.map((line, idx) => (
-            <div key={idx} className="wake-target inline-block relative">
+            <div key={idx} className="wake-target inline-block relative will-change-transform">
               {line}
               {/* Optional playful dot for 'Studio' to mimic the screenshot */}
               {line === "Studio" && (
@@ -293,7 +290,7 @@ export function MagneticSpotlightMarquee({
           <div className="flex-1 md:max-w-[280px] text-right md:text-right mt-1">
             <h3 className="text-xl md:text-3xl uppercase tracking-tight font-medium leading-[1.1]">
               {subtitle.map((line, idx) => (
-                <div key={idx} className="wake-target">{line}</div>
+                <div key={idx} className="wake-target will-change-transform">{line}</div>
               ))}
             </h3>
           </div>
@@ -303,7 +300,7 @@ export function MagneticSpotlightMarquee({
             {paragraphs.map((para, pIdx) => (
               <div key={pIdx} className="flex-1 flex flex-col">
                 {para.map((line, lIdx) => (
-                  <div key={lIdx} className="wake-target whitespace-nowrap">
+                  <div key={lIdx} className="wake-target whitespace-nowrap will-change-transform">
                     {line}
                   </div>
                 ))}

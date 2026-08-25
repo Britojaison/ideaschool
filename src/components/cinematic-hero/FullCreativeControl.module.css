@@ -67,34 +67,29 @@
   text-align: center;
   background: none;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   cursor: pointer;
   width: 100%;
-  max-width: 900px;
   user-select: none;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Inactive Blurred Step */
+/* Inactive Step — soft, elegant fade */
 .inactiveStep {
-  opacity: 0.25;
-  filter: blur(3.5px);
-  transform: scale(0.88);
+  opacity: 0.3;
+  filter: blur(1.5px);
 }
 
 .inactiveStep:hover {
-  opacity: 0.5;
-  filter: blur(1.5px);
-  transform: scale(0.92);
+  opacity: 0.65;
+  filter: blur(0.5px);
 }
 
-/* Active Step */
+/* Active Step — full brilliant white */
 .activeStep {
   opacity: 1;
   filter: blur(0px);
-  transform: scale(1);
   z-index: 10;
 }
 
@@ -103,50 +98,69 @@
   align-items: baseline;
   justify-content: center;
   gap: 1.2vw;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stepIndex {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(1.2rem, 2.4vw, 2.5rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.4rem);
   font-weight: 600;
   color: #E63946;
   letter-spacing: 0.04em;
-  transform: translateY(-0.35em);
+  transform: translateY(-0.25em);
+  transition: color 0.5s ease, opacity 0.5s ease;
 }
 
 .stepName {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(4.5rem, 9.2vw, 9rem);
-  font-weight: 400;
-  line-height: 0.85;
-  letter-spacing: 0.01em;
+  font-size: clamp(2.2rem, 4.2vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Smooth Accordion Wrapper for Description */
+.descAccordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.descAccordionOpen {
+  grid-template-rows: 1fr;
+}
+
+.descInner {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Active Step Subtitle Description */
 .stepDescription {
-  margin-top: 1.2rem;
-  max-width: 640px;
+  margin-top: 1rem;
+  max-width: 620px;
   font-family: var(--font-helvetica), sans-serif;
-  font-size: clamp(15px, 1.1vw, 18px);
+  font-size: clamp(14px, 1vw, 16px);
   line-height: 1.5;
   color: #a0aab2;
   font-weight: 400;
-  animation: fadeIn 0.4s ease forwards;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.descAccordionOpen .stepDescription {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Bottom Manifest Quote */
@@ -161,7 +175,7 @@
 
 .manifestText {
   font-family: var(--font-helvetica), sans-serif;
-  font-size: clamp(15px, 1.1vw, 18px);
+  font-size: clamp(14px, 1vw, 17px);
   color: #a0aab2;
   font-weight: 400;
   line-height: 1.5;
@@ -173,10 +187,10 @@
 /* Responsive */
 @media (max-width: 768px) {
   .stepName {
-    font-size: clamp(3.2rem, 13vw, 5rem);
+    font-size: clamp(1.8rem, 6.5vw, 2.6rem);
   }
   .stepIndex {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
   }
   .reelContainer {
     min-height: 380px;

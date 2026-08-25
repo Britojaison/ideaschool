@@ -34,8 +34,6 @@ export default function ScrollStrokeWrapper({
       style={{
         position: "relative",
         width: "100%",
-        backgroundColor: "#000000",
-        overflow: "hidden",
       }}
       data-header-theme="dark"
     >

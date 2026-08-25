@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./FullCreativeControl.module.css";
 
 interface StepItem {
@@ -44,6 +44,56 @@ const STEPS: StepItem[] = [
 export default function FullCreativeControl() {
   const [activeStepIdx, setActiveStepIdx] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (!sectionRef.current) {
+            ticking = false;
+            return;
+          }
+
+          const secRect = sectionRef.current.getBoundingClientRect();
+          const vh = window.innerHeight;
+
+          // Check if section is visible in viewport
+          if (secRect.top < vh * 0.85 && secRect.bottom > vh * 0.15) {
+            const focalPoint = vh * 0.48; // Natural reading eye line
+            let closestIdx = 0;
+            let minDistance = Infinity;
+
+            stepRefs.current.forEach((el, idx) => {
+              if (!el) return;
+              const rect = el.getBoundingClientRect();
+              const elCenter = rect.top + rect.height / 2;
+              const distance = Math.abs(elCenter - focalPoint);
+
+              if (distance < minDistance) {
+                minDistance = distance;
+                closestIdx = idx;
+              }
+            });
+
+            setActiveStepIdx(closestIdx);
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <section ref={sectionRef} className={styles.section} id="creative-control" data-header-theme="dark">
@@ -64,6 +114,9 @@ export default function FullCreativeControl() {
             return (
               <button
                 key={step.id}
+                ref={(el) => {
+                  stepRefs.current[idx] = el;
+                }}
                 type="button"
                 className={`${styles.stepItem} ${
                   isActive ? styles.activeStep : styles.inactiveStep
@@ -78,11 +131,18 @@ export default function FullCreativeControl() {
                   <span className={styles.stepName}>{step.name}</span>
                 </div>
 
-                {isActive && (
-                  <div className={styles.stepDescription}>
-                    {step.description}
+                <div
+                  className={`${styles.descAccordion} ${
+                    isActive ? styles.descAccordionOpen : ""
+                  }`}
+                  aria-hidden={!isActive}
+                >
+                  <div className={styles.descInner}>
+                    <div className={styles.stepDescription}>
+                      {step.description}
+                    </div>
                   </div>
-                )}
+                </div>
               </button>
             );
           })}

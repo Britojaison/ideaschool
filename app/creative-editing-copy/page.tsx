@@ -4,6 +4,7 @@ import CinematicHeroFlow from "@/components/cinematic-hero/CinematicHeroFlow";
 import SelectedProjects from "@/components/cinematic-hero/SelectedProjects";
 import FullCreativeControl from "@/components/cinematic-hero/FullCreativeControl";
 import ProgramBrochure from "@/components/cinematic-hero/ProgramBrochure";
+import ToolsMarquee from "@/components/ui/ToolsMarquee";
 import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
 import ClientBrandsGrid from "./ClientBrandsGrid";
@@ -45,6 +46,7 @@ export default function CreativeEditingCopyPage() {
         />
         <SelectedProjects />
         <ProgramBrochure />
+        <ToolsMarquee />
         <FullCreativeControl />
         <ByTheNumbers />
         <MentorsDiagonal />

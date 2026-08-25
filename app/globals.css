@@ -1822,6 +1822,10 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
 }
 
+.programHeroImageWrap.programHeroVideoTall {
+  aspect-ratio: 9 / 16;
+}
+
 .programHeroVideo {
   opacity: 0;
   transition: opacity 180ms ease;
@@ -11611,7 +11615,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .programHeroVideoTall {
-    aspect-ratio: 4 / 5.25;
+    aspect-ratio: 9 / 16;
   }
 
   .programNotice {

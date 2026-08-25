@@ -74,10 +74,10 @@ export default function AdmissionEnrollment() {
                 </span>
               </div>
               
-              <Link
-                href="https://www.ideaschool.pro/creative-editing-course#apply"
-                target="_blank"
-                className="font-black uppercase px-8 py-4 rounded-full tracking-wider text-sm no-underline hover:scale-105 transition-transform duration-200"
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("open-home-form"))}
+                className="font-black uppercase px-8 py-4 rounded-full tracking-wider text-sm no-underline hover:scale-105 transition-transform duration-200 border-none cursor-pointer"
                 style={{
                   backgroundColor: "#dafd55",
                   color: "#030405",
@@ -85,7 +85,7 @@ export default function AdmissionEnrollment() {
                 }}
               >
                 Talk to Idea School
-              </Link>
+              </button>
             </div>
             <p 
               className="m-0 text-sm leading-relaxed"

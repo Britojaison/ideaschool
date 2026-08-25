@@ -42,7 +42,8 @@ export default function AdmissionEnrollment() {
               textTransform: "uppercase",
               letterSpacing: "1px",
               marginBottom: "16px",
-              color: "#a0a0a0"
+              color: "#a0a0a0",
+              fontFamily: 'var(--font-stara), "Stara", sans-serif'
             }}
           >
             Admission & Enrollment
@@ -71,13 +72,9 @@ export default function AdmissionEnrollment() {
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "20px", marginBottom: "20px" }}>
             <div>
-              <span style={{ color: "#a0a0a0", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "1px", display: "block", marginBottom: "8px" }}>
+              <span style={{ color: "#a0a0a0", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "1px", display: "block", marginBottom: "8px", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>
                 Full Program Fee
               </span>
-              <div style={{ display: "flex", alignItems: "baseline", gap: "12px" }}>
-                <strong style={{ fontSize: "2rem", color: "#ffffff", fontFamily: 'var(--font-heading)' }}>₹39,999</strong>
-                <span style={{ textDecoration: "line-through", color: "#666", fontSize: "1.2rem", fontFamily: 'var(--font-heading)' }}>₹69,999</span>
-              </div>
             </div>
             
             <Link
@@ -93,7 +90,7 @@ export default function AdmissionEnrollment() {
                 letterSpacing: "1px",
                 textDecoration: "none",
                 fontSize: "0.9rem",
-                fontFamily: 'var(--font-heading)',
+                fontFamily: 'var(--font-stara), "Stara", sans-serif',
                 transition: "transform 0.2s ease, filter 0.2s ease",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; e.currentTarget.style.filter = "brightness(1.1)"; }}
@@ -102,7 +99,7 @@ export default function AdmissionEnrollment() {
               Talk to Idea School
             </Link>
           </div>
-          <p style={{ color: "#888", fontSize: "0.9rem", margin: 0, lineHeight: 1.5 }}>
+          <p style={{ color: "#888", fontSize: "0.9rem", margin: 0, lineHeight: 1.5, fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>
             Seats are limited so every learner gets attention, feedback, and room to practice.
           </p>
         </div>
@@ -119,8 +116,8 @@ export default function AdmissionEnrollment() {
                 borderBottom: index !== enrollmentDetails.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none"
               }}
             >
-              <dt style={{ color: "#ffffff", fontWeight: 600, fontSize: "1.1rem" }}>{item.label}</dt>
-              <dd style={{ color: "#a0a0a0", margin: 0, lineHeight: 1.6 }}>{item.value}</dd>
+              <dt style={{ color: "#ffffff", fontWeight: 600, fontSize: "1.1rem", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>{item.label}</dt>
+              <dd style={{ color: "#a0a0a0", margin: 0, lineHeight: 1.6, fontFamily: 'var(--font-stara), "Stara", sans-serif' }}>{item.value}</dd>
             </div>
           ))}
         </dl>

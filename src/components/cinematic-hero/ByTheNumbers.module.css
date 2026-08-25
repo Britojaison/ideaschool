@@ -28,6 +28,7 @@
 
 /* 4-Column Grid with Vertical Dividers */
 .grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
@@ -35,8 +36,44 @@
   border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+/* ── Sliding Highlight ── */
+.highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse 120% 90% at 50% 20%,
+    rgba(255, 59, 48, 0.08),
+    transparent 65%
+  );
+  border: 1px solid rgba(255, 59, 48, 0.08);
+  transition-property: transform, width, height, opacity;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, width, height, opacity;
+}
+
+/* Subtle glow layer on the highlight */
+.highlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 59, 48, 0.04) 0%,
+    transparent 40%,
+    transparent 70%,
+    rgba(255, 59, 48, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
 .column {
   position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -44,28 +81,27 @@
   border-right: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s ease;
 }
 
-.column:hover {
-  background-color: rgba(255, 255, 255, 0.02);
-}
-
-/* Staggered vertical padding matching Screenshot 27 & 28 */
+/* Staggered vertical padding — both top (tag offset) and bottom (number stagger) */
 .colA {
   padding-top: 6vh;
+  padding-bottom: 6vh;
 }
 
 .colB {
   padding-top: 16vh;
+  padding-bottom: 3vh;
 }
 
 .colC {
   padding-top: 4vh;
+  padding-bottom: 8vh;
 }
 
 .colD {
   padding-top: 20vh;
+  padding-bottom: 2vh;
 }
 
 /* Column Letter Marker (a ], b ], c ], d ]) */
@@ -76,35 +112,43 @@
   letter-spacing: 0.06em;
   margin-bottom: auto;
   padding-top: 1rem;
+  transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hover Reveal Production Image */
-.imageWrapper {
-  position: relative;
-  width: 100%;
+.hoverActive .letterTag,
+.column:hover .letterTag {
+  color: rgba(255, 59, 48, 0.6);
+}
+
+/* ── Single Floating Image — trails cursor across the grid ── */
+.floatingImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
   aspect-ratio: 3 / 4;
-  max-height: 260px;
-  margin-bottom: 1.5rem;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 3px;
   opacity: 0;
-  visibility: hidden;
-  transform: translateY(16px) scale(0.95);
-  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+  pointer-events: none;
+  z-index: 10;
+  /* Only opacity fades via CSS — position handled by JS lerp */
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
-.hoverActive .imageWrapper,
-.column:hover .imageWrapper {
+.floatingVisible {
   opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scale(1);
 }
 
-.hoverImg {
+/* Each photo layer stacked; only the active one is visible */
+.floatingImgLayer {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Smooth crossfade between column images */
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Stat Content Container */
@@ -125,13 +169,15 @@
   color: #FFFFFF;
   margin: 0 0 1rem 0;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition:
+    color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hoverActive .statNumber,
 .column:hover .statNumber {
   color: #FF3B30;
-  transform: translateX(2px);
+  transform: translateY(-3px);
 }
 
 /* Stat Label */
@@ -145,7 +191,7 @@
   color: rgba(255, 255, 255, 0.65);
   max-width: 190px;
   margin: 0;
-  transition: color 0.25s ease;
+  transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hoverActive .statLabel,
@@ -166,6 +212,7 @@
 
   .colA, .colB, .colC, .colD {
     padding-top: 4vh;
+    padding-bottom: 4vh;
   }
 }
 

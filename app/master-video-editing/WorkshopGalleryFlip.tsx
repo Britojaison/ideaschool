@@ -216,7 +216,7 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
       <h3
         style={{
           color: "#ffffff",
-          fontFamily: "'Bebas Neue', var(--font-heading)",
+          fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif",
           fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
           fontWeight: 700,
           margin: "0 0 4px",

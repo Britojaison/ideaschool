@@ -1,12 +1,4 @@
 @import "tailwindcss";
-@font-face {
-  font-family: "Bebas Neue";
-  src: url("/fonts/Bebas_Neue/BebasNeue-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @import "../src/styles/globals.css";
 
 @font-face {
@@ -146,11 +138,11 @@
   --font-primary: var(--font-stara, "Stara", Arial, sans-serif);
   --font-subject: var(--font-stara, "Stara", Arial, sans-serif);
   --font-playful: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
-  --font-heading: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
-  --font-display: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
-  --font-big: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
+  --font-heading: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
+  --font-display: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
+  --font-big: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
   --font-insomnia-night: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
-  --font-damn: var(--font-magnu, "Magnu", "GCMagnu", sans-serif);
+  --font-damn: var(--font-helvetica, "Helvetica Now Display", Arial, sans-serif);
   --page-gutter: clamp(20px, 7vw, 88px);
   --page-max: 1290px;
   --wide-page-max: 1540px;
@@ -5368,7 +5360,7 @@ html.isHeroGlassCursorActive .hero * {
   overflow: hidden;
   background: #FBFAF2;
   color: #111;
-  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
 }
 
 .cinematicMentorsDiagonal :where(h2, p, span, button),
@@ -5400,7 +5392,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 900px;
   margin: 0;
   color: #111;
-  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
   font-size: clamp(2rem, 4.3vw, 4.75rem);
   font-weight: 900;
   letter-spacing: -0.035em;
@@ -5428,7 +5420,7 @@ html.isHeroGlassCursorActive .hero * {
 .mentorCarouselLabel p {
   margin: 0;
   color: #111;
-  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.3rem);
   font-weight: 900;
   line-height: 1;
@@ -12476,7 +12468,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 760px;
   margin-top: clamp(18px, 2vw, 24px);
   color: #151515;
-  font-family: "Bebas Neue", var(--font-heading);
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(4.5rem, 8vw, 8.9rem);
   font-weight: 800;
   line-height: 0.9;
@@ -13884,7 +13876,7 @@ html.isHeroGlassCursorActive .hero * {
   display: flex;
   align-items: center;
   height: 100vh;
-  font-family: "Bebas Neue", var(--font-heading);
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(10rem, 30vw, 35rem);
   font-weight: 800;
   white-space: nowrap;
@@ -14288,7 +14280,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .workshopSiteFooter .footerMarquee {
   display: inline-block;
-  font-family: "Bebas Neue", var(--font-heading);
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(5rem, 16vw, 15rem);
   font-weight: 900;
   color: #151515;
@@ -15639,5 +15631,3 @@ html.isHeroGlassCursorActive .hero * {
     height: clamp(18px, 5.5vw, 24px);
   }
 }
-
-

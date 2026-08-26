@@ -274,7 +274,7 @@ export default function ByTheNumbers({
   }, [moveHighlight]);
 
   return (
-    <section className={styles.section} id="by-the-numbers" data-header-theme="dark">
+    <section className={styles.section} id="by-the-numbers" data-header-theme="light">
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
       </div>

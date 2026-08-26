@@ -14,7 +14,8 @@ export default function AdmissionEnrollment() {
   return (
     <section
       className="flex flex-col lg:flex-row min-h-screen w-full"
-      style={{ backgroundColor: "#050505" }}
+      style={{ backgroundColor: "#FBFAF2" }}
+      data-header-theme="light"
     >
       {/* Left Side: Image */}
       <div className="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-screen">
@@ -34,15 +35,15 @@ export default function AdmissionEnrollment() {
             <span
               className="inline-block border rounded-full px-4 py-1.5 text-xs uppercase tracking-wider mb-4"
               style={{
-                borderColor: "rgba(255,255,255,0.1)",
-                color: "#a0a0a0",
+                borderColor: "rgba(17,17,17,0.16)",
+                color: "#5f5f5f",
                 fontFamily: 'var(--font-stara), "Stara", sans-serif'
               }}
             >
               Admission & Enrollment
             </span>
             <h2
-              className="text-3xl md:text-5xl uppercase m-0 text-white"
+              className="text-3xl md:text-5xl uppercase m-0 text-[#111111]"
               style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
             >
               Fees And Enrollment
@@ -52,15 +53,15 @@ export default function AdmissionEnrollment() {
           <div
             className="rounded-2xl p-6 md:p-8 mb-10 border"
             style={{
-              backgroundColor: "#121215",
-              borderColor: "rgba(255,255,255,0.03)"
+              backgroundColor: "#F1F0E8",
+              borderColor: "rgba(17,17,17,0.1)"
             }}
           >
             <div className="flex justify-between items-center flex-wrap gap-5 mb-5">
               <div>
                 <span
                   className="block text-sm uppercase tracking-wider mb-2"
-                  style={{ color: "#a0a0a0", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                  style={{ color: "#666666", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
                 >
                   Full Program Fee
                 </span>
@@ -81,7 +82,7 @@ export default function AdmissionEnrollment() {
             </div>
             <p
               className="m-0 text-sm leading-relaxed"
-              style={{ color: "#888", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+              style={{ color: "#666666", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
             >
               Seats are limited so every learner gets attention, feedback, and room to practice.
             </p>
@@ -92,17 +93,17 @@ export default function AdmissionEnrollment() {
               <div
                 key={item.label}
                 className={`grid grid-cols-1 sm:grid-cols-[1fr_2fr] gap-2 sm:gap-5 ${index !== enrollmentDetails.length - 1 ? "pb-6 border-b" : ""}`}
-                style={{ borderColor: "rgba(255,255,255,0.05)" }}
+                style={{ borderColor: "rgba(17,17,17,0.1)" }}
               >
                 <dt
-                  className="font-semibold text-[1.05rem] text-white"
+                  className="font-semibold text-[1.05rem] text-[#111111]"
                   style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
                 >
                   {item.label}
                 </dt>
                 <dd
                   className="m-0 leading-relaxed text-[0.95rem]"
-                  style={{ color: "#a0a0a0", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                  style={{ color: "#666666", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
                 >
                   {item.value}
                 </dd>

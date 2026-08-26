@@ -11,7 +11,7 @@ const MENTORS = [
 
 export default function MentorsDiagonal() {
   return (
-    <section className="cinematicMentorsDiagonal" id="mentor" aria-label="Mentors guiding the program" data-header-theme="dark">
+    <section className="cinematicMentorsDiagonal" id="mentor" aria-label="Mentors guiding the program" data-header-theme="light">
       <div className="mentorSectionHeading">
         <p>Guided By Experts</p>
         <h2>Mentors Guiding The Program</h2>

@@ -227,6 +227,7 @@ export function MagneticSpotlightMarquee({
   return (
     <section
       ref={containerRef}
+      data-header-theme="light"
       className={cn(
         "spotlight relative w-full h-[100vh] min-h-[800px] overflow-hidden bg-white dark:bg-[#0f0f0f] text-white font-sans",
         className

@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import styles from "./FullCreativeControl.module.css";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface StepItem {
   id: string;
@@ -45,6 +50,37 @@ export default function FullCreativeControl() {
   const [activeStepIdx, setActiveStepIdx] = useState<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      gsap.fromTo(
+        sectionRef.current,
+        {
+          "--control-bg": "#080808",
+          "--control-heading": "#FFFFFF",
+          "--control-copy": "#A0AAB2",
+          "--control-border": "rgba(255, 255, 255, 0.15)",
+        },
+        {
+          "--control-bg": "#FBFAF2",
+          "--control-heading": "#111111",
+          "--control-copy": "#596168",
+          "--control-border": "rgba(17, 17, 17, 0.15)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 78%",
+            end: "top 18%",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    },
+    { scope: sectionRef }
+  );
 
   useEffect(() => {
     let ticking = false;
@@ -96,7 +132,7 @@ export default function FullCreativeControl() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section} id="creative-control" data-header-theme="dark">
+    <section ref={sectionRef} className={styles.section} id="creative-control" data-header-theme="light">
       {/* Header */}
       <div className={styles.header}>
         <h2 className={styles.title}>FULL CREATIVE CONTROL</h2>

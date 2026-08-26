@@ -5364,10 +5364,10 @@ html.isHeroGlassCursorActive .hero * {
   width: 100%;
   min-height: 100svh;
   padding: clamp(76px, 9vh, 112px) 3.5vw clamp(72px, 10vh, 120px);
-  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  border-top: 1px dashed rgba(17, 17, 17, 0.15);
   overflow: hidden;
-  background: #000;
-  color: #fff;
+  background: #FBFAF2;
+  color: #111;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
 }
 
@@ -5388,7 +5388,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .mentorSectionHeading p {
   margin: 0;
-  color: #dafd55;
+  color: #718000;
   font-family: var(--font-subject);
   font-size: clamp(0.72rem, 0.8vw, 0.88rem);
   font-weight: 800;
@@ -5399,7 +5399,7 @@ html.isHeroGlassCursorActive .hero * {
 .mentorSectionHeading h2 {
   max-width: 900px;
   margin: 0;
-  color: #fff;
+  color: #111;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(2rem, 4.3vw, 4.75rem);
   font-weight: 900;
@@ -5427,7 +5427,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .mentorCarouselLabel p {
   margin: 0;
-  color: #fff;
+  color: #111;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.3rem);
   font-weight: 900;
@@ -5438,7 +5438,7 @@ html.isHeroGlassCursorActive .hero * {
 .mentorCarouselLabel span {
   display: block;
   margin-top: 7px;
-  color: #dafd55;
+  color: #718000;
   font-family: var(--font-subject);
   font-size: 0.82rem;
   font-weight: 800;
@@ -5446,13 +5446,13 @@ html.isHeroGlassCursorActive .hero * {
 
 .mentorCarouselImage {
   border: 0;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.48);
+  background: rgba(17, 17, 17, 0.04);
+  box-shadow: 0 28px 80px rgba(17, 17, 17, 0.2);
 }
 
 .mentorCarouselControls {
-  border-color: rgba(218, 253, 85, 0.25);
-  color: #dafd55;
+  border-color: rgba(113, 128, 0, 0.35);
+  color: #718000;
 }
 
 .courseMentorCard {
@@ -15136,7 +15136,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .clientBrandsCarouselSection {
   padding-inline: 0;
-  background: #000;
+  background: #FBFAF2;
   background-image: none;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
 }
@@ -15160,6 +15160,7 @@ html.isHeroGlassCursorActive .hero * {
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
+  color: #111;
 }
 
 .clientBrandsCarouselSection .clientBrandsTitle {

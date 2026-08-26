@@ -15640,23 +15640,4 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
-/* Global Animated Dinosaur Cursor */
-*,
-*::before,
-*::after {
-  cursor: url("/assets/cursor/chrome-trex/cursor-32.png") 4 4, auto !important;
-}
 
-a,
-button,
-[role="button"],
-input[type="submit"],
-input[type="button"],
-label[for],
-select,
-summary,
-a *,
-button *,
-[role="button"] * {
-  cursor: url("/assets/cursor/chrome-trex/pointer-32.png") 6 2, pointer !important;
-}

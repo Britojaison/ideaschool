@@ -72,6 +72,8 @@ export const viewport: Viewport = {
   maximumScale: 5
 };
 
+import CustomAnimatedCursor from "@/components/global/CustomAnimatedCursor";
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -87,6 +89,7 @@ export default function RootLayout({
       <head />
       <body suppressHydrationWarning>
         <DisableImageActions />
+        <CustomAnimatedCursor />
         {children}
       </body>
     </html>

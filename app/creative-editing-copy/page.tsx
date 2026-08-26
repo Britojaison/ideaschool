@@ -11,7 +11,7 @@ import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
 import AdmissionEnrollment from "./AdmissionEnrollment";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
-import styles from "./MemeCursor.module.css";
+
 
 export const metadata: Metadata = {
   title: "Full Stack Creative Editing & AI Mastery | Idea School",

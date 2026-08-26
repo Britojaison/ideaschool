@@ -126,13 +126,20 @@ export default function VisualSchoolPage() {
       const overlayRect = overlayRef.current?.getBoundingClientRect();
       if (!overlayRect) return;
 
-      // Measure against the actual overlay bounds so centered mobile sizing remains exact.
-      const topOffset = cardRect.top - overlayRect.top;
-      const leftOffset = cardRect.left - overlayRect.left;
+      // Use offset dimensions to avoid skew bounding box distortion
+      const width = cardWideRef.current.offsetWidth;
+      const height = cardWideRef.current.offsetHeight;
+
+      // Calculate center to ensure perfect placement regardless of CSS transforms like translateY
+      const cardCenterX = cardRect.left + cardRect.width / 2;
+      const cardCenterY = cardRect.top + cardRect.height / 2;
+
+      const leftOffset = cardCenterX - overlayRect.left - width / 2;
+      const topOffset = cardCenterY - overlayRect.top - height / 2;
 
       gsap.set(overlayVideoRef.current, {
-        width: cardRect.width,
-        height: cardRect.height,
+        width: width,
+        height: height,
         x: leftOffset,
         y: topOffset,
         skewY: 7,
@@ -141,7 +148,8 @@ export default function VisualSchoolPage() {
     };
 
     updateInitialPosition();
-    window.addEventListener("resize", updateInitialPosition);
+    // Hook into ScrollTrigger refresh so invalidation works correctly
+    ScrollTrigger.addEventListener("refreshInit", updateInitialPosition);
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -283,7 +291,7 @@ export default function VisualSchoolPage() {
       12.9
     );
 
-    return () => window.removeEventListener("resize", updateInitialPosition);
+    return () => ScrollTrigger.removeEventListener("refreshInit", updateInitialPosition);
   }, { scope: containerRef });
 
   useGSAP(() => {

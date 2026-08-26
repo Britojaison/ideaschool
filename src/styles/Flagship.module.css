@@ -1,0 +1,435 @@
+.spotlight {
+  --red: #0a0a0c;
+  position: relative;
+  overflow: hidden;
+  color: #0a0a0c;
+  background: #FBFAF2;
+  padding: 48px 60px 80px;
+  display: flex;
+  align-items: center;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.centerArrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(2deg);
+  z-index: 5;
+  pointer-events: none;
+  width: clamp(100px, 8.5vw, 140px);
+  height: auto;
+}
+
+.centerArrow img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.flagshipLabel {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 28px 14px;
+  padding: 5px 15px 7px 12px;
+  background: #CD0C41;
+  color: #0a0a0c;
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+/* Selection-frame detail inspired by the reference treatment. */
+.flagshipLabel::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 2px solid #CD0C41;
+  pointer-events: none;
+}
+
+.flagshipLabel::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 50%;
+  background: #CD0C41;
+  pointer-events: none;
+}
+
+.eyebrowWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding: 8px 16px;
+  border: 1px solid #0a0a0c;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(10, 10, 12, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(10, 10, 12, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(10, 10, 12, 0); }
+}
+
+.eyebrowText {
+  color: #0a0a0c;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.title {
+  margin: 0 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.titleMain {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #0a0a0c;
+}
+
+.accent {
+  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
+  font-style: italic;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--red);
+  display: block;
+  margin-top: 0.05em;
+  transform: rotate(-2deg);
+}
+
+.lede {
+  color: rgba(10, 10, 12, 0.75);
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 0 45px 0;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+}
+
+.customBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 40px;
+  background: #0a0a0c;
+  color: #fff;
+  border-radius: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.customBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+
+.customBtn:hover {
+  color: #fff;
+}
+
+.customBtn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.statsPanel {
+  position: relative;
+  width: 100%;
+  margin-top: 36px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 2px solid #0a0a0c;
+  border-bottom: 2px solid #0a0a0c;
+}
+
+.stat {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.stat:first-child {
+  border-right: 2px solid #0a0a0c;
+}
+
+.stat:last-child {
+  /* removed padding-left to keep perfectly centered */
+}
+
+.number {
+  color: var(--red);
+  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
+  font-size: clamp(60px, 7vw, 100px);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: rgba(10, 10, 12, 0.9);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+
+  .centerArrow {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .spotlight {
+    min-height: auto;
+    padding: 46px 18px 72px;
+  }
+  .wrap {
+    grid-template-columns: 1.15fr .85fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .flagshipLabel {
+    margin: 0 0 16px 7px;
+    padding: 4px 9px 5px 7px;
+    font-size: 14px;
+  }
+  .flagshipLabel::before {
+    inset: -4px;
+    border-width: 1px;
+  }
+  .flagshipLabel::after {
+    width: 6px;
+    height: 6px;
+    right: -7px;
+    bottom: -7px;
+  }
+  .title {
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+  .titleMain {
+    font-size: clamp(26px, 2.8vw, 40px);
+    line-height: .86;
+    letter-spacing: -0.04em;
+  }
+  .accent {
+    margin-top: -0.25em;
+    font-size: clamp(24px, 7vw, 30px);
+  }
+  .lede {
+    margin-bottom: 18px;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+  .customBtn {
+    width: fit-content;
+    padding: 9px 12px;
+    font-size: 7px;
+  }
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    border-width: 1px;
+  }
+  .stat {
+    padding: 18px 2px !important;
+    border-bottom: 0;
+    gap: 7px;
+  }
+  .stat:first-child {
+    border-right: 1px solid #0a0a0c !important;
+  }
+  .number {
+    font-size: clamp(38px, 12vw, 50px);
+  }
+  .statLabel {
+    font-size: 7px;
+    line-height: 1.25;
+  }
+  .spotlight :global(.hidden-mobile) {
+    display: none;
+  }
+}
+
+.showreelCard {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin-top: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.showreelCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.showreelImg {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.75;
+}
+
+.showreelCard:hover .showreelImg {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+.playOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.playButton {
+  width: 64px;
+  height: 64px;
+  background: var(--red);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(10, 10, 12, 0.32);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.playButton svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+}
+
+.showreelCard:hover .playButton {
+  transform: scale(1.15);
+}
+
+.showreelLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.showreelLabel span {
+  color: #fff;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 640px) {
+  .showreelCard {
+    height: 124px;
+    margin-top: 16px;
+    border-radius: 7px;
+  }
+  .playButton {
+    width: 34px;
+    height: 34px;
+  }
+  .playButton svg {
+    width: 16px;
+    height: 16px;
+  }
+  .showreelLabel {
+    padding: 8px;
+  }
+  .showreelLabel span {
+    font-size: 9px;
+  }
+}

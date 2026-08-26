@@ -1,0 +1,255 @@
+.mentorSection {
+  padding: 5rem 2rem;
+  background-color: #0a0a0c;
+  color: #fbfaf2;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 0 2rem 0;
+}
+
+.title {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fbfaf2;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.subtitle {
+  font-family: var(--font-helvetica), sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 1.5vw, 26px);
+  line-height: 1.4;
+  color: #a0aab2;
+  margin: 0.5rem 0 0;
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 20px !important;
+  padding-bottom: 25px !important;
+  overflow: visible !important;
+}
+
+.swiperSlide {
+  width: 320px !important;
+  height: 480px !important;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #121216;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.mentorCard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  background-color: #121216;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.mentorImage {
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mentorCard:hover .mentorImage {
+  transform: scale(1.04);
+}
+
+.imageGradientOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 12, 0.95) 0%,
+    rgba(10, 10, 12, 0.7) 40%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mentorInfo {
+  position: relative;
+  z-index: 3;
+  padding: 2rem 1.75rem;
+  color: white;
+}
+
+.mentorName {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.1;
+  color: #fbfaf2;
+  letter-spacing: -0.04em;
+}
+
+.mentorRole {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #a0aab2;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Controls layout */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding: 0 0.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.navButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navButton {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #fbfaf2;
+}
+
+.navButton:hover {
+  background: #fbfaf2;
+  color: #0a0a0c;
+  border-color: #fbfaf2;
+  transform: scale(1.05);
+}
+
+.navButton:active {
+  transform: scale(0.95);
+}
+
+.navIcon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.25;
+}
+
+/* Pagination bullets */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paginationBullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.paginationBullet:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.paginationBulletActive {
+  background: #fbfaf2 !important;
+  width: 24px !important;
+  border-radius: 12px !important;
+}
+
+/* Swiper slide shadows rounding */
+:global(.swiper-slide-shadow-left),
+:global(.swiper-slide-shadow-right) {
+  border-radius: 24px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mentorSection {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .swiperSlide {
+    width: 270px !important;
+    height: 410px !important;
+  }
+
+  .mentorName {
+    font-size: 1.85rem;
+  }
+
+  .mentorRole {
+    font-size: 0.95rem;
+  }
+
+  .navButton {
+    width: 44px;
+    height: 44px;
+  }
+
+  .navIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .controlsRow {
+    justify-content: center;
+  }
+}

@@ -36,7 +36,7 @@ export default function WorkshopStickyBanner() {
             </p>
           </div>
           
-          <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-end">
+          <div className="hidden items-center gap-4 w-full md:w-auto justify-center md:justify-end">
             <a 
               href="https://rzp.io/rzp/L5kyyQlg" 
               target="_blank" 

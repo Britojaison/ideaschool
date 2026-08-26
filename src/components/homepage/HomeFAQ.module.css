@@ -1,0 +1,228 @@
+.faqSection {
+  padding: 140px 0;
+  background: transparent;
+  position: relative;
+  z-index: 5;
+  color: #FBFAF2;
+  overflow: hidden;
+}
+
+.heroGrid {
+  --grid-columns: 6;
+  --grid-row: 272px;
+  --grid-offset: 16px;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+.heroGrid::after {
+  content: "";
+  position: absolute;
+  top: var(--grid-offset);
+  bottom: 0;
+  left: 50%;
+  width: min(1914px, calc(100% - 56px));
+  border-inline: 1px solid rgba(10, 10, 12, .055);
+  transform: translateX(-50%);
+}
+.gridColumns {
+  --grid-columns: 6;
+  position: absolute;
+  z-index: 0;
+  top: 16px;
+  bottom: 0;
+  left: 50%;
+  width: min(1680px, calc(100% - 260px));
+  border-inline: 1px solid rgba(10, 10, 12, .055);
+  transform: translateX(-50%);
+  background-image: linear-gradient(90deg, rgba(10, 10, 12, .055) 1px, transparent 1px);
+  background-size: calc(100% / var(--grid-columns)) 100%;
+  pointer-events: none;
+}
+.gridRows {
+  --grid-columns: 6;
+  --grid-row: 272px;
+  --grid-offset: 16px;
+  position: absolute;
+  z-index: 0;
+  top: calc(var(--grid-offset) - 2px);
+  bottom: 0;
+  left: 50%;
+  width: min(1914px, calc(100% - 56px));
+  transform: translateX(-50%);
+  background-image: radial-gradient(circle at 2px 2px, rgba(10, 10, 12, .72) 0 1px, transparent 1.35px), radial-gradient(circle at calc(100% - 2px) 2px, rgba(10, 10, 12, .72) 0 1px, transparent 1.35px), linear-gradient(rgba(10, 10, 12, .055) 1px, transparent 1px);
+  background-size: 100% var(--grid-row);
+  background-position: -2px calc(0px - var(--section-offset-y, 0px)), 2px calc(0px - var(--section-offset-y, 0px)), 0 calc(2px - var(--section-offset-y, 0px));
+  background-repeat: repeat-y;
+  pointer-events: none;
+}
+.gridRows::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: min(1680px, calc(100% - 204px));
+  transform: translateX(-50%);
+  background-image: radial-gradient(circle at 2px 2px, rgba(10, 10, 12, .72) 0 1px, transparent 1.35px);
+  background-size: calc(100% / var(--grid-columns)) var(--grid-row);
+  background-position: -2px calc(0px - var(--section-offset-y, 0px));
+  background-repeat: repeat;
+}
+
+/* --- Light Grid Mode for Dark Backgrounds --- */
+.lightGridMode .heroGrid::after,
+.lightGridMode .gridColumns {
+  border-inline-color: rgba(251, 250, 242, 0.055);
+}
+
+.lightGridMode .gridColumns {
+  background-image: linear-gradient(90deg, rgba(251, 250, 242, 0.055) 1px, transparent 1px);
+}
+
+.lightGridMode .gridRows {
+  background-image: radial-gradient(circle at 2px 2px, rgba(251, 250, 242, 0.72) 0 1px, transparent 1.35px), 
+                    radial-gradient(circle at calc(100% - 2px) 2px, rgba(251, 250, 242, 0.72) 0 1px, transparent 1.35px), 
+                    linear-gradient(rgba(251, 250, 242, 0.055) 1px, transparent 1px);
+  background-position: -2px calc(0px - var(--section-offset-y, 0px)), 2px calc(0px - var(--section-offset-y, 0px)), 0 calc(2px - var(--section-offset-y, 0px));
+}
+
+.lightGridMode .gridRows::after {
+  background-image: radial-gradient(circle at 2px 2px, rgba(251, 250, 242, 0.72) 0 1px, transparent 1.35px);
+  background-position: -2px calc(0px - var(--section-offset-y, 0px));
+}
+
+.faqHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.faqHeader h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  margin: 16px 0 0;
+  line-height: 0.9;
+  color: #FBFAF2;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+/* FAQ Center Image */
+.faqImageWrapper {
+  width: 100%;
+  margin: 0 auto 80px;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+}
+
+.faqImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Two-Column FAQ Layout */
+.faqLayout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: start;
+}
+
+.faqList {
+  width: 100%;
+}
+
+.faqItem {
+  border-top: 1px dashed rgba(251, 250, 242, 0.2);
+  padding: 28px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faqItem:last-child {
+  border-bottom: 1px dashed rgba(251, 250, 242, 0.2);
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.faqQuestion h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #FBFAF2;
+}
+
+.faqIcon {
+  font-size: 20px;
+  font-weight: 400;
+  color: #FBFAF2;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  opacity: 0;
+}
+
+.faqAnswer p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(251, 250, 242, 0.6);
+  margin: 20px 0 0 0;
+}
+
+.faqOpen .faqAnswer {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.faqOpen .faqIcon {
+  transform: rotate(180deg);
+}
+
+/* FAQ Contact Sidebar */
+.faqContact {
+  padding-top: 28px;
+}
+
+.faqContact h3 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0 0 32px;
+  color: #FBFAF2;
+}
+
+.faqMailLink {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FBFAF2;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  transition: opacity 0.3s ease;
+}
+
+.faqMailLink:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 860px) {
+  .faqLayout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}

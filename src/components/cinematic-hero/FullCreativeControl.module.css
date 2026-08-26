@@ -1,0 +1,199 @@
+.section {
+  position: relative;
+  width: 100%;
+  background-color: #080808;
+  color: #FFFFFF;
+  padding: 12vh 3.5vw 16vh 3.5vw;
+  z-index: 20;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  will-change: background-color;
+}
+
+/* Header */
+.header {
+  margin-bottom: 8vh;
+  max-width: 480px;
+}
+
+.title {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 0.75rem 0;
+  line-height: 1;
+}
+
+.subtitle {
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(15px, 1.1vw, 18px);
+  color: #A0AAB2;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Interactive Process Reel / Stacker */
+.reelContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  margin: 4vh 0 8vh 0;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.stepItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  user-select: none;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Inactive Step — soft, elegant fade */
+.inactiveStep {
+  opacity: 0.3;
+  filter: blur(1.5px);
+}
+
+.inactiveStep:hover {
+  opacity: 0.65;
+  filter: blur(0.5px);
+}
+
+/* Active Step — full brilliant white */
+.activeStep {
+  opacity: 1;
+  filter: blur(0px);
+  z-index: 10;
+}
+
+.stepHeadingRow {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1.2vw;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stepIndex {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.4rem);
+  font-weight: 600;
+  color: #E63946;
+  letter-spacing: 0.04em;
+  transform: translateY(-0.25em);
+  transition: color 0.5s ease, opacity 0.5s ease;
+}
+
+.stepName {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(2.2rem, 4.2vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Smooth Accordion Wrapper for Description */
+.descAccordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.descAccordionOpen {
+  grid-template-rows: 1fr;
+}
+
+.descInner {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Active Step Subtitle Description */
+.stepDescription {
+  margin-top: 1rem;
+  max-width: 620px;
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.5;
+  color: #A0AAB2;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.descAccordionOpen .stepDescription {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bottom Manifest Quote */
+.manifestBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 6vh;
+}
+
+.manifestText {
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: clamp(14px, 1vw, 17px);
+  color: #A0AAB2;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  max-width: 700px;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stepName {
+    font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+  }
+  .stepIndex {
+    font-size: 0.95rem;
+  }
+  .reelContainer {
+    min-height: 380px;
+  }
+}

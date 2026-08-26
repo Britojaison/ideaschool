@@ -1,0 +1,206 @@
+.section {
+  --philosophy-bg: #fbfaf2;
+  --philosophy-ink: #0a0a0c;
+  --philosophy-muted: #4f514e;
+  --philosophy-border: rgba(10, 10, 12, 0.3);
+  position: relative;
+  padding: clamp(76px, 9vw, 130px) 0 0;
+  color: var(--philosophy-ink);
+  background: var(--philosophy-bg);
+  overflow: visible;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: clamp(160px, 28vh, 360px);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--philosophy-bg) 20%, transparent) 34%,
+    color-mix(in srgb, var(--philosophy-bg) 72%, transparent) 72%,
+    var(--philosophy-bg) 100%
+  );
+}
+
+.section :global(.container) {
+  width: min(1315px, calc(100% - 40px));
+}
+
+.heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 60px;
+  padding-bottom: clamp(58px, 7vw, 100px);
+}
+
+.heading h2 {
+  margin: 0;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(62px, 7.8vw, 118px);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 420px;
+  margin: 0 0 4px;
+  color: var(--philosophy-muted);
+  font-size: clamp(18px, 1.6vw, 23px);
+  line-height: 1.35;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--philosophy-border);
+  border-bottom: 1px solid var(--philosophy-border);
+}
+
+.pillar {
+  min-width: 0;
+  min-height: clamp(600px, 66vw, 820px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--philosophy-border);
+  background: var(--philosophy-bg);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.pillar:first-child {
+  border-left: 1px solid var(--philosophy-border);
+}
+
+.pillar:hover {
+  color: #fff;
+  background: #cd0c41;
+}
+
+.pillar:hover .copy p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.visual {
+  position: relative;
+  min-height: 55%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.letter {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(150px, 16vw, 260px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.1em;
+  transform: scaleX(0.82);
+  transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
+}
+
+.pillar:hover .letter {
+  transform: scaleX(0.82) rotate(-6deg) scale(1.08);
+}
+
+.copy {
+  min-height: 280px;
+  padding: 28px 24px 36px;
+}
+
+.copy h3 {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.copy p {
+  margin: 0;
+  color: var(--philosophy-muted);
+  font-size: 15px;
+  line-height: 1.52;
+}
+
+@media (max-width: 900px) {
+  .heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pillar {
+    min-height: 600px;
+    border-bottom: 1px solid rgba(10, 10, 12, 0.25);
+  }
+
+  .pillar:nth-child(3) {
+    border-left: 1px solid rgba(10, 10, 12, 0.25);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0 0;
+  }
+
+  .section :global(.container) {
+    width: calc(100% - 28px);
+  }
+
+  .heading {
+    padding-bottom: 46px;
+  }
+
+  .heading h2 {
+    font-size: clamp(48px, 16vw, 72px);
+  }
+
+  .intro {
+    margin: 0;
+  }
+
+  .pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pillar {
+    min-height: 500px;
+    border-left: 1px solid rgba(10, 10, 12, 0.25);
+  }
+
+  .visual {
+    min-height: 190px;
+  }
+
+  .letter {
+    font-size: clamp(100px, 34vw, 150px);
+  }
+
+  .copy {
+    min-height: 300px;
+    padding: 18px 14px 24px;
+  }
+
+  .copy h3 {
+    margin-bottom: 12px;
+    font-size: clamp(18px, 5.5vw, 23px);
+  }
+
+  .copy p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+}

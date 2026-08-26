@@ -2,11 +2,14 @@
 
 import { useEffect } from "react";
 import gsap from "gsap";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
+import Lenis from "lenis";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
+gsap.registerPlugin(ScrollTrigger, Flip);
+
+// Suppress "GSAP target not found" warnings when some selectors are not present on the page
+gsap.config({ nullTargetWarn: false });
 
 export default function WorkshopGsapAnimations() {
   useEffect(() => {
@@ -16,50 +19,25 @@ export default function WorkshopGsapAnimations() {
       return;
     }
 
-    let smoother: ScrollSmoother | undefined;
+    const lenis = new Lenis({
+      duration: 1.1,
+      smoothWheel: true,
+      syncTouch: false,
+      wheelMultiplier: 0.85,
+    });
+
+    lenis.on("scroll", ScrollTrigger.update);
+    const updateLenis = (time: number) => lenis.raf(time * 1000);
+    const handleProgrammaticScroll = (event: Event) => {
+      const scrollEvent = event as CustomEvent<number | string | HTMLElement>;
+      event.preventDefault();
+      lenis.scrollTo(scrollEvent.detail, { duration: 1.1 });
+    };
+    gsap.ticker.add(updateLenis);
+    gsap.ticker.lagSmoothing(0);
+    window.addEventListener("idea-scroll-to", handleProgrammaticScroll);
 
     const ctx = gsap.context(() => {
-      ScrollSmoother.get()?.kill();
-      smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 1.0, // Balanced smoothing
-        effects: true,
-        normalizeScroll: true, // Use GSAP's native normalization for touch & mobile
-      });
-
-      let targetY = smoother.scrollTop();
-
-      // Custom constant-velocity wheel logic to guarantee slow, elegant scroll regardless of wheel spin speed
-      const clampWheel = (e: WheelEvent) => {
-        // Prevent GSAP's normalizeScroll from seeing the fast wheel event directly
-        e.stopPropagation();
-        e.preventDefault();
-        
-        const currentY = smoother ? smoother.scrollTop() : window.scrollY;
-        
-        // Sync if external scroll (scrollbar drag, touch) occurred
-        if (Math.abs(targetY - currentY) > 500) {
-           targetY = currentY;
-        }
-        
-        targetY += e.deltaY;
-        targetY = gsap.utils.clamp(0, document.documentElement.scrollHeight - window.innerHeight, targetY);
-        
-        // STRICT SPEED LIMIT: Cap the maximum distance the target can be ahead of the current scroll
-        const maxDistance = 180; 
-        if (targetY > currentY + maxDistance) targetY = currentY + maxDistance;
-        if (targetY < currentY - maxDistance) targetY = currentY - maxDistance;
-        
-        // Feed the carefully clamped target directly to ScrollSmoother for buttery rendering
-        if (smoother) {
-          smoother.scrollTo(targetY, true);
-        }
-      };
-
-      // Use capture: true so we intercept the event BEFORE GSAP does
-      window.addEventListener("wheel", clampWheel, { passive: false, capture: true });
-
       gsap.set(
         gsap.utils.toArray([
           ".workshopHero .programEyebrowRow",
@@ -263,8 +241,8 @@ export default function WorkshopGsapAnimations() {
             start: "90% top",
             onEnter: () => {
               const nextSection = curriculumFlowSection.nextElementSibling as HTMLElement;
-              if (nextSection && smoother) {
-                smoother.scrollTo(nextSection, true, "top top");
+              if (nextSection) {
+                lenis.scrollTo(nextSection, { offset: 0, duration: 1.1 });
               }
             },
             once: true,
@@ -408,15 +386,13 @@ export default function WorkshopGsapAnimations() {
         );
       }
 
-      smoother.refresh();
-
-      return () => {
-        window.removeEventListener("wheel", clampWheel, { capture: true } as EventListenerOptions);
-      };
+      ScrollTrigger.refresh();
     });
 
     return () => {
-      smoother?.kill();
+      gsap.ticker.remove(updateLenis);
+      window.removeEventListener("idea-scroll-to", handleProgrammaticScroll);
+      lenis.destroy();
       ctx.revert();
     };
   }, []);

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import Footer from "@/components/global/Footer";
 
 const whatsappCommunityUrl = "https://chat.whatsapp.com/Iz3mpN9HQ6KGDEUbedsUBW";
 
@@ -71,6 +72,7 @@ export default function WorkshopThankYouPage() {
           </div>
         </div>
       </section>
+      <div className="newSite"><Footer /></div>
     </main>
   );
 }

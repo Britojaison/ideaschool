@@ -1,0 +1,158 @@
+.section {
+  padding: 80px 5vw;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
+.mainTitle {
+  margin: 0;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--snow);
+  letter-spacing: -0.04em;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mainTitle span {
+  transform: scaleY(1.5);
+  transform-origin: left center;
+  display: block;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: #1a1a1c;
+  transition: background-color 0.4s ease;
+}
+
+.card:hover {
+  background-color: #FB1616;
+}
+
+
+
+.card .circle,
+.card .cardTitle {
+  transition: border-color 0.4s ease, color 0.4s ease;
+}
+
+.card:hover .circle {
+  border-color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+.bgImage {
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.4s ease;
+}
+
+.card:hover .bgImage {
+  opacity: 0;
+}
+
+
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+
+
+.cardTitle {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+  color: #ffffff;
+  z-index: 2;
+  line-height: 1.2;
+}
+
+
+
+.description {
+  margin: 0;
+  color: #a0aab2;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mainTitle {
+    margin-bottom: 20px;
+  }
+
+  .gridItem {
+    position: sticky;
+    top: 72px;
+    padding-bottom: 18px;
+    border-radius: 14px;
+    background: #0a0a0c;
+    transform-origin: center top;
+    will-change: transform, opacity;
+  }
+
+  .card {
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .gridItem {
+    position: relative;
+    top: auto;
+    will-change: auto;
+  }
+}

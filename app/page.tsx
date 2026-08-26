@@ -1,615 +1,356 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+import Shell from "@/components/global/Shell";
+import Schools from "@/components/homepage/Schools";
+import IdeaPhilosophy from "@/components/homepage/IdeaPhilosophy";
+import WorkshopsStrip from "@/components/homepage/WorkshopsStrip";
+import FlagshipSpotlight from "@/components/homepage/FlagshipSpotlight";
+import InsideProgram from "@/components/homepage/InsideProgram";
+import BuiltByAmbitious from "@/components/homepage/BuiltByAmbitious";
+import Gallery from "@/components/homepage/Gallery";
+import Testimonials from "@/components/homepage/Testimonials";
+import Reviews from "@/components/homepage/Reviews";
+import HomeFAQ from "@/components/homepage/HomeFAQ";
+import styles from "@/styles/Home.module.css";
+import visualStorytelling from "@public/assets/home/card1.png";
+import creativeDirection from "@public/assets/home/card2.png";
+import marketing from "@public/assets/home/card3.png";
 import Image from "next/image";
-import Link from "next/link";
-import AlumniWorks from "./AlumniWorks";
-import FeedbackTestimonials from "./FeedbackTestimonials";
-import HashScrollFix from "./HashScrollFix";
-import ContactForm from "./ContactForm";
-import LiquidApplyButton from "./LiquidApplyButton";
-import LiquidBatchNotice from "./LiquidBatchNotice";
-import LiquidQuickActions from "./LiquidQuickActions";
-import MentorCarousel from "./MentorCarousel";
-import ProgramMenu from "./ProgramMenu";
-import ScrollTextReveal from "./ScrollTextReveal";
-import StarBorder from "./StarBorder";
-import WorkshopCarousel from "./WorkshopCarousel";
-import MobileMenu from "./MobileMenu";
-import GoogleReviews from "./GoogleReviews";
-
-type Brand =
-  | {
-    name: string;
-    image: string;
-    width: number;
-    height: number;
-  }
-  | {
-    name: string;
-    text: string;
-    width: number;
-    height: number;
-  };
-
-const brands: Brand[] = [
-  {
-    name: "Ashok Leyland",
-    image: "/images/ASHOK LEYLAND.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Finolex",
-    image: "/images/FINOLEX.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Heritage",
-    image: "/images/heritage.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "JLL",
-    image: "/images/JLL.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Milky Mist",
-    image: "/images/MILKY MIST-2.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Mapro",
-    image: "/images/mapro.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Moj",
-    image: "/images/moj.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Netflix",
-    image: "/images/NETFLIX-2.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Paytm",
-    image: "/images/paytm.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Amazon",
-    image: "/images/AMAZON.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Poco",
-    image: "/images/POCO.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "SIG",
-    image: "/images/SIG.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
-    name: "Xiaomi",
-    image: "/images/XIAMO.webp",
-    width: 1254,
-    height: 1254,
-  },
-];
-
-function BrandLogo({ brand }: { brand: Brand }) {
-  if ("image" in brand) {
-    return (
-      <Image
-        src={brand.image}
-        alt={brand.name}
-        width={brand.width}
-        height={brand.height}
-        className={`brandPartnerLogo${brand.name === "Mapro" ? " maproLogo" : ""}`}
-      />
-    );
-  }
-
-  return (
-    <span
-      className={brand.name === "Xiaomi" ? "xiaomiText" : "milkyMistText"}
-      aria-label={brand.name}
-    >
-      {brand.name === "Xiaomi" ? (
-        <>
-          x<span className="dotlessI">ı</span>aom
-          <span className="dotlessI">ı</span>
-        </>
-      ) : (
-        brand.text
-      )}
-    </span>
-  );
-}
-
-const workshops = [
-  {
-    title: "AI Ad Film Making Masterclass",
-    description: "Learn editing, content, and AI tools through real-world projects.",
-    image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
-    href: "/ad-film-making",
-    hideApplyButton: true,
-  },
-  {
-    title: "High-Income Video Editing Workshop",
-    description: "Master high-income editing skills and AI video creation tools.",
-    image: "/images/video-editing.jpeg",
-    href: "/master-video-editing",
-  },
-  {
-    title: "Advanced Content Systems",
-    description: "Build scalable content workflows and strategies.",
-    image: "/images/c988e78cfada134657e808cfb29a0523e125dde8.webp",
-    comingSoon: true,
-  },
-];
-
-const notCourseFeatures = [
-  {
-    title: "Studio-Led Training",
-    description:
-      "Learn through guided sessions, creator breakdowns, feedback loops, and practical assignments that mirror real content work.",
-    image: "/images/DSC01109.webp",
-    accent: "violet",
-  },
-  {
-    title: "Real Brand Practice",
-    description:
-      "Move from classroom tasks into portfolio-ready briefs, shoots, edits, and campaigns shaped by real market expectations.",
-    image: "/images/DSC01035.webp",
-    accent: "blue",
-  },
-];
-
-const notCoursePillars = [
-  {
-    title: "Pulse",
-    description:
-      "Stay current with culture, trends, platforms, and brand moments so your ideas feel relevant in the real world.",
-  },
-  {
-    title: "Creator Mindset",
-    description:
-      "Build the habit of observing, scripting, testing, improving, and presenting your work with clarity.",
-  },
-  {
-    title: "Production Fitness",
-    description:
-      "Practice the daily discipline of shooting, editing, planning, and managing timelines without losing creative quality.",
-  },
-  {
-    title: "Case Room",
-    description:
-      "Decode campaigns, creator pages, brand decisions, and content systems to understand why some work performs.",
-  },
-];
+import fullBleedImage from "@public/assets/home/gallery10.webp";
+import AmbientDots from "@/components/ui/AmbientDots";
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const fullBleedRef = useRef<HTMLDivElement>(null);
 
-  const handleMenuMouseEnter = () => {
-    if (menuTimeoutRef.current) {
-      clearTimeout(menuTimeoutRef.current);
-      menuTimeoutRef.current = null;
+  useGSAP(() => {
+    if (fullBleedRef.current) {
+      gsap.to(fullBleedRef.current, {
+        scrollTrigger: {
+          trigger: fullBleedRef.current,
+          start: "top 85%",
+          end: "center center",
+          scrub: 1,
+        },
+        width: "100vw",
+        borderRadius: "0px",
+        ease: "none",
+      });
     }
-    setIsMenuOpen(true);
-  };
+  });
 
-  const handleMenuMouseLeave = () => {
-    menuTimeoutRef.current = setTimeout(() => {
-      setIsMenuOpen(false);
-    }, 150);
-  };
+  useGSAP(
+    () => {
+      gsap.from(".gsap-text-creating", {
+        x: 200,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+      gsap.from(".gsap-text-becomes", {
+        x: -200,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+      });
 
-  const handleMenuClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsMenuOpen((prev) => !prev);
-  };
+      gsap.from(".gsap-card-1, .gsap-note-1", {
+        x: -200,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        delay: 0.2,
+        stagger: 0.1,
+      });
+      gsap.from(".gsap-card-2, .gsap-note-2", {
+        x: -200,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        delay: 0.4,
+        stagger: 0.1,
+      });
+      gsap.from(".gsap-card-3", {
+        x: 200,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        delay: 0.6,
+      });
+      gsap.from(".gsap-title-aside", {
+        opacity: 0,
+        x: 30,
+        duration: 1.0,
+        ease: "power3.out",
+        delay: 0.4,
+      });
+      gsap.from(".gsap-hero-intro-line", {
+        scale: 0.72,
+        y: 18,
+        opacity: 0,
+        duration: 0.65,
+        ease: "back.out(1.8)",
+        delay: 1.05,
+        stagger: 0.12,
+        transformOrigin: "center",
+      });
+
+      const handleMouseMove = (e: MouseEvent) => {
+        const { innerWidth, innerHeight } = window;
+        const x = (e.clientX / innerWidth - 0.5) * 2; // -1 to 1
+        const y = (e.clientY / innerHeight - 0.5) * 2; // -1 to 1
+
+        gsap.to(".gsap-card-1", {
+          x: x * 30,
+          y: y * 30,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        gsap.to(".gsap-note-1", {
+          x: x * 15,
+          y: y * 15,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        gsap.to(".gsap-card-2", {
+          x: x * -25,
+          y: y * -25,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        gsap.to(".gsap-note-2", {
+          x: x * -12,
+          y: y * -12,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        gsap.to(".gsap-card-3", {
+          x: x * 40,
+          y: y * 40,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    },
+    { scope: heroRef }
+  );
 
   return (
-    <main>
-      <HashScrollFix />
-      <ScrollTextReveal />
-
-      <section className="hero" id="hero" aria-label="Idea School hero">
-        <div className="heroMedia" aria-hidden="true">
-          <video
-            className="heroVideo"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source src="/images/Brand Commercial/SunscreenAD_May22 V2.mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        <div className="heroShade" />
-
-        <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
-            <Image
-              src="/images/idea logo.webp"
-              alt="Idea"
-              width={104}
-              height={54}
-              priority
-              className="brandLogo"
-            />
-          </Link>
-          <nav className="desktopNav" aria-label="Primary navigation">
-            <a href="#about">About</a>
-            <ProgramMenu
-              isOpen={isMenuOpen}
-              onMouseEnter={handleMenuMouseEnter}
-              onMouseLeave={handleMenuMouseLeave}
-            />
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <Link
-            className="headerCta"
-            href="/ad-film-making"
-            onMouseEnter={handleMenuMouseEnter}
-            onMouseLeave={handleMenuMouseLeave}
-            onClick={handleMenuClick}
-          >
-            <span className="headerCtaText">Book your class</span>
-          </Link>
-          <MobileMenu />
-        </header>
-
-        <div className="heroContent">
-          <div className="heroCopy">
-            <h1>
-              Creating <span>Future Ready</span>
-              <br />
-              <strong>Professionals</strong>
-            </h1>
-            <p>
-              <span>Learn Editing, Content Creation, and AI Tools</span> through Real Projects{" "}
-              and Hands-on Sessions Designed for the Industry.
-            </p>
-            <div className="heroCtaRow">
-              <LiquidApplyButton />
-            </div>
-            <div className="heroInlineActions">
-              <LiquidBatchNotice />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <LiquidQuickActions />
-
-      <section className="brands" aria-labelledby="brand-partners-title">
-        <h2 className="brandsTitle" id="brand-partners-title">
-          We have worked with 150+ Brands
-        </h2>
-        <div className="brandLogos">
-          {brands.map((brand) => (
-            <span key={brand.name}>
-              <BrandLogo brand={brand} />
-            </span>
-          ))}
-          {brands.map((brand) => (
-            <span
-              className="brandLogoDuplicate"
-              key={`${brand.name}-duplicate-1`}
-              aria-hidden="true"
+    <Shell headerOverlay>
+      <div className={styles.topFlow}>
+        <div className={styles.gradientFlow}>
+          <section className={styles.hero} ref={heroRef} data-header-theme="dark">
+          <AmbientDots />
+          <div className={styles.floatOne} aria-hidden="true" />
+          <div className={styles.floatTwo} aria-hidden="true" />
+          <div className={styles.heroCards}>
+            <figure
+              className={`${styles.heroCard} ${styles.heroCardOne} gsap-card-1`}
             >
-              <BrandLogo brand={brand} />
-            </span>
-          ))}
-          {brands.map((brand) => (
-            <span
-              className="brandLogoDuplicate"
-              key={`${brand.name}-duplicate-2`}
-              aria-hidden="true"
+              <Image
+                src={visualStorytelling}
+                alt="Animated visual storytelling project"
+                sizes="(max-width: 640px) 40vw, 18vw"
+                priority
+              />
+              <figcaption>Visual storytelling</figcaption>
+            </figure>
+            <div
+              className={`${styles.handwrittenNote} ${styles.noteVisual} gsap-note-1`}
             >
-              <BrandLogo brand={brand} />
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="workshops" id="program" aria-label="Our programs">
-        <div className="workshopGrid" aria-hidden="true" />
-        <div className="workshopInner">
-          <StarBorder
-            as="div"
-            role="heading"
-            aria-level={2}
-            className="workshopTitle"
-            color="#af52df"
-            speed="5s"
-            thickness={2}
-          >
-            Our Programs
-          </StarBorder>
-          <WorkshopCarousel workshops={workshops} />
-        </div>
-      </section>
-
-      <section className="videoSection" id="video" aria-label="Idea School video">
-        <video
-          id="homePageVideo"
-          className="videoPoster"
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-          controlsList="nodownload noplaybackrate noremoteplayback"
-          preload="metadata"
-          aria-label="Idea School classroom video"
-        >
-          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
-        </video>
-        <div className="videoSectionShade" aria-hidden="true" />
-      </section>
-
-      <AlumniWorks />
-
-      <section className="feedback" id="testimonials" aria-label="Student feedback">
-        <div className="feedbackIntro">
-          <h2>Real Feedback From Our Students</h2>
-          <p>
-            Honest feedback from learners who experienced our training and built
-            real skills through hands-on projects.
-          </p>
-        </div>
-
-        <FeedbackTestimonials />
-      </section>
-
-      <section className="whyIdea" id="about" aria-label="Why Idea School">
-        <div className="whyIdeaInner">
-          <div className="whyIdeaMedia">
-            <Image
-              src="/images/ARJUN - MAIN PAGE (ABOUT SECTION).webp"
-              alt="Idea School training session"
-              fill
-              sizes="(max-width: 980px) 100vw, 420px"
-              className="whyIdeaImage"
-            />
-          </div>
-
-          <div className="whyIdeaCopy">
-            <span className="sectionPill">Why Idea School</span>
-            <h2>
-              We build creators
-              <br />
-              ready for the real world
-            </h2>
-            <p className="whyIdeaDescription">
-              Idea School focuses on practical learning that goes beyond
-              theory. Our programs are designed to help students understand real
-              workflows, work on meaningful projects, and build skills that are
-              actually used in the industry.
-              <br /><br />
-              From editing and content creation to AI tools and digital systems,
-              we guide students through a structured learning process that
-              prepares them for real opportunities.
-            </p>
-            <p>For collaborations or queries, reach out to us directly.</p>
-
-            <div className="whyStats" role="list" aria-label="Idea School results">
-              <div>
-                <p className="whyStatLabel">Projects Completed</p>
-                <p className="whyStatValue">100+</p>
-              </div>
-              <div>
-                <p className="whyStatLabel">Brands Collaborated</p>
-                <p className="whyStatValue">100+</p>
-              </div>
-              <div>
-                <p className="whyStatLabel">Tools &amp; Skills Covered</p>
-                <p className="whyStatValue">20+</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mentors" aria-label="Idea School mentors">
-        <div className="mentorsIntro">
-          <h2>Learn From People Who Do It For Real</h2>
-          <p>
-            Our mentors are active creators, editors, and strategists working in
-            the industry.
-            <br />
-            Learn directly from people who build, create, and
-            deliver real results.
-          </p>
-        </div>
-
-        <MentorCarousel />
-      </section>
-
-      <section className="notCourseSection" aria-label="Not just a course">
-        <div className="notCourseInner">
-          <div className="notCourseHeader">
-            <h2>
-              Not Just a <em>Course</em>
-            </h2>
-            <p>
-              Idea School is built around growth beyond lessons. You learn the
-              craft, practice it in real situations, and build the habits needed
-              to show up like a working creator.
-            </p>
-          </div>
-
-          <div className="notCourseFeatureGrid">
-            {notCourseFeatures.map((feature) => (
-              <article
-                className={`notCourseFeature ${feature.accent}`}
-                key={feature.title}
+              <svg
+                viewBox="0 0 60 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <Image
-                  src={feature.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 980px) 100vw, 50vw"
-                  className="notCourseFeatureImage"
+                <path
+                  d="M45 50 Q 30 20 10 20"
+                  stroke="#1a1a1a"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  fill="none"
                 />
-                <div className="notCourseFeatureShade" />
-                <div className="notCourseFeatureCopy">
-                  <span aria-hidden="true" />
-                  <h3>{feature.title}</h3>
-                  <p>{feature.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="notCoursePillarGrid">
-            {notCoursePillars.map((pillar, index) => (
-              <article className="notCoursePillar" key={pillar.title}>
-                <span
-                  className={`notCoursePillarLine line${index}`}
-                  aria-hidden="true"
+                <path
+                  d="M22 12 L 10 20 L 22 28"
+                  stroke="#1a1a1a"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
                 />
-                <h3>{pillar.title}</h3>
-                <p>{pillar.description}</p>
-              </article>
-            ))}
-          </div>
-
-          <GoogleReviews />
-
-          <div className="faq">
-            <div className="faqIntro">
-              <h2>Frequently Asked Questions</h2>
-              <p>
-                Find answers to common questions about the program. Still
-                unsure? Feel free to contact us.
-              </p>
+              </svg>
+              <span>
+                Master visual<br />storytelling
+              </span>
             </div>
-
-            <div className="faqList">
-              {[
-                {
-                  question: "Do I need prior experience to join?",
-                  answer:
-                    "No, the program is designed for beginners as well as those with basic knowledge. We start from the fundamentals and gradually move to advanced concepts.",
-                  open: false,
-                },
-                {
-                  question: "What will I learn in this program?",
-                  answer:
-                    "You will learn content planning, shooting basics, editing workflows, creative thinking, AI tools, and how to build content that works for brands, businesses, and your own portfolio.",
-                  open: false,
-                },
-                {
-                  question: "Is this program online or offline?",
-                  answer:
-                    "The program is conducted offline with hands-on sessions, mentor guidance, and practical activities so you can learn by doing and get direct feedback.",
-                  open: false,
-                },
-                {
-                  question: "Will I work on real projects?",
-                  answer:
-                    "Yes. You will work on practical briefs and real-world style projects throughout the program, helping you build confidence, process, and portfolio-ready work.",
-                  open: false,
-                },
-                {
-                  question: "Will I get a certificate after completion?",
-                  answer:
-                    "Yes, you will receive a certificate after successfully completing the program and participating in the required practical sessions and project work.",
-                  open: false,
-                },
-              ].map((item) => (
-                <details className="faqItem" key={item.question} open={item.open}>
-                  <summary>
-                    <span>{item.question}</span>
-                    <span className="faqIcon" aria-hidden="true" />
-                  </summary>
-                  {item.answer ? <p>{item.answer}</p> : null}
-                </details>
-              ))}
+            <figure
+              className={`${styles.heroCard} ${styles.heroCardTwo} gsap-card-2`}
+            >
+              <Image
+                src={creativeDirection}
+                alt="Animated creative direction project"
+                sizes="(max-width: 640px) 40vw, 18vw"
+                priority
+              />
+              <figcaption>Creative direction</figcaption>
+            </figure>
+            <div
+              className={`${styles.handwrittenNote} ${styles.noteCreative} gsap-note-2`}
+            >
+              <svg
+                viewBox="0 0 60 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M45 50 Q 30 20 10 20"
+                  stroke="#1a1a1a"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M22 12 L 10 20 L 22 28"
+                  stroke="#1a1a1a"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+              <span>
+                Shape your<br />creative vision!
+              </span>
+            </div>
+            <figure
+              className={`${styles.heroCard} ${styles.heroCardThree} gsap-card-3`}
+            >
+              <Image
+                src={marketing}
+                alt="Marketing project"
+                sizes="(max-width: 640px) 40vw, 18vw"
+                priority
+              />
+              <figcaption>Marketing</figcaption>
+            </figure>
+          </div>
+          <div
+            className={styles.mobileCarousel}
+            aria-label="Featured creative projects"
+          >
+            <div className={styles.mobileCarouselTrack}>
+              {[0, 1].flatMap((set) => [
+                <figure
+                  className={styles.mobileCarouselCard}
+                  key={`${set}-visual`}
+                  aria-hidden={set === 1}
+                >
+                  <Image
+                    src={visualStorytelling}
+                    alt={
+                      set === 0 ? "Animated visual storytelling project" : ""
+                    }
+                    priority
+                  />
+                  <figcaption>Visual storytelling</figcaption>
+                </figure>,
+                <figure
+                  className={styles.mobileCarouselCard}
+                  key={`${set}-creative`}
+                  aria-hidden={set === 1}
+                >
+                  <Image
+                    src={creativeDirection}
+                    alt={
+                      set === 0 ? "Animated creative direction project" : ""
+                    }
+                    priority
+                  />
+                  <figcaption>Creative direction</figcaption>
+                </figure>,
+                <figure
+                  className={styles.mobileCarouselCard}
+                  key={`${set}-marketing`}
+                  aria-hidden={set === 1}
+                >
+                  <Image
+                    src={marketing}
+                    alt={set === 0 ? "Marketing project" : ""}
+                    priority
+                  />
+                  <figcaption>Marketing</figcaption>
+                </figure>,
+              ])}
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="contactSection" id="contact" aria-label="Contact Idea School">
-        <div className="contactInner">
-          <div className="contactCopy">
-            <h2>
-              Ready to start your creative journey?
-              <br />
-              Contact us.
-            </h2>
-            <p>
-              Join Idea School and start learning editing, content creation, and
-              AI tools through real projects and hands-on sessions.
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>
+              <span className={styles.lineOne}>
+                <span className="gsap-text-creating" style={{ display: "block" }}>
+                  SKILLS
+                </span>
+              </span>
+              <span className={styles.lineTwo}>
+                <span className={`${styles.becomeWord} gsap-text-becomes`}>
+                  BECOME
+                </span>
+                <span className={`${styles.yourWord} gsap-title-aside`}>YOUR</span>
+                <span className={`${styles.superpowerWord} gsap-title-aside`}>SUPERPOWER</span>
+              </span>
+            </h1>
+            <p className={styles.heroIntro}>
+              <span className="gsap-hero-intro-line">
+                Learn real-world creative skills.
+              </span>
+              <span className="gsap-hero-intro-line">
+                Build work that gets noticed.
+              </span>
+              <span className="gsap-hero-intro-line">
+                Turn what you love into a career.
+              </span>
             </p>
-            <a className="contactPhone" href="tel:+918618894857">
-              Contact us : 8618894857
-            </a>
           </div>
-
-          <ContactForm />
+          <a
+            className={styles.cornerArrow}
+            href="#schools"
+            aria-label="Explore schools"
+          >
+            ↙
+          </a>
+          </section>
+          <Schools />
         </div>
-      </section>
-
-      <footer className="siteFooter">
-        <div className="footerInner">
-          <p>Idea School is where you build real skills for the creative industry.</p>
-
-          <nav className="footerLinks" aria-label="Footer navigation">
-            <div>
-              <h2>Program</h2>
-              <a href="#program">Program</a>
-              <Link href="/creative-editing-course">Creative Editing Program</Link>
-              <Link href="/ad-film-making">Get early bird pass now</Link>
-            </div>
-            <div>
-              <h2>Company</h2>
-              <a href="#about">About</a>
-              <a href="#testimonials">Testimonials</a>
-              <a href="#contact">Contact us : 8618894857</a>
-            </div>
-            <div>
-              <h2>Socials</h2>
-              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-                Instagram
-              </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-            </div>
-          </nav>
-        </div>
-        <Link className="footerHeroLink" href="#hero" aria-label="Back to hero">
-          IDEA SCHOOL
-        </Link>
-      </footer>
-    </main>
+        <IdeaPhilosophy />
+        <WorkshopsStrip />
+      </div>
+      <FlagshipSpotlight />
+      <InsideProgram />
+      <BuiltByAmbitious />
+      <Gallery />
+      <div
+        className={styles.fullBleedContainer}
+        ref={fullBleedRef}
+        data-header-theme="dark"
+      >
+        <Image
+          src={fullBleedImage}
+          alt="Showcase banner"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+      </div>
+      <Testimonials />
+      <Reviews />
+      <HomeFAQ />
+    </Shell>
   );
 }

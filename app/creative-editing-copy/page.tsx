@@ -25,6 +25,7 @@ export default function CreativeEditingCopyPage() {
     <Shell headerOverlay={true} showAnnouncement={false}>
       <CinematicHeroFlow
         videoSrc="/assets/videos/HOME PAGE VIDEO.mp4"
+        mobileVideoSrc="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
         heroHeadline1="EDITING DEFINES."
         heroHeadline2="CRAFT SELLS."
         heroSubtitle="[  Full Stack Video Editing & Creative AI Mastery  ]"

@@ -20,7 +20,7 @@ export default function AdmissionEnrollment() {
       {/* Left Side: Image */}
       <div className="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-screen">
         <Image
-          src="/images/full.jpg"
+          src="/images/full-optimized.webp"
           alt="Idea School Campus Lab"
           fill
           className="object-cover"

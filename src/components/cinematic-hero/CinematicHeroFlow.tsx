@@ -13,6 +13,7 @@ if (typeof window !== "undefined") {
 
 interface CinematicHeroFlowProps {
   videoSrc?: string;
+  mobileVideoSrc?: string;
   heroHeadline1?: React.ReactNode;
   heroHeadline2?: React.ReactNode;
   heroSubtitle?: string;
@@ -28,6 +29,7 @@ interface CinematicHeroFlowProps {
 
 export default function CinematicHeroFlow({
   videoSrc = "/assets/videos/HOME PAGE VIDEO.mp4",
+  mobileVideoSrc,
   heroHeadline1 = "EDITING DEFINES.",
   heroHeadline2 = "CRAFT SELLS.",
   heroSubtitle = "[  Full Stack Video Editing & Creative AI Mastery  ]",
@@ -342,15 +344,18 @@ export default function CinematicHeroFlow({
           <video
             ref={videoRef}
             className={styles.bgVideo}
-            src={videoSrc}
             autoPlay
             loop
             muted={isMuted}
             playsInline
+            preload="auto"
             onTimeUpdate={handleTimeUpdate}
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
-          />
+          >
+            {mobileVideoSrc && <source src={mobileVideoSrc} media="(max-width: 767px)" type="video/mp4" />}
+            <source src={videoSrc} type="video/mp4" />
+          </video>
           <div className={styles.videoOverlay} />
           <div ref={heroBottomShadeRef} className={styles.heroBottomShade} />
         </div>

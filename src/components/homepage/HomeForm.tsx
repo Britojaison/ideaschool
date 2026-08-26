@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import image06 from "@public/assets/home/06.png";
+import image06 from "@public/assets/home/06-optimized.webp";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
 import Image from "next/image";
 
@@ -97,15 +97,15 @@ export default function HomeForm() {
         </div>
 
         <div className={styles.leftPane}>
-          <Image
-            src={image06}
-            alt="Background"
-            fill
-            loading="eager"
-            fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            style={{ objectFit: "cover" }}
-          />
+          {isVisible && (
+            <Image
+              src={image06}
+              alt="Background"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
+          )}
         </div>
         
         <div className={styles.rightPane}>

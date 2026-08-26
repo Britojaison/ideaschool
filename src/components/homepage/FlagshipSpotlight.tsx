@@ -51,7 +51,7 @@ export default function FlagshipSpotlight() {
             Twenty four weeks to turn raw ideas into finished films and turn your portfolio into proof.
           </p>
           <div className={styles.actions}>
-            <Link href="/creative-editing-copy" className={styles.customBtn}>
+            <Link href="/creative-editing-course" className={styles.customBtn}>
               Explore the program
             </Link>
           </div>

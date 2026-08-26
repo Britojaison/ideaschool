@@ -30,7 +30,7 @@ const paths = [
     title: "Creative Editing & AI Pro",
     tags: ["FLAGSHIP PROGRAM", "24 WEEKS"],
     image: c1,
-    href: "/creative-editing-copy",
+    href: "/creative-editing-course",
     isFlagship: true,
   },
   {
@@ -468,7 +468,7 @@ export default function VisualSchoolPage() {
                   <span>Storytelling</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>Explore Full Course</Link>
+                  <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                   <button
                     type="button"
                     className={styles.btnSecondary}
@@ -498,7 +498,7 @@ export default function VisualSchoolPage() {
                   <span>After Effects</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>Explore Full Course</Link>
+                  <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
             </div>
@@ -519,7 +519,7 @@ export default function VisualSchoolPage() {
                   <span>Career Track</span>
                 </div>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-copy" className={styles.btnPrimary}>Explore Full Course</Link>
+                  <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
             </div>
@@ -555,7 +555,7 @@ export default function VisualSchoolPage() {
               
               {/* Flagship Program Card */}
               <Link
-                href="/creative-editing-copy"
+                href="/creative-editing-course"
                 className={`${styles.showcaseCard} ${styles.flagshipCard}`}
               >
                 <div className={styles.cardHeaderBadge}>

@@ -274,7 +274,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                 <span>FULL-TIME CAREER COURSE · 24 WEEKS</span>
               </div>
               <Link
-                href="/creative-editing-copy"
+                href="/creative-editing-course"
                 className={styles.flagshipCard}
                 onClick={closeAll}
               >
@@ -449,7 +449,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             <span className={styles.mobileSectionLabel}>FULL COURSE · 24 WEEKS</span>
             <div className={styles.mobileLinkList}>
               <Link
-                href="/creative-editing-copy"
+                href="/creative-editing-course"
                 className={styles.mobileSubLink}
                 onClick={closeAll}
               >

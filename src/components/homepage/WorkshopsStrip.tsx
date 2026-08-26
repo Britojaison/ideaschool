@@ -16,7 +16,7 @@ if (typeof window !== "undefined") {
 }
 
 const workshops = [
-  { title: "Creative Editing Course", href: "/creative-editing-copy", image: imageCreative, objectPosition: "center" },
+  { title: "Creative Editing Course", href: "/creative-editing-course", image: imageCreative, objectPosition: "center" },
   { title: "Video Editing", href: "/video-editing", image: imageConceptual },
   { title: "Master Video Editing", href: "/master-video-editing", image: imageCampaign },
 ];

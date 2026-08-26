@@ -177,16 +177,11 @@ function BrandLogo({ brand }: { brand: Brand }) {
 
 export default function ClientBrandsGrid() {
   return (
-    <section className="clientBrandsSection clientBrandsCarouselSection" aria-label="Client Brands">
+    <section className="clientBrandsSection clientBrandsCarouselSection" aria-label="Client Brands" data-header-theme="light">
       <ClientBrandsMotion />
       <div className="clientBrandsInner">
         <div className="mentorSectionIntro">
-          <h2 className="clientBrandsTitle">
-            <span>Learn from</span>
-            <span>People Who</span>
-            <span>Have Worked with</span>
-            <span>These Brands</span>
-          </h2>
+          <h2>Learn from People Who Have Worked with These Brands</h2>
         </div>
         <div className="clientBrandsCarouselViewport">
           <div className="clientBrandsCarouselTrack">

@@ -69,7 +69,6 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
   };
 
   const timeSlots = [
-    "09:30 am - 10:15 am",
     "10:15 am - 11:00 am",
     "11:00 am - 11:45 am",
     "11:45 am - 12:30 pm",

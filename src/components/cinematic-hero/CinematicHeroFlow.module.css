@@ -534,6 +534,10 @@
     gap: 1rem;
   }
 
+  .bottomCenterMusic {
+    bottom: max(5.3rem, calc(env(safe-area-inset-bottom) + 4.8rem));
+  }
+
   .playControl {
     font-size: 0.7rem;
   }

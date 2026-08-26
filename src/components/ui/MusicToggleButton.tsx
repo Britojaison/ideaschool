@@ -68,23 +68,37 @@ export default function MusicToggleButton({
         .bar3 { animation: ${isPlaying ? "barPulse3 0.55s ease-in-out infinite alternate 0.3s" : "none"}; }
         .bar4 { animation: ${isPlaying ? "barPulse4 0.75s ease-in-out infinite alternate 0.1s" : "none"}; }
         .bar5 { animation: ${isPlaying ? "barPulse5 0.9s ease-in-out infinite alternate 0.25s" : "none"}; }
+        .musicToggleButton {
+          -webkit-tap-highlight-color: transparent;
+          touch-action: manipulation;
+        }
+        @media (hover: none) and (pointer: coarse) {
+          .musicToggleButton {
+            width: 58px !important;
+            height: 58px !important;
+            padding: 0 !important;
+          }
+        }
       `}</style>
 
       <motion.button
         type="button"
         onClick={handleClick}
         key="audio-toggle-btn"
-        initial={{ padding: "14px 14px" }}
-        whileHover={{ padding: "18px 22px", scale: 1.06 }}
-        whileTap={{ padding: "18px 22px", scale: 0.95 }}
+        initial={false}
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.95 }}
         transition={{ duration: 0.5, bounce: 0.5, type: "spring" }}
         aria-label={isPlaying ? "Mute video audio" : "Play video audio"}
         title={isPlaying ? "Click to mute" : "Click to play sound"}
-        className={className}
+        className={`musicToggleButton ${className}`}
         style={{
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
+          width: "50px",
+          height: "50px",
+          padding: 0,
           background: "rgba(0, 0, 0, 0.9)",
           backdropFilter: "blur(12px)",
           border: "1px solid rgba(255, 255, 255, 0.25)",

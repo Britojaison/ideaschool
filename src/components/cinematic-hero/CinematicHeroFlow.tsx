@@ -80,10 +80,27 @@ export default function CinematicHeroFlow({
 
   // Initialize video volume & mute state
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.volume = 1.0;
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    const syncAudioState = () => {
+      setIsMuted(video.muted || video.volume === 0);
+      setIsPlaying(!video.paused);
+    };
+
+    video.muted = true;
+    video.volume = 1.0;
+    syncAudioState();
+
+    video.addEventListener("volumechange", syncAudioState);
+    video.addEventListener("play", syncAudioState);
+    video.addEventListener("pause", syncAudioState);
+
+    return () => {
+      video.removeEventListener("volumechange", syncAudioState);
+      video.removeEventListener("play", syncAudioState);
+      video.removeEventListener("pause", syncAudioState);
+    };
   }, []);
 
   // Video timeupdate handler
@@ -111,12 +128,15 @@ export default function CinematicHeroFlow({
   // Mute / Unmute toggle - directly controls DOM video element
   const toggleMute = (e?: React.MouseEvent) => {
     if (e) {
+      e.preventDefault();
       e.stopPropagation();
     }
     const video = videoRef.current;
     if (!video) return;
 
-    if (isMuted || video.muted) {
+    const shouldUnmute = video.muted || video.volume === 0;
+
+    if (shouldUnmute) {
       video.muted = false;
       video.volume = 1.0;
       const playPromise = video.play();
@@ -126,6 +146,7 @@ export default function CinematicHeroFlow({
         });
       }
       setIsMuted(false);
+      setIsPlaying(true);
     } else {
       video.muted = true;
       setIsMuted(true);

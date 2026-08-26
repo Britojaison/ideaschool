@@ -117,7 +117,7 @@ export default function Testimonials() {
           >
             <div className={styles.card}>
               {item.image && (
-                <Image src={item.image} alt={item.title} fill className={styles.bgImage} />
+                <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 88vw, 40vw" className={styles.bgImage} />
               )}
               <div className={styles.circle}></div>
             </div>

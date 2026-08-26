@@ -11,6 +11,7 @@ import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
 import AdmissionEnrollment from "./AdmissionEnrollment";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
+import SoundFamiliar from "./SoundFamiliar";
 
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function CreativeEditingCopyPage() {
           "We teach the craft that builds high-performing creative careers."
         ]}
       />
+      <SoundFamiliar />
       <SelectedProjects />
       <ProgramBrochure />
       <ToolsMarquee />

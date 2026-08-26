@@ -4,7 +4,7 @@ import DiagonalCarousel from "@/components/ui/DiagonalCarousel";
 
 const MENTORS = [
   { src: "/assets/images/mentor_ARJUN.webp", title: "Dhananjayan . S", subtitle: "CEO, 88GB" },
-  { src: "/assets/images/mentor_PARITHI.webp", title: "Elamparithi", subtitle: "Head of Design, 88GB" },
+  { src: "/assets/images/wepparithi12.webp", title: "Elamparithi", subtitle: "Head of Design, 88GB" },
   { src: "/assets/images/mentor_AJAY.webp", title: "Ajay Karthik", subtitle: "Video Editor, 88GB" },
   { src: "/assets/images/mentor_CHANDRU.webp", title: "Chandrasoodeshwar", subtitle: "Senior Creative Strategist, 88GB" },
 ];

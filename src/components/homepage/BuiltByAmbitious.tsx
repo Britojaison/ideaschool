@@ -29,7 +29,7 @@ const rawMentors = [
   {
     name: "Parithi",
     role: "Head of Design",
-    image: "/assets/images/mentor_PARITHI.webp",
+    image: "/assets/images/wepparithi12.webp",
     color: "#d9a88a",
   },
   {

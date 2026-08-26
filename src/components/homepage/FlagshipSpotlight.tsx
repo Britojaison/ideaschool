@@ -76,7 +76,7 @@ export default function FlagshipSpotlight() {
               </span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.number}>3</span>
+              <span className={styles.number}>2</span>
               <span className={styles.statLabel}>
                 Learning<br />phases
               </span>

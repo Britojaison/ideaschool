@@ -6,9 +6,9 @@ import styles from "./not-found.module.css";
 
 export default function NotFound() {
   return (
-    <div className="newSite">
+    <div className="newSite" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#F5F5F5' }}>
       <Header />
-      <main className={styles.page}>
+      <main className={styles.page} style={{ flexGrow: 1, minHeight: 0 }}>
         <div className={styles.illustration} aria-hidden="true">
           <Image src="/404-illustration.svg" alt="404 Illustration" width={720} height={720} priority />
         </div>

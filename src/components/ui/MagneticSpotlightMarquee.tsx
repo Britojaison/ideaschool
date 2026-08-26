@@ -79,7 +79,7 @@ export function MagneticSpotlightMarquee({
     // 1. Setup infinite horizontal marquee with GSAP
     // Calculate width statically to avoid issues with unloaded images
     const isMobile = window.innerWidth < 768;
-    const itemWidth = isMobile ? 140 : 180; // Smaller, square width
+    const itemWidth = isMobile ? 180 : 240;
     const gap = 16; // 1rem gap
     const oneSetWidth = images.length * (itemWidth + gap);
     const setsNeeded = Math.ceil(window.innerWidth / oneSetWidth) + 1;
@@ -243,7 +243,7 @@ export function MagneticSpotlightMarquee({
       {/* Marquee Strip */}
       <div 
         ref={marqueeStripRef} 
-        className="spotlight-marquee absolute left-0 w-full z-20 h-[160px] md:h-[200px] pointer-events-none will-change-transform"
+        className="spotlight-marquee absolute left-0 w-full z-20 h-[200px] md:h-[260px] pointer-events-none will-change-transform"
         style={{ top: 0 }} 
       >
         <div 
@@ -251,7 +251,7 @@ export function MagneticSpotlightMarquee({
           className="spotlight-marquee-track flex gap-4 h-full items-center absolute top-0 left-0 will-change-transform"
         >
           {clonedImages.map((img, idx) => (
-            <div key={idx} className="w-[140px] h-[140px] md:w-[180px] md:h-[180px] shrink-0 rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
+            <div key={idx} className="w-[180px] h-[180px] md:w-[240px] md:h-[240px] shrink-0 rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
               <img
                 src={img}
                 alt="Marquee item"

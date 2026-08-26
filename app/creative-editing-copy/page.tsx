@@ -53,7 +53,7 @@ export default function CreativeEditingCopyPage() {
       <ClientBrandsGrid />
       <CourseGallery />
       <AdmissionEnrollment />
-      <HomeFAQ />
+      <HomeFAQ transitionFromCream />
     </Shell>
   );
 }

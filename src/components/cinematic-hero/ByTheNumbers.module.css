@@ -7,7 +7,7 @@
   z-index: 20;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  border-top: 1px dashed rgba(17, 17, 17, 0.15);
+  border-top: 1px dashed rgba(17, 17, 17, 0.14);
 }
 
 /* Section Header */
@@ -108,7 +108,7 @@
 .letterTag {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: 0.88rem;
-  color: rgba(17, 17, 17, 0.45);
+  color: rgba(17, 17, 17, 0.55);
   letter-spacing: 0.06em;
   margin-bottom: auto;
   padding-top: 1rem;

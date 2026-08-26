@@ -1,17 +1,13 @@
 .section {
-  --control-bg: #080808;
-  --control-heading: #FFFFFF;
-  --control-copy: #A0AAB2;
-  --control-border: rgba(255, 255, 255, 0.15);
   position: relative;
   width: 100%;
-  background-color: var(--control-bg);
-  color: var(--control-heading);
+  background-color: #080808;
+  color: #FFFFFF;
   padding: 12vh 3.5vw 16vh 3.5vw;
   z-index: 20;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  border-top: 1px dashed var(--control-border);
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
   will-change: background-color;
 }
 
@@ -27,7 +23,7 @@
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: var(--control-heading);
+  color: #FFFFFF;
   margin: 0 0 0.75rem 0;
   line-height: 1;
 }
@@ -35,7 +31,7 @@
 .subtitle {
   font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(15px, 1.1vw, 18px);
-  color: var(--control-copy);
+  color: #A0AAB2;
   font-weight: 400;
   margin: 0;
   line-height: 1.5;
@@ -123,7 +119,7 @@
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: var(--control-heading);
+  color: #FFFFFF;
   margin: 0;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
   transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
@@ -155,7 +151,7 @@
   font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(14px, 1vw, 16px);
   line-height: 1.5;
-  color: var(--control-copy);
+  color: #A0AAB2;
   font-weight: 400;
   opacity: 0;
   transform: translateY(6px);
@@ -181,7 +177,7 @@
 .manifestText {
   font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(14px, 1vw, 17px);
-  color: var(--control-copy);
+  color: #A0AAB2;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.01em;

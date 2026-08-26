@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import gsap from "gsap";
 import styles from "./HomeFAQ.module.css";
 
-export default function HomeFAQ() {
+export default function HomeFAQ({ transitionFromCream = false }: { transitionFromCream?: boolean }) {
   const faqSectionRef = useRef<HTMLElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -11,9 +12,50 @@ export default function HomeFAQ() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  useEffect(() => {
+    if (!transitionFromCream) return;
+
+    let ticking = false;
+    const updateTheme = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const section = faqSectionRef.current;
+        if (!section) {
+          ticking = false;
+          return;
+        }
+
+        const progress = gsap.utils.clamp(
+          0,
+          1,
+          (window.innerHeight - section.getBoundingClientRect().top) / window.innerHeight
+        );
+        const headingColor = gsap.utils.interpolate("#111111", "#FBFAF2", progress);
+        const copyColor = gsap.utils.interpolate("#666666", "rgba(251, 250, 242, 0.6)", progress);
+
+        gsap.set(section, {
+          backgroundColor: gsap.utils.interpolate("#FBFAF2", "#080808", progress),
+        });
+        gsap.set(section.querySelectorAll("h2, h3, h4, a, span"), { color: headingColor });
+        gsap.set(section.querySelectorAll(`.${styles.faqAnswer} p`), { color: copyColor });
+        window.dispatchEvent(new Event("header-theme-check"));
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", updateTheme, { passive: true });
+    updateTheme();
+    return () => window.removeEventListener("scroll", updateTheme);
+  }, [transitionFromCream]);
+
 
   return (
-    <section className={styles.faqSection} ref={faqSectionRef} data-header-theme="dark">
+    <section
+      className={styles.faqSection}
+      ref={faqSectionRef}
+      data-header-theme={transitionFromCream ? undefined : "dark"}
+    >
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div className={styles.faqHeader}>
           <h2>Frequently Asked Questions</h2>

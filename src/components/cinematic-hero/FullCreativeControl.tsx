@@ -2,11 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import styles from "./FullCreativeControl.module.css";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface StepItem {
   id: string;
@@ -51,37 +47,6 @@ export default function FullCreativeControl() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  useGSAP(
-    () => {
-      if (!sectionRef.current) return;
-
-      gsap.fromTo(
-        sectionRef.current,
-        {
-          "--control-bg": "#080808",
-          "--control-heading": "#FFFFFF",
-          "--control-copy": "#A0AAB2",
-          "--control-border": "rgba(255, 255, 255, 0.15)",
-        },
-        {
-          "--control-bg": "#FBFAF2",
-          "--control-heading": "#111111",
-          "--control-copy": "#596168",
-          "--control-border": "rgba(17, 17, 17, 0.15)",
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 78%",
-            end: "top 18%",
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        }
-      );
-    },
-    { scope: sectionRef }
-  );
-
   useEffect(() => {
     let ticking = false;
 
@@ -95,6 +60,29 @@ export default function FullCreativeControl() {
 
           const secRect = sectionRef.current.getBoundingClientRect();
           const vh = window.innerHeight;
+          const colorProgress = gsap.utils.clamp(0, 1, (vh - secRect.top) / vh);
+          const headingColor = gsap.utils.interpolate("#FFFFFF", "#111111", colorProgress);
+          const copyColor = gsap.utils.interpolate("#A0AAB2", "#596168", colorProgress);
+
+          gsap.set(sectionRef.current, {
+            backgroundColor: gsap.utils.interpolate("#080808", "#FBFAF2", colorProgress),
+            borderColor: gsap.utils.interpolate(
+              "rgba(255, 255, 255, 0.15)",
+              "rgba(17, 17, 17, 0.15)",
+              colorProgress
+            ),
+          });
+          gsap.set(
+            sectionRef.current.querySelectorAll(`.${styles.title}, .${styles.stepName}`),
+            { color: headingColor }
+          );
+          gsap.set(
+            sectionRef.current.querySelectorAll(
+              `.${styles.subtitle}, .${styles.stepDescription}, .${styles.manifestText}`
+            ),
+            { color: copyColor }
+          );
+          window.dispatchEvent(new Event("header-theme-check"));
 
           // Check if section is visible in viewport
           if (secRect.top < vh * 0.85 && secRect.bottom > vh * 0.15) {
@@ -132,7 +120,7 @@ export default function FullCreativeControl() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section} id="creative-control" data-header-theme="light">
+    <section ref={sectionRef} className={styles.section} id="creative-control">
       {/* Header */}
       <div className={styles.header}>
         <h2 className={styles.title}>FULL CREATIVE CONTROL</h2>

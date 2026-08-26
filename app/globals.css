@@ -5364,7 +5364,7 @@ html.isHeroGlassCursorActive .hero * {
   width: 100%;
   min-height: 100svh;
   padding: clamp(76px, 9vh, 112px) 3.5vw clamp(72px, 10vh, 120px);
-  border-top: 1px dashed rgba(17, 17, 17, 0.15);
+  border-top: 1px dashed rgba(17, 17, 17, 0.14);
   overflow: hidden;
   background: #FBFAF2;
   color: #111;

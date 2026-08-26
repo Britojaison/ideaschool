@@ -35,16 +35,16 @@ export default function AdmissionEnrollment() {
             <span
               className="inline-block border rounded-full px-4 py-1.5 text-xs uppercase tracking-wider mb-4"
               style={{
-                borderColor: "rgba(17,17,17,0.16)",
-                color: "#5f5f5f",
+                borderColor: "rgba(17,17,17,0.14)",
+                color: "#666666",
                 fontFamily: 'var(--font-stara), "Stara", sans-serif'
               }}
             >
               Admission & Enrollment
             </span>
             <h2
-              className="text-3xl md:text-5xl uppercase m-0 text-[#111111]"
-              style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+              className="text-3xl md:text-5xl uppercase m-0"
+              style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
             >
               Fees And Enrollment
             </h2>
@@ -54,7 +54,7 @@ export default function AdmissionEnrollment() {
             className="rounded-2xl p-6 md:p-8 mb-10 border"
             style={{
               backgroundColor: "#F1F0E8",
-              borderColor: "rgba(17,17,17,0.1)"
+              borderColor: "rgba(17,17,17,0.14)"
             }}
           >
             <div className="flex justify-between items-center flex-wrap gap-5 mb-5">
@@ -93,11 +93,11 @@ export default function AdmissionEnrollment() {
               <div
                 key={item.label}
                 className={`grid grid-cols-1 sm:grid-cols-[1fr_2fr] gap-2 sm:gap-5 ${index !== enrollmentDetails.length - 1 ? "pb-6 border-b" : ""}`}
-                style={{ borderColor: "rgba(17,17,17,0.1)" }}
+                style={{ borderColor: "rgba(17,17,17,0.14)" }}
               >
                 <dt
-                  className="font-semibold text-[1.05rem] text-[#111111]"
-                  style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                  className="font-semibold text-[1.05rem]"
+                  style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
                 >
                   {item.label}
                 </dt>

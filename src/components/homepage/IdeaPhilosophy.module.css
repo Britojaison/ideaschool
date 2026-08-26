@@ -173,19 +173,34 @@
   }
 
   .pillars {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .pillar {
-    min-height: 600px;
+    min-height: 500px;
     border-left: 1px solid rgba(10, 10, 12, 0.25);
   }
 
   .visual {
-    min-height: 330px;
+    min-height: 190px;
   }
 
   .letter {
-    font-size: clamp(190px, 62vw, 260px);
+    font-size: clamp(100px, 34vw, 150px);
+  }
+
+  .copy {
+    min-height: 300px;
+    padding: 18px 14px 24px;
+  }
+
+  .copy h3 {
+    margin-bottom: 12px;
+    font-size: clamp(18px, 5.5vw, 23px);
+  }
+
+  .copy p {
+    font-size: 12px;
+    line-height: 1.45;
   }
 }

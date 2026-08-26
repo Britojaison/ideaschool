@@ -182,10 +182,10 @@ export default function ClientBrandsGrid() {
       <div className="clientBrandsInner">
         <div className="mentorSectionIntro">
           <h2 className="clientBrandsTitle">
-            <span>Learn by</span>
-            <span>Working with</span>
-            <span>Some of Our</span>
-            <span>Client Brands</span>
+            <span>Learn from</span>
+            <span>People Who</span>
+            <span>Have Worked with</span>
+            <span>These Brands</span>
           </h2>
         </div>
         <div className="clientBrandsCarouselViewport">

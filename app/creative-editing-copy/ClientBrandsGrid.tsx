@@ -181,7 +181,7 @@ export default function ClientBrandsGrid() {
       <ClientBrandsMotion />
       <div className="clientBrandsInner">
         <div className="mentorSectionIntro">
-          <h2>Learn by Working with Some of Our Client Brands</h2>
+          <h2>Learn from People Who Have Worked with These Brands</h2>
         </div>
         <div className="clientBrandsCarouselViewport">
           <div className="clientBrandsCarouselTrack">

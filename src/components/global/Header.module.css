@@ -695,9 +695,7 @@
   }
 
   .headerScrolled .apply {
-    height: 30px;
-    padding: 0 10px;
-    font-size: 9px;
+    display: none;
   }
 
   .apply:hover {

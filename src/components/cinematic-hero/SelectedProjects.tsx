@@ -133,11 +133,7 @@ function ViewfinderCanvas({ project, currentThumbIdx }: ViewfinderCanvasProps) {
       onClick={() => setIsPlaying((prev) => !prev)}
       style={{ cursor: "pointer" }}
     >
-      {/* 4 Viewfinder Corner Crop Marks */}
-      <span className={styles.cornerTL} />
-      <span className={styles.cornerTR} />
-      <span className={styles.cornerBL} />
-      <span className={styles.cornerBR} />
+
 
       {/* Center Crosshair Marker */}
       <span className={styles.reticleCenter}>+</span>

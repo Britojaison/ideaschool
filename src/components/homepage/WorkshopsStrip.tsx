@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
@@ -83,25 +83,13 @@ export default function WorkshopsStrip() {
               className={styles.workshopCard}
               aria-label={w.title}
             >
-              <div className={styles.cardImageWrapper}>
-                <Image
-                  src={w.image}
-                  alt={w.title}
-                  placeholder="blur"
-                  fill
-                  style={{
-                    objectFit: 'contain',
-                    objectPosition: (w as any).objectPosition || 'center'
-                  }}
-                />
-              </div>
-
-              <div className={styles.cardArrow}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
+              <Image
+                src={w.image}
+                alt={w.title}
+                placeholder="blur"
+                sizes="(max-width: 900px) 100vw, 33vw"
+                className={styles.workshopImage}
+              />
             </Link>
           ))}
         </div>

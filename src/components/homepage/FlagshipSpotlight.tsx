@@ -43,9 +43,6 @@ export default function FlagshipSpotlight() {
     <section className={`section ${styles.spotlight}`}>
       <div className={styles.wrap}>
         <div className={styles.content}>
-          <div className={styles.flagshipLabel}>
-            <span>Flagship program</span>
-          </div>
           <div className={styles.title}>
             <span className={styles.titleMain}>Creative Editing</span>
             <span className={styles.accent}>& AI Pro</span>

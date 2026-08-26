@@ -12,15 +12,19 @@ if (typeof window !== "undefined") {
 
 const paragraphs = [
   {
-    text: "The traditional education system is broken. It teaches outdated theory and software shortcuts, leaving you unprepared for the actual industry. Idea School was built to fix this by focusing entirely on real-world execution.",
+    text: "The world changed. Education didn't keep pace. Most institutions still teach tools — the industry is looking for people who can think, adapt, and create meaningful impact.",
     weight: 500
   },
   {
-    text: "We don't do boring lectures. Instead, you learn by doing. You'll work alongside industry-expert mentors on actual briefs, build a stunning portfolio from scratch, and gain the hands-on experience that top agencies and studios actually look for.",
+    text: "So we build professionals, not just portfolios. Alongside the tools, you develop what AI can't replace: creativity, critical thinking, storytelling, and the ability to solve real problems.",
     weight: 400
   },
   {
-    text: "Our goal isn't to just teach you tools—it's to wire your brain to think like a top-tier creative. We make building your creative career insanely simple through structured paths, live workshops, and a community that pushes you to turn every idea into reality.",
+    text: "You won't sit through boring lectures. You'll work alongside industry mentors on real briefs, build a portfolio from scratch, and gain the experience that top studios actually look for.",
+    weight: 400
+  },
+  {
+    text: "This is where ambition meets execution. It's time to stop consuming tutorials and start creating work that demands attention. If you're ready to build a real career, you belong here.",
     weight: 400
   }
 ];
@@ -77,8 +81,11 @@ const InsideProgram = () => {
     <section ref={containerRef} className={styles.section} id="inside-program">
       <div className={styles.grid}>
         <div className={styles.leftCol}>
-          <h2 className={`${styles.title} gsap-prog-text`}>Why Idea School?</h2>
-          <p className={`${styles.subtitle} gsap-prog-text`}>Not a Course. A Build Experience.</p>
+          <h2 className={`${styles.title} gsap-prog-text`}>WHY IDEA SCHOOL?</h2>
+          <div className={`${styles.subtitle} gsap-prog-text`}>
+            <p style={{fontWeight: 600, fontSize: "0.85em", letterSpacing: "0.05em", marginBottom: "0.5rem", color: "#dafd55"}}>WHY WE EXIST</p>
+            <p>Not a Course. A Build Experience.</p>
+          </div>
         </div>
         <div className={styles.rightCol} ref={textRef}>
           {paragraphs.map((p, pIndex) => (

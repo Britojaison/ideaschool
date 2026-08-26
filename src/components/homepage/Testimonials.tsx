@@ -33,12 +33,12 @@ const roadmapSteps = [
   },
   {
     title: "Polish",
-    description: "Craft a lethal showreel using massive, real-world project files that ignores the competition.",
+    description: "Craft a lethal showreel using massive, real-world project files.",
     image: card4,
   },
   {
     title: "Dominate",
-    description: "Step into the industry, leverage our network, and start charging exactly what you're worth.",
+    description: "Step into the industry, leverage our network, and start charging what you're worth.",
     image: card5,
   },
 ];
@@ -76,7 +76,7 @@ export default function Testimonials() {
       <div className={styles.grid}>
         <div className={styles.titleWrapper}>
           <h2 className={styles.mainTitle}>
-            <span>The Pipeline</span>
+            <span style={{textTransform: "uppercase"}}>The Pipeline</span>
           </h2>
           <div style={{
             fontFamily: "var(--font-helvetica), sans-serif",
@@ -91,12 +91,22 @@ export default function Testimonials() {
             opacity: 0.9,
             marginTop: "30px"
           }}>
-            <span>From opening software to signing clients...</span>
+            <span>From opening software to signing clients.</span>
             <svg width="40" height="30" viewBox="0 0 100 50" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "rotate(20deg) translateY(5px)" }}>
               <path d="M10 25 Q 50 15 90 25" />
               <path d="M75 10 L 90 25 L 75 40" />
             </svg>
           </div>
+          <p style={{
+            color: "var(--snow)", 
+            fontSize: "1.1rem", 
+            marginTop: "30px", 
+            maxWidth: "500px", 
+            opacity: 0.9,
+            lineHeight: 1.5
+          }}>
+            Real confidence comes from real experience — not from consuming information, but applying it.
+          </p>
         </div>
         {roadmapSteps.map((item, i) => (
           <div

@@ -42,7 +42,7 @@
 
 .subtitle {
   font-family: var(--font-helvetica), sans-serif;
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(18px, 1.4vw, 24px);
   font-weight: 600;
   margin: 0;

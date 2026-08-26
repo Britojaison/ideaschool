@@ -97,7 +97,15 @@ export default function HomeForm() {
         </div>
 
         <div className={styles.leftPane}>
-          <Image src={image06} alt="Background" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
+          <Image
+            src={image06}
+            alt="Background"
+            fill
+            loading="eager"
+            fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
+          />
         </div>
         
         <div className={styles.rightPane}>

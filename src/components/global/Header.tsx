@@ -158,7 +158,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                 activeDropdown === "schools" ? styles.navLinkActive : ""
               }`}
             >
-              <span>Schools</span>
+              <span>School</span>
               <svg
                 className={`${styles.chevron} ${
                   activeDropdown === "schools" ? styles.chevronOpen : ""
@@ -423,7 +423,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
         <div className={styles.mobileSections}>
           {/* Schools Section */}
           <div className={styles.mobileSectionGroup}>
-            <span className={styles.mobileSectionLabel}>SCHOOLS</span>
+            <span className={styles.mobileSectionLabel}>SCHOOL</span>
             <div className={styles.mobileLinkList}>
               <Link
                 href="/visual-school"

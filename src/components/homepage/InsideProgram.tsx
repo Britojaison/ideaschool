@@ -82,10 +82,6 @@ const InsideProgram = () => {
       <div className={styles.grid}>
         <div className={styles.leftCol}>
           <h2 className={`${styles.title} gsap-prog-text`}>WHY IDEA SCHOOL?</h2>
-          <div className={`${styles.subtitle} gsap-prog-text`}>
-            <p style={{fontWeight: 600, fontSize: "0.85em", letterSpacing: "0.05em", marginBottom: "0.5rem", color: "#dafd55"}}>WHY WE EXIST</p>
-            <p>Not a Course. A Build Experience.</p>
-          </div>
         </div>
         <div className={styles.rightCol} ref={textRef}>
           {paragraphs.map((p, pIndex) => (

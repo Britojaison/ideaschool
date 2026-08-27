@@ -180,8 +180,8 @@ export default function FinalCourseCta() {
               <Image
                 src="/images/camlab-cam1.png"
                 alt="Cinema Production Rig"
-                width={360}
-                height={360}
+                width={420}
+                height={420}
                 className={styles.cameraImg}
                 priority
               />

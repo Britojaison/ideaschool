@@ -42,7 +42,7 @@
 .editorialBlock {
   position: relative;
   display: grid;
-  grid-template-columns: 1.15fr 0.8fr 1fr;
+  grid-template-columns: 1.05fr 1.1fr 1fr;
   align-items: center;
   gap: 2.5rem;
   padding-bottom: 2vh;
@@ -80,10 +80,10 @@
 .cameraImg {
   width: auto;
   height: auto;
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 360px;
+  max-height: 360px;
   object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.18));
 }
 
 .paragraph {

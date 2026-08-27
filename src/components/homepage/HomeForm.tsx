@@ -123,8 +123,11 @@ export default function HomeForm() {
               </div>
             ) : <>
               <div className={styles.formHeader}>
-                <h2>Take the first step<br />Enquire today</h2>
-                <p>Apply now to join the next cohort.</p>
+                <h2>Take the first step.</h2>
+                <p>
+                  Your creative career starts with what you can create.<br />
+                  Apply now for the next Idea Creative School cohort.
+                </p>
               </div>
 
               <form className={styles.form} onSubmit={handleSubmit}>

@@ -10,6 +10,7 @@ import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
 import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
 import AdmissionEnrollment from "./AdmissionEnrollment";
+import FinalCourseCta from "@/components/cinematic-hero/FinalCourseCta";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 
 
@@ -91,6 +92,7 @@ export default function CreativeEditingCopyPage() {
       <ClientBrandsGrid />
       <CourseGallery />
       <AdmissionEnrollment />
+      <FinalCourseCta />
       <HomeFAQ transitionFromCream faqs={COURSE_FAQS} />
     </Shell>
   );

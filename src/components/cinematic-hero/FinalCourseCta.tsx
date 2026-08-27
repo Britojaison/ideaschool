@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import styles from "./FinalCourseCta.module.css";
 
 export default function FinalCourseCta() {
@@ -28,6 +29,19 @@ export default function FinalCourseCta() {
             <p className={styles.emphasis}>
               They&apos;re defined by how well they can understand a brief, make creative decisions, solve problems and deliver strong work.
             </p>
+          </div>
+
+          <div className={styles.editorialVisualCol}>
+            <div className={styles.cameraWrapper}>
+              <Image
+                src="/images/camlab-cam1.png"
+                alt="Cinema Production Rig"
+                width={280}
+                height={280}
+                className={styles.cameraImg}
+                priority
+              />
+            </div>
           </div>
 
           <div className={styles.editorialCol}>

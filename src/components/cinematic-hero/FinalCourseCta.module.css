@@ -46,8 +46,9 @@
 
 .editorialBlock {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.15fr 0.8fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
   padding-bottom: 5vh;
   border-bottom: 1px dashed rgba(17, 17, 17, 0.14);
 }
@@ -58,8 +59,35 @@
   gap: 1.25rem;
 }
 
+.editorialVisualCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cameraWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cameraWrapper:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.cameraImg {
+  width: auto;
+  height: auto;
+  max-width: 240px;
+  max-height: 240px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.12));
+}
+
 .paragraph {
-  font-size: clamp(1.05rem, 1.3vw, 1.28rem);
+  font-size: clamp(1rem, 1.2vw, 1.22rem);
   line-height: 1.6;
   color: rgba(17, 17, 17, 0.78);
   margin: 0;
@@ -141,10 +169,20 @@
   background-color: #cbee40;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   .editorialBlock {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+
+  .editorialVisualCol {
+    order: -1;
+    justify-content: flex-start;
+  }
+
+  .cameraImg {
+    max-width: 180px;
+    max-height: 180px;
   }
 
   .programCard {

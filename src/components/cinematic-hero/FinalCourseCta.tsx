@@ -1,16 +1,82 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./FinalCourseCta.module.css";
 
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function FinalCourseCta() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const rightColRef = useRef<HTMLDivElement>(null);
+  const cameraRef = useRef<HTMLDivElement>(null);
+
   const handleApplyClick = () => {
     window.dispatchEvent(new Event("open-home-form"));
   };
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const leftCol = leftColRef.current;
+    const rightCol = rightColRef.current;
+    const camera = cameraRef.current;
+
+    if (!section || !leftCol || !rightCol || !camera) return;
+
+    const ctx = gsap.context(() => {
+      // Set initial states
+      gsap.set(camera, {
+        scale: 2.3,
+        transformOrigin: "center center",
+        willChange: "transform"
+      });
+      gsap.set(leftCol, {
+        x: -90,
+        opacity: 0,
+        willChange: "transform, opacity"
+      });
+      gsap.set(rightCol, {
+        x: 90,
+        opacity: 0,
+        willChange: "transform, opacity"
+      });
+
+      // Scrub timeline tied to scroll
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 65%",
+          end: "top 15%",
+          scrub: 1,
+        }
+      });
+
+      tl.to(camera, {
+        scale: 1,
+        ease: "power2.out",
+      }, 0)
+      .to(leftCol, {
+        x: 0,
+        opacity: 1,
+        ease: "power2.out",
+      }, 0)
+      .to(rightCol, {
+        x: 0,
+        opacity: 1,
+        ease: "power2.out",
+      }, 0);
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className={styles.section} id="final-cta" data-header-theme="light">
+    <section className={styles.section} id="final-cta" ref={sectionRef} data-header-theme="light">
       <div className={styles.inner}>
         <div className={styles.header}>
           <h2 className={styles.title}>
@@ -19,7 +85,7 @@ export default function FinalCourseCta() {
         </div>
 
         <div className={styles.editorialBlock}>
-          <div className={styles.editorialCol}>
+          <div className={styles.editorialCol} ref={leftColRef}>
             <p className={styles.paragraph}>
               The creative industry is changing quickly.
             </p>
@@ -32,19 +98,19 @@ export default function FinalCourseCta() {
           </div>
 
           <div className={styles.editorialVisualCol}>
-            <div className={styles.cameraWrapper}>
+            <div className={styles.cameraWrapper} ref={cameraRef}>
               <Image
                 src="/images/camlab-cam1.png"
                 alt="Cinema Production Rig"
-                width={280}
-                height={280}
+                width={320}
+                height={320}
                 className={styles.cameraImg}
                 priority
               />
             </div>
           </div>
 
-          <div className={styles.editorialCol}>
+          <div className={styles.editorialCol} ref={rightColRef}>
             <p className={styles.paragraph}>
               Idea Creative School is built to help you develop that capability.
             </p>

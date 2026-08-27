@@ -15,30 +15,30 @@ const STEPS: StepItem[] = [
   {
     id: "01",
     index: "[01]",
-    name: "STORY & CONCEPT",
+    name: "STORY & VISUAL THINKING",
     description:
-      "NARRATIVE PACING, SCRIPT BREAKDOWNS, EDITORIAL HOOK ARCHITECTURE, STORYBOARDS, AND VISUAL PRE-VISUALIZATION ALIGNED WITH CLIENT BRIEFS."
+      "LEARN HOW TO STRUCTURE CONTENT, BUILD ATTENTION, WORK WITH PACING AND TRANSLATE IDEAS INTO VISUAL NARRATIVES."
   },
   {
     id: "02",
     index: "[02]",
-    name: "CORE CRAFT & EDITING",
+    name: "PROFESSIONAL VIDEO EDITING",
     description:
-      "PREMIERE PRO ADVANCED WORKFLOWS, MULTI-CAM SYNCHRONIZATION, RHYTHM-BASED CUTTING, SOUND DESIGN, AND AUDIO MIXING."
+      "DEVELOP STRONG EDITING FUNDAMENTALS, RHYTHM, TRANSITIONS, SOUND, STORYTELLING AND EFFICIENT PROJECT WORKFLOWS."
   },
   {
     id: "03",
     index: "[03]",
-    name: "MOTION & CREATIVE AI",
+    name: "MOTION & VISUAL DESIGN",
     description:
-      "AFTER EFFECTS VFX, ROTOSCOPING, 3D INTEGRATION, FLUX, SEEDANCE, RUNWAY, AND HIGH-END GENERATIVE COMMERCIAL PIPELINES."
+      "ADD MOTION GRAPHICS, TYPOGRAPHY, COMPOSITING AND VISUAL TREATMENTS TO YOUR EDITING SKILLSET."
   },
   {
     id: "04",
     index: "[04]",
-    name: "COLOR & MASTERING",
+    name: "CREATIVE AI & MODERN PRODUCTION",
     description:
-      "DAVINCI RESOLVE COLOR GRADING, CINEMATIC TEXTURE, SOUND MASTERING, EXPORT OPTIMIZATION, AND BRAND-READY PORTFOLIO DELIVERY."
+      "USE AI AS PART OF THE CREATIVE PROCESS — FROM IDEATION AND VISUAL DEVELOPMENT TO CONTENT CREATION AND PRODUCTION EFFICIENCY."
   }
 ];
 
@@ -123,9 +123,9 @@ export default function FullCreativeControl() {
     <section ref={sectionRef} className={styles.section} id="creative-control">
       {/* Header */}
       <div className={styles.header}>
-        <h2 className={styles.title}>FULL CREATIVE CONTROL</h2>
+        <h2 className={styles.title}>FROM RAW FOOTAGE TO FINISHED CREATIVE WORK.</h2>
         <p className={styles.subtitle}>
-          Translating raw footage and AI generation into emotional narrative, from the first cut to the final master.
+          A modern video editor needs more than cutting and arranging clips. The program develops your ability across the creative process — giving you a broader skillset around your core editing capability.
         </p>
       </div>
 
@@ -176,7 +176,7 @@ export default function FullCreativeControl() {
       {/* Bottom Manifesto Statement */}
       <div className={styles.manifestBlock}>
         <p className={styles.manifestText}>
-          We teach the entire cinematic editing pipeline. We don&apos;t teach shortcuts. We build industry leaders.
+          The result is not just another software-trained editor. It&apos;s a creative professional with a broader understanding of how modern content gets made.
         </p>
       </div>
     </section>

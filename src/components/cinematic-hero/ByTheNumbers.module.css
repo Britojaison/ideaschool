@@ -26,11 +26,22 @@
   line-height: 1;
 }
 
-/* 4-Column Grid with Vertical Dividers */
+.subtitle {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(14px, 1.1vw, 18px);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+  margin: 1.5rem 0 0 0;
+  line-height: 1.4;
+}
+
+/* 5-Column Grid with Vertical Dividers */
 .grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   width: 100%;
   min-height: 580px;
   border-left: 1px solid rgba(17, 17, 17, 0.14);
@@ -104,6 +115,11 @@
   padding-bottom: 2vh;
 }
 
+.colE {
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+}
+
 /* Column Letter Marker (a ], b ], c ], d ]) */
 .letterTag {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
@@ -161,7 +177,7 @@
 /* Giant Stat Number */
 .statNumber {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(5.2rem, 9.2vw, 9.5rem);
+  font-size: clamp(3rem, 5.2vw, 5.5rem);
   font-weight: 400;
   line-height: 0.82;
   letter-spacing: 0.01em;
@@ -200,6 +216,16 @@
 }
 
 /* Responsive */
+@media (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .statNumber {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+  }
+}
+
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -210,7 +236,7 @@
     min-height: 380px;
   }
 
-  .colA, .colB, .colC, .colD {
+  .colA, .colB, .colC, .colD, .colE {
     padding-top: 4vh;
     padding-bottom: 4vh;
   }

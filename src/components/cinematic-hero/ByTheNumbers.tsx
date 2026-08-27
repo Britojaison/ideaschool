@@ -17,34 +17,42 @@ const STATS_DATA: StatItem[] = [
   {
     id: "a",
     tag: "a ]",
-    number: "100+",
-    label: "STUDENTS & CREATORS TRAINED",
+    number: "24",
+    label: "WEEKS OF STRUCTURED LEARNING & INDUSTRY EXPERIENCE",
     imageSrc: "/images/gallery10.webp",
     colClass: styles.colA
   },
   {
     id: "b",
     tag: "b ]",
-    number: "24",
-    label: "WEEKS INTENSIVE PRODUCTION WORKFLOW",
+    number: "12 + 12",
+    label: "WEEKS OF CORE TRAINING + INDUSTRY EXPERIENCE",
     imageSrc: "/images/gallery16.webp",
     colClass: styles.colB
   },
   {
     id: "c",
     tag: "c ]",
-    number: "20+",
-    label: "INDUSTRY MENTORS & COMMERCIAL DIRECTORS",
+    number: "2",
+    label: "PRACTICAL ASSIGNMENTS EVERY WEEK DURING CORE TRAINING",
     imageSrc: "/images/gallery13.webp",
     colClass: styles.colC
   },
   {
     id: "d",
     tag: "d ]",
-    number: "50+",
-    label: "LIVE BRAND BRIEFS & COMMERCIAL CUTS",
+    number: "5 / WEEK",
+    label: "POTENTIAL WEEKLY ASSIGNMENTS THROUGH THE DEDICATED INDUSTRY EXPERIENCE PATH",
     imageSrc: "/images/gallery18.webp",
     colClass: styles.colD
+  },
+  {
+    id: "e",
+    tag: "e ]",
+    number: "60+",
+    label: "POTENTIAL VIDEO ASSIGNMENTS ACROSS 12 WEEKS OF DEDICATED INDUSTRY EXPERIENCE",
+    imageSrc: "/images/gallery10.webp",
+    colClass: styles.colE
   }
 ];
 
@@ -52,10 +60,12 @@ const STATS_DATA: StatItem[] = [
 const LERP_EASE = 0.08;
 
 export default function ByTheNumbers({
-  title = "BY THE NUMBERS",
+  title = "NUMBERS",
+  subtitle = "BUILT FOR DEPTH. DESIGNED FOR REAL PRACTICE.",
   stats = STATS_DATA
 }: {
   title?: string;
+  subtitle?: string;
   stats?: StatItem[];
 }) {
   const [hoveredCol, setHoveredCol] = useState<string | null>(null);
@@ -277,6 +287,7 @@ export default function ByTheNumbers({
     <section className={styles.section} id="by-the-numbers" data-header-theme="light">
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </div>
 
       <div

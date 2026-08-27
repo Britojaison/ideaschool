@@ -11,10 +11,11 @@ const MENTORS = [
 
 export default function MentorsDiagonal() {
   return (
-    <section className="cinematicMentorsDiagonal" id="mentor" aria-label="Mentors guiding the program" data-header-theme="light">
+    <section className="cinematicMentorsDiagonal" id="mentor" aria-label="Learn with people who work inside the industry" data-header-theme="light">
       <div className="mentorSectionHeading">
-        <p>Guided By Experts</p>
-        <h2>Mentors Guiding The Program</h2>
+        <p>Mentors</p>
+        <h2>Learn With People Who Work Inside The Industry.</h2>
+        <span className="mentorSectionDesc">Your learning is guided by creative professionals from the 88GB ecosystem.</span>
       </div>
       <div className="mentorDiagonalCarousel">
         <DiagonalCarousel

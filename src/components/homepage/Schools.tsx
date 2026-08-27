@@ -3,13 +3,16 @@ import styles from "@/styles/Home.module.css";
 import Reveal from "@/components/ui/Reveal";
 
 const doubts = [
-  "Pick one skill and stick to it forever",
-  "Learn from another 12-hour tutorial",
-  "Figure out what belongs in a portfolio",
-  "Keep up with every new AI tool",
-  "Wait until you feel ‘ready’ to apply",
-  "Make work that actually gets noticed",
-  "Turn creative skills into a real career",
+  "You want to get into editing or filmmaking. But you don't know where to even start.",
+  "You've watched countless YouTube videos. But you still can't put together a proper edit.",
+  "You want to build a portfolio. But you have zero real projects to show.",
+  "You're ready to learn. But you don't know if you're 'too late' or 'not creative enough.'",
+  "That's not a talent problem. That's a starting-point problem.",
+  "You learn from another 12-hour tutorial. But you still can't build it on your own.",
+  "You try to keep up with every new AI tool. But you just end up feeling overwhelmed.",
+  "You wait until you feel 'ready' to apply. But that day never seems to arrive.",
+  "You want to make work that actually gets noticed. But it just blends in with the rest.",
+  "You try to figure out what belongs in a portfolio. But you overthink every single piece.",
 ];
 
 const scrollingDoubts = [...doubts, ...doubts];

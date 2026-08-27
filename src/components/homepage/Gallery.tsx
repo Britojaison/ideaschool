@@ -18,24 +18,7 @@ const Gallery = () => {
       <div className="sectionHead">
         <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
           <h2 className={`title ${styles.galleryTitle}`} style={{ color: "inherit" }}>GALLERY</h2>
-          <div style={{
-            fontFamily: "var(--font-helvetica), sans-serif",
-            fontStyle: "italic",
-            fontWeight: 700,
-            color: "var(--ash)",
-            fontSize: "clamp(18px, 2vw, 24px)",
-            transform: "rotate(3deg) translateY(5px)",
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            opacity: 0.9
-          }}>
-            <span>Proof we actually work!</span>
-            <svg width="35" height="45" viewBox="0 0 50 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "rotate(-20deg) translateY(5px)" }}>
-              <path d="M25 10 Q 15 50 25 90" />
-              <path d="M10 75 L 25 90 L 40 75" />
-            </svg>
-          </div>
+
         </div>
       </div>
 

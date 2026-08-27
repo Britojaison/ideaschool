@@ -20,27 +20,7 @@ export default function Reviews() {
       <div className={styles.container}>
         <div className={styles.reviewsHeader}>
           <h2>What people are saying</h2>
-          <div style={{
-            fontFamily: "var(--font-helvetica), sans-serif",
-            fontStyle: "italic",
-            fontWeight: 700,
-            color: "var(--ash)",
-            fontSize: "clamp(18px, 2vw, 24px)",
-            transform: "rotate(2deg)",
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            opacity: 0.9,
-            marginTop: "10px",
-            justifyContent: "flex-end", /* Aligning towards the end if the title is huge */
-            paddingRight: "5vw"
-          }}>
-            <span>the ones who survived the feedback loops, anyway</span>
-            <svg width="30" height="30" viewBox="0 0 100 50" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "rotate(-10deg) translateY(5px)" }}>
-              <path d="M10 25 Q 50 15 90 25" />
-              <path d="M75 10 L 90 25 L 75 40" />
-            </svg>
-          </div>
+
         </div>
       </div>
 

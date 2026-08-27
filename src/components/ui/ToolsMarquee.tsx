@@ -21,31 +21,150 @@ export default function ToolsMarquee() {
   return (
     <section 
       style={{ 
-        padding: "80px 0", 
+        padding: "80px 0 60px", 
         backgroundColor: "transparent", 
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        borderTop: "1px dashed rgba(255, 255, 255, 0.15)",
       }}
     >
-      <h2 
-        style={{
-          color: "#ffffff",
-          fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
-          fontSize: "clamp(2rem, 5vw, 4rem)",
-          fontWeight: 900,
-          textTransform: "uppercase",
-          marginBottom: "40px",
-          textAlign: "center",
-          letterSpacing: "2px"
-        }}
-      >
-        Tools Covered
-      </h2>
+      {/* Section Header — matches SelectedProjects / ProgramBrochure */}
+      <div style={{ marginBottom: "40px", padding: "0 3.5vw" }}>
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "rgba(255, 255, 255, 0.06)",
+            border: "1px solid rgba(255, 255, 255, 0.16)",
+            padding: "4px 12px",
+            borderRadius: "99px",
+            fontSize: "0.72rem",
+            letterSpacing: "0.08em",
+            color: "#DAFD55",
+            fontWeight: 600,
+            textTransform: "uppercase" as const,
+            marginBottom: "1rem",
+            fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
+          }}
+        >
+          <span
+            style={{
+              width: "6px",
+              height: "6px",
+              borderRadius: "50%",
+              backgroundColor: "#DAFD55",
+              boxShadow: "0 0 8px #DAFD55",
+            }}
+          />
+          <span>TOOLS SECTION</span>
+        </div>
+        <h2
+          style={{
+            fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
+            fontSize: "clamp(26px, 2.8vw, 40px)",
+            fontWeight: 700,
+            letterSpacing: "-0.04em",
+            textTransform: "uppercase" as const,
+            color: "#FFFFFF",
+            margin: "0 0 0.5rem 0",
+            lineHeight: 1,
+          }}
+        >
+          MASTER THE TOOLS. UNDERSTAND WHEN TO USE THEM.
+        </h2>
+        <p
+          style={{
+            fontFamily: "var(--font-helvetica), sans-serif",
+            fontSize: "clamp(15px, 1.1vw, 18px)",
+            color: "#a0aab2",
+            fontWeight: 400,
+            margin: 0,
+            lineHeight: 1.5,
+            letterSpacing: "0.01em",
+            maxWidth: "650px",
+          }}
+        >
+          You don&apos;t need to become an expert in every feature of every creative application.
+          You need to know the tools that help you produce better work — and understand how they fit together inside a professional workflow.
+        </p>
+      </div>
 
       <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: "20px" }}>
         <MarqueeRow items={allTools} direction="left" />
+      </div>
+
+      {/* Category Cards */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "1px",
+          width: "100%",
+          maxWidth: "1100px",
+          margin: "56px auto 0",
+          padding: "0 24px",
+        }}
+        className="tools-category-grid"
+      >
+        {[
+          { num: "01", title: "Video Editing", desc: "Premiere Pro and professional editing workflows" },
+          { num: "02", title: "Motion & VFX", desc: "After Effects, compositing, animation and visual effects" },
+          { num: "03", title: "Creative AI", desc: "Higgsfield, AI-powered image, video, ideation and production workflows" },
+          { num: "04", title: "Design & Content", desc: "Visual design tools and creative production workflows" },
+        ].map((cat) => (
+          <div
+            key={cat.title}
+            className="tools-card"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.03)",
+              padding: "32px 28px",
+              borderLeft: "1px solid rgba(255,255,255,0.08)",
+              position: "relative",
+              transition: "background-color 0.3s ease",
+            }}
+          >
+            <span
+              style={{
+                display: "block",
+                fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
+                fontSize: "0.7rem",
+                color: "rgba(255,255,255,0.25)",
+                letterSpacing: "0.1em",
+                marginBottom: "16px",
+              }}
+            >
+              [ {cat.num} ]
+            </span>
+            <h3
+              style={{
+                color: "#DAFD55",
+                fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
+                fontSize: "clamp(0.88rem, 1.05vw, 1.05rem)",
+                fontWeight: 600,
+                textTransform: "uppercase" as const,
+                letterSpacing: "0.06em",
+                marginBottom: "10px",
+              }}
+            >
+              {cat.title}
+            </h3>
+            <p
+              style={{
+                color: "rgba(255, 255, 255, 0.5)",
+                fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
+                fontSize: "clamp(0.82rem, 0.92vw, 0.92rem)",
+                lineHeight: 1.55,
+                margin: 0,
+                fontWeight: 300,
+              }}
+            >
+              {cat.desc}
+            </p>
+          </div>
+        ))}
       </div>
 
       <style dangerouslySetInnerHTML={{__html: `
@@ -62,6 +181,19 @@ export default function ToolsMarquee() {
         }
         .marquee-track-right {
           animation: scrollRight 30s linear infinite;
+        }
+        .tools-card:hover {
+          background-color: rgba(255,255,255,0.06) !important;
+        }
+        @media (max-width: 768px) {
+          .tools-category-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .tools-category-grid {
+            grid-template-columns: 1fr !important;
+          }
         }
       `}} />
     </section>

@@ -42,7 +42,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       agency: "88GB Agency",
       action: "Edited by your mentor"
     },
-    learnOutcome: "Ajay deconstructs how he structured the timeline rhythm, multi-cam pacing, and sub-frame sound design.",
+    learnOutcome: "Creative decision-making — Understand why certain edits, visuals and treatments work better than others. Professional workflows — See how projects are organised, developed, reviewed and delivered.",
     description: (
       <>
         A high-energy national commercial campaign delivered for TV & OTT. You will learn directly from the editor who cut this project—dissecting his real-world pacing frameworks, sound staging, and delivery standards that generated <strong className={styles.highlightMetric}>4.2M+ impressions.</strong>
@@ -71,7 +71,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       agency: "88GB Agency",
       action: "Directed by your mentor"
     },
-    learnOutcome: "Elamparithi teaches the exact prompt architectures, photoreal lighting setups, and AI video pipelines he uses for fashion brands.",
+    learnOutcome: "Speed & efficiency — Discover practical workflows, templates, assets, AI tools and production techniques that make professional editors faster.",
     description: (
       <>
         A luxury generative film exploring photoreal digital talent and cinematic depth. Your mentor breaks down how he combines cutting-edge AI engines (Flux, Seedance, Midjourney) with commercial art direction to build broadcast-ready visuals.
@@ -100,7 +100,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       agency: "88GB Agency",
       action: "Supervised by your mentor"
     },
-    learnOutcome: "Dhananjayan breaks down dynamic speed ramping, 3D tracking, and DaVinci Resolve node trees.",
+    learnOutcome: "Feedback & refinement — Learn how to take critique, identify problems and improve your work instead of simply completing an assignment.",
     description: (
       <>
         Precision motion graphics, dynamic speed ramping, and DaVinci Resolve color science. Learn the high-end commercial post-production standards, client critique cycles, and finishing techniques applied every day at 88GB.
@@ -216,9 +216,9 @@ export default function SelectedProjects() {
           <span className={styles.eyebrowDot} />
           <span>PROVEN CRAFT • REAL COMMERCIAL WORK • ACTIVE AGENCY MENTORS</span>
         </div>
-        <h2 className={styles.sectionTitle}>LEARN FROM PEOPLE WHO DO THE WORK</h2>
+        <h2 className={styles.sectionTitle}>LEARN THE PROCESS BEHIND PROFESSIONAL CREATIVE WORK.</h2>
         <p className={styles.sectionSubtitle}>
-          We don&apos;t teach textbook theory. These are real commercial campaigns directed and edited by the 88GB agency mentors who will be personally teaching and critiquing your work.
+          The fastest way to understand how the industry works is to learn from people who work in it. At Idea Creative School, you&apos;ll learn through the 88GB creative ecosystem, where professional teams work across campaigns, brands, content and visual communication.
         </p>
       </div>
 
@@ -237,9 +237,8 @@ export default function SelectedProjects() {
                     <button
                       key={idx}
                       type="button"
-                      className={`${styles.thumbnailBtn} ${
-                        idx === currentThumbIdx ? styles.activeThumbnail : ""
-                      }`}
+                      className={`${styles.thumbnailBtn} ${idx === currentThumbIdx ? styles.activeThumbnail : ""
+                        }`}
                       onClick={() => handleThumbClick(project.id, idx)}
                       aria-label={`Select frame ${idx + 1} for ${project.title}`}
                     >
@@ -283,7 +282,7 @@ export default function SelectedProjects() {
                 </div>
 
                 <div className={styles.takeawayBox}>
-                  <span className={styles.takeawayLabel}>WHAT YOUR MENTORS TEACH YOU:</span>
+                  <span className={styles.takeawayLabel}>WHAT YOU&apos;LL LEARN FROM THE WORK:</span>
                   <p className={styles.takeawayText}>{project.learnOutcome}</p>
                 </div>
               </div>

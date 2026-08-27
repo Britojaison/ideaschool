@@ -12,7 +12,6 @@ export default function FinalCourseCta() {
     <section className={styles.section} id="final-cta" data-header-theme="light">
       <div className={styles.inner}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>Final Act</span>
           <h2 className={styles.title}>
             Don&apos;t Just Learn How to Edit. Build the Capability to Create.
           </h2>

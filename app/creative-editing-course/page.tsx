@@ -25,24 +25,17 @@ export default function CreativeEditingCopyPage() {
       <CinematicHeroFlow
         videoSrc="/assets/videos/HOME PAGE VIDEO.mp4"
         mobileVideoSrc="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
-        heroHeadline1="EDITING DEFINES."
-        heroHeadline2="CRAFT SELLS."
-        heroSubtitle="[  Full Stack Video Editing & Creative AI Mastery  ]"
+        heroHeadline1="EDITING IS JUST"
+        heroHeadline2="THE START."
+        heroSubtitle="[ Full-Stack Video Editing & Creative AI Mastery ]"
         studioName="Idea School"
-        tags={["[ 24-WEEK PROGRAM ]", "[ LIVE BRAND BRIEFS ]", "[ PLACEMENT READY ]"]}
+        tags={["[ 24-WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR-LED ]", "[ HYBRID LEARNING ]"]}
         leftGiantTop="INDUSTRY"
         leftGiantBottom="LED."
         rightGiantTop="CRAFT"
         rightGiantBottom="BUILT."
         editorialParagraphs={[
-          "Most editing courses only teach timeline shortcuts and buttons. But software alone doesn't build a career.",
-          <span key="p-2">
-            Top agencies and studios hire for pacing, emotional rhythm, and commercial judgment.{" "}
-            <strong style={{ color: "#FFFFFF", fontWeight: 500 }}>Idea School</strong> is an
-            industry-led program built by working commercial filmmakers and lead editors.
-          </span>,
-          "We transform ambitious creators, editors, and designers into high-tier commercial talent through live brand projects and 1-on-1 mentor critiques.",
-          "We teach the craft that builds high-performing creative careers."
+          "A 24-week career-focused program built to take you from learning creative tools to creating professional work — across video editing, storytelling, motion design, visual design and AI-powered content creation."
         ]}
       />
       <SelectedProjects />

@@ -283,6 +283,12 @@
     transform: rotate(-8deg);
 }
 
+.noteMarketing {
+    right: 18%;
+    top: 30%;
+    transform: rotate(2deg);
+}
+
 .handwrittenNote span {
     text-align: center;
     line-height: 1.1;

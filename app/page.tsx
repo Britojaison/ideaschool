@@ -76,12 +76,13 @@ export default function Home() {
         delay: 0.4,
         stagger: 0.1,
       });
-      gsap.from(".gsap-card-3", {
+      gsap.from(".gsap-card-3, .gsap-note-3", {
         x: 200,
         opacity: 0,
         duration: 1.2,
         ease: "power3.out",
         delay: 0.6,
+        stagger: 0.1,
       });
       gsap.from(".gsap-title-aside", {
         opacity: 0,
@@ -133,6 +134,12 @@ export default function Home() {
         gsap.to(".gsap-card-3", {
           x: x * 40,
           y: y * 40,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        gsap.to(".gsap-note-3", {
+          x: x * 20,
+          y: y * 20,
           duration: 0.5,
           ease: "power2.out",
         });
@@ -242,6 +249,34 @@ export default function Home() {
               />
               <figcaption>Marketing</figcaption>
             </figure>
+            <div
+              className={`${styles.handwrittenNote} ${styles.noteMarketing} gsap-note-3`}
+            >
+              <svg
+                viewBox="0 0 60 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 50 Q 30 20 50 20"
+                  stroke="#1a1a1a"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M38 12 L 50 20 L 38 28"
+                  stroke="#1a1a1a"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+              <span>
+                Scale your<br />audience!
+              </span>
+            </div>
           </div>
           <div
             className={styles.mobileCarousel}

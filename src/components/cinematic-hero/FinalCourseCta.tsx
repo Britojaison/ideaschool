@@ -12,9 +12,13 @@ if (typeof window !== "undefined") {
 
 export default function FinalCourseCta() {
   const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
   const cameraRef = useRef<HTMLDivElement>(null);
+  const dividerRef = useRef<HTMLDivElement>(null);
+  const programCardRef = useRef<HTMLDivElement>(null);
 
   const handleApplyClick = () => {
     window.dispatchEvent(new Event("open-home-form"));
@@ -22,63 +26,137 @@ export default function FinalCourseCta() {
 
   useEffect(() => {
     const section = sectionRef.current;
+    const container = containerRef.current;
+    const header = headerRef.current;
     const leftCol = leftColRef.current;
     const rightCol = rightColRef.current;
     const camera = cameraRef.current;
+    const divider = dividerRef.current;
+    const programCard = programCardRef.current;
 
-    if (!section || !leftCol || !rightCol || !camera) return;
+    if (!section || !container || !header || !leftCol || !rightCol || !camera || !programCard || !divider) return;
 
-    const ctx = gsap.context(() => {
-      // Set initial states
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      // Set initial states for desktop/tablet: huge camera in center, all other elements hidden
       gsap.set(camera, {
-        scale: 2.3,
+        scale: 3.6,
         transformOrigin: "center center",
+        zIndex: 10,
         willChange: "transform"
       });
+      gsap.set(header, {
+        y: -100,
+        opacity: 0,
+        willChange: "transform, opacity"
+      });
       gsap.set(leftCol, {
-        x: -90,
+        x: -180,
         opacity: 0,
         willChange: "transform, opacity"
       });
       gsap.set(rightCol, {
-        x: 90,
+        x: 180,
+        opacity: 0,
+        willChange: "transform, opacity"
+      });
+      gsap.set(divider, {
+        opacity: 0,
+        scaleX: 0.6,
+        willChange: "transform, opacity"
+      });
+      gsap.set(programCard, {
+        y: 140,
         opacity: 0,
         willChange: "transform, opacity"
       });
 
-      // Scrub timeline tied to scroll
+      // Pinned scrubbed timeline
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 65%",
-          end: "top 15%",
+          start: "top top",
+          end: "+=120%",
+          pin: true,
           scrub: 1,
+          anticipatePin: 1,
         }
       });
 
       tl.to(camera, {
         scale: 1,
-        ease: "power2.out",
+        ease: "power2.inOut",
+        duration: 1
       }, 0)
+      .to(header, {
+        y: 0,
+        opacity: 1,
+        ease: "power2.out",
+        duration: 0.8
+      }, 0.2)
       .to(leftCol, {
         x: 0,
         opacity: 1,
         ease: "power2.out",
-      }, 0)
+        duration: 0.8
+      }, 0.25)
       .to(rightCol, {
         x: 0,
         opacity: 1,
         ease: "power2.out",
-      }, 0);
-    }, section);
+        duration: 0.8
+      }, 0.25)
+      .to(divider, {
+        opacity: 1,
+        scaleX: 1,
+        ease: "power2.out",
+        duration: 0.8
+      }, 0.28)
+      .to(programCard, {
+        y: 0,
+        opacity: 1,
+        ease: "power2.out",
+        duration: 0.8
+      }, 0.3);
+    });
 
-    return () => ctx.revert();
+    mm.add("(max-width: 767px)", () => {
+      // Mobile version: graceful scroll entrance without heavy pinning
+      gsap.set(camera, {
+        scale: 1.8,
+        willChange: "transform"
+      });
+      gsap.set(header, { opacity: 0, y: -40 });
+      gsap.set(leftCol, { opacity: 0, x: -50 });
+      gsap.set(rightCol, { opacity: 0, x: 50 });
+      gsap.set(divider, { opacity: 0 });
+      gsap.set(programCard, { opacity: 0, y: 50 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 70%",
+          end: "top 10%",
+          scrub: 1,
+        }
+      });
+
+      tl.to(camera, { scale: 1, ease: "power2.out" }, 0)
+        .to(header, { opacity: 1, y: 0, ease: "power2.out" }, 0)
+        .to(leftCol, { opacity: 1, x: 0, ease: "power2.out" }, 0.1)
+        .to(rightCol, { opacity: 1, x: 0, ease: "power2.out" }, 0.1)
+        .to(divider, { opacity: 1, ease: "power2.out" }, 0.15)
+        .to(programCard, { opacity: 1, y: 0, ease: "power2.out" }, 0.2);
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
     <section className={styles.section} id="final-cta" ref={sectionRef} data-header-theme="light">
-      <div className={styles.inner}>
-        <div className={styles.header}>
+      <div className={styles.inner} ref={containerRef}>
+        <div className={styles.header} ref={headerRef}>
           <h2 className={styles.title}>
             Don&apos;t Just Learn How to Edit. Build the Capability to Create.
           </h2>
@@ -102,8 +180,8 @@ export default function FinalCourseCta() {
               <Image
                 src="/images/camlab-cam1.png"
                 alt="Cinema Production Rig"
-                width={320}
-                height={320}
+                width={360}
+                height={360}
                 className={styles.cameraImg}
                 priority
               />
@@ -120,7 +198,10 @@ export default function FinalCourseCta() {
           </div>
         </div>
 
-        <div className={styles.programCard}>
+        {/* Animated Divider */}
+        <div className={styles.divider} ref={dividerRef} />
+
+        <div className={styles.programCard} ref={programCardRef}>
           <div className={styles.programCardLeft}>
             <h3 className={styles.programTitle}>
               Full-Stack Video Editing &amp; Creative AI Mastery

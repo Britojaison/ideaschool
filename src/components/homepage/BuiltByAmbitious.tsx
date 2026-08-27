@@ -19,7 +19,7 @@ import "swiper/css";
 
 import styles from "./BuiltByAmbitious.module.css";
 
-const rawMentors = [
+const mentors = [
   {
     name: "Arjun",
     role: "CEO",
@@ -51,10 +51,6 @@ const rawMentors = [
     color: "#8aa3d9",
   },
 ];
-
-// Keep enough slides for the wide coverflow layout and seamless looping.
-// The optimized WebP sources keep this duplication inexpensive.
-const mentors = [...rawMentors, ...rawMentors];
 
 const BuiltByAmbitious = () => {
   return (

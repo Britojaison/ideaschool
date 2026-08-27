@@ -245,16 +245,60 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) and (min-width: 601px) {
+    .modalBox {
+        width: 92vw;
+        max-width: 760px;
+        height: auto;
+        min-height: 490px;
+        max-height: calc(100dvh - 40px);
+    }
     .leftPane {
-        display: none;
+        display: block;
+        width: 44%;
+        height: auto;
+        min-height: 490px;
     }
     .rightPane {
-        width: 100%;
+        width: 56%;
+        height: auto;
+        padding: 20px 0;
+    }
+    .formContainer {
+        max-width: 320px;
+        padding: 16px;
+    }
+    .formHeader {
+        margin-bottom: 20px;
+    }
+    .formHeader h2 {
+        font-size: 22px;
+    }
+    .formHeader p {
+        font-size: 13px;
+    }
+    .form {
+        gap: 12px;
+    }
+    .inputGroup input,
+    .selectGroup select {
+        padding: 10px 12px;
+        font-size: 13.5px;
+    }
+    .submitBtn {
+        padding: 10px;
+        font-size: 13.5px;
+        margin-top: 4px;
+    }
+    .termsText {
+        margin-top: 20px;
+        font-size: 12px;
     }
     .logoTopLeft {
-        color: #0a0a0c;
-        text-shadow: none;
+        top: 20px;
+        left: 20px;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 }
 

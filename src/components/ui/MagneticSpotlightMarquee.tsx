@@ -78,8 +78,9 @@ export function MagneticSpotlightMarquee({
 
     // 1. Setup infinite horizontal marquee with GSAP
     // Calculate width statically to avoid issues with unloaded images
-    const isMobile = window.innerWidth < 768;
-    const itemWidth = isMobile ? 180 : 240;
+    const isMobile = window.innerWidth < 640;
+    const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
+    const itemWidth = isMobile ? 180 : isTablet ? 200 : 240;
     const gap = 16; // 1rem gap
     const oneSetWidth = images.length * (itemWidth + gap);
     const setsNeeded = Math.ceil(window.innerWidth / oneSetWidth) + 1;
@@ -251,7 +252,7 @@ export function MagneticSpotlightMarquee({
       {/* Marquee Strip */}
       <div 
         ref={marqueeStripRef} 
-        className="spotlight-marquee absolute left-0 w-full z-20 h-[200px] md:h-[260px] pointer-events-none will-change-transform"
+        className="spotlight-marquee absolute left-0 w-full z-20 h-[200px] md:h-[220px] lg:h-[260px] pointer-events-none will-change-transform"
         style={{ top: 0 }} 
       >
         <div 
@@ -259,7 +260,7 @@ export function MagneticSpotlightMarquee({
           className="spotlight-marquee-track flex gap-4 h-full items-center absolute top-0 left-0 will-change-transform"
         >
           {clonedImages.map((img, idx) => (
-            <div key={idx} className="w-[180px] h-[180px] md:w-[240px] md:h-[240px] shrink-0 rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
+            <div key={idx} className="w-[180px] h-[180px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[240px] shrink-0 rounded-[16px] md:rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
               <img
                 src={img}
                 alt="Marquee item"
@@ -274,11 +275,11 @@ export function MagneticSpotlightMarquee({
       {/* Main Content Layout */}
       <div 
         ref={contentWrapperRef}
-        className="spotlight-content-wrapper relative w-full h-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 z-30 pointer-events-none mix-blend-difference"
+        className="spotlight-content-wrapper relative w-full h-full flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 z-30 pointer-events-none mix-blend-difference"
       >
         {/* Title */}
         <h1 
-          className="text-[15vw] md:text-[12rem] font-normal leading-[0.85] tracking-tighter mb-20 text-center flex flex-col items-center"
+          className="text-[clamp(3.5rem,10.5vw,12rem)] font-normal leading-[0.88] tracking-tighter mb-8 md:mb-12 lg:mb-16 text-center flex flex-col items-center select-none"
           style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
         >
           {title.map((line, idx) => (
@@ -293,11 +294,11 @@ export function MagneticSpotlightMarquee({
         </h1>
         
         {/* Subtitle & Paragraphs row */}
-        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start mt-8 px-4 md:px-8 gap-8 md:gap-4">
+        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start mt-4 md:mt-6 lg:mt-8 px-2 md:px-6 gap-6 md:gap-8 lg:gap-12">
           
           {/* Subtitle / Header (Left side) */}
-          <div className="flex-1 md:max-w-[280px] text-right md:text-right mt-1">
-            <h3 className="text-xl md:text-3xl uppercase tracking-tight font-medium leading-[1.1]">
+          <div className="flex-1 md:max-w-[240px] lg:max-w-[280px] text-left md:text-right mt-1">
+            <h3 className="text-lg md:text-xl lg:text-3xl uppercase tracking-tight font-medium leading-[1.1]">
               {subtitle.map((line, idx) => (
                 <div key={idx} className="wake-target will-change-transform">{line}</div>
               ))}
@@ -305,11 +306,11 @@ export function MagneticSpotlightMarquee({
           </div>
 
           {/* Paragraphs (Right side) */}
-          <div className="flex-1 flex flex-col sm:flex-row gap-6 md:gap-12 text-[10px] md:text-xs leading-[1.6]">
+          <div className="flex-1 flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-12 text-[10px] md:text-xs leading-[1.55]">
             {paragraphs.map((para, pIdx) => (
               <div key={pIdx} className="flex-1 flex flex-col">
                 {para.map((line, lIdx) => (
-                  <div key={lIdx} className="wake-target whitespace-nowrap will-change-transform">
+                  <div key={lIdx} className="wake-target whitespace-normal lg:whitespace-nowrap will-change-transform">
                     {line}
                   </div>
                 ))}

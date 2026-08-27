@@ -754,32 +754,79 @@
         transform: rotate(2deg);
     }
 
+    .schoolsSection {
+        min-height: auto;
+        padding: 88px 0 56px;
+    }
+
+    .schoolsSection > :global(.container) {
+        width: min(100% - 36px, 940px);
+    }
+
     .careerPanel {
-        grid-template-columns: .85fr 1.15fr;
-        min-height: 620px;
+        grid-template-columns: minmax(260px, 0.9fr) minmax(300px, 1.1fr);
+        min-height: 480px;
         aspect-ratio: auto;
+        border-radius: 20px;
+    }
+
+    .careerPanel .note {
+        display: none;
     }
 
     .checklist {
-        padding-left: 28px;
+        padding: 24px 14px 20px 20px;
+        max-height: 480px;
     }
 
     .checkRow {
-        padding-left: 14px;
-        font-size: 13px;
+        min-height: 42px;
+        padding: 8px 12px;
+        gap: 10px;
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    .checkbox {
+        width: 14px;
+        height: 14px;
+    }
+
+    .rowDots {
+        display: none;
     }
 
     .careerMessage {
-        padding-inline: 36px;
+        padding: 28px 24px 22px 18px;
+    }
+
+    .messageCopy > p:first-child {
+        margin: 0 0 10px;
+        font-size: 15px;
+    }
+
+    .messageCopy h2 {
+        font-size: clamp(22px, 3.2vw, 30px);
+        line-height: 1.06;
+    }
+
+    .messageBody {
+        margin: 12px 0 0;
+        font-size: 14px;
+        line-height: 1.45;
     }
 
     .schoolLinks {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        padding-top: 18px;
+        margin-top: auto;
     }
 
     .schoolLinks a {
-        min-height: 54px;
-        padding: 12px 14px;
+        min-height: 44px;
+        padding: 8px 10px;
+        font-size: 12px;
     }
 
 }

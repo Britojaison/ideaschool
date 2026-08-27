@@ -72,7 +72,7 @@ export default function HomeFAQ({
         gsap.set(section, {
           backgroundColor: gsap.utils.interpolate("#FBFAF2", "#080808", progress),
         });
-        gsap.set(section.querySelectorAll("h2, h3, h4, a, span"), { color: headingColor });
+        gsap.set(section.querySelectorAll(`h2, .${styles.faqHeader} h2, .${styles.faqQuestion} h4, .${styles.faqContact} h3, .${styles.faqIcon}`), { color: headingColor });
         gsap.set(section.querySelectorAll(`.${styles.faqAnswer} p`), { color: copyColor });
         window.dispatchEvent(new Event("header-theme-check"));
         ticking = false;
@@ -129,13 +129,16 @@ export default function HomeFAQ({
 
           <div className={styles.faqContact}>
             <h3>Didn&apos;t find the answer you were looking for?</h3>
-            <a href="mailto:hello@ideaschool.pro" className={styles.faqMailLink}>Send us an mail</a>
+            <a href="mailto:hello@ideaschool.pro" className={styles.faqMailLink}>
+              <span>Send us a mail</span>
+              <span aria-hidden="true" className={styles.mailArrow}>↗</span>
+            </a>
             <div className={styles.faqCameraWrap}>
               <Image
                 src="/images/camlab-cam2.png"
                 alt="Idea School Camera Lab"
-                width={320}
-                height={320}
+                width={380}
+                height={380}
                 className={styles.faqCameraImg}
               />
             </div>

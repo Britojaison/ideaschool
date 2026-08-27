@@ -75,14 +75,15 @@ export default function ProgramBrochure() {
               <span className={styles.downloadIconBox}>↓</span>
             </a>
 
-            <a
-              href="#apply"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-home-form"))}
               className={styles.secondaryCta}
               aria-label="Apply for next cohort"
             >
               <span>APPLY FOR COHORT</span>
               <span>↗</span>
-            </a>
+            </button>
           </div>
         </div>
 

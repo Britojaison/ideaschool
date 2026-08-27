@@ -142,11 +142,9 @@
 .controlsRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-top: 1.5rem;
   padding: 0 0.5rem;
-  flex-wrap: wrap;
-  gap: 1.5rem;
 }
 
 .navButtons {
@@ -185,33 +183,6 @@
   width: 22px;
   height: 22px;
   stroke-width: 2.25;
-}
-
-/* Pagination bullets */
-.pagination {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.paginationBullet {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.paginationBullet:hover {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.paginationBulletActive {
-  background: #fbfaf2 !important;
-  width: 24px !important;
-  border-radius: 12px !important;
 }
 
 /* Swiper slide shadows rounding */

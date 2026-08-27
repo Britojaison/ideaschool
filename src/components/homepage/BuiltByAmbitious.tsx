@@ -8,18 +8,16 @@ import {
   Autoplay,
   EffectCoverflow,
   Navigation,
-  Pagination,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
 
 import styles from "./BuiltByAmbitious.module.css";
 
-const mentors = [
+const rawMentors = [
   {
     name: "Arjun",
     role: "CEO",
@@ -52,6 +50,9 @@ const mentors = [
   },
 ];
 
+// Swiper Coverflow with slidesPerView="auto" requires multiple slide sets to loop smoothly across wide screens
+const mentors = [...rawMentors, ...rawMentors, ...rawMentors];
+
 const BuiltByAmbitious = () => {
   return (
     <section
@@ -80,6 +81,8 @@ const BuiltByAmbitious = () => {
             centeredSlides={true}
             slidesPerView="auto"
             loop={true}
+            loopAdditionalSlides={5}
+            initialSlide={rawMentors.length}
             speed={600}
             autoplay={{
               delay: 3000,
@@ -93,18 +96,12 @@ const BuiltByAmbitious = () => {
               modifier: 1,
               slideShadows: false,
             }}
-            pagination={{
-              clickable: true,
-              el: `.${styles.pagination}`,
-              bulletClass: styles.paginationBullet,
-              bulletActiveClass: styles.paginationBulletActive,
-            }}
             navigation={{
               nextEl: `.${styles.nextButton}`,
               prevEl: `.${styles.prevButton}`,
             }}
             className={styles.swiper}
-            modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
+            modules={[EffectCoverflow, Autoplay, Navigation]}
           >
             {mentors.map((mentor, index) => (
               <SwiperSlide key={`${mentor.name}-${index}`} className={styles.swiperSlide}>
@@ -129,7 +126,7 @@ const BuiltByAmbitious = () => {
             ))}
           </Swiper>
 
-          {/* Controls: Navigation Buttons and Pagination Bullets */}
+          {/* Controls: Navigation Buttons */}
           <div className={styles.controlsRow}>
             <div className={styles.navButtons}>
               <button
@@ -145,8 +142,6 @@ const BuiltByAmbitious = () => {
                 <ChevronRightIcon className={styles.navIcon} />
               </button>
             </div>
-
-            <div className={styles.pagination} />
           </div>
         </motion.div>
       </div>

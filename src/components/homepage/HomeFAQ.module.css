@@ -195,44 +195,76 @@
 /* FAQ Contact Sidebar */
 .faqContact {
   padding-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .faqContact h3 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: 36px;
+  font-size: clamp(28px, 2.6vw, 36px);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: -0.04em;
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   color: #FBFAF2;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 .faqMailLink {
-  font-size: 16px;
-  font-weight: 600;
-  color: #FBFAF2;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  transition: opacity 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #030405 !important;
+  background-color: #dafd55;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(218, 253, 85, 0.25);
+}
+
+.faqMailLink span {
+  color: #030405 !important;
 }
 
 .faqMailLink:hover {
-  opacity: 0.7;
+  transform: scale(1.04);
+  background-color: #cbee40;
+  box-shadow: 0 6px 24px rgba(218, 253, 85, 0.4);
+}
+
+.mailArrow {
+  font-size: 13px;
+  line-height: 1;
 }
 
 .faqCameraWrap {
-  margin-top: 48px;
+  margin-top: 32px;
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
 }
 
+
 .faqCameraImg {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 280px;
+  max-width: 360px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.45));
+  margin-left: -13.7% !important;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -243,15 +275,41 @@
 @media (max-width: 860px) {
   .faqLayout {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 36px;
+  }
+
+  .faqContact {
+    padding: 24px 18px 16px;
+    background: rgba(251, 250, 242, 0.03);
+    border: 1px dashed rgba(251, 250, 242, 0.16);
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .faqContact h3 {
+    font-size: clamp(18px, 5vw, 22px);
+    margin: 0 0 14px;
+    max-width: 320px;
+    letter-spacing: -0.03em;
+  }
+
+  .faqMailLink {
+    padding: 10px 22px;
+    font-size: 12px;
   }
 
   .faqCameraWrap {
-    margin-top: 24px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 280px;
     justify-content: center;
   }
 
   .faqCameraImg {
-    max-width: 220px;
+    width: 100%;
+    max-width: 260px;
+    margin-left: 0 !important;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
   }
 }

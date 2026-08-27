@@ -125,11 +125,15 @@ export function MagneticSpotlightMarquee({
     let stripCurrentY = 0;
     let stripPrevY = 0;
     let hasPointerMoved = false;
+    let lastClientY = 0;
+    let sectionAbsoluteTop = 0;
 
     let targets: { el: HTMLElement; restCenterY: number; currentY: number }[] = [];
 
     const measureGeometry = () => {
-      sectionHeight = spotlightSection.getBoundingClientRect().height;
+      const rect = spotlightSection.getBoundingClientRect();
+      sectionHeight = rect.height;
+      sectionAbsoluteTop = rect.top + window.scrollY;
       stripBaseTop = marqueeStrip.offsetTop;
       stripHeight = marqueeStrip.offsetHeight;
       
@@ -171,9 +175,7 @@ export function MagneticSpotlightMarquee({
 
     const handlePointerMove = (e: MouseEvent) => {
       hasPointerMoved = true;
-      const rect = spotlightSection.getBoundingClientRect();
-      const pointerY = e.clientY - rect.top;
-      stripTargetY = pointerY - stripHeight / 2;
+      lastClientY = e.clientY;
     };
 
     const handlePointerLeave = () => {
@@ -185,6 +187,12 @@ export function MagneticSpotlightMarquee({
     spotlightSection.addEventListener('mouseleave', handlePointerLeave);
 
     const render = () => {
+      if (hasPointerMoved) {
+        const currentRectTop = sectionAbsoluteTop - window.scrollY;
+        const pointerY = lastClientY - currentRectTop;
+        stripTargetY = pointerY - stripHeight / 2;
+      }
+
       stripCurrentY += (stripTargetY - stripCurrentY) * config.stripFollowEase;
       gsap.set(marqueeStrip, { y: stripCurrentY });
 

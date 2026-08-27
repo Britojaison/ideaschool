@@ -268,7 +268,6 @@ export default function SelectedProjects() {
 
                   {/* Mentor Attribution Card */}
                   <div className={styles.mentorBadge}>
-                    <div className={styles.mentorIcon}>🎬</div>
                     <div className={styles.mentorMeta}>
                       <span className={styles.mentorLabel}>{project.mentor.action.toUpperCase()}:</span>
                       <strong className={styles.mentorName}>{project.mentor.name}</strong>

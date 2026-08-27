@@ -147,7 +147,7 @@ export default function ProgramBrochure() {
 
             {/* Card Footer */}
             <div className={styles.cardFooter}>
-              <span className={styles.pdfTag}>📄 50+ PAGES • PDF FORMAT</span>
+              <span className={styles.pdfTag}>50+ PAGES • PDF FORMAT</span>
               <span className={styles.openPreviewText}>
                 <span>VIEW BROCHURE</span>
                 <span>↗</span>

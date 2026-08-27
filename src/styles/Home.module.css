@@ -1202,6 +1202,12 @@
     max-width: 100%;
     height: auto;
     border-radius: 20px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+}
+
+.workshopCard:hover .workshopImage {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
 
 .workshopCard:nth-child(1) {

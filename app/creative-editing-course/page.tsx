@@ -29,13 +29,18 @@ export default function CreativeEditingCopyPage() {
         heroHeadline2="THE START."
         heroSubtitle="[ Full-Stack Video Editing & Creative AI Mastery ]"
         studioName="Idea School"
-        tags={["[ 24-WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR-LED ]", "[ HYBRID LEARNING ]"]}
+        tags={["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"]}
         leftGiantTop="INDUSTRY"
         leftGiantBottom="LED."
         rightGiantTop="CRAFT"
         rightGiantBottom="BUILT."
         editorialParagraphs={[
-          "A 24-week career-focused program built to take you from learning creative tools to creating professional work — across video editing, storytelling, motion design, visual design and AI-powered content creation."
+          "Learning a video editing software is only one part of becoming a professional editor.",
+          "Today, creative teams need people who can understand a brief, shape a story, work across different visual formats and use modern tools to get the work done.",
+          "That's why Idea Creative School goes beyond software training.",
+          "You'll build your foundation in video editing and expand into motion design, visual storytelling, creative AI and professional content workflows — so you can contribute to more than just the edit.",
+          "The goal is simple:",
+          "Build the capability to step into a real creative environment and contribute with confidence."
         ]}
       />
       <SelectedProjects />

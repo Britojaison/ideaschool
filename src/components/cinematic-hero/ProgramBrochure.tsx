@@ -41,7 +41,7 @@ export default function ProgramBrochure() {
         <div className={styles.leftCol}>
           <div className={styles.eyebrowBadge}>
             <span className={styles.eyebrowDot} />
-            <span>OFFICIAL PROGRAM BLUEPRINT • 24-WEEK SYLLABUS</span>
+            <span>OFFICIAL PROGRAM BLUEPRINT • 24 WEEK SYLLABUS</span>
           </div>
 
           <h2 className={styles.title}>

@@ -459,7 +459,7 @@ export default function VisualSchoolPage() {
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
                 <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
-                <p className={styles.overlayLabel}>24-WEEK FLAGSHIP PROGRAM</p>
+                <p className={styles.overlayLabel}>24 WEEK FLAGSHIP PROGRAM</p>
                 <h2>Creative Editing &amp; AI Pro</h2>
                 <p className={styles.overlayDesc}>Build professional editing, motion design, and AI-native production skills through one complete career-focused course.</p>
                 <div className={styles.overlayTags}>

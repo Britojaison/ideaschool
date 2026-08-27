@@ -377,7 +377,7 @@
 /* Top Right Studio Metadata (Horizontally aligned with top of DIRECTOR) */
 .directorTopRight {
   position: absolute;
-  top: 38%;
+  top: 22%;
   right: 4vw;
   text-align: left;
   pointer-events: auto;
@@ -406,7 +406,7 @@
 /* Left Giant Typography (DIRECTOR LED. - Placed at 38% from top) */
 .giantTextLeft {
   position: absolute;
-  top: 38%;
+  top: 22%;
   left: 3.5vw;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(5.2rem, 11vw, 12rem);
@@ -430,9 +430,9 @@
 .editorialBlock {
   position: absolute;
   left: clamp(330px, 32vw, 470px);
-  bottom: 4vh;
-  max-width: clamp(290px, 25vw, 390px);
-  font-size: clamp(0.95rem, 1.08vw, 1.15rem);
+  bottom: 8vh;
+  max-width: clamp(310px, 27vw, 420px);
+  font-size: clamp(1rem, 1.12vw, 1.2rem);
   line-height: 1.44;
   color: rgba(255, 255, 255, 0.78);
   font-weight: 300;
@@ -501,6 +501,7 @@
     position: static;
     text-align: left;
     max-width: 100%;
+    transform: none;
   }
 
   .editorialBlock {

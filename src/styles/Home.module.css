@@ -671,32 +671,87 @@
     letter-spacing: -.02em;
 }
 
-@media (max-width:900px) {
+@media (max-width: 1024px) {
     .heroContent {
-        width: 86vw;
+        width: min(88vw, 760px);
         left: 50%;
-        top: 53%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
-    .heroTitle {
-        font-size: 22vw;
+    .lineOne {
+        font-size: clamp(52px, 8.2vw, 100px);
     }
 
-    .heroTitle span {
-        transform: scaleX(.56);
+    .lineTwo {
+        row-gap: clamp(4px, 1vw, 10px);
+        column-gap: .22em;
     }
 
-    .titleAside {
-        left: 55%;
-        top: 72%;
+    .becomeWord,
+    .yourWord {
+        font-size: clamp(18px, 2.8vw, 34px);
+    }
+
+    .superpowerWord {
+        font-size: clamp(52px, 8.2vw, 100px);
+    }
+
+    .heroCard {
+        width: clamp(115px, 15vw, 160px);
+        padding: 5px;
+        padding-bottom: 8px;
+        border-radius: 12px;
+    }
+
+    .heroCard figcaption {
+        font-size: clamp(10px, 1.2vw, 12px);
+        margin: 5px 2px 0;
+    }
+
+    .handwrittenNote {
+        font-size: clamp(11px, 1.35vw, 15px);
+    }
+
+    .handwrittenNote svg {
+        width: 42px;
+        margin-bottom: -2px;
     }
 
     .heroCardOne {
-        top: 38%;
+        left: 2%;
+        top: 24%;
+        transform: rotate(-8deg);
+    }
+
+    .noteVisual {
+        left: 12%;
+        top: 31%;
+        transform: rotate(-6deg);
     }
 
     .heroCardTwo {
-        left: 7%;
+        left: 3%;
+        bottom: 3%;
+        transform: rotate(-24deg);
+    }
+
+    .noteCreative {
+        left: 16%;
+        bottom: 7%;
+        transform: rotate(-8deg);
+    }
+
+    .heroCardThree {
+        right: 2.5%;
+        top: 20%;
+        transform: rotate(18deg);
+    }
+
+    .noteMarketing {
+        right: 13%;
+        top: 26%;
+        transform: rotate(2deg);
     }
 
     .careerPanel {

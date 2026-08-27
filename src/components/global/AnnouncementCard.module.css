@@ -150,7 +150,70 @@
   .wrapper { display: none; }
 }
 
-@media (max-height: 720px) and (min-width: 641px) {
+@media (max-width: 900px) and (min-width: 641px) {
+  .wrapper {
+    right: 12px;
+    bottom: 12px;
+  }
+  .card {
+    width: 230px;
+  }
+  .art {
+    height: 76px;
+  }
+  .artLabel {
+    font-size: 34px;
+    left: 12px;
+    top: 6px;
+  }
+  .artCaption {
+    display: none;
+  }
+  .orbitOne {
+    width: 72px;
+    height: 72px;
+    left: 54px;
+    top: 22px;
+  }
+  .orbitTwo {
+    width: 44px;
+    height: 44px;
+    left: 68px;
+    top: 36px;
+  }
+  .spark {
+    left: 84px;
+    top: 44px;
+    font-size: 15px;
+  }
+  .content {
+    padding: 10px 12px 12px;
+  }
+  .eyebrow {
+    font-size: 8px;
+  }
+  .content h2 {
+    margin: 4px 0 8px;
+    font-size: 15px;
+    line-height: 1.1;
+  }
+  .cta {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+  .close {
+    width: 26px;
+    height: 26px;
+    top: 6px;
+    right: 6px;
+  }
+  .close span {
+    font-size: 18px;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 901px) {
   .card { width: 270px; }
   .art { height: 92px; }
   .artLabel { font-size: 44px; }

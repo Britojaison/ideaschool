@@ -212,10 +212,6 @@ export default function SelectedProjects() {
     <section className={styles.section} id="selected-projects" data-header-theme="dark">
       {/* Section Header */}
       <div className={styles.header}>
-        <div className={styles.eyebrowBadge}>
-          <span className={styles.eyebrowDot} />
-          <span>PROVEN CRAFT • REAL COMMERCIAL WORK • ACTIVE AGENCY MENTORS</span>
-        </div>
         <h2 className={styles.sectionTitle}>LEARN THE PROCESS BEHIND PROFESSIONAL CREATIVE WORK.</h2>
         <p className={styles.sectionSubtitle}>
           The fastest way to understand how the industry works is to learn from people who work in it. At Idea Creative School, you&apos;ll learn through the 88GB creative ecosystem, where professional teams work across campaigns, brands, content and visual communication.

@@ -32,35 +32,6 @@ export default function ToolsMarquee() {
     >
       {/* Section Header — matches SelectedProjects / ProgramBrochure */}
       <div style={{ marginBottom: "40px", padding: "0 3.5vw" }}>
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            background: "rgba(255, 255, 255, 0.06)",
-            border: "1px solid rgba(255, 255, 255, 0.16)",
-            padding: "4px 12px",
-            borderRadius: "99px",
-            fontSize: "0.72rem",
-            letterSpacing: "0.08em",
-            color: "#DAFD55",
-            fontWeight: 600,
-            textTransform: "uppercase" as const,
-            marginBottom: "1rem",
-            fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
-          }}
-        >
-          <span
-            style={{
-              width: "6px",
-              height: "6px",
-              borderRadius: "50%",
-              backgroundColor: "#DAFD55",
-              boxShadow: "0 0 8px #DAFD55",
-            }}
-          />
-          <span>TOOLS SECTION</span>
-        </div>
         <h2
           style={{
             fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',

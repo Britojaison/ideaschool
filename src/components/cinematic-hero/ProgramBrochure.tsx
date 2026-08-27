@@ -39,11 +39,6 @@ export default function ProgramBrochure() {
       <div className={styles.container}>
         {/* Left Column: Headline, Narrative & Highlights */}
         <div className={styles.leftCol}>
-          <div className={styles.eyebrowBadge}>
-            <span className={styles.eyebrowDot} />
-            <span>OFFICIAL PROGRAM BLUEPRINT • 24 WEEK SYLLABUS</span>
-          </div>
-
           <h2 className={styles.title}>
             EXPLORE THE FULL CURRICULUM BLUEPRINT
           </h2>

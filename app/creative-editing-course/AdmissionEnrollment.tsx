@@ -37,39 +37,6 @@ export default function AdmissionEnrollment() {
             className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          {/* Subtle cinematic gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent pointer-events-none" />
-
-          {/* Top Badge */}
-          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-2">
-            <span
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest backdrop-blur-md border border-white/20 text-white bg-black/50 shadow-md"
-              style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-            >
-              <span className="w-2 h-2 rounded-full bg-[#dafd55] animate-pulse" />
-              Idea Campus Lab • Coimbatore
-            </span>
-          </div>
-
-          {/* Bottom Editorial Caption */}
-          <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-white">
-            <p
-              className="text-[11px] uppercase tracking-widest font-bold text-[#dafd55] mb-1.5"
-              style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-            >
-              Studio Environment
-            </p>
-            <h4
-              className="text-lg sm:text-2xl font-bold uppercase tracking-tight m-0 text-white leading-snug"
-              style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-            >
-              Learn Inside An Active Creative Production Studio
-            </h4>
-            <p className="text-xs sm:text-sm text-white/80 mt-1.5 m-0 leading-relaxed max-w-md">
-              High-performance edit suites, color grading setups & real-time mentorship guidance.
-            </p>
-          </div>
         </div>
       </div>
 

@@ -2,9 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
-import HeroDotField from "@/components/ui/HeroDotField";
-import ProgramMenu from "@/components/global/ProgramMenu";
-import Footer from "@/components/global/Footer";
+import HeroDotField from "../../HeroDotField";
+import ProgramMenu from "../../ProgramMenu";
 
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | Idea School",
@@ -79,7 +78,6 @@ export default function ApplyThankYouPage() {
           </div>
         </div>
       </section>
-      <div className="newSite"><Footer /></div>
     </main>
   );
 }

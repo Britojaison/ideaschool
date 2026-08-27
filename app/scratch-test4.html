@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { background: #111; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+  
+  .container {
+    position: relative;
+    font-size: 150px; 
+    font-weight: bold;
+    letter-spacing: 10px;
+    cursor: pointer;
+    --x: 50%;
+    --y: 50%;
+  }
+
+  .normal-text {
+    position: relative;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .grainy-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #d0d0d0;
+    z-index: 2;
+    filter: url(#sand-filter);
+    -webkit-mask-image: radial-gradient(circle 150px at var(--x) var(--y), black 0%, transparent 100%);
+    mask-image: radial-gradient(circle 150px at var(--x) var(--y), black 0%, transparent 100%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0;">
+  <filter id="sand-filter" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise">
+      <animate attributeName="baseFrequency" values="0.03; 0.05; 0.03" dur="5s" repeatCount="indefinite" />
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G" result="displaced">
+      <animate attributeName="scale" values="10; 30; 10" dur="5s" repeatCount="indefinite" />
+    </feDisplacementMap>
+    <feGaussianBlur in="displaced" stdDeviation="1.5" result="blurred" />
+    <feColorMatrix type="matrix" values="
+      1 0 0 0 0  
+      0 1 0 0 0  
+      0 0 1 0 0  
+      0 0 0 2.5 -0.5" 
+    in="blurred" result="colored" />
+  </filter>
+</svg>
+
+<div class="container" onmousemove="this.style.setProperty('--x', event.offsetX + 'px'); this.style.setProperty('--y', event.offsetY + 'px');">
+  <div class="normal-text">DOBRE</div>
+  <div class="grainy-text">DOBRE</div>
+</div>
+
+</body>
+</html>

@@ -2,13 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ["image/avif", "image/webp"],
     localPatterns: [
       {
         pathname: "/images/**",
-      },
-      {
-        pathname: "/assets/**",
       },
     ],
     remotePatterns: [
@@ -21,8 +17,8 @@ const nextConfig: NextConfig = {
         hostname: "*.googleusercontent.com",
       },
     ],
-    qualities: [75],
-    minimumCacheTTL: 2678400,
+    qualities: [75, 100],
+    unoptimized: true,
   },
 };
 

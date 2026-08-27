@@ -26,6 +26,7 @@ export default function WorkshopLoadingScreen() {
       }
     };
 
+    window.scrollTo(0, 0);
     document.documentElement.classList.add("workshop-loader-lock");
     document.body.classList.add("workshop-loader-lock");
     window.addEventListener("wheel", lockScroll, { passive: false, capture: true });
@@ -76,6 +77,7 @@ export default function WorkshopLoadingScreen() {
       timeoutId = setTimeout(() => {
         tl = gsap.timeline({
           onComplete: () => {
+            window.scrollTo(0, 0);
             setIsLoading(false);
             window.dispatchEvent(new Event("workshopLoaderFinished"));
           },

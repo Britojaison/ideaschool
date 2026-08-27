@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DotField from "@/components/ui/DotField";
-import HeroDotField from "@/components/ui/HeroDotField";
-import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
-import MobileMenu from "@/components/global/MobileMenu";
+import DotField from "../DotField";
+import HeroDotField from "../HeroDotField";
+import ScrollTextReveal from "../ScrollTextReveal";
+import MobileMenu from "../MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
-import MetaPixel from "@/components/shared/MetaPixel";
-import Footer from "@/components/global/Footer";
 
 const curriculum = [
   {
@@ -243,7 +241,6 @@ export const metadata: Metadata = {
 export default function ApplyPage() {
   return (
     <main className="applyPage">
-      <MetaPixel />
       <ScrollTextReveal />
       <section className="programHero" aria-label="AI-powered ad film workshop">
         <div className="programHeroMedia">
@@ -296,7 +293,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>August 16</dd>
+              <dd>September 6</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>
@@ -403,7 +400,7 @@ export default function ApplyPage() {
         <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px" }}>Our Work</span>
-            <h2 style={{ color: "#ffffff", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", fontSize: "clamp(26px, 2.8vw, 40px)", fontWeight: 700, letterSpacing: "-0.04em", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
+            <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
             <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px", fontSize: "18px", lineHeight: "1.5" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>
         </div>
@@ -552,7 +549,38 @@ export default function ApplyPage() {
         </div>
       </div>
 
-      <div className="newSite"><Footer /></div>
+      <footer className="siteFooter">
+        <div className="footerInner">
+          <p>Idea School is where you build real skills for the creative industry.</p>
+
+          <nav className="footerLinks" aria-label="Footer navigation">
+            <div>
+              <h2>Program</h2>
+              <Link href="/#program">Program</Link>
+              <Link href="/creative-editing-course">Creative Editing Program</Link>
+              <a href="#apply-form">Get early bird pass now</a>
+            </div>
+            <div>
+              <h2>Company</h2>
+              <Link href="/#about">About</Link>
+              <Link href="/#testimonials">Testimonials</Link>
+              <Link href="/#contact">Contact : 8618894857</Link>
+            </div>
+            <div>
+              <h2>Socials</h2>
+              <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </nav>
+        </div>
+        <Link className="footerHeroLink" href="/#hero" aria-label="Back to hero">
+          IDEA SCHOOL
+        </Link>
+      </footer>
     </main>
   );
 }

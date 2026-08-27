@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import HeroDotField from "@/components/ui/HeroDotField";
-import Footer from "@/components/global/Footer";
+import HeroDotField from "../../HeroDotField";
 
 const whatsappUrl = "https://chat.whatsapp.com/KPOJNXzGGmXCdUh2BdF4En";
 
@@ -83,7 +82,6 @@ export default function CreativeEditingThankYouPage() {
           </div>
         </div>
       </section>
-      <div className="newSite"><Footer /></div>
     </main>
   );
 }

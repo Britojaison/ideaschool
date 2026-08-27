@@ -3,19 +3,19 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import DetailsSectionMotion from "../creative-editing-course/DetailsSectionMotion";
-import LiquidVideoMuteButton from "@/components/ui/LiquidVideoMuteButton";
+import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
 import OutcomeCards from "../creative-editing-course/OutcomeCards";
-import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
-import TiltedCard from "@/components/ui/TiltedCard";
+import ScrollTextReveal from "../ScrollTextReveal";
+import TiltedCard from "../TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
 import WorkshopHeroModel3D from "./WorkshopHeroModel3D";
-import MobileMenu from "@/components/global/MobileMenu";
+import MobileMenu from "../MobileMenu";
 
 import WorkshopCurriculumFlow from "./WorkshopCurriculumFlow";
 import WorkshopToolsInteractive from "./WorkshopToolsInteractive";
 import WorkshopLoadingScreen from "./WorkshopLoadingScreen";
 import WorkshopAttendeesList from "./WorkshopAttendeesList";
-import Footer from "@/components/global/Footer";
+import WorkshopFooter from "./WorkshopFooter";
 import WorkshopInstructorImage from "./WorkshopInstructorImage";
 import WorkshopFaqImage from "./WorkshopFaqImage";
 import WorkshopGalleryFlip from "./WorkshopGalleryFlip";
@@ -238,7 +238,9 @@ export default function WorkshopPage() {
     <main className="longCoursePage workshopCoursePage">
       <WorkshopLoadingScreen />
       <WorkshopGsapAnimations />
-      <ScrollTextReveal />
+      <div id="smooth-wrapper" className="workshopSmoothWrapper">
+        <div id="smooth-content" className="workshopSmoothContent">
+          <ScrollTextReveal />
 
           <section className="longCourseHero workshopHero" aria-label={workshop.title}>
             <div className="longCourseHeroMedia">
@@ -289,7 +291,7 @@ export default function WorkshopPage() {
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                       Date
                     </dt>
-                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>July 25, 26</dd>
+                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>July 25, 26</dd>
                   </div>
 
                   {/* Time Card */}
@@ -298,7 +300,7 @@ export default function WorkshopPage() {
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                       Time
                     </dt>
-                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>6 PM - 8 PM</dd>
+                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>6 PM - 8 PM</dd>
                   </div>
 
                   {/* Live Card */}
@@ -307,7 +309,7 @@ export default function WorkshopPage() {
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                       Live
                     </dt>
-                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>On Zoom</dd>
+                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>On Zoom</dd>
                   </div>
 
                   {/* Language Card */}
@@ -316,7 +318,7 @@ export default function WorkshopPage() {
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                       Language
                     </dt>
-                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>English</dd>
+                    <dd className="text-3xl md:text-4xl text-black leading-none mt-1" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>English</dd>
                   </div>
                 </dl>
 
@@ -347,7 +349,7 @@ export default function WorkshopPage() {
                     padding: "14px 36px",
                     margin: 0,
                     textTransform: "uppercase",
-                    fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif",
+                    fontFamily: "\"Bebas Neue\", var(--font-heading)",
                     fontWeight: 900,
                     lineHeight: 1,
                     width: "fit-content"
@@ -382,6 +384,8 @@ export default function WorkshopPage() {
             </div>
           </section>
 
+
+
           <WorkshopToolsInteractive />
 
           <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(56px, 8vw, 84px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "#E6E6E6" }}>
@@ -393,7 +397,7 @@ export default function WorkshopPage() {
             <div className="longCourseSectionInner" style={{ marginBottom: "40px" }}>
               <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>
                 <span className="sectionPill">Our Work</span>
-                <h2 style={{ color: "#ffffff", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>Watch Some Of Our Recent Projects</h2>
+                <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)" }}>Watch Some Of Our Recent Projects</h2>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
               </div>
             </div>
@@ -422,7 +426,7 @@ export default function WorkshopPage() {
                 >
                   About The Instructor
                 </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display max-w-2xl" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#1a1a1a] mb-6 uppercase leading-tight font-display max-w-2xl" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                   Learn From a Working Creative Professional
                 </h2>
                 <p className="text-gray-600 text-lg md:text-xl font-light max-w-xl mb-8 leading-relaxed">
@@ -451,7 +455,7 @@ export default function WorkshopPage() {
 
           <section className="workshopTestimonialSection bg-[#F7F5F4] py-12 md:py-24 lg:py-32 px-6 md:px-12" aria-label="Student testimonials">
             <div className="max-w-[1440px] mx-auto">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-20 lg:mb-32 max-w-5xl leading-[1.1] text-black tracking-wide uppercase" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-20 lg:mb-32 max-w-5xl leading-[1.1] text-black tracking-wide uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                 We believe in the best practical training, because we know it helps our students land high-paying projects.
               </h2>
 
@@ -502,7 +506,7 @@ export default function WorkshopPage() {
                 >
                   Career Potential
                 </span>
-                <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-6 uppercase" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+                <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-6 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                   Where Idea School Editors Go
                 </h2>
                 <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">
@@ -519,7 +523,7 @@ export default function WorkshopPage() {
                   { stat: "12 weeks", label: "Until you have a portfolio ready to show these numbers" },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-[#1a1a1a] border border-white/10 rounded-2xl p-8 hover:bg-[#222] transition-colors duration-300">
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#dafd55] mb-4 whitespace-nowrap" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>{item.stat}</div>
+                    <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#dafd55] mb-4 whitespace-nowrap" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>{item.stat}</div>
                     <p className="text-gray-300 leading-relaxed text-sm md:text-base">{item.label}</p>
                   </div>
                 ))}
@@ -527,7 +531,7 @@ export default function WorkshopPage() {
 
               {/* Job Roles Grid */}
               <div className="mb-12">
-                <h3 className="text-2xl md:text-4xl font-medium mb-10 text-center uppercase" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>Job roles you&apos;ll be qualified for</h3>
+                <h3 className="text-2xl md:text-4xl font-medium mb-10 text-center uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>Job roles you&apos;ll be qualified for</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
                     { role: "Video Editor", salary: "₹25,000 - ₹45,000/mo", type: "Agency" },
@@ -551,12 +555,12 @@ export default function WorkshopPage() {
           </section>
 
           {/* Pricing / CTA Section */}
-          <section className="hidden pricingCtaSection flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-10 min-h-[100vh] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" aria-label="Register Now">
+          <section className="pricingCtaSection flex flex-col justify-center items-center px-6 md:px-12 bg-[#dafd55] text-black relative z-10 min-h-[100vh] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" aria-label="Register Now">
             <div className="max-w-[800px] mx-auto text-center relative z-10 w-full">
-              <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+              <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-4 uppercase" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                 Register Now
               </h2>
-              <div className="mb-6" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+              <div className="mb-6" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                 <div className="text-3xl md:text-4xl lg:text-5xl font-bold leading-none line-through decoration-[0.08em] decoration-black/80 opacity-70 mb-3">
                   ₹1299
                 </div>
@@ -586,7 +590,7 @@ export default function WorkshopPage() {
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-black mb-6 block">
                   FAQS
                 </span>
-                <h2 className="text-4xl md:text-5xl lg:text-[4rem] text-black tracking-tight font-medium" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+                <h2 className="text-4xl md:text-5xl lg:text-[4rem] text-black tracking-tight font-medium" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                   Frequently Asked Questions
                 </h2>
               </div>
@@ -617,7 +621,7 @@ export default function WorkshopPage() {
 
                 {/* Contact - Right Side */}
                 <div className="lg:w-[320px] xl:w-[380px] flex-shrink-0 pt-6">
-                  <h3 className="text-3xl md:text-4xl font-medium text-black mb-8 leading-tight" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+                  <h3 className="text-3xl md:text-4xl font-medium text-black mb-8 leading-tight" style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>
                     Didn&apos;t find the answer you were looking for?
                   </h3>
                   <a href="mailto:admin@88gb.in" className="inline-block text-[11px] font-bold tracking-[0.15em] text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity">
@@ -631,7 +635,7 @@ export default function WorkshopPage() {
 
           <section className="longCourseApply workshopGsapSection relative z-10 shadow-[0_-10px_40px_rgba(0,0,0,0.08)]" id="apply" aria-label="Register for workshop">
             <div className="longCourseApplyInner">
-              <h2 style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>Ready To Learn Video Editing Skills That Can Pay?</h2>
+              <h2 style={{ fontFamily: "'Bebas Neue', var(--font-heading)" }}>Ready To Learn Video Editing Skills That Can Pay?</h2>
               <p>
                 Join the 2-day live workshop and start building the practical editing and AI workflow
                 confidence needed for better projects.
@@ -642,7 +646,9 @@ export default function WorkshopPage() {
             </div>
           </section>
 
-      <div className="newSite"><Footer /></div>
+          <WorkshopFooter />
+        </div>
+      </div>
       <WorkshopStickyBanner />
     </main>
   );

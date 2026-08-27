@@ -17,23 +17,25 @@
 .marqueeTrack {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 48px;
   width: max-content;
   animation: scroll 40s linear infinite;
-  padding-right: 50px; /* same as gap to make seamless loop */
+  padding-right: 48px; /* same as gap to make seamless loop */
 }
 
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 32px;
+  flex-shrink: 0;
 }
 
 .iconImage {
-  max-height: 32px;
-  max-width: 120px;
+  height: 22px;
+  max-height: 24px;
+  max-width: 110px;
   width: auto;
-  height: auto;
   object-fit: contain;
   filter: invert(1) grayscale(100%) opacity(0.6);
   transition: filter 0.3s ease, opacity 0.3s ease;

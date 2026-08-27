@@ -67,65 +67,118 @@ export default function AdmissionEnrollment() {
 
           {/* Full Program Highlight Card */}
           <div
-            className="rounded-2xl p-6 md:p-8 mb-8 border"
+            className="rounded-2xl p-6 md:p-8 mb-8 border transition-shadow duration-300 hover:shadow-lg"
             style={{
               backgroundColor: "#F1F0E8",
               borderColor: "rgba(17,17,17,0.14)"
             }}
           >
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-5 mb-5">
-              <div>
-                <span
-                  className="block text-xs uppercase tracking-widest font-bold mb-2"
-                  style={{ color: "#718000", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                >
-                  Full Program
-                </span>
-                <h3
-                  className="text-lg md:text-xl font-bold uppercase tracking-tight m-0 mb-3"
-                  style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                >
-                  24-Week Full-Stack Video Editing & Creative AI Mastery
-                </h3>
-                <div
-                  className="flex flex-col gap-1.5 text-sm"
-                  style={{ color: "#444444", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#111111]" />
-                    <span>12 Weeks Core Skill Development</span>
+            {/* Card Header Tag & Cohort Status */}
+            <div className="flex items-center justify-between gap-3 mb-3">
+              <span
+                className="inline-block px-3 py-1 rounded-full text-[11px] uppercase tracking-widest font-bold"
+                style={{
+                  backgroundColor: "rgba(113, 128, 0, 0.12)",
+                  color: "#606d00",
+                  fontFamily: 'var(--font-stara), "Stara", sans-serif'
+                }}
+              >
+                Full Program • 24 Weeks
+              </span>
+              <span
+                className="text-[11px] uppercase tracking-wider font-semibold opacity-60"
+                style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+              >
+                Hybrid / Offline + Online
+              </span>
+            </div>
+
+            {/* Program Title */}
+            <h3
+              className="text-xl md:text-2xl font-bold uppercase tracking-tight m-0 mb-5 leading-snug"
+              style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+            >
+              24-Week Full-Stack Video Editing & Creative AI Mastery
+            </h3>
+
+            {/* 2-Phase Structured Timeline Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              <div
+                className="p-4 rounded-xl border flex flex-col justify-between"
+                style={{
+                  backgroundColor: "#FBFAF2",
+                  borderColor: "rgba(17,17,17,0.1)"
+                }}
+              >
+                <div>
+                  <div
+                    className="text-[10px] font-bold uppercase tracking-widest mb-1.5"
+                    style={{ color: "#718000", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                  >
+                    Phase 01 · 12 Weeks
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#111111]" />
-                    <span>12 Weeks Industry Experience</span>
+                  <div
+                    className="text-sm font-bold text-[#111111] mb-1"
+                    style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                  >
+                    Core Skill Development
                   </div>
+                  <p className="text-xs text-[#666666] m-0 leading-relaxed">
+                    Premiere Pro, DaVinci Resolve, narrative pacing & AI tool pipelines.
+                  </p>
                 </div>
               </div>
+
+              <div
+                className="p-4 rounded-xl border flex flex-col justify-between"
+                style={{
+                  backgroundColor: "#FBFAF2",
+                  borderColor: "rgba(17,17,17,0.1)"
+                }}
+              >
+                <div>
+                  <div
+                    className="text-[10px] font-bold uppercase tracking-widest mb-1.5"
+                    style={{ color: "#718000", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                  >
+                    Phase 02 · 12 Weeks
+                  </div>
+                  <div
+                    className="text-sm font-bold text-[#111111] mb-1"
+                    style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+                  >
+                    Industry Experience
+                  </div>
+                  <p className="text-xs text-[#666666] m-0 leading-relaxed">
+                    Live 88GB agency briefs, weekly 1:1 mentor feedback & client-ready portfolio.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Button & Note Footer */}
+            <div className="pt-4 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ borderColor: "rgba(17,17,17,0.1)" }}>
+              <p
+                className="m-0 text-xs text-[#666666] leading-relaxed max-w-xs"
+                style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
+              >
+                ✦ Seats are strictly limited to maintain a mentor-led studio environment.
+              </p>
 
               <button
                 type="button"
                 onClick={() => window.dispatchEvent(new Event("open-home-form"))}
-                className="self-start font-black uppercase px-6 py-3.5 rounded-full tracking-wider text-xs md:text-sm no-underline hover:scale-105 transition-transform duration-200 border-none cursor-pointer shrink-0"
+                className="w-full sm:w-auto font-black uppercase px-6 py-3.5 rounded-full tracking-wider text-xs md:text-sm no-underline hover:scale-105 active:scale-95 transition-all duration-200 border-none cursor-pointer shrink-0 flex items-center justify-center gap-2 shadow-sm"
                 style={{
                   backgroundColor: "#dafd55",
                   color: "#030405",
                   fontFamily: 'var(--font-stara), "Stara", sans-serif',
                 }}
               >
-                Talk to Idea Creative School
+                <span>Talk to Idea Creative School</span>
+                <span aria-hidden="true">↗</span>
               </button>
             </div>
-
-            <p
-              className="m-0 pt-4 border-t text-xs md:text-sm leading-relaxed"
-              style={{
-                color: "#666666",
-                borderColor: "rgba(17,17,17,0.1)",
-                fontFamily: 'var(--font-stara), "Stara", sans-serif'
-              }}
-            >
-              Seats are limited to maintain a practical, mentor-led learning environment.
-            </p>
           </div>
 
           {/* Details List */}

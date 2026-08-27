@@ -94,30 +94,30 @@
   user-select: none;
 }
 
-/* Staggered vertical padding — both top (tag offset) and bottom (number stagger) */
+/* Staggered vertical padding — alternating up/down rhythm */
 .colA {
-  padding-top: 6vh;
-  padding-bottom: 6vh;
+  padding-top: 4vh;
+  padding-bottom: 9vh;
 }
 
 .colB {
-  padding-top: 16vh;
-  padding-bottom: 3vh;
+  padding-top: 18vh;
+  padding-bottom: 2.5vh;
 }
 
 .colC {
   padding-top: 4vh;
-  padding-bottom: 8vh;
+  padding-bottom: 9vh;
 }
 
 .colD {
-  padding-top: 20vh;
-  padding-bottom: 2vh;
+  padding-top: 18vh;
+  padding-bottom: 2.5vh;
 }
 
 .colE {
-  padding-top: 10vh;
-  padding-bottom: 5vh;
+  padding-top: 4vh;
+  padding-bottom: 9vh;
 }
 
 /* Column Letter Marker (a ], b ], c ], d ]) */

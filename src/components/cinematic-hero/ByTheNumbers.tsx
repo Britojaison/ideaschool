@@ -51,7 +51,7 @@ const STATS_DATA: StatItem[] = [
     tag: "e ]",
     number: "60+",
     label: "POTENTIAL VIDEO ASSIGNMENTS ACROSS 12 WEEKS OF DEDICATED INDUSTRY EXPERIENCE",
-    imageSrc: "/images/gallery10.webp",
+    imageSrc: "/images/gallery12.webp",
     colClass: styles.colE
   }
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import styles from "./HomeFAQ.module.css";
 
@@ -129,6 +130,15 @@ export default function HomeFAQ({
           <div className={styles.faqContact}>
             <h3>Didn&apos;t find the answer you were looking for?</h3>
             <a href="mailto:hello@ideaschool.pro" className={styles.faqMailLink}>Send us an mail</a>
+            <div className={styles.faqCameraWrap}>
+              <Image
+                src="/images/camlab-cam2.png"
+                alt="Idea School Camera Lab"
+                width={320}
+                height={320}
+                className={styles.faqCameraImg}
+              />
+            </div>
           </div>
         </div>
       </div>

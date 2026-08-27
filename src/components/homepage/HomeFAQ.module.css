@@ -220,9 +220,38 @@
   opacity: 0.7;
 }
 
+.faqCameraWrap {
+  margin-top: 48px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.faqCameraImg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.45));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faqCameraImg:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
 @media (max-width: 860px) {
   .faqLayout {
     grid-template-columns: 1fr;
     gap: 60px;
+  }
+
+  .faqCameraWrap {
+    margin-top: 24px;
+    justify-content: center;
+  }
+
+  .faqCameraImg {
+    max-width: 220px;
   }
 }

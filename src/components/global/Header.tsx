@@ -452,16 +452,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               </Link>
 
               <div className={styles.mobileHeaderActions}>
-                <a
-                  href="mailto:hello@ideaschool.pro"
-                  className={styles.mobileMailBtn}
-                  aria-label="Send email"
-                >
-                  <svg width="22" height="18" viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <path d="m22 5-10 7L2 5" />
-                  </svg>
-                </a>
+
 
                 <button
                   className={styles.mobileCloseBtn}
@@ -590,12 +581,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               </nav>
 
               <div className={styles.mobileContactGroup}>
-                <a
-                  href="mailto:hello@ideaschool.pro"
-                  className={styles.mobileEmailLink}
-                >
-                  hello@ideaschool.pro
-                </a>
+
                 <a
                   href="tel:+918850774428"
                   className={styles.mobilePhoneLink}

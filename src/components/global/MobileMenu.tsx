@@ -65,16 +65,7 @@ export default function MobileMenu() {
             </Link>
 
             <div className="mobileMenuHeaderActions">
-              <a
-                href="mailto:hello@ideaschool.pro"
-                className="mobileMenuMailBtn"
-                aria-label="Send email"
-              >
-                <svg width="22" height="18" viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="m22 5-10 7L2 5" />
-                </svg>
-              </a>
+
 
               <button
                 className="mobileMenuCloseTextBtn"
@@ -202,9 +193,7 @@ export default function MobileMenu() {
             </nav>
 
             <div className="mobileMenuContactList">
-              <a href="mailto:hello@ideaschool.pro" className="mobileMenuUnderlineLink">
-                hello@ideaschool.pro
-              </a>
+
               <a href="tel:+918850774428" className="mobileMenuUnderlineLink">
                 +91 88507 74428
               </a>

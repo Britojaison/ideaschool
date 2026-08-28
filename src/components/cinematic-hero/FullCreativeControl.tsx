@@ -253,87 +253,57 @@ export default function FullCreativeControl() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 768px)", () => {
-      // Set initial states for entrance reveal from all sides
-      gsap.set(camera, {
-        x: 60,
-        y: -20,
-        opacity: 0,
-        scale: 0.9
-      });
-
-      gsap.set(magicHint, {
-        opacity: 0,
-        y: -15
-      });
-
-      gsap.set(header, {
-        x: -70,
-        opacity: 0
-      });
-
+      // Set initial states
+      gsap.set(camera, { x: 60, y: -20, opacity: 0, scale: 0.9 });
+      gsap.set(magicHint, { opacity: 0, y: -15 });
+      gsap.set(header, { x: -70, opacity: 0 });
       stepRefs.current.forEach((el, i) => {
         if (!el) return;
-        const fromX = i % 2 === 0 ? -90 : 90;
-        gsap.set(el, {
-          x: fromX,
-          opacity: 0
-        });
+        gsap.set(el, { x: i % 2 === 0 ? -90 : 90, opacity: 0 });
       });
+      gsap.set(manifest, { y: 50, opacity: 0 });
 
-      gsap.set(manifest, {
-        y: 50,
-        opacity: 0
-      });
-
-      // Scroll-triggered entrance sequence
-      const tl = gsap.timeline({
+      // Content entrance — plays once, never gets stuck at opacity 0
+      const entranceTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 75%",
-          end: "top 20%",
-          scrub: 0.8,
-          onUpdate: (self) => {
-            if (manualThemeRef.current === null) {
-              currentProgressRef.current = self.progress;
-              applyColors(self.progress);
-            }
-          }
+          start: "top 78%",
+          toggleActions: "play none none none",
         }
       });
 
-      tl.to(camera, {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        ease: "back.out(1.4)",
-        duration: 1
-      }, 0)
-      .to(magicHint, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }, 0.1)
-      .to(header, {
-        x: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out"
-      }, 0.15)
-      .to(stepRefs.current.filter(Boolean), {
-        x: 0,
-        opacity: 1,
-        stagger: 0.08,
-        ease: "power3.out",
-        duration: 0.85
-      }, 0.2)
-      .to(manifest, {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power3.out"
-      }, 0.3);
+      entranceTl
+        .to(camera, {
+          x: 0, y: 0, opacity: 1, scale: 1,
+          ease: "back.out(1.4)", duration: 0.9
+        }, 0)
+        .to(magicHint, {
+          opacity: 1, y: 0, duration: 0.5, ease: "power2.out"
+        }, 0.1)
+        .to(header, {
+          x: 0, opacity: 1, duration: 0.7, ease: "power3.out"
+        }, 0.12)
+        .to(stepRefs.current.filter(Boolean), {
+          x: 0, opacity: 1, stagger: 0.06,
+          ease: "power3.out", duration: 0.75
+        }, 0.18)
+        .to(manifest, {
+          y: 0, opacity: 1, duration: 0.6, ease: "power3.out"
+        }, 0.28);
+
+      // Color transition — separate scrub so dark→cream is still smooth
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 75%",
+        end: "top 20%",
+        scrub: 1.2,
+        onUpdate: (self) => {
+          if (manualThemeRef.current === null) {
+            currentProgressRef.current = self.progress;
+            applyColors(self.progress);
+          }
+        }
+      });
     });
 
     mm.add("(max-width: 767px)", () => {
@@ -345,30 +315,36 @@ export default function FullCreativeControl() {
       });
       gsap.set(manifest, { opacity: 0, y: 30 });
 
-      const tl = gsap.timeline({
+      // Content entrance — plays once on mobile too
+      const mobileTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 80%",
-          end: "top 25%",
-          scrub: 0.8,
-          onUpdate: (self) => {
-            if (manualThemeRef.current === null) {
-              currentProgressRef.current = self.progress;
-              applyColors(self.progress);
-            }
-          }
+          start: "top 85%",
+          toggleActions: "play none none none",
         }
       });
 
-      tl.to(camera, { opacity: 1, y: 0, ease: "power2.out" }, 0)
-        .to(header, { opacity: 1, y: 0, ease: "power2.out" }, 0.1)
+      mobileTl
+        .to(camera, { opacity: 1, y: 0, ease: "power2.out", duration: 0.7 }, 0)
+        .to(header, { opacity: 1, y: 0, ease: "power2.out", duration: 0.6 }, 0.08)
         .to(stepRefs.current.filter(Boolean), {
-          opacity: 1,
-          x: 0,
-          stagger: 0.06,
-          ease: "power2.out"
-        }, 0.15)
-        .to(manifest, { opacity: 1, y: 0, ease: "power2.out" }, 0.2);
+          opacity: 1, x: 0, stagger: 0.05, ease: "power2.out", duration: 0.6
+        }, 0.12)
+        .to(manifest, { opacity: 1, y: 0, ease: "power2.out", duration: 0.5 }, 0.18);
+
+      // Color transition scrub for mobile
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 80%",
+        end: "top 25%",
+        scrub: 1.2,
+        onUpdate: (self) => {
+          if (manualThemeRef.current === null) {
+            currentProgressRef.current = self.progress;
+            applyColors(self.progress);
+          }
+        }
+      });
     });
 
     return () => mm.revert();

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function CustomAnimatedCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -75,14 +74,13 @@ export default function CustomAnimatedCursor() {
         marginTop: "-2px",
       }}
     >
-      <Image
-        // IMPORTANT: Replace with the actual animated .gif files once you download them.
-        // For now, we fallback to the static .png to avoid broken image icons.
-        src="/assets/cursor/chrome-trex/pointer-32.png" // Replace with animated-pointer.gif
-        alt="Custom Cursor"
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/assets/cursor/chrome-trex/pointer-32.png"
+        alt=""
         width={32}
         height={32}
-        unoptimized // Prevents Next.js from breaking GIF animations
+        draggable={false}
       />
     </div>
   );

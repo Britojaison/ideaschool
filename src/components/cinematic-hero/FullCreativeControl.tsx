@@ -245,58 +245,89 @@ export default function FullCreativeControl() {
     const header = headerRef.current;
     const camera = cameraRef.current;
     const magicHint = magicHintRef.current;
-    const reel = reelRef.current;
     const manifest = manifestRef.current;
 
-    if (!section || !header || !camera || !reel || !manifest) return;
+    if (!section || !header || !camera || !manifest) return;
 
     const mm = gsap.matchMedia();
 
+    // Helper: show everything immediately (used as fallback)
+    const forceShowAll = () => {
+      gsap.set(camera, { x: 0, y: 0, opacity: 1, scale: 1, clearProps: "all" });
+      if (magicHint) gsap.set(magicHint, { opacity: 1, y: 0, clearProps: "all" });
+      gsap.set(header, { x: 0, opacity: 1, clearProps: "all" });
+      stepRefs.current.forEach((el) => {
+        if (el) gsap.set(el, { x: 0, opacity: 1, clearProps: "all" });
+      });
+      gsap.set(manifest, { y: 0, opacity: 1, clearProps: "all" });
+    };
+
     mm.add("(min-width: 768px)", () => {
-      // Set initial states
-      gsap.set(camera, { x: 60, y: -20, opacity: 0, scale: 0.9 });
-      gsap.set(magicHint, { opacity: 0, y: -15 });
-      gsap.set(header, { x: -70, opacity: 0 });
-      stepRefs.current.forEach((el, i) => {
-        if (!el) return;
-        gsap.set(el, { x: i % 2 === 0 ? -90 : 90, opacity: 0 });
-      });
-      gsap.set(manifest, { y: 50, opacity: 0 });
+      // Check if section is already visible in viewport (e.g. page loaded mid-scroll)
+      const rect = section.getBoundingClientRect();
+      const alreadyVisible = rect.top < window.innerHeight * 0.8;
 
-      // Content entrance — plays once, never gets stuck at opacity 0
-      const entranceTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 78%",
-          toggleActions: "play none none none",
-        }
-      });
+      if (alreadyVisible) {
+        // Already past trigger — show everything immediately, apply cream colors
+        forceShowAll();
+        applyColors(1);
+        currentProgressRef.current = 1;
+      } else {
+        // Set initial states for entrance
+        gsap.set(camera, { x: 40, opacity: 0, scale: 0.95 });
+        if (magicHint) gsap.set(magicHint, { opacity: 0, y: -10 });
+        gsap.set(header, { x: -50, opacity: 0 });
+        stepRefs.current.forEach((el, i) => {
+          if (!el) return;
+          gsap.set(el, { x: i % 2 === 0 ? -60 : 60, opacity: 0 });
+        });
+        gsap.set(manifest, { y: 30, opacity: 0 });
 
-      entranceTl
-        .to(camera, {
-          x: 0, y: 0, opacity: 1, scale: 1,
-          ease: "back.out(1.4)", duration: 0.9
-        }, 0)
-        .to(magicHint, {
-          opacity: 1, y: 0, duration: 0.5, ease: "power2.out"
-        }, 0.1)
-        .to(header, {
-          x: 0, opacity: 1, duration: 0.7, ease: "power3.out"
-        }, 0.12)
-        .to(stepRefs.current.filter(Boolean), {
-          x: 0, opacity: 1, stagger: 0.06,
-          ease: "power3.out", duration: 0.75
-        }, 0.18)
-        .to(manifest, {
-          y: 0, opacity: 1, duration: 0.6, ease: "power3.out"
-        }, 0.28);
+        // Content entrance — plays once when section enters viewport
+        const entranceTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 82%",
+            once: true,
+          }
+        });
 
-      // Color transition — separate scrub so dark→cream is still smooth
+        entranceTl
+          .to(camera, {
+            x: 0, opacity: 1, scale: 1,
+            ease: "power3.out", duration: 0.8
+          }, 0)
+          .to(magicHint ? [magicHint] : [], {
+            opacity: 1, y: 0, duration: 0.4, ease: "power2.out"
+          }, 0.1)
+          .to(header, {
+            x: 0, opacity: 1, duration: 0.6, ease: "power3.out"
+          }, 0.1)
+          .to(stepRefs.current.filter(Boolean), {
+            x: 0, opacity: 1, stagger: 0.05,
+            ease: "power3.out", duration: 0.6
+          }, 0.15)
+          .to(manifest, {
+            y: 0, opacity: 1, duration: 0.5, ease: "power3.out"
+          }, 0.25);
+
+        // Safety fallback: if animations haven't completed after 2s, force show
+        const safetyTimer = setTimeout(() => {
+          forceShowAll();
+        }, 2000);
+
+        // Clear safety timer if entrance plays normally
+        entranceTl.eventCallback("onComplete", () => {
+          clearTimeout(safetyTimer);
+        });
+      }
+
+      // Color transition — separate scrub
       ScrollTrigger.create({
         trigger: section,
         start: "top 75%",
         end: "top 20%",
-        scrub: 1.2,
+        scrub: 1.5,
         onUpdate: (self) => {
           if (manualThemeRef.current === null) {
             currentProgressRef.current = self.progress;
@@ -307,37 +338,53 @@ export default function FullCreativeControl() {
     });
 
     mm.add("(max-width: 767px)", () => {
-      gsap.set(camera, { opacity: 0, y: 30 });
-      gsap.set(header, { opacity: 0, y: -20 });
-      stepRefs.current.forEach((el, i) => {
-        if (!el) return;
-        gsap.set(el, { opacity: 0, x: i % 2 === 0 ? -40 : 40 });
-      });
-      gsap.set(manifest, { opacity: 0, y: 30 });
+      const rect = section.getBoundingClientRect();
+      const alreadyVisible = rect.top < window.innerHeight * 0.85;
 
-      // Content entrance — plays once on mobile too
-      const mobileTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        }
-      });
+      if (alreadyVisible) {
+        forceShowAll();
+        applyColors(1);
+        currentProgressRef.current = 1;
+      } else {
+        gsap.set(camera, { opacity: 0, y: 20 });
+        gsap.set(header, { opacity: 0, y: -15 });
+        stepRefs.current.forEach((el, i) => {
+          if (!el) return;
+          gsap.set(el, { opacity: 0, x: i % 2 === 0 ? -30 : 30 });
+        });
+        gsap.set(manifest, { opacity: 0, y: 20 });
 
-      mobileTl
-        .to(camera, { opacity: 1, y: 0, ease: "power2.out", duration: 0.7 }, 0)
-        .to(header, { opacity: 1, y: 0, ease: "power2.out", duration: 0.6 }, 0.08)
-        .to(stepRefs.current.filter(Boolean), {
-          opacity: 1, x: 0, stagger: 0.05, ease: "power2.out", duration: 0.6
-        }, 0.12)
-        .to(manifest, { opacity: 1, y: 0, ease: "power2.out", duration: 0.5 }, 0.18);
+        const mobileTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 88%",
+            once: true,
+          }
+        });
+
+        mobileTl
+          .to(camera, { opacity: 1, y: 0, ease: "power2.out", duration: 0.6 }, 0)
+          .to(header, { opacity: 1, y: 0, ease: "power2.out", duration: 0.5 }, 0.06)
+          .to(stepRefs.current.filter(Boolean), {
+            opacity: 1, x: 0, stagger: 0.04, ease: "power2.out", duration: 0.5
+          }, 0.1)
+          .to(manifest, { opacity: 1, y: 0, ease: "power2.out", duration: 0.4 }, 0.15);
+
+        const safetyTimer = setTimeout(() => {
+          forceShowAll();
+        }, 2000);
+
+        mobileTl.eventCallback("onComplete", () => {
+          clearTimeout(safetyTimer);
+        });
+      }
 
       // Color transition scrub for mobile
       ScrollTrigger.create({
         trigger: section,
         start: "top 80%",
         end: "top 25%",
-        scrub: 1.2,
+        scrub: 1.5,
         onUpdate: (self) => {
           if (manualThemeRef.current === null) {
             currentProgressRef.current = self.progress;

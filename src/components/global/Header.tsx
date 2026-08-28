@@ -138,12 +138,11 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
     }
 
     if (menuOpen) {
-      metaTheme.setAttribute("content", "#dafd55");
       document.body.style.overflow = "hidden";
     } else {
-      metaTheme.setAttribute("content", "#0a0a0c");
       document.body.style.overflow = "";
     }
+    metaTheme.setAttribute("content", "#0a0a0c");
     return () => {
       document.body.style.overflow = "";
       if (metaTheme) metaTheme.setAttribute("content", "#0a0a0c");

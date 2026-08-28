@@ -121,16 +121,15 @@ export default function VisualSchoolPage() {
 
   useGSAP(() => {
     const updateInitialPosition = () => {
-      if (!cardWideRef.current || !overlayVideoRef.current || !heroRef.current) return;
+      if (!cardWideRef.current || !overlayVideoRef.current || !overlayRef.current) return;
       const cardRect = cardWideRef.current.getBoundingClientRect();
-      const overlayRect = overlayRef.current?.getBoundingClientRect();
-      if (!overlayRect) return;
+      const overlayRect = overlayRef.current.getBoundingClientRect();
 
       // Use offset dimensions to avoid skew bounding box distortion
       const width = cardWideRef.current.offsetWidth;
       const height = cardWideRef.current.offsetHeight;
 
-      // Calculate center to ensure perfect placement regardless of CSS transforms like translateY
+      // Calculate center to ensure perfect placement regardless of CSS transforms
       const cardCenterX = cardRect.left + cardRect.width / 2;
       const cardCenterY = cardRect.top + cardRect.height / 2;
 
@@ -143,34 +142,38 @@ export default function VisualSchoolPage() {
         x: leftOffset,
         y: topOffset,
         skewY: 7,
-        borderRadius: 30,
+        borderRadius: window.innerWidth <= 800 ? 18 : 30,
       });
     };
 
     updateInitialPosition();
+    const initTimer = setTimeout(updateInitialPosition, 60);
+
     // Hook into ScrollTrigger refresh so invalidation works correctly
     ScrollTrigger.addEventListener("refreshInit", updateInitialPosition);
+
+    const isMobile = window.innerWidth <= 800;
 
     const tl = gsap.timeline({
       scrollTrigger: {
         id: "visual-programs",
         trigger: containerRef.current,
         start: "top top",
-        end: "+=1100%",
-        scrub: true,
+        end: isMobile ? "+=600%" : "+=1000%",
+        scrub: isMobile ? 0.35 : true,
         pin: true,
         invalidateOnRefresh: true,
       }
     });
 
-    const stackedScale = window.innerWidth <= 800 ? 1 : 0.95;
+    const stackedScale = isMobile ? 1 : 0.95;
 
     // Make the overlay visible and fade out the original card
     tl.set(cardWideRef.current, { opacity: 0 }, 0);
     tl.set(overlayRef.current, { opacity: 1, pointerEvents: "auto" }, 0);
 
     // Fade out elements in the hero
-    tl.to('.heroFadeOut', { opacity: 0, y: -30, duration: 0.5 }, 0);
+    tl.to('.heroFadeOut', { autoAlpha: 0, y: -20, duration: 0.5 }, 0);
 
     // Enlarge the video to fill the hero container
     tl.to(overlayVideoRef.current, {
@@ -237,47 +240,17 @@ export default function VisualSchoolPage() {
       4.9
     );
 
-    // Concept Draw Animation (Continuous Snake Effect)
-    if (conceptTextRef.current) {
-      gsap.set(conceptTextRef.current, {
-        strokeDasharray: "250 500", // Dash length 250, gap 500
-        strokeDashoffset: 0,
-      });
-
-      // Infinite looping linear animation
-      gsap.to(conceptTextRef.current, {
-        strokeDashoffset: -750, // 250 + 500 (one full cycle)
-        duration: 3,
-        ease: "none", // linear speed for snake
-        repeat: -1,
-      });
-    }
-
-    // Curriculum Draw Animation (Continuous Snake Effect)
-    if (curriculumTextRef.current) {
-      gsap.set(curriculumTextRef.current, {
-        strokeDasharray: "250 500",
-        strokeDashoffset: 0,
-      });
-
-      gsap.to(curriculumTextRef.current, {
-        strokeDashoffset: -750,
-        duration: 3,
-        ease: "none",
-        repeat: -1,
-      });
-    }
-
     // Animate the showcase track horizontally over the concept section
     tl.fromTo(cardsTrackRef.current,
-      { x: "50vw" },
+      { x: () => (isMobile ? "10vw" : "50vw") },
       {
         x: () => {
           if (!cardsTrackRef.current) return 0;
           const trackWidth = cardsTrackRef.current.scrollWidth;
-          return -(trackWidth - window.innerWidth * 0.2); // Leave some padding
+          const padding = isMobile ? window.innerWidth * 0.08 : window.innerWidth * 0.2;
+          return -(trackWidth - window.innerWidth + padding);
         },
-        duration: 8.5,
+        duration: isMobile ? 6 : 8.5,
         ease: "none"
       },
       4.4
@@ -337,41 +310,6 @@ export default function VisualSchoolPage() {
     return () => window.removeEventListener('resize', updateGridOffsets);
   }, []);
 
-  useEffect(() => {
-    let animationFrameId: number;
-    const trainWrapper = trainScrollRef.current;
-    if (!trainWrapper) return;
-
-    let scrollAmount = 0;
-    let isHovering = false;
-    let direction = 1;
-
-    const autoScroll = () => {
-      if (!isHovering && trainWrapper) {
-        scrollAmount += 1 * direction;
-        trainWrapper.scrollLeft = scrollAmount;
-
-        // Reverse scroll if hitting ends
-        if (trainWrapper.scrollLeft + trainWrapper.clientWidth >= trainWrapper.scrollWidth - 2) {
-          direction = -1;
-        } else if (trainWrapper.scrollLeft <= 0) {
-          direction = 1;
-          scrollAmount = 0; // Prevent negative values
-        }
-      }
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
-
-    trainWrapper.addEventListener('mouseenter', () => (isHovering = true));
-    trainWrapper.addEventListener('mouseleave', () => (isHovering = false));
-    trainWrapper.addEventListener('touchstart', () => (isHovering = true));
-    trainWrapper.addEventListener('touchend', () => (isHovering = false));
-
-    animationFrameId = requestAnimationFrame(autoScroll);
-
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
-
   useGSAP(() => {
     if (!whoSectionRef.current) return;
 
@@ -422,7 +360,9 @@ export default function VisualSchoolPage() {
                 <p className={styles.kicker}>Visual School</p>
                 <h1>Visual stories that<br />move people.</h1>
                 <p className={styles.heroIntro}>For editors, filmmakers and visual storytellers ready to turn their taste into industry ready work with an AI native workflow.</p>
-                <IconMarquee />
+                <div className={styles.heroMarquee}>
+                  <IconMarquee />
+                </div>
                 <Link href="#programs" onClick={scrollToPrograms} className={styles.heroCta}>Explore our programs <b>↘</b></Link>
               </div>
               <div className={styles.collage} aria-label="A collage of visual storytelling work">

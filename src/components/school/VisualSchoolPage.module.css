@@ -510,6 +510,15 @@
   overflow: hidden;
 }
 
+@keyframes snakeDraw {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -750;
+  }
+}
+
 .conceptText {
   font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
   font-style: italic;
@@ -517,6 +526,9 @@
   fill: transparent;
   stroke: var(--ink, #000);
   stroke-width: 2px;
+  stroke-dasharray: 250 500;
+  animation: snakeDraw 3.5s linear infinite;
+  will-change: stroke-dashoffset;
 }
 
 .conceptTextBase {
@@ -536,6 +548,9 @@
   fill: transparent;
   stroke: var(--red);
   stroke-width: 2px;
+  stroke-dasharray: 250 500;
+  animation: snakeDraw 3.5s linear infinite;
+  will-change: stroke-dashoffset;
 }
 
 .curriculumTextBase {
@@ -574,7 +589,10 @@
   height: 100vh;
   width: max-content;
   will-change: transform;
-  transform: translateX(50vw);
+  transform: translate3d(50vw, 0, 0);
+  -webkit-transform: translate3d(50vw, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .showcaseCard {
@@ -586,7 +604,17 @@
   color: var(--ink);
   text-decoration: none;
   flex-shrink: 0;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .showcaseCard {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  }
+
+  .showcaseCard:hover {
+    z-index: 10;
+  }
 }
 
 /* Flagship Card vs Workshop Card Dimensions & Stagger */
@@ -606,10 +634,6 @@
 
 .workshopCard:nth-child(odd) {
   transform: translateY(-4vh);
-}
-
-.showcaseCard:hover {
-  z-index: 10;
 }
 
 /* Header Badges above Images */
@@ -904,33 +928,112 @@
 
 @media (max-width: 800px) {
   .cardsTrack {
-    padding: 80px 50vw 0;
-    gap: 28px;
+    padding: 70px 10vw 0;
+    gap: 24px;
+    transform: translate3d(10vw, 0, 0);
+    -webkit-transform: translate3d(10vw, 0, 0);
   }
   
   .showcaseCard,
   .flagshipCard,
   .workshopCard {
-    width: 260px;
-    transform: translateY(0) !important;
+    width: 250px;
+    transform: none !important;
   }
   
   .flagshipImage,
   .showcaseImage {
     height: auto;
     aspect-ratio: 9 / 16;
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.16);
+  }
+
+  .cardHeaderBadge {
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .flagshipHeaderPill {
+    font-size: 9.5px;
+    padding: 5px 10px;
+    letter-spacing: 0.05em;
+    gap: 4px;
+  }
+
+  .workshopHeaderPill {
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    font-size: 9.5px;
+    padding: 5px 10px;
+    letter-spacing: 0.05em;
+    gap: 5px;
+  }
+
+  .durationPillDark,
+  .durationPillLight {
+    font-size: 9px;
+    padding: 4px 8px;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .durationPillLight,
+  .workshopTag {
+    background: #f0eee3;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
   
   .trackDivider {
-    width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 170px;
+    min-width: 170px;
+    flex-shrink: 0;
+    margin: 0 10px;
+    pointer-events: none;
+  }
+
+  .trackDividerLine {
+    width: 1px;
+    height: 60px;
+  }
+
+  .trackDividerContent {
+    background: rgba(251, 250, 242, 0.95);
+    border: 1px solid rgba(10, 10, 12, 0.15);
+    padding: 10px 14px;
+    border-radius: 12px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .dividerSparkle {
+    font-size: 13px;
+  }
+
+  .dividerLabel {
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+  }
+
+  .dividerSub {
+    font-size: 8.5px;
   }
 
   .flagshipCard h3 {
-    font-size: 34px;
+    font-size: 24px;
+    line-height: 1.05;
   }
 
   .workshopCard h3 {
-    font-size: 30px;
+    font-size: 24px;
+    line-height: 1.05;
   }
 }
 
@@ -1217,17 +1320,25 @@
   }
 }
 
+.heroMarquee {
+  margin: 20px 0;
+}
+
 @media (max-width: 800px) {
   .page :global(.container) {
-    width: calc(100% - 120px);
+    width: calc(100% - 28px);
   }
 
   .page .heroInner {
-    width: calc(100% - 120px);
+    width: calc(100% - 28px);
   }
 
   .hero {
-    min-height: auto;
+    height: 100vh;
+    height: 100svh;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
   }
 
   .heroGrid {
@@ -1261,12 +1372,16 @@
 
   .heroInner {
     width: calc(100% - 28px);
-    min-height: auto;
-    padding-top: 105px;
-    padding-bottom: 70px;
+    height: 100%;
+    min-height: 100%;
+    padding-top: clamp(65px, 9.5vh, 85px);
+    padding-bottom: clamp(10px, 2vh, 20px);
     display: flex;
-    flex-direction: column-reverse;
-    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 8px;
+    box-sizing: border-box;
   }
 
   .heroCopy {
@@ -1274,55 +1389,74 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    max-width: 480px;
+    flex-shrink: 0;
   }
 
   .hero h1 {
-    font-size: clamp(55px, 16vw, 100px);
+    font-size: clamp(28px, 7.8vw, 42px);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
     margin: 0;
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+    text-align: center;
   }
 
-  .heroIntro, .heroCta {
-    display: none;
+  .heroIntro,
+  .heroCta,
+  .heroMarquee {
+    display: none !important;
   }
 
   .kicker {
-    margin: 0 auto 20px;
+    margin: 0 auto 8px;
+    font-size: 13px;
+    padding: 5px 12px;
   }
 
   .collage {
-    width: min(500px, 100%);
-    height: 420px;
+    width: min(380px, 92vw);
+    height: clamp(230px, 38vh, 300px);
     margin: 0 auto;
     transform: none;
+    position: relative;
+    flex-shrink: 0;
   }
 
   .shape {
-    width: 600px;
-    height: 600px;
+    width: 360px;
+    height: 360px;
     right: -10%;
     top: -10%;
   }
 
   .cardWide {
-    width: 60%;
-    height: 180px;
-    left: 20%;
-    top: 65%;
-    transform: skewY(7deg) translateY(-50%);
+    width: 62%;
+    height: 140px;
+    left: 19%;
+    top: 50%;
+    border-radius: 18px;
+    transform: skewY(7deg);
   }
 
   .cardFront {
-    width: 40%;
-    height: 250px;
-    right: 5%;
-    top: 20%;
+    width: 38%;
+    height: 195px;
+    right: 8%;
+    top: 14%;
+    border-radius: 20px;
   }
 
   .cardBack {
-    width: 45%;
-    height: 220px;
-    left: 5%;
-    top: 5%;
+    width: 42%;
+    height: 175px;
+    left: 8%;
+    top: 4%;
+    border-radius: 18px;
   }
 
   .manifesto,
@@ -1367,7 +1501,7 @@
   }
 
   .kicker {
-    margin-bottom: 35px;
+    margin-bottom: 12px;
   }
 
   .heroCta {
@@ -1376,73 +1510,73 @@
   }
 
   .collage {
-    height: 380px;
+    height: 290px;
   }
 
   .shape {
-    width: 500px;
-    height: 500px;
-    right: -20%;
+    width: 390px;
+    height: 390px;
+    right: -15%;
     top: -10%;
   }
 
   .cardBack {
     width: 42%;
-    height: 200px;
-    left: 10%;
-    top: 5%;
+    height: 160px;
+    left: 8%;
+    top: 4%;
   }
 
   .cardWide {
-    width: 60%;
-    height: 140px;
-    left: 15%;
-    top: 65%;
-    transform: skewY(7deg) translateY(-50%);
+    width: 62%;
+    height: 130px;
+    left: 19%;
+    top: 50%;
+    transform: skewY(7deg);
   }
 
   .cardWide span {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .cardFront {
     width: 38%;
-    height: 220px;
-    top: 20%;
-    right: 10%;
+    height: 180px;
+    top: 14%;
+    right: 8%;
   }
 
   .cardFront span {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .pixelTag {
-    left: 5%;
-    top: 40%;
-    font-size: 10px;
-    border-width: 3px;
+    left: 4%;
+    top: 38%;
+    font-size: 9px;
+    border-width: 2px;
   }
 
   .sparkOne,
   .sparkTwo {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .collageCta {
-    min-width: 140px;
+    min-width: 120px;
     left: auto;
-    right: 20%;
-    top: 85%;
-    padding: 12px 16px;
-    font-size: 12px;
+    right: 18%;
+    top: 84%;
+    padding: 9px 14px;
+    font-size: 11px;
   }
 
   .collageCtaExplore {
-    min-width: 140px;
-    right: 5%;
-    top: 65%;
-    padding: 12px 16px;
-    font-size: 12px;
+    min-width: 120px;
+    right: 4%;
+    top: 66%;
+    padding: 9px 14px;
+    font-size: 11px;
   }
 
   .stats {

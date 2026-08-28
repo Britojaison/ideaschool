@@ -6,24 +6,38 @@ import styles from "./AnnouncementCard.module.css";
 
 export default function AnnouncementCard() {
   const [isVisible, setIsVisible] = useState(true);
-  const [hiddenByFaq, setHiddenByFaq] = useState(false);
+  const [isHiddenByScroll, setIsHiddenByScroll] = useState(false);
 
   useEffect(() => {
-    const faqSection = document.querySelector('[data-section="faq"]');
-    if (!faqSection) return;
+    const elements = Array.from(document.querySelectorAll('footer, [data-section="faq"]'));
+    if (!elements.length) return;
+
+    const visibleElements = new Set();
 
     const observer = new IntersectionObserver(
       (entries) => {
-        setHiddenByFaq(entries[0].isIntersecting);
+        let changed = false;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleElements.add(entry.target);
+          } else {
+            visibleElements.delete(entry.target);
+          }
+          changed = true;
+        });
+
+        if (changed) {
+          setIsHiddenByScroll(visibleElements.size > 0);
+        }
       },
       { threshold: 0.05 }
     );
 
-    observer.observe(faqSection);
+    elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  if (!isVisible || hiddenByFaq) return null;
+  if (!isVisible || isHiddenByScroll) return null;
 
   return (
     <aside className={styles.wrapper} aria-label="Master Video Editing workshop advertisement">

@@ -82,7 +82,7 @@ export default function FullCreativeControl() {
       shutterAudioRef.current = new Audio("/audio/camera_shutter.mp3");
       shutterAudioRef.current.volume = 0.85;
       shutterAudioRef.current.preload = "auto";
-    } catch {}
+    } catch { }
   }, []);
 
   // Apply colors smoothly to all elements in section
@@ -164,18 +164,18 @@ export default function FullCreativeControl() {
     // Play camera shutter sound
     if (shutterAudioRef.current) {
       shutterAudioRef.current.currentTime = 0;
-      shutterAudioRef.current.play().catch(() => {});
+      shutterAudioRef.current.play().catch(() => { });
     } else {
       try {
         const audio = new Audio("/audio/camera_shutter.mp3");
         audio.volume = 0.85;
-        audio.play().catch(() => {});
-      } catch {}
+        audio.play().catch(() => { });
+      } catch { }
     }
 
     // Determine current theme state (from manual toggle or scroll progress)
-    const isCurrentlyCream = manualThemeRef.current 
-      ? manualThemeRef.current === "cream" 
+    const isCurrentlyCream = manualThemeRef.current
+      ? manualThemeRef.current === "cream"
       : currentProgressRef.current >= 0.5;
 
     const nextTheme: "dark" | "cream" = isCurrentlyCream ? "dark" : "cream";
@@ -415,7 +415,7 @@ export default function FullCreativeControl() {
             {/* Animated Magic Hint Arrow & Text */}
             <div ref={magicHintRef} className={styles.magicHintWrapper}>
               <div className={styles.magicHintContent}>
-                <span className={styles.magicText}>click to see magic</span>
+                <span className={styles.magicText}>click Here</span>
                 <svg
                   className={styles.magicArrowSvg}
                   viewBox="0 0 24 24"
@@ -478,9 +478,8 @@ export default function FullCreativeControl() {
                     stepRefs.current[idx] = el;
                   }}
                   type="button"
-                  className={`${styles.stepItem} ${
-                    isActive ? styles.activeStep : styles.inactiveStep
-                  }`}
+                  className={`${styles.stepItem} ${isActive ? styles.activeStep : styles.inactiveStep
+                    }`}
                   onClick={() => setActiveStepIdx(idx)}
                   onMouseEnter={() => setActiveStepIdx(idx)}
                   aria-selected={isActive}
@@ -491,9 +490,8 @@ export default function FullCreativeControl() {
                   </div>
 
                   <div
-                    className={`${styles.descAccordion} ${
-                      isActive ? styles.descAccordionOpen : ""
-                    }`}
+                    className={`${styles.descAccordion} ${isActive ? styles.descAccordionOpen : ""
+                      }`}
                     aria-hidden={!isActive}
                   >
                     <div className={styles.descInner}>
@@ -510,7 +508,7 @@ export default function FullCreativeControl() {
 
         {/* Bottom Manifesto Statement */}
         <div ref={manifestRef} className={styles.manifestBlock}>
-            <p className={styles.conclusionText}>The result is not just another software trained editor. It&apos;s a creative professional with a broader understanding of how modern content gets made.</p>
+          <p className={styles.conclusionText}>The result is not just another software trained editor. It&apos;s a creative professional with a broader understanding of how modern content gets made.</p>
         </div>
       </div>
     </section>

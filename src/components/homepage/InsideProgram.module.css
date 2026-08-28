@@ -74,6 +74,7 @@
 @media (max-width: 900px) {
   .section {
     padding: 60px 5vw;
+    min-height: auto;
   }
   .grid {
     grid-template-columns: 1fr;

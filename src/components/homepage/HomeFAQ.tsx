@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import styles from "./HomeFAQ.module.css";
 
@@ -133,24 +132,6 @@ export default function HomeFAQ({
               <span>Send us a mail</span>
               <span aria-hidden="true" className={styles.mailArrow}>↗</span>
             </a>
-            <div 
-              className={styles.faqCameraWrap}
-              onClick={() => {
-                try {
-                  const audio = new Audio("/audio/camera_shutter.mp3");
-                  audio.volume = 0.85;
-                  audio.play().catch(() => {});
-                } catch {}
-              }}
-            >
-              <Image
-                src="/images/camlab-cam2.png"
-                alt="Idea School Camera Lab"
-                width={380}
-                height={380}
-                className={styles.faqCameraImg}
-              />
-            </div>
           </div>
         </div>
       </div>

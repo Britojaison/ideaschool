@@ -105,8 +105,6 @@ export default function Footer() {
 
       <div className={styles.footerLegal}>
         <div className={styles.legalLeft}>Idea School</div>
-        <div className={styles.legalCenter}>All rights reserved by Idea School, 2026</div>
-        <div className={styles.legalRight}>Powered by 88GB</div>
       </div>
     </footer>
   );

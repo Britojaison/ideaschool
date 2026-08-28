@@ -1,6 +1,6 @@
 .workshopSiteFooter {
-  height: 100vh;
   min-height: 100vh;
+  height: auto;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
@@ -18,8 +18,8 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  padding-top: clamp(96px, 12vh, 130px);
-  padding-bottom: clamp(16px, 2vh, 28px);
+  padding-top: clamp(80px, 10vh, 110px);
+  padding-bottom: clamp(16px, 2vh, 24px);
   position: relative;
   z-index: 10;
 }
@@ -59,7 +59,7 @@
   width: 100%;
   position: relative;
   z-index: 5;
-  margin-bottom: 0;
+  margin-bottom: clamp(-180px, -14vw, -40px);
 }
 
 .footerLeft {
@@ -164,44 +164,33 @@
 
 /* Footer Bottom Illustration */
 .footerIllustrationContainer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   width: 100%;
-  max-width: 100%;
-  margin: 0;
-  height: clamp(380px, 60vh, 800px);
+  margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   pointer-events: none;
   z-index: 2;
-  overflow: hidden;
+  line-height: 0;
 }
 
 .footerIllustrationImg {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: bottom center;
+  height: auto;
   display: block;
   user-select: none;
 }
 
 .footerLegal {
-  display: flex !important;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-top: 1px solid rgba(251, 250, 242, 0.08);
-  padding: 24px 52px;
+  position: absolute;
+  bottom: 24px;
+  left: 52px;
+  z-index: 10;
   font-size: 0.9rem;
   color: #FBFAF2;
-  position: relative;
-  z-index: 10;
-  background: linear-gradient(to top, rgba(10, 10, 12, 0.85) 0%, rgba(10, 10, 12, 0.4) 50%, transparent 100%);
-  width: 100%;
+  pointer-events: none;
+  background: transparent;
 }
 
 @media (max-height: 760px) {
@@ -231,7 +220,7 @@
     align-items: flex-start;
     gap: 24px;
     padding: 0 32px 24px;
-    margin-bottom: 220px;
+    margin-bottom: 24px;
   }
 
   .footerLinksGrid {
@@ -239,15 +228,9 @@
     gap: 24px;
   }
 
-  .footerIllustrationContainer {
-    height: clamp(180px, 28vh, 260px);
-  }
-
   .footerLegal {
-    flex-direction: column !important;
-    gap: 12px;
-    align-items: flex-start;
-    padding-bottom: 24px;
+    position: static;
+    padding: 16px 32px 24px;
   }
 }
 
@@ -271,7 +254,7 @@
   .footerMainContent {
     gap: 28px;
     padding: 0 24px 24px;
-    margin-bottom: 180px;
+    margin-bottom: 24px;
   }
 
   .footerLeft {
@@ -308,16 +291,9 @@
     gap: 12px;
   }
 
-  .footerIllustrationContainer {
-    height: 190px;
-  }
-
   .footerLegal {
-    gap: 6px;
-    padding: 16px 20px;
-    align-items: center;
-    text-align: center;
-    font-size: 0.75rem;
-    line-height: 1.25;
+    position: static;
+    padding: 12px 24px 20px;
+    font-size: 0.8rem;
   }
 }

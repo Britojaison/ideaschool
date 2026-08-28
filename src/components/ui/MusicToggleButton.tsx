@@ -62,12 +62,13 @@ export default function MusicToggleButton({
           height: 3px !important;
           background-color: rgba(255, 255, 255, 0.45);
           opacity: 0.5;
+          animation: none !important;
         }
-        .bar1 { animation: ${isPlaying ? "barPulse1 0.65s ease-in-out infinite alternate" : "none"}; }
-        .bar2 { animation: ${isPlaying ? "barPulse2 0.85s ease-in-out infinite alternate 0.15s" : "none"}; }
-        .bar3 { animation: ${isPlaying ? "barPulse3 0.55s ease-in-out infinite alternate 0.3s" : "none"}; }
-        .bar4 { animation: ${isPlaying ? "barPulse4 0.75s ease-in-out infinite alternate 0.1s" : "none"}; }
-        .bar5 { animation: ${isPlaying ? "barPulse5 0.9s ease-in-out infinite alternate 0.25s" : "none"}; }
+        .eqBarPlaying.bar1 { animation: barPulse1 0.65s ease-in-out infinite alternate; }
+        .eqBarPlaying.bar2 { animation: barPulse2 0.85s ease-in-out infinite alternate 0.15s; }
+        .eqBarPlaying.bar3 { animation: barPulse3 0.55s ease-in-out infinite alternate 0.3s; }
+        .eqBarPlaying.bar4 { animation: barPulse4 0.75s ease-in-out infinite alternate 0.1s; }
+        .eqBarPlaying.bar5 { animation: barPulse5 0.9s ease-in-out infinite alternate 0.25s; }
         .musicToggleButton {
           -webkit-tap-highlight-color: transparent;
           touch-action: manipulation;

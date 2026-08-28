@@ -165,7 +165,7 @@ export default function CinematicHeroFlow({
     videoRef.current.currentTime = ratio * duration;
   };
 
-  // Smooth scroll handler using Lenis
+  // Smooth scroll handler
   const handleScrollToExplore = useCallback(() => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -219,7 +219,7 @@ export default function CinematicHeroFlow({
       gsap.set(editorialBlockRef.current, { opacity: 0, y: 70 });
 
       // =========================================================================
-      // CONTINUOUS BLENDED FLOW SEQUENCE
+      // CONTINUOUS BLENDED FLOW SEQUENCE (Identical on all viewports)
       // =========================================================================
 
       // 1. Hero Content fades out & floats up gently (0.00 -> 0.35)
@@ -266,7 +266,7 @@ export default function CinematicHeroFlow({
         0.08
       );
 
-      // 3. FIRST WAVE (Left & Right Giant Titles visibly rise UP from down below: 0.16 -> 0.65)
+      // 3. FIRST WAVE (Left & Right Giant Titles visibly rise UP: 0.16 -> 0.65)
       tl.fromTo(giantLeftRef.current,
         { opacity: 0, y: "60vh" },
         {
@@ -296,7 +296,7 @@ export default function CinematicHeroFlow({
         0.18
       );
 
-      // 4. SECOND WAVE (Center Editorial text visibly rises UP from below AFTER left and right: 0.52 -> 0.90)
+      // 4. SECOND WAVE (Center Editorial text visibly rises UP: 0.52 -> 0.90)
       tl.fromTo(editorialBlockRef.current,
         { opacity: 0, y: "45vh" },
         {
@@ -349,6 +349,7 @@ export default function CinematicHeroFlow({
             muted={isMuted}
             playsInline
             preload="auto"
+            suppressHydrationWarning
             onTimeUpdate={handleTimeUpdate}
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}

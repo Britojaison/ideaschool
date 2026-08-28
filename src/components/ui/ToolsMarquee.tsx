@@ -159,11 +159,27 @@ export default function ToolsMarquee() {
         @media (max-width: 768px) {
           .tools-category-grid {
             grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+            padding: 0 16px !important;
+            margin-top: 36px !important;
           }
-        }
-        @media (max-width: 480px) {
-          .tools-category-grid {
-            grid-template-columns: 1fr !important;
+          .tools-card {
+            padding: 20px 16px !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            border-radius: 12px !important;
+            background-color: rgba(255,255,255,0.02) !important;
+          }
+          .tools-card span {
+            margin-bottom: 8px !important;
+            font-size: 0.65rem !important;
+          }
+          .tools-card h3 {
+            font-size: 0.88rem !important;
+            margin-bottom: 6px !important;
+          }
+          .tools-card p {
+            font-size: 0.76rem !important;
+            line-height: 1.45 !important;
           }
         }
       `}} />

@@ -69,6 +69,16 @@ export default function FullCreativeControl() {
   const manifestRef = useRef<HTMLDivElement>(null);
 
   const manualThemeRef = useRef<"dark" | "cream" | null>(null);
+  const currentProgressRef = useRef<number>(0);
+  const shutterAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    try {
+      shutterAudioRef.current = new Audio("/audio/camera_shutter.mp3");
+      shutterAudioRef.current.volume = 0.85;
+      shutterAudioRef.current.preload = "auto";
+    } catch {}
+  }, []);
 
   // Apply colors smoothly to all elements in section
   const applyColors = useCallback((progress: number) => {
@@ -136,7 +146,24 @@ export default function FullCreativeControl() {
   const handleMagicClick = () => {
     setIsMagicActive((prev) => !prev);
 
-    const nextTheme = manualThemeRef.current === "cream" ? "dark" : "cream";
+    // Play camera shutter sound
+    if (shutterAudioRef.current) {
+      shutterAudioRef.current.currentTime = 0;
+      shutterAudioRef.current.play().catch(() => {});
+    } else {
+      try {
+        const audio = new Audio("/audio/camera_shutter.mp3");
+        audio.volume = 0.85;
+        audio.play().catch(() => {});
+      } catch {}
+    }
+
+    // Determine current theme state (from manual toggle or scroll progress)
+    const isCurrentlyCream = manualThemeRef.current 
+      ? manualThemeRef.current === "cream" 
+      : currentProgressRef.current >= 0.5;
+
+    const nextTheme: "dark" | "cream" = isCurrentlyCream ? "dark" : "cream";
     manualThemeRef.current = nextTheme;
     const targetProgress = nextTheme === "cream" ? 1 : 0;
 
@@ -157,16 +184,15 @@ export default function FullCreativeControl() {
         .to(cameraRef.current, { scale: 1, rotation: 0, duration: 0.35, ease: "elastic.out(1, 0.4)" });
     }
 
-    // 3. Smooth Color Shift
-    const currentBg = sectionRef.current?.style.backgroundColor || "#080808";
-    const startProgress = currentBg.includes("251") || currentBg.includes("250") ? 1 : 0;
-
+    // 3. Smooth Color Shift from current progress to target
+    const startProgress = currentProgressRef.current;
     const progressObj = { p: startProgress };
     gsap.to(progressObj, {
       p: targetProgress,
       duration: 0.75,
       ease: "power2.inOut",
       onUpdate: () => {
+        currentProgressRef.current = progressObj.p;
         applyColors(progressObj.p);
       }
     });
@@ -258,7 +284,8 @@ export default function FullCreativeControl() {
           end: "top 20%",
           scrub: 0.8,
           onUpdate: (self) => {
-            if (!manualThemeRef.current) {
+            if (manualThemeRef.current === null) {
+              currentProgressRef.current = self.progress;
               applyColors(self.progress);
             }
           }
@@ -317,7 +344,8 @@ export default function FullCreativeControl() {
           end: "top 25%",
           scrub: 0.8,
           onUpdate: (self) => {
-            if (!manualThemeRef.current) {
+            if (manualThemeRef.current === null) {
+              currentProgressRef.current = self.progress;
               applyColors(self.progress);
             }
           }

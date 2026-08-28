@@ -44,7 +44,7 @@ export default function FlagshipSpotlight() {
       <div className={styles.wrap}>
         <div className={styles.content}>
           <div className={styles.title}>
-            <span className={styles.titleMain}>Creative Editing</span>
+            <span className={styles.titleMain}>Creative Video Editing</span>
             <span className={styles.accent}>& AI Pro</span>
           </div>
           <p className={styles.lede}>

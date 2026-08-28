@@ -184,7 +184,7 @@ export default function ClientBrandsGrid() {
           <p className="clientBrandsEyebrow">Client Brands</p>
           <h2>Get Closer to the Work Behind Real Brands.</h2>
           <p className="clientBrandsDesc">
-            The 88GB ecosystem works across multiple industries and content categories. This gives students exposure to the range of creative requirements that exist beyond classroom projects — from consumer brands and FMCG to retail, entertainment, real estate, personal brands and production-led content.
+            The 88GB ecosystem works across multiple industries and content categories. This gives students exposure to the range of creative requirements that exist beyond classroom projects from consumer brands and FMCG to retail, entertainment, real estate, personal brands and production-led content.
           </p>
         </div>
         <div className="clientBrandsCarouselViewport">

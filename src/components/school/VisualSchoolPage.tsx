@@ -45,7 +45,7 @@ const paths = [
   {
     index: "03",
     category: "workshop",
-    title: "High-Paying Video Editing",
+    title: "High Paying Video Editing",
     tags: ["OFFLINE WORKSHOP", "1 DAY"],
     image: c3,
     href: "/video-editing",
@@ -451,7 +451,7 @@ export default function VisualSchoolPage() {
               <div className={styles.overlayContent}>
                 <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
                 <p className={styles.overlayLabel}>CAREER-READY OUTCOMES</p>
-                <h2>Build an Industry-Ready Portfolio</h2>
+                <h2>Build an Industry Ready Portfolio</h2>
                 <p className={styles.overlayDesc}>Graduate with polished portfolio projects, practical production experience, and the skills to work with real creative teams.</p>
                 <div className={styles.overlayTags}>
                   <span>Portfolio</span>
@@ -533,7 +533,7 @@ export default function VisualSchoolPage() {
                 <div className={styles.trackDividerContent}>
                   <span className={styles.dividerSparkle}>✣</span>
                   <span className={styles.dividerLabel}>OFFLINE WORKSHOPS</span>
-                  <small className={styles.dividerSub}>1–2 Day Masterclasses</small>
+                  <small className={styles.dividerSub}>1 to 2 Day Masterclasses</small>
                 </div>
                 <div className={styles.trackDividerLine} />
               </div>
@@ -606,7 +606,7 @@ export default function VisualSchoolPage() {
                 <div className={`${styles.nikeScattered} ${styles.scatter4}`}>
                   <div className={styles.nikeModule}>
                     <span>Polish <b className={styles.nikeModuleArrow}>↗</b></span>
-                    <p>Bring it all together into an industry-ready portfolio piece and professional color grading.</p>
+                    <p>Bring it all together into an industry ready portfolio piece and professional color grading.</p>
                   </div>
                 </div>
               </div>
@@ -673,7 +673,7 @@ export default function VisualSchoolPage() {
                     <path d="M65 10 L85 30" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p>College Students seeking a high-demand skill with freelancing and career opportunities.</p>
+                <p>College Students seeking a high demand skill with freelancing and career opportunities.</p>
               </div>
             </div>
 
@@ -689,7 +689,7 @@ export default function VisualSchoolPage() {
                     <line x1="62" y1="58" x2="20" y2="15" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
                   </svg>
                 </div>
-                <p>Video Editors with basic skills who want to level up, increase their earning potential, and work on higher-value projects.</p>
+                <p>Video Editors with basic skills who want to level up, increase their earning potential, and work on higher value projects.</p>
               </div>
             </div>
 
@@ -702,7 +702,7 @@ export default function VisualSchoolPage() {
                     <path d="M50 10 L60 35 L90 35 L65 55 L75 85 L50 65 L25 85 L35 55 L10 35 L40 35 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p>Content Creators who want to produce professional-quality content and grow faster on social media.</p>
+                <p>Content Creators who want to produce professional quality content and grow faster on social media.</p>
               </div>
             </div>
 
@@ -715,7 +715,7 @@ export default function VisualSchoolPage() {
                     <path d="M15 80 L85 80 L95 30 L70 50 L50 20 L30 50 L5 30 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p>Agency Owners who want to build an in-house video editing capability and reduce outsourcing costs.</p>
+                <p>Agency Owners who want to build an in house video editing capability and reduce outsourcing costs.</p>
               </div>
             </div>
 
@@ -729,7 +729,7 @@ export default function VisualSchoolPage() {
                     <circle cx="50" cy="50" r="15" stroke="currentColor" strokeWidth="8" />
                   </svg>
                 </div>
-                <p>Aspiring Creative Professionals who want to build a long-term career in the creator economy.</p>
+                <p>Aspiring Creative Professionals who want to build a long term career in the creator economy.</p>
               </div>
             </div>
 
@@ -761,7 +761,7 @@ export default function VisualSchoolPage() {
                 {[
                   {
                     q: "Do I need prior experience?",
-                    a: "No. This program is designed for everyone — from complete beginners to experienced editors looking to upgrade their skills and learn modern editing workflows."
+                    a: "No. This program is designed for everyone from complete beginners to experienced editors looking to upgrade their skills and learn modern editing workflows."
                   },
                   {
                     q: "What software do I need?",
@@ -769,7 +769,7 @@ export default function VisualSchoolPage() {
                   },
                   {
                     q: "Will the sessions be live?",
-                    a: "We offer both self-paced modules for independent learning and live cohort-based workshops where you can get direct mentor feedback."
+                    a: "We offer both self paced modules for independent learning and live cohort based workshops where you can get direct mentor feedback."
                   },
                   {
                     q: "How long is the program?",
@@ -781,7 +781,7 @@ export default function VisualSchoolPage() {
                   },
                   {
                     q: "What makes this different from YouTube tutorials?",
-                    a: "Unlike scattered tutorials, this is a structured, mentor-led program with real-world projects, industry feedback, and a clear career pathway."
+                    a: "Unlike scattered tutorials, this is a structured, mentor led program with real world projects, industry feedback, and a clear career pathway."
                   }
                 ].map((faq, index) => (
                   <div

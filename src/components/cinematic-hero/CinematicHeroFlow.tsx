@@ -41,9 +41,9 @@ export default function CinematicHeroFlow({
   rightGiantBottom = "BUILT.",
   editorialParagraphs = [
     "Most editing courses only teach timeline shortcuts and buttons. But software alone doesn't build a career.",
-    "Top agencies and studios hire for pacing, emotional rhythm, and commercial judgment. Idea School is an industry-led program built by working commercial filmmakers and lead editors.",
-    "We transform ambitious creators, editors, and designers into high-tier commercial talent through live brand projects and 1-on-1 mentor critiques.",
-    "We teach the craft that builds high-performing creative careers."
+    "Top agencies and studios hire for pacing, emotional rhythm, and commercial judgment. Idea School is an industry led program built by working commercial filmmakers and lead editors.",
+    "We transform ambitious creators, editors, and designers into high tier commercial talent through live brand projects and 1 on 1 mentor critiques.",
+    "We teach the craft that builds high performing creative careers."
   ],
   nextSectionId
 }: CinematicHeroFlowProps) {

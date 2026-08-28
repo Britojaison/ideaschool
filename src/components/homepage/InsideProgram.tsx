@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
 
 const paragraphs = [
   {
-    text: "The world changed. Education didn't keep pace. Most institutions still teach tools — the industry is looking for people who can think, adapt, and create meaningful impact.",
+    text: "The world changed. Education didn't keep pace. Most institutions still teach tools the industry is looking for people who can think, adapt, and create meaningful impact.",
     weight: 500
   },
   {

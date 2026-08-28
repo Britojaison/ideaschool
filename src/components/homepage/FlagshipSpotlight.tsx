@@ -134,7 +134,7 @@ export default function FlagshipSpotlight() {
           {showVideoPopOver && (
             <VideoPopOver
               videoSrc="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
-              title="Student Showreel — Creative Editing & AI Pro"
+              title="Student Showreel Creative Editing & AI Pro"
               setShowVideoPopOver={setShowVideoPopOver}
             />
           )}

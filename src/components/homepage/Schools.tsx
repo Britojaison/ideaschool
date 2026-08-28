@@ -7,7 +7,7 @@ const doubts = [
   "You've watched countless YouTube videos. But you still can't put together a proper edit.",
   "You want to build a portfolio. But you have zero real projects to show.",
   "You're ready to learn. But you don't know if you're 'too late' or 'not creative enough.'",
-  "That's not a talent problem. That's a starting-point problem.",
+  "That's not a talent problem. That's a starting point problem.",
   "You learn from another 12-hour tutorial. But you still can't build it on your own.",
   "You try to keep up with every new AI tool. But you just end up feeling overwhelmed.",
   "You wait until you feel 'ready' to apply. But that day never seems to arrive.",
@@ -68,7 +68,7 @@ export default function Schools() {
           <div className={styles.careerMessage}>
             <div className={styles.messageCopy}>
               <p>Sound familiar?</p>
-              <h2>Your career shouldn’t feel like a never-ending checklist.</h2>
+              <h2>Your career shouldn’t feel like a never ending checklist.</h2>
               <p className={styles.messageBody}>Choose a craft. Make real work. Build the proof that gets you hired.</p>
             </div>
             <nav className={styles.schoolLinks} aria-label="Explore our schools">

@@ -17,7 +17,7 @@ import HomeFAQ from "@/components/homepage/HomeFAQ";
 export const metadata: Metadata = {
   title: "Full Stack Creative Editing & AI Mastery | Idea School",
   description:
-    "A 24-week studio-led video editing, cinematic pacing, motion graphics, and creative AI direction program from Idea School.",
+    "A 24 week studio led video editing, cinematic pacing, motion graphics, and creative AI direction program from Idea School.",
 };
 
 const COURSE_FAQS = [
@@ -34,16 +34,16 @@ const COURSE_FAQS = [
     a: "It's a hybrid learning experience.\n\nYou'll have structured learning and independent work during the week, combined with physical workshops, mentor interaction and practical sessions."
   },
   {
-    q: "How does the 24-week program work?",
+    q: "How does the 24 week program work?",
     a: "The first 12 weeks focus on building your core creative capabilities.\n\nThe next 12 weeks move into industry experience, where you work on briefs, create video assignments and receive professional feedback."
   },
   {
     q: "Will I work on real industry briefs?",
-    a: "During the industry experience phase, you'll work through professional-style briefs and workflows within the 88GB ecosystem.\n\nYou'll receive a brief, create the work, get it reviewed and improve it based on feedback."
+    a: "During the industry experience phase, you'll work through professional style briefs and workflows within the 88GB ecosystem.\n\nYou'll receive a brief, create the work, get it reviewed and improve it based on feedback."
   },
   {
     q: "How many projects will I work on?",
-    a: "During the first 12 weeks, you'll complete two practical video assignments each week.\n\nFor the industry experience phase, there are two pathways. The dedicated on-ground option can involve approximately five assignments per week, while the flexible option can involve around two to three assignments per week."
+    a: "During the first 12 weeks, you'll complete two practical video assignments each week.\n\nFor the industry experience phase, there are two pathways. The dedicated on ground option can involve approximately five assignments per week, while the flexible option can involve around two to three assignments per week."
   },
   {
     q: "What is the benefit of working alongside professionals?",
@@ -67,7 +67,7 @@ export default function CreativeEditingCopyPage() {
         mobileVideoSrc="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
         heroHeadline1="EDITING IS JUST"
         heroHeadline2="THE START."
-        heroSubtitle="[ Full-Stack Video Editing & Creative AI Mastery ]"
+        heroSubtitle="[ Full Stack Video Editing & Creative AI Mastery ]"
         studioName="Idea School"
         tags={["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"]}
         leftGiantTop="INDUSTRY"
@@ -78,7 +78,7 @@ export default function CreativeEditingCopyPage() {
           "Learning a video editing software is only one part of becoming a professional editor.",
           "Today, creative teams need people who can understand a brief, shape a story, work across different visual formats and use modern tools to get the work done.",
           "That's why Idea Creative School goes beyond software training.",
-          "You'll build your foundation in video editing and expand into motion design, visual storytelling, creative AI and professional content workflows — so you can contribute to more than just the edit.",
+          "You'll build your foundation in video editing and expand into motion design, visual storytelling, creative AI and professional content workflows so you can contribute to more than just the edit.",
           "The goal is simple:",
           "Build the capability to step into a real creative environment and contribute with confidence."
         ]}

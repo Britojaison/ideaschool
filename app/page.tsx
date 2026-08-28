@@ -344,7 +344,7 @@ export default function Home() {
             </h1>
             <p className={styles.heroIntro}>
               <span className="gsap-hero-intro-line">
-                Learn real-world creative skills.
+                Learn real world creative skills.
               </span>
               <span className="gsap-hero-intro-line">
                 Build work that gets noticed.

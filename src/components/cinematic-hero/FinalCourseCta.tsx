@@ -204,7 +204,7 @@ export default function FinalCourseCta() {
         <div className={styles.programCard} ref={programCardRef}>
           <div className={styles.programCardLeft}>
             <h3 className={styles.programTitle}>
-              Full-Stack Video Editing &amp; Creative AI Mastery
+              Full Stack Video Editing &amp; Creative AI Mastery
             </h3>
             <p className={styles.programDesc}>
               24 weeks to build the creative skills, experience and confidence to step into the industry.

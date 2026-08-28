@@ -15,7 +15,7 @@ const pillars = [
     letter: "I",
     title: "Intelligence",
     description:
-      "We nurture intelligent thinkers—people who ask better questions, understand problems before solving them, and use technology thoughtfully. Intelligence is the foundation of every great creator, marketer, designer, entrepreneur, and leader.",
+      "We nurture intelligent thinkers people who ask better questions, understand problems before solving them, and use technology thoughtfully. Intelligence is the foundation of every great creator, marketer, designer, entrepreneur, and leader.",
   },
   {
     letter: "D",
@@ -27,7 +27,7 @@ const pillars = [
     letter: "E",
     title: "Entrepreneurship",
     description:
-      "We build people who think like owners—who take initiative, identify opportunities, create value, lead projects, and embrace responsibility wherever they work.",
+      "We build people who think like owners who take initiative, identify opportunities, create value, lead projects, and embrace responsibility wherever they work.",
   },
   {
     letter: "A",

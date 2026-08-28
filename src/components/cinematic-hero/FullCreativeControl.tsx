@@ -48,7 +48,7 @@ const STEPS: StepItem[] = [
     index: "[04]",
     name: "CREATIVE AI & MODERN PRODUCTION",
     description:
-      "USE AI AS PART OF THE CREATIVE PROCESS — FROM IDEATION AND VISUAL DEVELOPMENT TO CONTENT CREATION AND PRODUCTION EFFICIENCY.",
+      "USE AI AS PART OF THE CREATIVE PROCESS FROM IDEATION AND VISUAL DEVELOPMENT TO CONTENT CREATION AND PRODUCTION EFFICIENCY.",
     side: "right"
   }
 ];
@@ -406,7 +406,7 @@ export default function FullCreativeControl() {
           <div ref={headerRef} className={styles.headerCopy}>
             <h2 className={styles.title}>FROM RAW FOOTAGE TO FINISHED CREATIVE WORK.</h2>
             <p className={styles.subtitle}>
-              A modern video editor needs more than cutting and arranging clips. The program develops your ability across the creative process — giving you a broader skillset around your core editing capability.
+              A modern video editor needs more than cutting and arranging clips. The program develops your ability across the creative process giving you a broader skillset around your core editing capability.
             </p>
           </div>
 
@@ -510,14 +510,9 @@ export default function FullCreativeControl() {
 
         {/* Bottom Manifesto Statement */}
         <div ref={manifestRef} className={styles.manifestBlock}>
-          <p className={styles.manifestText}>
-            The result is not just another software-trained editor. It&apos;s a creative professional with a broader understanding of how modern content gets made.
-          </p>
+            <p className={styles.conclusionText}>The result is not just another software trained editor. It&apos;s a creative professional with a broader understanding of how modern content gets made.</p>
         </div>
       </div>
     </section>
   );
 }
-
-
-

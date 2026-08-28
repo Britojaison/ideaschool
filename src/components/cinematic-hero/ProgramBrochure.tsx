@@ -11,7 +11,7 @@ interface BrochureHighlight {
 const BROCHURE_HIGHLIGHTS: BrochureHighlight[] = [
   {
     index: "[01]",
-    text: "Week-by-week technical roadmap across Premiere Pro, After Effects, and DaVinci Resolve."
+    text: "Week by week technical roadmap across Premiere Pro, After Effects, and DaVinci Resolve."
   },
   {
     index: "[02]",
@@ -44,7 +44,7 @@ export default function ProgramBrochure() {
           </h2>
 
           <p className={styles.subtitle}>
-            Get the complete week-by-week syllabus, software tool breakdowns, live agency project briefs, 1-on-1 mentorship timeline, and placement portfolio milestones in one definitive guide.
+            Get the complete week by week syllabus, software tool breakdowns, live agency project briefs, 1 on 1 mentorship timeline, and placement portfolio milestones in one definitive guide.
           </p>
 
           {/* Checklist Highlights */}
@@ -109,20 +109,20 @@ export default function ProgramBrochure() {
                 Full Stack Video Editing & Creative AI Mastery
               </h3>
               <p className={styles.cardSubtitle}>
-                A 24-week intensive studio-led program engineered to build commercial-grade editing craft, AI speed, and an agency-level portfolio.
+                A 24 week intensive studio led program engineered to build commercial grade editing craft, AI speed, and an agency level portfolio.
               </p>
 
               {/* Timeline Breakdown Preview */}
               <div className={styles.timelineRows}>
                 <div className={styles.timelineRow}>
                   <span className={styles.timelinePhase}>
-                    <span className={styles.phaseBullet}>▪</span> Weeks 01–12: Core Craft & Creative AI
+                    <span className={styles.phaseBullet}>▪</span> Weeks 01 12: Core Craft & Creative AI
                   </span>
                   <span className={styles.timelineDuration}>Core Training</span>
                 </div>
                 <div className={styles.timelineRow}>
                   <span className={styles.timelinePhase}>
-                    <span className={styles.phaseBullet}>▪</span> Weeks 13–24: 88GB Agency Live Briefs
+                    <span className={styles.phaseBullet}>▪</span> Weeks 13 24: 88GB Agency Live Briefs
                   </span>
                   <span className={styles.timelineDuration}>Industry Experience</span>
                 </div>

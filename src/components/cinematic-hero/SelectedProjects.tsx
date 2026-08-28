@@ -42,10 +42,10 @@ const PROJECTS_DATA: ProjectItem[] = [
       agency: "88GB Agency",
       action: "Edited by your mentor"
     },
-    learnOutcome: "Creative decision-making — Understand why certain edits, visuals and treatments work better than others. Professional workflows — See how projects are organised, developed, reviewed and delivered.",
+    learnOutcome: "Creative decision making Understand why certain edits, visuals and treatments work better than others. Professional workflows See how projects are organised, developed, reviewed and delivered.",
     description: (
       <>
-        A high-energy national commercial campaign delivered for TV & OTT. You will learn directly from the editor who cut this project—dissecting his real-world pacing frameworks, sound staging, and delivery standards that generated <strong className={styles.highlightMetric}>4.2M+ impressions.</strong>
+        A high-energy national commercial campaign delivered for TV & OTT. You will learn directly from the editor who cut this project dissecting his real world pacing frameworks, sound staging, and delivery standards that generated <strong className={styles.highlightMetric}>4.2M+ impressions.</strong>
       </>
     ),
     thumbnails: [
@@ -71,10 +71,10 @@ const PROJECTS_DATA: ProjectItem[] = [
       agency: "88GB Agency",
       action: "Directed by your mentor"
     },
-    learnOutcome: "Speed & efficiency — Discover practical workflows, templates, assets, AI tools and production techniques that make professional editors faster.",
+    learnOutcome: "Speed & efficiency Discover practical workflows, templates, assets, AI tools and production techniques that make professional editors faster.",
     description: (
       <>
-        A luxury generative film exploring photoreal digital talent and cinematic depth. Your mentor breaks down how he combines cutting-edge AI engines (Flux, Seedance, Midjourney) with commercial art direction to build broadcast-ready visuals.
+        A luxury generative film exploring photoreal digital talent and cinematic depth. Your mentor breaks down how he combines cutting edge AI engines (Flux, Seedance, Midjourney) with commercial art direction to build broadcast ready visuals.
       </>
     ),
     thumbnails: [
@@ -100,10 +100,10 @@ const PROJECTS_DATA: ProjectItem[] = [
       agency: "88GB Agency",
       action: "Supervised by your mentor"
     },
-    learnOutcome: "Feedback & refinement — Learn how to take critique, identify problems and improve your work instead of simply completing an assignment.",
+    learnOutcome: "Feedback & refinement Learn how to take critique, identify problems and improve your work instead of simply completing an assignment.",
     description: (
       <>
-        Precision motion graphics, dynamic speed ramping, and DaVinci Resolve color science. Learn the high-end commercial post-production standards, client critique cycles, and finishing techniques applied every day at 88GB.
+        Precision motion graphics, dynamic speed ramping, and DaVinci Resolve color science. Learn the high end commercial post production standards, client critique cycles, and finishing techniques applied every day at 88GB.
       </>
     ),
     thumbnails: [

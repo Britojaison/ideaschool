@@ -87,7 +87,7 @@ export default function Testimonials() {
             opacity: 0.9,
             lineHeight: 1.5
           }}>
-            Real confidence comes from real experience — not from consuming information, but applying it.
+            Real confidence comes from real experience not from consuming information, but applying it.
           </p>
         </div>
         {roadmapSteps.map((item, i) => (

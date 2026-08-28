@@ -47,8 +47,12 @@ export default function Footer() {
           <div style={{ display: "flex", alignItems: "center" }}>
             <span>IDEA CREATIVE SCHOOL</span>
             <span className={styles.marqueeAsterisk}>✱</span>
+            <span>IDEA CREATIVE SCHOOL</span>
+            <span className={styles.marqueeAsterisk}>✱</span>
           </div>
           <div style={{ display: "flex", alignItems: "center" }}>
+            <span>IDEA CREATIVE SCHOOL</span>
+            <span className={styles.marqueeAsterisk}>✱</span>
             <span>IDEA CREATIVE SCHOOL</span>
             <span className={styles.marqueeAsterisk}>✱</span>
           </div>
@@ -89,11 +93,12 @@ export default function Footer() {
       {/* Bottom Illustration Artwork spanning full width along the bottom */}
       <div className={styles.footerIllustrationContainer}>
         <Image
-          src="/images/image-7.png"
+          src="/images/image-7-2.png"
           alt="Idea School Team"
-          width={1344}
-          height={768}
+          width={4096}
+          height={2048}
           className={styles.footerIllustrationImg}
+          sizes="100vw"
           priority
         />
       </div>

@@ -597,10 +597,10 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                   hello@ideaschool.pro
                 </a>
                 <a
-                  href="tel:+919500088888"
+                  href="tel:+918850774428"
                   className={styles.mobilePhoneLink}
                 >
-                  +91 95000 88888
+                  +91 88507 74428
                 </a>
               </div>
             </div>

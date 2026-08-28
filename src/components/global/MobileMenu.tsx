@@ -205,8 +205,8 @@ export default function MobileMenu() {
               <a href="mailto:hello@ideaschool.pro" className="mobileMenuUnderlineLink">
                 hello@ideaschool.pro
               </a>
-              <a href="tel:+919500088888" className="mobileMenuUnderlineLink">
-                +91 95000 88888
+              <a href="tel:+918850774428" className="mobileMenuUnderlineLink">
+                +91 88507 74428
               </a>
             </div>
           </div>

@@ -7,7 +7,7 @@ import { useResettableLiquidMouse } from "@/hooks/useResettableLiquidMouse";
 
 const actions = [
   {
-    href: "https://wa.me/918618894857",
+    href: "https://wa.me/918850774428",
     label: "WhatsApp",
     className: "whatsapp",
     icon: "/images/whatsapp.svg",

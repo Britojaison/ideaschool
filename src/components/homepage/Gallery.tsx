@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './Gallery.module.css';
+import { ProgressImage } from '@/components/ui/ProgressImage';
 
 import web1 from "@public/assets/home/web1.png";
 import bg2 from "@public/assets/home/bg2.png";
@@ -28,7 +29,9 @@ const Gallery = () => {
         <div className={styles.galleryCol}>
           {/* Row 1: Square Image */}
           <div className={`${styles.galleryItem} ${styles.aspectSquare}`}>
-            <Image src={web1} alt="Project 1" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={web1} alt="Project 1" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
           {/* Row 2: Square Text (100+) */}
           <div className={`${styles.galleryItem} ${styles.galleryTextCard} ${styles.aspectSquare}`} style={{ backgroundColor: "var(--red)", color: "var(--snow)" }}>
@@ -38,7 +41,9 @@ const Gallery = () => {
           </div>
           {/* Row 3: Tall Image */}
           <div className={`${styles.galleryItem} ${styles.aspectTall}`}>
-            <Image src={bg2} alt="Project 2" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={bg2} alt="Project 2" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
         </div>
 
@@ -46,15 +51,21 @@ const Gallery = () => {
         <div className={styles.galleryCol}>
           {/* Row 1: Square Image */}
           <div className={`${styles.galleryItem} ${styles.aspectSquare}`}>
-            <Image src={bg3} alt="Project 3" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={bg3} alt="Project 3" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
           {/* Row 2: Tall Image */}
           <div className={`${styles.galleryItem} ${styles.aspectTall}`}>
-            <Image src={bg4} alt="Project 4" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={bg4} alt="Project 4" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
           {/* Row 3: Square Image */}
           <div className={`${styles.galleryItem} ${styles.aspectSquare}`}>
-            <Image src={work1} alt="Project 5" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={work1} alt="Project 5" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
         </div>
 
@@ -68,11 +79,15 @@ const Gallery = () => {
           </div>
           {/* Row 2: Tall Image (Collage in original) */}
           <div className={`${styles.galleryItem} ${styles.aspectTall}`}>
-            <Image src={work2} alt="Project 6" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={work2} alt="Project 6" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
           {/* Row 3: Square Image */}
           <div className={`${styles.galleryItem} ${styles.aspectSquare}`}>
-            <Image src={web2} alt="Project 7" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={web2} alt="Project 7" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
         </div>
 
@@ -80,11 +95,15 @@ const Gallery = () => {
         <div className={styles.galleryCol}>
           {/* Row 1: Square Image */}
           <div className={`${styles.galleryItem} ${styles.aspectSquare}`}>
-            <Image src={bg5} alt="Project 8" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={bg5} alt="Project 8" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
           {/* Row 2: Tall Image */}
           <div className={`${styles.galleryItem} ${styles.aspectTall}`}>
-            <Image src={bg6} alt="Project 9" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            <ProgressImage containerClassName="w-full h-full">
+              <Image src={bg6} alt="Project 9" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+            </ProgressImage>
           </div>
           {/* Row 3: Square Text */}
           <div className={`${styles.galleryItem} ${styles.galleryTextCard} ${styles.aspectSquare}`} style={{ backgroundColor: "var(--red)", color: "var(--snow)" }}>

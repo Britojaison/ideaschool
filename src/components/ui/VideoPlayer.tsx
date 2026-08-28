@@ -17,6 +17,7 @@ import type { ComponentProps } from "react";
 import React, { useState, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
+import { ProgressVideo } from "./ProgressVideo";
 
 export type VideoPlayerProps = ComponentProps<typeof MediaController>;
 
@@ -193,15 +194,17 @@ export const VideoPopOver = ({
         className="relative z-10 aspect-video w-full max-w-6xl overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl"
       >
         <VideoPlayer style={{ width: "100%", height: "100%" }}>
-          <VideoPlayerContent
-            src={videoSrc}
-            poster={poster}
-            autoPlay
-            playsInline
-            slot="media"
-            className="w-full h-full object-contain"
-            style={{ width: "100%", height: "100%" }}
-          />
+          <ProgressVideo containerClassName="w-full h-full">
+            <VideoPlayerContent
+              src={videoSrc}
+              poster={poster}
+              autoPlay
+              playsInline
+              slot="media"
+              className="w-full h-full object-contain"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </ProgressVideo>
 
           {title && (
             <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent pointer-events-none">

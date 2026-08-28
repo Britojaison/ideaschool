@@ -246,9 +246,7 @@ export default function VisualSchoolPage() {
       {
         x: () => {
           if (!cardsTrackRef.current) return 0;
-          const trackWidth = cardsTrackRef.current.scrollWidth;
-          const padding = isMobile ? window.innerWidth * 0.08 : window.innerWidth * 0.2;
-          return -(trackWidth - window.innerWidth + padding);
+          return -cardsTrackRef.current.scrollWidth;
         },
         duration: isMobile ? 6 : 8.5,
         ease: "none"
@@ -257,6 +255,7 @@ export default function VisualSchoolPage() {
     );
 
     // Morph Concept to Curriculum after cards pass
+    tl.to(showcaseCardsRef.current, { opacity: 0, duration: 1 }, 12.9);
     tl.to(conceptWordRef.current, { opacity: 0, scale: 1.1, duration: 1, transformOrigin: "center center" }, 12.9);
     tl.fromTo(curriculumWordRef.current,
       { opacity: 0, scale: 0.9, transformOrigin: "center center" },

@@ -1849,7 +1849,7 @@
 
 /* --- Curriculum Section (Nike Style) --- */
 .curriculumSection {
-  margin-top: -25vh; /* Pulls the section up into the empty space below the morphed text */
+  margin-top: 0; /* Pulls the section up into the empty space below the morphed text */
   padding: 0 0 140px 0;
   background: transparent;
   position: relative;

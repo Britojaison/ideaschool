@@ -86,13 +86,23 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Bottom Illustration Artwork spanning full width along the bottom */}
+      <div className={styles.footerIllustrationContainer}>
+        <Image
+          src="/images/image-7.png"
+          alt="Idea School Team"
+          width={1344}
+          height={768}
+          className={styles.footerIllustrationImg}
+          priority
+        />
+      </div>
+
       <div className={styles.footerLegal}>
         <div className={styles.legalLeft}>Idea School</div>
         <div className={styles.legalCenter}>All rights reserved by Idea School, 2026</div>
         <div className={styles.legalRight}>Powered by 88GB</div>
       </div>
-
-      <ImageMarquee />
     </footer>
   );
 }

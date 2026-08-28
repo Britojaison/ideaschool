@@ -69,7 +69,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5
+  maximumScale: 5,
+  themeColor: "#0a0a0c"
 };
 
 import CustomAnimatedCursor from "@/components/global/CustomAnimatedCursor";

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
 import navMark from "@public/assets/home/tumblr_c050d2fa4f5b9a2a88fa3f5196acd80f_1ccf7380_1280.webp";
 import styles from "./Header.module.css";
@@ -27,8 +28,13 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     let rafId: number;
@@ -124,13 +130,23 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
 
   useEffect(() => {
+    let metaTheme = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
+    if (!metaTheme) {
+      metaTheme = document.createElement("meta");
+      metaTheme.name = "theme-color";
+      document.head.appendChild(metaTheme);
+    }
+
     if (menuOpen) {
+      metaTheme.setAttribute("content", "#dafd55");
       document.body.style.overflow = "hidden";
     } else {
+      metaTheme.setAttribute("content", "#0a0a0c");
       document.body.style.overflow = "";
     }
     return () => {
       document.body.style.overflow = "";
+      if (metaTheme) metaTheme.setAttribute("content", "#0a0a0c");
     };
   }, [menuOpen]);
 
@@ -414,216 +430,220 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
       </div>
 
       {/* Mobile Drawer (Dotsandlines layout with Brand Green) */}
-      <div
-        id="mobile-navigation"
-        className={`${styles.mobileNav} ${
-          menuOpen ? styles.mobileNavOpen : ""
-        }`}
-        aria-hidden={!menuOpen}
-      >
-        {/* Top Header inside Drawer */}
-        <div className={styles.mobileNavHeader}>
-          <Link href="/" className={styles.mobileLogo} onClick={closeAll} aria-label="Idea AI School home">
-            <Image
-              className={styles.mobileLogoImg}
-              src={ideaLogo}
-              alt="Idea AI School"
-              width={92}
-              height={29}
-              priority
-            />
-          </Link>
-
-          <div className={styles.mobileHeaderActions}>
-            <a
-              href="mailto:hello@ideaschool.pro"
-              className={styles.mobileMailBtn}
-              aria-label="Send email"
-            >
-              <svg width="22" height="18" viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <path d="m22 5-10 7L2 5" />
-              </svg>
-            </a>
-
-            <button
-              className={styles.mobileCloseBtn}
-              type="button"
-              onClick={closeAll}
-              aria-label="Close menu"
-            >
-              close
-            </button>
-          </div>
-        </div>
-
-        {/* Lower Main Content Area - Expandable Editorial Style (Option 2) */}
-        <div className={styles.mobileNavContentArea}>
-          <nav className={styles.mobileNavLinksBlock} aria-label="Mobile Navigation Links">
-            {/* Schools Section */}
-            <div className={styles.mobileNavItemWrapper}>
-              <button
-                type="button"
-                className={`${styles.mobileHeroBtn} ${expandedMobile === "schools" ? styles.mobileHeroBtnActive : ""}`}
-                onClick={() => toggleMobileSection("schools")}
-                aria-expanded={expandedMobile === "schools"}
-              >
-                <span>schools</span>
-                <span className={styles.mobileAccordionIcon}>{expandedMobile === "schools" ? "−" : "+"}</span>
-              </button>
-              <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "schools" ? styles.mobileSubLinksDrawerOpen : ""}`}>
-                <div className={styles.mobileSubLinksInner}>
-                  <Link href="/visual-school" className={styles.mobileSubItem} onClick={closeAll}>
-                    <div className={styles.mobileSubItemInfo}>
-                      <span className={styles.mobileSubItemTitle}>Visual School</span>
-                      <span className={styles.mobileSubItemDesc}>Editing, motion design & AI cinema</span>
-                    </div>
-                    <span className={styles.mobileSubBadgeActive}>Active</span>
-                  </Link>
-                  <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
-                    <div className={styles.mobileSubItemInfo}>
-                      <span className={styles.mobileSubItemTitle}>Tech School</span>
-                      <span className={styles.mobileSubItemDesc}>AI workflows & software</span>
-                    </div>
-                    <span className={styles.mobileSubBadgeSoon}>Soon</span>
-                  </div>
-                  <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
-                    <div className={styles.mobileSubItemInfo}>
-                      <span className={styles.mobileSubItemTitle}>Marketing School</span>
-                      <span className={styles.mobileSubItemDesc}>Creative direction & growth</span>
-                    </div>
-                    <span className={styles.mobileSubBadgeSoon}>Soon</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Courses Section */}
-            <div className={styles.mobileNavItemWrapper}>
-              <button
-                type="button"
-                className={`${styles.mobileHeroBtn} ${expandedMobile === "courses" ? styles.mobileHeroBtnActive : ""}`}
-                onClick={() => toggleMobileSection("courses")}
-                aria-expanded={expandedMobile === "courses"}
-              >
-                <span>courses</span>
-                <span className={styles.mobileAccordionIcon}>{expandedMobile === "courses" ? "−" : "+"}</span>
-              </button>
-              <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "courses" ? styles.mobileSubLinksDrawerOpen : ""}`}>
-                <div className={styles.mobileSubLinksInner}>
-                  <Link href="/creative-editing-course" className={styles.mobileSubItem} onClick={closeAll}>
-                    <div className={styles.mobileSubItemInfo}>
-                      <span className={styles.mobileSubItemTitle}>Creative Editing & AI Pro</span>
-                      <span className={styles.mobileSubItemDesc}>24 Weeks · Career Flagship Course</span>
-                    </div>
-                    <span className={styles.mobileSubArrow}>↗</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Workshops Section */}
-            <div className={styles.mobileNavItemWrapper}>
-              <button
-                type="button"
-                className={`${styles.mobileHeroBtn} ${expandedMobile === "workshops" ? styles.mobileHeroBtnActive : ""}`}
-                onClick={() => toggleMobileSection("workshops")}
-                aria-expanded={expandedMobile === "workshops"}
-              >
-                <span>workshops</span>
-                <span className={styles.mobileAccordionIcon}>{expandedMobile === "workshops" ? "−" : "+"}</span>
-              </button>
-              <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "workshops" ? styles.mobileSubLinksDrawerOpen : ""}`}>
-                <div className={styles.mobileSubLinksInner}>
-                  <Link href="/master-video-editing" className={styles.mobileSubItem} onClick={closeAll}>
-                    <div className={styles.mobileSubItemInfo}>
-                      <span className={styles.mobileSubItemTitle}>Master Video Editing</span>
-                      <span className={styles.mobileSubItemDesc}>2 Days · Offline Masterclass</span>
-                    </div>
-                    <span className={styles.mobileSubArrow}>↗</span>
-                  </Link>
-                  <Link href="/ad-film-making" className={styles.mobileSubItem} onClick={closeAll}>
-                    <div className={styles.mobileSubItemInfo}>
-                      <span className={styles.mobileSubItemTitle}>AI Ad Film Making</span>
-                      <span className={styles.mobileSubItemDesc}>Weekend · Offline Workshop</span>
-                    </div>
-                    <span className={styles.mobileSubArrow}>↗</span>
-                  </Link>
-                  <Link href="/video-editing" className={styles.mobileSubItem} onClick={closeAll}>
-                    <div className={styles.mobileSubItemInfo}>
-                      <span className={styles.mobileSubItemTitle}>High-Paying Video Editing</span>
-                      <span className={styles.mobileSubItemDesc}>1 Day · Offline Workshop</span>
-                    </div>
-                    <span className={styles.mobileSubArrow}>↗</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* About Section - Direct Link */}
-            <div className={styles.mobileNavItemWrapper}>
-              <Link
-                href="/about"
-                className={styles.mobileHeroLink}
-                onClick={closeAll}
-              >
-                about
-              </Link>
-            </div>
-          </nav>
-
-          <div className={styles.mobileContactGroup}>
-            <a
-              href="mailto:hello@ideaschool.pro"
-              className={styles.mobileEmailLink}
-            >
-              hello@ideaschool.pro
-            </a>
-            <a
-              href="tel:+919500088888"
-              className={styles.mobilePhoneLink}
-            >
-              +91 95000 88888
-            </a>
-          </div>
-        </div>
-
-        {/* Bottom Area - Screenshot 2 style */}
-        <div className={styles.mobileFooterRow}>
-          <div className={styles.mobileSocialLeft}>
-            <span className={styles.mobileDot}>●</span>
-            <a
-              href="https://www.instagram.com/ideaschool.pro/"
-              target="_blank"
-              rel="noreferrer"
-              className={styles.mobileSocialLink}
-            >
-              instagram
-            </a>
-            <span className={styles.mobileSocialSep}>_</span>
-            <a
-              href="https://www.linkedin.com/company/88gb/posts/?feedView=all"
-              target="_blank"
-              rel="noreferrer"
-              className={styles.mobileSocialLink}
-            >
-              linkedin
-            </a>
-          </div>
-
-          <button
-            type="button"
-            className={styles.mobileLetsTalkBtn}
-            onClick={() => {
-              closeAll();
-              window.dispatchEvent(new Event("open-home-form"));
-            }}
+      {mounted &&
+        createPortal(
+          <div
+            id="mobile-navigation"
+            className={`${styles.mobileNav} ${
+              menuOpen ? styles.mobileNavOpen : ""
+            }`}
+            aria-hidden={!menuOpen}
           >
-            <span>let&apos;s talk</span>
-            <span className={styles.btnArrow}>↗</span>
-          </button>
-        </div>
-      </div>
+            {/* Top Header inside Drawer */}
+            <div className={styles.mobileNavHeader}>
+              <Link href="/" className={styles.mobileLogo} onClick={closeAll} aria-label="Idea AI School home">
+                <Image
+                  className={styles.mobileLogoImg}
+                  src={ideaLogo}
+                  alt="Idea AI School"
+                  width={92}
+                  height={29}
+                  priority
+                />
+              </Link>
+
+              <div className={styles.mobileHeaderActions}>
+                <a
+                  href="mailto:hello@ideaschool.pro"
+                  className={styles.mobileMailBtn}
+                  aria-label="Send email"
+                >
+                  <svg width="22" height="18" viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="m22 5-10 7L2 5" />
+                  </svg>
+                </a>
+
+                <button
+                  className={styles.mobileCloseBtn}
+                  type="button"
+                  onClick={closeAll}
+                  aria-label="Close menu"
+                >
+                  close
+                </button>
+              </div>
+            </div>
+
+            {/* Lower Main Content Area - Expandable Editorial Style (Option 2) */}
+            <div className={styles.mobileNavContentArea}>
+              <nav className={styles.mobileNavLinksBlock} aria-label="Mobile Navigation Links">
+                {/* Schools Section */}
+                <div className={styles.mobileNavItemWrapper}>
+                  <button
+                    type="button"
+                    className={`${styles.mobileHeroBtn} ${expandedMobile === "schools" ? styles.mobileHeroBtnActive : ""}`}
+                    onClick={() => toggleMobileSection("schools")}
+                    aria-expanded={expandedMobile === "schools"}
+                  >
+                    <span>schools</span>
+                    <span className={styles.mobileAccordionIcon}>{expandedMobile === "schools" ? "−" : "+"}</span>
+                  </button>
+                  <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "schools" ? styles.mobileSubLinksDrawerOpen : ""}`}>
+                    <div className={styles.mobileSubLinksInner}>
+                      <Link href="/visual-school" className={styles.mobileSubItem} onClick={closeAll}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>Visual School</span>
+                          <span className={styles.mobileSubItemDesc}>Editing, motion design & AI cinema</span>
+                        </div>
+                        <span className={styles.mobileSubBadgeActive}>Active</span>
+                      </Link>
+                      <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>Tech School</span>
+                          <span className={styles.mobileSubItemDesc}>AI workflows & software</span>
+                        </div>
+                        <span className={styles.mobileSubBadgeSoon}>Soon</span>
+                      </div>
+                      <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>Marketing School</span>
+                          <span className={styles.mobileSubItemDesc}>Creative direction & growth</span>
+                        </div>
+                        <span className={styles.mobileSubBadgeSoon}>Soon</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Courses Section */}
+                <div className={styles.mobileNavItemWrapper}>
+                  <button
+                    type="button"
+                    className={`${styles.mobileHeroBtn} ${expandedMobile === "courses" ? styles.mobileHeroBtnActive : ""}`}
+                    onClick={() => toggleMobileSection("courses")}
+                    aria-expanded={expandedMobile === "courses"}
+                  >
+                    <span>courses</span>
+                    <span className={styles.mobileAccordionIcon}>{expandedMobile === "courses" ? "−" : "+"}</span>
+                  </button>
+                  <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "courses" ? styles.mobileSubLinksDrawerOpen : ""}`}>
+                    <div className={styles.mobileSubLinksInner}>
+                      <Link href="/creative-editing-course" className={styles.mobileSubItem} onClick={closeAll}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>Creative Editing & AI Pro</span>
+                          <span className={styles.mobileSubItemDesc}>24 Weeks · Career Flagship Course</span>
+                        </div>
+                        <span className={styles.mobileSubArrow}>↗</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Workshops Section */}
+                <div className={styles.mobileNavItemWrapper}>
+                  <button
+                    type="button"
+                    className={`${styles.mobileHeroBtn} ${expandedMobile === "workshops" ? styles.mobileHeroBtnActive : ""}`}
+                    onClick={() => toggleMobileSection("workshops")}
+                    aria-expanded={expandedMobile === "workshops"}
+                  >
+                    <span>workshops</span>
+                    <span className={styles.mobileAccordionIcon}>{expandedMobile === "workshops" ? "−" : "+"}</span>
+                  </button>
+                  <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "workshops" ? styles.mobileSubLinksDrawerOpen : ""}`}>
+                    <div className={styles.mobileSubLinksInner}>
+                      <Link href="/master-video-editing" className={styles.mobileSubItem} onClick={closeAll}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>Master Video Editing</span>
+                          <span className={styles.mobileSubItemDesc}>2 Days · Offline Masterclass</span>
+                        </div>
+                        <span className={styles.mobileSubArrow}>↗</span>
+                      </Link>
+                      <Link href="/ad-film-making" className={styles.mobileSubItem} onClick={closeAll}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>AI Ad Film Making</span>
+                          <span className={styles.mobileSubItemDesc}>Weekend · Offline Workshop</span>
+                        </div>
+                        <span className={styles.mobileSubArrow}>↗</span>
+                      </Link>
+                      <Link href="/video-editing" className={styles.mobileSubItem} onClick={closeAll}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>High-Paying Video Editing</span>
+                          <span className={styles.mobileSubItemDesc}>1 Day · Offline Workshop</span>
+                        </div>
+                        <span className={styles.mobileSubArrow}>↗</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* About Section - Direct Link */}
+                <div className={styles.mobileNavItemWrapper}>
+                  <Link
+                    href="/about"
+                    className={styles.mobileHeroLink}
+                    onClick={closeAll}
+                  >
+                    about
+                  </Link>
+                </div>
+              </nav>
+
+              <div className={styles.mobileContactGroup}>
+                <a
+                  href="mailto:hello@ideaschool.pro"
+                  className={styles.mobileEmailLink}
+                >
+                  hello@ideaschool.pro
+                </a>
+                <a
+                  href="tel:+919500088888"
+                  className={styles.mobilePhoneLink}
+                >
+                  +91 95000 88888
+                </a>
+              </div>
+            </div>
+
+            {/* Bottom Area - Screenshot 2 style */}
+            <div className={styles.mobileFooterRow}>
+              <div className={styles.mobileSocialLeft}>
+                <span className={styles.mobileDot}>●</span>
+                <a
+                  href="https://www.instagram.com/ideaschool.pro/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.mobileSocialLink}
+                >
+                  instagram
+                </a>
+                <span className={styles.mobileSocialSep}>_</span>
+                <a
+                  href="https://www.linkedin.com/company/88gb/posts/?feedView=all"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.mobileSocialLink}
+                >
+                  linkedin
+                </a>
+              </div>
+
+              <button
+                type="button"
+                className={styles.mobileLetsTalkBtn}
+                onClick={() => {
+                  closeAll();
+                  window.dispatchEvent(new Event("open-home-form"));
+                }}
+              >
+                <span>let&apos;s talk</span>
+                <span className={styles.btnArrow}>↗</span>
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
     </header>
   );
 }

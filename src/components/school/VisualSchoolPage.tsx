@@ -737,7 +737,7 @@ export default function VisualSchoolPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className={`${styles.faqSection} ${styles.lightGridMode}`} ref={faqSectionRef}>
+        <section className={`${styles.faqSection} ${styles.lightGridMode}`} ref={faqSectionRef} data-section="faq">
           {/* Grid Background */}
           <div className={styles.heroGrid} aria-hidden="true" />
           <div className={styles.gridColumns} aria-hidden="true" />

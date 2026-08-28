@@ -89,6 +89,7 @@ export default function HomeFAQ({
       className={styles.faqSection}
       ref={faqSectionRef}
       data-header-theme={transitionFromCream ? undefined : "dark"}
+      data-section="faq"
     >
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div className={styles.faqHeader}>

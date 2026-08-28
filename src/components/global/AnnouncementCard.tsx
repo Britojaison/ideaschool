@@ -1,39 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import x30Arrow from "@public/assets/svg/x-30.svg";
 import styles from "./AnnouncementCard.module.css";
 
 export default function AnnouncementCard() {
   const [isVisible, setIsVisible] = useState(true);
-  const [showFunnyMessage, setShowFunnyMessage] = useState(false);
+  const [hiddenByFaq, setHiddenByFaq] = useState(false);
 
   useEffect(() => {
-    const footer = document.querySelector('footer');
-    if (!footer) return;
+    const faqSection = document.querySelector('[data-section="faq"]');
+    if (!faqSection) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        setShowFunnyMessage(entries[0].isIntersecting);
+        setHiddenByFaq(entries[0].isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
-    observer.observe(footer);
+    observer.observe(faqSection);
     return () => observer.disconnect();
   }, []);
 
-  if (!isVisible) return null;
+  if (!isVisible || hiddenByFaq) return null;
 
   return (
     <aside className={styles.wrapper} aria-label="Master Video Editing workshop advertisement">
-      {showFunnyMessage && (
-        <span className={styles.funnyMessage}>
-          close for socials <Image src={x30Arrow} alt="arrow" width={24} height={24} className={styles.arrowIcon} />
-        </span>
-      )}
       <div className={styles.card}>
         <button
           className={styles.close}

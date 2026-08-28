@@ -72,6 +72,11 @@ export default function FullCreativeControl() {
   const currentProgressRef = useRef<number>(0);
   const shutterAudioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Cached DOM element references to avoid querySelectorAll on every scroll frame
+  const cachedTitlesRef = useRef<NodeListOf<Element> | null>(null);
+  const cachedCopiesRef = useRef<NodeListOf<Element> | null>(null);
+  const lastThemeEventRef = useRef<number>(0);
+
   useEffect(() => {
     try {
       shutterAudioRef.current = new Audio("/audio/camera_shutter.mp3");
@@ -98,15 +103,25 @@ export default function FullCreativeControl() {
       borderColor: borderColor,
     });
 
-    const titles = sectionRef.current.querySelectorAll(`.${styles.title}, .${styles.stepName}`);
-    if (titles.length) gsap.set(titles, { color: headingColor });
+    // Use cached DOM queries instead of querySelectorAll on every frame
+    if (!cachedTitlesRef.current) {
+      cachedTitlesRef.current = sectionRef.current.querySelectorAll(`.${styles.title}, .${styles.stepName}`);
+    }
+    if (cachedTitlesRef.current.length) gsap.set(cachedTitlesRef.current, { color: headingColor });
 
-    const copies = sectionRef.current.querySelectorAll(
-      `.${styles.subtitle}, .${styles.stepDescription}, .${styles.manifestText}`
-    );
-    if (copies.length) gsap.set(copies, { color: copyColor });
+    if (!cachedCopiesRef.current) {
+      cachedCopiesRef.current = sectionRef.current.querySelectorAll(
+        `.${styles.subtitle}, .${styles.stepDescription}, .${styles.manifestText}`
+      );
+    }
+    if (cachedCopiesRef.current.length) gsap.set(cachedCopiesRef.current, { color: copyColor });
 
-    window.dispatchEvent(new Event("header-theme-check"));
+    // Throttle header-theme-check event to avoid firing on every scroll frame
+    const now = Date.now();
+    if (now - lastThemeEventRef.current > 100) {
+      lastThemeEventRef.current = now;
+      window.dispatchEvent(new Event("header-theme-check"));
+    }
   }, []);
 
   // 3D Magnetic Cursor Tracking
@@ -243,20 +258,17 @@ export default function FullCreativeControl() {
         x: 60,
         y: -20,
         opacity: 0,
-        scale: 0.9,
-        willChange: "transform, opacity"
+        scale: 0.9
       });
 
       gsap.set(magicHint, {
         opacity: 0,
-        y: -15,
-        willChange: "transform, opacity"
+        y: -15
       });
 
       gsap.set(header, {
         x: -70,
-        opacity: 0,
-        willChange: "transform, opacity"
+        opacity: 0
       });
 
       stepRefs.current.forEach((el, i) => {
@@ -264,16 +276,13 @@ export default function FullCreativeControl() {
         const fromX = i % 2 === 0 ? -90 : 90;
         gsap.set(el, {
           x: fromX,
-          opacity: 0,
-          filter: "blur(3px)",
-          willChange: "transform, opacity"
+          opacity: 0
         });
       });
 
       gsap.set(manifest, {
         y: 50,
-        opacity: 0,
-        willChange: "transform, opacity"
+        opacity: 0
       });
 
       // Scroll-triggered entrance sequence
@@ -314,8 +323,7 @@ export default function FullCreativeControl() {
       }, 0.15)
       .to(stepRefs.current.filter(Boolean), {
         x: 0,
-        opacity: (i) => (i === activeStepIdx ? 1 : 0.35),
-        filter: (i) => (i === activeStepIdx ? "blur(0px)" : "blur(1.5px)"),
+        opacity: 1,
         stagger: 0.08,
         ease: "power3.out",
         duration: 0.85
@@ -364,7 +372,7 @@ export default function FullCreativeControl() {
     });
 
     return () => mm.revert();
-  }, [applyColors, activeStepIdx]);
+  }, [applyColors]);
 
   return (
     <section ref={sectionRef} className={styles.section} id="creative-control">
@@ -456,7 +464,6 @@ export default function FullCreativeControl() {
                   role="tab"
                 >
                   <div className={styles.stepHeadingRow}>
-                    <span className={styles.stepIndex}>{step.index}</span>
                     <span className={styles.stepName}>{step.name}</span>
                   </div>
 

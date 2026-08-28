@@ -220,25 +220,21 @@
   cursor: pointer;
   width: 100%;
   user-select: none;
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Inactive Step — soft, elegant fade */
+/* Inactive Step */
 .inactiveStep {
-  opacity: 0.3;
-  filter: blur(1.5px);
+  opacity: 1;
 }
 
 .inactiveStep:hover {
-  opacity: 0.65;
-  filter: blur(0.5px);
+  opacity: 1;
 }
 
 /* Active Step — full brilliant white */
 .activeStep {
   opacity: 1;
-  filter: blur(0px);
   z-index: 10;
 }
 

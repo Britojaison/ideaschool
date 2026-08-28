@@ -360,14 +360,6 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                 <span>FOCUSED, HANDS-ON CLASSES · 1–2 DAYS</span>
               </div>
               <div className={styles.workshopList}>
-                <Link href="/master-video-editing" className={styles.workshopItem} onClick={closeAll}>
-                  <div className={styles.workshopInfo}>
-                    <span className={styles.workshopTitle}>Master Video Editing</span>
-                    <span className={styles.workshopSub}>2 Days · Offline Workshop</span>
-                  </div>
-                  <span className={styles.linkArrow}>↗</span>
-                </Link>
-
                 <Link href="/ad-film-making" className={styles.workshopItem} onClick={closeAll}>
                   <div className={styles.workshopInfo}>
                     <span className={styles.workshopTitle}>AI Ad Film Making</span>
@@ -543,13 +535,6 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                   </button>
                   <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "workshops" ? styles.mobileSubLinksDrawerOpen : ""}`}>
                     <div className={styles.mobileSubLinksInner}>
-                      <Link href="/master-video-editing" className={styles.mobileSubItem} onClick={closeAll}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Master Video Editing</span>
-                          <span className={styles.mobileSubItemDesc}>2 Days · Offline Masterclass</span>
-                        </div>
-                        <span className={styles.mobileSubArrow}>↗</span>
-                      </Link>
                       <Link href="/ad-film-making" className={styles.mobileSubItem} onClick={closeAll}>
                         <div className={styles.mobileSubItemInfo}>
                           <span className={styles.mobileSubItemTitle}>AI Ad Film Making</span>

@@ -7,7 +7,6 @@ const ICONS = [
   "FINOLEX.webp",
   "JLL.webp",
   "MI.webp",
-  "MILKY MIST-2.webp",
   "NETFLIX-2.webp",
   "POCO.webp",
   "SIG.webp",

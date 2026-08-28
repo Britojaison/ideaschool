@@ -32,8 +32,8 @@ const PROJECTS_DATA: ProjectItem[] = [
     index: "[ 01",
     metricValue: "4.2M",
     metricLabel: "campaign reach",
-    bracketName: "[ Commercial Campaign • Milky Mist & Milton ]",
-    title: "MILKY MIST & MILTON",
+    bracketName: "[ Commercial Campaign • Milton ]",
+    title: "MILTON",
     category: "Commercial Fast-Cut & Sound Design",
     videoSrc: "/assets/videos/HOME PAGE VIDEO.mp4",
     mentor: {

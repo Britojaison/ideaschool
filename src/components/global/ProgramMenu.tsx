@@ -23,14 +23,6 @@ const courses = [
     link: "/ad-film-making",
     image: "/images/3690ba0056dc8b622457a2356266c582d8917011 copy.webp",
   },
-  {
-    title: "Master Video Editing",
-    subtitle: "Higgsfield, Premiere & AE",
-    badge: "Online Workshop",
-    badgeClass: "isOnline",
-    link: "/master-video-editing",
-    image: "/images/video-editing.jpeg",
-  },
 ];
 
 interface ProgramMenuProps {

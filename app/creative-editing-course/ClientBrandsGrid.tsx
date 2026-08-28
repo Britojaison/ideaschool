@@ -41,12 +41,6 @@ const brands: Brand[] = [
     height: 1254,
   },
   {
-    name: "Milky Mist",
-    image: "/images/MILKY MIST-2.webp",
-    width: 1254,
-    height: 1254,
-  },
-  {
     name: "Mapro",
     image: "/images/mapro.webp",
     width: 1254,

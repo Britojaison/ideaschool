@@ -213,9 +213,6 @@ export default function SelectedProjects() {
       {/* Section Header */}
       <div className={styles.header}>
         <h2 className={styles.sectionTitle}>LEARN THE PROCESS BEHIND PROFESSIONAL CREATIVE WORK.</h2>
-        <p className={styles.sectionSubtitle}>
-          The fastest way to understand how the industry works is to learn from people who work in it. At Idea Creative School, you&apos;ll learn through the 88GB creative ecosystem, where professional teams work across campaigns, brands, content and visual communication.
-        </p>
       </div>
 
       {/* Project Rows */}

@@ -43,10 +43,6 @@ export default function ProgramBrochure() {
             EXPLORE THE FULL CURRICULUM BLUEPRINT
           </h2>
 
-          <p className={styles.subtitle}>
-            Get the complete week by week syllabus, software tool breakdowns, live agency project briefs, 1 on 1 mentorship timeline, and placement portfolio milestones in one definitive guide.
-          </p>
-
           {/* Checklist Highlights */}
           <div className={styles.featureList}>
             {BROCHURE_HIGHLIGHTS.map((item) => (

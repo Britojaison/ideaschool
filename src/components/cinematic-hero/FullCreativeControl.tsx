@@ -405,9 +405,6 @@ export default function FullCreativeControl() {
           {/* Left: Headline & Narrative */}
           <div ref={headerRef} className={styles.headerCopy}>
             <h2 className={styles.title}>FROM RAW FOOTAGE TO FINISHED CREATIVE WORK.</h2>
-            <p className={styles.subtitle}>
-              A modern video editor needs more than cutting and arranging clips. The program develops your ability across the creative process giving you a broader skillset around your core editing capability.
-            </p>
           </div>
 
           {/* Right: 3D Floating Magnetic Camera with 'Click to see magic' */}

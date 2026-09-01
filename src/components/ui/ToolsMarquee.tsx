@@ -46,21 +46,6 @@ export default function ToolsMarquee() {
         >
           MASTER THE TOOLS. UNDERSTAND WHEN TO USE THEM.
         </h2>
-        <p
-          style={{
-            fontFamily: "var(--font-helvetica), sans-serif",
-            fontSize: "clamp(15px, 1.1vw, 18px)",
-            color: "#a0aab2",
-            fontWeight: 400,
-            margin: 0,
-            lineHeight: 1.5,
-            letterSpacing: "0.01em",
-            maxWidth: "650px",
-          }}
-        >
-          You don&apos;t need to become an expert in every feature of every creative application.
-          You need to know the tools that help you produce better work — and understand how they fit together inside a professional workflow.
-        </p>
       </div>
 
       <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: "20px" }}>

@@ -4,6 +4,16 @@ import React from "react";
 import MagneticSpotlightMarquee from "@/components/ui/MagneticSpotlightMarquee";
 
 const GALLERY_IMAGES = [
+  "/images/DSC00024.JPG",
+  "/images/DSC00033.JPG",
+  "/images/DSC00041.JPG",
+  "/images/DSC00048.JPG",
+  "/images/DSC00057.JPG",
+  "/images/DSC00093.JPG",
+  "/images/DSC00123.JPG",
+  "/images/DSC00232.JPG",
+  "/images/DSC00298.JPG",
+  "/images/DSC00334.JPG",
   "/images/gallery1.webp",
   "/images/gallery2.webp",
   "/images/gallery3.webp",

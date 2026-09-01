@@ -569,8 +569,8 @@ export default function Home() {
               Join Idea School and start learning editing, content creation, and
               AI tools through real projects and hands-on sessions.
             </p>
-            <a className="contactPhone" href="tel:+918618894857">
-              Contact us : 8618894857
+            <a className="contactPhone" href="tel:+918850774428">
+              Contact us : 8850774428
             </a>
           </div>
 
@@ -593,7 +593,7 @@ export default function Home() {
               <h2>Company</h2>
               <a href="#about">About</a>
               <a href="#testimonials">Testimonials</a>
-              <a href="#contact">Contact us : 8618894857</a>
+              <a href="#contact">Contact us : 8850774428</a>
             </div>
             <div>
               <h2>Socials</h2>

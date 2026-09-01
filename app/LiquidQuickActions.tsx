@@ -7,7 +7,7 @@ import { useResettableLiquidMouse } from "./useResettableLiquidMouse";
 
 const actions = [
   {
-    href: "https://wa.me/918618894857",
+    href: "https://wa.me/918850774428",
     label: "WhatsApp",
     className: "whatsapp",
     icon: "/images/whatsapp.svg",
@@ -67,7 +67,7 @@ function QuickAction({ action }: { action: (typeof actions)[number] }) {
       onMouseLeave={liquidMouse.handleMouseLeave}
       suppressHydrationWarning
     >
-      <span className="quickActionLabel">8618894857</span>
+      <span className="quickActionLabel">8850774428</span>
       <LiquidGlass
         className="quickActionGlass"
         globalMousePos={liquidMouse.globalMousePos}

@@ -670,8 +670,8 @@ export default function CreativeEditingCoursePage() {
               Join the next Idea School cohort and move from software practice to portfolio
               work, feedback, and live project delivery.
             </p>
-            <a className="contactPhone" href="tel:+918618894857">
-              Contact us : 8618894857
+            <a className="contactPhone" href="tel:+918850774428">
+              Contact us : 8850774428
             </a>
           </div>
 

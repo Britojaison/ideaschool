@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const PHONE_NUMBER = "8618894857";
+const PHONE_NUMBER = "8850774428";
 
 export default function MobileContactActions() {
   const [activeAction, setActiveAction] = useState<"whatsapp" | null>(null);
@@ -20,7 +20,7 @@ export default function MobileContactActions() {
     <div className="mobileHeaderActions" aria-label="Quick contact actions">
       <a
         className={`mobileHeaderAction whatsapp${activeAction === "whatsapp" ? " isVisible" : ""}`}
-        href="https://wa.me/918618894857"
+        href="https://wa.me/918850774428"
         aria-label="WhatsApp"
         onClick={handleActionClick("whatsapp")}
       >

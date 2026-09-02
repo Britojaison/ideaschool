@@ -22,12 +22,12 @@ export default function ToolsMarquee() {
     <section 
       style={{ 
         padding: "80px 0 60px", 
-        backgroundColor: "transparent", 
+        backgroundColor: "#FBFAF2",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        borderTop: "1px dashed rgba(255, 255, 255, 0.15)",
+        borderTop: "1px dashed rgba(17, 17, 17, 0.15)",
       }}
     >
       {/* Section Header — matches SelectedProjects / ProgramBrochure */}
@@ -39,7 +39,7 @@ export default function ToolsMarquee() {
             fontWeight: 700,
             letterSpacing: "-0.04em",
             textTransform: "uppercase" as const,
-            color: "#FFFFFF",
+            color: "#111111",
             margin: "0 0 0.5rem 0",
             lineHeight: 1,
           }}
@@ -75,9 +75,9 @@ export default function ToolsMarquee() {
             key={cat.title}
             className="tools-card"
             style={{
-              backgroundColor: "rgba(255,255,255,0.03)",
+              backgroundColor: "rgba(17,17,17,0.035)",
               padding: "32px 28px",
-              borderLeft: "1px solid rgba(255,255,255,0.08)",
+              borderLeft: "1px solid rgba(17,17,17,0.1)",
               position: "relative",
               transition: "background-color 0.3s ease",
             }}
@@ -87,7 +87,7 @@ export default function ToolsMarquee() {
                 display: "block",
                 fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
                 fontSize: "0.7rem",
-                color: "rgba(255,255,255,0.25)",
+                color: "rgba(17,17,17,0.38)",
                 letterSpacing: "0.1em",
                 marginBottom: "16px",
               }}
@@ -96,7 +96,7 @@ export default function ToolsMarquee() {
             </span>
             <h3
               style={{
-                color: "#DAFD55",
+                color: "#111111",
                 fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
                 fontSize: "clamp(0.88rem, 1.05vw, 1.05rem)",
                 fontWeight: 600,
@@ -109,7 +109,7 @@ export default function ToolsMarquee() {
             </h3>
             <p
               style={{
-                color: "rgba(255, 255, 255, 0.5)",
+                color: "rgba(17, 17, 17, 0.58)",
                 fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
                 fontSize: "clamp(0.82rem, 0.92vw, 0.92rem)",
                 lineHeight: 1.55,
@@ -139,7 +139,7 @@ export default function ToolsMarquee() {
           animation: scrollRight 30s linear infinite;
         }
         .tools-card:hover {
-          background-color: rgba(255,255,255,0.06) !important;
+          background-color: rgba(17,17,17,0.07) !important;
         }
         @media (max-width: 768px) {
           .tools-category-grid {
@@ -150,9 +150,9 @@ export default function ToolsMarquee() {
           }
           .tools-card {
             padding: 20px 16px !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
+            border: 1px solid rgba(17,17,17,0.1) !important;
             border-radius: 12px !important;
-            background-color: rgba(255,255,255,0.02) !important;
+            background-color: rgba(17,17,17,0.035) !important;
           }
           .tools-card span {
             margin-bottom: 8px !important;

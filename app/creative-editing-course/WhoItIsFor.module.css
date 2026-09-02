@@ -32,21 +32,25 @@
 }
 
 .contentGrid {
-  display: grid;
-  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
-  gap: clamp(40px, 7vw, 120px);
-  align-items: start;
+  padding-top: clamp(64px, 8vw, 120px);
 }
 
-.visualColumn { display: grid; gap: 18px; }
-.imageRow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.imageFrame { position: relative; overflow: hidden; background: #deddd5; }
-.imageMain { aspect-ratio: 4 / 5; }
-.imageSmall { aspect-ratio: 4 / 3; }
-.parallaxImage { object-fit: cover; transform: scale(1.18); will-change: transform; }
+.fullBleedArtwork {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.fullBleedImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 .reasons {
-  margin: 0;
+  width: min(100%, 940px);
+  margin: 0 0 0 auto;
   padding: 0;
   list-style: none;
   border-top: 1px solid rgba(17, 17, 17, .28);
@@ -94,10 +98,8 @@
 .notForYou li::before { content: "×"; position: absolute; left: 0; color: #dafd55; }
 
 @media (max-width: 900px) {
-  .introGrid, .contentGrid, .notForYou { grid-template-columns: 1fr; }
+  .introGrid, .notForYou { grid-template-columns: 1fr; }
   .introGrid { gap: 28px; }
-  .contentGrid { gap: 58px; }
-  .imageMain { aspect-ratio: 16 / 11; }
   .notForYou { padding: 36px 24px; }
 }
 
@@ -105,10 +107,4 @@
   .section { padding-inline: 16px; }
   .title { font-size: clamp(42px, 13.5vw, 66px); }
   .reason { grid-template-columns: 42px 1fr; }
-  .imageRow { gap: 10px; }
-  .visualColumn { gap: 10px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .parallaxImage { transform: scale(1.02); }
 }

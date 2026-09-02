@@ -7,7 +7,6 @@
   z-index: 20;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  border-top: 1px dashed rgba(17, 17, 17, 0.15);
   will-change: background-color;
   overflow: hidden;
 }
@@ -414,4 +413,3 @@
     font-size: 12.5px;
   }
 }
-

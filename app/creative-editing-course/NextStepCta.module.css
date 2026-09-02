@@ -1,0 +1,122 @@
+.section {
+  overflow: hidden;
+  padding: clamp(88px, 10vw, 160px) clamp(20px, 4vw, 72px);
+  background: #fbfaf2;
+  color: #111;
+}
+
+.inner {
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  padding-top: 28px;
+  border-top: 1px solid rgba(17, 17, 17, 0.24);
+}
+
+.eyebrow {
+  margin: 0 0 clamp(42px, 6vw, 88px);
+  font-family: var(--font-stara), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "— ";
+}
+
+.title {
+  max-width: 1380px;
+  margin: 0;
+  font-family: var(--font-stara), sans-serif;
+  font-size: clamp(48px, 7.2vw, 116px);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(420px, 1.15fr);
+  gap: clamp(40px, 8vw, 140px);
+  align-items: end;
+  margin-top: clamp(64px, 8vw, 120px);
+}
+
+.copy {
+  max-width: 580px;
+  margin: 0;
+  color: rgba(17, 17, 17, 0.64);
+  font-family: var(--font-stara), sans-serif;
+  font-size: clamp(18px, 1.6vw, 26px);
+  line-height: 1.4;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26px;
+  border: 1px solid #111;
+  font-family: var(--font-stara), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.primaryAction {
+  background: #dafd55;
+  color: #080808;
+}
+
+.secondaryAction {
+  background: #111;
+  color: #fbfaf2;
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  transform: translateY(-3px);
+}
+
+.secondaryAction:hover {
+  background: #dafd55;
+  color: #080808;
+}
+
+@media (max-width: 820px) {
+  .footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding-inline: 16px;
+  }
+
+  .title {
+    font-size: clamp(42px, 13.5vw, 66px);
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    min-height: 66px;
+    padding-inline: 20px;
+  }
+}

@@ -69,30 +69,34 @@
   max-width: 600px;
 }
 
+.sectionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #A0AAB2;
+  text-transform: uppercase;
+}
+
 .featuresGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.02);
 }
 
 .gridCard {
+  background: #080808;
   padding: 3rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-/* Remove right border for every 3rd item */
-.gridCard:nth-child(3n) {
-  border-right: none;
-}
-
-/* Remove bottom border for the last row (items 4, 5, 6) */
-.gridCard:nth-child(n+4) {
-  border-bottom: none;
 }
 
 .cardBadge {
@@ -102,18 +106,11 @@
   padding: 0.25rem 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #E0E4E8;
+  color: #DAFD55;
   width: fit-content;
-}
-
-.badgeDot {
-  width: 6px;
-  height: 6px;
-  background-color: #10b981; /* green dot from the image */
-  border-radius: 50%;
 }
 
 .cardTitle {
@@ -124,10 +121,46 @@
 }
 
 .cardDesc {
-  font-size: 0.85rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
   color: #A0AAB2;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.principlesList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.principleRow {
+  display: grid;
+  grid-template-columns: 80px 1fr 1.5fr;
+  gap: 2rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: start;
+}
+
+.principleNum {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  color: #64748B;
+  letter-spacing: 0.1em;
+}
+
+.principleTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.principleDesc {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #A0AAB2;
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -146,13 +179,17 @@
 
   .gridCard {
     padding: 2rem;
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    grid-column: span 1 !important;
   }
 
-  /* Make sure last item has no bottom border on mobile */
-  .gridCard:last-child {
-    border-bottom: none !important;
+  .principleRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+  
+  .principleNum {
+    margin-bottom: 0.5rem;
   }
 }
 

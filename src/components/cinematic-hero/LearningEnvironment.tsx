@@ -50,65 +50,90 @@ YOU CANNOT LEARN PROFESSIONAL JUDGMENT ALONE."
           </div>
         </div>
 
-        <div className={styles.featuresGrid}>
-          {/* Card 1 */}
-          <div className={styles.gridCard}>
-            <div className={styles.cardBadge}>
-              <span className={styles.badgeDot}></span>
-              IDEA SCHOOL
+        <div className={styles.sectionGroup}>
+          <div className={styles.sectionTitle}>
+            THE DIFFERENCE
+          </div>
+          
+          <div className={styles.featuresGrid}>
+            {/* Card 1: Learning */}
+            <div className={styles.gridCard}>
+              <div className={styles.cardBadge}>
+                <span className={styles.badgeDot}></span>
+                LEARNING
+              </div>
+              <h3 className={styles.cardTitle}>Combine structured online foundations with guided physical sessions.</h3>
+              <p className={styles.cardDesc}>Online course: Watch lessons independently.</p>
             </div>
-            <h3 className={styles.cardTitle}>Structured Learning</h3>
-            <p className={styles.cardDesc}>Combine structured online foundations with guided physical sessions.</p>
+
+            {/* Card 2: Practice */}
+            <div className={styles.gridCard}>
+              <div className={styles.cardBadge}>
+                <span className={styles.badgeDot}></span>
+                PRACTICE
+              </div>
+              <h3 className={styles.cardTitle}>Work through assignments and professional-style briefs.</h3>
+              <p className={styles.cardDesc}>Online course: Follow tutorials and isolated exercises.</p>
+            </div>
+
+            {/* Card 3: Feedback */}
+            <div className={styles.gridCard}>
+              <div className={styles.cardBadge}>
+                <span className={styles.badgeDot}></span>
+                FEEDBACK
+              </div>
+              <h3 className={styles.cardTitle}>Receive mentor reviews and clear revision direction.</h3>
+              <p className={styles.cardDesc}>Online course: Limited, delayed or automated.</p>
+            </div>
+
+            {/* Card 4: Environment */}
+            <div className={styles.gridCard}>
+              <div className={styles.cardBadge}>
+                <span className={styles.badgeDot}></span>
+                ENVIRONMENT
+              </div>
+              <h3 className={styles.cardTitle}>Learn alongside peers and working creative professionals.</h3>
+              <p className={styles.cardDesc}>Online course: Learn largely on your own.</p>
+            </div>
+
+            {/* Card 5: Outcome */}
+            <div className={styles.gridCard} style={{ gridColumn: "span 2" }}>
+              <div className={styles.cardBadge}>
+                <span className={styles.badgeDot}></span>
+                OUTCOME
+              </div>
+              <h3 className={styles.cardTitle}>Build stronger work, professional habits and portfolio confidence.</h3>
+              <p className={styles.cardDesc}>Online course: Understand the software.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.sectionGroup}>
+          <div className={styles.sectionTitle}>
+            CORE PRINCIPLES
           </div>
 
-          {/* Card 2 */}
-          <div className={styles.gridCard}>
-            <div className={styles.cardBadge}>
-              <span className={styles.badgeDot}></span>
-              IDEA SCHOOL
+          <div className={styles.principlesList}>
+            {/* Principle 1 */}
+            <div className={styles.principleRow}>
+              <div className={styles.principleNum}>01</div>
+              <h3 className={styles.principleTitle}>Craft before shortcuts</h3>
+              <p className={styles.principleDesc}>Build pacing, story, sound and design judgment before leaning on plugins or AI.</p>
             </div>
-            <h3 className={styles.cardTitle}>Professional Practice</h3>
-            <p className={styles.cardDesc}>Work through assignments and professional-style briefs.</p>
-          </div>
 
-          {/* Card 3 */}
-          <div className={styles.gridCard}>
-            <div className={styles.cardBadge}>
-              <span className={styles.badgeDot}></span>
-              IDEA SCHOOL
+            {/* Principle 2 */}
+            <div className={styles.principleRow}>
+              <div className={styles.principleNum}>02</div>
+              <h3 className={styles.principleTitle}>Practice before presentation</h3>
+              <p className={styles.principleDesc}>Create work every week, review it honestly and improve it before adding it to a portfolio.</p>
             </div>
-            <h3 className={styles.cardTitle}>Expert Feedback</h3>
-            <p className={styles.cardDesc}>Receive mentor reviews and clear revision direction.</p>
-          </div>
 
-          {/* Card 4 */}
-          <div className={styles.gridCard}>
-            <div className={styles.cardBadge}>
-              <span className={styles.badgeDot}></span>
-              IDEA SCHOOL
+            {/* Principle 3 */}
+            <div className={styles.principleRow}>
+              <div className={styles.principleNum}>03</div>
+              <h3 className={styles.principleTitle}>Studio habits before hype</h3>
+              <p className={styles.principleDesc}>Learn briefs, file discipline, critique, revision and delivery—the habits creative teams rely on.</p>
             </div>
-            <h3 className={styles.cardTitle}>Peer Environment</h3>
-            <p className={styles.cardDesc}>Learn alongside peers and working creative professionals.</p>
-          </div>
-
-          {/* Card 5 */}
-          <div className={styles.gridCard}>
-            <div className={styles.cardBadge}>
-              <span className={styles.badgeDot}></span>
-              IDEA SCHOOL
-            </div>
-            <h3 className={styles.cardTitle}>Proven Outcomes</h3>
-            <p className={styles.cardDesc}>Build stronger work, professional habits and portfolio confidence.</p>
-          </div>
-
-          {/* Card 6 */}
-          <div className={styles.gridCard}>
-            <div className={styles.cardBadge}>
-              <span className={styles.badgeDot}></span>
-              IDEA SCHOOL
-            </div>
-            <h3 className={styles.cardTitle}>Career Readiness</h3>
-            <p className={styles.cardDesc}>Develop the studio habits creative teams rely on.</p>
           </div>
         </div>
       </div>

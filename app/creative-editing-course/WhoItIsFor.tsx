@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./WhoItIsFor.module.css";
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const reasons = [
   "You want more structure and guidance than random online tutorials provide.",
@@ -18,6 +24,30 @@ const exclusions = [
 ];
 
 export default function WhoItIsFor() {
+  const artworkRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useGSAP(() => {
+    const artwork = artworkRef.current;
+    const image = imageRef.current;
+    if (!artwork || !image || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.fromTo(
+      image,
+      { yPercent: -8 },
+      {
+        yPercent: 8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: artwork,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0.8,
+        },
+      },
+    );
+  }, []);
+
   return (
     <section className={styles.section} data-header-theme="light">
       <div className={styles.introGrid}>
@@ -25,9 +55,10 @@ export default function WhoItIsFor() {
         <h2 className={styles.title}>SERIOUS ABOUT BUILDING A CREATIVE CAREER?</h2>
       </div>
 
-      <div className={styles.fullBleedArtwork}>
+      <div className={styles.fullBleedArtwork} ref={artworkRef}>
         <Image
-          src="/images/pn.png"
+          ref={imageRef}
+          src="/images/pn_copy.png"
           alt="Idea School creative community"
           width={2048}
           height={508}

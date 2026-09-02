@@ -67,6 +67,7 @@
   justify-content: space-between;
   padding: 0 26px;
   border: 1px solid #111;
+  cursor: pointer;
   font-family: var(--font-stara), sans-serif;
   font-size: 13px;
   font-weight: 700;

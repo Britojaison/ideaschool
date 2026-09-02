@@ -36,16 +36,22 @@
 }
 
 .fullBleedArtwork {
+  position: relative;
   width: 100vw;
+  aspect-ratio: 2048 / 508;
   margin-left: calc(50% - 50vw);
   overflow: hidden;
   line-height: 0;
 }
 
 .fullBleedImage {
-  display: block;
+  position: absolute;
+  top: -10%;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 120%;
+  object-fit: cover;
+  will-change: transform;
 }
 
 .reasons {
@@ -107,4 +113,10 @@
   .section { padding-inline: 16px; }
   .title { font-size: clamp(42px, 13.5vw, 66px); }
   .reason { grid-template-columns: 42px 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fullBleedImage {
+    transform: none !important;
+  }
 }

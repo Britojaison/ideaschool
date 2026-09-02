@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+
 import styles from "./NextStepCta.module.css";
 
 export default function NextStepCta() {
@@ -15,12 +16,13 @@ export default function NextStepCta() {
             program is the right fit for you.
           </p>
           <div className={styles.actions}>
-            <Link
+            <button
+              type="button"
               className={styles.primaryAction}
-              href="https://idea-school-vercel-preview.vercel.app/#application"
+              onClick={() => window.dispatchEvent(new Event("open-home-form"))}
             >
               Apply now <span aria-hidden="true">↗</span>
-            </Link>
+            </button>
             <a className={styles.secondaryAction} href="mailto:hello@ideaschool.pro">
               Ask a question <span aria-hidden="true">↗</span>
             </a>

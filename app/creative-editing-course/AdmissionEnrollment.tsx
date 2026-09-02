@@ -22,7 +22,8 @@ export default function AdmissionEnrollment() {
 
   return (
     <section
-      className="flex flex-col lg:flex-row min-h-screen w-full"
+      id="program"
+      className="flex flex-col lg:flex-row min-h-screen w-full scroll-mt-20"
       style={{ backgroundColor: "#FBFAF2" }}
       data-header-theme="light"
     >

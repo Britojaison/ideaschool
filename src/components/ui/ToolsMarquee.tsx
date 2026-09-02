@@ -7,7 +7,6 @@ const allTools = [
   "/images/ps-logo-transparent.webp",
   "/images/Ae_logo.webp",
   "/images/Canva_icon.webp",
-  "/images/captionsai.webp",
   "/images/opus_clip.webp",
   "/images/elevenlabs-official-logo.svg",
   "/images/framer.webp",

@@ -332,11 +332,11 @@ export function MagneticSpotlightMarquee({
           </div>
 
           {/* Paragraphs (Right side) */}
-          <div className="flex-1 flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-12 text-[10px] md:text-xs leading-[1.55]">
+          <div className="flex-1 flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-12 text-sm sm:text-base md:text-lg lg:text-xl leading-[1.55] text-black/85">
             {paragraphs.map((para, pIdx) => (
               <div key={pIdx} className="flex-1 flex flex-col">
                 {para.map((line, lIdx) => (
-                  <div key={lIdx} className="wake-target whitespace-normal lg:whitespace-nowrap will-change-transform">
+                  <div key={lIdx} className="wake-target whitespace-normal will-change-transform">
                     {line}
                   </div>
                 ))}

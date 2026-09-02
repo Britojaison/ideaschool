@@ -184,10 +184,14 @@ export default function WhatYouBuild() {
             <div key={`text-${index}`} className={styles.textBlock}>
               <div className={styles.slideContent}>
                 <h4 className={styles.stepTitle}>
-                  {slide.title}
+                  <TextAnimation divideBy="word" delay={0.1}>
+                    {slide.title}
+                  </TextAnimation>
                 </h4>
                 <p className={styles.stepDesc}>
-                  {slide.description}
+                  <TextAnimation divideBy="word" delay={0.2}>
+                    {slide.description}
+                  </TextAnimation>
                 </p>
               </div>
             </div>

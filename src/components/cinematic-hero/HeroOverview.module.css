@@ -46,6 +46,10 @@
   text-transform: uppercase;
 }
 
+.highlight {
+  color: #DAFD55;
+}
+
 .description {
   font-size: clamp(16px, 1.3vw, 20px);
   line-height: 1.5;

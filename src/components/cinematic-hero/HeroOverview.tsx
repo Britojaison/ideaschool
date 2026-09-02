@@ -10,7 +10,7 @@ export default function HeroOverview() {
       <div className={styles.container}>
         <div className={styles.topContent}>
           <div className={styles.tag}>24-WEEK VIDEO EDITING & CREATIVE AI PROGRAM</div>
-          <h2 className={styles.headline}>EDITING IS JUST THE START.</h2>
+          <h2 className={styles.headline}><span className={styles.highlight}>EDITING</span> IS JUST THE START.</h2>
           <p className={styles.description}>
             Build practical skills across editing, storytelling, motion design and Creative AI—then apply them through briefs, mentor feedback and portfolio projects.
           </p>

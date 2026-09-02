@@ -409,7 +409,7 @@ export default function CinematicHeroFlow({
         {/* SECTION 1: HERO LAYER */}
         <div ref={heroLayerRef} className={styles.heroLayer}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitleFull}>KNOWING THE SOFTWARE IS <span className={styles.heroTitleHighlight}>ONLY THE BEGINNING.</span></h1>
+            <h1 className={styles.heroTitleFull}><span className={styles.heroTitleHighlight}>EDITING</span> IS JUST THE START.</h1>
             <div className={styles.heroCtaGroup}>
               <a href="#enrol" className={styles.primaryBtn}>APPLY NOW</a>
               <a href="#program" className={styles.secondaryBtn}>EXPLORE THE PROGRAM</a>

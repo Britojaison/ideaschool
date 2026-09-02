@@ -135,18 +135,11 @@
 
 .principleRow {
   display: grid;
-  grid-template-columns: 80px 1fr 1.5fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 2rem;
   padding: 3rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   align-items: start;
-}
-
-.principleNum {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.75rem;
-  color: #64748B;
-  letter-spacing: 0.1em;
 }
 
 .principleTitle {
@@ -186,10 +179,6 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 2rem 0;
-  }
-  
-  .principleNum {
-    margin-bottom: 0.5rem;
   }
 }
 

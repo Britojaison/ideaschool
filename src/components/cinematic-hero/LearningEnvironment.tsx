@@ -116,21 +116,18 @@ YOU CANNOT LEARN PROFESSIONAL JUDGMENT ALONE."
           <div className={styles.principlesList}>
             {/* Principle 1 */}
             <div className={styles.principleRow}>
-              <div className={styles.principleNum}>01</div>
               <h3 className={styles.principleTitle}>Craft before shortcuts</h3>
               <p className={styles.principleDesc}>Build pacing, story, sound and design judgment before leaning on plugins or AI.</p>
             </div>
 
             {/* Principle 2 */}
             <div className={styles.principleRow}>
-              <div className={styles.principleNum}>02</div>
               <h3 className={styles.principleTitle}>Practice before presentation</h3>
               <p className={styles.principleDesc}>Create work every week, review it honestly and improve it before adding it to a portfolio.</p>
             </div>
 
             {/* Principle 3 */}
             <div className={styles.principleRow}>
-              <div className={styles.principleNum}>03</div>
               <h3 className={styles.principleTitle}>Studio habits before hype</h3>
               <p className={styles.principleDesc}>Learn briefs, file discipline, critique, revision and delivery—the habits creative teams rely on.</p>
             </div>

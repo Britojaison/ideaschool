@@ -56,8 +56,8 @@ export default function CourseGallery() {
         ]
       ]}
       navEmail=""
-      navLinks="Courses, Workshops, Community"
-      footerText="Empowering the next generation of visual artists and storytellers. IdeaSchool is your partner in creative excellence."
+      navLinks=""
+      footerText=""
     />
   );
 }

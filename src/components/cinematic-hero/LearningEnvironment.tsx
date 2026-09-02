@@ -10,11 +10,10 @@ export default function LearningEnvironment() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <div className={styles.tag}>WHY THE LEARNING ENVIRONMENT MATTERS</div>
+            <div className={styles.tag}>INSIDE IDEA SCHOOL</div>
             <div className={styles.title}>
               <ScrollHighlight 
-                text="YOU CAN LEARN THE SOFTWARE ONLINE.
-YOU CANNOT LEARN PROFESSIONAL JUDGMENT ALONE."
+                text="BUILT AROUND PRACTICE, FEEDBACK AND BETTER WORK."
                 font={{
                   fontSize: "inherit",
                   fontWeight: "inherit",
@@ -32,7 +31,7 @@ YOU CANNOT LEARN PROFESSIONAL JUDGMENT ALONE."
           <div className={styles.headerRight}>
             <div className={styles.description}>
               <ScrollHighlight 
-                text="Tutorials can show you which button to press. Professional growth comes from working through briefs, making decisions, receiving feedback and improving the work through revision."
+                text="Show the environment as it is: students creating, mentors reviewing, assignments progressing and work improving through revision."
                 font={{
                   fontSize: "inherit",
                   fontWeight: "inherit",

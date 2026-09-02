@@ -5,6 +5,7 @@ import CinematicHeroFlow from "@/components/cinematic-hero/CinematicHeroFlow";
 import FullCreativeControl from "@/components/cinematic-hero/FullCreativeControl";
 import LearningEnvironment from "@/components/cinematic-hero/LearningEnvironment";
 import ToolsMarquee from "@/components/ui/ToolsMarquee";
+import WhatYouBuild from "@/components/cinematic-hero/WhatYouBuild";
 import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
 import ClientBrandsGrid from "./ClientBrandsGrid";
@@ -84,6 +85,7 @@ export default function CreativeEditingCopyPage() {
 
       <LearningEnvironment />
       <ToolsMarquee />
+      <WhatYouBuild />
       <FullCreativeControl />
       <ByTheNumbers />
       <MentorsDiagonal />

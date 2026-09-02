@@ -224,7 +224,6 @@ export default function SelectedProjects() {
             <div key={project.id} className={styles.projectRow}>
               {/* Left Column: Index & Vertical Filmstrip Thumbnails */}
               <div className={styles.leftCol}>
-                <span className={styles.projectIndex}>{project.index}</span>
                 <div className={styles.filmstrip}>
                   {project.thumbnails.map((thumb, idx) => (
                     <button

@@ -47,7 +47,6 @@ export default function ProgramBrochure() {
           <div className={styles.featureList}>
             {BROCHURE_HIGHLIGHTS.map((item) => (
               <div key={item.index} className={styles.featureItem}>
-                <span className={styles.featureIndex}>{item.index}</span>
                 <span className={styles.featureText}>{item.text}</span>
               </div>
             ))}

@@ -77,11 +77,6 @@ export default function CreativeEditingCopyPage() {
         leftGiantBottom="LED."
         rightGiantTop="CRAFT"
         rightGiantBottom="BUILT."
-        editorialParagraphs={[
-          <span key="highlight-text" style={{ color: "#DAFD55", fontWeight: 400 }}>WHY IDEA SCHOOL</span>,
-          "KNOWING THE SOFTWARE IS ONLY THE BEGINNING.",
-          "Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. Idea School is designed to help you develop those capabilities—not simply learn where the buttons are."
-        ]}
       />
 
       <LearningEnvironment key="learning-environment" />

@@ -374,11 +374,7 @@ export default function CinematicHeroFlow({
         {/* SECTION 1: HERO LAYER */}
         <div ref={heroLayerRef} className={styles.heroLayer}>
           <div className={styles.heroContent}>
-            <div className={styles.heroTagBadge}>WHY IDEA SCHOOL</div>
             <h1 className={styles.heroTitleFull}>KNOWING THE SOFTWARE IS <span className={styles.heroTitleHighlight}>ONLY THE BEGINNING.</span></h1>
-            <p className={styles.heroDescription}>
-              Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. Idea School is designed to help you develop those capabilities not simply learn where the buttons are.
-            </p>
             <div className={styles.heroCtaGroup}>
               <a href="#enrol" className={styles.primaryBtn}>APPLY NOW</a>
               <a href="#program" className={styles.secondaryBtn}>EXPLORE THE PROGRAM</a>

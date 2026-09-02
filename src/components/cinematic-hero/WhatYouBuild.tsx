@@ -50,10 +50,10 @@ export default function WhatYouBuild() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 769px)", () => {
-      const INTRO_HOLD_DURATION = 3;
-      const IMAGE_RESIZE_DURATION = 1;
-      const IMAGE_REVEAL_DURATION = 0.8;
-      const READING_HOLD_DURATION = 4;
+      const INTRO_HOLD_DURATION = 0.5;
+      const IMAGE_RESIZE_DURATION = 1.5;
+      const IMAGE_REVEAL_DURATION = 1;
+      const READING_HOLD_DURATION = 2;
       const FINAL_EXIT_HOLD_DURATION = 1;
       const textChangeTimes = [0];
 

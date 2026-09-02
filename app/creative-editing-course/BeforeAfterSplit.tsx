@@ -69,7 +69,7 @@ export default function BeforeAfterSplit({
       onMouseLeave={stopDragging}
     >
       <div className="imageWrapper">
-        <Image src={afterImage} alt="After" fill style={{ objectFit: "cover" }} />
+        <Image src={afterImage} alt="After" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
         <span className="label afterLabel">{afterLabel}</span>
       </div>
 
@@ -77,7 +77,7 @@ export default function BeforeAfterSplit({
         className="imageWrapper beforeWrapper"
         style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
       >
-        <Image src={beforeImage} alt="Before" fill style={{ objectFit: "cover" }} />
+        <Image src={beforeImage} alt="Before" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
         <span className="label beforeLabel">{beforeLabel}</span>
       </div>
 

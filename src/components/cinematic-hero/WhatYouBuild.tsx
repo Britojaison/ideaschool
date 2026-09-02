@@ -68,10 +68,8 @@ export default function WhatYouBuild() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: `+=${TOTAL_SEGMENTS * 100}%`,
+          end: "bottom bottom",
           scrub: true,
-          pin: true,
-          refreshPriority: -1,
           onUpdate: (self) => {
             // progress = 1 means segment = 7. We want it capped at 6.
             const rawSegment = Math.floor(self.progress * TOTAL_SEGMENTS);
@@ -106,18 +104,12 @@ export default function WhatYouBuild() {
         }
       }
 
-      const ro = new ResizeObserver(() => {
-        ScrollTrigger.refresh();
-      });
-      ro.observe(document.body);
-
       const refreshTimeout = setTimeout(() => {
         ScrollTrigger.refresh();
       }, 500);
 
       return () => {
         clearTimeout(refreshTimeout);
-        ro.disconnect();
       };
     });
 
@@ -126,6 +118,7 @@ export default function WhatYouBuild() {
 
   return (
     <section className={styles.wrapper} ref={containerRef}>
+      <div className={styles.stickyStage}>
       {/* Sticky Right Side - Desktop Only */}
       <div className={`${styles.stickyContainer} ${styles.desktopOnly}`}>
         {SLIDES.map((slide, index) => (
@@ -140,6 +133,7 @@ export default function WhatYouBuild() {
               src={slide.image}
               alt={slide.title}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: "cover", objectPosition: "center" }}
               priority={index === 0}
             />
@@ -217,6 +211,7 @@ export default function WhatYouBuild() {
                   src={slide.image}
                   alt={slide.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
                 />
               </div>
@@ -236,6 +231,7 @@ export default function WhatYouBuild() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

@@ -68,6 +68,7 @@ export default function MobileMenu() {
                   width={92}
                   height={29}
                   priority
+                  style={{ width: "100%", height: "auto" }}
                 />
               </Link>
 

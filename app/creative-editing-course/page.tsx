@@ -86,12 +86,12 @@ export default function CreativeEditingCopyPage() {
       <LearningEnvironment />
       <ToolsMarquee />
       <WhatYouBuild />
-      <FullCreativeControl />
       <ByTheNumbers />
       <MentorsDiagonal />
       <ClientBrandsGrid />
       <CourseGallery />
       <AdmissionEnrollment />
+      <FullCreativeControl />
       <FinalCourseCta />
       <HomeFAQ transitionFromCream faqs={COURSE_FAQS} />
     </Shell>

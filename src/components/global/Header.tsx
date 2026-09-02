@@ -440,6 +440,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                   width={92}
                   height={29}
                   priority
+                  style={{ width: "100%", height: "auto" }}
                 />
               </Link>
 

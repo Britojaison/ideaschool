@@ -10,6 +10,7 @@ import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
 import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
+import WhoItIsFor from "./WhoItIsFor";
 import AdmissionEnrollment from "./AdmissionEnrollment";
 import FinalCourseCta from "@/components/cinematic-hero/FinalCourseCta";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
@@ -91,6 +92,7 @@ export default function CreativeEditingCopyPage() {
       <MentorsDiagonal key="mentors" />
       <ClientBrandsGrid key="client-brands" />
       <CourseGallery key="course-gallery" />
+      <WhoItIsFor key="who-it-is-for" />
       <AdmissionEnrollment key="admission" />
       <FinalCourseCta key="final-cta" />
       <HomeFAQ key="faq" transitionFromCream faqs={COURSE_FAQS} />

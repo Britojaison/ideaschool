@@ -55,7 +55,12 @@ export default function WhatYouBuild() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 769px)", () => {
-      const FINAL_SLIDE_DURATION = 0.25;
+      const INTRO_HOLD_DURATION = 1.5;
+      const IMAGE_RESIZE_DURATION = 1;
+      const IMAGE_REVEAL_DURATION = 0.8;
+      const READING_HOLD_DURATION = 1.75;
+      const FINAL_EXIT_HOLD_DURATION = 0.35;
+      const textChangeTimes = [0];
 
       // Initialize subsequent images to be hidden below
       for (let i = 1; i < SLIDES.length; i++) {
@@ -71,12 +76,12 @@ export default function WhatYouBuild() {
           end: "bottom bottom",
           scrub: true,
           onUpdate: (self) => {
-            // Use the timeline's actual duration so the shortened final reveal
-            // does not leave a full viewport of empty pinned scroll afterward.
             const timelineTime = self.progress * tl.duration();
-            const newActive = timelineTime < 2
-              ? 0
-              : Math.min(SLIDES.length, Math.floor(timelineTime) - 1);
+            let newActive = 0;
+
+            for (let i = 1; i < textChangeTimes.length; i++) {
+              if (timelineTime >= textChangeTimes[i]) newActive = i;
+            }
             
             // We need to safely update state without infinite loops in GSAP callback
             // State updates in GSAP onUpdate can cause issues if not careful, 
@@ -86,26 +91,38 @@ export default function WhatYouBuild() {
         }
       });
 
-      // Phase 0: Hold (1 duration)
-      tl.to({}, { duration: 1 });
+      // Give the introduction enough time to be read before the layout moves.
+      tl.to({}, { duration: INTRO_HOLD_DURATION });
 
-      // Phase 1: Shrink Image 0 (1 duration)
+      // Reveal the copy panel without changing the text during the movement.
       if (imageRefs.current[0]) {
-        tl.to(imageRefs.current[0], { width: "50%", ease: "none", duration: 1 });
+        tl.to(imageRefs.current[0], {
+          width: "50%",
+          ease: "none",
+          duration: IMAGE_RESIZE_DURATION,
+        });
       }
 
-      // Phase 2: Hold Image 0 while Text 1 is shown (1 duration)
-      tl.to({}, { duration: 1 });
+      // Show each piece of copy only once its matching image is fully in place,
+      // then pause long enough for it to be comfortably read.
+      textChangeTimes.push(tl.duration());
+      tl.to({}, { duration: READING_HOLD_DURATION });
 
-      // Phase 3-6: Slide images 1-4 (1 duration each)
       for (let i = 1; i < SLIDES.length; i++) {
         if (imageRefs.current[i]) {
           tl.to(imageRefs.current[i], {
             yPercent: 0,
             ease: "none",
-            duration: i === SLIDES.length - 1 ? FINAL_SLIDE_DURATION : 1,
+            duration: IMAGE_REVEAL_DURATION,
           });
         }
+
+        textChangeTimes.push(tl.duration());
+        tl.to({}, {
+          duration: i === SLIDES.length - 1
+            ? FINAL_EXIT_HOLD_DURATION
+            : READING_HOLD_DURATION,
+        });
       }
 
       const refreshTimeout = setTimeout(() => {

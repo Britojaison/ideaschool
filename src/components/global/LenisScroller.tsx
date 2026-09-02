@@ -12,14 +12,15 @@ if (typeof window !== "undefined") {
 
 export default function LenisScroller({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Initialize a tuned Lenis instance for ultra-responsive smooth scrolling
+    // Keep wheel scrolling responsive. A long easing duration makes pinned,
+    // scroll-driven sections appear to advance after the user has stopped.
     const lenis = new Lenis({
-      duration: 1.0,
+      duration: 0.35,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.0,
+      wheelMultiplier: 0.8,
       touchMultiplier: 1.5,
     });
 

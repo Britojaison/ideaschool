@@ -26,10 +26,14 @@ const TextAnimation = ({
   children,
   delay = 0,
   divideBy = "word",
+  amount = 0.2,
+  className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
   divideBy?: "word" | "letter";
+  amount?: number | "some" | "all";
+  className?: string;
 }) => {
   if (typeof children !== "string") {
     if (typeof children === "number" || typeof children === "boolean") {
@@ -50,7 +54,8 @@ const TextAnimation = ({
       variants={container(stagger, delay)}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.6 }}
+      viewport={{ once: true, amount }}
+      className={className}
       style={{ display: "inline-block" }}
     >
       {parts.map((part, i) => (

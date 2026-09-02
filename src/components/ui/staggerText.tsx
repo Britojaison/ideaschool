@@ -50,7 +50,7 @@ const TextAnimation = ({
       variants={container(stagger, delay)}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.6 }}
       style={{ display: "inline-block" }}
     >
       {parts.map((part, i) => (

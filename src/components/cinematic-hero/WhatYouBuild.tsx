@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -48,57 +48,77 @@ const SLIDES = [
 
 export default function WhatYouBuild() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const spacerRef = useRef<HTMLDivElement>(null);
-  const textRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeText, setActiveText] = useState(0);
 
   useGSAP(() => {
-    // Only run complex pinned animation on desktop.
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 769px)", () => {
-      
-      // 1. Animate the first image from full bleed to right-side
-      if (spacerRef.current && imageRefs.current[0]) {
-        ScrollTrigger.create({
-          trigger: spacerRef.current,
-          start: "top top",
-          end: "bottom top", // takes exactly 100vh of scrolling
-          scrub: true,
-          animation: gsap.to(imageRefs.current[0], { 
-            width: "50vw", 
-            ease: "none" 
-          })
-        });
+      const TOTAL_SEGMENTS = 2 + SLIDES.length; // 7 segments total
+
+      // Initialize subsequent images to be hidden below
+      for (let i = 1; i < SLIDES.length; i++) {
+        if (imageRefs.current[i]) {
+          gsap.set(imageRefs.current[i], { yPercent: 100, zIndex: i + 1 });
+        }
       }
 
-      // 2. Animate subsequent images sliding up to overlap
-      textRefs.current.forEach((textBlock, index) => {
-        // We only want to animate the image for index >= 1 coming in.
-        if (index > 0 && textBlock && imageRefs.current[index]) {
-          
-          // Initial state: image is below the view
-          gsap.set(imageRefs.current[index], { yPercent: 100, zIndex: index + 1 });
-
-          ScrollTrigger.create({
-            trigger: textBlock,
-            start: "top bottom", // Starts when text block's top enters viewport bottom
-            end: "center center", // Ends when text block is vertically centered
-            scrub: true,
-            animation: gsap.to(imageRefs.current[index], { 
-              yPercent: 0, 
-              ease: "none" 
-            })
-          });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: `+=${TOTAL_SEGMENTS * 100}%`,
+          scrub: true,
+          pin: true,
+          refreshPriority: -1,
+          onUpdate: (self) => {
+            // progress = 1 means segment = 7. We want it capped at 6.
+            const rawSegment = Math.floor(self.progress * TOTAL_SEGMENTS);
+            const segment = Math.min(TOTAL_SEGMENTS - 1, rawSegment);
+            
+            let newActive = Math.max(0, segment - 1);
+            newActive = Math.min(newActive, SLIDES.length); // Max index is 5 (Intro + 5 slides)
+            
+            // We need to safely update state without infinite loops in GSAP callback
+            // State updates in GSAP onUpdate can cause issues if not careful, 
+            // but Next.js batched state updates usually handle this fine.
+            setActiveText((prev) => (prev !== newActive ? newActive : prev));
+          }
         }
       });
 
-      // Refresh ScrollTrigger to ensure correct calculations
+      // Phase 0: Hold (1 duration)
+      tl.to({}, { duration: 1 });
+
+      // Phase 1: Shrink Image 0 (1 duration)
+      if (imageRefs.current[0]) {
+        tl.to(imageRefs.current[0], { width: "50%", ease: "none", duration: 1 });
+      }
+
+      // Phase 2: Hold Image 0 while Text 1 is shown (1 duration)
+      tl.to({}, { duration: 1 });
+
+      // Phase 3-6: Slide images 1-4 (1 duration each)
+      for (let i = 1; i < SLIDES.length; i++) {
+        if (imageRefs.current[i]) {
+          tl.to(imageRefs.current[i], { yPercent: 0, ease: "none", duration: 1 });
+        }
+      }
+
+      const ro = new ResizeObserver(() => {
+        ScrollTrigger.refresh();
+      });
+      ro.observe(document.body);
+
       const refreshTimeout = setTimeout(() => {
         ScrollTrigger.refresh();
       }, 500);
 
-      return () => clearTimeout(refreshTimeout);
+      return () => {
+        clearTimeout(refreshTimeout);
+        ro.disconnect();
+      };
     });
 
     return () => mm.revert();
@@ -127,55 +147,46 @@ export default function WhatYouBuild() {
         ))}
       </div>
 
-      {/* Scrolling Left Side - Desktop Only */}
-      <div className={`${styles.scrollContent} ${styles.desktopOnly}`}>
-        
-        {/* Hold spacer keeps the image full bleed while the user scrolls down 100vh */}
-        <div className={styles.holdSpacer}></div>
-
-        {/* Shrink spacer triggers the animation from full bleed to 50vw */}
-        <div className={styles.shrinkSpacer} ref={spacerRef}></div>
-
-        {/* Text Blocks */}
-        {SLIDES.map((slide, index) => (
-          <div 
-            key={`text-${index}`} 
-            className={styles.textBlock}
-            ref={(el) => {
-              textRefs.current[index] = el;
-            }}
-          >
-            {/* The first block contains the intro header too */}
-            {index === 0 && (
-              <div className={styles.introSection}>
-                <h2 className={styles.introTitle}>WHAT YOU BUILD</h2>
-                <h3 className={styles.introHeading}>
-                  <TextAnimation divideBy="word" delay={0.1}>
-                    WORK THAT SHOWS WHAT YOU CAN DO.
-                  </TextAnimation>
-                </h3>
-                <p className={styles.introDesc}>
-                  <TextAnimation divideBy="word" delay={0.2}>
-                    Your portfolio develops throughout the program through practical assignments, mentor reviews and revision cycles.
-                  </TextAnimation>
-                </p>
-              </div>
-            )}
-            
-            <div className={styles.slideContent}>
-              {slide.step !== "00" && <span className={styles.stepNumber}>{slide.step}</span>}
-              <h4 className={styles.stepTitle}>
+      {/* Pinned Left Side - Desktop Only */}
+      <div className={`${styles.leftPanel} ${styles.desktopOnly}`}>
+        {/* Intro Block (activeText === 0) */}
+        {activeText === 0 && (
+          <div className={styles.textBlock}>
+            <div className={styles.introSection}>
+              <h2 className={styles.introTitle}>WHAT YOU BUILD</h2>
+              <h3 className={styles.introHeading}>
                 <TextAnimation divideBy="word" delay={0.1}>
-                  {slide.title}
+                  WORK THAT SHOWS WHAT YOU CAN DO.
                 </TextAnimation>
-              </h4>
-              <p className={styles.stepDesc}>
+              </h3>
+              <p className={styles.introDesc}>
                 <TextAnimation divideBy="word" delay={0.2}>
-                  {slide.description}
+                  Your portfolio develops throughout the program through practical assignments, mentor reviews and revision cycles.
                 </TextAnimation>
               </p>
             </div>
           </div>
+        )}
+
+        {/* Text Blocks for Slides (activeText === 1 to 5) */}
+        {SLIDES.map((slide, index) => (
+          activeText === index + 1 && (
+            <div key={`text-${index}`} className={styles.textBlock}>
+              <div className={styles.slideContent}>
+                {slide.step !== "00" && <span className={styles.stepNumber}>{slide.step}</span>}
+                <h4 className={styles.stepTitle}>
+                  <TextAnimation divideBy="word" delay={0.1}>
+                    {slide.title}
+                  </TextAnimation>
+                </h4>
+                <p className={styles.stepDesc}>
+                  <TextAnimation divideBy="word" delay={0.2}>
+                    {slide.description}
+                  </TextAnimation>
+                </p>
+              </div>
+            </div>
+          )
         ))}
       </div>
 

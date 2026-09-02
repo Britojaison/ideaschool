@@ -11,9 +11,10 @@ export default function HeroOverview() {
         <div className={styles.topContent}>
           <div className={styles.tag}>24-WEEK VIDEO EDITING & CREATIVE AI PROGRAM</div>
           <h2 className={styles.headline}><span className={styles.highlight}>EDITING</span> IS JUST THE START.</h2>
-          <p className={styles.description}>
-            Build practical skills across editing, storytelling, motion design and Creative AI—then apply them through briefs, mentor feedback and portfolio projects.
-          </p>
+          <div className={styles.description}>
+            <p>Build practical skills across editing, storytelling, motion design and Creative AI—then apply them through briefs, mentor feedback and portfolio projects.</p>
+            <p>Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. Idea School is designed to help you develop those capabilities—not simply learn where the buttons are.</p>
+          </div>
           <div className={styles.ctaGroup}>
             <Link href="#enrol" className={styles.primaryBtn}>
               APPLY NOW

@@ -59,6 +59,14 @@
   max-width: 750px;
 }
 
+.description p {
+  margin: 0 0 1rem 0;
+}
+
+.description p:last-child {
+  margin-bottom: 0;
+}
+
 .ctaGroup {
   display: flex;
   gap: 24px;

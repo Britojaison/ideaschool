@@ -374,22 +374,33 @@ export default function CinematicHeroFlow({
         {/* SECTION 1: HERO LAYER */}
         <div ref={heroLayerRef} className={styles.heroLayer}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
-              <span className={styles.heroTitleLine}>{heroHeadline1}</span>
-              <span className={styles.heroTitleLine}>{heroHeadline2}</span>
-            </h1>
+            <div className={styles.heroTagBadge}>24-WEEK VIDEO EDITING & CREATIVE AI PROGRAM</div>
+            <h1 className={styles.heroTitleFull}>EDITING IS JUST THE START.</h1>
+            <p className={styles.heroDescription}>
+              Build practical skills across editing, storytelling, motion design and Creative AI—then apply them through briefs, mentor feedback and portfolio projects.
+            </p>
+            <div className={styles.heroCtaGroup}>
+              <a href="#enrol" className={styles.primaryBtn}>APPLY NOW</a>
+              <a href="#program" className={styles.secondaryBtn}>EXPLORE THE PROGRAM</a>
+            </div>
 
-            <div className={styles.heroMetaRow}>
-              <span className={styles.heroTag}>{heroSubtitle}</span>
-              <button
-                type="button"
-                className={styles.scrollPrompt}
-                onClick={handleScrollToExplore}
-                aria-label="Scroll to explore"
-              >
-                <span>Scroll to explore</span>
-                <span className={styles.scrollArrow}>↘</span>
-              </button>
+            <div className={styles.heroStatsGrid}>
+              <div className={styles.statItem}>
+                <span className={styles.statValue}>24 weeks</span>
+                <span className={styles.statLabel}>TOTAL PROGRAM</span>
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statValue}>12 + 12</span>
+                <span className={styles.statLabel}>TRAINING + EXPERIENCE</span>
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statValue}>Hybrid</span>
+                <span className={styles.statLabel}>OFFLINE + GUIDED LEARNING</span>
+              </div>
+              <div className={styles.statItem}>
+                <span className={styles.statValue}>Mentor-led</span>
+                <span className={styles.statLabel}>PRACTICE, REVIEW, REVISE</span>
+              </div>
             </div>
           </div>
 

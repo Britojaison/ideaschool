@@ -84,10 +84,10 @@ export default function CreativeEditingCopyPage() {
       />
 
       <LearningEnvironment key="learning-environment" />
-      <ToolsMarquee key="tools-marquee" />
       <WhatYouBuild key="what-you-build" />
       <ByTheNumbers key="programme" />
       <FullCreativeControl key="what-you-learn" />
+      <ToolsMarquee key="tools-marquee" />
       <MentorsDiagonal key="mentors" />
       <ClientBrandsGrid key="client-brands" />
       <CourseGallery key="course-gallery" />

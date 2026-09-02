@@ -34,7 +34,7 @@ export default function CinematicHeroFlow({
   heroHeadline2 = "CRAFT SELLS.",
   heroSubtitle = "[  Full Stack Video Editing & Creative AI Mastery  ]",
   studioName = "Idea School",
-  tags = ["[ 24 WEEK PROGRAM ]", "[ LIVE BRAND BRIEFS ]", "[ PLACEMENT READY ]"],
+  tags = ["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"],
   leftGiantTop = "INDUSTRY",
   leftGiantBottom = "LED.",
   rightGiantTop = "CRAFT",

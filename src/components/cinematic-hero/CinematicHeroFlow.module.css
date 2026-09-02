@@ -385,22 +385,38 @@
 }
 
 .studioName {
-  font-size: clamp(0.85rem, 0.95vw, 0.98rem);
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
   color: #FFFFFF;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .disciplineTags {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  font-size: clamp(0.72rem, 0.82vw, 0.8rem);
-  color: rgba(255, 255, 255, 0.62);
-  letter-spacing: 0.08em;
+  gap: 0.5rem;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  color: #DAFD55;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
+}
+
+.disciplineTags span {
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: default;
+  text-shadow: 0 0 8px rgba(218, 253, 85, 0.2);
+}
+
+.disciplineTags span:hover {
+  transform: scale(1.02);
+  text-shadow: 0 0 16px rgba(218, 253, 85, 0.8);
+  color: #FFFFFF;
 }
 
 /* Left Giant Typography (DIRECTOR LED. - Placed at 38% from top) */
@@ -618,21 +634,21 @@
   }
 
   .studioName {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     color: #FFFFFF;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.6rem;
   }
 
   .disciplineTags {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.15rem;
-    font-size: 0.58rem;
-    color: rgba(255, 255, 255, 0.62);
-    letter-spacing: 0.04em;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    color: #DAFD55;
+    letter-spacing: 0.08em;
   }
 
   /* 3. Center: Editorial Narrative Story (Vertically & Horizontally Centered) */
@@ -699,8 +715,8 @@
   }
 
   .disciplineTags {
-    font-size: 0.54rem;
-    gap: 0.12rem;
+    font-size: 0.65rem;
+    gap: 0.25rem;
   }
 
   .playControl {

@@ -74,43 +74,6 @@
   flex-shrink: 0;
 }
 
-/* Magic Hint (Text + Downward Arrow) */
-.magicHintWrapper {
-  margin-bottom: 0.6rem;
-  z-index: 12;
-  pointer-events: none;
-  animation: floatHint 2.4s ease-in-out infinite alternate;
-}
-
-.magicHintContent {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #E63946;
-}
-
-.magicText {
-  font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  background: rgba(230, 57, 70, 0.12);
-  border: 1px dashed rgba(230, 57, 70, 0.45);
-  backdrop-filter: blur(8px);
-  padding: 3px 10px;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.16);
-}
-
-.magicArrowSvg {
-  width: 16px;
-  height: 16px;
-  transform: translateY(1px);
-  filter: drop-shadow(0 2px 6px rgba(230, 57, 70, 0.35));
-}
-
 /* Camera Interactive Button with 3D perspective */
 .cameraButton {
   position: relative;
@@ -174,15 +137,6 @@
 }
 
 /* Keyframes */
-@keyframes floatHint {
-  0% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(-4px);
-  }
-}
-
 @keyframes pulseGlow {
   0% {
     transform: scale(0.92);

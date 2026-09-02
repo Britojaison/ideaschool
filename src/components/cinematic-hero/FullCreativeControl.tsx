@@ -62,7 +62,6 @@ export default function FullCreativeControl() {
   const headerRef = useRef<HTMLDivElement>(null);
   const cameraRef = useRef<HTMLDivElement>(null);
   const cameraButtonRef = useRef<HTMLButtonElement>(null);
-  const magicHintRef = useRef<HTMLDivElement>(null);
   const flashRef = useRef<HTMLDivElement>(null);
   const reelRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -240,7 +239,6 @@ export default function FullCreativeControl() {
     const section = sectionRef.current;
     const header = headerRef.current;
     const camera = cameraRef.current;
-    const magicHint = magicHintRef.current;
     const manifest = manifestRef.current;
 
     if (!section || !header || !camera || !manifest) return;
@@ -250,7 +248,6 @@ export default function FullCreativeControl() {
     // Helper: show everything immediately (used as fallback)
     const forceShowAll = () => {
       gsap.set(camera, { x: 0, y: 0, opacity: 1, scale: 1, clearProps: "all" });
-      if (magicHint) gsap.set(magicHint, { opacity: 1, y: 0, clearProps: "all" });
       gsap.set(header, { x: 0, opacity: 1, clearProps: "all" });
       stepRefs.current.forEach((el) => {
         if (el) gsap.set(el, { x: 0, opacity: 1, clearProps: "all" });
@@ -271,7 +268,6 @@ export default function FullCreativeControl() {
       } else {
         // Set initial states for entrance
         gsap.set(camera, { x: 40, opacity: 0, scale: 0.95 });
-        if (magicHint) gsap.set(magicHint, { opacity: 0, y: -10 });
         gsap.set(header, { x: -50, opacity: 0 });
         stepRefs.current.forEach((el, i) => {
           if (!el) return;
@@ -293,9 +289,6 @@ export default function FullCreativeControl() {
             x: 0, opacity: 1, scale: 1,
             ease: "power3.out", duration: 0.8
           }, 0)
-          .to(magicHint ? [magicHint] : [], {
-            opacity: 1, y: 0, duration: 0.4, ease: "power2.out"
-          }, 0.1)
           .to(header, {
             x: 0, opacity: 1, duration: 0.6, ease: "power3.out"
           }, 0.1)
@@ -405,30 +398,8 @@ export default function FullCreativeControl() {
             <p className={styles.subtitle}>Video editing remains the core skill. The surrounding capabilities help you contribute to more than just the edit.</p>
           </div>
 
-          {/* Right: 3D Floating Magnetic Camera with 'Click to see magic' */}
+          {/* Right: 3D Floating Magnetic Camera */}
           <div className={styles.cameraShowcase}>
-            {/* Animated Magic Hint Arrow & Text */}
-            <div ref={magicHintRef} className={styles.magicHintWrapper}>
-              <div className={styles.magicHintContent}>
-                <span className={styles.magicText}>click Here</span>
-                <svg
-                  className={styles.magicArrowSvg}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 4V17M12 17L7 12M12 17L17 12"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-
             {/* Interactive 3D Magnetic Button */}
             <button
               ref={cameraButtonRef}

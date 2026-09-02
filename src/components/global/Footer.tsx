@@ -94,7 +94,7 @@ export default function Footer() {
       {/* Bottom Illustration Artwork spanning full width along the bottom */}
       <div className={styles.footerIllustrationContainer}>
         <Image
-          src="/images/image-7-2.png"
+          src="/images/image-7-2.webp"
           alt="Idea School Team"
           width={4096}
           height={2048}

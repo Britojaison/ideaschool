@@ -17,27 +17,27 @@ const SLIDES = [
   {
     title: "Creative editing project output",
     description: "Build your portfolio as you learn. Every module should lead to work you can review, improve and present.",
-    image: "/images/DSC00232.JPG"
+    image: "/images/DSC00232.webp"
   },
   {
     title: "Short-form and commercial editing",
     description: "Develop pacing, structure, captions, sound and platform-ready delivery.",
-    image: "/images/DSC00048.JPG"
+    image: "/images/DSC00048.webp"
   },
   {
     title: "Motion graphics and visual effects",
     description: "Use typography, animation, compositing, tracking and visual treatments with purpose.",
-    image: "/images/DSC00298.JPG"
+    image: "/images/DSC00298.webp"
   },
   {
     title: "Creative AI production",
     description: "Use AI for ideation, visual development and production without replacing creative judgment.",
-    image: "/images/DSC00123.JPG"
+    image: "/images/DSC00123.webp"
   },
   {
     title: "Professional portfolio work",
     description: "Present finished work and explain the decisions behind it with confidence.",
-    image: "/images/DSC00041.JPG"
+    image: "/images/DSC00041.webp"
   }
 ];
 

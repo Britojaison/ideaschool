@@ -58,7 +58,7 @@ export default function WhoItIsFor() {
       <div className={styles.fullBleedArtwork} ref={artworkRef}>
         <Image
           ref={imageRef}
-          src="/images/pn_copy.png"
+          src="/images/pn_copy.webp"
           alt="Idea School creative community"
           width={2048}
           height={508}

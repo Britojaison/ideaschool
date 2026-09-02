@@ -419,7 +419,7 @@ export default function FullCreativeControl() {
               {/* 3D Floating Camera Wrapper */}
               <div ref={cameraRef} className={styles.cameraWrapper}>
                 <Image
-                  src="/images/camlab-cam5.png"
+                  src="/images/camlab-cam5.webp"
                   alt="Idea School Cinema Camera Rig"
                   width={460}
                   height={345}

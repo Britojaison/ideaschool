@@ -4,11 +4,11 @@ import React from "react";
 
 const allTools = [
   "/images/adobepremierepro.svg",
-  "/images/ps-logo-transparent.png",
+  "/images/ps-logo-transparent.webp",
   "/images/Ae_logo.webp",
-  "/images/Canva_icon.png",
-  "/images/captionsai.avif",
-  "/images/opus_clip.png",
+  "/images/Canva_icon.webp",
+  "/images/captionsai.webp",
+  "/images/opus_clip.webp",
   "/images/elevenlabs-official-logo.svg",
   "/images/framer.webp",
   "/images/tool1.webp",

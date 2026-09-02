@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Shell from "@/components/global/Shell";
 import CinematicHeroFlow from "@/components/cinematic-hero/CinematicHeroFlow";
-import SelectedProjects from "@/components/cinematic-hero/SelectedProjects";
+
 import FullCreativeControl from "@/components/cinematic-hero/FullCreativeControl";
 import LearningEnvironment from "@/components/cinematic-hero/LearningEnvironment";
 import ToolsMarquee from "@/components/ui/ToolsMarquee";
@@ -81,7 +81,7 @@ export default function CreativeEditingCopyPage() {
           "Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. Idea School is designed to help you develop those capabilities—not simply learn where the buttons are."
         ]}
       />
-      <SelectedProjects />
+
       <LearningEnvironment />
       <ToolsMarquee />
       <FullCreativeControl />

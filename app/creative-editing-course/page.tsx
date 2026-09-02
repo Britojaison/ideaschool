@@ -76,12 +76,9 @@ export default function CreativeEditingCopyPage() {
         rightGiantTop="CRAFT"
         rightGiantBottom="BUILT."
         editorialParagraphs={[
-          "Learning a video editing software is only one part of becoming a professional editor.",
-          "Today, creative teams need people who can understand a brief, shape a story, work across different visual formats and use modern tools to get the work done.",
-          <span key="highlight-text" style={{ color: "#DAFD55", fontWeight: 400 }}>That's why Idea Creative School goes beyond software training.</span>,
-          "You'll build your foundation in video editing and expand into motion design, visual storytelling, creative AI and professional content workflows so you can contribute to more than just the edit.",
-          "The goal is simple:",
-          "Build the capability to step into a real creative environment and contribute with confidence."
+          <span key="highlight-text" style={{ color: "#DAFD55", fontWeight: 400 }}>WHY IDEA SCHOOL</span>,
+          "KNOWING THE SOFTWARE IS ONLY THE BEGINNING.",
+          "Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. Idea School is designed to help you develop those capabilities—not simply learn where the buttons are."
         ]}
       />
       <SelectedProjects />

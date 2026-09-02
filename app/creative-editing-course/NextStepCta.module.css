@@ -88,6 +88,11 @@
   transform: translateY(-3px);
 }
 
+.primaryAction:hover {
+  background: #111;
+  color: #fbfaf2;
+}
+
 .secondaryAction:hover {
   background: #dafd55;
   color: #080808;

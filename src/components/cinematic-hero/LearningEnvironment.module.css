@@ -18,24 +18,44 @@
 }
 
 .header {
-  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+  max-width: 100%;
+}
+
+.headerLeft {
+  flex: 1.2;
+}
+
+.headerRight {
+  flex: 1;
+  padding-top: 3.5rem;
 }
 
 .tag {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #DAFD55;
-  margin-bottom: 1.5rem;
+  color: #A0AAB2;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag::before {
+  content: "—";
 }
 
 .title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 3.5vw, 4rem);
   line-height: 1.1;
-  font-weight: 400;
-  margin-bottom: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0;
   color: #fff;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .highlight {
@@ -43,132 +63,144 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.6;
   color: #A0AAB2;
-  max-width: 700px;
+  max-width: 600px;
 }
 
-.comparisonGrid {
+.featuresGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.compareCard {
-  padding: 3rem;
-  border-radius: 12px;
+  grid-template-columns: repeat(3, 1fr);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  position: relative;
-}
-
-.onlineCard {
   background: rgba(255, 255, 255, 0.02);
 }
 
-.ideaSchoolCard {
-  background: rgba(218, 253, 85, 0.03);
-  border-color: rgba(218, 253, 85, 0.2);
+.gridCard {
+  padding: 3rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.glowEffect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #DAFD55, transparent);
-  opacity: 0.5;
+/* Remove right border for every 3rd item */
+.gridCard:nth-child(3n) {
+  border-right: none;
+}
+
+/* Remove bottom border for the last row (items 4, 5, 6) */
+.gridCard:nth-child(n+4) {
+  border-bottom: none;
+}
+
+.cardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #E0E4E8;
+  width: fit-content;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981; /* green dot from the image */
+  border-radius: 50%;
 }
 
 .cardTitle {
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #fff;
-}
-
-.ideaSchoolCard .cardTitle {
-  color: #DAFD55;
-}
-
-.features {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.featureItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.featureLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.featureDesc {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #E0E4E8;
-}
-
-.onlineCard .featureDesc {
-  color: #A0AAB2;
-}
-
-.principlesGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  padding-top: 4rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.principleItem {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.principleNumber {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: #DAFD55;
-  line-height: 1;
-}
-
-.principleTitle {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #fff;
+  margin-top: 1rem;
 }
 
-.principleDesc {
-  font-size: 0.95rem;
-  line-height: 1.6;
+.cardDesc {
+  font-size: 0.85rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   color: #A0AAB2;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
-  .comparisonGrid {
+  .header {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .headerRight {
+    padding-top: 0;
+  }
+
+  .featuresGrid {
     grid-template-columns: 1fr;
   }
-  
-  .principlesGrid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  .compareCard {
+
+  .gridCard {
     padding: 2rem;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
+
+  /* Make sure last item has no bottom border on mobile */
+  .gridCard:last-child {
+    border-bottom: none !important;
+  }
+}
+
+.animatedLine {
+  display: inline;
+  will-change: contents;
+}
+
+.animatedWord {
+  display: inline-flex;
+  white-space: pre;
+  will-change: contents;
+}
+
+.animatedSpace {
+  display: inline;
+}
+
+.animatedChar {
+  display: inline-flex;
+  --area: 0.15em;
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 var(--area) 0;
+  margin: 0 0 calc(-1 * var(--area)) 0;
+  color: transparent;
+  will-change: contents;
+
+  --char-turn: calc( var(--char-random) / var(--char-global-total) );
+  --char-step: calc( 1 / var(--char-global-total) );
+  --char-progress: clamp( 0, calc( (var(--progress) - var(--char-turn)) / var(--char-step) ), 1 );
+}
+
+.animatedChar::before {
+  content: attr(data-char);
+  position: absolute;
+  inset: 0;
+  padding: 0 0 var(--area) 0;
+  color: var(--color-before, rgba(255, 255, 255, 0.3));
+  transform: translate3d(calc(var(--char-progress) * 50% ), 0, 0);
+  opacity: calc( 1 - var(--char-progress) );
+}
+
+.animatedChar::after {
+  content: attr(data-char);
+  position: absolute;
+  inset: 0;
+  padding: 0 0 var(--area) 0;
+  color: var(--color-after, #ffffff);
+  transform: translate3d(calc(-100% + var(--char-progress) * 100% ), 0, 0);
 }

@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect, ReactNode } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface MagneticSpotlightMarqueeProps {
@@ -92,21 +93,32 @@ export function MagneticSpotlightMarquee({
     setClonedImages(newImages);
 
     // Wait for React to render clones, then animate
+    let marqueeTween: gsap.core.Tween | undefined;
+    let isVisible = false;
     const ctx = gsap.context(() => {
-      setTimeout(() => {
-         gsap.to(marqueeTrack, {
+      marqueeTween = gsap.to(marqueeTrack, {
            x: `-${oneSetWidth}px`,
            duration: oneSetWidth / 150, // Reduced speed for better performance and smoothness
            ease: "none",
            repeat: -1,
+           paused: true,
            modifiers: {
              x: (x) => `${gsap.utils.wrap(-oneSetWidth, 0, parseFloat(x))}px`
            }
          });
-      }, 100);
     }, marqueeTrack);
 
-    return () => ctx.revert();
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) marqueeTween?.play();
+      else marqueeTween?.pause();
+    });
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+      ctx.revert();
+    };
   }, [images]);
 
   // Wake effect logic
@@ -171,7 +183,7 @@ export function MagneticSpotlightMarquee({
       }
     };
 
-    setTimeout(measureGeometry, 100);
+    const measureTimer = window.setTimeout(measureGeometry, 100);
     window.addEventListener('resize', measureGeometry);
 
     const handlePointerMove = (e: MouseEvent) => {
@@ -223,13 +235,25 @@ export function MagneticSpotlightMarquee({
         gsap.set(line.el, { y: line.currentY });
       });
     };
-    gsap.ticker.add(render);
+    let tickerActive = false;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !tickerActive) {
+        gsap.ticker.add(render);
+        tickerActive = true;
+      } else if (!entry.isIntersecting && tickerActive) {
+        gsap.ticker.remove(render);
+        tickerActive = false;
+      }
+    });
+    observer.observe(spotlightSection);
 
     return () => {
+      window.clearTimeout(measureTimer);
+      observer.disconnect();
       window.removeEventListener('resize', measureGeometry);
       spotlightSection.removeEventListener('mousemove', handlePointerMove);
       spotlightSection.removeEventListener('mouseleave', handlePointerLeave);
-      gsap.ticker.remove(render);
+      if (tickerActive) gsap.ticker.remove(render);
     };
   }, []);
 
@@ -244,7 +268,7 @@ export function MagneticSpotlightMarquee({
       style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
     >
       {/* Top Nav - Centered layout as seen in screenshot */}
-      <div className="absolute top-0 left-0 w-full p-6 flex flex-col items-center justify-center z-50 text-[10px] md:text-xs font-medium tracking-wide opacity-90 mix-blend-difference pointer-events-none">
+      <div className="absolute top-0 left-0 w-full p-6 flex flex-col items-center justify-center z-50 text-[10px] md:text-xs font-medium tracking-wide opacity-90 text-[#111] pointer-events-none">
         <div>{navEmail}</div>
         <div>{navLinks}</div>
       </div>
@@ -261,11 +285,13 @@ export function MagneticSpotlightMarquee({
         >
           {clonedImages.map((img, idx) => (
             <div key={idx} className="w-[180px] h-[180px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[240px] shrink-0 rounded-[16px] md:rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
-              <img
+              <Image
                 src={img}
                 alt="Marquee item"
+                width={240}
+                height={240}
+                sizes="(max-width: 639px) 180px, (max-width: 1023px) 200px, 240px"
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
             </div>
           ))}
@@ -275,7 +301,7 @@ export function MagneticSpotlightMarquee({
       {/* Main Content Layout */}
       <div 
         ref={contentWrapperRef}
-        className="spotlight-content-wrapper relative w-full h-full flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 z-30 pointer-events-none mix-blend-difference"
+        className="spotlight-content-wrapper relative w-full h-full flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 z-30 pointer-events-none text-[#111]"
       >
         {/* Title */}
         <h1 
@@ -322,8 +348,8 @@ export function MagneticSpotlightMarquee({
       </div>
 
       {/* Footer */}
-      <div className="absolute bottom-0 left-0 w-full p-8 z-40 flex justify-center pointer-events-none mix-blend-difference">
-        <p className="text-[8px] md:text-[10px] text-white/70 max-w-2xl text-center leading-[1.6]">
+      <div className="absolute bottom-0 left-0 w-full p-8 z-40 flex justify-center pointer-events-none">
+        <p className="text-[8px] md:text-[10px] text-black/70 max-w-2xl text-center leading-[1.6]">
           {footerText}
         </p>
       </div>

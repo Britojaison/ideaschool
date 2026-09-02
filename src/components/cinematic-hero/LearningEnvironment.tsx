@@ -1,10 +1,79 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./LearningEnvironment.module.css";
 import ScrollHighlight from "../ui/ScrollHighlight";
 
+const differenceCards = [
+  {
+    badge: "LEARNING",
+    title: "Combine structured online foundations with guided physical sessions.",
+    description: "Online course: Watch lessons independently.",
+    color: "#DAFD55",
+  },
+  {
+    badge: "PRACTICE",
+    title: "Work through assignments and professional-style briefs.",
+    description: "Online course: Follow tutorials and isolated exercises.",
+    color: "#DAFD55",
+  },
+  {
+    badge: "FEEDBACK",
+    title: "Receive mentor reviews and clear revision direction.",
+    description: "Online course: Limited, delayed or automated.",
+    color: "#DAFD55",
+  },
+  {
+    badge: "ENVIRONMENT",
+    title: "Learn alongside peers and working creative professionals.",
+    description: "Online course: Learn largely on your own.",
+    color: "#DAFD55",
+  },
+  {
+    badge: "OUTCOME",
+    title: "Build stronger work, professional habits and portfolio confidence.",
+    description: "Online course: Understand the software.",
+    color: "#DAFD55",
+    wide: true,
+  },
+];
+
 export default function LearningEnvironment() {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const highlightRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const activeRef = useRef(0);
+  const [activeCard, setActiveCard] = useState(0);
+
+  const moveHighlight = useCallback((index: number, animate = true) => {
+    const grid = gridRef.current;
+    const highlight = highlightRef.current;
+    const card = cardRefs.current.get(index);
+    if (!grid || !highlight || !card) return;
+
+    const gridRect = grid.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+    highlight.style.transitionDuration = animate ? "250ms" : "0ms";
+    highlight.style.transform = `translate3d(${cardRect.left - gridRect.left}px, ${cardRect.top - gridRect.top}px, 0)`;
+    highlight.style.width = `${cardRect.width}px`;
+    highlight.style.height = `${cardRect.height}px`;
+    highlight.style.backgroundColor = differenceCards[index].color;
+    activeRef.current = index;
+  }, []);
+
+  useEffect(() => {
+    moveHighlight(0, false);
+    const alignHighlight = () => moveHighlight(activeRef.current, false);
+    const observer = new ResizeObserver(alignHighlight);
+    if (gridRef.current) observer.observe(gridRef.current);
+    window.addEventListener("resize", alignHighlight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", alignHighlight);
+    };
+  }, [moveHighlight]);
+
   return (
     <section className={styles.section} id="learning-environment" data-header-theme="dark">
       <div className={styles.container}>
@@ -54,56 +123,26 @@ export default function LearningEnvironment() {
             THE DIFFERENCE
           </div>
           
-          <div className={styles.featuresGrid}>
-            {/* Card 1: Learning */}
-            <div className={styles.gridCard}>
-              <div className={styles.cardBadge}>
-                <span className={styles.badgeDot}></span>
-                LEARNING
+          <div className={styles.featuresGrid} ref={gridRef}>
+            <div ref={highlightRef} className={styles.gridHighlight} aria-hidden="true" />
+            {differenceCards.map((card, index) => (
+              <div
+                key={card.badge}
+                ref={(element) => {
+                  if (element) cardRefs.current.set(index, element);
+                  else cardRefs.current.delete(index);
+                }}
+                className={`${styles.gridCard}${card.wide ? ` ${styles.gridCardWide}` : ""}${activeCard === index ? ` ${styles.gridCardActive}` : ""}`}
+                onPointerEnter={() => {
+                  setActiveCard(index);
+                  moveHighlight(index);
+                }}
+              >
+                <div className={styles.cardBadge}>{card.badge}</div>
+                <h3 className={styles.cardTitle}>{card.title}</h3>
+                <p className={styles.cardDesc}>{card.description}</p>
               </div>
-              <h3 className={styles.cardTitle}>Combine structured online foundations with guided physical sessions.</h3>
-              <p className={styles.cardDesc}>Online course: Watch lessons independently.</p>
-            </div>
-
-            {/* Card 2: Practice */}
-            <div className={styles.gridCard}>
-              <div className={styles.cardBadge}>
-                <span className={styles.badgeDot}></span>
-                PRACTICE
-              </div>
-              <h3 className={styles.cardTitle}>Work through assignments and professional-style briefs.</h3>
-              <p className={styles.cardDesc}>Online course: Follow tutorials and isolated exercises.</p>
-            </div>
-
-            {/* Card 3: Feedback */}
-            <div className={styles.gridCard}>
-              <div className={styles.cardBadge}>
-                <span className={styles.badgeDot}></span>
-                FEEDBACK
-              </div>
-              <h3 className={styles.cardTitle}>Receive mentor reviews and clear revision direction.</h3>
-              <p className={styles.cardDesc}>Online course: Limited, delayed or automated.</p>
-            </div>
-
-            {/* Card 4: Environment */}
-            <div className={styles.gridCard}>
-              <div className={styles.cardBadge}>
-                <span className={styles.badgeDot}></span>
-                ENVIRONMENT
-              </div>
-              <h3 className={styles.cardTitle}>Learn alongside peers and working creative professionals.</h3>
-              <p className={styles.cardDesc}>Online course: Learn largely on your own.</p>
-            </div>
-
-            {/* Card 5: Outcome */}
-            <div className={styles.gridCard} style={{ gridColumn: "span 2" }}>
-              <div className={styles.cardBadge}>
-                <span className={styles.badgeDot}></span>
-                OUTCOME
-              </div>
-              <h3 className={styles.cardTitle}>Build stronger work, professional habits and portfolio confidence.</h3>
-              <p className={styles.cardDesc}>Online course: Understand the software.</p>
-            </div>
+            ))}
           </div>
         </div>
 

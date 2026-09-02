@@ -84,6 +84,7 @@
 }
 
 .featuresGrid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
@@ -92,11 +93,45 @@
 }
 
 .gridCard {
-  background: #080808;
+  position: relative;
+  background: transparent;
   padding: 3rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.gridCard::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  background: #080808;
+}
+
+.gridCard > * {
+  position: relative;
+  z-index: 3;
+}
+
+.gridCardWide {
+  grid-column: span 2;
+}
+
+.gridHighlight {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.32), transparent 52%),
+    linear-gradient(180deg, transparent 48%, rgba(77, 91, 10, 0.18));
+  transition-property: transform, width, height, background-color;
+  transition-timing-function: ease;
+  will-change: transform, width, height;
 }
 
 .cardBadge {
@@ -111,6 +146,7 @@
   letter-spacing: 0.1em;
   color: #DAFD55;
   width: fit-content;
+  transition: color 200ms ease, border-color 200ms ease;
 }
 
 .cardTitle {
@@ -118,12 +154,27 @@
   font-weight: 600;
   color: #fff;
   margin-top: 1rem;
+  transition: color 200ms ease;
 }
 
 .cardDesc {
   font-size: 0.9rem;
   color: #A0AAB2;
   line-height: 1.6;
+  transition: color 200ms ease;
+}
+
+.gridCardActive .cardBadge,
+.gridCardActive .cardTitle {
+  color: #080808;
+}
+
+.gridCardActive .cardBadge {
+  border-color: rgba(8, 8, 8, 0.38);
+}
+
+.gridCardActive .cardDesc {
+  color: rgba(8, 8, 8, 0.68);
 }
 
 .principlesList {

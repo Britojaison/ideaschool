@@ -66,10 +66,10 @@ export default function ToolsMarquee() {
         className="tools-category-grid"
       >
         {[
-          { num: "01", title: "Video Editing", desc: "Premiere Pro and professional editing workflows" },
-          { num: "02", title: "Motion & VFX", desc: "After Effects, compositing, animation and visual effects" },
-          { num: "03", title: "Creative AI", desc: "Higgsfield, AI-powered image, video, ideation and production workflows" },
-          { num: "04", title: "Design & Content", desc: "Visual design tools and creative production workflows" },
+          { title: "Video Editing", desc: "Premiere Pro and professional editing workflows" },
+          { title: "Motion & VFX", desc: "After Effects, compositing, animation and visual effects" },
+          { title: "Creative AI", desc: "Higgsfield, AI-powered image, video, ideation and production workflows" },
+          { title: "Design & Content", desc: "Visual design tools and creative production workflows" },
         ].map((cat) => (
           <div
             key={cat.title}
@@ -82,18 +82,6 @@ export default function ToolsMarquee() {
               transition: "background-color 0.3s ease",
             }}
           >
-            <span
-              style={{
-                display: "block",
-                fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
-                fontSize: "0.7rem",
-                color: "rgba(17,17,17,0.38)",
-                letterSpacing: "0.1em",
-                marginBottom: "16px",
-              }}
-            >
-              [ {cat.num} ]
-            </span>
             <h3
               style={{
                 color: "#111111",

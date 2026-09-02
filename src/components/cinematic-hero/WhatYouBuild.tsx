@@ -15,31 +15,26 @@ if (typeof window !== "undefined") {
 
 const SLIDES = [
   {
-    step: "00",
     title: "Creative editing project output",
     description: "Build your portfolio as you learn. Every module should lead to work you can review, improve and present.",
     image: "/images/DSC00232.JPG"
   },
   {
-    step: "01",
     title: "Short-form and commercial editing",
     description: "Develop pacing, structure, captions, sound and platform-ready delivery.",
     image: "/images/DSC00048.JPG"
   },
   {
-    step: "02",
     title: "Motion graphics and visual effects",
     description: "Use typography, animation, compositing, tracking and visual treatments with purpose.",
     image: "/images/DSC00298.JPG"
   },
   {
-    step: "03",
     title: "Creative AI production",
     description: "Use AI for ideation, visual development and production without replacing creative judgment.",
     image: "/images/DSC00123.JPG"
   },
   {
-    step: "04",
     title: "Professional portfolio work",
     description: "Present finished work and explain the decisions behind it with confidence.",
     image: "/images/DSC00041.JPG"
@@ -188,7 +183,6 @@ export default function WhatYouBuild() {
           activeText === index + 1 && (
             <div key={`text-${index}`} className={styles.textBlock}>
               <div className={styles.slideContent}>
-                {slide.step !== "00" && <span className={styles.stepNumber}>{slide.step}</span>}
                 <h4 className={styles.stepTitle}>
                   <TextAnimation divideBy="word" delay={0.1}>
                     {slide.title}
@@ -237,7 +231,6 @@ export default function WhatYouBuild() {
                 />
               </div>
               <div className={styles.textBlock}>
-                {slide.step !== "00" && <span className={styles.stepNumber}>{slide.step}</span>}
                 <h4 className={styles.stepTitle}>
                   <TextAnimation divideBy="word" delay={0.1}>
                     {slide.title}

@@ -83,17 +83,17 @@ export default function CreativeEditingCopyPage() {
         ]}
       />
 
-      <LearningEnvironment />
-      <ToolsMarquee />
-      <WhatYouBuild />
-      <ByTheNumbers />
-      <MentorsDiagonal />
-      <ClientBrandsGrid />
-      <CourseGallery />
-      <AdmissionEnrollment />
-      <FullCreativeControl />
-      <FinalCourseCta />
-      <HomeFAQ transitionFromCream faqs={COURSE_FAQS} />
+      <LearningEnvironment key="learning-environment" />
+      <ToolsMarquee key="tools-marquee" />
+      <WhatYouBuild key="what-you-build" />
+      <ByTheNumbers key="programme" />
+      <FullCreativeControl key="what-you-learn" />
+      <MentorsDiagonal key="mentors" />
+      <ClientBrandsGrid key="client-brands" />
+      <CourseGallery key="course-gallery" />
+      <AdmissionEnrollment key="admission" />
+      <FinalCourseCta key="final-cta" />
+      <HomeFAQ key="faq" transitionFromCream faqs={COURSE_FAQS} />
     </Shell>
   );
 }

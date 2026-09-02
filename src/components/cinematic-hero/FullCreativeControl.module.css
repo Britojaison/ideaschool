@@ -1,13 +1,13 @@
 .section {
   position: relative;
   width: 100%;
-  background-color: #080808;
-  color: #FFFFFF;
+  background-color: #FBFAF2;
+  color: #111111;
   padding: clamp(70px, 9vh, 100px) 3.5vw clamp(40px, 6vh, 70px) 3.5vw;
   z-index: 20;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  border-top: 1px dashed rgba(17, 17, 17, 0.15);
   will-change: background-color;
   overflow: hidden;
 }
@@ -42,15 +42,23 @@
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #111111;
   margin: 0 0 0.75rem 0;
   line-height: 1.05;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: #E63946;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
 .subtitle {
   font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(14px, 1.05vw, 17px);
-  color: #A0AAB2;
+  color: #596168;
   font-weight: 400;
   margin: 0;
   line-height: 1.5;
@@ -223,6 +231,11 @@
   transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.stepItem > .stepIndex {
+  margin-bottom: 0.25rem;
+  transform: none;
+}
+
 /* Inactive Step */
 .inactiveStep {
   opacity: 1;
@@ -263,9 +276,9 @@
   line-height: 1.05;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #111111;
   margin: 0;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 4px 24px rgba(17, 17, 17, 0.12);
   transition: color 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -295,7 +308,7 @@
   font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(13px, 0.95vw, 15px);
   line-height: 1.5;
-  color: #A0AAB2;
+  color: #596168;
   font-weight: 400;
   opacity: 0;
   transform: translateY(6px);
@@ -401,6 +414,4 @@
     font-size: 12.5px;
   }
 }
-
-
 

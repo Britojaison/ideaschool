@@ -55,7 +55,7 @@ export default function WhatYouBuild() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 769px)", () => {
-      const TOTAL_SEGMENTS = 2 + SLIDES.length; // 7 segments total
+      const FINAL_SLIDE_DURATION = 0.25;
 
       // Initialize subsequent images to be hidden below
       for (let i = 1; i < SLIDES.length; i++) {
@@ -71,12 +71,12 @@ export default function WhatYouBuild() {
           end: "bottom bottom",
           scrub: true,
           onUpdate: (self) => {
-            // progress = 1 means segment = 7. We want it capped at 6.
-            const rawSegment = Math.floor(self.progress * TOTAL_SEGMENTS);
-            const segment = Math.min(TOTAL_SEGMENTS - 1, rawSegment);
-            
-            let newActive = Math.max(0, segment - 1);
-            newActive = Math.min(newActive, SLIDES.length); // Max index is 5 (Intro + 5 slides)
+            // Use the timeline's actual duration so the shortened final reveal
+            // does not leave a full viewport of empty pinned scroll afterward.
+            const timelineTime = self.progress * tl.duration();
+            const newActive = timelineTime < 2
+              ? 0
+              : Math.min(SLIDES.length, Math.floor(timelineTime) - 1);
             
             // We need to safely update state without infinite loops in GSAP callback
             // State updates in GSAP onUpdate can cause issues if not careful, 
@@ -100,7 +100,11 @@ export default function WhatYouBuild() {
       // Phase 3-6: Slide images 1-4 (1 duration each)
       for (let i = 1; i < SLIDES.length; i++) {
         if (imageRefs.current[i]) {
-          tl.to(imageRefs.current[i], { yPercent: 0, ease: "none", duration: 1 });
+          tl.to(imageRefs.current[i], {
+            yPercent: 0,
+            ease: "none",
+            duration: i === SLIDES.length - 1 ? FINAL_SLIDE_DURATION : 1,
+          });
         }
       }
 

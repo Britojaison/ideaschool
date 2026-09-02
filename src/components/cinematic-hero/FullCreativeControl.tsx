@@ -21,34 +21,34 @@ interface StepItem {
 const STEPS: StepItem[] = [
   {
     id: "01",
-    index: "[01]",
-    name: "STORY & VISUAL THINKING",
+    index: "01 / EDITING",
+    name: "PROFESSIONAL VIDEO EDITING",
     description:
-      "LEARN HOW TO STRUCTURE CONTENT, BUILD ATTENTION, WORK WITH PACING AND TRANSLATE IDEAS INTO VISUAL NARRATIVES.",
+      "PREMIERE PRO WORKFLOWS, RHYTHM, PACING, CAPTIONS, SOUND, COLOUR, EXPORTS AND EFFICIENT PROJECT ORGANISATION.",
     side: "left"
   },
   {
     id: "02",
-    index: "[02]",
-    name: "PROFESSIONAL VIDEO EDITING",
+    index: "02 / STORY",
+    name: "STORY AND VISUAL THINKING",
     description:
-      "DEVELOP STRONG EDITING FUNDAMENTALS, RHYTHM, TRANSITIONS, SOUND, STORYTELLING AND EFFICIENT PROJECT WORKFLOWS.",
+      "STRUCTURE CONTENT, BUILD ATTENTION, TRANSLATE BRIEFS INTO VISUAL NARRATIVES AND MAKE STRONGER CREATIVE DECISIONS.",
     side: "right"
   },
   {
     id: "03",
-    index: "[03]",
-    name: "MOTION & VISUAL DESIGN",
+    index: "03 / MOTION",
+    name: "MOTION AND VISUAL DESIGN",
     description:
-      "ADD MOTION GRAPHICS, TYPOGRAPHY, COMPOSITING AND VISUAL TREATMENTS TO YOUR EDITING SKILLSET.",
+      "TYPOGRAPHY, ANIMATION, COMPOSITING, TRACKING, MASKING AND VISUAL TREATMENTS THAT SUPPORT THE IDEA.",
     side: "left"
   },
   {
     id: "04",
-    index: "[04]",
-    name: "CREATIVE AI & MODERN PRODUCTION",
+    index: "04 / AI",
+    name: "CREATIVE AI AND MODERN PRODUCTION",
     description:
-      "USE AI AS PART OF THE CREATIVE PROCESS FROM IDEATION AND VISUAL DEVELOPMENT TO CONTENT CREATION AND PRODUCTION EFFICIENCY.",
+      "USE CONTEMPORARY AI TOOLS FOR IDEATION, IMAGE AND VIDEO DEVELOPMENT, REPURPOSING AND PRODUCTION EFFICIENCY.",
     side: "right"
   }
 ];
@@ -86,17 +86,13 @@ export default function FullCreativeControl() {
   }, []);
 
   // Apply colors smoothly to all elements in section
-  const applyColors = useCallback((progress: number) => {
+  const applyColors = useCallback((_progress: number) => {
     if (!sectionRef.current) return;
 
-    const bgColor = gsap.utils.interpolate("#080808", "#FBFAF2", progress);
-    const borderColor = gsap.utils.interpolate(
-      "rgba(255, 255, 255, 0.15)",
-      "rgba(17, 17, 17, 0.15)",
-      progress
-    );
-    const headingColor = gsap.utils.interpolate("#FFFFFF", "#111111", progress);
-    const copyColor = gsap.utils.interpolate("#A0AAB2", "#596168", progress);
+    const bgColor = "#FBFAF2";
+    const borderColor = "rgba(17, 17, 17, 0.15)";
+    const headingColor = "#111111";
+    const copyColor = "#596168";
 
     gsap.set(sectionRef.current, {
       backgroundColor: bgColor,
@@ -404,7 +400,9 @@ export default function FullCreativeControl() {
         <div className={styles.headerRow}>
           {/* Left: Headline & Narrative */}
           <div ref={headerRef} className={styles.headerCopy}>
-            <h2 className={styles.title}>FROM RAW FOOTAGE TO FINISHED CREATIVE WORK.</h2>
+            <p className={styles.eyebrow}>WHAT YOU LEARN</p>
+            <h2 className={styles.title}>BUILD CAPABILITY ACROSS THE CREATIVE PROCESS.</h2>
+            <p className={styles.subtitle}>Video editing remains the core skill. The surrounding capabilities help you contribute to more than just the edit.</p>
           </div>
 
           {/* Right: 3D Floating Magnetic Camera with 'Click to see magic' */}
@@ -482,6 +480,7 @@ export default function FullCreativeControl() {
                   aria-selected={isActive}
                   role="tab"
                 >
+                  <span className={styles.stepIndex}>{step.index}</span>
                   <div className={styles.stepHeadingRow}>
                     <span className={styles.stepName}>{step.name}</span>
                   </div>
@@ -503,10 +502,7 @@ export default function FullCreativeControl() {
           </div>
         </div>
 
-        {/* Bottom Manifesto Statement */}
-        <div ref={manifestRef} className={styles.manifestBlock}>
-          <p className={styles.conclusionText}>The result is not just another software trained editor. It&apos;s a creative professional with a broader understanding of how modern content gets made.</p>
-        </div>
+        <div ref={manifestRef} className={styles.manifestBlock} />
       </div>
     </section>
   );

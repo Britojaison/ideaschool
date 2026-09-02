@@ -50,11 +50,11 @@ export default function WhatYouBuild() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 769px)", () => {
-      const INTRO_HOLD_DURATION = 1.5;
+      const INTRO_HOLD_DURATION = 3;
       const IMAGE_RESIZE_DURATION = 1;
       const IMAGE_REVEAL_DURATION = 0.8;
-      const READING_HOLD_DURATION = 1.75;
-      const FINAL_EXIT_HOLD_DURATION = 0.35;
+      const READING_HOLD_DURATION = 4;
+      const FINAL_EXIT_HOLD_DURATION = 1;
       const textChangeTimes = [0];
 
       // Initialize subsequent images to be hidden below
@@ -184,14 +184,10 @@ export default function WhatYouBuild() {
             <div key={`text-${index}`} className={styles.textBlock}>
               <div className={styles.slideContent}>
                 <h4 className={styles.stepTitle}>
-                  <TextAnimation divideBy="word" delay={0.1}>
-                    {slide.title}
-                  </TextAnimation>
+                  {slide.title}
                 </h4>
                 <p className={styles.stepDesc}>
-                  <TextAnimation divideBy="word" delay={0.2}>
-                    {slide.description}
-                  </TextAnimation>
+                  {slide.description}
                 </p>
               </div>
             </div>

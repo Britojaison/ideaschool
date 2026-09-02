@@ -1,0 +1,174 @@
+.section {
+  background-color: #080808;
+  color: #fff;
+  padding: 8rem 2rem;
+  font-family: var(--font-inter), sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.header {
+  max-width: 900px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #DAFD55;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.highlight {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #A0AAB2;
+  max-width: 700px;
+}
+
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.compareCard {
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+}
+
+.onlineCard {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ideaSchoolCard {
+  background: rgba(218, 253, 85, 0.03);
+  border-color: rgba(218, 253, 85, 0.2);
+}
+
+.glowEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #DAFD55, transparent);
+  opacity: 0.5;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.ideaSchoolCard .cardTitle {
+  color: #DAFD55;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featureLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.featureDesc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #E0E4E8;
+}
+
+.onlineCard .featureDesc {
+  color: #A0AAB2;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.principleItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.principleNumber {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #DAFD55;
+  line-height: 1;
+}
+
+.principleTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.principleDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #A0AAB2;
+}
+
+@media (max-width: 900px) {
+  .comparisonGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .principlesGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .compareCard {
+    padding: 2rem;
+  }
+}

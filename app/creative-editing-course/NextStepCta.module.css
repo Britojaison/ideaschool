@@ -21,9 +21,6 @@
   text-transform: uppercase;
 }
 
-.eyebrow::before {
-  content: "— ";
-}
 
 .title {
   max-width: 1380px;

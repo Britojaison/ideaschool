@@ -19,7 +19,6 @@
   letter-spacing: .12em;
 }
 
-.eyebrow::before { content: "— "; }
 
 .title {
   max-width: 1050px;

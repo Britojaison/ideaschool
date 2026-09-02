@@ -21,7 +21,7 @@ interface StepItem {
 const STEPS: StepItem[] = [
   {
     id: "01",
-    index: "01 / EDITING",
+    index: "EDITING",
     name: "PROFESSIONAL VIDEO EDITING",
     description:
       "PREMIERE PRO WORKFLOWS, RHYTHM, PACING, CAPTIONS, SOUND, COLOUR, EXPORTS AND EFFICIENT PROJECT ORGANISATION.",
@@ -29,7 +29,7 @@ const STEPS: StepItem[] = [
   },
   {
     id: "02",
-    index: "02 / STORY",
+    index: "STORY",
     name: "STORY AND VISUAL THINKING",
     description:
       "STRUCTURE CONTENT, BUILD ATTENTION, TRANSLATE BRIEFS INTO VISUAL NARRATIVES AND MAKE STRONGER CREATIVE DECISIONS.",
@@ -37,7 +37,7 @@ const STEPS: StepItem[] = [
   },
   {
     id: "03",
-    index: "03 / MOTION",
+    index: "MOTION",
     name: "MOTION AND VISUAL DESIGN",
     description:
       "TYPOGRAPHY, ANIMATION, COMPOSITING, TRACKING, MASKING AND VISUAL TREATMENTS THAT SUPPORT THE IDEA.",
@@ -45,7 +45,7 @@ const STEPS: StepItem[] = [
   },
   {
     id: "04",
-    index: "04 / AI",
+    index: "AI",
     name: "CREATIVE AI AND MODERN PRODUCTION",
     description:
       "USE CONTEMPORARY AI TOOLS FOR IDEATION, IMAGE AND VIDEO DEVELOPMENT, REPURPOSING AND PRODUCTION EFFICIENCY.",

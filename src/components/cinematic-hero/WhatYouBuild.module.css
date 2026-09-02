@@ -129,6 +129,11 @@
 }
 
 @media (max-width: 768px) {
+  .wrapper {
+    height: auto;
+    min-height: 100vh;
+  }
+
   .stickyContainer {
     position: relative;
     height: 50vh;
@@ -138,7 +143,7 @@
   .imageWrapper {
     width: 100%;
     position: relative;
-    height: 100%;
+    height: 60vh; /* Ensure images have height on mobile */
     transform: none !important; /* disable gsap transforms on mobile if they leak */
   }
   
@@ -156,8 +161,10 @@
   }
 
   .textBlock {
+    position: relative; /* Fix overlapping text */
+    height: auto;
     min-height: auto;
-    padding: 4rem 2rem;
+    padding: 4rem 1.5rem;
   }
 
   .introSection {
@@ -170,6 +177,12 @@
 
   .stepTitle {
     font-size: 2rem;
+  }
+  
+  .mobileSlide {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
   }
 
   /* Desktop only containers */

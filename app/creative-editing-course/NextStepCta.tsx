@@ -23,9 +23,6 @@ export default function NextStepCta() {
             >
               Apply now <span aria-hidden="true">↗</span>
             </button>
-            <a className={styles.secondaryAction} href="mailto:hello@ideaschool.pro">
-              Ask a question <span aria-hidden="true">↗</span>
-            </a>
           </div>
         </div>
       </div>

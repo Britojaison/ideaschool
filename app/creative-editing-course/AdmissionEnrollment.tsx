@@ -45,16 +45,6 @@ export default function AdmissionEnrollment() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12 lg:p-20">
         <div className="w-full max-w-[640px] flex flex-col justify-center">
           <div className="mb-8">
-            <span
-              className="inline-block border rounded-full px-4 py-1.5 text-xs uppercase tracking-wider mb-4"
-              style={{
-                borderColor: "rgba(17,17,17,0.14)",
-                color: "#666666",
-                fontFamily: 'var(--font-stara), "Stara", sans-serif'
-              }}
-            >
-              Fees & Enrollment
-            </span>
             <h2
               className="text-3xl md:text-5xl uppercase m-0 leading-tight"
               style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}

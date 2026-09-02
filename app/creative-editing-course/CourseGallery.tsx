@@ -43,16 +43,8 @@ export default function CourseGallery() {
       subtitle={["STUDENT WORK", "CREATIVE EXCELLENCE"]}
       paragraphs={[
         [
-          "Explore the incredible work produced by our students.",
-          "From cinematic editing to high-end VFX, our gallery",
-          "showcases the diverse talent and creativity",
-          "fostered at IdeaSchool.",
-        ],
-        [
-          "We push boundaries in visual storytelling.",
-          "Every project is a testament to the rigorous",
-          "training and industry-standard tools our",
-          "students master during their time with us."
+          "Explore commercial editing, visual storytelling, and high-end VFX produced by our students.",
+          "Every project showcases rigorous craft, creative voice, and industry-standard training."
         ]
       ]}
       navEmail=""

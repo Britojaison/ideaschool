@@ -105,6 +105,18 @@ export default function CinematicHeroFlow({
     };
   }, []);
 
+  // Ensure DOM video element stays synchronized with isMuted state
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.muted !== isMuted) {
+      video.muted = isMuted;
+    }
+    if (!isMuted && video.volume === 0) {
+      video.volume = 1.0;
+    }
+  }, [isMuted]);
+
   // Video timeupdate handler
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
@@ -127,25 +139,26 @@ export default function CinematicHeroFlow({
     }
   };
 
-  // Mute / Unmute toggle - directly controls DOM video element
-  const toggleMute = (e?: React.MouseEvent) => {
+  // Mute / Unmute toggle - directly controls DOM video element without cancelling gesture
+  const toggleMute = (e?: React.MouseEvent | React.TouchEvent) => {
     if (e) {
-      e.preventDefault();
       e.stopPropagation();
     }
     const video = videoRef.current;
     if (!video) return;
 
-    const shouldUnmute = video.muted || video.volume === 0;
+    const shouldUnmute = isMuted || video.muted || video.volume === 0;
 
     if (shouldUnmute) {
       video.muted = false;
       video.volume = 1.0;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          console.warn("Video play error:", err);
-        });
+      if (video.paused) {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn("Video play error:", err);
+          });
+        }
       }
       setIsMuted(false);
       setIsPlaying(true);
@@ -196,12 +209,24 @@ export default function CinematicHeroFlow({
           anticipatePin: 1,
           refreshPriority: 10,
           onUpdate: (self) => {
-            if (self.progress > 0.25) {
-              if (directorLayerRef.current) directorLayerRef.current.style.pointerEvents = "auto";
-              if (heroLayerRef.current) heroLayerRef.current.style.pointerEvents = "none";
+            if (self.progress > 0.24) {
+              if (directorLayerRef.current) {
+                directorLayerRef.current.style.pointerEvents = "auto";
+                directorLayerRef.current.style.visibility = "visible";
+              }
+              if (heroLayerRef.current) {
+                heroLayerRef.current.style.pointerEvents = "none";
+                heroLayerRef.current.style.visibility = "hidden";
+              }
             } else {
-              if (directorLayerRef.current) directorLayerRef.current.style.pointerEvents = "none";
-              if (heroLayerRef.current) heroLayerRef.current.style.pointerEvents = "auto";
+              if (directorLayerRef.current) {
+                directorLayerRef.current.style.pointerEvents = "none";
+                directorLayerRef.current.style.visibility = "hidden";
+              }
+              if (heroLayerRef.current) {
+                heroLayerRef.current.style.pointerEvents = "auto";
+                heroLayerRef.current.style.visibility = "visible";
+              }
             }
           }
         }
@@ -210,41 +235,39 @@ export default function CinematicHeroFlow({
       ScrollTrigger.sort();
       ScrollTrigger.refresh();
 
-      // Initial state setup
-      gsap.set(heroLayerRef.current, { opacity: 1, y: 0, pointerEvents: "auto" });
-      gsap.set(directorLayerRef.current, { opacity: 1, visibility: "visible", pointerEvents: "none" });
+      // Initial state setup: Hero is fully visible; Director is hidden
+      gsap.set(heroLayerRef.current, { opacity: 1, y: 0, visibility: "visible", pointerEvents: "auto" });
+      gsap.set(directorLayerRef.current, { opacity: 0, visibility: "hidden", pointerEvents: "none" });
       gsap.set(directorBlackFadeRef.current, { opacity: 0 });
       gsap.set(fullBlackOverlayRef.current, { opacity: 0 });
 
-      // Second section initial offsets (deep initial translate for graceful upward drift)
-      gsap.set(giantLeftRef.current, { opacity: 0, y: 100 });
-      gsap.set(topRightTagsRef.current, { opacity: 0, y: 50 });
-      gsap.set(giantRightRef.current, { opacity: 0, y: 120 });
-      gsap.set(editorialBlockRef.current, { opacity: 0, y: 70 });
+      // Second section initial offsets
+      gsap.set(giantLeftRef.current, { opacity: 0, y: 40 });
+      gsap.set(topRightTagsRef.current, { opacity: 0, y: 20 });
+      gsap.set(giantRightRef.current, { opacity: 0, y: 40 });
+      gsap.set(editorialBlockRef.current, { opacity: 0, y: 40 });
 
       // =========================================================================
-      // CONTINUOUS BLENDED FLOW SEQUENCE (Identical on all viewports)
+      // CONTINUOUS BLENDED FLOW SEQUENCE (Strict non-overlapping phases)
       // =========================================================================
 
-      // 1. Hero Content fades out & floats up gently (0.00 -> 0.35)
-      tl.fromTo(heroLayerRef.current,
-        { opacity: 1, y: 0 },
+      // 1. Hero Content fades out & floats up gently (0.00 -> 0.22)
+      tl.to(heroLayerRef.current,
         {
           opacity: 0,
-          y: -80,
-          duration: 0.35,
-          ease: "power1.inOut",
+          y: -50,
+          duration: 0.22,
+          ease: "power2.inOut",
         },
         0
       );
 
-      // Hero bottom shade dissolves away
+      // Hero bottom shade dissolves away (0.00 -> 0.18)
       if (heroBottomShadeRef.current) {
-        tl.fromTo(heroBottomShadeRef.current,
-          { opacity: 1 },
+        tl.to(heroBottomShadeRef.current,
           {
             opacity: 0,
-            duration: 0.3,
+            duration: 0.18,
             ease: "power1.inOut"
           },
           0
@@ -258,69 +281,77 @@ export default function CinematicHeroFlow({
         ease: "none"
       }, 0);
 
-      // 2. Black gradient curtain rises smoothly from bottom (0.08 -> 0.55)
+      // 2. Black gradient curtain rises smoothly from bottom (0.18 -> 0.45)
       tl.fromTo(directorBlackFadeRef.current,
-        { opacity: 0, y: "30vh" },
+        { opacity: 0, y: "20vh" },
         {
           opacity: 1,
           y: 0,
-          duration: 0.45,
+          duration: 0.27,
           ease: "sine.inOut"
-        },
-        0.08
-      );
-
-      // 3. FIRST WAVE (Left & Right Giant Titles visibly rise UP: 0.16 -> 0.65)
-      tl.fromTo(giantLeftRef.current,
-        { opacity: 0, y: "60vh" },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.48,
-          ease: "power2.out"
-        },
-        0.16
-      );
-
-      tl.to(topRightTagsRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.42,
-        ease: "power1.out"
-      }, 0.22);
-
-      tl.fromTo(giantRightRef.current,
-        { opacity: 0, y: "75vh" },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.50,
-          ease: "power2.out"
         },
         0.18
       );
 
-      // 4. SECOND WAVE (Center Editorial text visibly rises UP: 0.52 -> 0.90)
-      tl.fromTo(editorialBlockRef.current,
-        { opacity: 0, y: "45vh" },
+      // Director layer activates cleanly at 0.24 (after Hero is completely gone)
+      tl.set(directorLayerRef.current, { visibility: "visible" }, 0.24);
+      tl.to(directorLayerRef.current, { opacity: 1, duration: 0.08 }, 0.24);
+
+      // 3. FIRST WAVE (Left & Right Giant Titles rise UP: 0.26 -> 0.54)
+      tl.fromTo(giantLeftRef.current,
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.38,
+          duration: 0.28,
           ease: "power2.out"
         },
-        0.52
+        0.26
       );
 
-      // 5. Final solid black immersion (0.78 -> 1.00)
+      tl.fromTo(topRightTagsRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.25,
+          ease: "power1.out"
+        },
+        0.28
+      );
+
+      tl.fromTo(giantRightRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.28,
+          ease: "power2.out"
+        },
+        0.28
+      );
+
+      // 4. SECOND WAVE (Center Editorial text visibly rises UP: 0.50 -> 0.80)
+      tl.fromTo(editorialBlockRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.30,
+          ease: "power2.out"
+        },
+        0.50
+      );
+
+      // 5. Final solid black immersion (0.85 -> 1.00)
       tl.fromTo(fullBlackOverlayRef.current,
         { opacity: 0 },
         {
           opacity: 1,
-          duration: 0.22,
+          duration: 0.15,
           ease: "sine.inOut"
         },
-        0.78
+        0.85
       );
 
       const refreshTimeout = setTimeout(() => {
@@ -405,7 +436,19 @@ export default function CinematicHeroFlow({
           </div>
 
           {/* Bottom Center Music / Sound Toggle Button */}
-          <div className={styles.bottomCenterMusic}>
+          <div
+            className={styles.bottomCenterMusic}
+            onClick={toggleMute}
+            role="button"
+            tabIndex={0}
+            aria-label={isMuted ? "Click to play sound" : "Mute sound"}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleMute();
+              }
+            }}
+          >
             {isMuted && (
               <div className={styles.musicPromptWrapper}>
                 <span className={styles.musicPromptText}>CLICK TO PLAY<br />THE SOUND</span>
@@ -426,8 +469,8 @@ export default function CinematicHeroFlow({
               onClick={togglePlay}
               aria-label={isPlaying ? "Pause video" : "Play video"}
             >
-              <span>{isPlaying ? "PLAY" : "PAUSE"}</span>
-              <span className={styles.playIcon}>{isPlaying ? "▶" : "❚❚"}</span>
+              <span>{isPlaying ? "PAUSE" : "PLAY"}</span>
+              <span className={styles.playIcon}>{isPlaying ? "❚❚" : "▶"}</span>
               <span className={styles.timecode}>{currentTimeFormatted}</span>
             </button>
 

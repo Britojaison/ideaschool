@@ -42,6 +42,12 @@ export default function LenisScroller({ children }: { children: React.ReactNode 
     gsap.ticker.add(update);
     gsap.ticker.lagSmoothing(500, 33);
 
+    // Ensure all ScrollTriggers are properly sorted and aligned with Lenis
+    requestAnimationFrame(() => {
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    });
+
     return () => {
       gsap.ticker.remove(update);
       window.removeEventListener("idea-scroll-to", handleProgrammaticScroll);

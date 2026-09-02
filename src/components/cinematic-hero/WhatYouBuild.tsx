@@ -50,12 +50,18 @@ export default function WhatYouBuild() {
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 769px)", () => {
-      const INTRO_HOLD_DURATION = 0.5;
-      const IMAGE_RESIZE_DURATION = 1.5;
+      const INTRO_HOLD_DURATION = 1;
+      const IMAGE_RESIZE_DURATION = 1.2;
+      const INTRO_READING_DURATION = 1.8;
+      const SLIDE_READING_DURATION = 2;
       const IMAGE_REVEAL_DURATION = 1;
-      const READING_HOLD_DURATION = 2;
       const FINAL_EXIT_HOLD_DURATION = 1;
       const textChangeTimes = [0];
+
+      // Initialize first image to 100% full width
+      if (imageRefs.current[0]) {
+        gsap.set(imageRefs.current[0], { width: "100%" });
+      }
 
       // Initialize subsequent images to be hidden below
       for (let i = 1; i < SLIDES.length; i++) {
@@ -70,6 +76,8 @@ export default function WhatYouBuild() {
           start: "top top",
           end: "bottom bottom",
           scrub: true,
+          invalidateOnRefresh: true,
+          refreshPriority: 1,
           onUpdate: (self) => {
             const timelineTime = self.progress * tl.duration();
             let newActive = 0;
@@ -86,43 +94,58 @@ export default function WhatYouBuild() {
         }
       });
 
-      // Give the introduction enough time to be read before the layout moves.
+      // 1. Hold on full-bleed image so user sees the initial full image
       tl.to({}, { duration: INTRO_HOLD_DURATION });
 
-      // Reveal the copy panel without changing the text during the movement.
+      // 2. Shrink first image from 100% to 50%, revealing the intro on the left
       if (imageRefs.current[0]) {
-        tl.to(imageRefs.current[0], {
-          width: "50%",
-          ease: "none",
-          duration: IMAGE_RESIZE_DURATION,
-        });
+        tl.fromTo(
+          imageRefs.current[0],
+          { width: "100%" },
+          {
+            width: "50%",
+            ease: "none",
+            duration: IMAGE_RESIZE_DURATION,
+          }
+        );
       }
 
-      // Show each piece of copy only once its matching image is fully in place,
-      // then pause long enough for it to be comfortably read.
-      textChangeTimes.push(tl.duration());
-      tl.to({}, { duration: READING_HOLD_DURATION });
+      // 3. Pause so the user can read the revealed intro ("WORK THAT SHOWS WHAT YOU CAN DO")
+      tl.to({}, { duration: INTRO_READING_DURATION });
 
+      // 4. ON NEXT SCROLL: Switch to Slide 0 ("Creative editing project output")
+      textChangeTimes.push(tl.duration());
+      tl.to({}, { duration: SLIDE_READING_DURATION });
+
+      // 5. Subsequent slides (1 through 4)
       for (let i = 1; i < SLIDES.length; i++) {
         if (imageRefs.current[i]) {
-          tl.to(imageRefs.current[i], {
-            yPercent: 0,
-            ease: "none",
-            duration: IMAGE_REVEAL_DURATION,
-          });
+          tl.fromTo(
+            imageRefs.current[i],
+            { yPercent: 100 },
+            {
+              yPercent: 0,
+              ease: "none",
+              duration: IMAGE_REVEAL_DURATION,
+            }
+          );
         }
 
         textChangeTimes.push(tl.duration());
         tl.to({}, {
           duration: i === SLIDES.length - 1
             ? FINAL_EXIT_HOLD_DURATION
-            : READING_HOLD_DURATION,
+            : SLIDE_READING_DURATION,
         });
       }
 
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+
       const refreshTimeout = setTimeout(() => {
+        ScrollTrigger.sort();
         ScrollTrigger.refresh();
-      }, 500);
+      }, 300);
 
       return () => {
         clearTimeout(refreshTimeout);
@@ -144,6 +167,7 @@ export default function WhatYouBuild() {
             ref={(el) => {
               imageRefs.current[index] = el;
             }}
+            style={index === 0 ? { width: "100%" } : undefined}
           >
             <Image
               src={slide.image}

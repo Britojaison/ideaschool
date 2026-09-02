@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   /* The pinned story needs room for each project to settle and be read. */
-  height: 800vh;
+  height: 950vh;
   background-color: #FBFAF2;
   color: #1a1a1a;
   z-index: 10;
@@ -36,7 +36,7 @@
   will-change: transform, width;
 }
 
-.imageWrapperFirst {
+.imageWrapper.imageWrapperFirst {
   width: 100%; /* Initial width for the first image */
   z-index: 1;
 }

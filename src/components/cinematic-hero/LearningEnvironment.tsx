@@ -8,31 +8,26 @@ const differenceCards = [
   {
     badge: "LEARNING",
     title: "Combine structured online foundations with guided physical sessions.",
-    description: "Online course: Watch lessons independently.",
     color: "#DAFD55",
   },
   {
     badge: "PRACTICE",
     title: "Work through assignments and professional-style briefs.",
-    description: "Online course: Follow tutorials and isolated exercises.",
     color: "#DAFD55",
   },
   {
     badge: "FEEDBACK",
     title: "Receive mentor reviews and clear revision direction.",
-    description: "Online course: Limited, delayed or automated.",
     color: "#DAFD55",
   },
   {
     badge: "ENVIRONMENT",
     title: "Learn alongside peers and working creative professionals.",
-    description: "Online course: Learn largely on your own.",
     color: "#DAFD55",
   },
   {
     badge: "OUTCOME",
     title: "Build stronger work, professional habits and portfolio confidence.",
-    description: "Online course: Understand the software.",
     color: "#DAFD55",
     wide: true,
   },
@@ -140,7 +135,6 @@ export default function LearningEnvironment() {
               >
                 <div className={styles.cardBadge}>{card.badge}</div>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
-                <p className={styles.cardDesc}>{card.description}</p>
               </div>
             ))}
           </div>

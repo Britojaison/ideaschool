@@ -194,6 +194,7 @@ export default function CinematicHeroFlow({
           pinSpacing: true,
           scrub: 1.0,
           anticipatePin: 1,
+          refreshPriority: 10,
           onUpdate: (self) => {
             if (self.progress > 0.25) {
               if (directorLayerRef.current) directorLayerRef.current.style.pointerEvents = "auto";
@@ -205,6 +206,9 @@ export default function CinematicHeroFlow({
           }
         }
       });
+
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
 
       // Initial state setup
       gsap.set(heroLayerRef.current, { opacity: 1, y: 0, pointerEvents: "auto" });

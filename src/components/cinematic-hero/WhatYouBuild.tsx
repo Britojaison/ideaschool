@@ -209,31 +209,33 @@ export default function WhatYouBuild() {
           </div>
         </div>
         
-        {SLIDES.map((slide, index) => (
-          <div key={`mobile-slide-${index}`} className={styles.mobileSlide}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                style={{ objectFit: "cover", objectPosition: "center" }}
-              />
+        <div className={styles.mobileGrid}>
+          {SLIDES.map((slide, index) => (
+            <div key={`mobile-slide-${index}`} className={styles.mobileSlide}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                />
+              </div>
+              <div className={styles.textBlock}>
+                {slide.step !== "00" && <span className={styles.stepNumber}>{slide.step}</span>}
+                <h4 className={styles.stepTitle}>
+                  <TextAnimation divideBy="word" delay={0.1}>
+                    {slide.title}
+                  </TextAnimation>
+                </h4>
+                <p className={styles.stepDesc}>
+                  <TextAnimation divideBy="word" delay={0.2}>
+                    {slide.description}
+                  </TextAnimation>
+                </p>
+              </div>
             </div>
-            <div className={styles.textBlock}>
-              {slide.step !== "00" && <span className={styles.stepNumber}>{slide.step}</span>}
-              <h4 className={styles.stepTitle}>
-                <TextAnimation divideBy="word" delay={0.1}>
-                  {slide.title}
-                </TextAnimation>
-              </h4>
-              <p className={styles.stepDesc}>
-                <TextAnimation divideBy="word" delay={0.2}>
-                  {slide.description}
-                </TextAnimation>
-              </p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

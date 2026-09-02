@@ -179,10 +179,39 @@
     font-size: 2rem;
   }
   
+  .mobileGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0 1rem 4rem;
+  }
+  
   .mobileSlide {
     display: flex;
     flex-direction: column;
-    margin-bottom: 4rem;
+    margin-bottom: 0;
+  }
+
+  .mobileSlide .imageWrapper {
+    height: 30vh; /* Reduced height since columns are narrower */
+  }
+
+  .mobileSlide .textBlock {
+    padding: 1rem 0; /* Reduced padding for grid item */
+  }
+
+  .mobileSlide .stepTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .mobileSlide .stepDesc {
+    font-size: 0.9rem;
+  }
+  
+  .mobileSlide .stepNumber {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   /* Desktop only containers */

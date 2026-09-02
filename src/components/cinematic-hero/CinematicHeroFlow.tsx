@@ -119,7 +119,7 @@ export default function CinematicHeroFlow({
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
-      video.play().catch(() => {});
+      video.play().catch(() => { });
       setIsPlaying(true);
     } else {
       video.pause();
@@ -374,10 +374,10 @@ export default function CinematicHeroFlow({
         {/* SECTION 1: HERO LAYER */}
         <div ref={heroLayerRef} className={styles.heroLayer}>
           <div className={styles.heroContent}>
-            <div className={styles.heroTagBadge}>24-WEEK VIDEO EDITING & CREATIVE AI PROGRAM</div>
-            <h1 className={styles.heroTitleFull}>EDITING IS JUST THE START.</h1>
+            <div className={styles.heroTagBadge}>WHY IDEA SCHOOL</div>
+            <h1 className={styles.heroTitleFull}>KNOWING THE SOFTWARE IS <span className={styles.heroTitleHighlight}>ONLY THE BEGINNING.</span></h1>
             <p className={styles.heroDescription}>
-              Build practical skills across editing, storytelling, motion design and Creative AI—then apply them through briefs, mentor feedback and portfolio projects.
+              Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. Idea School is designed to help you develop those capabilities not simply learn where the buttons are.
             </p>
             <div className={styles.heroCtaGroup}>
               <a href="#enrol" className={styles.primaryBtn}>APPLY NOW</a>
@@ -449,9 +449,8 @@ export default function CinematicHeroFlow({
                 return (
                   <span
                     key={i}
-                    className={`${styles.tick} ${isTall ? styles.tallTick : ""} ${
-                      isActive ? styles.activeTick : ""
-                    }`}
+                    className={`${styles.tick} ${isTall ? styles.tallTick : ""} ${isActive ? styles.activeTick : ""
+                      }`}
                   />
                 );
               })}

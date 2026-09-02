@@ -45,6 +45,15 @@
   display: block;
 }
 
+.heroTitleFull span {
+  display: block;
+}
+
+.heroTitleHighlight {
+  color: #DAFD55;
+  display: inline !important;
+}
+
 /* Hero Ambient Vignette */
 .videoOverlay {
   position: absolute;
@@ -487,8 +496,8 @@
   position: absolute;
   left: clamp(330px, 32vw, 470px);
   bottom: 8vh;
-  max-width: clamp(310px, 27vw, 420px);
-  font-size: clamp(1rem, 1.12vw, 1.2rem);
+  max-width: clamp(320px, 29vw, 450px);
+  font-size: clamp(1.05rem, 1.25vw, 1.45rem);
   line-height: 1.44;
   color: rgba(255, 255, 255, 0.78);
   font-weight: 300;

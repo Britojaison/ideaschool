@@ -95,18 +95,15 @@ export default function ProgramBrochure() {
 
             {/* Card Header */}
             <div className={styles.cardHeader}>
-              <span className={styles.cardOrgLabel}>IDEA SCHOOL // SYLLABUS DOSSIER</span>
+              <span className={styles.cardOrgLabel}>IDEA SCHOOL</span>
               <span className={styles.cardStatusPill}>2026 ROADMAP</span>
             </div>
 
             {/* Card Body */}
             <div className={styles.cardBody}>
               <h3 className={styles.cardTitle}>
-                Full Stack Video Editing & Creative AI Mastery
+                Build commercial editing craft, AI speed, and an agency portfolio in 24 weeks.
               </h3>
-              <p className={styles.cardSubtitle}>
-                A 24 week intensive studio led program engineered to build commercial grade editing craft, AI speed, and an agency level portfolio.
-              </p>
 
               {/* Timeline Breakdown Preview */}
               <div className={styles.timelineRows}>

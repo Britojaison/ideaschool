@@ -80,98 +80,126 @@
   text-transform: uppercase;
 }
 
-.featuresGrid {
+.comparisonTable {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.gridCard {
-  position: relative;
-  background: transparent;
-  padding: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.gridCard::before {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  content: "";
-  background: #080808;
-}
-
-.gridCard > * {
-  position: relative;
-  z-index: 3;
-}
-
-.gridCardWide {
-  grid-column: span 2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  overflow: hidden;
 }
 
 .gridHighlight {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 0;
   height: 0;
   pointer-events: none;
+  background-color: #DAFD55;
   background-image:
     radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.32), transparent 52%),
     linear-gradient(180deg, transparent 48%, rgba(77, 91, 10, 0.18));
   transition-property: transform, width, height, background-color;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   will-change: transform, width, height;
 }
 
-.cardBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+.comparisonHeaderRow {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerColLeft {
+  padding: 3rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerColRight {
+  padding: 3rem;
+}
+
+.headerTitleLeft {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.headerTitleRight {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
   color: #DAFD55;
-  width: fit-content;
-  transition: color 200ms ease, border-color 200ms ease;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
-.cardTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #fff;
-  margin-top: 1rem;
+.comparisonRow {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparisonRow:last-child {
+  border-bottom: none;
+}
+
+.cellLeft,
+.cellRight {
+  position: relative;
+  padding: 2.75rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  cursor: pointer;
+}
+
+.cellLeft {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cellLeft > *,
+.cellRight > * {
+  position: relative;
+  z-index: 3;
+}
+
+.cellLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
   transition: color 200ms ease;
 }
 
-.cardDesc {
-  font-size: 0.9rem;
+.cellLeft .cellText {
+  font-size: 1.0625rem;
+  line-height: 1.5;
   color: #A0AAB2;
-  line-height: 1.6;
+  margin: 0;
   transition: color 200ms ease;
 }
 
-.gridCardActive .cardBadge,
-.gridCardActive .cardTitle {
-  color: #080808;
+.cellRight .cellText {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: #E2E8F0;
+  margin: 0;
+  transition: color 200ms ease;
 }
 
-.gridCardActive .cardBadge {
-  border-color: rgba(8, 8, 8, 0.38);
-}
-
-.gridCardActive .cardDesc {
-  color: rgba(8, 8, 8, 0.68);
+/* Active Highlight State */
+.cellActive .cellLabel,
+.cellActive .cellText {
+  color: #080808 !important;
 }
 
 .principlesList {
@@ -214,12 +242,23 @@
     padding-top: 0;
   }
 
-  .featuresGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .headerColLeft,
+  .headerColRight {
+    padding: 2rem 1.5rem;
   }
 
-  .gridCard {
-    padding: 1.5rem;
+  .cellLeft,
+  .cellRight {
+    padding: 2rem 1.5rem;
+  }
+
+  .headerTitleLeft,
+  .headerTitleRight {
+    font-size: 1.35rem;
+  }
+
+  .cellText {
+    font-size: 0.95rem;
   }
 
   .principleRow {
@@ -229,23 +268,28 @@
   }
 }
 
-@media (max-width: 600px) {
-  .gridCard {
-    padding: 1.25rem;
+@media (max-width: 640px) {
+  .headerColLeft,
+  .headerColRight {
+    padding: 1.5rem 1rem;
   }
-  
-  .cardTitle {
-    font-size: 0.95rem;
-    line-height: 1.3;
+
+  .cellLeft,
+  .cellRight {
+    padding: 1.5rem 1rem;
   }
-  
-  .cardDesc {
-    font-size: 0.8rem;
+
+  .headerTitleLeft,
+  .headerTitleRight {
+    font-size: 1.15rem;
   }
-  
-  .cardBadge {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.5rem;
+
+  .cellLabel {
+    font-size: 0.6875rem;
+  }
+
+  .cellText {
+    font-size: 0.875rem;
   }
 }
 

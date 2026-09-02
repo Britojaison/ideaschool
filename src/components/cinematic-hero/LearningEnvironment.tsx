@@ -4,66 +4,70 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./LearningEnvironment.module.css";
 import ScrollHighlight from "../ui/ScrollHighlight";
 
-const differenceCards = [
+const comparisonData = [
   {
-    badge: "LEARNING",
-    title: "Combine structured online foundations with guided physical sessions.",
-    color: "#DAFD55",
+    category: "LEARNING",
+    online: "Watch lessons independently.",
+    ideaSchool: "Combine structured online foundations with guided physical sessions.",
   },
   {
-    badge: "PRACTICE",
-    title: "Work through assignments and professional-style briefs.",
-    color: "#DAFD55",
+    category: "PRACTICE",
+    online: "Follow tutorials and isolated exercises.",
+    ideaSchool: "Work through assignments and professional-style briefs.",
   },
   {
-    badge: "FEEDBACK",
-    title: "Receive mentor reviews and clear revision direction.",
-    color: "#DAFD55",
+    category: "FEEDBACK",
+    online: "Limited, delayed or automated.",
+    ideaSchool: "Receive mentor reviews and clear revision direction.",
   },
   {
-    badge: "ENVIRONMENT",
-    title: "Learn alongside peers and working creative professionals.",
-    color: "#DAFD55",
+    category: "ENVIRONMENT",
+    online: "Learn largely on your own.",
+    ideaSchool: "Learn alongside peers and working creative professionals.",
   },
   {
-    badge: "OUTCOME",
-    title: "Build stronger work, professional habits and portfolio confidence.",
-    color: "#DAFD55",
-    wide: true,
+    category: "OUTCOME",
+    online: "Understand the software.",
+    ideaSchool: "Build stronger work, professional habits and portfolio confidence.",
   },
 ];
 
 export default function LearningEnvironment() {
-  const gridRef = useRef<HTMLDivElement>(null);
+  const tableRef = useRef<HTMLDivElement>(null);
   const highlightRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
-  const activeRef = useRef(0);
-  const [activeCard, setActiveCard] = useState(0);
+  const cellRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const activeRef = useRef(5); // Default to FEEDBACK on Idea School side
+  const [activeCell, setActiveCell] = useState(5);
 
   const moveHighlight = useCallback((index: number, animate = true) => {
-    const grid = gridRef.current;
+    const table = tableRef.current;
     const highlight = highlightRef.current;
-    const card = cardRefs.current.get(index);
-    if (!grid || !highlight || !card) return;
+    const cell = cellRefs.current.get(index);
+    if (!table || !highlight || !cell) return;
 
-    const gridRect = grid.getBoundingClientRect();
-    const cardRect = card.getBoundingClientRect();
+    const tableRect = table.getBoundingClientRect();
+    const cellRect = cell.getBoundingClientRect();
     highlight.style.transitionDuration = animate ? "250ms" : "0ms";
-    highlight.style.transform = `translate3d(${cardRect.left - gridRect.left}px, ${cardRect.top - gridRect.top}px, 0)`;
-    highlight.style.width = `${cardRect.width}px`;
-    highlight.style.height = `${cardRect.height}px`;
-    highlight.style.backgroundColor = differenceCards[index].color;
+    highlight.style.transform = `translate3d(${cellRect.left - tableRect.left}px, ${cellRect.top - tableRect.top}px, 0)`;
+    highlight.style.width = `${cellRect.width}px`;
+    highlight.style.height = `${cellRect.height}px`;
+    highlight.style.backgroundColor = "#DAFD55";
     activeRef.current = index;
   }, []);
 
   useEffect(() => {
-    moveHighlight(0, false);
+    moveHighlight(activeRef.current, false);
+    const timer = setTimeout(() => {
+      moveHighlight(activeRef.current, false);
+    }, 50);
+
     const alignHighlight = () => moveHighlight(activeRef.current, false);
     const observer = new ResizeObserver(alignHighlight);
-    if (gridRef.current) observer.observe(gridRef.current);
+    if (tableRef.current) observer.observe(tableRef.current);
     window.addEventListener("resize", alignHighlight);
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect();
       window.removeEventListener("resize", alignHighlight);
     };
@@ -113,31 +117,58 @@ export default function LearningEnvironment() {
           </div>
         </div>
 
-        <div className={styles.sectionGroup}>
-          <div className={styles.sectionTitle}>
-            THE DIFFERENCE
+        <div className={styles.comparisonTable} ref={tableRef}>
+          <div ref={highlightRef} className={styles.gridHighlight} aria-hidden="true" />
+
+          {/* Header Row */}
+          <div className={styles.comparisonHeaderRow}>
+            <div className={styles.headerColLeft}>
+              <h3 className={styles.headerTitleLeft}>Self-paced online course</h3>
+            </div>
+            <div className={styles.headerColRight}>
+              <h3 className={styles.headerTitleRight}>Idea School</h3>
+            </div>
           </div>
-          
-          <div className={styles.featuresGrid} ref={gridRef}>
-            <div ref={highlightRef} className={styles.gridHighlight} aria-hidden="true" />
-            {differenceCards.map((card, index) => (
-              <div
-                key={card.badge}
-                ref={(element) => {
-                  if (element) cardRefs.current.set(index, element);
-                  else cardRefs.current.delete(index);
-                }}
-                className={`${styles.gridCard}${card.wide ? ` ${styles.gridCardWide}` : ""}${activeCard === index ? ` ${styles.gridCardActive}` : ""}`}
-                onPointerEnter={() => {
-                  setActiveCard(index);
-                  moveHighlight(index);
-                }}
-              >
-                <div className={styles.cardBadge}>{card.badge}</div>
-                <h3 className={styles.cardTitle}>{card.title}</h3>
+
+          {/* Comparison Rows */}
+          {comparisonData.map((row, rowIdx) => {
+            const leftIndex = rowIdx * 2;
+            const rightIndex = rowIdx * 2 + 1;
+
+            return (
+              <div key={row.category} className={styles.comparisonRow}>
+                <div
+                  ref={(element) => {
+                    if (element) cellRefs.current.set(leftIndex, element);
+                    else cellRefs.current.delete(leftIndex);
+                  }}
+                  className={`${styles.cellLeft}${activeCell === leftIndex ? ` ${styles.cellActive}` : ""}`}
+                  onPointerEnter={() => {
+                    setActiveCell(leftIndex);
+                    moveHighlight(leftIndex);
+                  }}
+                >
+                  <div className={styles.cellLabel}>{row.category}</div>
+                  <p className={styles.cellText}>{row.online}</p>
+                </div>
+
+                <div
+                  ref={(element) => {
+                    if (element) cellRefs.current.set(rightIndex, element);
+                    else cellRefs.current.delete(rightIndex);
+                  }}
+                  className={`${styles.cellRight}${activeCell === rightIndex ? ` ${styles.cellActive}` : ""}`}
+                  onPointerEnter={() => {
+                    setActiveCell(rightIndex);
+                    moveHighlight(rightIndex);
+                  }}
+                >
+                  <div className={styles.cellLabel}>{row.category}</div>
+                  <p className={styles.cellText}>{row.ideaSchool}</p>
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
         <div className={styles.sectionGroup}>

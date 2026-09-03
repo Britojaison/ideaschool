@@ -146,16 +146,16 @@
 .cursorWord {
   display: inline-block;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #000000;
   text-shadow: 
-    0 0 14px rgba(255, 255, 255, 0.95),
-    0 0 4px #ffffff,
-    0 1px 3px rgba(255, 255, 255, 0.9);
-  transform: translate(16px, 16px) scale(0.8);
+    0 0 10px rgba(255, 255, 255, 0.95),
+    0 0 3px #ffffff,
+    0 1px 2px rgba(255, 255, 255, 0.9);
+  transform: translate(14px, 14px) scale(0.8);
   opacity: 0;
   transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
@@ -165,7 +165,7 @@
 
 .cursorFollowerActive .cursorWord {
   opacity: 1;
-  transform: translate(16px, 16px) scale(1);
+  transform: translate(14px, 14px) scale(1);
 }
 
 @media (pointer: coarse) {

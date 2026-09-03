@@ -51,7 +51,6 @@ export default function WhoItIsFor() {
   return (
     <section className={styles.section} data-header-theme="light">
       <div className={styles.introGrid}>
-        <div className={styles.eyebrow}>WHO IT IS FOR</div>
         <h2 className={styles.title}>SERIOUS ABOUT BUILDING A CREATIVE CAREER?</h2>
       </div>
 

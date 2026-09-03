@@ -6,9 +6,7 @@
 }
 
 .introGrid {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.55fr) 1.45fr;
-  gap: 40px;
+  display: block;
   padding-bottom: clamp(64px, 8vw, 120px);
 }
 

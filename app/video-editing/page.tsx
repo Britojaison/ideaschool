@@ -542,7 +542,13 @@ export default function ApplyPage() {
         <span className="programBatchBadge">New Batch</span>
         <p>HIGH-PAYING VIDEO EDITING</p>
         <div className="programBatchAction">
-          <a className="programBatchCta" href="#enroll">
+          <a
+            className="programBatchCta programBatchCtaVideoEditing"
+            href={razorpayPaymentLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book your video editing workshop seat with Razorpay"
+          >
             Book seat now
           </a>
           <span className="programBatchSeats">Only 2 seats Left</span>

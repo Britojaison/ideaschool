@@ -338,7 +338,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>August 1</dd>
+              <dd>To be announced soon</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>

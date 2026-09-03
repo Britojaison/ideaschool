@@ -539,7 +539,7 @@ export default function ApplyPage() {
       </section>
 
       <div className="programBatchStrip" aria-label="Workshop batch announcement">
-        <span className="programBatchBadge">New Batch</span>
+        <span className="programBatchBadge programBatchBadgeVideoEditing">New Batch</span>
         <p>HIGH-PAYING VIDEO EDITING</p>
         <div className="programBatchAction">
           <a

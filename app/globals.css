@@ -11708,7 +11708,8 @@ html.isHeroGlassCursorActive .hero * {
     font-size: clamp(9px, 2.55vw, 12px);
   }
 
-  .programBatchCtaVideoEditing {
+  .programBatchCtaVideoEditing,
+  .programBatchBadgeVideoEditing {
     min-height: 44px;
     padding-inline: clamp(16px, 4vw, 22px);
     border-radius: 10px;

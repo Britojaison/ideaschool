@@ -98,9 +98,6 @@
   height: 0;
   pointer-events: none;
   background-color: #DAFD55;
-  background-image:
-    radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.32), transparent 52%),
-    linear-gradient(180deg, transparent 48%, rgba(77, 91, 10, 0.18));
   transition-property: transform, width, height, background-color;
   transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   will-change: transform, width, height;
@@ -126,7 +123,7 @@
 .headerTitleLeft {
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
-  color: #ffffff;
+  color: #7B4EE4;
   margin: 0;
   letter-spacing: -0.01em;
 }
@@ -197,9 +194,17 @@
 }
 
 /* Active Highlight State */
-.cellActive .cellLabel,
-.cellActive .cellText {
+.cellRight.cellActive .cellLabel,
+.cellRight.cellActive .cellText {
   color: #080808 !important;
+}
+
+.cellLeft.cellActive .cellLabel {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.cellLeft.cellActive .cellText {
+  color: #ffffff !important;
 }
 
 .principlesList {

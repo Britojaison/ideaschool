@@ -45,13 +45,15 @@ export default function LearningEnvironment() {
     const cell = cellRefs.current.get(index);
     if (!table || !highlight || !cell) return;
 
+    const isLeft = index % 2 === 0;
+
     const tableRect = table.getBoundingClientRect();
     const cellRect = cell.getBoundingClientRect();
     highlight.style.transitionDuration = animate ? "250ms" : "0ms";
     highlight.style.transform = `translate3d(${cellRect.left - tableRect.left}px, ${cellRect.top - tableRect.top}px, 0)`;
     highlight.style.width = `${cellRect.width}px`;
     highlight.style.height = `${cellRect.height}px`;
-    highlight.style.backgroundColor = "#DAFD55";
+    highlight.style.backgroundColor = isLeft ? "#552EAD" : "#DAFD55";
     activeRef.current = index;
   }, []);
 

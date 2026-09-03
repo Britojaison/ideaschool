@@ -15,7 +15,6 @@ export default function MentorsDiagonal() {
       <div className="mentorSectionHeading">
         <p>Mentors</p>
         <h2>Learn With People Who Work Inside The Industry.</h2>
-        <span className="mentorSectionDesc">Your learning is guided by creative professionals from the 88GB ecosystem.</span>
       </div>
       <div className="mentorDiagonalCarousel">
         <DiagonalCarousel

@@ -24,7 +24,7 @@ const STEPS: StepItem[] = [
     index: "EDITING",
     name: "PROFESSIONAL VIDEO EDITING",
     description:
-      "PREMIERE PRO WORKFLOWS, RHYTHM, PACING, CAPTIONS, SOUND, COLOUR, EXPORTS AND EFFICIENT PROJECT ORGANISATION.",
+      "Premiere Pro workflows, rhythm, pacing, captions, sound, colour, exports and efficient project organisation.",
     side: "left"
   },
   {
@@ -32,7 +32,7 @@ const STEPS: StepItem[] = [
     index: "STORY",
     name: "STORY AND VISUAL THINKING",
     description:
-      "STRUCTURE CONTENT, BUILD ATTENTION, TRANSLATE BRIEFS INTO VISUAL NARRATIVES AND MAKE STRONGER CREATIVE DECISIONS.",
+      "Structure content, build attention, translate briefs into visual narratives and make stronger creative decisions.",
     side: "right"
   },
   {
@@ -40,7 +40,7 @@ const STEPS: StepItem[] = [
     index: "MOTION",
     name: "MOTION AND VISUAL DESIGN",
     description:
-      "TYPOGRAPHY, ANIMATION, COMPOSITING, TRACKING, MASKING AND VISUAL TREATMENTS THAT SUPPORT THE IDEA.",
+      "Typography, animation, compositing, tracking, masking and visual treatments that support the idea.",
     side: "left"
   },
   {
@@ -48,7 +48,7 @@ const STEPS: StepItem[] = [
     index: "AI",
     name: "CREATIVE AI AND MODERN PRODUCTION",
     description:
-      "USE CONTEMPORARY AI TOOLS FOR IDEATION, IMAGE AND VIDEO DEVELOPMENT, REPURPOSING AND PRODUCTION EFFICIENCY.",
+      "Use contemporary AI tools for ideation, image and video development, repurposing and production efficiency.",
     side: "right"
   }
 ];
@@ -395,7 +395,6 @@ export default function FullCreativeControl() {
           <div ref={headerRef} className={styles.headerCopy}>
             <p className={styles.eyebrow}>WHAT YOU LEARN</p>
             <h2 className={styles.title}>BUILD CAPABILITY ACROSS THE CREATIVE PROCESS.</h2>
-            <p className={styles.subtitle}>Video editing remains the core skill. The surrounding capabilities help you contribute to more than just the edit.</p>
           </div>
 
           {/* Right: 3D Floating Magnetic Camera */}

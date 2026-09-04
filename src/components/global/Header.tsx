@@ -29,8 +29,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
 
   useEffect(() => {
     setMounted(true);
@@ -110,22 +109,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
     };
   }, []);
 
-  const handleMouseEnter = (name: string) => {
-    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
-    setActiveDropdown(name);
-  };
 
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 150);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
-    };
-  }, []);
 
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
 
@@ -150,7 +134,6 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
   }, [menuOpen]);
 
   const closeAll = () => {
-    setActiveDropdown(null);
     setMenuOpen(false);
     setExpandedMobile(null);
   };
@@ -178,231 +161,29 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             className={styles.navMark}
             priority
           />
-
-          {/* Schools Dropdown */}
-          <div
-            className={styles.navItem}
-            onMouseEnter={() => handleMouseEnter("schools")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link
-              href="/visual-school"
-              className={`${styles.navLink} ${
-                activeDropdown === "schools" ? styles.navLinkActive : ""
-              }`}
-            >
-              <span>Schools</span>
-              <svg
-                className={`${styles.chevron} ${
-                  activeDropdown === "schools" ? styles.chevronOpen : ""
-                }`}
-                width="8"
-                height="5"
-                viewBox="0 0 8 5"
-                fill="none"
-              >
-                <path
-                  d="M1 1L4 4L7 1"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-
-            <div
-              className={`${styles.dropdown} ${
-                activeDropdown === "schools" ? styles.dropdownOpen : ""
-              }`}
-            >
-              <div className={styles.dropdownInner}>
-                <div className={styles.dropdownHeader}>
-                  <span>ACADEMIC SCHOOLS</span>
-                </div>
-                <div className={styles.schoolList}>
-                  <Link
-                    href="/visual-school"
-                    className={styles.schoolItem}
-                    onClick={closeAll}
-                  >
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>
-                        Visual School
-                      </span>
-                      <span className={styles.schoolItemDesc}>
-                        Editing, motion design & AI cinema
-                      </span>
-                    </div>
-                    <span className={styles.activeBadge}>Active</span>
-                  </Link>
-
-                  <div className={`${styles.schoolItem} ${styles.disabledItem}`}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>Tech School</span>
-                      <span className={styles.schoolItemDesc}>
-                        AI systems, agentic workflows & software
-                      </span>
-                    </div>
-                    <span className={styles.soonBadge}>Coming Soon</span>
-                  </div>
-
-                  <div className={`${styles.schoolItem} ${styles.disabledItem}`}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>
-                        Marketing School
-                      </span>
-                      <span className={styles.schoolItemDesc}>
-                        Creative direction, branding & growth
-                      </span>
-                    </div>
-                    <span className={styles.soonBadge}>Coming Soon</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Full Course Dropdown */}
-          <div
-            className={styles.navItem}
-            onMouseEnter={() => handleMouseEnter("courses")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              type="button"
-              className={`${styles.navLink} ${styles.navButton} ${
-                activeDropdown === "courses" ? styles.navLinkActive : ""
-              }`}
-              onClick={() =>
-                setActiveDropdown(activeDropdown === "courses" ? null : "courses")
-              }
-            >
-              <span>Full Course</span>
-              <svg
-                className={`${styles.chevron} ${
-                  activeDropdown === "courses" ? styles.chevronOpen : ""
-                }`}
-                width="8"
-                height="5"
-                viewBox="0 0 8 5"
-                fill="none"
-              >
-                <path
-                  d="M1 1L4 4L7 1"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-
-            <div
-              className={`${styles.dropdown} ${styles.courseDropdown} ${
-                activeDropdown === "courses" ? styles.dropdownOpen : ""
-              }`}
-            >
-              <div className={styles.dropdownHeader}>
-                <span>FULL-TIME CAREER COURSE · 24 WEEKS</span>
-              </div>
-              <Link
-                href="/creative-editing-course"
-                className={styles.flagshipCard}
-                onClick={closeAll}
-              >
-                <div className={styles.flagshipTop}>
-                  <span className={styles.flagshipBadge}>Visual School</span>
-                  <span className={styles.flagshipArrow}>↗</span>
-                </div>
-                <h4 className={styles.flagshipTitle}>Creative Editing & AI Pro</h4>
-                <p className={styles.flagshipDesc}>
-                  Complete career course in editing, motion design, storytelling,
-                  and AI filmmaking.
-                </p>
-              </Link>
-            </div>
-          </div>
-
-          {/* Short Workshops Dropdown */}
-          <div
-            className={styles.navItem}
-            onMouseEnter={() => handleMouseEnter("workshops")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              type="button"
-              className={`${styles.navLink} ${styles.navButton} ${
-                activeDropdown === "workshops" ? styles.navLinkActive : ""
-              }`}
-              onClick={() =>
-                setActiveDropdown(activeDropdown === "workshops" ? null : "workshops")
-              }
-            >
-              <span>Workshops</span>
-              <svg
-                className={`${styles.chevron} ${
-                  activeDropdown === "workshops" ? styles.chevronOpen : ""
-                }`}
-                width="8"
-                height="5"
-                viewBox="0 0 8 5"
-                fill="none"
-              >
-                <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-
-            <div className={`${styles.dropdown} ${styles.workshopsDropdown} ${
-              activeDropdown === "workshops" ? styles.dropdownOpen : ""
-            }`}>
-              <div className={styles.dropdownHeader}>
-                <span>FOCUSED, HANDS-ON CLASSES · 1–2 DAYS</span>
-              </div>
-              <div className={styles.workshopList}>
-                <Link href="/ad-film-making" className={styles.workshopItem} onClick={closeAll}>
-                  <div className={styles.workshopInfo}>
-                    <span className={styles.workshopTitle}>AI Ad Film Making</span>
-                    <span className={styles.workshopSub}>Weekend · Offline Workshop</span>
-                  </div>
-                  <span className={styles.linkArrow}>↗</span>
-                </Link>
-
-                <Link href="/video-editing" className={styles.workshopItem} onClick={closeAll}>
-                  <div className={styles.workshopInfo}>
-                    <span className={styles.workshopTitle}>High-Paying Video Editing</span>
-                    <span className={styles.workshopSub}>1 Day · Offline Workshop</span>
-                  </div>
-                  <span className={styles.linkArrow}>↗</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Community */}
-          <a
-            href="https://www.instagram.com/ideaschool.pro/"
-            className={styles.navLink}
-            target="_blank"
-            rel="noreferrer"
-            onClick={closeAll}
-          >
-            Community
-          </a>
+          <Link href="/about" className={styles.navLink} onClick={closeAll}>
+            The Idea
+          </Link>
+          <Link href="/schools" className={styles.navLink} onClick={closeAll}>
+            Schools
+          </Link>
+          <Link href="/how-it-works" className={styles.navLink} onClick={closeAll}>
+            How It Works
+          </Link>
+          <Link href="/visual-school" className={styles.navLink} onClick={closeAll}>
+            Visual School
+          </Link>
         </nav>
 
         {/* Actions */}
         <div className={styles.actions}>
-          <Link href="/about" className={styles.actionLink} onClick={closeAll}>
-            About
-          </Link>
-          <button
-            className={styles.apply}
-            type="button"
-            onClick={() => window.dispatchEvent(new Event("open-home-form"))}
+          <Link
+            href="/visual-school"
+            className={styles.exploreBtn}
+            onClick={closeAll}
           >
-            Apply now
-          </button>
+            Explore Visual School
+          </Link>
           <button
             className={`${styles.menuToggle} ${
               menuOpen ? styles.menuToggleOpen : ""

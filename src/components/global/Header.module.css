@@ -574,6 +574,37 @@
   transform: translateY(-2px);
 }
 
+.exploreBtn,
+.exploreBtn:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #DAFD55;
+  color: #0a0a0a;
+  font-family: var(--font-helvetica);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0 24px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exploreBtn:hover {
+  background: #c5e744;
+  transform: translateY(-2px);
+}
+
+.headerScrolled .exploreBtn {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 11.5px;
+}
+
 .menuToggle {
   display: none;
 }

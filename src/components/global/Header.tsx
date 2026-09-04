@@ -161,7 +161,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             className={styles.navMark}
             priority
           />
-          <Link href="/about" className={styles.navLink} onClick={closeAll}>
+          <Link href="/#the-idea" className={styles.navLink} onClick={closeAll}>
             The Idea
           </Link>
           <Link href="/schools" className={styles.navLink} onClick={closeAll}>

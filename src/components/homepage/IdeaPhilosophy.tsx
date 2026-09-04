@@ -67,7 +67,7 @@ export default function IdeaPhilosophy() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-labelledby="idea-philosophy-title">
+    <section id="the-idea" ref={sectionRef} className={styles.section} aria-labelledby="idea-philosophy-title">
       <div className="container">
         <div className={styles.heading}>
           <div>

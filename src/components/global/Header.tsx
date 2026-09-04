@@ -177,13 +177,13 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
 
         {/* Actions */}
         <div className={styles.actions}>
-          <Link
-            href="/visual-school"
-            className={styles.exploreBtn}
-            onClick={closeAll}
+          <button
+            className={styles.apply}
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("open-home-form"))}
           >
-            Explore Visual School
-          </Link>
+            Apply now
+          </button>
           <button
             className={`${styles.menuToggle} ${
               menuOpen ? styles.menuToggleOpen : ""

@@ -169,7 +169,7 @@ export default function Home() {
                 sizes="(max-width: 640px) 40vw, 18vw"
                 priority
               />
-              <figcaption>Visual storytelling</figcaption>
+              <figcaption>CREATIVE</figcaption>
             </figure>
             <div
               className={`${styles.handwrittenNote} ${styles.noteVisual} gsap-note-1`}
@@ -208,7 +208,7 @@ export default function Home() {
                 sizes="(max-width: 640px) 40vw, 18vw"
                 priority
               />
-              <figcaption>Creative direction</figcaption>
+              <figcaption>TECHNOLOGY</figcaption>
             </figure>
             <div
               className={`${styles.handwrittenNote} ${styles.noteCreative} gsap-note-2`}
@@ -247,7 +247,7 @@ export default function Home() {
                 sizes="(max-width: 640px) 40vw, 18vw"
                 priority
               />
-              <figcaption>Marketing</figcaption>
+              <figcaption>MARKETING</figcaption>
             </figure>
             <div
               className={`${styles.handwrittenNote} ${styles.noteMarketing} gsap-note-3`}
@@ -296,7 +296,7 @@ export default function Home() {
                     }
                     priority
                   />
-                  <figcaption>Visual storytelling</figcaption>
+                  <figcaption>CREATIVE</figcaption>
                 </figure>,
                 <figure
                   className={styles.mobileCarouselCard}
@@ -310,7 +310,7 @@ export default function Home() {
                     }
                     priority
                   />
-                  <figcaption>Creative direction</figcaption>
+                  <figcaption>TECHNOLOGY</figcaption>
                 </figure>,
                 <figure
                   className={styles.mobileCarouselCard}
@@ -322,7 +322,7 @@ export default function Home() {
                     alt={set === 0 ? "Marketing project" : ""}
                     priority
                   />
-                  <figcaption>Marketing</figcaption>
+                  <figcaption>MARKETING</figcaption>
                 </figure>,
               ])}
             </div>

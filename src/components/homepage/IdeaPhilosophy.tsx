@@ -73,7 +73,7 @@ export default function IdeaPhilosophy() {
           <div>
             <h2 id="idea-philosophy-title">The IDEA<br />Philosophy</h2>
           </div>
-          <p className={styles.intro}>Everything we build is rooted in four foundational pillars.</p>
+          <p className={styles.intro}>Every strong idea needs more than execution.</p>
         </div>
       </div>
       <div className={styles.pillars}>

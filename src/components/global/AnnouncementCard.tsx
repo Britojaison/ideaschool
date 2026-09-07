@@ -68,7 +68,7 @@ export default function AnnouncementCard() {
         </div>
 
         <div className={styles.content}>
-          <span className={styles.eyebrow}>Live workshop · August 16–17</span>
+          <span className={styles.eyebrow}>Live workshop</span>
           <h2>Master the craft<br />of video editing.</h2>
           <Link
             className={styles.cta}

@@ -202,9 +202,47 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
           <Link href="/how-it-works" className={styles.navLink} onClick={closeAll}>
             How It Works
           </Link>
-          <Link href="/visual-school" className={styles.navLink} onClick={closeAll}>
-            Visual School
-          </Link>
+          <div 
+            className={styles.navItem}
+            onMouseEnter={() => setActiveDropdown("visual-school")}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <Link href="/visual-school" className={styles.navLink} onClick={closeAll}>
+              Visual School
+            </Link>
+            <div className={`${styles.dropdown} ${activeDropdown === "visual-school" ? styles.dropdownOpen : ""}`} style={{ minWidth: "340px" }}>
+              <div className={styles.dropdownInner}>
+                <div className={styles.dropdownHeader}>Visual School Programs</div>
+                <div className={styles.schoolList}>
+                  <Link href="/creative-editing-course" className={styles.schoolItem} onClick={closeAll}>
+                    <div className={styles.schoolItemInfo}>
+                      <span className={styles.schoolItemTitle}>Creative Editing &amp; AI Pro</span>
+                      <span className={styles.schoolItemDesc}>24 Weeks · Flagship Program</span>
+                    </div>
+                    <span className={styles.activeBadge}>Full Course</span>
+                  </Link>
+                  <Link href="/master-video-editing" className={styles.schoolItem} onClick={closeAll}>
+                    <div className={styles.schoolItemInfo}>
+                      <span className={styles.schoolItemTitle}>Master Video Editing</span>
+                      <span className={styles.schoolItemDesc}>2 Days · Offline Workshop</span>
+                    </div>
+                  </Link>
+                  <Link href="/video-editing" className={styles.schoolItem} onClick={closeAll}>
+                    <div className={styles.schoolItemInfo}>
+                      <span className={styles.schoolItemTitle}>Video Editing</span>
+                      <span className={styles.schoolItemDesc}>1 Day · Offline Workshop</span>
+                    </div>
+                  </Link>
+                  <Link href="/ad-film-making" className={styles.schoolItem} onClick={closeAll}>
+                    <div className={styles.schoolItemInfo}>
+                      <span className={styles.schoolItemTitle}>AI Ad Film Making</span>
+                      <span className={styles.schoolItemDesc}>Weekend · Offline Workshop</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </nav>
 
         {/* Actions */}
@@ -356,9 +394,16 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                         </div>
                         <span className={styles.mobileSubArrow}>↗</span>
                       </Link>
+                      <Link href="/master-video-editing" className={styles.mobileSubItem} onClick={closeAll}>
+                        <div className={styles.mobileSubItemInfo}>
+                          <span className={styles.mobileSubItemTitle}>Master Video Editing</span>
+                          <span className={styles.mobileSubItemDesc}>2 Days · Offline Workshop</span>
+                        </div>
+                        <span className={styles.mobileSubArrow}>↗</span>
+                      </Link>
                       <Link href="/video-editing" className={styles.mobileSubItem} onClick={closeAll}>
                         <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>High-Paying Video Editing</span>
+                          <span className={styles.mobileSubItemTitle}>Video Editing</span>
                           <span className={styles.mobileSubItemDesc}>1 Day · Offline Workshop</span>
                         </div>
                         <span className={styles.mobileSubArrow}>↗</span>

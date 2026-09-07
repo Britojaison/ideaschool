@@ -28,11 +28,6 @@ export default function StudentProjects() {
               FINISHED WORK.
             </h2>
           </div>
-          <div className={styles.descWrapper}>
-            <p className={styles.description}>
-              Films, edits, design experiments and AI-assisted visual projects developed across Idea School programs.
-            </p>
-          </div>
         </div>
         
         <div className={styles.contentWrapper}>

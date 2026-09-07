@@ -215,7 +215,7 @@ export default function VisualSchoolPage() {
         id: "visual-video-stack",
         trigger: containerRef.current,
         start: "top top",
-        end: isMobile ? "+=240%" : "+=300%",
+        end: isMobile ? "+=300%" : "+=380%",
         scrub: isMobile ? 0.35 : true,
         pin: true,
         invalidateOnRefresh: true,
@@ -257,8 +257,8 @@ export default function VisualSchoolPage() {
     // Bring in Stacked Video 1 (Curriculum)
     tl.to(overlayVideoRef.current, { scale: stackedScale, borderRadius: "32px", duration: 1 }, 1.3);
     tl.fromTo(stackedVideo1Ref.current,
-      { y: "100vh", opacity: 1 },
-      { y: "0%", duration: 1, ease: "power2.inOut" },
+      { y: "100vh", opacity: 0 },
+      { y: "0%", opacity: 1, duration: 1, ease: "power2.inOut" },
       1.3
     );
 
@@ -269,13 +269,23 @@ export default function VisualSchoolPage() {
     tl.to(overlayVideoRef.current, { scale: stackedScaleBack, duration: 1 }, 2.6);
     tl.to(stackedVideo1Ref.current, { scale: stackedScale, borderRadius: "32px", duration: 1 }, 2.6);
     tl.fromTo(stackedVideo2Ref.current,
-      { y: "100vh", opacity: 1 },
-      { y: "0%", duration: 1, ease: "power2.inOut" },
+      { y: "100vh", opacity: 0 },
+      { y: "0%", opacity: 1, duration: 1, ease: "power2.inOut" },
       2.6
     );
 
-    // Pause on Card 2 so user can view/read it before unpinning cleanly into the next section
-    tl.to({}, { duration: 0.4 }, 3.6);
+    // Pause on Card 2 so user can view/read it
+    tl.to({}, { duration: 0.3 }, 3.6);
+
+    // Slide in "What is Visual School?" smoothly directly over the cards
+    tl.fromTo(visualSchoolIntroRef.current,
+      { y: "100vh" },
+      { y: "0%", duration: 1.2, ease: "power2.inOut" },
+      3.9
+    );
+
+    // Settle on Visual School Intro before pin ends
+    tl.to({}, { duration: 0.3 }, 5.1);
 
     return () => ScrollTrigger.removeEventListener("refreshInit", updateInitialPosition);
   }, { scope: containerRef });
@@ -369,7 +379,7 @@ export default function VisualSchoolPage() {
         <div className={styles.heroGrid} aria-hidden="true" />
         <div className={styles.gridColumns} aria-hidden="true" />
         <div className={styles.gridRows} aria-hidden="true" />
-        <div ref={containerRef} style={{ position: "relative" }}>
+        <div ref={containerRef} style={{ position: "relative", overflow: "hidden" }}>
           <section className={styles.hero} ref={heroRef}>
             <div className={`${styles.heroShape} heroFadeOut`} aria-hidden="true" />
             <div className={`container ${styles.heroInner}`}>
@@ -483,23 +493,22 @@ export default function VisualSchoolPage() {
             </div>
           </div>
 
+          <section className={styles.visualSchoolIntro} ref={visualSchoolIntroRef}>
+            <div className={styles.heroGrid} aria-hidden="true" />
+            <div className={styles.gridColumns} aria-hidden="true" />
+            <div className={styles.gridRows} aria-hidden="true" />
+            <div className={`container ${styles.visualSchoolIntroInner}`}>
+              <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
+              <h2>A place to develop visual craft.</h2>
+              <p>
+                Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
+              </p>
+              <p className={styles.foundationNote}>
+                <strong>Built on the IDEA foundation:</strong> Intelligence, Design, Entrepreneurship and Artistry.
+              </p>
+            </div>
+          </section>
         </div>
-
-        <section className={styles.visualSchoolIntro} ref={visualSchoolIntroRef}>
-          <div className={styles.heroGrid} aria-hidden="true" />
-          <div className={styles.gridColumns} aria-hidden="true" />
-          <div className={styles.gridRows} aria-hidden="true" />
-          <div className={`container ${styles.visualSchoolIntroInner}`}>
-            <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
-            <h2>A place to develop visual craft.</h2>
-            <p>
-              Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
-            </p>
-            <p className={styles.foundationNote}>
-              <strong>Built on the IDEA foundation:</strong> Intelligence, Design, Entrepreneurship and Artistry.
-            </p>
-          </div>
-        </section>
 
         <section className={styles.disciplinesSection} id="programs" ref={disciplinesSectionRef}>
           <div className={`container ${styles.disciplinesInner}`}>

@@ -460,10 +460,15 @@
 }
 
 .visualSchoolIntro {
-  position: relative;
-  padding: clamp(80px, 9vw, 130px) 0 clamp(60px, 7vw, 100px);
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  padding: clamp(90px, 12vh, 140px) 0 clamp(40px, 6vh, 60px);
   background: var(--frost, #FBFAF2);
   overflow: hidden;
+  pointer-events: auto;
 }
 
 .visualSchoolIntroInner {

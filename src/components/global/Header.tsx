@@ -110,8 +110,8 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
   }, []);
 
 
-
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     let metaTheme = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
@@ -164,9 +164,42 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
           <Link href="/#the-idea" className={styles.navLink} onClick={closeAll}>
             The Idea
           </Link>
-          <Link href="/schools" className={styles.navLink} onClick={closeAll}>
-            Schools
-          </Link>
+          <div 
+            className={styles.navItem}
+            onMouseEnter={() => setActiveDropdown("schools")}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <button className={styles.navLink}>
+              Schools
+            </button>
+            <div className={`${styles.dropdown} ${activeDropdown === "schools" ? styles.dropdownOpen : ""}`}>
+              <div className={styles.dropdownInner}>
+                <div className={styles.schoolList}>
+                  <Link href="/visual-school" className={styles.schoolItem} onClick={closeAll}>
+                    <div className={styles.schoolItemInfo}>
+                      <span className={styles.schoolItemTitle}>Visual School</span>
+                      <span className={styles.schoolItemDesc}>Editing, motion design & AI cinema</span>
+                    </div>
+                    <span className={styles.activeBadge}>Active</span>
+                  </Link>
+                  <div className={`${styles.schoolItem} ${styles.disabledItem}`}>
+                    <div className={styles.schoolItemInfo}>
+                      <span className={styles.schoolItemTitle}>Tech School</span>
+                      <span className={styles.schoolItemDesc}>AI workflows & software</span>
+                    </div>
+                    <span className={styles.soonBadge}>Soon</span>
+                  </div>
+                  <div className={`${styles.schoolItem} ${styles.disabledItem}`}>
+                    <div className={styles.schoolItemInfo}>
+                      <span className={styles.schoolItemTitle}>Marketing School</span>
+                      <span className={styles.schoolItemDesc}>Creative direction & growth</span>
+                    </div>
+                    <span className={styles.soonBadge}>Soon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <Link href="/how-it-works" className={styles.navLink} onClick={closeAll}>
             How It Works
           </Link>

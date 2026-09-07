@@ -53,7 +53,7 @@ export default function WorkshopsStrip() {
       <div className={styles.fullContainer} style={{ position: "relative", zIndex: 1, width: "100%" }}>
         <div className="sectionHead">
           <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-            <h2 className="title">UPCOMING WORKSHOPS</h2>
+            <h2 className="title">THE IDEA SCHOOL UNIVERSE</h2>
             <div style={{
               fontFamily: "var(--font-helvetica), sans-serif",
               fontStyle: "italic",

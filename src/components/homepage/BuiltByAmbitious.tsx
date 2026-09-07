@@ -62,9 +62,9 @@ const BuiltByAmbitious = () => {
     >
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>PEOPLE YOU LEARN WITH</h2>
+          <h2 className={styles.title}>PRACTITIONERS IN THE ROOM.</h2>
           <p className={styles.subtitle}>
-            PRACTITIONERS IN THE ROOM.
+            PEOPLE YOU LEARN WITH
           </p>
         </div>
 

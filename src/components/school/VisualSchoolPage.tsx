@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Shell from "@/components/global/Shell";
 import IconMarquee from "@/components/global/IconMarquee";
+import Accordion from "@/components/ui/Accordion";
 import styles from "./VisualSchoolPage.module.css";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
 
@@ -87,12 +88,6 @@ export default function VisualSchoolPage() {
   const whoSectionRef = useRef<HTMLElement>(null);
   const faqSectionRef = useRef<HTMLElement>(null);
   const trainScrollRef = useRef<HTMLDivElement>(null);
-
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
 
   const scrollToPrograms = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -756,8 +751,8 @@ export default function VisualSchoolPage() {
 
             {/* Two-column layout: FAQ left, Contact right */}
             <div className={styles.faqLayout}>
-              <div className={styles.faqList}>
-                {[
+              <div className={styles.faqListWrapper}>
+                <Accordion items={[
                   {
                     q: "Do I need prior experience?",
                     a: "No. This program is designed for everyone from complete beginners to experienced editors looking to upgrade their skills and learn modern editing workflows."
@@ -782,21 +777,7 @@ export default function VisualSchoolPage() {
                     q: "What makes this different from YouTube tutorials?",
                     a: "Unlike scattered tutorials, this is a structured, mentor led program with real world projects, industry feedback, and a clear career pathway."
                   }
-                ].map((faq, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.faqItem} ${openFaq === index ? styles.faqOpen : ""}`}
-                    onClick={() => toggleFaq(index)}
-                  >
-                    <div className={styles.faqQuestion}>
-                      <h4>{faq.q}</h4>
-                      <span className={styles.faqIcon}>{openFaq === index ? "˄" : "˅"}</span>
-                    </div>
-                    <div className={styles.faqAnswer}>
-                      <p>{faq.a}</p>
-                    </div>
-                  </div>
-                ))}
+                ]} />
               </div>
 
               <div className={styles.faqContact}>

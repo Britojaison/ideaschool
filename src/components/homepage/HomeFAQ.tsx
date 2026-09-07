@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import styles from "./HomeFAQ.module.css";
+import Accordion from "@/components/ui/Accordion";
 
 export interface FAQItem {
   q: string;
@@ -40,11 +41,6 @@ export default function HomeFAQ({
   faqs?: FAQItem[];
 }) {
   const faqSectionRef = useRef<HTMLElement>(null);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
 
   useEffect(() => {
     if (!transitionFromCream) return;
@@ -71,8 +67,8 @@ export default function HomeFAQ({
         gsap.set(section, {
           backgroundColor: gsap.utils.interpolate("#FBFAF2", "#080808", progress),
         });
-        gsap.set(section.querySelectorAll(`h2, .${styles.faqHeader} h2, .${styles.faqQuestion} h4, .${styles.faqContact} h3, .${styles.faqIcon}`), { color: headingColor });
-        gsap.set(section.querySelectorAll(`.${styles.faqAnswer} p`), { color: copyColor });
+        gsap.set(section.querySelectorAll(`h2, .${styles.faqHeader} h2, [data-faq="question"], .${styles.faqContact} h3, [data-faq="icon"]`), { color: headingColor });
+        gsap.set(section.querySelectorAll(`[data-faq="answer"]`), { color: copyColor });
         window.dispatchEvent(new Event("header-theme-check"));
         ticking = false;
       });
@@ -105,26 +101,8 @@ export default function HomeFAQ({
 
         {/* Two-column layout: FAQ left, Contact right */}
         <div className={styles.faqLayout}>
-          <div className={styles.faqList}>
-            {faqs.map((faq, index) => (
-              <div 
-                key={index} 
-                className={`${styles.faqItem} ${openFaq === index ? styles.faqOpen : ""}`}
-                onClick={() => toggleFaq(index)}
-              >
-                <div className={styles.faqQuestion}>
-                  <h4>{faq.q}</h4>
-                  <span className={styles.faqIcon}>{openFaq === index ? "˄" : "˅"}</span>
-                </div>
-                <div className={styles.faqAnswer}>
-                  {faq.a.split("\n\n").map((para, pIdx) => (
-                    <p key={pIdx} style={pIdx > 0 ? { marginTop: "12px" } : undefined}>
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className={styles.faqListWrapper}>
+            <Accordion items={faqs} />
           </div>
 
           <div className={styles.faqContact}>

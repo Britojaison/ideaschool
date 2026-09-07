@@ -61,7 +61,6 @@ export default function AnnouncementCard() {
             playsInline
             preload="metadata"
           />
-          <span className={styles.artLabel}>EDIT</span>
           <span className={styles.orbitOne} />
           <span className={styles.orbitTwo} />
           <span className={styles.spark}>✦</span>

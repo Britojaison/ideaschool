@@ -185,7 +185,7 @@
 
 .heroIntro {
   max-width: 600px;
-  margin: 48px 0 30px;
+  margin: 48px 0 24px;
   font-size: clamp(17px, 1.45vw, 22px);
   font-weight: 500;
   line-height: 1.55;
@@ -244,6 +244,7 @@
 .heroCta {
   width: fit-content;
   min-width: 220px;
+  margin: 0 0 28px;
   padding: 14px 24px;
   display: flex;
   align-items: center;

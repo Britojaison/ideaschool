@@ -354,10 +354,10 @@ export default function VisualSchoolPage() {
                 <p className={styles.kicker}>Visual School</p>
                 <h1>Visual stories that<br />move people.</h1>
                 <p className={styles.heroIntro}>For people who want to tell stronger stories through editing, filmmaking, design and Creative AI.</p>
+                <Link href="#programs" onClick={scrollToPrograms} className={styles.heroCta}>See the disciplines <b>↘</b></Link>
                 <div className={styles.heroMarquee}>
                   <IconMarquee />
                 </div>
-                <Link href="#programs" onClick={scrollToPrograms} className={styles.heroCta}>Explore our programs <b>↘</b></Link>
               </div>
               <div className={styles.collage} aria-label="A collage of visual storytelling work">
                 <div className={`${styles.shape} heroFadeOut`} aria-hidden="true" />

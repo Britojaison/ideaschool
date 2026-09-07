@@ -642,20 +642,20 @@
 }
 
 .disciplinesHeader h2 {
-  max-width: 720px;
+  max-width: 820px;
   margin: 0;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(62px, 7.6vw, 126px);
+  font-size: clamp(40px, 4.8vw, 74px);
   font-weight: 700;
-  line-height: .88;
-  letter-spacing: -.04em;
+  line-height: .94;
+  letter-spacing: -.035em;
 }
 
 .disciplinesHeader>p {
   max-width: 540px;
   margin: 0 0 18px;
   color: rgba(10, 10, 12, .62);
-  font-size: clamp(22px, 2.2vw, 34px);
+  font-size: clamp(20px, 2vw, 30px);
   font-weight: 500;
   line-height: 1.35;
 }
@@ -671,7 +671,7 @@
   padding: clamp(28px, 3vw, 40px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-right: 1px solid rgba(10, 10, 12, .14);
 }
 
@@ -695,17 +695,12 @@
   background: #e5e2ff;
 }
 
-.disciplineCard>span {
-  font-size: 13px;
-  font-weight: 800;
-}
-
 .disciplineCard h3 {
-  max-width: 260px;
-  margin: 0 0 18px;
-  font-size: clamp(32px, 3.2vw, 48px);
-  font-weight: 800;
-  line-height: .94;
+  max-width: 280px;
+  margin: 0 0 16px;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 700;
+  line-height: 1.05;
   letter-spacing: -.02em;
 }
 

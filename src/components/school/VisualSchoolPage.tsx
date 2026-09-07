@@ -546,7 +546,6 @@ export default function VisualSchoolPage() {
             <div className={styles.disciplineGrid}>
               {disciplines.map((discipline) => (
                 <article className={styles.disciplineCard} key={discipline.index}>
-                  <span>{discipline.index}</span>
                   <div>
                     <h3>{discipline.title}</h3>
                     <p>{discipline.copy}</p>

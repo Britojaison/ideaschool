@@ -1,0 +1,134 @@
+.section {
+  background-color: var(--charcoal, #0a0a0c);
+  color: var(--snow, #fff);
+  padding: 100px 4vw;
+}
+
+.container {
+  max-width: var(--max-width, 1400px);
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 900px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.titleWrapper {
+  flex: 1;
+}
+
+.subtitle {
+  color: var(--idea-green, #dafd55);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 800px;
+}
+
+.description {
+  flex: 0 0 400px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+
+@media (min-width: 900px) {
+  .description {
+    margin-top: 0;
+    margin-left: 60px;
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 0;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 8px 0 0 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 899px) {
+  .imageWrapper {
+    border-radius: 8px;
+  }
+}
+
+.textPanel {
+  background-color: #141416;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+}
+
+@media (max-width: 899px) {
+  .textPanel {
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 900px) {
+  .textPanel {
+    padding: 60px 80px;
+  }
+}
+
+.panelSubtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.panelTitle {
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+  color: #fff;
+}
+
+.panelDesc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+}

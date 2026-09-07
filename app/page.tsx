@@ -13,6 +13,7 @@ import WorkshopsStrip from "@/components/homepage/WorkshopsStrip";
 import FlagshipSpotlight from "@/components/homepage/FlagshipSpotlight";
 import InsideProgram from "@/components/homepage/InsideProgram";
 import HowLearningWorks from "@/components/homepage/HowLearningWorks";
+import StudentProjects from "@/components/homepage/StudentProjects";
 import BuiltByAmbitious from "@/components/homepage/BuiltByAmbitious";
 import Gallery from "@/components/homepage/Gallery";
 import Reviews from "@/components/homepage/Reviews";
@@ -370,6 +371,7 @@ export default function Home() {
       <FlagshipSpotlight />
       <InsideProgram />
       <HowLearningWorks />
+      <StudentProjects />
       <BuiltByAmbitious />
       <Gallery />
       <div

@@ -25,6 +25,7 @@ import marketing from "@public/assets/home/card3.png";
 import Image from "next/image";
 import fullBleedImage from "@public/assets/home/gallery10.webp";
 import AmbientDots from "@/components/ui/AmbientDots";
+import VisualSchoolCTA from "@/components/homepage/VisualSchoolCTA";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -388,6 +389,7 @@ export default function Home() {
       </div>
       <Reviews />
       <HomeFAQ />
+      <VisualSchoolCTA />
     </Shell>
   );
 }

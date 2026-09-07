@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import Shell from "@/components/global/Shell";
 import IconMarquee from "@/components/global/IconMarquee";
@@ -63,15 +64,24 @@ const paths = [
   },
 ];
 
+type HeroVideoId = "overview" | "curriculum" | "portfolio";
+const DISCIPLINES_TIMELINE_TIME = 4.95;
+
 export default function VisualSchoolPage() {
+  const [audibleVideo, setAudibleVideo] = useState<HeroVideoId | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const cardWideRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const overlayVideoRef = useRef<HTMLDivElement>(null);
+  const overlayVideoElRef = useRef<HTMLVideoElement>(null);
   const overlayContentRef = useRef<HTMLDivElement>(null);
   const stackedVideo1Ref = useRef<HTMLDivElement>(null);
+  const stackedVideo1ElRef = useRef<HTMLVideoElement>(null);
   const stackedVideo2Ref = useRef<HTMLDivElement>(null);
+  const stackedVideo2ElRef = useRef<HTMLVideoElement>(null);
+  const visualSchoolIntroRef = useRef<HTMLElement>(null);
+  const visualSchoolIntroContentRef = useRef<HTMLDivElement>(null);
   const conceptSectionRef = useRef<HTMLElement>(null);
   const conceptWordRef = useRef<SVGGElement>(null);
   const conceptTextRef = useRef<SVGTextElement>(null);
@@ -89,6 +99,42 @@ export default function VisualSchoolPage() {
   const faqSectionRef = useRef<HTMLElement>(null);
   const trainScrollRef = useRef<HTMLDivElement>(null);
 
+  const toggleHeroVideoAudio = (videoId: HeroVideoId) => {
+    const videos: Record<HeroVideoId, HTMLVideoElement | null> = {
+      overview: overlayVideoElRef.current,
+      curriculum: stackedVideo1ElRef.current,
+      portfolio: stackedVideo2ElRef.current,
+    };
+
+    const nextAudibleVideo = audibleVideo === videoId ? null : videoId;
+
+    Object.entries(videos).forEach(([id, video]) => {
+      if (!video) return;
+      const shouldPlayAudio = id === nextAudibleVideo;
+      video.muted = !shouldPlayAudio;
+      video.volume = shouldPlayAudio ? 1 : 0;
+      if (shouldPlayAudio) void video.play();
+    });
+
+    setAudibleVideo(nextAudibleVideo);
+  };
+
+  const renderAudioButton = (videoId: HeroVideoId) => {
+    const isAudible = audibleVideo === videoId;
+
+    return (
+      <button
+        type="button"
+        className={styles.audioToggle}
+        aria-label={isAudible ? "Mute video audio" : "Enable video audio"}
+        aria-pressed={isAudible}
+        onClick={() => toggleHeroVideoAudio(videoId)}
+      >
+        {isAudible ? <Volume2 size={18} strokeWidth={2.4} /> : <VolumeX size={18} strokeWidth={2.4} />}
+      </button>
+    );
+  };
+
   const scrollToPrograms = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     window.dispatchEvent(new Event("visual-scroll-to-programs"));
@@ -97,9 +143,14 @@ export default function VisualSchoolPage() {
   useEffect(() => {
     const goToPrograms = () => {
       const trigger = ScrollTrigger.getById("visual-programs");
-      if (!trigger) return;
+      const animationDuration = trigger?.animation?.duration();
+      if (!trigger || !animationDuration) {
+        window.setTimeout(goToPrograms, 100);
+        return;
+      }
 
-      const target = trigger.start + (trigger.end - trigger.start) * 0.4;
+      const progress = DISCIPLINES_TIMELINE_TIME / animationDuration;
+      const target = trigger.start + (trigger.end - trigger.start) * progress;
       window.dispatchEvent(new CustomEvent<number>("idea-scroll-to", { detail: target, cancelable: true }));
     };
 
@@ -214,17 +265,30 @@ export default function VisualSchoolPage() {
     // Subtle pause
     tl.to({}, { duration: 0.3 }, 3.6);
 
-    // Bring in Concept Section (Stacks as a full section)
+    // Bring in Visual School introduction after the stacked videos.
     tl.to(stackedVideo2Ref.current, { scale: 0.95, borderRadius: "32px", duration: 1 }, 3.9);
-    tl.fromTo(conceptSectionRef.current,
+    tl.fromTo(visualSchoolIntroRef.current,
       { y: "100vh", opacity: 1, pointerEvents: "auto" },
       { y: "0%", duration: 1, ease: "power2.inOut" },
       3.9
     );
+    tl.fromTo(visualSchoolIntroContentRef.current,
+      { opacity: 0, y: 42 },
+      { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" },
+      4.18
+    );
+
+    // Bring in Concept Section (Stacks as a full section)
+    tl.to(visualSchoolIntroRef.current, { autoAlpha: 0, pointerEvents: "none", duration: 0.25 }, 4.45);
+    tl.fromTo(conceptSectionRef.current,
+      { y: "100vh", opacity: 1, pointerEvents: "auto" },
+      { y: "0%", duration: 1, ease: "power2.inOut" },
+      4.45
+    );
     tl.fromTo(showcaseCardsRef.current,
       { opacity: 0, pointerEvents: "none" },
       { opacity: 1, pointerEvents: "auto", duration: 0.6 },
-      3.9
+      4.45
     );
 
     // Once the concept section fully covers the stacked showcase, remove the
@@ -232,7 +296,7 @@ export default function VisualSchoolPage() {
     tl.to(
       [overlayRef.current, stackedVideo1Ref.current, stackedVideo2Ref.current],
       { autoAlpha: 0, pointerEvents: "none", duration: 0.15 },
-      4.9
+      5.15
     );
 
     // Animate the showcase track horizontally over the concept section
@@ -246,16 +310,16 @@ export default function VisualSchoolPage() {
         duration: isMobile ? 6 : 8.5,
         ease: "none"
       },
-      4.4
+      4.95
     );
 
     // Morph Concept to Curriculum after cards pass
-    tl.to(showcaseCardsRef.current, { opacity: 0, duration: 1 }, 12.9);
-    tl.to(conceptWordRef.current, { opacity: 0, scale: 1.1, duration: 1, transformOrigin: "center center" }, 12.9);
+    tl.to(showcaseCardsRef.current, { opacity: 0, duration: 1 }, 13.45);
+    tl.to(conceptWordRef.current, { opacity: 0, scale: 1.1, duration: 1, transformOrigin: "center center" }, 13.45);
     tl.fromTo(curriculumWordRef.current,
       { opacity: 0, scale: 0.9, transformOrigin: "center center" },
       { opacity: 1, scale: 1, duration: 1 },
-      12.9
+      13.45
     );
 
     return () => ScrollTrigger.removeEventListener("refreshInit", updateInitialPosition);
@@ -379,8 +443,6 @@ export default function VisualSchoolPage() {
                 <span className={`${styles.pixelTag} heroFadeOut`}>SHOWCASE</span>
                 <span className={`${styles.sparkOne} heroFadeOut`}>✣</span>
                 <span className={`${styles.sparkTwo} heroFadeOut`}>✣</span>
-                <Link href="#programs" onClick={scrollToPrograms} className={`${styles.collageCta} heroFadeOut`}>What&apos;s new <b>↘</b></Link>
-                <Link href="#programs" onClick={scrollToPrograms} className={`${styles.collageCtaExplore} heroFadeOut`}>Explore <b>↘</b></Link>
               </div>
             </div>
           </section>
@@ -388,7 +450,7 @@ export default function VisualSchoolPage() {
           {/* Absolute Overlay for Second Section Animation */}
           <div className={styles.absoluteOverlay} ref={overlayRef}>
             <div className={styles.overlayVideo} ref={overlayVideoRef}>
-              <video autoPlay muted loop playsInline disablePictureInPicture>
+              <video ref={overlayVideoElRef} autoPlay muted loop playsInline disablePictureInPicture>
                 <source src="/assets/videos/home-page-video.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
@@ -412,13 +474,14 @@ export default function VisualSchoolPage() {
                   </button>
                 </div>
               </div>
+              {renderAudioButton("overview")}
             </div>
           </div>
 
           <div className={styles.stackedVideoWrapper}>
             {/* Stacked Video 1 */}
             <div className={styles.stackedVideo} ref={stackedVideo1Ref}>
-              <video autoPlay muted loop playsInline disablePictureInPicture>
+              <video ref={stackedVideo1ElRef} autoPlay muted loop playsInline disablePictureInPicture>
                 <source src="/assets/videos/zaman_case_study.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
@@ -435,11 +498,12 @@ export default function VisualSchoolPage() {
                   <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
+              {renderAudioButton("curriculum")}
             </div>
 
             {/* Stacked Video 2 */}
             <div className={styles.stackedVideo} ref={stackedVideo2Ref}>
-              <video autoPlay muted loop playsInline disablePictureInPicture>
+              <video ref={stackedVideo2ElRef} autoPlay muted loop playsInline disablePictureInPicture>
                 <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
@@ -456,8 +520,25 @@ export default function VisualSchoolPage() {
                   <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
+              {renderAudioButton("portfolio")}
             </div>
           </div>
+
+          <section className={styles.visualSchoolIntro} ref={visualSchoolIntroRef}>
+            <div className={styles.heroGrid} aria-hidden="true" />
+            <div className={styles.gridColumns} aria-hidden="true" />
+            <div className={styles.gridRows} aria-hidden="true" />
+            <div className={`container ${styles.visualSchoolIntroInner}`} ref={visualSchoolIntroContentRef}>
+              <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
+              <h2>A place to develop visual craft.</h2>
+              <p>
+                Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
+              </p>
+              <p className={styles.foundationNote}>
+                <strong>Built on the IDEA foundation:</strong> Intelligence, Design, Entrepreneurship and Artistry.
+              </p>
+            </div>
+          </section>
 
           {/* Concept Drawing Section (Stacked) */}
           <section className={styles.conceptSection} ref={conceptSectionRef}>

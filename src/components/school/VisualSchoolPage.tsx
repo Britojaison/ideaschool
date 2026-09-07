@@ -493,19 +493,41 @@ export default function VisualSchoolPage() {
             </div>
           </div>
 
-          <section className={styles.visualSchoolIntro} ref={visualSchoolIntroRef}>
+          <section
+            className={styles.visualSchoolIntro}
+            ref={visualSchoolIntroRef}
+            data-header-theme="light"
+          >
             <div className={styles.heroGrid} aria-hidden="true" />
             <div className={styles.gridColumns} aria-hidden="true" />
             <div className={styles.gridRows} aria-hidden="true" />
             <div className={`container ${styles.visualSchoolIntroInner}`}>
-              <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
-              <h2>A place to develop visual craft.</h2>
-              <p>
-                Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
-              </p>
-              <p className={styles.foundationNote}>
-                <strong>Built on the IDEA foundation:</strong> Intelligence, Design, Entrepreneurship and Artistry.
-              </p>
+              <div className={styles.visualSchoolIntroColLeft}>
+                <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
+                <h2>A place to develop visual craft.</h2>
+              </div>
+              <div className={styles.visualSchoolIntroColRight}>
+                <p className={styles.visualSchoolIntroDesc}>
+                  Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
+                </p>
+                <div className={styles.foundationCard}>
+                  <p className={styles.foundationTitle}>Built on the IDEA foundation</p>
+                  <div className={styles.foundationPillars}>
+                    <span className={styles.foundationPillar}>
+                      <span className={styles.pillarLetter}>I</span>ntelligence
+                    </span>
+                    <span className={styles.foundationPillar}>
+                      <span className={styles.pillarLetter}>D</span>esign
+                    </span>
+                    <span className={styles.foundationPillar}>
+                      <span className={styles.pillarLetter}>E</span>ntrepreneurship
+                    </span>
+                    <span className={styles.foundationPillar}>
+                      <span className={styles.pillarLetter}>A</span>rtistry
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -517,7 +539,6 @@ export default function VisualSchoolPage() {
                 <p className={styles.sectionEyebrow}>The Visual Disciplines</p>
                 <h2>Story can take more than one form.</h2>
               </div>
-              <p>Visual School connects the disciplines that shape the work people watch, remember and share.</p>
             </div>
             <div className={styles.disciplineGrid}>
               {disciplines.map((discipline) => (

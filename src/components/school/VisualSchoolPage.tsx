@@ -353,7 +353,7 @@ export default function VisualSchoolPage() {
               <div className={`${styles.heroCopy} heroFadeOut`}>
                 <p className={styles.kicker}>Visual School</p>
                 <h1>Visual stories that<br />move people.</h1>
-                <p className={styles.heroIntro}>For editors, filmmakers and visual storytellers ready to turn their taste into industry ready work with an AI native workflow.</p>
+                <p className={styles.heroIntro}>For people who want to tell stronger stories through editing, filmmaking, design and Creative AI.</p>
                 <div className={styles.heroMarquee}>
                   <IconMarquee />
                 </div>

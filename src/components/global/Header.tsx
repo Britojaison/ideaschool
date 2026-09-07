@@ -180,7 +180,6 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
                       <span className={styles.schoolItemTitle}>Visual School</span>
                       <span className={styles.schoolItemDesc}>Editing, motion design & AI cinema</span>
                     </div>
-                    <span className={styles.activeBadge}>Active</span>
                   </Link>
                   <div className={`${styles.schoolItem} ${styles.disabledItem}`}>
                     <div className={styles.schoolItemInfo}>

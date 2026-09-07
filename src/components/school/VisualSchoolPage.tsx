@@ -351,23 +351,22 @@ export default function VisualSchoolPage() {
       }
     });
 
-    // Alternating top/bottom card entrance animation
+    // Staggered card entrance animation
     const cards = whoSectionRef.current.querySelectorAll(`.${styles.whoCard}`);
     cards.forEach((card, i) => {
-      const fromY = i % 2 === 0 ? -120 : 120; // odd from top, even from bottom
       gsap.fromTo(card,
-        { y: fromY, opacity: 0 },
+        { y: 60, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 1,
+          duration: 0.9,
           ease: "power3.out",
           scrollTrigger: {
             trigger: whoSectionRef.current,
             start: "top 70%",
             toggleActions: "play none none reverse",
           },
-          delay: i * 0.12,
+          delay: i * 0.15,
         }
       );
     });
@@ -502,14 +501,18 @@ export default function VisualSchoolPage() {
             <div className={styles.gridColumns} aria-hidden="true" />
             <div className={styles.gridRows} aria-hidden="true" />
             <div className={`container ${styles.visualSchoolIntroInner}`}>
-              <div className={styles.visualSchoolIntroColLeft}>
+              <div className={styles.visualSchoolIntroTop}>
                 <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
-                <h2>A place to develop visual craft.</h2>
+                <h2 className={styles.visualSchoolIntroHeading}>
+                  A place to develop visual craft.
+                </h2>
               </div>
-              <div className={styles.visualSchoolIntroColRight}>
+
+              <div className={styles.visualSchoolIntroBottom}>
                 <p className={styles.visualSchoolIntroDesc}>
                   Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
                 </p>
+
                 <div className={styles.foundationCard}>
                   <p className={styles.foundationTitle}>Built on the IDEA foundation</p>
                   <div className={styles.foundationPillars}>
@@ -607,8 +610,8 @@ export default function VisualSchoolPage() {
           </div>
         </section>
 
-        {/* Who Is This For Section */}
-        <section className={`${styles.whoSection} ${styles.lightGridMode}`} ref={whoSectionRef}>
+        {/* Who Visual School Is For Section */}
+        <section className={`${styles.whoSection} ${styles.lightGridMode}`} ref={whoSectionRef} data-header-theme="dark">
           {/* Grid Background */}
           <div className={styles.heroGrid} aria-hidden="true" />
           <div className={styles.gridColumns} aria-hidden="true" />
@@ -616,97 +619,26 @@ export default function VisualSchoolPage() {
 
           <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div className={styles.whoHeader}>
-              <span className={styles.sectionLabel}>Who is this for?</span>
-              <h2>Get on board.</h2>
+              <p className={styles.sectionEyebrow}>Who Visual School Is For</p>
+              <h2>Different starting points. One shared interest in visual work.</h2>
             </div>
-          </div>
 
-          <div className={styles.whoGrid}>
+            <div className={styles.whoGrid}>
+              <div className={styles.whoCard}>
+                <h3>Starting out</h3>
+                <p>You want structure, guidance and a practical introduction to visual work.</p>
+              </div>
 
-            {/* Card 1 */}
-            <div className={styles.whoCard}>
-              <div className={styles.cardContent}>
-                <h3>Freelancers</h3>
-                <div className={styles.cardDoodle}>
-                  <svg viewBox="0 0 100 100">
-                    <path d="M55 10 L25 55 L50 55 L45 90 L80 40 L50 40 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <p>Freelancers who want to offer video editing services and increase their income.</p>
+              <div className={styles.whoCard}>
+                <h3>Building on experience</h3>
+                <p>You already work with visuals and want to broaden your craft or improve your process.</p>
+              </div>
+
+              <div className={styles.whoCard}>
+                <h3>Creating for your own work</h3>
+                <p>You are a creator, freelancer or team member who wants stronger production skills.</p>
               </div>
             </div>
-
-            {/* Card 2 */}
-            <div className={styles.whoCard}>
-              <div className={styles.cardContent}>
-                <h3>College Students</h3>
-                <div className={styles.cardDoodle}>
-                  <svg viewBox="0 0 100 100">
-                    <path d="M20 80 L30 85 L85 30 C90 25 90 20 85 15 L80 10 C75 5 70 5 65 10 L10 65 L15 75 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-                    <path d="M20 80 L10 90 L20 80 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-                    <path d="M65 10 L85 30" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <p>College Students seeking a high demand skill with freelancing and career opportunities.</p>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className={styles.whoCard}>
-              <div className={styles.cardContent}>
-                <h3>Video Editors</h3>
-                <div className={styles.cardDoodle}>
-                  <svg viewBox="0 0 100 100">
-                    <circle cx="30" cy="70" r="15" stroke="currentColor" strokeWidth="8" />
-                    <circle cx="70" cy="70" r="15" stroke="currentColor" strokeWidth="8" />
-                    <line x1="38" y1="58" x2="80" y2="15" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-                    <line x1="62" y1="58" x2="20" y2="15" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <p>Video Editors with basic skills who want to level up, increase their earning potential, and work on higher value projects.</p>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className={styles.whoCard}>
-              <div className={styles.cardContent}>
-                <h3>Content Creators</h3>
-                <div className={styles.cardDoodle}>
-                  <svg viewBox="0 0 100 100">
-                    <path d="M50 10 L60 35 L90 35 L65 55 L75 85 L50 65 L25 85 L35 55 L10 35 L40 35 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <p>Content Creators who want to produce professional quality content and grow faster on social media.</p>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            <div className={styles.whoCard}>
-              <div className={styles.cardContent}>
-                <h3>Agency Owners</h3>
-                <div className={styles.cardDoodle}>
-                  <svg viewBox="0 0 100 100">
-                    <path d="M15 80 L85 80 L95 30 L70 50 L50 20 L30 50 L5 30 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <p>Agency Owners who want to build an in house video editing capability and reduce outsourcing costs.</p>
-              </div>
-            </div>
-
-            {/* Card 6 */}
-            <div className={styles.whoCard}>
-              <div className={styles.cardContent}>
-                <h3>Creative Pros</h3>
-                <div className={styles.cardDoodle}>
-                  <svg viewBox="0 0 100 100">
-                    <path d="M10 50 Q50 10 90 50 Q50 90 10 50 Z" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-                    <circle cx="50" cy="50" r="15" stroke="currentColor" strokeWidth="8" />
-                  </svg>
-                </div>
-                <p>Aspiring Creative Professionals who want to build a long term career in the creator economy.</p>
-              </div>
-            </div>
-
           </div>
         </section>
 

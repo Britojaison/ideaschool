@@ -515,23 +515,24 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(40px, 5vw, 90px);
-  align-items: center;
-}
-
-.visualSchoolIntroColLeft {
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
+  gap: clamp(36px, 4.5vh, 60px);
+}
+
+.visualSchoolIntroTop {
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
 }
 
 .visualSchoolIntroEyebrow {
   width: fit-content;
-  margin: 0 0 24px;
+  margin: 0 0 clamp(16px, 2.2vh, 24px);
   padding: 8px 16px;
   color: #0a0a0c;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(10, 10, 12, 0.12);
   border-radius: 999px;
   backdrop-filter: blur(8px);
@@ -543,28 +544,33 @@
   text-transform: uppercase;
 }
 
-.visualSchoolIntro h2 {
+.visualSchoolIntroHeading {
   margin: 0;
   color: #0a0a0c;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(48px, 5.8vw, 96px);
+  font-size: clamp(56px, 7vw, 116px);
   font-weight: 700;
-  line-height: .93;
+  line-height: .91;
   letter-spacing: -.035em;
+  max-width: 1200px;
 }
 
-.visualSchoolIntroColRight {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+.visualSchoolIntroBottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.88fr);
+  gap: clamp(40px, 6vw, 100px);
+  align-items: end;
+  padding-top: clamp(24px, 3vh, 36px);
+  border-top: 1px solid rgba(10, 10, 12, 0.12);
 }
 
 .visualSchoolIntroDesc {
   margin: 0;
   color: rgba(10, 10, 12, 0.84);
-  font-size: clamp(18px, 1.8vw, 25px);
+  font-size: clamp(19px, 1.85vw, 26px);
   font-weight: 450;
   line-height: 1.45;
+  max-width: 720px;
 }
 
 .foundationCard {
@@ -1643,24 +1649,25 @@
   }
 
   .visualSchoolIntroInner {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
     width: calc(100% - 40px);
   }
 
   .visualSchoolIntroEyebrow {
-    margin: 0 0 14px;
+    margin: 0 0 12px;
     padding: 6px 12px;
     font-size: 10px;
   }
 
-  .visualSchoolIntro h2 {
-    font-size: clamp(38px, 10vw, 64px);
+  .visualSchoolIntroHeading {
+    font-size: clamp(38px, 10.5vw, 64px);
     line-height: .95;
   }
 
-  .visualSchoolIntroColRight {
+  .visualSchoolIntroBottom {
+    grid-template-columns: 1fr;
     gap: 20px;
+    padding-top: 20px;
   }
 
   .visualSchoolIntroDesc {
@@ -2530,234 +2537,127 @@
   }
 }
 
-/* --- Who Is This For Section --- */
+/* --- Who Visual School Is For Section --- */
 .whoSection {
-  padding: 120px 0;
+  padding: clamp(100px, 12vh, 160px) 0;
   background: transparent;
-  color: #fff;
+  color: #FBFAF2;
   position: relative;
   z-index: 5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   overflow: hidden;
 }
 
 .whoHeader {
-  text-align: center;
-  margin-bottom: 80px;
+  max-width: 960px;
+  margin-bottom: clamp(48px, 6vw, 76px);
 }
 
-.whoHeader .sectionLabel {
-  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-  font-style: italic;
-  font-size: 18px;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  font-weight: 400;
+.whoHeader .sectionEyebrow {
+  margin: 0 0 20px;
+  color: var(--red, #fb1616);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
 .whoHeader h2 {
-  font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
-  font-size: clamp(54px, 7vw, 90px);
-  margin: 16px 0 0;
-  line-height: 0.9;
-  font-weight: 400;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(40px, 5vw, 76px);
+  margin: 0;
+  line-height: .96;
+  letter-spacing: -.035em;
+  font-weight: 700;
+  color: #FBFAF2;
 }
 
-/* --- Who Is This For Grid --- */
+/* --- Who Grid (3 Cards) --- */
 .whoGrid {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 32px);
+  width: 100%;
   position: relative;
   z-index: 10;
-  width: calc(100% + 10vw);
-  margin-left: -5vw;
-  padding: 0 60px;
-  overflow-x: auto;
-  overflow-y: visible;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.whoGrid::-webkit-scrollbar {
-  display: none;
 }
 
 .whoCard {
-  background: #FBFAF2;
-  border: none;
-  border-radius: 0;
-  padding: 44px 30px 40px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: rgba(251, 250, 242, 0.04);
+  border: 1px solid rgba(251, 250, 242, 0.12);
+  border-radius: 20px;
+  padding: clamp(36px, 4vw, 44px) clamp(28px, 3vw, 36px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex: 0 0 280px;
+  justify-content: flex-start;
+  min-height: clamp(240px, 28vh, 310px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              background 0.4s ease, 
+              box-shadow 0.4s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
-
-/* Staggered Masonry — alternating heights & offsets */
-.whoCard:nth-child(1) { min-height: 520px; margin-top: 60px; }
-.whoCard:nth-child(2) { min-height: 420px; margin-top: 0; }
-.whoCard:nth-child(3) { min-height: 460px; margin-top: 30px; }
-.whoCard:nth-child(4) { min-height: 420px; margin-top: 80px; }
-.whoCard:nth-child(5) { min-height: 480px; margin-top: 10px; }
-.whoCard:nth-child(6) { min-height: 420px; margin-top: 50px; }
 
 .whoCard:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.cardContent {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  background: rgba(251, 250, 242, 0.07);
+  border-color: rgba(251, 250, 242, 0.28);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
 }
 
 .whoCard h3 {
-  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-  font-style: italic;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 1;
-  margin: 0;
-  letter-spacing: 0;
-  color: #0a0a0c;
-}
-
-.cardDoodle {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 32px 0;
-  color: #0a0a0c;
-}
-
-.cardDoodle svg {
-  width: 110px;
-  height: 110px;
-  fill: none;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(26px, 2.3vw, 34px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.025em;
+  color: #FBFAF2;
 }
 
 .whoCard p {
-  color: rgba(10, 10, 12, 0.55);
-  font-size: 16px;
+  color: rgba(251, 250, 242, 0.72);
+  font-size: clamp(15px, 1.15vw, 17px);
   line-height: 1.6;
   margin: 0;
+  font-weight: 400;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .whoSection {
     padding: 72px 0 88px;
   }
 
   .whoHeader {
-    margin-bottom: 58px;
-  }
-
-  .whoHeader .sectionLabel {
-    font-size: 16px;
+    margin-bottom: 40px;
   }
 
   .whoHeader h2 {
-    margin-top: 12px;
-    font-size: clamp(48px, 16vw, 64px);
+    font-size: clamp(32px, 8.5vw, 48px);
+    line-height: 1;
   }
 
   .whoGrid {
-    display: grid;
-    grid-template-columns: 0.92fr 1.14fr 0.92fr;
-    grid-template-rows: repeat(2, auto);
-    align-items: start;
-    gap: 7px;
-    width: 100%;
-    margin-left: 0;
-    padding: 0;
-    overflow: visible;
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .whoCard {
-    width: 100%;
-    min-width: 0;
-    min-height: 0 !important;
-    margin-top: 0;
-    padding: 18px 8px 16px;
-  }
-
-  /* Mobile collage: two independently staggered cards in each column. */
-  .whoCard:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
-    height: 240px;
-    margin-top: 34px;
-  }
-
-  .whoCard:nth-child(2) {
-    grid-column: 2;
-    grid-row: 1;
-    height: 218px;
-    margin-top: 82px;
-  }
-
-  .whoCard:nth-child(3) {
-    grid-column: 3;
-    grid-row: 1;
-    height: 236px;
-  }
-
-  .whoCard:nth-child(4) {
-    grid-column: 1;
-    grid-row: 2;
-    height: 252px;
-    margin-top: -1px;
-  }
-
-  .whoCard:nth-child(5) {
-    grid-column: 2;
-    grid-row: 2;
-    height: 250px;
-    margin-top: 0;
-  }
-
-  .whoCard:nth-child(6) {
-    grid-column: 3;
-    grid-row: 2;
-    height: 244px;
-    margin-top: -1px;
+    min-height: auto;
+    padding: 28px 22px;
   }
 
   .whoCard:hover {
     transform: none;
-    box-shadow: none;
   }
 
   .whoCard h3 {
-    font-size: clamp(15px, 4.8vw, 21px);
-    line-height: 1.05;
-  }
-
-  .cardDoodle {
-    margin: 12px 0;
-  }
-
-  .cardDoodle svg {
-    width: clamp(45px, 14vw, 62px);
-    height: clamp(45px, 14vw, 62px);
+    font-size: 22px;
+    margin-bottom: 12px;
   }
 
   .whoCard p {
-    font-size: clamp(8px, 2.45vw, 11px);
-    line-height: 1.38;
+    font-size: 15px;
   }
 }
 

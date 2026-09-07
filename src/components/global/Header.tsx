@@ -199,9 +199,6 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               </div>
             </div>
           </div>
-          <Link href="/how-it-works" className={styles.navLink} onClick={closeAll}>
-            How It Works
-          </Link>
           <div 
             className={styles.navItem}
             onMouseEnter={() => setActiveDropdown("visual-school")}

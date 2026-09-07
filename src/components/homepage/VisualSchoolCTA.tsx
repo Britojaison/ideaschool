@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./VisualSchoolCTA.module.css";
 
@@ -30,17 +32,17 @@ export default function VisualSchoolCTA() {
         </p>
         <div className={styles.buttonGroup}>
           <Link 
-            href="https://idea-school-homepage-preview.vercel.app/?verify=20260904-3#visual" 
+            href="/visual-school" 
             className={`${styles.btn} ${styles.btnPrimary}`}
           >
             EXPLORE VISUAL SCHOOL
           </Link>
-          <a 
-            href="mailto:hello@ideaschool.pro" 
+          <button 
+            onClick={() => window.dispatchEvent(new Event('open-home-form'))}
             className={`${styles.btn} ${styles.btnSecondary}`}
           >
             TALK TO IDEA SCHOOL
-          </a>
+          </button>
         </div>
       </div>
     </section>

@@ -31,10 +31,10 @@
 
 .subtitle {
   font-family: var(--font-helvetica), sans-serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(20px, 1.5vw, 26px);
-  line-height: 1.4;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.5;
   color: #a0aab2;
   margin: 0.5rem 0 0;
 }

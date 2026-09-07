@@ -65,7 +65,29 @@ const paths = [
 ];
 
 type HeroVideoId = "overview" | "curriculum" | "portfolio";
-const DISCIPLINES_TIMELINE_TIME = 4.95;
+
+const disciplines = [
+  {
+    index: "01",
+    title: "Editing",
+    copy: "Shape pace, emotion, structure and attention.",
+  },
+  {
+    index: "02",
+    title: "Filmmaking",
+    copy: "Develop ideas through scripting, direction and production.",
+  },
+  {
+    index: "03",
+    title: "Motion & Design",
+    copy: "Use typography, composition and movement with purpose.",
+  },
+  {
+    index: "04",
+    title: "Creative AI",
+    copy: "Explore new production possibilities while keeping human direction at the centre.",
+  },
+];
 
 export default function VisualSchoolPage() {
   const [audibleVideo, setAudibleVideo] = useState<HeroVideoId | null>(null);
@@ -81,14 +103,7 @@ export default function VisualSchoolPage() {
   const stackedVideo2Ref = useRef<HTMLDivElement>(null);
   const stackedVideo2ElRef = useRef<HTMLVideoElement>(null);
   const visualSchoolIntroRef = useRef<HTMLElement>(null);
-  const visualSchoolIntroContentRef = useRef<HTMLDivElement>(null);
-  const conceptSectionRef = useRef<HTMLElement>(null);
-  const conceptWordRef = useRef<SVGGElement>(null);
-  const conceptTextRef = useRef<SVGTextElement>(null);
-  const curriculumWordRef = useRef<SVGGElement>(null);
-  const curriculumTextRef = useRef<SVGTextElement>(null);
-  const showcaseCardsRef = useRef<HTMLDivElement>(null);
-  const cardsTrackRef = useRef<HTMLDivElement>(null);
+  const disciplinesSectionRef = useRef<HTMLElement>(null);
 
   // Curriculum Animation Refs
   const curriculumSectionRef = useRef<HTMLElement>(null);
@@ -142,15 +157,9 @@ export default function VisualSchoolPage() {
 
   useEffect(() => {
     const goToPrograms = () => {
-      const trigger = ScrollTrigger.getById("visual-programs");
-      const animationDuration = trigger?.animation?.duration();
-      if (!trigger || !animationDuration) {
-        window.setTimeout(goToPrograms, 100);
-        return;
-      }
-
-      const progress = DISCIPLINES_TIMELINE_TIME / animationDuration;
-      const target = trigger.start + (trigger.end - trigger.start) * progress;
+      if (!disciplinesSectionRef.current) return;
+      const headerOffset = 120;
+      const target = window.scrollY + disciplinesSectionRef.current.getBoundingClientRect().top - headerOffset;
       const handledBySmoothScroll = !window.dispatchEvent(new CustomEvent<number>("idea-scroll-to", { detail: target, cancelable: true }));
       if (!handledBySmoothScroll) window.scrollTo({ top: target, behavior: "smooth" });
     };
@@ -203,10 +212,10 @@ export default function VisualSchoolPage() {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        id: "visual-programs",
+        id: "visual-video-stack",
         trigger: containerRef.current,
         start: "top top",
-        end: isMobile ? "+=600%" : "+=1000%",
+        end: isMobile ? "+=420%" : "+=520%",
         scrub: isMobile ? 0.35 : true,
         pin: true,
         invalidateOnRefresh: true,
@@ -263,63 +272,12 @@ export default function VisualSchoolPage() {
       2.6
     );
 
-    // Subtle pause
-    tl.to({}, { duration: 0.3 }, 3.6);
-
-    // Bring in Visual School introduction after the stacked videos.
+    // Cleanly finish the stack before the normal page sections resume.
     tl.to(stackedVideo2Ref.current, { scale: 0.95, borderRadius: "32px", duration: 1 }, 3.9);
-    tl.fromTo(visualSchoolIntroRef.current,
-      { y: "100vh", opacity: 1, pointerEvents: "auto" },
-      { y: "0%", duration: 1, ease: "power2.inOut" },
-      3.9
-    );
-    tl.fromTo(visualSchoolIntroContentRef.current,
-      { opacity: 0, y: 42 },
-      { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" },
-      4.18
-    );
-
-    // Bring in Concept Section (Stacks as a full section)
     tl.to(
       [overlayRef.current, stackedVideo1Ref.current, stackedVideo2Ref.current],
-      { autoAlpha: 0, pointerEvents: "none", duration: 0.15 },
-      4.45
-    );
-    tl.fromTo(conceptSectionRef.current,
-      { y: "100vh", opacity: 1, pointerEvents: "auto" },
-      { y: "0%", duration: 1, ease: "power2.inOut" },
-      4.45
-    );
-    tl.fromTo(showcaseCardsRef.current,
-      { opacity: 0, pointerEvents: "none" },
-      { opacity: 1, pointerEvents: "auto", duration: 0.6 },
-      4.45
-    );
-
-    // Keep the intro background underneath until the next panel covers it.
-    tl.to(visualSchoolIntroRef.current, { autoAlpha: 0, pointerEvents: "none", duration: 0.15 }, 5.45);
-
-    // Animate the showcase track horizontally over the concept section
-    tl.fromTo(cardsTrackRef.current,
-      { x: () => (isMobile ? "10vw" : "50vw") },
-      {
-        x: () => {
-          if (!cardsTrackRef.current) return 0;
-          return -cardsTrackRef.current.scrollWidth;
-        },
-        duration: isMobile ? 6 : 8.5,
-        ease: "none"
-      },
-      4.95
-    );
-
-    // Morph Concept to Curriculum after cards pass
-    tl.to(showcaseCardsRef.current, { opacity: 0, duration: 1 }, 13.45);
-    tl.to(conceptWordRef.current, { opacity: 0, scale: 1.1, duration: 1, transformOrigin: "center center" }, 13.45);
-    tl.fromTo(curriculumWordRef.current,
-      { opacity: 0, scale: 0.9, transformOrigin: "center center" },
-      { opacity: 1, scale: 1, duration: 1 },
-      13.45
+      { autoAlpha: 0, pointerEvents: "none", duration: 0.25 },
+      4.55
     );
 
     return () => ScrollTrigger.removeEventListener("refreshInit", updateInitialPosition);
@@ -354,7 +312,7 @@ export default function VisualSchoolPage() {
 
   useEffect(() => {
     const updateGridOffsets = () => {
-      const sections = [heroRef, conceptSectionRef, curriculumSectionRef, whoSectionRef, faqSectionRef];
+      const sections = [heroRef, visualSchoolIntroRef, disciplinesSectionRef, curriculumSectionRef, whoSectionRef, faqSectionRef];
       sections.forEach(ref => {
         if (ref.current) {
           ref.current.style.setProperty('--section-offset-y', `${ref.current.offsetTop}px`);
@@ -524,136 +482,46 @@ export default function VisualSchoolPage() {
             </div>
           </div>
 
-          <section className={styles.visualSchoolIntro} ref={visualSchoolIntroRef}>
-            <div className={styles.heroGrid} aria-hidden="true" />
-            <div className={styles.gridColumns} aria-hidden="true" />
-            <div className={styles.gridRows} aria-hidden="true" />
-            <div className={`container ${styles.visualSchoolIntroInner}`} ref={visualSchoolIntroContentRef}>
-              <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
-              <h2>A place to develop visual craft.</h2>
-              <p>
-                Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
-              </p>
-              <p className={styles.foundationNote}>
-                <strong>Built on the IDEA foundation:</strong> Intelligence, Design, Entrepreneurship and Artistry.
-              </p>
-            </div>
-          </section>
+        </div>
 
-          {/* Concept Drawing Section (Stacked) */}
-          <section className={styles.conceptSection} ref={conceptSectionRef}>
-            {/* Grid Background */}
-            <div className={styles.heroGrid} aria-hidden="true" />
-            <div className={styles.gridColumns} aria-hidden="true" />
-            <div className={styles.gridRows} aria-hidden="true" />
+        <section className={styles.visualSchoolIntro} ref={visualSchoolIntroRef}>
+          <div className={styles.heroGrid} aria-hidden="true" />
+          <div className={styles.gridColumns} aria-hidden="true" />
+          <div className={styles.gridRows} aria-hidden="true" />
+          <div className={`container ${styles.visualSchoolIntroInner}`}>
+            <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
+            <h2>A place to develop visual craft.</h2>
+            <p>
+              Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
+            </p>
+            <p className={styles.foundationNote}>
+              <strong>Built on the IDEA foundation:</strong> Intelligence, Design, Entrepreneurship and Artistry.
+            </p>
+          </div>
+        </section>
 
-            <div className="container" style={{ position: 'relative', zIndex: 10, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <svg viewBox="0 0 1000 300" className={styles.conceptSvg}>
-                {/* Concept text group */}
-                <g ref={conceptWordRef} style={{ transformOrigin: "center center" }}>
-                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.conceptTextBase}>concept</text>
-                  <text ref={conceptTextRef} x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.conceptText}>concept</text>
-                </g>
-
-                {/* Curriculum text group (starts hidden) */}
-                <g ref={curriculumWordRef} style={{ opacity: 0, transformOrigin: "center center" }}>
-                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.curriculumTextBase}>curriculum</text>
-                  <text ref={curriculumTextRef} x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" textLength="860" lengthAdjust="spacingAndGlyphs" className={styles.curriculumText}>curriculum</text>
-                </g>
-              </svg>
-            </div>
-          </section>
-
-          {/* Course Showcase Cards over Concept */}
-          <div className={styles.showcaseCardsContainer} id="programs" ref={showcaseCardsRef}>
-            <div className={styles.cardsTrack} ref={cardsTrackRef}>
-              
-              {/* Flagship Program Card */}
-              <Link
-                href="/creative-editing-course"
-                className={`${styles.showcaseCard} ${styles.flagshipCard}`}
-              >
-                <div className={styles.cardHeaderBadge}>
-                  <span className={styles.flagshipHeaderPill}>
-                    <span className={styles.goldStar}>★</span> FLAGSHIP CAREER PROGRAM
-                  </span>
-                  <span className={styles.durationPillDark}>24 WEEKS</span>
-                </div>
-
-                <div className={`${styles.showcaseImage} ${styles.flagshipImage}`}>
-                  <Image
-                    src={c1}
-                    alt="Creative Editing & AI Pro"
-                    fill
-                    sizes="(max-width: 800px) 100vw, 460px"
-                    priority
-                  />
-                </div>
-
-                <div className={styles.cardTitleRow}>
-                  <h3>Creative Editing & AI Pro</h3>
-                  <span className={styles.cardArrow}>↗</span>
-                </div>
-
-                <div className={styles.showcaseTags}>
-                  <span className={styles.flagshipTag}>FLAGSHIP PROGRAM</span>
-                  <span className={styles.flagshipTag}>24 WEEKS</span>
-                  <span className={styles.careerTag}>CAREER TRACK</span>
-                </div>
-              </Link>
-
-              {/* In-Track Minimalist Workshop Transition Divider */}
-              <div className={styles.trackDivider}>
-                <div className={styles.trackDividerLine} />
-                <div className={styles.trackDividerContent}>
-                  <span className={styles.dividerSparkle}>✣</span>
-                  <span className={styles.dividerLabel}>OFFLINE WORKSHOPS</span>
-                  <small className={styles.dividerSub}>1 to 2 Day Masterclasses</small>
-                </div>
-                <div className={styles.trackDividerLine} />
+        <section className={styles.disciplinesSection} id="programs" ref={disciplinesSectionRef}>
+          <div className={`container ${styles.disciplinesInner}`}>
+            <div className={styles.disciplinesHeader}>
+              <div>
+                <p className={styles.sectionEyebrow}>The Visual Disciplines</p>
+                <h2>Story can take more than one form.</h2>
               </div>
-
-              {/* Offline Workshop Cards */}
-              {paths.filter((p) => !p.isFlagship).map((path) => (
-                <Link
-                  href={path.href}
-                  className={`${styles.showcaseCard} ${styles.workshopCard}`}
-                  key={path.index}
-                >
-                  <div className={styles.cardHeaderBadge}>
-                    <span className={styles.workshopHeaderPill}>
-                      <span className={styles.studioDot} /> OFFLINE WORKSHOP
-                    </span>
-                    <span className={styles.durationPillLight}>{path.tags[1]}</span>
+              <p>Visual School connects the disciplines that shape the work people watch, remember and share.</p>
+            </div>
+            <div className={styles.disciplineGrid}>
+              {disciplines.map((discipline) => (
+                <article className={styles.disciplineCard} key={discipline.index}>
+                  <span>{discipline.index}</span>
+                  <div>
+                    <h3>{discipline.title}</h3>
+                    <p>{discipline.copy}</p>
                   </div>
-
-                  <div className={styles.showcaseImage}>
-                    <Image
-                      src={path.image}
-                      alt={path.title}
-                      fill
-                      sizes="(max-width: 800px) 100vw, 400px"
-                    />
-                  </div>
-
-                  <div className={styles.cardTitleRow}>
-                    <h3>{path.title}</h3>
-                    <span className={styles.cardArrow}>↗</span>
-                  </div>
-
-                  <div className={styles.showcaseTags}>
-                    {path.tags.map((tag) => (
-                      <span key={tag} className={styles.workshopTag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </Link>
+                </article>
               ))}
-
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Curriculum Section */}
         <section className={styles.curriculumSection} ref={curriculumSectionRef}>

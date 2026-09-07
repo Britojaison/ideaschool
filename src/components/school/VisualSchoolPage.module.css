@@ -460,28 +460,17 @@
 }
 
 .visualSchoolIntro {
-  position: absolute;
-  inset: 0;
-  z-index: 58;
-  width: 100%;
-  height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
+  position: relative;
+  min-height: 92vh;
+  padding: clamp(130px, 15vw, 220px) 0 clamp(90px, 10vw, 150px);
   background: var(--frost, #FBFAF2);
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(100vh);
-  pointer-events: none;
-  will-change: transform, opacity;
 }
 
 .visualSchoolIntroInner {
   position: relative;
   z-index: 10;
   max-width: 980px;
-  margin: 0 auto;
-  padding-top: clamp(80px, 10vh, 120px);
   color: var(--ink);
 }
 
@@ -526,6 +515,111 @@
 
 .foundationNote strong {
   font-weight: 800;
+}
+
+.disciplinesSection {
+  position: relative;
+  padding: clamp(100px, 11vw, 150px) 0 clamp(90px, 10vw, 140px);
+  background: var(--frost, #FBFAF2);
+  color: var(--ink);
+}
+
+.disciplinesInner {
+  position: relative;
+  z-index: 3;
+}
+
+.disciplinesHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.58fr);
+  gap: clamp(40px, 7vw, 120px);
+  align-items: end;
+  margin-bottom: clamp(48px, 6vw, 82px);
+}
+
+.sectionEyebrow {
+  margin: 0 0 24px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.disciplinesHeader h2 {
+  max-width: 720px;
+  margin: 0;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(62px, 7.6vw, 126px);
+  font-weight: 700;
+  line-height: .88;
+  letter-spacing: -.04em;
+}
+
+.disciplinesHeader>p {
+  max-width: 540px;
+  margin: 0 0 18px;
+  color: rgba(10, 10, 12, .62);
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.disciplineGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid rgba(10, 10, 12, .14);
+}
+
+.disciplineCard {
+  min-height: clamp(320px, 35vw, 440px);
+  padding: clamp(28px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(10, 10, 12, .14);
+}
+
+.disciplineCard:last-child {
+  border-right: 0;
+}
+
+.disciplineCard:nth-child(1) {
+  background: #dff6f5;
+}
+
+.disciplineCard:nth-child(2) {
+  background: #f3d9f1;
+}
+
+.disciplineCard:nth-child(3) {
+  background: #fff86f;
+}
+
+.disciplineCard:nth-child(4) {
+  background: #e5e2ff;
+}
+
+.disciplineCard>span {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.disciplineCard h3 {
+  max-width: 260px;
+  margin: 0 0 18px;
+  font-size: clamp(32px, 3.2vw, 48px);
+  font-weight: 800;
+  line-height: .94;
+  letter-spacing: -.02em;
+}
+
+.disciplineCard p {
+  max-width: 280px;
+  margin: 0;
+  color: rgba(10, 10, 12, .62);
+  font-size: clamp(17px, 1.45vw, 22px);
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .conceptSection {
@@ -1458,13 +1552,8 @@
     display: none !important;
   }
 
-  .visualSchoolIntro {
-    align-items: center;
-  }
-
   .visualSchoolIntroInner {
     width: calc(100% - 40px);
-    padding-top: 70px;
   }
 
   .visualSchoolIntroEyebrow {
@@ -1488,6 +1577,35 @@
     margin-top: 22px;
     padding-top: 18px;
     font-size: 15px;
+  }
+
+  .disciplinesHeader {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .disciplinesHeader h2 {
+    font-size: clamp(44px, 13vw, 68px);
+  }
+
+  .disciplinesHeader>p {
+    margin: 0;
+    font-size: 19px;
+  }
+
+  .disciplineGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .disciplineCard {
+    min-height: 260px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(10, 10, 12, .14);
+  }
+
+  .disciplineCard:last-child {
+    border-bottom: 0;
   }
 
   .kicker {

@@ -52,6 +52,15 @@ export default function AnnouncementCard() {
         </button>
 
         <div className={styles.art} aria-hidden="true">
+          <video
+            className={styles.artVideo}
+            src="/images/vsl-ideaschool-aug11.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
           <span className={styles.artLabel}>EDIT</span>
           <span className={styles.orbitOne} />
           <span className={styles.orbitTwo} />

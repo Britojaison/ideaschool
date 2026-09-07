@@ -135,8 +135,8 @@ export default function VisualSchoolPage() {
     );
   };
 
-  const scrollToPrograms = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
+  const scrollToPrograms = (event?: React.MouseEvent<HTMLElement>) => {
+    event?.preventDefault();
     window.dispatchEvent(new Event("visual-scroll-to-programs"));
   };
 
@@ -151,7 +151,8 @@ export default function VisualSchoolPage() {
 
       const progress = DISCIPLINES_TIMELINE_TIME / animationDuration;
       const target = trigger.start + (trigger.end - trigger.start) * progress;
-      window.dispatchEvent(new CustomEvent<number>("idea-scroll-to", { detail: target, cancelable: true }));
+      const handledBySmoothScroll = !window.dispatchEvent(new CustomEvent<number>("idea-scroll-to", { detail: target, cancelable: true }));
+      if (!handledBySmoothScroll) window.scrollTo({ top: target, behavior: "smooth" });
     };
 
     window.addEventListener("visual-scroll-to-programs", goToPrograms);
@@ -279,7 +280,11 @@ export default function VisualSchoolPage() {
     );
 
     // Bring in Concept Section (Stacks as a full section)
-    tl.to(visualSchoolIntroRef.current, { autoAlpha: 0, pointerEvents: "none", duration: 0.25 }, 4.45);
+    tl.to(
+      [overlayRef.current, stackedVideo1Ref.current, stackedVideo2Ref.current],
+      { autoAlpha: 0, pointerEvents: "none", duration: 0.15 },
+      4.45
+    );
     tl.fromTo(conceptSectionRef.current,
       { y: "100vh", opacity: 1, pointerEvents: "auto" },
       { y: "0%", duration: 1, ease: "power2.inOut" },
@@ -291,13 +296,8 @@ export default function VisualSchoolPage() {
       4.45
     );
 
-    // Once the concept section fully covers the stacked showcase, remove the
-    // underlying videos so they cannot leak into the following curriculum.
-    tl.to(
-      [overlayRef.current, stackedVideo1Ref.current, stackedVideo2Ref.current],
-      { autoAlpha: 0, pointerEvents: "none", duration: 0.15 },
-      5.15
-    );
+    // Keep the intro background underneath until the next panel covers it.
+    tl.to(visualSchoolIntroRef.current, { autoAlpha: 0, pointerEvents: "none", duration: 0.15 }, 5.45);
 
     // Animate the showcase track horizontally over the concept section
     tl.fromTo(cardsTrackRef.current,
@@ -418,7 +418,7 @@ export default function VisualSchoolPage() {
                 <p className={styles.kicker}>Visual School</p>
                 <h1>Visual stories that<br />move people.</h1>
                 <p className={styles.heroIntro}>For people who want to tell stronger stories through editing, filmmaking, design and Creative AI.</p>
-                <Link href="#programs" onClick={scrollToPrograms} className={styles.heroCta}>See the disciplines <b>↘</b></Link>
+                <button type="button" onClick={scrollToPrograms} className={styles.heroCta}>See the disciplines <b>↘</b></button>
                 <div className={styles.heroMarquee}>
                   <IconMarquee />
                 </div>

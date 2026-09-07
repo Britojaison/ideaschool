@@ -242,6 +242,7 @@
 }
 
 .heroCta {
+  position: relative;
   width: fit-content;
   min-width: 220px;
   margin: 0 0 28px;
@@ -251,21 +252,42 @@
   justify-content: space-between;
   gap: 30px;
   border-radius: 999px;
+  border: 0;
   color: white;
   background: #202125;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 600;
-  transition: transform .25s, background .25s;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform .25s, background .25s, box-shadow .25s;
 }
 
 .heroCta b {
+  display: inline-block;
   font-size: 20px;
   font-weight: 400;
+  line-height: 1;
+  transition: transform .25s;
 }
 
 .heroCta:hover {
   background: var(--red);
   transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(251, 22, 22, .22);
+}
+
+.heroCta:hover b {
+  transform: translate(4px, 4px);
+}
+
+.heroCta:active {
+  transform: translateY(-1px) scale(.98);
+}
+
+.heroCta:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
 }
 
 .collage {

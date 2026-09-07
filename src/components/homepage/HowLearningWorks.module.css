@@ -3,7 +3,7 @@
   width: 100%;
   background-color: #0a0a0c;
   color: #FBFAF2;
-  padding: 120px 5vw 140px;
+  padding: 120px 5vw 40px;
   overflow: hidden;
 }
 
@@ -162,7 +162,7 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 80px 6vw 100px;
+    padding: 80px 6vw 20px;
   }
 
   .header {

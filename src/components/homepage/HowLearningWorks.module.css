@@ -1,8 +1,8 @@
 .section {
   position: relative;
   width: 100%;
-  background-color: #FBFAF2;
-  color: #0a0a0c;
+  background-color: #0a0a0c;
+  color: #FBFAF2;
   padding: 120px 5vw 140px;
   overflow: hidden;
 }
@@ -43,13 +43,15 @@
   font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(15px, 1.2vw, 18px);
   line-height: 1.55;
-  color: #4f514e;
+  color: rgba(251, 250, 242, 0.7);
   margin: 0;
 }
 
 /* ── Timeline ── */
 .timeline {
   position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 40px 0;
 }
 
@@ -73,12 +75,16 @@
   z-index: 1;
 }
 
+/* Right step: dot on left side (near center), text flows right */
 .stepRight {
-  padding-left: 52%;
+  padding-left: 58%;
 }
 
+/* Left step: dot on right side (near center), text flows left */
 .stepLeft {
-  padding-right: 52%;
+  padding-right: 58%;
+  flex-direction: row-reverse;
+  text-align: right;
 }
 
 /* ── Dot ── */
@@ -87,7 +93,7 @@
   height: 48px;
   min-width: 48px;
   border-radius: 50%;
-  background: #0a0a0c;
+  background: #FBFAF2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,7 +105,7 @@
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
-  color: #FBFAF2;
+  color: #0a0a0c;
   letter-spacing: -0.02em;
 }
 
@@ -109,13 +115,13 @@
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 1.5px solid rgba(10, 10, 12, 0.15);
+  border: 1.5px solid rgba(251, 250, 242, 0.15);
 }
 
 /* ── Step Content ── */
 .stepContent {
   padding-top: 8px;
-  max-width: 340px;
+  max-width: 320px;
 }
 
 .stepTitle {
@@ -131,18 +137,22 @@
   font-family: var(--font-helvetica), sans-serif;
   font-size: clamp(14px, 1.05vw, 16px);
   line-height: 1.55;
-  color: #4f514e;
+  color: rgba(251, 250, 242, 0.7);
   margin: 0;
 }
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
+  .timeline {
+    max-width: 800px;
+  }
+
   .stepRight {
-    padding-left: 48%;
+    padding-left: 55%;
   }
 
   .stepLeft {
-    padding-right: 48%;
+    padding-right: 55%;
   }
 
   .step {
@@ -161,6 +171,7 @@
 
   .timeline {
     padding: 20px 0;
+    max-width: none;
   }
 
   .step {
@@ -173,7 +184,8 @@
   .stepLeft {
     padding-left: 0;
     padding-right: 0;
-    flex-direction: row;
+    flex-direction: row !important;
+    text-align: left !important;
     gap: 20px;
   }
 

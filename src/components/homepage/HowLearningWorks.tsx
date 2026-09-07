@@ -203,7 +203,7 @@ export default function HowLearningWorks() {
             <path
               ref={pathRef}
               fill="none"
-              stroke="#0a0a0c"
+              stroke="#FBFAF2"
               strokeWidth="1.5"
               strokeLinecap="round"
               mask="url(#hlw-fade-mask)"
@@ -218,7 +218,7 @@ export default function HowLearningWorks() {
                 stepRefs.current[i] = el;
               }}
               className={`${styles.step} ${
-                i % 2 === 0 ? styles.stepRight : styles.stepLeft
+                i % 2 === 0 ? styles.stepLeft : styles.stepRight
               }`}
             >
               <div

@@ -215,7 +215,7 @@ export default function VisualSchoolPage() {
         id: "visual-video-stack",
         trigger: containerRef.current,
         start: "top top",
-        end: isMobile ? "+=420%" : "+=520%",
+        end: isMobile ? "+=240%" : "+=300%",
         scrub: isMobile ? 0.35 : true,
         pin: true,
         invalidateOnRefresh: true,
@@ -223,6 +223,7 @@ export default function VisualSchoolPage() {
     });
 
     const stackedScale = isMobile ? 1 : 0.95;
+    const stackedScaleBack = isMobile ? 1 : 0.91;
 
     // Make the overlay visible and fade out the original card
     tl.set(cardWideRef.current, { opacity: 0 }, 0);
@@ -250,10 +251,10 @@ export default function VisualSchoolPage() {
       0.5
     );
 
-    // Subtle pause before next animation
-    tl.to({}, { duration: 0.3 }, 1);
+    // Pause on Card 0 so user can view/read it
+    tl.to({}, { duration: 0.3 }, 1.0);
 
-    // Bring in Stacked Video 1
+    // Bring in Stacked Video 1 (Curriculum)
     tl.to(overlayVideoRef.current, { scale: stackedScale, borderRadius: "32px", duration: 1 }, 1.3);
     tl.fromTo(stackedVideo1Ref.current,
       { y: "100vh", opacity: 1 },
@@ -261,10 +262,11 @@ export default function VisualSchoolPage() {
       1.3
     );
 
-    // Subtle pause
+    // Pause on Card 1
     tl.to({}, { duration: 0.3 }, 2.3);
 
-    // Bring in Stacked Video 2
+    // Bring in Stacked Video 2 (Outcomes / Portfolio)
+    tl.to(overlayVideoRef.current, { scale: stackedScaleBack, duration: 1 }, 2.6);
     tl.to(stackedVideo1Ref.current, { scale: stackedScale, borderRadius: "32px", duration: 1 }, 2.6);
     tl.fromTo(stackedVideo2Ref.current,
       { y: "100vh", opacity: 1 },
@@ -272,13 +274,8 @@ export default function VisualSchoolPage() {
       2.6
     );
 
-    // Cleanly finish the stack before the normal page sections resume.
-    tl.to(stackedVideo2Ref.current, { scale: 0.95, borderRadius: "32px", duration: 1 }, 3.9);
-    tl.to(
-      [overlayRef.current, stackedVideo1Ref.current, stackedVideo2Ref.current],
-      { autoAlpha: 0, pointerEvents: "none", duration: 0.25 },
-      4.55
-    );
+    // Pause on Card 2 so user can view/read it before unpinning cleanly into the next section
+    tl.to({}, { duration: 0.4 }, 3.6);
 
     return () => ScrollTrigger.removeEventListener("refreshInit", updateInitialPosition);
   }, { scope: containerRef });
@@ -320,10 +317,14 @@ export default function VisualSchoolPage() {
       });
     };
 
-    // Run on mount and resize
+    // Run on mount, resize, and ScrollTrigger refresh
     updateGridOffsets();
     window.addEventListener('resize', updateGridOffsets);
-    return () => window.removeEventListener('resize', updateGridOffsets);
+    ScrollTrigger.addEventListener('refresh', updateGridOffsets);
+    return () => {
+      window.removeEventListener('resize', updateGridOffsets);
+      ScrollTrigger.removeEventListener('refresh', updateGridOffsets);
+    };
   }, []);
 
   useGSAP(() => {

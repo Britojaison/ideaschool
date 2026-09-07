@@ -207,6 +207,29 @@ function clearStripClips(parts) {
   }
 }
 
+/**
+ * @typedef {Object} CurtainSliderImage
+ * @property {string} src
+ * @property {string} [alt]
+ * @property {string} [title]
+ * @property {string} [label]
+ *
+ * @typedef {Object} CurtainSliderProps
+ * @property {string} [className]
+ * @property {CurtainSliderImage[]} [images]
+ * @property {number} [duration]
+ * @property {string} [ease]
+ * @property {number} [columns]
+ * @property {number} [auto]
+ * @property {boolean} [drag]
+ * @property {number} [stagger]
+ * @property {string | string[] | boolean} [disable]
+ * @property {((data: { index: number, direction: number, slide: any }) => void)} [onChange]
+ */
+
+/**
+ * @param {CurtainSliderProps} props
+ */
 export default function CurtainSlider({
   className = '',
   images = DEFAULT_IMAGES,
@@ -216,8 +239,8 @@ export default function CurtainSlider({
   auto = 0,
   drag = true,
   stagger = 0.0125,
-  disable,
-  onChange,
+  disable = undefined,
+  onChange = undefined,
 }) {
   const containerRef = useRef(null);
   const stageRef = useRef(null);

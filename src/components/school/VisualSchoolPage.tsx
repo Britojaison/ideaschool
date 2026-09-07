@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Shell from "@/components/global/Shell";
 import IconMarquee from "@/components/global/IconMarquee";
 import Accordion from "@/components/ui/Accordion";
+import CurtainSlider from "@/components/ui/curtain-slider/CurtainSlider";
 import styles from "./VisualSchoolPage.module.css";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
 
@@ -89,6 +90,57 @@ const disciplines = [
   },
 ];
 
+const visualSchoolWorkImages = [
+  {
+    src: "/images/DSC00024.webp",
+    alt: "Students working in editing lab",
+    title: "Edit",
+    label: "Lab 01",
+  },
+  {
+    src: "/images/DSC00033.webp",
+    alt: "Directing and visual storytelling",
+    title: "Direct",
+    label: "Lab 02",
+  },
+  {
+    src: "/images/gallery10.webp",
+    alt: "Classroom studio production",
+    title: "Shoot",
+    label: "Lab 03",
+  },
+  {
+    src: "/images/DSC00057.webp",
+    alt: "Visual School workshop and mentoring",
+    title: "Process",
+    label: "Lab 04",
+  },
+];
+
+const practitioners = [
+  {
+    name: "Dhananjayan S.",
+    role: "CEO, 88GB",
+    image: "/assets/images/mentor_ARJUN.webp",
+  },
+  {
+    name: "Elamparithi",
+    role: "Head of Design, 88GB",
+    image: "/assets/images/wepparithi12.webp",
+  },
+  {
+    name: "Ajay Karthik",
+    role: "Video Editor, 88GB",
+    image: "/assets/images/mentor_AJAY.webp",
+  },
+  {
+    name: "Chandrasoodeshwar",
+    role: "Senior Creative Strategist, 88GB",
+    image: "/assets/images/mentor_CHANDRU.webp",
+  },
+];
+
+
 export default function VisualSchoolPage() {
   const [audibleVideo, setAudibleVideo] = useState<HeroVideoId | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -111,6 +163,8 @@ export default function VisualSchoolPage() {
   const leftQuoteRef = useRef<HTMLDivElement>(null);
   const rightQuoteRef = useRef<HTMLDivElement>(null);
   const whoSectionRef = useRef<HTMLElement>(null);
+  const workSectionRef = useRef<HTMLElement>(null);
+  const practitionersSectionRef = useRef<HTMLElement>(null);
   const faqSectionRef = useRef<HTMLElement>(null);
   const trainScrollRef = useRef<HTMLDivElement>(null);
 
@@ -319,7 +373,7 @@ export default function VisualSchoolPage() {
 
   useEffect(() => {
     const updateGridOffsets = () => {
-      const sections = [heroRef, visualSchoolIntroRef, disciplinesSectionRef, curriculumSectionRef, whoSectionRef, faqSectionRef];
+      const sections = [heroRef, visualSchoolIntroRef, disciplinesSectionRef, curriculumSectionRef, whoSectionRef, workSectionRef, practitionersSectionRef, faqSectionRef];
       sections.forEach(ref => {
         if (ref.current) {
           ref.current.style.setProperty('--section-offset-y', `${ref.current.offsetTop}px`);
@@ -371,6 +425,47 @@ export default function VisualSchoolPage() {
       );
     });
   });
+
+  useGSAP(() => {
+    if (!workSectionRef.current) return;
+
+    gsap.fromTo(
+      workSectionRef.current.querySelectorAll(`.${styles.workContentWrapper}`),
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: workSectionRef.current,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, { scope: workSectionRef });
+
+  useGSAP(() => {
+    if (!practitionersSectionRef.current) return;
+
+    gsap.fromTo(
+      practitionersSectionRef.current.querySelectorAll(`.${styles.practitionerCard}`),
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: practitionersSectionRef.current,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, { scope: practitionersSectionRef });
 
   return (
     <Shell headerOverlay>
@@ -637,6 +732,94 @@ export default function VisualSchoolPage() {
                 <h3>Creating for your own work</h3>
                 <p>You are a creator, freelancer or team member who wants stronger production skills.</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Work From Visual School Section */}
+        <section className={styles.workSection} ref={workSectionRef}>
+          {/* Grid Background */}
+          <div className={styles.heroGrid} aria-hidden="true" />
+          <div className={styles.gridColumns} aria-hidden="true" />
+          <div className={styles.gridRows} aria-hidden="true" />
+
+          <div className="container" style={{ position: "relative", zIndex: 10 }}>
+            <div className={styles.workHeader}>
+              <div className={styles.workTitleCol}>
+                <span className={styles.workEyebrow}>WORK FROM VISUAL SCHOOL</span>
+                <h2>
+                  See the process in<br />the final frame.
+                </h2>
+              </div>
+              <div className={styles.workIntroCol}>
+                <p>
+                  Films, edits, design experiments and AI-assisted visual projects developed across Visual School programs and workshops.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.workContentWrapper}>
+              <div className={styles.workImageWrapper}>
+                <CurtainSlider
+                  auto={3}
+                  duration={1.2}
+                  images={visualSchoolWorkImages}
+                  onChange={() => {}}
+                />
+              </div>
+              <div className={styles.workTextPanel}>
+                <span className={styles.workPanelSubtitle}>STUDENT WORK</span>
+                <h3 className={styles.workPanelTitle}>
+                  EVERY PROJECT<br />STARTS WITH<br />A DIRECTION.
+                </h3>
+                <p className={styles.workPanelDesc}>
+                  The work improves through practice, feedback and revision.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Practitioners in the Room Section */}
+        <section className={styles.practitionersSection} ref={practitionersSectionRef}>
+          {/* Grid Background */}
+          <div className={styles.heroGrid} aria-hidden="true" />
+          <div className={styles.gridColumns} aria-hidden="true" />
+          <div className={styles.gridRows} aria-hidden="true" />
+
+          <div className="container" style={{ position: "relative", zIndex: 10 }}>
+            <div className={styles.practitionersHeader}>
+              <div className={styles.practitionersTitleCol}>
+                <span className={styles.practitionersEyebrow}>PEOPLE YOU LEARN WITH</span>
+                <h2>
+                  Practitioners in<br />the room.
+                </h2>
+              </div>
+              <div className={styles.practitionersIntroCol}>
+                <p>
+                  Learn with people who work across creative direction, design, editing and production.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.practitionersGrid}>
+              {practitioners.map((person) => (
+                <div className={styles.practitionerCard} key={person.name}>
+                  <div className={styles.practitionerImageWrapper}>
+                    <Image
+                      src={person.image}
+                      alt={person.name}
+                      fill
+                      className={styles.practitionerImage}
+                      sizes="(max-width: 800px) 260px, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className={styles.practitionerMeta}>
+                    <h3>{person.name}</h3>
+                    <p>{person.role}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

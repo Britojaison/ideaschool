@@ -15,7 +15,6 @@ import InsideProgram from "@/components/homepage/InsideProgram";
 import HowLearningWorks from "@/components/homepage/HowLearningWorks";
 import BuiltByAmbitious from "@/components/homepage/BuiltByAmbitious";
 import Gallery from "@/components/homepage/Gallery";
-import Testimonials from "@/components/homepage/Testimonials";
 import Reviews from "@/components/homepage/Reviews";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 import styles from "@/styles/Home.module.css";
@@ -385,7 +384,6 @@ export default function Home() {
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
       </div>
-      <Testimonials />
       <Reviews />
       <HomeFAQ />
     </Shell>

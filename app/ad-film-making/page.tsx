@@ -274,7 +274,7 @@ const applyFaqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "AD Film Making | Idea School",
+  title: "AD Film Making | IDEA School",
   description:
     "Master AI-Powered AD Film Making in 1 day. Hands-on creative offline workshop to produce agency-level commercial ad films.",
 };
@@ -290,10 +290,10 @@ export default function ApplyPage() {
         <div className="programHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
+          <Link className="brand" href="/" aria-label="IDEA School home">
             <Image
               src="/images/idea logo.webp"
-              alt="Idea"
+              alt="IDEA"
               width={104}
               height={54}
               priority
@@ -505,7 +505,7 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="videoSection" aria-label="Idea School video">
+      <section className="videoSection" aria-label="IDEA School video">
         <video
           id="applyHomePageVideo"
           className="videoPoster"
@@ -517,7 +517,7 @@ export default function ApplyPage() {
           disableRemotePlayback
           controlsList="nodownload noplaybackrate noremoteplayback"
           preload="metadata"
-          aria-label="Idea School classroom video"
+          aria-label="IDEA School classroom video"
         >
           <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
         </video>
@@ -540,7 +540,7 @@ export default function ApplyPage() {
           </div>
         </div>
         {/* 
-        <section className="contactSection" id="contact" aria-label="Contact Idea School">
+        <section className="contactSection" id="contact" aria-label="Contact IDEA School">
           <div className="contactInner">
             <div className="contactCopy">
               <h2>
@@ -551,7 +551,7 @@ export default function ApplyPage() {
                 Contact us.
               </h2>
               <p>
-                Join Idea School and start learning editing, content creation, and
+                Join IDEA School and start learning editing, content creation, and
                 AI tools through real projects and hands-on sessions.
               </p>
             </div>

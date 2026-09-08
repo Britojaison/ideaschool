@@ -60,11 +60,11 @@ export default function MobileMenu() {
           >
             {/* Top Header inside Drawer */}
             <div className={styles.mobileNavHeader}>
-              <Link href="/" className={styles.mobileLogo} onClick={closeMenu} aria-label="Idea AI School home">
+              <Link href="/" className={styles.mobileLogo} onClick={closeMenu} aria-label="IDEA AI School home">
                 <Image
                   className={styles.mobileLogoImg}
                   src={ideaLogo}
-                  alt="Idea AI School"
+                  alt="IDEA AI School"
                   width={92}
                   height={29}
                   priority

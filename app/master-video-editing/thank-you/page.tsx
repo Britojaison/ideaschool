@@ -8,7 +8,7 @@ const whatsappCommunityUrl = "https://chat.whatsapp.com/Iz3mpN9HQ6KGDEUbedsUBW";
 export const metadata: Metadata = {
   title: "Registration Successful | Video Editing Workshop",
   description:
-    "Thank you for registering for the Idea School Video Editing Workshop.",
+    "Thank you for registering for the IDEA School Video Editing Workshop.",
 };
 
 export default function WorkshopThankYouPage() {
@@ -19,10 +19,10 @@ export default function WorkshopThankYouPage() {
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
+          <Link className="brand" href="/" aria-label="IDEA School home">
             <Image
               src="/images/idea logo.webp"
-              alt="Idea"
+              alt="IDEA"
               width={104}
               height={54}
               priority

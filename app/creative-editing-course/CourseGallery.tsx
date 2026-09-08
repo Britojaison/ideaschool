@@ -39,7 +39,7 @@ export default function CourseGallery() {
     <MagneticSpotlightMarquee
       className="!bg-[#FBFAF2]"
       images={GALLERY_IMAGES}
-      title={["IdeaSchool", "Gallery"]}
+      title={["IDEA School", "Gallery"]}
       subtitle={["STUDENT WORK", "CREATIVE EXCELLENCE"]}
       paragraphs={[]}
       navEmail=""

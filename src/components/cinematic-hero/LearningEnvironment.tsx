@@ -128,7 +128,7 @@ export default function LearningEnvironment() {
               <h3 className={styles.headerTitleLeft}>Self-paced online course</h3>
             </div>
             <div className={styles.headerColRight}>
-              <h3 className={styles.headerTitleRight}>Idea School</h3>
+              <h3 className={styles.headerTitleRight}>IDEA School</h3>
             </div>
           </div>
 

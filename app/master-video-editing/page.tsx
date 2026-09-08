@@ -32,7 +32,7 @@ const ScrollFadeArrow = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "master VIDEO EDITING | Idea School",
+  title: "master VIDEO EDITING | IDEA School",
   description:
     "A live 2-day workshop to learn high-income video editing skills, Premiere Pro, After Effects, CapCut, audio tools, and AI-powered video creation with Higgsfield AI.",
 };
@@ -246,10 +246,10 @@ export default function WorkshopPage() {
             <div className="longCourseHeroShade" />
 
             <header className="siteHeader">
-              <Link className="brand" href="/" aria-label="Idea School home">
+              <Link className="brand" href="/" aria-label="IDEA School home">
                 <Image
                   src="/images/idea logo.webp"
-                  alt="Idea"
+                  alt="IDEA"
                   width={104}
                   height={54}
                   priority
@@ -503,7 +503,7 @@ export default function WorkshopPage() {
                   Career Potential
                 </span>
                 <h2 className="text-4xl md:text-6xl lg:text-[5rem] tracking-tight font-medium mb-6 uppercase" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
-                  Where Idea School Editors Go
+                  Where IDEA School Editors Go
                 </h2>
                 <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">
                   The skills you build here are what the market is actively hiring for and paying a premium on - right now.

@@ -35,7 +35,7 @@ const Gallery = () => {
           </div>
           {/* Row 2: Square Text (100+) */}
           <div className={`${styles.galleryItem} ${styles.galleryTextCard} ${styles.aspectSquare}`} style={{ backgroundColor: "var(--red)", color: "var(--snow)" }}>
-            <h2>Idea</h2>
+            <h2>IDEA</h2>
             <h3>To Reality</h3>
             <p>Master the art of AI assisted visual storytelling</p>
           </div>

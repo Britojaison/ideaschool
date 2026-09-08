@@ -95,7 +95,7 @@ export default function Footer() {
       <div className={styles.footerIllustrationContainer}>
         <Image
           src="/images/image-7-2.webp"
-          alt="Idea School Team"
+          alt="IDEA School Team"
           width={4096}
           height={2048}
           className={styles.footerIllustrationImg}
@@ -105,7 +105,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerLegal}>
-        <div className={styles.legalLeft}>Idea School</div>
+        <div className={styles.legalLeft}>IDEA School</div>
       </div>
     </footer>
   );

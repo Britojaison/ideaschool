@@ -32,7 +32,7 @@ export default function AdmissionEnrollment() {
         <div className="relative w-full h-[480px] lg:h-[88%] rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 shadow-2xl group">
           <Image
             src="/images/full-optimized.webp"
-            alt="Idea School Campus Lab"
+            alt="IDEA School Campus Lab"
             fill
             priority
             className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
@@ -169,7 +169,7 @@ export default function AdmissionEnrollment() {
                   fontFamily: 'var(--font-stara), "Stara", sans-serif',
                 }}
               >
-                <span>Talk to Idea Creative School</span>
+                <span>Talk to IDEA Creative School</span>
                 <span aria-hidden="true">↗</span>
               </button>
             </div>

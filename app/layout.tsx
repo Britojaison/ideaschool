@@ -51,7 +51,7 @@ const magnu = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Idea School | Creative Skills, AI Ad Filmmaking & Editing Programs",
+  title: "IDEA School | Creative Skills, AI Ad Filmmaking & Editing Programs",
   description:
     "Hands-on creative programs for editing, AI ad filmmaking, content strategy, portfolio projects, and industry-ready creative workflows.",
   icons: {

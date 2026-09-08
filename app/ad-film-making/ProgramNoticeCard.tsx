@@ -12,7 +12,7 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
       href={paymentLink}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Book the Idea School AI workshop now"
+      aria-label="Book the IDEA School AI workshop now"
     >
       <span className="programNoticeEyebrow">
         <span>Early Bird Offer</span>

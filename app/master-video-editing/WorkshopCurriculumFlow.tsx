@@ -11,7 +11,7 @@ export default function WorkshopCurriculumFlow() {
         <div className="curriculumFlowRevealImage">
           <img
             src="/images/DSC01035.webp"
-            alt="Idea School workshop in action"
+            alt="IDEA School workshop in action"
             className="curriculumFlowRevealImg"
           />
         </div>

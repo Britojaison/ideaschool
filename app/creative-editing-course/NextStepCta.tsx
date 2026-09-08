@@ -12,7 +12,7 @@ export default function NextStepCta() {
         </h2>
         <div className={styles.footer}>
           <p className={styles.copy}>
-            Apply to Idea School or speak with the team to understand whether the
+            Apply to IDEA School or speak with the team to understand whether the
             program is the right fit for you.
           </p>
           <div className={styles.actions}>

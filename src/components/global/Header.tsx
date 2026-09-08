@@ -10,11 +10,11 @@ import styles from "./Header.module.css";
 
 export function Logo() {
   return (
-    <Link href="/" className={styles.logo} aria-label="Idea AI School home">
+    <Link href="/" className={styles.logo} aria-label="IDEA AI School home">
       <Image
         className={styles.logoImage}
         src={ideaLogo}
-        alt="Idea AI School"
+        alt="IDEA AI School"
         priority
         width={104}
         height={32}
@@ -162,7 +162,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             priority
           />
           <Link href="/#the-idea" className={styles.navLink} onClick={closeAll}>
-            The Idea
+            The IDEA
           </Link>
           <div 
             className={styles.navItem}
@@ -280,11 +280,11 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
           >
             {/* Top Header inside Drawer */}
             <div className={styles.mobileNavHeader}>
-              <Link href="/" className={styles.mobileLogo} onClick={closeAll} aria-label="Idea AI School home">
+              <Link href="/" className={styles.mobileLogo} onClick={closeAll} aria-label="IDEA AI School home">
                 <Image
                   className={styles.mobileLogoImg}
                   src={ideaLogo}
-                  alt="Idea AI School"
+                  alt="IDEA AI School"
                   width={92}
                   height={29}
                   priority

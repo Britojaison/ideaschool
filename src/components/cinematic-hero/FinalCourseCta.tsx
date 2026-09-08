@@ -190,7 +190,7 @@ export default function FinalCourseCta() {
 
           <div className={styles.editorialCol} ref={rightColRef}>
             <p className={styles.paragraph}>
-              Idea Creative School is built to help you develop that capability.
+              IDEA Creative School is built to help you develop that capability.
             </p>
             <p className={styles.tagline}>
               Build your skills. Build your portfolio. Build your career.

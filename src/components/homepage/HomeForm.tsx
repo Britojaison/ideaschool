@@ -93,7 +93,7 @@ export default function HomeForm() {
       <div className={styles.modalBox}>
         {/* Top Left Logo (over the image) */}
         <div className={styles.logoTopLeft}>
-          <Image src={ideaLogo} alt="Idea School Logo" width={32} height={32} style={{ objectFit: "contain" }} />
+          <Image src={ideaLogo} alt="IDEA School Logo" width={32} height={32} style={{ objectFit: "contain" }} />
         </div>
 
         <div className={styles.leftPane}>
@@ -126,7 +126,7 @@ export default function HomeForm() {
                 <h2>Take the first step.</h2>
                 <p>
                   Your creative career starts with what you can create.<br />
-                  Apply now for the next Idea Creative School cohort.
+                  Apply now for the next IDEA Creative School cohort.
                 </p>
               </div>
 

@@ -220,7 +220,7 @@ const applyFaqs = [
   {
     question: "Will I receive a certificate?",
     answer:
-      "Yes. Every participant who attends the workshop will receive a Certificate of Participation from Idea School.",
+      "Yes. Every participant who attends the workshop will receive a Certificate of Participation from IDEA School.",
   },
   {
     question: "Why should I attend this workshop instead of learning from YouTube?",
@@ -235,7 +235,7 @@ const applyFaqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "Master High-Paying Video Editing | Idea School",
+  title: "Master High-Paying Video Editing | IDEA School",
   description:
     "Master High-Paying Video Editing In 1 Day. Learn High-Income Video Editing Skills That Are in Demand.",
 };
@@ -252,10 +252,10 @@ export default function ApplyPage() {
         <div className="programHeroShade" />
 
         <header className="siteHeader">
-          <div className="brand" aria-label="Idea School" style={{ cursor: "default" }}>
+          <div className="brand" aria-label="IDEA School" style={{ cursor: "default" }}>
             <Image
               src="/images/idea logo.webp"
-              alt="Idea"
+              alt="IDEA"
               width={104}
               height={54}
               priority
@@ -459,7 +459,7 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="videoSection" aria-label="Idea School video">
+      <section className="videoSection" aria-label="IDEA School video">
         <video
           id="applyHomePageVideo"
           className="videoPoster"
@@ -471,7 +471,7 @@ export default function ApplyPage() {
           disableRemotePlayback
           controlsList="nodownload noplaybackrate noremoteplayback"
           preload="metadata"
-          aria-label="Idea School classroom video"
+          aria-label="IDEA School classroom video"
         >
           <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
         </video>
@@ -494,7 +494,7 @@ export default function ApplyPage() {
           </div>
         </div>
         {/* 
-        <section className="contactSection" id="contact" aria-label="Contact Idea School">
+        <section className="contactSection" id="contact" aria-label="Contact IDEA School">
           <div className="contactInner">
             <div className="contactCopy">
               <h2>
@@ -505,7 +505,7 @@ export default function ApplyPage() {
                 Contact us.
               </h2>
               <p>
-                Join Idea School and start learning editing, content creation, and
+                Join IDEA School and start learning editing, content creation, and
                 AI tools through real projects and hands-on sessions.
               </p>
             </div>

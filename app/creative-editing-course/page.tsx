@@ -18,9 +18,9 @@ import HeroOverview from "@/components/cinematic-hero/HeroOverview";
 
 
 export const metadata: Metadata = {
-  title: "Full Stack Creative Editing & AI Mastery | Idea School",
+  title: "Full Stack Creative Editing & AI Mastery | IDEA School",
   description:
-    "A 24 week studio led video editing, cinematic pacing, motion graphics, and creative AI direction program from Idea School.",
+    "A 24 week studio led video editing, cinematic pacing, motion graphics, and creative AI direction program from IDEA School.",
 };
 
 const COURSE_FAQS = [
@@ -71,7 +71,7 @@ export default function CreativeEditingCopyPage() {
         heroHeadline1="EDITING IS JUST"
         heroHeadline2="THE START."
         heroSubtitle="[ Full Stack Video Editing & Creative AI Mastery ]"
-        studioName="Idea School"
+        studioName="IDEA School"
         tags={["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"]}
         leftGiantTop="INDUSTRY"
         leftGiantBottom="LED."

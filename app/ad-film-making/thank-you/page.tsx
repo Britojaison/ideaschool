@@ -7,8 +7,8 @@ import ProgramMenu from "@/components/global/ProgramMenu";
 import Footer from "@/components/global/Footer";
 
 export const metadata: Metadata = {
-  title: "Enrollment Confirmed | Idea School",
-  description: "Thank you for enrolling in the Idea School workshop.",
+  title: "Enrollment Confirmed | IDEA School",
+  description: "Thank you for enrolling in the IDEA School workshop.",
 };
 
 export default function ApplyThankYouPage() {
@@ -24,10 +24,10 @@ export default function ApplyThankYouPage() {
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
+          <Link className="brand" href="/" aria-label="IDEA School home">
             <Image
               src="/images/idea logo.webp"
-              alt="Idea"
+              alt="IDEA"
               width={104}
               height={54}
               priority

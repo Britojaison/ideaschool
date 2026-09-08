@@ -517,7 +517,7 @@ export default function VisualSchoolPage() {
                 <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
-                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
+                <Image src={ideaLogo} alt="IDEA AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
                 <p className={styles.overlayLabel}>24 WEEK FLAGSHIP PROGRAM</p>
                 <h2>Creative Editing &amp; AI Pro</h2>
                 <p className={styles.overlayDesc}>Build professional editing, motion design, and AI-native production skills through one complete career-focused course.</p>
@@ -548,7 +548,7 @@ export default function VisualSchoolPage() {
                 <source src="/assets/videos/zaman_case_study.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
-                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
+                <Image src={ideaLogo} alt="IDEA AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
                 <p className={styles.overlayLabel}>COMPLETE COURSE CURRICULUM</p>
                 <h2>From Story to Final Cut</h2>
                 <p className={styles.overlayDesc}>Learn visual storytelling, professional editing, motion graphics, and AI workflows through structured, hands-on modules.</p>
@@ -570,7 +570,7 @@ export default function VisualSchoolPage() {
                 <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
-                <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
+                <Image src={ideaLogo} alt="IDEA AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
                 <p className={styles.overlayLabel}>CAREER-READY OUTCOMES</p>
                 <h2>Build an Industry Ready Portfolio</h2>
                 <p className={styles.overlayDesc}>Graduate with polished portfolio projects, practical production experience, and the skills to work with real creative teams.</p>

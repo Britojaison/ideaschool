@@ -7,7 +7,7 @@ import VslVideoPlayer from "./VslVideoPlayer";
 import "./page.css";
 
 export const metadata: Metadata = {
-  title: "24-Week Industry Experience Program | Idea School",
+  title: "24-Week Industry Experience Program | IDEA School",
   description:
     "Learn professional video editing through live brand briefs, real client problems, mentor reviews, revision cycles, and portfolio-ready work.",
 };
@@ -29,8 +29,8 @@ export default function IndustryExperienceProgramPage() {
   return (
     <main className="vslPage">
       <section className="vslFunnel">
-        <Link className="vslLogo" href="/" aria-label="Idea School home">
-          <Image src="/images/idea logo.webp" alt="Idea School" width={110} height={58} priority />
+        <Link className="vslLogo" href="/" aria-label="IDEA School home">
+          <Image src="/images/idea logo.webp" alt="IDEA School" width={110} height={58} priority />
         </Link>
 
 

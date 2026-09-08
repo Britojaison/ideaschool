@@ -156,7 +156,7 @@ export default function WorkshopLoadingScreen() {
       >
         <Image
           src="/images/idea logo.webp"
-          alt="Idea"
+          alt="IDEA"
           width={104}
           height={54}
           priority

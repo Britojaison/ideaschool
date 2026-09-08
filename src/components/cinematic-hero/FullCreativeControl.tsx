@@ -419,7 +419,7 @@ export default function FullCreativeControl() {
               <div ref={cameraRef} className={styles.cameraWrapper}>
                 <Image
                   src="/images/camlab-cam5.webp"
-                  alt="Idea School Cinema Camera Rig"
+                  alt="IDEA School Cinema Camera Rig"
                   width={460}
                   height={345}
                   className={styles.cameraImg}

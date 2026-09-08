@@ -58,7 +58,7 @@ export default function WhoItIsFor() {
         <Image
           ref={imageRef}
           src="/images/pn_copy.webp"
-          alt="Idea School creative community"
+          alt="IDEA School creative community"
           width={2048}
           height={508}
           className={styles.fullBleedImage}

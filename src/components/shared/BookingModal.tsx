@@ -176,7 +176,7 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
               &lt;
             </button>
           )}
-          <span className="poweredBy">Powered by <strong>Idea School</strong></span>
+          <span className="poweredBy">Powered by <strong>IDEA School</strong></span>
           <button className="closeBtn" onClick={onClose}>&times;</button>
         </div>
 
@@ -190,7 +190,7 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
           <div className="bookingBody">
             <div className="leftPanel">
               <div className="logoWrapper">
-                <Image src="/images/idea logo.webp" alt="Idea School" width={60} height={32} />
+                <Image src="/images/idea logo.webp" alt="IDEA School" width={60} height={32} />
               </div>
               <h2 className="eventTitle">Expert Call - {programName}</h2>
               <p className="eventDesc">

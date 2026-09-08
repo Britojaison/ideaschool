@@ -33,7 +33,7 @@ export default function CinematicHeroFlow({
   heroHeadline1 = "EDITING DEFINES.",
   heroHeadline2 = "CRAFT SELLS.",
   heroSubtitle = "[  Full Stack Video Editing & Creative AI Mastery  ]",
-  studioName = "Idea School",
+  studioName = "IDEA School",
   tags = ["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"],
   leftGiantTop = "INDUSTRY",
   leftGiantBottom = "LED.",
@@ -41,7 +41,7 @@ export default function CinematicHeroFlow({
   rightGiantBottom = "BUILT.",
   editorialParagraphs = [
     "Build practical skills across editing, storytelling, motion design and Creative AI—then apply them through briefs, mentor feedback and portfolio projects.",
-    "Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. Idea School is designed to help you develop those capabilities—not simply learn where the buttons are."
+    "Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. IDEA School is designed to help you develop those capabilities—not simply learn where the buttons are."
   ],
   nextSectionId
 }: CinematicHeroFlowProps) {

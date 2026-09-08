@@ -10,7 +10,7 @@ const agencyWebsiteUrl = "https://88gb.in";
 const instagramUrl = "https://www.instagram.com/ideaschool.pro/";
 
 export const metadata: Metadata = {
-  title: "Application Received | 24-Week Industry Experience Program | Idea School",
+  title: "Application Received | 24-Week Industry Experience Program | IDEA School",
   description:
     "Thank you for applying to the 24-Week Industry Experience Program. You are one step closer to becoming an industry-ready video editor.",
 };
@@ -42,10 +42,10 @@ export default function IndustryExperienceThankYouPage() {
 
       {/* Header */}
       <header className="vslThankYouHeader">
-        <Link className="vslThankYouLogo" href="/" aria-label="Idea School home">
+        <Link className="vslThankYouLogo" href="/" aria-label="IDEA School home">
           <Image
             src="/images/idea logo.webp"
-            alt="Idea School"
+            alt="IDEA School"
             width={110}
             height={58}
             priority
@@ -130,7 +130,7 @@ export default function IndustryExperienceThankYouPage() {
           <div className="vslAgencyCard">
             <h2 id="section-agency-title">Built By Industry Professionals</h2>
             <p>
-              Ideas Creative School is backed by <strong>88GB</strong>, a creative agency actively
+              IDEA Creative School is backed by <strong>88GB</strong>, a creative agency actively
               working on real-world brand campaigns, commercials, and high-impact digital content.
             </p>
 
@@ -141,7 +141,7 @@ export default function IndustryExperienceThankYouPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>🌐</span> Visit Idea School →
+                <span>🌐</span> Visit IDEA School →
               </a>
               <a
                 className="vslAgencyLinkBtn"
@@ -166,11 +166,11 @@ export default function IndustryExperienceThankYouPage() {
         {/* Footer */}
         <footer className="vslThankYouFooter">
           <p>
-            Results vary based on each student&apos;s effort, practice and participation. Idea School does
+            Results vary based on each student&apos;s effort, practice and participation. IDEA School does
             not guarantee employment or income. This program is designed to provide practical learning,
             project experience and professional guidance.
           </p>
-          <span>© {new Date().getFullYear()} Idea School. Backed by 88GB.</span>
+          <span>© {new Date().getFullYear()} IDEA School. Backed by 88GB.</span>
           <nav className="vslThankYouFooterNav">
             <Link href="/">Home</Link>
             <Link href="/industry-experience-program">Program Details</Link>

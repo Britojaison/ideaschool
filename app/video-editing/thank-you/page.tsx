@@ -7,8 +7,8 @@ import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
 export const metadata: Metadata = {
-  title: "Enrollment Confirmed | Idea School",
-  description: "Thank you for enrolling in the Idea School workshop.",
+  title: "Enrollment Confirmed | IDEA School",
+  description: "Thank you for enrolling in the IDEA School workshop.",
 };
 
 export default function ApplyThankYouPage() {
@@ -22,10 +22,10 @@ export default function ApplyThankYouPage() {
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <div className="brand" aria-label="Idea School" style={{ cursor: "default" }}>
+          <div className="brand" aria-label="IDEA School" style={{ cursor: "default" }}>
             <Image
               src="/images/idea logo.webp"
-              alt="Idea"
+              alt="IDEA"
               width={104}
               height={54}
               priority

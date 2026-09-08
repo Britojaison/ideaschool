@@ -8,9 +8,9 @@ import Footer from "@/components/global/Footer";
 const whatsappUrl = "https://chat.whatsapp.com/KPOJNXzGGmXCdUh2BdF4En";
 
 export const metadata: Metadata = {
-  title: "Application Received | Idea School",
+  title: "Application Received | IDEA School",
   description:
-    "Thank you for applying to the Idea School Creative Editing & AI Pro Course.",
+    "Thank you for applying to the IDEA School Creative Editing & AI Pro Course.",
 };
 
 export default function CreativeEditingThankYouPage() {
@@ -24,10 +24,10 @@ export default function CreativeEditingThankYouPage() {
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="Idea School home">
+          <Link className="brand" href="/" aria-label="IDEA School home">
             <Image
               src="/images/idea logo.webp"
-              alt="Idea School"
+              alt="IDEA School"
               width={104}
               height={54}
               priority

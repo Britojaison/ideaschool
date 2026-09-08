@@ -626,7 +626,7 @@
 
   .heroContent {
     max-width: 100%;
-    margin-bottom: clamp(4.2rem, 9.5vh, 5.5rem);
+    margin-bottom: clamp(2rem, 5vh, 3.2rem);
   }
 
   .heroTitleFull {
@@ -666,7 +666,7 @@
     gap: 0;
     padding: 10px 6px;
     width: 100%;
-    background: rgba(8, 8, 10, 0.82);
+    background: rgba(8, 8, 10, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -688,27 +688,28 @@
   }
 
   .statValue {
-    font-size: clamp(13.5px, 3.8vw, 16px);
+    font-size: clamp(13px, 3.6vw, 15px);
     font-weight: 700;
     line-height: 1.15;
     white-space: nowrap;
   }
 
   .statLabel {
-    font-size: clamp(8px, 2.2vw, 9.5px);
+    font-size: clamp(7.8px, 2.1vw, 9.2px);
     font-weight: 600;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.2;
-    margin-top: 2px;
+    margin-top: 3px;
     white-space: nowrap;
   }
 
   .bottomCenterMusic {
     position: absolute;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 3.2rem);
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+    right: 5vw;
+    left: auto;
+    transform: none;
     z-index: 60;
     pointer-events: auto;
     cursor: pointer;
@@ -720,18 +721,7 @@
   }
 
   .musicPromptWrapper {
-    margin-bottom: 5px;
-  }
-
-  .musicPromptText {
-    font-size: 0.52rem;
-    letter-spacing: 0.14em;
-    line-height: 1.15;
-  }
-
-  .musicPromptLine {
-    height: 12px;
-    margin-top: 2px;
+    display: none;
   }
 
   .timelineBar {
@@ -742,6 +732,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    padding-right: 68px;
   }
 
   .tickerTrack {

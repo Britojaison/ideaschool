@@ -10,7 +10,6 @@ import IconMarquee from "@/components/global/IconMarquee";
 import Accordion from "@/components/ui/Accordion";
 import CurtainSlider from "@/components/ui/curtain-slider/CurtainSlider";
 import styles from "./VisualSchoolPage.module.css";
-import ideaLogo from "@public/assets/logo/idea logo.webp";
 import TextAnimation from "@/components/ui/staggerText";
 
 import c1 from "@public/images/Gemini_Generated_Image_e3vatne3vatne3va.png";
@@ -528,15 +527,8 @@ export default function VisualSchoolPage() {
                 <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
-                <Image src={ideaLogo} alt="IDEA AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
                 <p className={styles.overlayLabel}>24 WEEK FLAGSHIP PROGRAM</p>
                 <h2>Creative Editing &amp; AI Pro</h2>
-                <p className={styles.overlayDesc}>Build professional editing, motion design, and AI-native production skills through one complete career-focused course.</p>
-                <div className={styles.overlayTags}>
-                  <span>AI Editing</span>
-                  <span>Motion Design</span>
-                  <span>Storytelling</span>
-                </div>
                 <div className={styles.overlayActions}>
                   <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                   <button
@@ -559,15 +551,8 @@ export default function VisualSchoolPage() {
                 <source src="/assets/videos/zaman_case_study.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
-                <Image src={ideaLogo} alt="IDEA AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
                 <p className={styles.overlayLabel}>COMPLETE COURSE CURRICULUM</p>
                 <h2>From Story to Final Cut</h2>
-                <p className={styles.overlayDesc}>Learn visual storytelling, professional editing, motion graphics, and AI workflows through structured, hands-on modules.</p>
-                <div className={styles.overlayTags}>
-                  <span>Storytelling</span>
-                  <span>Premiere Pro</span>
-                  <span>After Effects</span>
-                </div>
                 <div className={styles.overlayActions}>
                   <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
@@ -581,15 +566,8 @@ export default function VisualSchoolPage() {
                 <source src="/assets/videos/luis_reel.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
-                <Image src={ideaLogo} alt="IDEA AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />
                 <p className={styles.overlayLabel}>CAREER-READY OUTCOMES</p>
                 <h2>Build an Industry Ready Portfolio</h2>
-                <p className={styles.overlayDesc}>Graduate with polished portfolio projects, practical production experience, and the skills to work with real creative teams.</p>
-                <div className={styles.overlayTags}>
-                  <span>Portfolio</span>
-                  <span>Mentorship</span>
-                  <span>Career Track</span>
-                </div>
                 <div className={styles.overlayActions}>
                   <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>

@@ -1954,7 +1954,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: clamp(20px, 3vw, 36px) clamp(24px, 4vw, 48px);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0) 80%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.35) 35%, rgba(0, 0, 0, 0) 65%);
   color: white;
   text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
@@ -1964,7 +1964,7 @@
   font-size: clamp(26px, 3.2vw, 46px);
   font-weight: 300;
   line-height: .9;
-  margin: 6px 0 10px;
+  margin: 8px 0 clamp(16px, 2.2vh, 24px);
 }
 
 .overlayIdeaLogo {

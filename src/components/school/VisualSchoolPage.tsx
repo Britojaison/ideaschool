@@ -495,7 +495,7 @@ export default function VisualSchoolPage() {
                 </div>
                 <div className={`${styles.visualCard} ${styles.cardWide}`} ref={cardWideRef}>
                   <video autoPlay muted loop playsInline disablePictureInPicture disableRemotePlayback controlsList="nodownload noremoteplayback" preload="auto" aria-label="Creative school showcase reel">
-                    <source src="/assets/videos/home-page-video.mp4" type="video/mp4" />
+                    <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className={`${styles.visualCard} ${styles.cardFront} heroFadeOut`}>
@@ -514,7 +514,7 @@ export default function VisualSchoolPage() {
           <div className={styles.absoluteOverlay} ref={overlayRef}>
             <div className={styles.overlayVideo} ref={overlayVideoRef}>
               <video ref={overlayVideoElRef} autoPlay muted loop playsInline disablePictureInPicture>
-                <source src="/assets/videos/home-page-video.mp4" type="video/mp4" />
+                <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
                 <Image src={ideaLogo} alt="Idea AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />

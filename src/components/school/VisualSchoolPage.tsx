@@ -578,7 +578,7 @@ export default function VisualSchoolPage() {
             {/* Stacked Video 2 */}
             <div className={styles.stackedVideo} ref={stackedVideo2Ref}>
               <video ref={stackedVideo2ElRef} autoPlay muted loop playsInline disablePictureInPicture>
-                <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
+                <source src="/assets/videos/luis_reel.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
                 <Image src={ideaLogo} alt="IDEA AI School" className={styles.overlayIdeaLogo} style={{ width: "90px", height: "auto" }} />

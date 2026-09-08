@@ -773,16 +773,33 @@
 
 @media (max-width: 600px) {
   .wrapper {
-    --masthead-height: clamp(318px, 42vh, 350px);
+    --masthead-height: clamp(360px, 47vh, 405px);
   }
 
   .editorialHeader {
-    padding: calc(env(safe-area-inset-top, 0px) + 6.75rem) 4.8vw 1.35rem;
+    padding: calc(env(safe-area-inset-top, 0px) + 6.2rem) 5.2vw 1.35rem;
   }
 
   .editorialTitle {
-    font-size: clamp(3.08rem, 15.1vw, 4.3rem);
-    margin-bottom: clamp(1.55rem, 3.2vh, 2rem);
+    grid-template-columns: 1fr;
+    font-size: clamp(2.72rem, 13vw, 3.55rem);
+    line-height: 0.82;
+    margin-bottom: clamp(1.45rem, 3vh, 1.9rem);
+    gap: 0.1em;
+    width: 100%;
+  }
+
+  .editorialTitle .titleWord:first-child,
+  .titleScript,
+  .titleScript + .titleWord {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .titleScript {
+    font-size: 1em;
   }
 
   .editorialMetaBar {

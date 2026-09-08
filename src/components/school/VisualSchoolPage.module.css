@@ -1699,17 +1699,33 @@
   }
 
   .disciplineGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .disciplineCard {
-    min-height: 260px;
+    min-height: clamp(180px, 46vw, 240px);
+    padding: clamp(16px, 4vw, 24px);
     border-right: 0;
+    border-bottom: 0;
+  }
+
+  .disciplineCard:nth-child(odd) {
+    border-right: 1px solid rgba(10, 10, 12, .14);
+  }
+
+  .disciplineCard:nth-child(-n + 2) {
     border-bottom: 1px solid rgba(10, 10, 12, .14);
   }
 
-  .disciplineCard:last-child {
-    border-bottom: 0;
+  .disciplineCard h3 {
+    font-size: clamp(17px, 4.4vw, 22px);
+    margin: 0 0 8px;
+    line-height: 1.1;
+  }
+
+  .disciplineCard p {
+    font-size: clamp(12px, 3vw, 14px);
+    line-height: 1.35;
   }
 
   .kicker {

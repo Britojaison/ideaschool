@@ -46,7 +46,6 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
       label: "Visual School",
       href: "/visual-school",
       desc: "Editing, motion design & AI cinema",
-      badge: "Active",
     },
     {
       label: "Tech School",
@@ -852,13 +851,6 @@ export default function MultiLevelDrawerMenu({
                   })}
                 </div>
 
-                <Link
-                  href="/visual-school"
-                  className={styles.subExplore}
-                  onClick={closeMenu}
-                >
-                  View full curriculum ↗
-                </Link>
               </div>
             </aside>
           </div>,

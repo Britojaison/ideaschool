@@ -344,36 +344,10 @@ export default function VisualSchoolPage() {
     return () => ScrollTrigger.removeEventListener("refreshInit", updateInitialPosition);
   }, { scope: containerRef });
 
-  useGSAP(() => {
-    if (!curriculumSectionRef.current || !nikeImageRef.current || !leftQuoteRef.current || !rightQuoteRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: curriculumSectionRef.current,
-        start: "top 65%",
-        toggleActions: "play none none reverse",
-      }
-    });
-
-    tl.fromTo(nikeImageRef.current,
-      { y: 200, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
-    )
-      .fromTo(leftQuoteRef.current,
-        { x: 150, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: "back.out(1.2)" },
-        "-=0.6"
-      )
-      .fromTo(rightQuoteRef.current,
-        { x: -150, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: "back.out(1.2)" },
-        "-=0.8"
-      );
-  }, { scope: curriculumSectionRef });
 
   useEffect(() => {
     const updateGridOffsets = () => {
-      const sections = [heroRef, visualSchoolIntroRef, disciplinesSectionRef, curriculumSectionRef, whoSectionRef, workSectionRef, practitionersSectionRef, faqSectionRef];
+      const sections = [heroRef, visualSchoolIntroRef, disciplinesSectionRef, whoSectionRef, workSectionRef, practitionersSectionRef, faqSectionRef];
       sections.forEach(ref => {
         if (ref.current) {
           ref.current.style.setProperty('--section-offset-y', `${ref.current.offsetTop}px`);
@@ -648,58 +622,6 @@ export default function VisualSchoolPage() {
           </div>
         </section>
 
-        {/* Curriculum Section */}
-        <section className={styles.curriculumSection} ref={curriculumSectionRef}>
-          <div className={`container ${styles.nikeLayoutContainer}`}>
-            <div className={styles.nikeLeft}>
-              <div className={styles.nikeScatteredContainer}>
-                <div className={`${styles.nikeScattered} ${styles.scatter1}`}>
-                  <div className={styles.nikeModule}>
-                    <span>Foundation <b className={styles.nikeModuleArrow}>↗</b></span>
-                    <p>Master the basics of visual storytelling, scripting, and narrative pacing.</p>
-                  </div>
-                </div>
-                <div className={`${styles.nikeScattered} ${styles.scatter2}`}>
-                  <div className={styles.nikeModule}>
-                    <span>Motion <b className={styles.nikeModuleArrow}>↗</b></span>
-                    <p>Dive deep into Premiere Pro and After Effects for dynamic cuts and motion graphics.</p>
-                  </div>
-                </div>
-                <div className={`${styles.nikeScattered} ${styles.scatter3}`}>
-                  <div className={styles.nikeModule}>
-                    <span>AI Gen <b className={styles.nikeModuleArrow}>↗</b></span>
-                    <p>Utilize Midjourney, Runway, and Stable Diffusion to generate custom assets.</p>
-                  </div>
-                </div>
-                <div className={`${styles.nikeScattered} ${styles.scatter4}`}>
-                  <div className={styles.nikeModule}>
-                    <span>Polish <b className={styles.nikeModuleArrow}>↗</b></span>
-                    <p>Bring it all together into an industry ready portfolio piece and professional color grading.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.nikeLogoGraphic}>
-                <h2>Curriculum</h2>
-                <div className={styles.nikeBtnWrapper}>
-                  <a href="/assets/pdf/Program%20Brochure.pdf" target="_blank" rel="noopener noreferrer" className={styles.nikeButton}>Download Brochures <b>↓</b></a>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.nikeRight}>
-              <div className={styles.nikeImageContainer}>
-                <div className={styles.nikeQuoteLeft} ref={leftQuoteRef}>“</div>
-                <div className={styles.nikeImageWrapper} ref={nikeImageRef}>
-                  <video autoPlay muted loop playsInline disablePictureInPicture disableRemotePlayback>
-                    <source src="/assets/videos/zaman_case_study.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <div className={styles.nikeQuoteRight} ref={rightQuoteRef}>”</div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Who Visual School Is For Section */}
         <section className={`${styles.whoSection} ${styles.lightGridMode}`} ref={whoSectionRef} data-header-theme="dark">

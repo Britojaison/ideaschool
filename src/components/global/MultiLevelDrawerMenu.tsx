@@ -38,6 +38,7 @@ const PRIMARIES: PrimaryItem[] = [
   { id: "programs",  label: "Programs" },
   { id: "workshops", label: "Workshops" },
   { id: "idea",      label: "The IDEA" },
+  { id: "about",     label: "About Us" },
 ];
 
 const SUBLISTS: Record<string, SublinkItem[]> = {
@@ -46,6 +47,7 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
       label: "Visual School",
       href: "/visual-school",
       desc: "Editing, motion design & AI cinema",
+      badge: "Active",
     },
     {
       label: "Tech School",
@@ -68,6 +70,12 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
       href: "/creative-editing-course",
       desc: "24 Weeks · Career Flagship Course",
       badge: "Flagship",
+    },
+    {
+      label: "Industry Experience Program",
+      href: "/industry-experience-program",
+      desc: "Live studio briefs & hands-on client work",
+      badge: "New",
     },
   ],
   workshops: [
@@ -92,14 +100,26 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
   ],
   idea: [
     {
+      label: "Philosophy & Manifesto",
+      href: "/#the-idea",
+      desc: "Built by ambitious creators for ambitious creators",
+    },
+    {
+      label: "Why IDEA School",
+      href: "/#the-idea",
+      desc: "Real mentors, real studio work & zero fluff",
+    },
+  ],
+  about: [
+    {
       label: "About IDEA School",
       href: "/about",
       desc: "Our story, mentors & state-of-the-art campus",
     },
     {
-      label: "Philosophy & Manifesto",
-      href: "/#the-idea",
-      desc: "Built by ambitious creators for ambitious creators",
+      label: "Campus & Studio Culture",
+      href: "/about",
+      desc: "Bangalore studio campus built for creators",
     },
   ],
 };
@@ -659,7 +679,6 @@ export default function MultiLevelDrawerMenu({
                       </li>
                     ))}
                   </ul>
-
                   <Link
                     ref={exploreRef}
                     href="/visual-school"

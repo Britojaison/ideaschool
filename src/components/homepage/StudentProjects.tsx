@@ -1,23 +1,13 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import styles from "./StudentProjects.module.css";
 import CurtainSlider from "@/components/ui/curtain-slider/CurtainSlider";
 
 export default function StudentProjects() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (sectionRef.current) {
-      setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 500); // Slight delay to ensure layout is ready
-    }
-  }, []);
-
   return (
-    <section ref={sectionRef} className={styles.section} data-header-theme="dark">
+    <section className={styles.section} data-header-theme="dark">
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.titleWrapper}>

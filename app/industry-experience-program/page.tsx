@@ -46,7 +46,8 @@ export default function IndustryExperienceProgramPage() {
 
         <div className="vslVideoWrap" id="watch">
           <VslVideoPlayer
-            src="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
+            src="/images/vsl-ideaschool-aug11.mp4"
+            poster="/images/vsl-ideaschool-aug11-poster.webp"
           />
         </div>
 

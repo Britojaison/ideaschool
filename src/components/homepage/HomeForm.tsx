@@ -126,8 +126,8 @@ export default function HomeForm() {
               <div className={styles.formHeader}>
                 <h2>Take the first step.</h2>
                 <p>
-                  Your creative career starts with what you can create.<br />
-                  Apply now for the next IDEA Creative School cohort.
+                  <span className={styles.headerLine}>Your creative career starts with what you can create.</span>
+                  <span className={styles.headerLine}>Apply now for the next IDEA Creative School cohort.</span>
                 </p>
               </div>
 

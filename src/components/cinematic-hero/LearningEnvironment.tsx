@@ -125,7 +125,7 @@ export default function LearningEnvironment() {
           {/* Header Row */}
           <div className={styles.comparisonHeaderRow}>
             <div className={styles.headerColLeft}>
-              <h3 className={styles.headerTitleLeft}>Self-paced online course</h3>
+              <h3 className={styles.headerTitleLeft}>Video Tutorials & Self-Study</h3>
             </div>
             <div className={styles.headerColRight}>
               <h3 className={styles.headerTitleRight}>IDEA School</h3>

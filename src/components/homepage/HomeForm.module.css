@@ -23,7 +23,7 @@
 .modalBox {
     display: flex;
     width: 85vw;
-    max-width: 860px;
+    max-width: 900px;
     height: 75vh;
     max-height: 600px;
     min-height: 500px;
@@ -66,8 +66,8 @@
 
 .formContainer {
     width: 100%;
-    max-width: 350px;
-    padding: 24px;
+    max-width: 440px;
+    padding: 24px 20px;
 }
 
 .closeBtn {
@@ -106,9 +106,15 @@
 }
 
 .formHeader p {
-    font-size: 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
     color: #737373;
     margin: 0;
+}
+
+.headerLine {
+    display: block;
+    white-space: nowrap;
 }
 
 .form {
@@ -248,7 +254,7 @@
 @media (max-width: 1024px) and (min-width: 601px) {
     .modalBox {
         width: 92vw;
-        max-width: 760px;
+        max-width: 780px;
         height: auto;
         min-height: 490px;
         max-height: calc(100dvh - 40px);
@@ -265,8 +271,8 @@
         padding: 20px 0;
     }
     .formContainer {
-        max-width: 320px;
-        padding: 16px;
+        max-width: 400px;
+        padding: 16px 20px;
     }
     .formHeader {
         margin-bottom: 20px;
@@ -275,7 +281,11 @@
         font-size: 22px;
     }
     .formHeader p {
-        font-size: 13px;
+        font-size: 12.5px;
+        line-height: 1.45;
+    }
+    .headerLine {
+        white-space: nowrap;
     }
     .form {
         gap: 12px;
@@ -367,6 +377,17 @@
 
     .formHeader h2 {
         font-size: 26px;
+    }
+
+    .formHeader p {
+        font-size: 13px;
+        line-height: 1.45;
+        text-wrap: balance;
+    }
+
+    .headerLine {
+        white-space: normal;
+        text-wrap: balance;
     }
 
     .form {

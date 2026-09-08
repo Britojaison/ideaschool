@@ -188,38 +188,32 @@ export default function CinematicHeroFlow({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=180%",
+          end: "+=260%",
           pin: true,
           pinSpacing: true,
           scrub: 1.0,
           anticipatePin: 1,
           refreshPriority: 10,
           onUpdate: (self) => {
-            if (self.progress > 0.1) {
+            if (editorialHeaderRef.current) {
+              editorialHeaderRef.current.style.pointerEvents = self.progress > 0.18 ? "none" : "auto";
+              editorialHeaderRef.current.style.visibility = self.progress > 0.18 ? "hidden" : "visible";
+            }
+
+            if (frameControlsRef.current) {
+              frameControlsRef.current.style.pointerEvents = self.progress > 0.52 ? "none" : "auto";
+              frameControlsRef.current.style.visibility = self.progress > 0.52 ? "hidden" : "visible";
+            }
+
+            if (self.progress > 0.52) {
               if (directorLayerRef.current) {
                 directorLayerRef.current.style.pointerEvents = "auto";
                 directorLayerRef.current.style.visibility = "visible";
-              }
-              if (editorialHeaderRef.current) {
-                editorialHeaderRef.current.style.pointerEvents = "none";
-                editorialHeaderRef.current.style.visibility = "hidden";
-              }
-              if (frameControlsRef.current) {
-                frameControlsRef.current.style.pointerEvents = "none";
-                frameControlsRef.current.style.visibility = "hidden";
               }
             } else {
               if (directorLayerRef.current) {
                 directorLayerRef.current.style.pointerEvents = "none";
                 directorLayerRef.current.style.visibility = "hidden";
-              }
-              if (editorialHeaderRef.current) {
-                editorialHeaderRef.current.style.pointerEvents = "auto";
-                editorialHeaderRef.current.style.visibility = "visible";
-              }
-              if (frameControlsRef.current) {
-                frameControlsRef.current.style.pointerEvents = "auto";
-                frameControlsRef.current.style.visibility = "visible";
               }
             }
           }
@@ -246,60 +240,60 @@ export default function CinematicHeroFlow({
       // CONTINUOUS BLENDED FLOW SEQUENCE (Strict non-overlapping phases)
       // =========================================================================
 
-      // 1. Editorial header clears quickly so the scroll never stalls on raw video.
+      // 1. First scroll clears the masthead and leaves the viewer on the video.
       tl.to(editorialHeaderRef.current,
         {
           opacity: 0,
-          y: -24,
-          duration: 0.12,
+          y: -34,
+          duration: 0.2,
           ease: "power2.inOut",
         },
         0
       );
 
-      // 2. Controls bar fades out early.
-      tl.to(frameControlsRef.current,
-        {
-          opacity: 0,
-          duration: 0.09,
-          ease: "power1.out",
-        },
-        0
-      );
-
-      // 3. Showcase frame expands under the director layer.
+      // 2. Showcase frame expands to a clean full-video state.
       if (showcaseFrameRef.current) {
         tl.to(showcaseFrameRef.current,
           {
             top: 0,
-            duration: 0.16,
+            duration: 0.24,
             ease: "power2.inOut",
           },
           0
         );
       }
 
-      // 4. Parallax smooth video drift (0.00 -> 1.00)
+      // 3. Keep the compact controls available while the video holds alone.
+      tl.to(frameControlsRef.current,
+        {
+          opacity: 0,
+          duration: 0.12,
+          ease: "power1.out",
+        },
+        0.5
+      );
+
+      // 4. Parallax smooth video drift.
       tl.to(videoRef.current, {
         y: "-10%",
         duration: 1.0,
         ease: "none"
       }, 0);
 
-      // 5. Black gradient curtain arrives before the video frame can sit alone.
+      // 5. Director layer waits until after the video has had its own scroll beat.
       tl.fromTo(directorBlackFadeRef.current,
         { opacity: 0, y: "20vh" },
         {
           opacity: 1,
           y: 0,
-          duration: 0.18,
+          duration: 0.22,
           ease: "sine.inOut"
         },
-        0.06
+        0.48
       );
 
-      tl.set(directorLayerRef.current, { visibility: "visible" }, 0.1);
-      tl.to(directorLayerRef.current, { opacity: 1, duration: 0.08 }, 0.1);
+      tl.set(directorLayerRef.current, { visibility: "visible" }, 0.52);
+      tl.to(directorLayerRef.current, { opacity: 1, duration: 0.1 }, 0.52);
 
       // 6. First director wave.
       tl.fromTo(giantLeftRef.current,
@@ -310,7 +304,7 @@ export default function CinematicHeroFlow({
           duration: 0.28,
           ease: "power2.out"
         },
-        0.12
+        0.58
       );
 
       tl.fromTo(topRightTagsRef.current,
@@ -321,7 +315,7 @@ export default function CinematicHeroFlow({
           duration: 0.25,
           ease: "power1.out"
         },
-        0.14
+        0.62
       );
 
       tl.fromTo(giantRightRef.current,
@@ -332,7 +326,7 @@ export default function CinematicHeroFlow({
           duration: 0.28,
           ease: "power2.out"
         },
-        0.14
+        0.68
       );
 
       // 7. Narrative follows once the big type is established.
@@ -344,7 +338,7 @@ export default function CinematicHeroFlow({
           duration: 0.30,
           ease: "power2.out"
         },
-        0.32
+        0.78
       );
 
       // 5. Final solid black immersion (0.85 -> 1.00)

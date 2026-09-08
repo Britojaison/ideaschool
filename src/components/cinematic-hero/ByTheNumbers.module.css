@@ -6,7 +6,7 @@
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-.header { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 3vw; align-items: start; margin-bottom: clamp(72px, 11vh, 140px); }
+.header { display: grid; grid-template-columns: 1fr 3fr; gap: 3vw; align-items: start; margin-bottom: clamp(72px, 11vh, 140px); }
 .eyebrow { margin: .65rem 0 0; color: rgba(17,17,17,.52); font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .title { margin: 0; font-size: clamp(3.2rem, 6.4vw, 7.4rem); font-weight: 500; letter-spacing: -.065em; line-height: .88; text-transform: uppercase; }
 .intro { max-width: 350px; margin: .65rem 0 0; color: rgba(17,17,17,.6); font-size: clamp(.9rem, 1.05vw, 1.08rem); line-height: 1.55; }

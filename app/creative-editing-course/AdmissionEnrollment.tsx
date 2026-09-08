@@ -8,7 +8,7 @@ export default function AdmissionEnrollment() {
   const enrollmentDetails = [
     {
       label: "Mode",
-      value: "Offline + Online Hybrid Learning Experience"
+      value: "Hybrid"
     },
     {
       label: "Ideal For",
@@ -83,7 +83,7 @@ export default function AdmissionEnrollment() {
                 className="text-[11px] uppercase tracking-wider font-semibold opacity-60"
                 style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
               >
-                Hybrid / Offline + Online
+                Hybrid
               </span>
             </div>
 

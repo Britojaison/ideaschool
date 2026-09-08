@@ -41,12 +41,7 @@ export default function CourseGallery() {
       images={GALLERY_IMAGES}
       title={["IdeaSchool", "Gallery"]}
       subtitle={["STUDENT WORK", "CREATIVE EXCELLENCE"]}
-      paragraphs={[
-        [
-          "Explore commercial editing, visual storytelling, and high-end VFX produced by our students.",
-          "Every project showcases rigorous craft, creative voice, and industry-standard training."
-        ]
-      ]}
+      paragraphs={[]}
       navEmail=""
       navLinks=""
       footerText=""

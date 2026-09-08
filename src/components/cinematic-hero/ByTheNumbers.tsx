@@ -26,11 +26,6 @@ export default function ByTheNumbers() {
             12 weeks to apply.
           </TextAnimation>
         </h2>
-        <p className={styles.intro}>
-          <TextAnimation divideBy="word" delay={0.15}>
-            A clear progression from foundational capability to professional-style briefs, feedback and portfolio development.
-          </TextAnimation>
-        </p>
       </header>
       <div className={styles.timeline}>
         {PHASES.map((phase, idx) => (

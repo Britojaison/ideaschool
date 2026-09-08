@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./CinematicHeroFlow.module.css";
@@ -30,9 +30,9 @@ interface CinematicHeroFlowProps {
 export default function CinematicHeroFlow({
   videoSrc = "/assets/videos/HOME PAGE VIDEO.mp4",
   mobileVideoSrc,
-  heroHeadline1 = "EDITING DEFINES.",
-  heroHeadline2 = "CRAFT SELLS.",
-  heroSubtitle = "[  Full Stack Video Editing & Creative AI Mastery  ]",
+  heroHeadline1 = "EDITING",
+  heroHeadline2 = "START",
+  heroSubtitle = "FULL STACK EDITING & CREATIVE AI",
   studioName = "IDEA School",
   tags = ["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"],
   leftGiantTop = "INDUSTRY",
@@ -195,7 +195,7 @@ export default function CinematicHeroFlow({
           anticipatePin: 1,
           refreshPriority: 10,
           onUpdate: (self) => {
-            if (self.progress > 0.24) {
+            if (self.progress > 0.1) {
               if (directorLayerRef.current) {
                 directorLayerRef.current.style.pointerEvents = "auto";
                 directorLayerRef.current.style.visibility = "visible";
@@ -246,41 +246,33 @@ export default function CinematicHeroFlow({
       // CONTINUOUS BLENDED FLOW SEQUENCE (Strict non-overlapping phases)
       // =========================================================================
 
-      // 1. Editorial Header fades out & floats up gently (0.00 -> 0.20)
+      // 1. Editorial header clears quickly so the scroll never stalls on raw video.
       tl.to(editorialHeaderRef.current,
         {
           opacity: 0,
-          y: -40,
-          duration: 0.20,
+          y: -24,
+          duration: 0.12,
           ease: "power2.inOut",
         },
         0
       );
 
-      // 2. Controls bar fades out early (0.00 -> 0.15)
+      // 2. Controls bar fades out early.
       tl.to(frameControlsRef.current,
         {
           opacity: 0,
-          duration: 0.15,
+          duration: 0.09,
           ease: "power1.out",
         },
         0
       );
 
-      // 3. Showcase frame expands to full-bleed (0.00 -> 0.25)
+      // 3. Showcase frame expands under the director layer.
       if (showcaseFrameRef.current) {
         tl.to(showcaseFrameRef.current,
           {
             top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            width: "100%",
-            maxWidth: "100%",
-            height: "100%",
-            borderRadius: "0px",
-            borderWidth: "0px",
-            duration: 0.25,
+            duration: 0.16,
             ease: "power2.inOut",
           },
           0
@@ -294,23 +286,22 @@ export default function CinematicHeroFlow({
         ease: "none"
       }, 0);
 
-      // 2. Black gradient curtain rises smoothly from bottom (0.18 -> 0.45)
+      // 5. Black gradient curtain arrives before the video frame can sit alone.
       tl.fromTo(directorBlackFadeRef.current,
         { opacity: 0, y: "20vh" },
         {
           opacity: 1,
           y: 0,
-          duration: 0.27,
+          duration: 0.18,
           ease: "sine.inOut"
         },
-        0.18
+        0.06
       );
 
-      // Director layer activates cleanly at 0.24 (after Hero is completely gone)
-      tl.set(directorLayerRef.current, { visibility: "visible" }, 0.24);
-      tl.to(directorLayerRef.current, { opacity: 1, duration: 0.08 }, 0.24);
+      tl.set(directorLayerRef.current, { visibility: "visible" }, 0.1);
+      tl.to(directorLayerRef.current, { opacity: 1, duration: 0.08 }, 0.1);
 
-      // 3. FIRST WAVE (Left & Right Giant Titles rise UP: 0.26 -> 0.54)
+      // 6. First director wave.
       tl.fromTo(giantLeftRef.current,
         { opacity: 0, y: 40 },
         {
@@ -319,7 +310,7 @@ export default function CinematicHeroFlow({
           duration: 0.28,
           ease: "power2.out"
         },
-        0.26
+        0.12
       );
 
       tl.fromTo(topRightTagsRef.current,
@@ -330,7 +321,7 @@ export default function CinematicHeroFlow({
           duration: 0.25,
           ease: "power1.out"
         },
-        0.28
+        0.14
       );
 
       tl.fromTo(giantRightRef.current,
@@ -341,10 +332,10 @@ export default function CinematicHeroFlow({
           duration: 0.28,
           ease: "power2.out"
         },
-        0.28
+        0.14
       );
 
-      // 4. SECOND WAVE (Center Editorial text visibly rises UP: 0.50 -> 0.80)
+      // 7. Narrative follows once the big type is established.
       tl.fromTo(editorialBlockRef.current,
         { opacity: 0, y: 40 },
         {
@@ -353,7 +344,7 @@ export default function CinematicHeroFlow({
           duration: 0.30,
           ease: "power2.out"
         },
-        0.50
+        0.32
       );
 
       // 5. Final solid black immersion (0.85 -> 1.00)
@@ -389,17 +380,18 @@ export default function CinematicHeroFlow({
       <div ref={pinRef} className={styles.pinContainer}>
         {/* SECTION 1: EDITORIAL HEADER (House of Honey Style) */}
         <div ref={editorialHeaderRef} className={styles.editorialHeader}>
-          {/* Grand Statement Headline */}
           <h1 className={styles.editorialTitle}>
-            <span className={styles.titleWord}>EDITING</span>
+            <span className={styles.titleWord}>{heroHeadline1}</span>
             <span className={styles.titleScript}>is just the</span>
-            <span className={styles.titleWord}>START<span className={styles.titleDot}>.</span></span>
+            <span className={styles.titleWord}>
+              {heroHeadline2}
+              <span className={styles.titleDot}>.</span>
+            </span>
           </h1>
 
-          {/* Editorial Metadata Bar (Flanking Left & Right like House of Honey) */}
           <div className={styles.editorialMetaBar}>
             <div className={styles.editorialMetaLeft}>
-              <span className={styles.metaEyebrow}>FULL STACK EDITING & CREATIVE AI</span>
+              <span className={styles.metaEyebrow}>{heroSubtitle}</span>
               <span className={styles.metaSub}>Post-Production · Storytelling · Direction</span>
             </div>
 
@@ -497,6 +489,7 @@ export default function CinematicHeroFlow({
                   <MusicToggleButton
                     isPlaying={!isMuted}
                     onToggle={toggleMute}
+                    size={38}
                   />
                 </div>
               </div>

@@ -7,12 +7,14 @@ interface MusicToggleButtonProps {
   isPlaying?: boolean;
   onToggle?: (e: React.MouseEvent) => void;
   className?: string;
+  size?: number;
 }
 
 export default function MusicToggleButton({
   isPlaying = false,
   onToggle,
-  className = ""
+  className = "",
+  size = 50
 }: MusicToggleButtonProps) {
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -75,8 +77,8 @@ export default function MusicToggleButton({
         }
         @media (hover: none) and (pointer: coarse) {
           .musicToggleButton {
-            width: 58px !important;
-            height: 58px !important;
+            width: var(--music-toggle-size, 58px) !important;
+            height: var(--music-toggle-size, 58px) !important;
             padding: 0 !important;
           }
         }
@@ -97,8 +99,9 @@ export default function MusicToggleButton({
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          width: "50px",
-          height: "50px",
+          width: `${size}px`,
+          height: `${size}px`,
+          "--music-toggle-size": `${size}px`,
           padding: 0,
           background: "rgba(0, 0, 0, 0.9)",
           backdropFilter: "blur(12px)",
@@ -116,9 +119,9 @@ export default function MusicToggleButton({
         <div
           style={{
             display: "flex",
-            height: "18px",
+            height: `${Math.max(12, Math.round(size * 0.36))}px`,
             alignItems: "center",
-            gap: "4px",
+            gap: `${Math.max(2, Math.round(size * 0.08))}px`,
             pointerEvents: "none"
           }}
         >

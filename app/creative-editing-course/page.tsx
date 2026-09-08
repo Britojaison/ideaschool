@@ -68,9 +68,9 @@ export default function CreativeEditingCopyPage() {
       <CinematicHeroFlow
         videoSrc="/images/vsl-ideaschool-aug11.mp4"
         mobileVideoSrc="/images/vsl-ideaschool-aug11.mp4"
-        heroHeadline1="EDITING IS JUST"
-        heroHeadline2="THE START."
-        heroSubtitle="[ Full Stack Video Editing & Creative AI Mastery ]"
+        heroHeadline1="EDITING"
+        heroHeadline2="START"
+        heroSubtitle="FULL STACK EDITING & CREATIVE AI"
         studioName="IDEA School"
         tags={["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"]}
         leftGiantTop="INDUSTRY"

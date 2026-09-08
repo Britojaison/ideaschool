@@ -107,13 +107,13 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
 
 const CARDS = [
   {
-    src: "/images/card1.webp",
+    src: "/images/DSC00024.webp",
     tag: "Flagship 24W",
     label: "Creative Editing & AI Pro",
     href: "/creative-editing-course",
   },
   {
-    src: "/images/card2.webp",
+    src: "/images/DSC00093.webp",
     tag: "Offline Workshop",
     label: "AI Ad Film Making",
     href: "/ad-film-making",
@@ -656,7 +656,6 @@ export default function MultiLevelDrawerMenu({
                           >
                             {primary.label}
                           </span>
-                          <span className={styles.primaryActiveIndicator}>●</span>
                         </button>
                       </li>
                     ))}
@@ -700,23 +699,26 @@ export default function MultiLevelDrawerMenu({
                 {/* Footer nav */}
                 <nav ref={footerRef} className={styles.footerNav} aria-label="Secondary links">
                   <div className={styles.footerLeft}>
-                    <a
-                      href="https://www.instagram.com/ideaschool.pro/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.footerLink}
-                    >
-                      Instagram
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/company/88gb/posts/?feedView=all"
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.footerLink}
-                    >
-                      LinkedIn
-                    </a>
-                    <a href="tel:+918850774428" className={styles.footerLink}>
+                    <div className={styles.footerSocials}>
+                      <a
+                        href="https://www.instagram.com/ideaschool.pro/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.footerLink}
+                      >
+                        Instagram
+                      </a>
+                      <span className={styles.footerSep}>·</span>
+                      <a
+                        href="https://www.linkedin.com/company/88gb/posts/?feedView=all"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.footerLink}
+                      >
+                        LinkedIn
+                      </a>
+                    </div>
+                    <a href="tel:+918850774428" className={styles.footerPhoneLink}>
                       +91 88507 74428
                     </a>
                   </div>

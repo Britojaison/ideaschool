@@ -44,8 +44,8 @@
   top: var(--grid-offset);
   bottom: 0;
   left: 50%;
-  width: min(1914px, calc(100% - 56px));
-  border-inline: 1px solid rgba(10, 10, 12, .055);
+  width: calc(100% - 120px);
+  border-inline: none;
   transform: translateX(-50%);
 }
 
@@ -68,7 +68,7 @@
   top: 16px;
   bottom: 0;
   left: 50%;
-  width: min(1680px, calc(100% - 260px));
+  width: calc(100% - 120px);
   border-inline: 1px solid rgba(10, 10, 12, .055);
   transform: translateX(-50%);
   background-image: linear-gradient(90deg, rgba(10, 10, 12, .055) 1px, transparent 1px);
@@ -85,11 +85,11 @@
   top: calc(var(--grid-offset) - 2px);
   bottom: 0;
   left: 50%;
-  width: min(1914px, calc(100% - 56px));
+  width: calc(100% - 120px);
   transform: translateX(-50%);
-  background-image: radial-gradient(circle at 2px 2px, rgba(10, 10, 12, .72) 0 1px, transparent 1.35px), radial-gradient(circle at calc(100% - 2px) 2px, rgba(10, 10, 12, .72) 0 1px, transparent 1.35px), linear-gradient(rgba(10, 10, 12, .055) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(10, 10, 12, .055) 1px, transparent 1px);
   background-size: 100% var(--grid-row);
-  background-position: -2px calc(0px - var(--section-offset-y, 0px)), 2px calc(0px - var(--section-offset-y, 0px)), 0 calc(2px - var(--section-offset-y, 0px));
+  background-position: 0 calc(2px - var(--section-offset-y, 0px));
   background-repeat: repeat-y;
   pointer-events: none;
 }
@@ -99,11 +99,11 @@
   position: absolute;
   inset-block: 0;
   left: 50%;
-  width: min(1680px, calc(100% - 204px));
+  width: calc(100% - 120px);
   transform: translateX(-50%);
-  background-image: radial-gradient(circle at 2px 2px, rgba(10, 10, 12, .72) 0 1px, transparent 1.35px);
+  background-image: radial-gradient(circle at 1px 1px, rgba(10, 10, 12, .65) 0 1.2px, transparent 1.5px);
   background-size: calc(100% / var(--grid-columns)) var(--grid-row);
-  background-position: -2px calc(0px - var(--section-offset-y, 0px));
+  background-position: 0 calc(2px - var(--section-offset-y, 0px));
   background-repeat: repeat;
 }
 
@@ -151,7 +151,7 @@
 .kicker {
   width: fit-content;
   margin: 0 0 34px;
-  padding: 11px 14px;
+  padding: 11px 16px;
   color: #202629;
   background: #e2f8f6;
   font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
@@ -161,7 +161,7 @@
 }
 
 .kicker span {
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .redDot {
@@ -1587,7 +1587,7 @@
     --grid-row: 190px;
     --grid-offset: 10px;
     top: 10px;
-    width: calc(100% - 56px);
+    width: calc(100% - 28px);
   }
 
   .gridRows {

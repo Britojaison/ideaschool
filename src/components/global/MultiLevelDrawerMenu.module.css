@@ -150,7 +150,7 @@
   position: fixed;
   z-index: 3;
   top: 1rem;
-  bottom: 1rem;
+  bottom: 1.5rem;
   background-color: #ececec;
   border-radius: 12px;
   overflow: hidden;
@@ -164,7 +164,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 2.25rem 2.25rem;
+  padding: 1.75rem 1.75rem 1.75rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -177,7 +177,7 @@
 }
 
 .panelInner::-webkit-scrollbar-thumb {
-  background: rgba(10, 10, 10, 0.15);
+  background: rgba(10, 10, 10, 0.2);
   border-radius: 4px;
 }
 
@@ -196,9 +196,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+  flex-shrink: 0;
 }
 
 .drawerBrand {
@@ -226,30 +227,33 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #666;
-  background: transparent;
-  border: 1px solid rgba(10, 10, 10, 0.12);
+  color: #0a0a0a;
+  background: #ffffff;
+  border: 1px solid rgba(10, 10, 10, 0.18);
   border-radius: 999px;
-  padding: 4px 12px;
+  padding: 5px 14px;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .drawerCloseBtn:hover {
   color: #0a0a0a;
-  background: rgba(10, 10, 10, 0.06);
-  border-color: rgba(10, 10, 10, 0.25);
+  background: #f4f4f4;
+  border-color: #0a0a0a;
+  transform: translateY(-1px);
 }
 
 /* PRIMARY NAVIGATION */
 .primaryNav {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  flex-shrink: 0;
 }
 
 .list {
@@ -261,7 +265,7 @@
 }
 
 .primaryNav .list {
-  gap: 1.25rem;
+  gap: 1.1rem;
 }
 
 .primaryBtn {
@@ -272,10 +276,10 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  color: #888888;
+  color: #0a0a0a;
   text-align: left;
   font-family: var(--font-stara), var(--font-helvetica), sans-serif;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .primaryDot {
@@ -283,8 +287,8 @@
   left: 0;
   top: 50%;
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #0a0a0a;
   transform: translate(0, -50%) scale(0);
@@ -296,35 +300,16 @@
 .primaryLabel {
   display: inline-block;
   font-size: 2.1rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.05;
-  color: inherit;
-  will-change: transform, color;
-}
-
-.primaryBtn:hover,
-.primaryBtnActive {
   color: #0a0a0a;
+  will-change: transform;
 }
 
-.primaryActiveIndicator {
-  margin-left: 10px;
-  font-size: 11px;
-  font-family: var(--font-helvetica), sans-serif;
-  font-weight: 600;
-  color: #DAFD55;
-  background: #0a0a0a;
-  padding: 2px 7px;
-  border-radius: 999px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.primaryBtnActive .primaryActiveIndicator {
-  opacity: 1;
+.primaryBtn:hover .primaryLabel,
+.primaryBtnActive .primaryLabel {
+  color: #0a0a0a;
 }
 
 .exploreLink {
@@ -333,52 +318,58 @@
   gap: 6px;
   margin-top: 0.25rem;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: #555555;
+  color: #0a0a0a;
   text-decoration: underline;
   text-underline-offset: 4px;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .exploreLink:hover {
   color: #0a0a0a;
+  opacity: 0.7;
 }
 
 /* CARDS ROW */
 .cards {
   display: flex;
-  gap: 0.875rem;
+  gap: 0.75rem;
   margin-top: auto;
-  margin-bottom: 1.5rem;
-  padding-top: 1.5rem;
+  margin-bottom: 1.25rem;
+  padding-top: 1.25rem;
+  flex-shrink: 0;
 }
 
 .card {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.45rem;
   text-decoration: none;
   color: #0a0a0a;
-  background: #e2e0d8;
+  background: #ffffff;
   padding: 8px;
-  border-radius: 8px;
-  transition: transform 0.2s ease, background 0.2s ease;
+  border-radius: 10px;
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  background: #dad8cf;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgba(10, 10, 10, 0.2);
 }
 
 .cardMedia {
+  position: relative;
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: 6px;
-  background-color: #d8ddd1;
+  background-color: #f0f0f0;
 }
 
 .cardImg {
@@ -399,13 +390,13 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #767676;
+  color: #0a0a0a;
 }
 
 .cardLabel {
   font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   color: #0a0a0a;
   line-height: 1.25;
 }
@@ -417,48 +408,85 @@
   justify-content: space-between;
   gap: 0.75rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(10, 10, 10, 0.08);
+  border-top: 1px solid rgba(10, 10, 10, 0.1);
+  flex-shrink: 0;
 }
 
 .footerLeft {
   display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.footerSocials {
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.footerSep {
+  font-size: 11px;
+  color: #0a0a0a;
+  opacity: 0.5;
 }
 
 .footerLink {
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: #666;
+  color: #0a0a0a;
   text-decoration: none;
-  transition: color 0.2s ease;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 
 .footerLink:hover {
   color: #0a0a0a;
+  opacity: 0.65;
+}
+
+.footerPhoneLink {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #0a0a0a;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.footerPhoneLink:hover {
+  color: #0a0a0a;
+  opacity: 0.65;
 }
 
 .footerApplyBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #0a0a0a;
   background: #DAFD55;
   border: none;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(218, 253, 85, 0.3);
 }
 
 .footerApplyBtn:hover {
   background: #cbf046;
   transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(218, 253, 85, 0.45);
 }
 
 /* PANEL 2 — SUBCATEGORIES */
@@ -487,7 +515,7 @@
 
 .backLabel {
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1;
 }
@@ -527,17 +555,17 @@
   cursor: pointer;
   padding: 10px 10px;
   border-radius: 8px;
-  color: #888888;
+  color: #0a0a0a;
   text-align: left;
   font-family: inherit;
   width: 100%;
   text-decoration: none;
   box-sizing: border-box;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .sublink:hover {
-  background: rgba(10, 10, 10, 0.05);
+  background: rgba(10, 10, 10, 0.06);
   color: #0a0a0a;
 }
 
@@ -566,21 +594,21 @@
 .sublinkLabel {
   display: inline-block;
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  color: inherit;
-  will-change: transform, color;
+  color: #0a0a0a;
+  will-change: transform;
 }
 
 .sublinkBadge {
   font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 999px;
-  background: rgba(10, 10, 10, 0.08);
-  color: #666;
+  background: #0a0a0a;
+  color: #DAFD55;
   letter-spacing: 0.04em;
 }
 
@@ -590,20 +618,20 @@
 }
 
 .sublinkDesc {
-  font-size: 0.75rem;
-  color: #767676;
+  font-size: 0.78rem;
+  color: #111111;
   line-height: 1.35;
   padding-left: 2px;
 }
 
 .sublinkDisabled {
-  opacity: 0.6;
+  opacity: 0.45;
   cursor: default;
 }
 
 .sublinkDisabled:hover {
   background: transparent;
-  color: #888888;
+  color: #0a0a0a;
 }
 
 .subExplore {
@@ -612,30 +640,31 @@
   gap: 6px;
   margin-top: 1.5rem;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: #555555;
+  color: #0a0a0a;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 .subExplore:hover {
   color: #0a0a0a;
+  opacity: 0.7;
 }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
   .panelPrimary {
-    width: 370px;
+    width: 380px;
   }
 
   .panelSecondary {
-    left: calc(1rem + 370px + 0.5rem);
-    width: 280px;
+    left: calc(1rem + 380px + 0.5rem);
+    width: 290px;
   }
 
   .primaryLabel {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
   }
 
   .sublinkLabel {
@@ -646,7 +675,7 @@
 @media (max-width: 767px) {
   .panel {
     top: 4.5rem;
-    bottom: 1rem;
+    bottom: 1.5rem;
   }
 
   .panelPrimary {

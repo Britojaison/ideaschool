@@ -6,6 +6,7 @@
   z-index: 90;
   width: 100%;
   height: 76px;
+  box-sizing: border-box;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -41,30 +42,37 @@
 .inner {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
   padding: 0 clamp(24px, 4vw, 60px);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
 }
 
-.logoWrapper {
-  grid-column: 2;
-  grid-row: 1;
+.brandWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: auto;
+  flex: 0 0 auto;
 }
 
-.logo,
-.logo:visited {
+.brandLink,
+.brandLink:visited {
   display: inline-flex;
   align-items: center;
-  width: 104px;
-  max-width: 104px;
+  gap: 12px;
   color: #0a0a0a;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.navMark {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logoImage {
@@ -80,48 +88,66 @@
   filter: invert(0);
 }
 
-.headerScrolled .logoImage {
-  width: 88px;
-  max-width: 88px;
+.headerScrolled .navMark {
+  width: 26px;
+  height: 26px;
 }
 
-.nav {
-  grid-column: 1;
-  grid-row: 1;
+.actions {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: clamp(20px, 2.2vw, 40px);
-  min-width: 0;
-  color: #232526;
-  font-family: var(--font-helvetica);
-  font-size: 12.5px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.3s ease, color 0.3s ease;
-}
-
-.headerDark .nav {
-  color: #FBFAF2;
-}
-
-.navMark {
+  justify-content: flex-end;
+  gap: 14px;
   flex: 0 0 auto;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  object-fit: cover;
+  box-sizing: border-box;
 }
 
-.headerScrolled .nav {
-  gap: clamp(16px, 1.8vw, 32px);
-  font-size: 11.5px;
-}
-
-.navItem {
+.menuBtn {
   position: relative;
-  display: flex;
+  z-index: 10005;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  background: rgba(10, 10, 10, 0.06);
+  color: #0a0a0a;
+  font-family: var(--font-helvetica), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerDark .menuBtn {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: #FBFAF2;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.menuBtn:hover {
+  background: rgba(10, 10, 10, 0.12);
+  border-color: rgba(10, 10, 10, 0.35);
+  transform: translateY(-1px);
+}
+
+.headerDark .menuBtn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px);
+}
+
+.headerScrolled .menuBtn {
+  height: 32px;
+  padding: 0 14px;
+  font-size: 11px;
 }
 
 .navLink,
@@ -487,18 +513,6 @@
 /* ============================================================
    HEADER ACTIONS & BUTTONS
    ============================================================ */
-.actions {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: end;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
-  white-space: nowrap;
-  width: 100%;
-}
-
 .actionLink,
 .actionLink:visited {
   display: inline-flex;
@@ -618,21 +632,7 @@
    ============================================================ */
 @media (max-width: 1350px) {
   .inner {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     padding: 0 32px;
-  }
-
-  .nav {
-    gap: 18px;
-    font-size: 11.5px;
-  }
-
-  .courseDropdown {
-    min-width: 320px;
-  }
-
-  .workshopsDropdown {
-    min-width: 340px;
   }
 
   .apply,
@@ -640,20 +640,6 @@
     width: 135px;
     padding: 0 14px;
     font-size: 11.5px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .courseDropdown,
-  .workshopsDropdown {
-    left: auto;
-    right: -40px;
-    transform: translateY(8px);
-  }
-
-  .dropdownOpen.courseDropdown,
-  .dropdownOpen.workshopsDropdown {
-    transform: translateY(0);
   }
 }
 
@@ -669,12 +655,22 @@
   .inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 18px;
   }
 
-  .logoWrapper {
+  .brandWrapper {
     order: 1;
     width: auto;
+  }
+
+  .brandLink {
+    gap: 10px;
+  }
+
+  .navMark {
+    width: 26px;
+    height: 26px;
   }
 
   .logoImage {
@@ -687,10 +683,6 @@
     width: 74px;
     max-width: 74px;
     height: auto;
-  }
-
-  .nav {
-    display: none;
   }
 
   .actions {

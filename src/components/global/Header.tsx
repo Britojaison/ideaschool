@@ -2,15 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
-import { createPortal } from "react-dom";
+import { useState, useEffect } from "react";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
 import navMark from "@public/assets/home/tumblr_c050d2fa4f5b9a2a88fa3f5196acd80f_1ccf7380_1280.webp";
+import MultiLevelDrawerMenu from "./MultiLevelDrawerMenu";
 import styles from "./Header.module.css";
 
 export function Logo() {
   return (
-    <Link href="/" className={styles.logo} aria-label="IDEA AI School home">
+    <Link href="/" className={styles.brandLink} aria-label="IDEA AI School home">
+      <Image
+        src={navMark}
+        alt=""
+        aria-hidden="true"
+        className={styles.navMark}
+        priority
+      />
       <Image
         className={styles.logoImage}
         src={ideaLogo}
@@ -18,22 +25,14 @@ export function Logo() {
         priority
         width={104}
         height={32}
-        style={{ width: "104px", height: "auto" }}
       />
     </Link>
   );
 }
 
 export default function Header({ overlay = false }: { overlay?: boolean }) {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const [isDark, setIsDark] = useState(overlay);
 
   useEffect(() => {
     let rafId: number;
@@ -109,140 +108,17 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
     };
   }, []);
 
-
-  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    let metaTheme = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement | null;
-    if (!metaTheme) {
-      metaTheme = document.createElement("meta");
-      metaTheme.name = "theme-color";
-      document.head.appendChild(metaTheme);
-    }
-
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    metaTheme.setAttribute("content", "#0a0a0c");
-    return () => {
-      document.body.style.overflow = "";
-      if (metaTheme) metaTheme.setAttribute("content", "#0a0a0c");
-    };
-  }, [menuOpen]);
-
-  const closeAll = () => {
-    setMenuOpen(false);
-    setExpandedMobile(null);
-  };
-
-  const toggleMobileSection = (section: string) => {
-    setExpandedMobile((prev) => (prev === section ? null : section));
-  };
-
   return (
     <header
       className={`${styles.header} ${overlay ? styles.overlay : ""} ${
         isScrolled ? styles.headerScrolled : ""
-      } ${isDark ? styles.headerDark : ""} ${menuOpen ? styles.headerOpen : ""}`}
+      } ${isDark ? styles.headerDark : ""}`}
     >
       <div className={styles.inner}>
-        <div className={styles.logoWrapper}>
-          <Logo />
-        </div>
+        {/* Left side: Logo near GIF */}
+        <Logo />
 
-        <nav className={styles.nav} aria-label="Main Navigation">
-          <Image
-            src={navMark}
-            alt=""
-            aria-hidden="true"
-            className={styles.navMark}
-            priority
-          />
-          <Link href="/#the-idea" className={styles.navLink} onClick={closeAll}>
-            The IDEA
-          </Link>
-          <div 
-            className={styles.navItem}
-            onMouseEnter={() => setActiveDropdown("schools")}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <button className={styles.navLink}>
-              Schools
-            </button>
-            <div className={`${styles.dropdown} ${activeDropdown === "schools" ? styles.dropdownOpen : ""}`}>
-              <div className={styles.dropdownInner}>
-                <div className={styles.schoolList}>
-                  <Link href="/visual-school" className={styles.schoolItem} onClick={closeAll}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>Visual School</span>
-                      <span className={styles.schoolItemDesc}>Editing, motion design & AI cinema</span>
-                    </div>
-                  </Link>
-                  <div className={`${styles.schoolItem} ${styles.disabledItem}`}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>Tech School</span>
-                      <span className={styles.schoolItemDesc}>AI workflows & software</span>
-                    </div>
-                    <span className={styles.soonBadge}>Soon</span>
-                  </div>
-                  <div className={`${styles.schoolItem} ${styles.disabledItem}`}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>Marketing School</span>
-                      <span className={styles.schoolItemDesc}>Creative direction & growth</span>
-                    </div>
-                    <span className={styles.soonBadge}>Soon</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div 
-            className={styles.navItem}
-            onMouseEnter={() => setActiveDropdown("visual-school")}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <Link href="/visual-school" className={styles.navLink} onClick={closeAll}>
-              Visual School
-            </Link>
-            <div className={`${styles.dropdown} ${activeDropdown === "visual-school" ? styles.dropdownOpen : ""}`} style={{ minWidth: "340px" }}>
-              <div className={styles.dropdownInner}>
-                <div className={styles.dropdownHeader}>Visual School Programs</div>
-                <div className={styles.schoolList}>
-                  <Link href="/creative-editing-course" className={styles.schoolItem} onClick={closeAll}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>Creative Editing &amp; AI Pro</span>
-                      <span className={styles.schoolItemDesc}>24 Weeks · Flagship Program</span>
-                    </div>
-                    <span className={styles.activeBadge}>Full Course</span>
-                  </Link>
-                  <Link href="/master-video-editing" className={styles.schoolItem} onClick={closeAll}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>Master Video Editing</span>
-                      <span className={styles.schoolItemDesc}>2 Days · Offline Workshop</span>
-                    </div>
-                  </Link>
-                  <Link href="/video-editing" className={styles.schoolItem} onClick={closeAll}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>Video Editing</span>
-                      <span className={styles.schoolItemDesc}>1 Day · Offline Workshop</span>
-                    </div>
-                  </Link>
-                  <Link href="/ad-film-making" className={styles.schoolItem} onClick={closeAll}>
-                    <div className={styles.schoolItemInfo}>
-                      <span className={styles.schoolItemTitle}>AI Ad Film Making</span>
-                      <span className={styles.schoolItemDesc}>Weekend · Offline Workshop</span>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        {/* Actions */}
+        {/* Actions: Apply Now + Multi-Level Drawer Menu Toggle */}
         <div className={styles.actions}>
           <button
             className={styles.apply}
@@ -251,225 +127,10 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
           >
             Apply now
           </button>
-          <button
-            className={`${styles.menuToggle} ${
-              menuOpen ? styles.menuToggleOpen : ""
-            }`}
-            type="button"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-navigation"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+
+          <MultiLevelDrawerMenu isDark={isDark} isScrolled={isScrolled} />
         </div>
       </div>
-
-      {/* Mobile Drawer (Dotsandlines layout with Brand Green) */}
-      {mounted &&
-        createPortal(
-          <div
-            id="mobile-navigation"
-            className={`${styles.mobileNav} ${
-              menuOpen ? styles.mobileNavOpen : ""
-            }`}
-            aria-hidden={!menuOpen}
-          >
-            {/* Top Header inside Drawer */}
-            <div className={styles.mobileNavHeader}>
-              <Link href="/" className={styles.mobileLogo} onClick={closeAll} aria-label="IDEA AI School home">
-                <Image
-                  className={styles.mobileLogoImg}
-                  src={ideaLogo}
-                  alt="IDEA AI School"
-                  width={92}
-                  height={29}
-                  priority
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </Link>
-
-              <div className={styles.mobileHeaderActions}>
-
-
-                <button
-                  className={styles.mobileCloseBtn}
-                  type="button"
-                  onClick={closeAll}
-                  aria-label="Close menu"
-                >
-                  close
-                </button>
-              </div>
-            </div>
-
-            {/* Lower Main Content Area - Expandable Editorial Style (Option 2) */}
-            <div className={styles.mobileNavContentArea}>
-              <nav className={styles.mobileNavLinksBlock} aria-label="Mobile Navigation Links">
-                {/* Schools Section */}
-                <div className={styles.mobileNavItemWrapper}>
-                  <button
-                    type="button"
-                    className={`${styles.mobileHeroBtn} ${expandedMobile === "schools" ? styles.mobileHeroBtnActive : ""}`}
-                    onClick={() => toggleMobileSection("schools")}
-                    aria-expanded={expandedMobile === "schools"}
-                  >
-                    <span>schools</span>
-                    <span className={styles.mobileAccordionIcon}>{expandedMobile === "schools" ? "−" : "+"}</span>
-                  </button>
-                  <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "schools" ? styles.mobileSubLinksDrawerOpen : ""}`}>
-                    <div className={styles.mobileSubLinksInner}>
-                      <Link href="/visual-school" className={styles.mobileSubItem} onClick={closeAll}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Visual School</span>
-                          <span className={styles.mobileSubItemDesc}>Editing, motion design & AI cinema</span>
-                        </div>
-                        <span className={styles.mobileSubBadgeActive}>Active</span>
-                      </Link>
-                      <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Tech School</span>
-                          <span className={styles.mobileSubItemDesc}>AI workflows & software</span>
-                        </div>
-                        <span className={styles.mobileSubBadgeSoon}>Soon</span>
-                      </div>
-                      <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Marketing School</span>
-                          <span className={styles.mobileSubItemDesc}>Creative direction & growth</span>
-                        </div>
-                        <span className={styles.mobileSubBadgeSoon}>Soon</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Courses Section */}
-                <div className={styles.mobileNavItemWrapper}>
-                  <button
-                    type="button"
-                    className={`${styles.mobileHeroBtn} ${expandedMobile === "courses" ? styles.mobileHeroBtnActive : ""}`}
-                    onClick={() => toggleMobileSection("courses")}
-                    aria-expanded={expandedMobile === "courses"}
-                  >
-                    <span>courses</span>
-                    <span className={styles.mobileAccordionIcon}>{expandedMobile === "courses" ? "−" : "+"}</span>
-                  </button>
-                  <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "courses" ? styles.mobileSubLinksDrawerOpen : ""}`}>
-                    <div className={styles.mobileSubLinksInner}>
-                      <Link href="/creative-editing-course" className={styles.mobileSubItem} onClick={closeAll}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Creative Editing & AI Pro</span>
-                          <span className={styles.mobileSubItemDesc}>24 Weeks · Career Flagship Course</span>
-                        </div>
-                        <span className={styles.mobileSubArrow}>↗</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Workshops Section */}
-                <div className={styles.mobileNavItemWrapper}>
-                  <button
-                    type="button"
-                    className={`${styles.mobileHeroBtn} ${expandedMobile === "workshops" ? styles.mobileHeroBtnActive : ""}`}
-                    onClick={() => toggleMobileSection("workshops")}
-                    aria-expanded={expandedMobile === "workshops"}
-                  >
-                    <span>workshops</span>
-                    <span className={styles.mobileAccordionIcon}>{expandedMobile === "workshops" ? "−" : "+"}</span>
-                  </button>
-                  <div className={`${styles.mobileSubLinksDrawer} ${expandedMobile === "workshops" ? styles.mobileSubLinksDrawerOpen : ""}`}>
-                    <div className={styles.mobileSubLinksInner}>
-                      <Link href="/ad-film-making" className={styles.mobileSubItem} onClick={closeAll}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>AI Ad Film Making</span>
-                          <span className={styles.mobileSubItemDesc}>Weekend · Offline Workshop</span>
-                        </div>
-                        <span className={styles.mobileSubArrow}>↗</span>
-                      </Link>
-                      <Link href="/master-video-editing" className={styles.mobileSubItem} onClick={closeAll}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Master Video Editing</span>
-                          <span className={styles.mobileSubItemDesc}>2 Days · Offline Workshop</span>
-                        </div>
-                        <span className={styles.mobileSubArrow}>↗</span>
-                      </Link>
-                      <Link href="/video-editing" className={styles.mobileSubItem} onClick={closeAll}>
-                        <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Video Editing</span>
-                          <span className={styles.mobileSubItemDesc}>1 Day · Offline Workshop</span>
-                        </div>
-                        <span className={styles.mobileSubArrow}>↗</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* About Section - Direct Link */}
-                <div className={styles.mobileNavItemWrapper}>
-                  <Link
-                    href="/about"
-                    className={styles.mobileHeroLink}
-                    onClick={closeAll}
-                  >
-                    about
-                  </Link>
-                </div>
-              </nav>
-
-              <div className={styles.mobileContactGroup}>
-
-                <a
-                  href="tel:+918850774428"
-                  className={styles.mobilePhoneLink}
-                >
-                  +91 88507 74428
-                </a>
-              </div>
-            </div>
-
-            {/* Bottom Area - Screenshot 2 style */}
-            <div className={styles.mobileFooterRow}>
-              <div className={styles.mobileSocialLeft}>
-                <span className={styles.mobileDot}>●</span>
-                <a
-                  href="https://www.instagram.com/ideaschool.pro/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.mobileSocialLink}
-                >
-                  instagram
-                </a>
-                <span className={styles.mobileSocialSep}>_</span>
-                <a
-                  href="https://www.linkedin.com/company/88gb/posts/?feedView=all"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.mobileSocialLink}
-                >
-                  linkedin
-                </a>
-              </div>
-
-              <button
-                type="button"
-                className={styles.mobileLetsTalkBtn}
-                onClick={() => {
-                  closeAll();
-                  window.dispatchEvent(new Event("open-home-form"));
-                }}
-              >
-                <span>let&apos;s talk</span>
-                <span className={styles.btnArrow}>↗</span>
-              </button>
-            </div>
-          </div>,
-          document.body
-        )}
     </header>
   );
 }

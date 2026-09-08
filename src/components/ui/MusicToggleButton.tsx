@@ -77,8 +77,8 @@ export default function MusicToggleButton({
         }
         @media (hover: none) and (pointer: coarse) {
           .musicToggleButton {
-            width: var(--music-toggle-size, 58px) !important;
-            height: var(--music-toggle-size, 58px) !important;
+            width: ${size}px !important;
+            height: ${size}px !important;
             padding: 0 !important;
           }
         }
@@ -101,7 +101,6 @@ export default function MusicToggleButton({
           justifyContent: "center",
           width: `${size}px`,
           height: `${size}px`,
-          "--music-toggle-size": `${size}px`,
           padding: 0,
           background: "rgba(0, 0, 0, 0.9)",
           backdropFilter: "blur(12px)",

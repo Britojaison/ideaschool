@@ -1,5 +1,7 @@
+"use client";
 
 import ClientBrandsMotion from "./ClientBrandsMotion";
+import TextAnimation from "@/components/ui/staggerText";
 
 type Brand =
   | {
@@ -175,8 +177,12 @@ export default function ClientBrandsGrid() {
       <ClientBrandsMotion />
       <div className="clientBrandsInner">
         <div className="mentorSectionIntro">
-          <p className="clientBrandsEyebrow">Client Brands</p>
-          <h2>Get Closer to the Work Behind Real Brands.</h2>
+          <p className="clientBrandsEyebrow">
+            <TextAnimation divideBy="word">Client Brands</TextAnimation>
+          </p>
+          <h2>
+            <TextAnimation divideBy="word" delay={0.1}>Get Closer to the Work Behind Real Brands.</TextAnimation>
+          </h2>
         </div>
         <div className="clientBrandsCarouselViewport">
           <div className="clientBrandsCarouselTrack">

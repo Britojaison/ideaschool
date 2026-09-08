@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import styles from "./VisualSchoolCTA.module.css";
+import TextAnimation from "@/components/ui/staggerText";
 
 export default function VisualSchoolCTA() {
   return (
     <section className={styles.ctaContainer}>
-      <div className={styles.eyebrow}>VISUAL SCHOOL</div>
+      <div className={styles.eyebrow}>
+        <TextAnimation divideBy="word">VISUAL SCHOOL</TextAnimation>
+      </div>
       
       <svg
         className={styles.arrowIcon}
@@ -24,11 +27,18 @@ export default function VisualSchoolCTA() {
 
       <div className={styles.contentWrapper}>
         <h2 className={styles.title}>
-          DON’T JUST LEARN THE TOOLS.<br />
-          LEARN WHAT TO DO WITH THEM.
+          <TextAnimation divideBy="word" delay={0.05}>
+            DON’T JUST LEARN THE TOOLS.
+          </TextAnimation>
+          <br />
+          <TextAnimation divideBy="word" delay={0.2}>
+            LEARN WHAT TO DO WITH THEM.
+          </TextAnimation>
         </h2>
         <p className={styles.description}>
-          Build skills in editing, filmmaking, design and Creative AI through practical briefs, mentor feedback and industry experience.
+          <TextAnimation divideBy="word" delay={0.35}>
+            Build skills in editing, filmmaking, design and Creative AI through practical briefs, mentor feedback and industry experience.
+          </TextAnimation>
         </p>
         <div className={styles.buttonGroup}>
           <Link 

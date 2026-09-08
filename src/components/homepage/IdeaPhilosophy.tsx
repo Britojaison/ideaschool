@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./IdeaPhilosophy.module.css";
+import TextAnimation from "@/components/ui/staggerText";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -71,9 +72,15 @@ export default function IdeaPhilosophy() {
       <div className="container">
         <div className={styles.heading}>
           <div>
-            <h2 id="idea-philosophy-title">The IDEA<br />Philosophy</h2>
+            <h2 id="idea-philosophy-title">
+              <TextAnimation divideBy="word">The IDEA</TextAnimation>
+              <br />
+              <TextAnimation divideBy="word" delay={0.15}>Philosophy</TextAnimation>
+            </h2>
           </div>
-          <p className={styles.intro}>Every strong idea needs more than execution.</p>
+          <p className={styles.intro}>
+            <TextAnimation divideBy="word" delay={0.3}>Every strong idea needs more than execution.</TextAnimation>
+          </p>
         </div>
       </div>
       <div className={styles.pillars}>

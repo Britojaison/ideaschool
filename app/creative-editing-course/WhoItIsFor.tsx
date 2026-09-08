@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./WhoItIsFor.module.css";
+import TextAnimation from "@/components/ui/staggerText";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +52,9 @@ export default function WhoItIsFor() {
   return (
     <section className={styles.section} data-header-theme="light">
       <div className={styles.introGrid}>
-        <h2 className={styles.title}>SERIOUS ABOUT BUILDING A CREATIVE CAREER?</h2>
+        <h2 className={styles.title}>
+          <TextAnimation divideBy="word">SERIOUS ABOUT BUILDING A CREATIVE CAREER?</TextAnimation>
+        </h2>
       </div>
 
       <div className={styles.fullBleedArtwork} ref={artworkRef}>

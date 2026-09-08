@@ -1,19 +1,25 @@
 "use client";
 
 import styles from "./NextStepCta.module.css";
+import TextAnimation from "@/components/ui/staggerText";
 
 export default function NextStepCta() {
   return (
     <section className={styles.section} data-header-theme="light">
       <div className={styles.inner}>
-        <p className={styles.eyebrow}>Take the next step</p>
+        <p className={styles.eyebrow}>
+          <TextAnimation divideBy="word">Take the next step</TextAnimation>
+        </p>
         <h2 className={styles.title}>
-          Build your skills. Build your portfolio. Build your career.
+          <TextAnimation divideBy="word" delay={0.1}>
+            Build your skills. Build your portfolio. Build your career.
+          </TextAnimation>
         </h2>
         <div className={styles.footer}>
           <p className={styles.copy}>
-            Apply to IDEA School or speak with the team to understand whether the
-            program is the right fit for you.
+            <TextAnimation divideBy="word" delay={0.25}>
+              Apply to IDEA School or speak with the team to understand whether the program is the right fit for you.
+            </TextAnimation>
           </p>
           <div className={styles.actions}>
             <button

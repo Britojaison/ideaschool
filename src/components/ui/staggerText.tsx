@@ -26,14 +26,16 @@ const TextAnimation = ({
   children,
   delay = 0,
   divideBy = "word",
-  amount = 0.2,
+  amount = 0.15,
   className = "",
+  style,
 }: {
   children: React.ReactNode;
   delay?: number;
   divideBy?: "word" | "letter";
   amount?: number | "some" | "all";
   className?: string;
+  style?: React.CSSProperties;
 }) => {
   if (typeof children !== "string") {
     if (typeof children === "number" || typeof children === "boolean") {
@@ -46,8 +48,8 @@ const TextAnimation = ({
 
   const text = children as string;
   const parts =
-    divideBy === "letter" ? text.split("") : text.split(" ");
-  const stagger = divideBy === "letter" ? 0.02 : 0.05;
+    divideBy === "letter" ? text.split("") : text.trim().split(/\s+/);
+  const stagger = divideBy === "letter" ? 0.02 : 0.045;
 
   return (
     <motion.span
@@ -56,13 +58,13 @@ const TextAnimation = ({
       whileInView="show"
       viewport={{ once: true, amount }}
       className={className}
-      style={{ display: "inline-block" }}
+      style={{ display: "inline-block", maxWidth: "100%", ...style }}
     >
       {parts.map((part, i) => (
         <span
           key={i}
           className="inline-block overflow-hidden relative"
-          style={{ verticalAlign: "top" }}
+          style={{ verticalAlign: "top", paddingBottom: "0.12em", marginBottom: "-0.12em" }}
         >
           <motion.span
             variants={item}
@@ -72,7 +74,9 @@ const TextAnimation = ({
               ? part === " "
                 ? "\u00A0"
                 : part
-              : part + "\u00A0"}
+              : i < parts.length - 1
+              ? part + "\u00A0"
+              : part}
           </motion.span>
         </span>
       ))}

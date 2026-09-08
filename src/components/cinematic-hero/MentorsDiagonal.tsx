@@ -1,6 +1,7 @@
 "use client";
 
 import DiagonalCarousel from "@/components/ui/DiagonalCarousel";
+import TextAnimation from "@/components/ui/staggerText";
 
 const MENTORS = [
   { src: "/assets/images/mentor_ARJUN.webp", title: "Dhananjayan S.", subtitle: "CEO, 88GB" },
@@ -13,8 +14,12 @@ export default function MentorsDiagonal() {
   return (
     <section className="cinematicMentorsDiagonal" id="mentor" aria-label="Learn with people who work inside the industry" data-header-theme="light">
       <div className="mentorSectionHeading">
-        <p>Mentors</p>
-        <h2>Learn With People Who Work Inside The Industry.</h2>
+        <p>
+          <TextAnimation divideBy="word">Mentors</TextAnimation>
+        </p>
+        <h2>
+          <TextAnimation divideBy="word" delay={0.1}>Learn With People Who Work Inside The Industry.</TextAnimation>
+        </h2>
       </div>
       <div className="mentorDiagonalCarousel">
         <DiagonalCarousel

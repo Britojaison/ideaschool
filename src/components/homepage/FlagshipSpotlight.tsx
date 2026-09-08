@@ -13,6 +13,7 @@ const VideoPopOver = dynamic(
   () => import("@/components/ui/VideoPlayer").then((mod) => mod.VideoPopOver),
   { ssr: false }
 );
+import TextAnimation from "@/components/ui/staggerText";
 
 export default function FlagshipSpotlight() {
   const [showVideoPopOver, setShowVideoPopOver] = useState(false);
@@ -44,11 +45,17 @@ export default function FlagshipSpotlight() {
       <div className={styles.wrap}>
         <div className={styles.content}>
           <div className={styles.title}>
-            <span className={styles.titleMain}>Full Stack Video Editing</span>
-            <span className={styles.titleMain}>& Creative AI Mastery</span>
+            <span className={styles.titleMain}>
+              <TextAnimation divideBy="word" delay={0.05}>Full Stack Video Editing</TextAnimation>
+            </span>
+            <span className={styles.titleMain}>
+              <TextAnimation divideBy="word" delay={0.2}>& Creative AI Mastery</TextAnimation>
+            </span>
           </div>
           <p className={styles.lede}>
-            Twenty four weeks to turn raw ideas into finished films and turn your portfolio into proof.
+            <TextAnimation divideBy="word" delay={0.35}>
+              Twenty four weeks to turn raw ideas into finished films and turn your portfolio into proof.
+            </TextAnimation>
           </p>
           <div className={styles.actions}>
             <Link href="/creative-editing-course" className={styles.customBtn}>

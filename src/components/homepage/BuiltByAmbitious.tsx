@@ -16,6 +16,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 
 import styles from "./BuiltByAmbitious.module.css";
+import TextAnimation from "@/components/ui/staggerText";
 
 const rawMentors = [
   {
@@ -62,9 +63,11 @@ const BuiltByAmbitious = () => {
     >
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>PRACTITIONERS IN THE ROOM.</h2>
+          <h2 className={styles.title}>
+            <TextAnimation divideBy="word">PRACTITIONERS IN THE ROOM.</TextAnimation>
+          </h2>
           <p className={styles.subtitle}>
-            PEOPLE YOU LEARN WITH
+            <TextAnimation divideBy="word" delay={0.15}>PEOPLE YOU LEARN WITH</TextAnimation>
           </p>
         </div>
 

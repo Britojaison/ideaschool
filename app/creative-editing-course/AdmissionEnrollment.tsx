@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import TextAnimation from "@/components/ui/staggerText";
 
 export default function AdmissionEnrollment() {
   const enrollmentDetails = [
@@ -49,13 +50,15 @@ export default function AdmissionEnrollment() {
               className="text-3xl md:text-5xl uppercase m-0 leading-tight"
               style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
             >
-              Fees and Enrollment
+              <TextAnimation divideBy="word">Fees and Enrollment</TextAnimation>
             </h2>
             <p
               className="mt-3 text-sm md:text-base uppercase tracking-wider m-0 font-medium"
               style={{ color: "#718000", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
             >
-              Invest in a skillset you can build a career around.
+              <TextAnimation divideBy="word" delay={0.15}>
+                Invest in a skillset you can build a career around.
+              </TextAnimation>
             </p>
           </div>
 

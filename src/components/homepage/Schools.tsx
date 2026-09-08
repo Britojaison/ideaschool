@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 import Reveal from "@/components/ui/Reveal";
+import TextAnimation from "@/components/ui/staggerText";
 
 const doubts = [
   "You want to get into editing or filmmaking. But you don't know where to even start.",
@@ -67,9 +68,15 @@ export default function Schools() {
 
           <div className={styles.careerMessage}>
             <div className={styles.messageCopy}>
-              <p>Sound familiar?</p>
-              <h2>Your career shouldn’t feel like a never ending checklist.</h2>
-              <p className={styles.messageBody}>Choose a craft. Make real work. Build the proof that gets you hired.</p>
+              <p>
+                <TextAnimation divideBy="word">Sound familiar?</TextAnimation>
+              </p>
+              <h2>
+                <TextAnimation divideBy="word" delay={0.1}>Your career shouldn’t feel like a never ending checklist.</TextAnimation>
+              </h2>
+              <p className={styles.messageBody}>
+                <TextAnimation divideBy="word" delay={0.25}>Choose a craft. Make real work. Build the proof that gets you hired.</TextAnimation>
+              </p>
             </div>
             <nav className={styles.schoolLinks} aria-label="Explore our schools">
               {schools.map((school) => <Link href={school.href} key={school.name}>

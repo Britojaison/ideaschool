@@ -11,6 +11,7 @@ import Accordion from "@/components/ui/Accordion";
 import CurtainSlider from "@/components/ui/curtain-slider/CurtainSlider";
 import styles from "./VisualSchoolPage.module.css";
 import ideaLogo from "@public/assets/logo/idea logo.webp";
+import TextAnimation from "@/components/ui/staggerText";
 
 import c1 from "@public/images/Gemini_Generated_Image_e3vatne3vatne3va.png";
 import c2 from "@public/images/Gemini_Generated_Image_n9gxwhn9gxwhn9gx.png";
@@ -478,9 +479,19 @@ export default function VisualSchoolPage() {
             <div className={`${styles.heroShape} heroFadeOut`} aria-hidden="true" />
             <div className={`container ${styles.heroInner}`}>
               <div className={`${styles.heroCopy} heroFadeOut`}>
-                <p className={styles.kicker}>Visual School</p>
-                <h1>Visual stories that<br />move people.</h1>
-                <p className={styles.heroIntro}>For people who want to tell stronger stories through editing, filmmaking, design and Creative AI.</p>
+                <p className={styles.kicker}>
+                  <TextAnimation divideBy="word">Visual School</TextAnimation>
+                </p>
+                <h1>
+                  <TextAnimation divideBy="word" delay={0.05}>Visual stories that</TextAnimation>
+                  <br />
+                  <TextAnimation divideBy="word" delay={0.2}>move people.</TextAnimation>
+                </h1>
+                <p className={styles.heroIntro}>
+                  <TextAnimation divideBy="word" delay={0.35}>
+                    For people who want to tell stronger stories through editing, filmmaking, design and Creative AI.
+                  </TextAnimation>
+                </p>
                 <button type="button" onClick={scrollToPrograms} className={styles.heroCta}>See the disciplines <b>↘</b></button>
                 <div className={styles.heroMarquee}>
                   <IconMarquee />
@@ -597,15 +608,19 @@ export default function VisualSchoolPage() {
             <div className={styles.gridRows} aria-hidden="true" />
             <div className={`container ${styles.visualSchoolIntroInner}`}>
               <div className={styles.visualSchoolIntroTop}>
-                <p className={styles.visualSchoolIntroEyebrow}>What is Visual School?</p>
+                <p className={styles.visualSchoolIntroEyebrow}>
+                  <TextAnimation divideBy="word">What is Visual School?</TextAnimation>
+                </p>
                 <h2 className={styles.visualSchoolIntroHeading}>
-                  A place to develop visual craft.
+                  <TextAnimation divideBy="word" delay={0.1}>A place to develop visual craft.</TextAnimation>
                 </h2>
               </div>
 
               <div className={styles.visualSchoolIntroBottom}>
                 <p className={styles.visualSchoolIntroDesc}>
-                  Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
+                  <TextAnimation divideBy="word" delay={0.25}>
+                    Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
+                  </TextAnimation>
                 </p>
 
                 <div className={styles.foundationCard}>
@@ -634,8 +649,12 @@ export default function VisualSchoolPage() {
           <div className={`container ${styles.disciplinesInner}`}>
             <div className={styles.disciplinesHeader}>
               <div>
-                <p className={styles.sectionEyebrow}>The Visual Disciplines</p>
-                <h2>Story can take more than one form.</h2>
+                <p className={styles.sectionEyebrow}>
+                  <TextAnimation divideBy="word">The Visual Disciplines</TextAnimation>
+                </p>
+                <h2>
+                  <TextAnimation divideBy="word" delay={0.1}>Story can take more than one form.</TextAnimation>
+                </h2>
               </div>
             </div>
             <div className={styles.disciplineGrid}>
@@ -713,8 +732,12 @@ export default function VisualSchoolPage() {
 
           <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div className={styles.whoHeader}>
-              <p className={styles.sectionEyebrow}>Who Visual School Is For</p>
-              <h2>Different starting points. One shared interest in visual work.</h2>
+              <p className={styles.sectionEyebrow}>
+                <TextAnimation divideBy="word">Who Visual School Is For</TextAnimation>
+              </p>
+              <h2>
+                <TextAnimation divideBy="word" delay={0.1}>Different starting points. One shared interest in visual work.</TextAnimation>
+              </h2>
             </div>
 
             <div className={styles.whoGrid}>
@@ -746,14 +769,20 @@ export default function VisualSchoolPage() {
           <div className="container" style={{ position: "relative", zIndex: 10 }}>
             <div className={styles.workHeader}>
               <div className={styles.workTitleCol}>
-                <span className={styles.workEyebrow}>WORK FROM VISUAL SCHOOL</span>
+                <span className={styles.workEyebrow}>
+                  <TextAnimation divideBy="word">WORK FROM VISUAL SCHOOL</TextAnimation>
+                </span>
                 <h2>
-                  See the process in<br />the final frame.
+                  <TextAnimation divideBy="word" delay={0.1}>See the process in</TextAnimation>
+                  <br />
+                  <TextAnimation divideBy="word" delay={0.25}>the final frame.</TextAnimation>
                 </h2>
               </div>
               <div className={styles.workIntroCol}>
                 <p>
-                  Films, edits, design experiments and AI-assisted visual projects developed across Visual School programs and workshops.
+                  <TextAnimation divideBy="word" delay={0.4}>
+                    Films, edits, design experiments and AI-assisted visual projects developed across Visual School programs and workshops.
+                  </TextAnimation>
                 </p>
               </div>
             </div>
@@ -884,8 +913,14 @@ export default function VisualSchoolPage() {
 
         <section className={styles.cta}>
           <div className="container">
-            <span>Applications are open</span>
-            <h2>Your best work<br />is still ahead.</h2>
+            <span>
+              <TextAnimation divideBy="word">Applications are open</TextAnimation>
+            </span>
+            <h2>
+              <TextAnimation divideBy="word" delay={0.1}>Your best work</TextAnimation>
+              <br />
+              <TextAnimation divideBy="word" delay={0.25}>is still ahead.</TextAnimation>
+            </h2>
             <button onClick={() => window.dispatchEvent(new Event('open-home-form'))}>Start your application <b>↗</b></button>
           </div>
         </section>

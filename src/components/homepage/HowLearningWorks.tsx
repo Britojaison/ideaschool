@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./HowLearningWorks.module.css";
+import TextAnimation from "@/components/ui/staggerText";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -166,15 +167,22 @@ export default function HowLearningWorks() {
       <div className={styles.container}>
         {/* ── Header ── */}
         <div className={styles.header}>
-          <h2 className={styles.sectionLabel}>HOW LEARNING WORKS</h2>
+          <h2 className={styles.sectionLabel}>
+            <TextAnimation divideBy="word">HOW LEARNING WORKS</TextAnimation>
+          </h2>
           <p className={styles.headline}>
-            UNDERSTAND THE IDEA. BUILD WITH PURPOSE.
+            <TextAnimation divideBy="word" delay={0.1}>
+              UNDERSTAND THE IDEA. BUILD WITH PURPOSE.
+            </TextAnimation>
             <br />
-            REFINE THE OUTCOME.
+            <TextAnimation divideBy="word" delay={0.25}>
+              REFINE THE OUTCOME.
+            </TextAnimation>
           </p>
           <p className={styles.headerDesc}>
-            You work through practical briefs, explain your decisions and
-            strengthen the outcome through feedback.
+            <TextAnimation divideBy="word" delay={0.4}>
+              You work through practical briefs, explain your decisions and strengthen the outcome through feedback.
+            </TextAnimation>
           </p>
         </div>
 

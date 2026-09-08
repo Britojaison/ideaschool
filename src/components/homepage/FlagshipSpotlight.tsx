@@ -44,8 +44,8 @@ export default function FlagshipSpotlight() {
       <div className={styles.wrap}>
         <div className={styles.content}>
           <div className={styles.title}>
-            <span className={styles.titleMain}>Creative Video Editing</span>
-            <span className={styles.accent}>& AI Pro</span>
+            <span className={styles.titleMain}>Full Stack Video Editing</span>
+            <span className={styles.accent}>& Creative AI Mastery</span>
           </div>
           <p className={styles.lede}>
             Twenty four weeks to turn raw ideas into finished films and turn your portfolio into proof.
@@ -134,7 +134,7 @@ export default function FlagshipSpotlight() {
           {showVideoPopOver && (
             <VideoPopOver
               videoSrc="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
-              title="Student Showreel Creative Editing & AI Pro"
+              title="Student Showreel Full Stack Video Editing & Creative AI Mastery"
               setShowVideoPopOver={setShowVideoPopOver}
             />
           )}

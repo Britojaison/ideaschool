@@ -74,13 +74,13 @@ export default function Schools() {
               <h2>
                 <TextAnimation divideBy="word" delay={0.1}>Your career shouldn’t feel like a never ending checklist.</TextAnimation>
               </h2>
-              <p className={styles.messageBody}>
-                <TextAnimation divideBy="word" delay={0.25}>Choose a craft. Make real work. Build the proof that gets you hired.</TextAnimation>
-              </p>
             </div>
+            <p className={styles.messageBody}>
+              <TextAnimation divideBy="word" delay={0.25}>Choose a craft. Make real work. Build the proof that gets you hired.</TextAnimation>
+            </p>
             <nav className={styles.schoolLinks} aria-label="Explore our schools">
               {schools.map((school) => <Link href={school.href} key={school.name}>
-                {school.name} School <b aria-hidden="true">↗</b>
+                <span>{school.name} School</span> <b aria-hidden="true">↗</b>
               </Link>)}
             </nav>
           </div>

@@ -415,20 +415,16 @@ export default function CinematicHeroFlow({
 
             <div className={styles.heroStatsGrid}>
               <div className={styles.statItem}>
-                <span className={styles.statValue}>24 weeks</span>
-                <span className={styles.statLabel}>TOTAL PROGRAM</span>
-              </div>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>12 + 12</span>
-                <span className={styles.statLabel}>TRAINING + EXPERIENCE</span>
+                <span className={styles.statValue}>24 Weeks</span>
+                <span className={styles.statLabel}>12+12 Model</span>
               </div>
               <div className={styles.statItem}>
                 <span className={styles.statValue}>Hybrid</span>
-                <span className={styles.statLabel}>OFFLINE + GUIDED LEARNING</span>
+                <span className={styles.statLabel}>Offline + Guided</span>
               </div>
               <div className={styles.statItem}>
                 <span className={styles.statValue}>Mentor-led</span>
-                <span className={styles.statLabel}>PRACTICE, REVIEW, REVISE</span>
+                <span className={styles.statLabel}>Direct Feedback</span>
               </div>
             </div>
           </div>

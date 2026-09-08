@@ -489,7 +489,7 @@ export default function CinematicHeroFlow({
                   <MusicToggleButton
                     isPlaying={!isMuted}
                     onToggle={toggleMute}
-                    size={38}
+                    size={32}
                   />
                 </div>
               </div>

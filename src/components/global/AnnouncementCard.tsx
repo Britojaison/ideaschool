@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./AnnouncementCard.module.css";
 
 export default function AnnouncementCard() {
@@ -52,14 +53,13 @@ export default function AnnouncementCard() {
         </button>
 
         <div className={styles.art} aria-hidden="true">
-          <video
-            className={styles.artVideo}
-            src="/images/vsl-ideaschool-aug11.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+          <Image
+            className={styles.artImage}
+            src="/images/DSC00298.webp"
+            alt="Master the craft of video editing"
+            fill
+            sizes="(max-width: 900px) 230px, 300px"
+            priority
           />
           <span className={styles.orbitOne} />
           <span className={styles.orbitTwo} />

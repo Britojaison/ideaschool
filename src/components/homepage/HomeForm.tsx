@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './HomeForm.module.css';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -66,7 +67,7 @@ export default function HomeForm() {
     setErrorMessage('');
     
     try {
-      const response = await fetch('/api/apply', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -86,9 +87,9 @@ export default function HomeForm() {
     }
   };
 
-  if (isClosed) return null;
+  if (typeof document === "undefined" || isClosed || !isVisible) return null;
 
-  return (
+  const formContent = (
     <div className={`${styles.formWrapper} ${isVisible ? styles.visible : ''}`} ref={formRef}>
       <div className={styles.modalBox}>
         {/* Top Left Logo (over the image) */}
@@ -201,4 +202,6 @@ export default function HomeForm() {
       </div>
     </div>
   );
+
+  return createPortal(formContent, document.body);
 }

@@ -49,7 +49,9 @@ export default function CinematicHeroFlow({
   const pinRef = useRef<HTMLDivElement>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const heroLayerRef = useRef<HTMLDivElement>(null);
+  const editorialHeaderRef = useRef<HTMLDivElement>(null);
+  const showcaseFrameRef = useRef<HTMLDivElement>(null);
+  const frameControlsRef = useRef<HTMLDivElement>(null);
   const heroBottomShadeRef = useRef<HTMLDivElement>(null);
   const directorLayerRef = useRef<HTMLDivElement>(null);
   const directorBlackFadeRef = useRef<HTMLDivElement>(null);
@@ -176,20 +178,6 @@ export default function CinematicHeroFlow({
     videoRef.current.currentTime = ratio * duration;
   };
 
-  // Smooth scroll handler
-  const handleScrollToExplore = useCallback(() => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    // Scroll into the pinned sequence to reveal the Director section
-    const targetY = scrollTop + rect.height * 0.48;
-
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(
-        new CustomEvent("idea-scroll-to", { detail: targetY })
-      );
-    }
-  }, []);
 
   // Setup GSAP ScrollTrigger Sequence
   useEffect(() => {
@@ -212,18 +200,26 @@ export default function CinematicHeroFlow({
                 directorLayerRef.current.style.pointerEvents = "auto";
                 directorLayerRef.current.style.visibility = "visible";
               }
-              if (heroLayerRef.current) {
-                heroLayerRef.current.style.pointerEvents = "none";
-                heroLayerRef.current.style.visibility = "hidden";
+              if (editorialHeaderRef.current) {
+                editorialHeaderRef.current.style.pointerEvents = "none";
+                editorialHeaderRef.current.style.visibility = "hidden";
+              }
+              if (frameControlsRef.current) {
+                frameControlsRef.current.style.pointerEvents = "none";
+                frameControlsRef.current.style.visibility = "hidden";
               }
             } else {
               if (directorLayerRef.current) {
                 directorLayerRef.current.style.pointerEvents = "none";
                 directorLayerRef.current.style.visibility = "hidden";
               }
-              if (heroLayerRef.current) {
-                heroLayerRef.current.style.pointerEvents = "auto";
-                heroLayerRef.current.style.visibility = "visible";
+              if (editorialHeaderRef.current) {
+                editorialHeaderRef.current.style.pointerEvents = "auto";
+                editorialHeaderRef.current.style.visibility = "visible";
+              }
+              if (frameControlsRef.current) {
+                frameControlsRef.current.style.pointerEvents = "auto";
+                frameControlsRef.current.style.visibility = "visible";
               }
             }
           }
@@ -233,8 +229,9 @@ export default function CinematicHeroFlow({
       ScrollTrigger.sort();
       ScrollTrigger.refresh();
 
-      // Initial state setup: Hero is fully visible; Director is hidden
-      gsap.set(heroLayerRef.current, { opacity: 1, y: 0, visibility: "visible", pointerEvents: "auto" });
+      // Initial state setup: Editorial Header is visible; Director is hidden
+      gsap.set(editorialHeaderRef.current, { opacity: 1, y: 0, visibility: "visible", pointerEvents: "auto" });
+      gsap.set(frameControlsRef.current, { opacity: 1, visibility: "visible", pointerEvents: "auto" });
       gsap.set(directorLayerRef.current, { opacity: 0, visibility: "hidden", pointerEvents: "none" });
       gsap.set(directorBlackFadeRef.current, { opacity: 0 });
       gsap.set(fullBlackOverlayRef.current, { opacity: 0 });
@@ -249,32 +246,50 @@ export default function CinematicHeroFlow({
       // CONTINUOUS BLENDED FLOW SEQUENCE (Strict non-overlapping phases)
       // =========================================================================
 
-      // 1. Hero Content fades out & floats up gently (0.00 -> 0.22)
-      tl.to(heroLayerRef.current,
+      // 1. Editorial Header fades out & floats up gently (0.00 -> 0.20)
+      tl.to(editorialHeaderRef.current,
         {
           opacity: 0,
-          y: -50,
-          duration: 0.22,
+          y: -40,
+          duration: 0.20,
           ease: "power2.inOut",
         },
         0
       );
 
-      // Hero bottom shade dissolves away (0.00 -> 0.18)
-      if (heroBottomShadeRef.current) {
-        tl.to(heroBottomShadeRef.current,
+      // 2. Controls bar fades out early (0.00 -> 0.15)
+      tl.to(frameControlsRef.current,
+        {
+          opacity: 0,
+          duration: 0.15,
+          ease: "power1.out",
+        },
+        0
+      );
+
+      // 3. Showcase frame expands to full-bleed (0.00 -> 0.25)
+      if (showcaseFrameRef.current) {
+        tl.to(showcaseFrameRef.current,
           {
-            opacity: 0,
-            duration: 0.18,
-            ease: "power1.inOut"
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            width: "100%",
+            maxWidth: "100%",
+            height: "100%",
+            borderRadius: "0px",
+            borderWidth: "0px",
+            duration: 0.25,
+            ease: "power2.inOut",
           },
           0
         );
       }
 
-      // Parallax smooth video drift (0.00 -> 1.00)
-      tl.to(videoWrapperRef.current, {
-        y: "-12%",
+      // 4. Parallax smooth video drift (0.00 -> 1.00)
+      tl.to(videoRef.current, {
+        y: "-10%",
         duration: 1.0,
         ease: "none"
       }, 0);
@@ -372,129 +387,119 @@ export default function CinematicHeroFlow({
       data-theme="dark"
     >
       <div ref={pinRef} className={styles.pinContainer}>
-        {/* Background Video Canvas */}
-        <div ref={videoWrapperRef} className={styles.videoWrapper}>
-          <video
-            ref={videoRef}
-            className={styles.bgVideo}
-            autoPlay
-            loop
-            muted={isMuted}
-            playsInline
-            preload="auto"
-            suppressHydrationWarning
-            onTimeUpdate={handleTimeUpdate}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-          >
-            {mobileVideoSrc && <source src={mobileVideoSrc} media="(max-width: 767px)" type="video/mp4" />}
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-          <div className={styles.videoOverlay} />
-          <div ref={heroBottomShadeRef} className={styles.heroBottomShade} />
+        {/* SECTION 1: EDITORIAL HEADER (House of Honey Style) */}
+        <div ref={editorialHeaderRef} className={styles.editorialHeader}>
+          {/* Grand Statement Headline */}
+          <h1 className={styles.editorialTitle}>
+            <span className={styles.titleWord}>EDITING</span>
+            <span className={styles.titleScript}>is just the</span>
+            <span className={styles.titleWord}>START<span className={styles.titleDot}>.</span></span>
+          </h1>
+
+          {/* Editorial Metadata Bar (Flanking Left & Right like House of Honey) */}
+          <div className={styles.editorialMetaBar}>
+            <div className={styles.editorialMetaLeft}>
+              <span className={styles.metaEyebrow}>FULL STACK EDITING & CREATIVE AI</span>
+              <span className={styles.metaSub}>Post-Production · Storytelling · Direction</span>
+            </div>
+
+            <div className={styles.editorialMetaRight}>
+              <span className={styles.metaEyebrow}>24 WEEKS TOTAL</span>
+              <span className={styles.metaSub}>Hybrid Learning · Mentor-Led Reviews</span>
+            </div>
+          </div>
         </div>
 
-        {/* 
-            Heavy Black Fade Layer:
-            Guarantees the bottom 60% is 100% solid pitch black (#000000)
-            Top 35% retains video with feathered transition
-        */}
-        <div ref={directorBlackFadeRef} className={styles.directorBlackFade} />
-
-        {/* Full Solid Black Overlay */}
-        <div ref={fullBlackOverlayRef} className={styles.fullBlackOverlay} />
-
-        {/* SECTION 1: HERO LAYER */}
-        <div ref={heroLayerRef} className={styles.heroLayer}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitleFull}><span className={styles.heroTitleHighlight}>EDITING</span> IS JUST THE START.</h1>
-            <div className={styles.heroCtaGroup}>
-              <a href="#enrol" className={styles.primaryBtn}>APPLY NOW</a>
-              <a href="#program" className={styles.secondaryBtn}>EXPLORE THE PROGRAM</a>
-            </div>
-
-            <div className={styles.heroStatsGrid}>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>24 Weeks</span>
-                <span className={styles.statLabel}>12+12 Model</span>
-              </div>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>Hybrid</span>
-                <span className={styles.statLabel}>Offline + Guided</span>
-              </div>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>Mentor-led</span>
-                <span className={styles.statLabel}>Direct Feedback</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Center Music / Sound Toggle Button */}
-          <div
-            className={styles.bottomCenterMusic}
-            onClick={toggleMute}
-            role="button"
-            tabIndex={0}
-            aria-label={isMuted ? "Click to play sound" : "Mute sound"}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                toggleMute();
-              }
-            }}
-          >
-            {isMuted && (
-              <div className={styles.musicPromptWrapper}>
-                <span className={styles.musicPromptText}>CLICK TO PLAY<br />THE SOUND</span>
-                <span className={styles.musicPromptLine} />
-              </div>
-            )}
-            <MusicToggleButton
-              isPlaying={!isMuted}
-              onToggle={toggleMute}
-            />
-          </div>
-
-          {/* Bottom Timeline Controller Bar */}
-          <div className={styles.timelineBar}>
-            <button
-              type="button"
-              className={styles.playControl}
-              onClick={togglePlay}
-              aria-label={isPlaying ? "Pause video" : "Play video"}
+        {/* FRAMED SHOWCASE WINDOW (Cinema Frame) */}
+        <div ref={showcaseFrameRef} className={styles.showcaseFrame}>
+          <div ref={videoWrapperRef} className={styles.frameVideoContainer}>
+            <video
+              ref={videoRef}
+              className={styles.bgVideo}
+              autoPlay
+              loop
+              muted={isMuted}
+              playsInline
+              preload="auto"
+              suppressHydrationWarning
+              onTimeUpdate={handleTimeUpdate}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
             >
-              <span>{isPlaying ? "PAUSE" : "PLAY"}</span>
-              <span className={styles.playIcon}>{isPlaying ? "❚❚" : "▶"}</span>
-              <span className={styles.timecode}>{currentTimeFormatted}</span>
-            </button>
+              {mobileVideoSrc && <source src={mobileVideoSrc} media="(max-width: 767px)" type="video/mp4" />}
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+            <div className={styles.videoOverlay} />
+            <div ref={heroBottomShadeRef} className={styles.heroBottomShade} />
 
-            {/* Visual Tick Track */}
-            <div
-              className={styles.tickerTrack}
-              onClick={handleScrub}
-              title="Click to scrub video"
-              role="slider"
-              aria-valuenow={Math.round(progressRatio * 100)}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-label="Video timeline scrubber"
-            >
-              {Array.from({ length: TOTAL_TICKS }).map((_, i) => {
-                const tickRatio = i / TOTAL_TICKS;
-                const isActive = tickRatio <= progressRatio;
-                const isTall = i % 5 === 0;
-                return (
-                  <span
-                    key={i}
-                    className={`${styles.tick} ${isTall ? styles.tallTick : ""} ${isActive ? styles.activeTick : ""
-                      }`}
+            {/* Heavy Black Fade Layer (for Section 2) */}
+            <div ref={directorBlackFadeRef} className={styles.directorBlackFade} />
+            <div ref={fullBlackOverlayRef} className={styles.fullBlackOverlay} />
+
+            {/* Docked Controls Bar */}
+            <div ref={frameControlsRef} className={styles.frameControlsBar}>
+              <div className={styles.frameLeftControls}>
+                <button
+                  type="button"
+                  className={styles.playControl}
+                  onClick={togglePlay}
+                  aria-label={isPlaying ? "Pause video" : "Play video"}
+                >
+                  <span>{isPlaying ? "PAUSE" : "PLAY"}</span>
+                  <span className={styles.playIcon}>{isPlaying ? "❚❚" : "▶"}</span>
+                  <span className={styles.timecode}>{currentTimeFormatted}</span>
+                </button>
+
+                {/* Scrubber */}
+                <div
+                  className={styles.tickerTrack}
+                  onClick={handleScrub}
+                  title="Click to scrub video"
+                  role="slider"
+                  aria-valuenow={Math.round(progressRatio * 100)}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-label="Video timeline scrubber"
+                >
+                  {Array.from({ length: TOTAL_TICKS }).map((_, i) => {
+                    const tickRatio = i / TOTAL_TICKS;
+                    const isActive = tickRatio <= progressRatio;
+                    const isTall = i % 5 === 0;
+                    return (
+                      <span
+                        key={i}
+                        className={`${styles.tick} ${isTall ? styles.tallTick : ""} ${isActive ? styles.activeTick : ""}`}
+                      />
+                    );
+                  })}
+                  <div
+                    className={styles.scrubberIndicator}
+                    style={{ left: `${progressRatio * 100}%` }}
                   />
-                );
-              })}
-              <div
-                className={styles.scrubberIndicator}
-                style={{ left: `${progressRatio * 100}%` }}
-              />
+                </div>
+              </div>
+
+              <div className={styles.frameRightControls}>
+                <div
+                  className={styles.audioToggleButtonWrapper}
+                  onClick={toggleMute}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={isMuted ? "Click to play sound" : "Mute sound"}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleMute();
+                    }
+                  }}
+                >
+                  <span className={styles.audioLabel}>{isMuted ? "SOUND OFF" : "SOUND ON"}</span>
+                  <MusicToggleButton
+                    isPlaying={!isMuted}
+                    onToggle={toggleMute}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

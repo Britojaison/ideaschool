@@ -296,7 +296,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>August 16</dd>
+              <dd>September 6</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>
@@ -542,10 +542,16 @@ export default function ApplyPage() {
       </section>
 
       <div className="programBatchStrip" aria-label="Workshop batch announcement">
-        <span className="programBatchBadge">New Batch</span>
+        <span className="programBatchBadge programBatchBadgeVideoEditing">New Batch</span>
         <p>HIGH-PAYING VIDEO EDITING</p>
         <div className="programBatchAction">
-          <a className="programBatchCta" href="#enroll">
+          <a
+            className="programBatchCta programBatchCtaVideoEditing"
+            href={razorpayPaymentLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book your video editing workshop seat with Razorpay"
+          >
             Book seat now
           </a>
           <span className="programBatchSeats">Only 2 seats Left</span>

@@ -74,6 +74,7 @@ export const viewport: Viewport = {
 };
 
 import CustomAnimatedCursor from "@/components/global/CustomAnimatedCursor";
+import MetaPixel from "@/components/shared/MetaPixel";
 
 export default function RootLayout({
   children
@@ -89,6 +90,7 @@ export default function RootLayout({
     >
       <head />
       <body suppressHydrationWarning>
+        <MetaPixel />
         <DisableImageActions />
         <CustomAnimatedCursor />
         {children}

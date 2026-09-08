@@ -4,9 +4,9 @@ import styles from "@/styles/Flagship.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import curlyArrowImg from "@public/images/curly_arrow.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion, useSpring } from "framer-motion";
-import { Play } from "lucide-react";
+import { Play, Volume2, VolumeX } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const VideoPopOver = dynamic(
@@ -17,6 +17,8 @@ const VideoPopOver = dynamic(
 export default function FlagshipSpotlight() {
   const [showVideoPopOver, setShowVideoPopOver] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -37,6 +39,17 @@ export default function FlagshipSpotlight() {
     const bounds = e.currentTarget.getBoundingClientRect();
     x.set(e.clientX - bounds.left);
     y.set(e.clientY - bounds.top);
+  };
+
+  const toggleAudio = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    const nextMuted = !videoRef.current.muted;
+    videoRef.current.muted = nextMuted;
+    if (!nextMuted && videoRef.current.volume === 0) {
+      videoRef.current.volume = 1;
+    }
+    setIsMuted(nextMuted);
   };
 
   return (
@@ -100,9 +113,10 @@ export default function FlagshipSpotlight() {
             </motion.div>
 
             <video
-              src="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
+              ref={videoRef}
+              src="/images/vsl-ideaschool-aug11.mp4"
               autoPlay
-              muted
+              muted={isMuted}
               loop
               playsInline
               className={styles.showreelImg}
@@ -110,20 +124,19 @@ export default function FlagshipSpotlight() {
             />
             <div className={styles.showreelLabel}>
               <span>STUDENT SHOWREEL</span>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ color: "#fff" }}
+              <button
+                type="button"
+                className={styles.audioButton}
+                onClick={toggleAudio}
+                aria-label={isMuted ? "Unmute preview video" : "Mute preview video"}
+                aria-pressed={!isMuted}
               >
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
+                {isMuted ? (
+                  <VolumeX size={18} strokeWidth={2.4} />
+                ) : (
+                  <Volume2 size={18} strokeWidth={2.4} />
+                )}
+              </button>
             </div>
           </div>
         </div>
@@ -133,7 +146,7 @@ export default function FlagshipSpotlight() {
         <AnimatePresence>
           {showVideoPopOver && (
             <VideoPopOver
-              videoSrc="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
+              videoSrc="/images/vsl-ideaschool-aug11.mp4"
               title="Student Showreel Full Stack Video Editing & Creative AI Mastery"
               setShowVideoPopOver={setShowVideoPopOver}
             />

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ApplyButton from "@/components/shared/ApplyButton";
 import Footer from "@/components/global/Footer";
+import VslVideoPlayer from "./VslVideoPlayer";
 import "./page.css";
 
 export const metadata: Metadata = {
@@ -44,17 +45,9 @@ export default function IndustryExperienceProgramPage() {
         </p>
 
         <div className="vslVideoWrap" id="watch">
-          <video
-            className="vslVideo"
-            controls
-            preload="metadata"
-            playsInline
-            poster="/images/vsl-ideaschool-aug11-poster.webp"
-            aria-label="Industry Experience Program video"
-          >
-            <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
-            Your browser does not support the video element.
-          </video>
+          <VslVideoPlayer
+            src="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
+          />
         </div>
 
         <div className="vslJourney" aria-label="Program journey">

@@ -11,9 +11,6 @@ export default function StudentProjects() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.titleWrapper}>
-            <h4 className={styles.subtitle}>
-              <TextAnimation divideBy="word">STUDENT PROJECTS</TextAnimation>
-            </h4>
             <h2 className={styles.title}>
               <span className={styles.titleLine}>
                 <TextAnimation divideBy="word" delay={0.06}>

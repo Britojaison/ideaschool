@@ -45,7 +45,7 @@ export default function FlagshipSpotlight() {
         <div className={styles.content}>
           <div className={styles.title}>
             <span className={styles.titleMain}>Full Stack Video Editing</span>
-            <span className={styles.accent}>& Creative AI Mastery</span>
+            <span className={styles.titleMain}>& Creative AI Mastery</span>
           </div>
           <p className={styles.lede}>
             Twenty four weeks to turn raw ideas into finished films and turn your portfolio into proof.

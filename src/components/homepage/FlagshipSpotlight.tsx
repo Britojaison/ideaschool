@@ -4,9 +4,9 @@ import styles from "@/styles/Flagship.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import curlyArrowImg from "@public/images/curly_arrow.png";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion, useSpring } from "framer-motion";
-import { Play, Volume2, VolumeX } from "lucide-react";
+import { Play } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const VideoPopOver = dynamic(
@@ -17,8 +17,6 @@ const VideoPopOver = dynamic(
 export default function FlagshipSpotlight() {
   const [showVideoPopOver, setShowVideoPopOver] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -39,17 +37,6 @@ export default function FlagshipSpotlight() {
     const bounds = e.currentTarget.getBoundingClientRect();
     x.set(e.clientX - bounds.left);
     y.set(e.clientY - bounds.top);
-  };
-
-  const toggleAudio = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!videoRef.current) return;
-    const nextMuted = !videoRef.current.muted;
-    videoRef.current.muted = nextMuted;
-    if (!nextMuted && videoRef.current.volume === 0) {
-      videoRef.current.volume = 1;
-    }
-    setIsMuted(nextMuted);
   };
 
   return (
@@ -113,31 +100,14 @@ export default function FlagshipSpotlight() {
             </motion.div>
 
             <video
-              ref={videoRef}
               src="/images/vsl-ideaschool-aug11.mp4"
               autoPlay
-              muted={isMuted}
+              muted
               loop
               playsInline
               className={styles.showreelImg}
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
             />
-            <div className={styles.showreelLabel}>
-              <span>STUDENT SHOWREEL</span>
-              <button
-                type="button"
-                className={styles.audioButton}
-                onClick={toggleAudio}
-                aria-label={isMuted ? "Unmute preview video" : "Mute preview video"}
-                aria-pressed={!isMuted}
-              >
-                {isMuted ? (
-                  <VolumeX size={18} strokeWidth={2.4} />
-                ) : (
-                  <Volume2 size={18} strokeWidth={2.4} />
-                )}
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -147,7 +117,7 @@ export default function FlagshipSpotlight() {
           {showVideoPopOver && (
             <VideoPopOver
               videoSrc="/images/vsl-ideaschool-aug11.mp4"
-              title="Student Showreel Full Stack Video Editing & Creative AI Mastery"
+              title="Full Stack Video Editing & Creative AI Mastery"
               setShowVideoPopOver={setShowVideoPopOver}
             />
           )}

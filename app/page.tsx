@@ -19,9 +19,6 @@ import Gallery from "@/components/homepage/Gallery";
 import Reviews from "@/components/homepage/Reviews";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 import styles from "@/styles/Home.module.css";
-import visualStorytelling from "@public/assets/home/card1.png";
-import creativeDirection from "@public/assets/home/card2.png";
-import marketing from "@public/assets/home/card3.png";
 import Image from "next/image";
 import fullBleedImage from "@public/assets/home/gallery10.webp";
 import AmbientDots from "@/components/ui/AmbientDots";
@@ -166,8 +163,10 @@ export default function Home() {
               className={`${styles.heroCard} ${styles.heroCardOne} gsap-card-1`}
             >
               <Image
-                src={visualStorytelling}
-                alt="Animated visual storytelling project"
+                src="/images/DSC00103.JPG"
+                alt="Creative storytelling at IDEA School"
+                width={400}
+                height={380}
                 sizes="(max-width: 640px) 40vw, 18vw"
                 priority
               />
@@ -205,8 +204,10 @@ export default function Home() {
               className={`${styles.heroCard} ${styles.heroCardTwo} gsap-card-2`}
             >
               <Image
-                src={creativeDirection}
-                alt="Animated creative direction project"
+                src="/images/DSC00274.JPG"
+                alt="Technology and creative editing at IDEA School"
+                width={400}
+                height={380}
                 sizes="(max-width: 640px) 40vw, 18vw"
                 priority
               />
@@ -244,8 +245,10 @@ export default function Home() {
               className={`${styles.heroCard} ${styles.heroCardThree} gsap-card-3`}
             >
               <Image
-                src={marketing}
-                alt="Marketing project"
+                src="/images/DSC00107.JPG"
+                alt="Marketing and collaboration at IDEA School"
+                width={400}
+                height={380}
                 sizes="(max-width: 640px) 40vw, 18vw"
                 priority
               />
@@ -292,10 +295,12 @@ export default function Home() {
                   aria-hidden={set === 1}
                 >
                   <Image
-                    src={visualStorytelling}
+                    src="/images/DSC00103.JPG"
                     alt={
-                      set === 0 ? "Animated visual storytelling project" : ""
+                      set === 0 ? "Creative storytelling at IDEA School" : ""
                     }
+                    width={320}
+                    height={267}
                     priority
                   />
                   <figcaption>CREATIVE</figcaption>
@@ -306,10 +311,12 @@ export default function Home() {
                   aria-hidden={set === 1}
                 >
                   <Image
-                    src={creativeDirection}
+                    src="/images/DSC00274.JPG"
                     alt={
-                      set === 0 ? "Animated creative direction project" : ""
+                      set === 0 ? "Technology and creative editing at IDEA School" : ""
                     }
+                    width={320}
+                    height={267}
                     priority
                   />
                   <figcaption>TECHNOLOGY</figcaption>
@@ -320,8 +327,10 @@ export default function Home() {
                   aria-hidden={set === 1}
                 >
                   <Image
-                    src={marketing}
-                    alt={set === 0 ? "Marketing project" : ""}
+                    src="/images/DSC00107.JPG"
+                    alt={set === 0 ? "Marketing and collaboration at IDEA School" : ""}
+                    width={320}
+                    height={267}
                     priority
                   />
                   <figcaption>MARKETING</figcaption>

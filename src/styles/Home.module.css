@@ -1043,11 +1043,12 @@
 
     .schoolsSection {
         min-height: 0;
-        padding: 28px 0 52px;
+        padding: 44px 0 36px;
+        scroll-margin-top: 70px;
     }
 
     .schoolsSection> :global(.container) {
-        width: calc(100% - 28px);
+        width: calc(100% - 24px);
     }
 
     .careerPanel {
@@ -1057,123 +1058,135 @@
         min-height: 0;
         aspect-ratio: auto;
         flex-direction: column;
-        border: 1px solid rgba(255, 255, 255, .1);
-        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, .12);
+        border-radius: 20px;
         color: #f5f4f1;
-        background: linear-gradient(180deg, rgba(10, 10, 12, .4) 0%, rgba(83, 104, 120, .4) 100%);
+        background: linear-gradient(180deg, rgba(16, 18, 22, .7) 0%, rgba(45, 55, 65, .5) 100%);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
-        box-shadow: 0 28px 70px rgba(0, 0, 0, .15);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+        overflow: hidden;
     }
 
     .careerMessage {
         order: 1;
         width: 100%;
         min-height: 0;
-        padding: 42px 26px 28px;
+        padding: 28px 18px 16px;
         justify-content: flex-start;
         overflow: visible;
     }
 
     .messageCopy>p:first-child {
-        margin-bottom: 14px;
-        color: #f5f4f1;
-        font-size: 16px;
+        margin: 0 0 8px;
+        color: #adbdab;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: .06em;
+        text-transform: uppercase;
     }
 
     .messageCopy h2 {
         max-width: 100%;
-        font-family: var(--font-helvetica), Arial, sans-serif;
-        font-size: clamp(34px, 10vw, 42px);
+        font-family: var(--font-stara), "Stara", Arial, sans-serif;
+        font-size: clamp(23px, 6.8vw, 30px);
         font-weight: 700;
-        line-height: 1.08;
-        letter-spacing: .005em;
+        line-height: 1.04;
+        letter-spacing: -.03em;
+        text-transform: uppercase;
+        color: #fbfaf2;
     }
 
     .messageBody {
-        display: none;
+        display: block;
+        margin: 12px 0 0;
+        color: #adbdab;
+        font-size: 13.5px;
+        line-height: 1.45;
     }
 
     .schoolLinks {
-        display: none;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 18px;
+        padding-top: 0;
+    }
+
+    .schoolLinks a {
+        position: relative;
+        min-height: 42px;
+        padding: 8px 6px;
+        border: 1px solid rgba(229, 228, 226, .22);
+        border-radius: 8px;
+        font-size: 11.5px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #f5f4f1;
+        background: rgba(255, 255, 255, .05);
+        transition: color .2s, background .2s, border-color .2s;
+    }
+
+    .schoolLinks a b {
+        position: static;
+        transform: none;
+        margin-left: 3px;
+        font-weight: 400;
+        font-size: 11px;
+    }
+
+    .schoolLinks a:hover,
+    .schoolLinks a:active {
+        color: #D9FA2F;
+        border-color: #D9FA2F;
+        background: rgba(217, 250, 47, .12);
     }
 
     .note {
         display: none;
     }
 
-    .note::after {
-        background: #D9FA2F;
-    }
-
-    .note1 {
-        top: 38%;
-        left: 0%;
-        transform: scale(0.8);
-    }
-
-    .note2 {
-        top: 55%;
-        left: 10%;
-        transform: scale(0.8);
-    }
-
-    .note3 {
-        top: 2%;
-        left: 0%;
-        transform: scale(0.8);
-    }
-
-    .note4 {
-        top: 10%;
-        left: 20%;
-        transform: scale(0.8);
-    }
-
-    .note5 {
-        top: 15%;
-        left: 40%;
-        transform: scale(0.8);
-    }
-
-    .note6 {
-        top: 88%;
-        left: 10%;
-        transform: scale(0.8);
-    }
-
-    .note7 {
-        top: 92%;
-        left: -5%;
-        transform: scale(0.8);
-    }
-
     .checklist {
         order: 2;
         width: 100%;
-        max-height: 660px;
-        padding: 14px 24px 28px;
+        max-height: 250px;
+        padding: 4px 16px 20px;
         border-top: 0;
         border-right: 0;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
     }
 
     .checkRow {
         width: 100%;
-        min-height: 58px;
-        padding: 0 42px 0 18px;
-        border-color: rgba(111, 29, 27, .28);
-        border-radius: 5px;
+        min-height: auto;
+        padding: 9px 12px;
+        gap: 10px;
+        border: 1px solid rgba(111, 29, 27, .2);
+        border-radius: 6px;
         color: #0a0a0c;
-        background: #e5e4e2;
-        font-size: 14px;
+        background: #e8e7e4;
+        font-size: 12.5px;
+        line-height: 1.35;
+        display: flex;
+        align-items: flex-start;
     }
 
     .checkbox {
-        border-color: #6f1d1b;
+        width: 14px;
+        height: 14px;
+        min-width: 14px;
+        margin-top: 2px;
+        border: 1.2px solid #6f1d1b;
+        border-radius: 3px;
+        flex-shrink: 0;
     }
 
     .rowDots {
-        color: #6f1d1b;
+        display: none;
     }
 
     .rowNumber {

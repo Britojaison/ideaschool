@@ -103,7 +103,7 @@ export default function HomeForm() {
               alt="Background"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "cover", objectPosition: "28% center" }}
               priority
             />
           )}

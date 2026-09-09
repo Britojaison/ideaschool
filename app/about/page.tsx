@@ -4,6 +4,7 @@ import Shell from "@/components/global/Shell";
 import heroImage from "@public/assets/home/bg2.webp";
 import industryImage from "@public/assets/home/gallery10.webp";
 import learningImage from "@public/assets/home/work1.webp";
+import techImage from "@public/images/gallery7.webp";
 import styles from "./About.module.css";
 
 const pillars = [
@@ -222,9 +223,22 @@ export default function Page() {
         </section>
 
         <section className={styles.tech}>
-          <p className={styles.index}>OUR POINT OF VIEW</p>
-          <h2>Technology is an enabler.<br /><em>Not the destination.</em></h2>
-          <p>We embrace emerging technologies because they make creative professionals more capable. But tools will continue to change. The ability to think clearly, communicate effectively, tell meaningful stories, solve complex problems, and create value will remain timeless.</p>
+          <div className={styles.techHeader}>
+            <div className={styles.techHeadingWrap}>
+              <p className={styles.index}>OUR POINT OF VIEW</p>
+              <h2>Technology is an enabler.<br /><em>Not the destination.</em></h2>
+            </div>
+            <p className={styles.techDesc}>We embrace emerging technologies because they make creative professionals more capable. But tools will continue to change. The ability to think clearly, communicate effectively, tell meaningful stories, solve complex problems, and create value will remain timeless.</p>
+          </div>
+          <div className={styles.techVisual}>
+            <Image
+              src={techImage}
+              alt="Technology and creative mentorship at IDEA School"
+              fill
+              sizes="(max-width: 800px) 100vw, 86vw"
+              className={styles.techVisualImg}
+            />
+          </div>
         </section>
 
         <section className={styles.visionMission}>

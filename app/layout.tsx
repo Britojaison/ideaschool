@@ -92,10 +92,7 @@ export const metadata: Metadata = {
     google: [
       "mDTg1HB8JOYS8T6sn9VH29ktMqI4Ns1KYWJz6kxAupw",
       "IoTBz0cEobJ80992_poSZ0vrVo4Dk9AvCGJz9vjYQEw"
-    ],
-    other: {
-      "msvalidate.01": ["8B36D5965F0BFE9929E6F42BFF5F3F97"]
-    }
+    ]
   }
 };
 
@@ -150,12 +147,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `if (typeof window !== "undefined" && ["ideaschool.pro", "www.ideaschool.pro", "ideaschool.in", "www.ideaschool.in"].includes(window.location.hostname)) { (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "yf17buzduz"); }`
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

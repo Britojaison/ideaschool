@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -15,24 +16,28 @@ const pillars = [
   {
     letter: "I",
     title: "Intelligence",
+    icon: "/assets/svg/cube-helix-2026-09-09/cube-helix-2026-09-09.svg",
     description:
       "We nurture intelligent thinkers people who ask better questions, understand problems before solving them, and use technology thoughtfully. Intelligence is the foundation of every great creator, marketer, designer, entrepreneur, and leader.",
   },
   {
     letter: "D",
     title: "Design",
+    icon: "/assets/svg/deformed-grid-mesh-ii-2026-09-09/deformed-grid-mesh-ii-2026-09-09.svg",
     description:
       "Design is not just aesthetics. It is a way of thinking: creating meaningful experiences, solving problems, and communicating ideas with clarity, purpose, and impact.",
   },
   {
     letter: "E",
     title: "Entrepreneurship",
+    icon: "/assets/svg/iso-sphere-2026-09-09/iso-sphere-2026-09-09.svg",
     description:
       "We build people who think like owners who take initiative, identify opportunities, create value, lead projects, and embrace responsibility wherever they work.",
   },
   {
     letter: "A",
     title: "Artistry",
+    icon: "/assets/svg/isometric-noise-field-2026-09-09/isometric-noise-field-2026-09-09.svg",
     description:
       "Artistry gives creativity meaning. It is the ability to tell stories that move people, shape culture, communicate emotion, and create experiences people remember.",
   },
@@ -92,6 +97,16 @@ export default function IdeaPhilosophy() {
               </span>
             </div>
             <div className={styles.copy}>
+              <div className={styles.pillarIcon}>
+                <Image
+                  src={pillar.icon}
+                  alt=""
+                  width={150}
+                  height={150}
+                  className={styles.pillarIconImg}
+                  unoptimized
+                />
+              </div>
               <h3>{pillar.title}</h3>
               <p>{pillar.description}</p>
             </div>

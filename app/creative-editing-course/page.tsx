@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Shell from "@/components/global/Shell";
 import CinematicHeroFlow from "@/components/cinematic-hero/CinematicHeroFlow";
-
-import FullCreativeControl from "@/components/cinematic-hero/FullCreativeControl";
 import LearningEnvironment from "@/components/cinematic-hero/LearningEnvironment";
 import ToolsMarquee from "@/components/ui/ToolsMarquee";
 import WhatYouBuild from "@/components/cinematic-hero/WhatYouBuild";
@@ -82,7 +80,6 @@ export default function CreativeEditingCopyPage() {
       <LearningEnvironment key="learning-environment" />
       <WhatYouBuild key="what-you-build" />
       <ByTheNumbers key="programme" />
-      <FullCreativeControl key="what-you-learn" />
       <ToolsMarquee key="tools-marquee" />
       <MentorsDiagonal key="mentors" />
       <ClientBrandsGrid key="client-brands" />

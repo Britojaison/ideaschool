@@ -13,7 +13,14 @@ const pillars = [
   { letter: "A", title: "Artistry", text: "Artistry gives creativity meaning. It is the ability to tell stories that move people, shape culture, communicate emotion, and create experiences people remember." },
 ];
 
-const experience = ["Live projects", "Industry briefs", "Practical workshops", "Working mentors", "Portfolio development", "Team collaboration", "Reviews & feedback", "Creative challenges", "Professional workflows", "Industry immersion"];
+const experience = [
+  "Live projects",
+  "Industry briefs",
+  "Practical workshops",
+  "Working mentors",
+  "Portfolio development",
+  "Team collaboration",
+];
 
 const futurePoints = [
   "A filmmaker needs branding.",

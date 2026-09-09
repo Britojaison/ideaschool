@@ -62,7 +62,7 @@ export default function Footer() {
       <div className={styles.footerMainContent}>
         <div className={styles.footerSpacer} aria-hidden="true" />
         <div className={styles.footerCenter}>
-          <h2 style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+          <h2>
             IDEA School is where you build real skills for the creative industry.
             <Image
               src={creativeIndustryMark}

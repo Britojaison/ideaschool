@@ -12,7 +12,6 @@ const allTools = [
   "/images/framer.webp",
   "/images/tool1.webp",
   "/images/heygen.webp",
-  "/images/moj.webp",
   "/images/higgsfield_ai.webp",
 ];
 

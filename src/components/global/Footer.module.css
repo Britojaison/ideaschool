@@ -43,7 +43,7 @@
   display: inline-block;
   font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
   font-size: clamp(3.75rem, 11vw, 9rem);
-  font-weight: 800;
+  font-weight: 700;
   color: #FBFAF2;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -74,6 +74,7 @@
   position: relative;
   z-index: 5;
   margin-bottom: clamp(-180px, -14vw, -40px);
+  font-family: var(--font-stara), "Stara", sans-serif;
 }
 
 .footerSpacer {
@@ -89,6 +90,7 @@
 
 .footerCenter h2,
 .footerLeft h2 {
+  font-family: var(--font-stara), "Stara", sans-serif;
   font-size: clamp(1.35rem, 2.2vw, 2.2rem);
   line-height: 1.18;
   letter-spacing: -0.015em;
@@ -108,6 +110,7 @@
 }
 
 .footerExploreLink {
+  font-family: var(--font-stara), "Stara", sans-serif;
   display: inline-flex;
   align-items: center;
   font-size: 1rem;
@@ -147,6 +150,7 @@
 }
 
 .footerLinkCol h3 {
+  font-family: var(--font-stara), "Stara", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: #FBFAF2;
@@ -154,6 +158,7 @@
 }
 
 .footerLinkCol a {
+  font-family: var(--font-stara), "Stara", sans-serif;
   display: block !important;
   font-size: 1rem;
   color: #FBFAF2;
@@ -167,6 +172,7 @@
 }
 
 .backToTopTextLink {
+  font-family: var(--font-stara), "Stara", sans-serif;
   background: none;
   border: none;
   border-bottom: 1px solid #FBFAF2;
@@ -206,6 +212,7 @@
 }
 
 .footerLegal {
+  font-family: var(--font-stara), "Stara", sans-serif;
   position: absolute;
   bottom: 24px;
   left: 52px;

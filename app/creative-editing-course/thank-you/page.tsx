@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import HeroDotField from "@/components/ui/HeroDotField";
-import Footer from "@/components/global/Footer";
+import HeroDotField from "../../HeroDotField";
 
 const whatsappUrl = "https://chat.whatsapp.com/KPOJNXzGGmXCdUh2BdF4En";
 
 export const metadata: Metadata = {
-  title: "Application Received | IDEA School",
+  title: "Application Received | Idea School",
   description:
-    "Thank you for applying to the IDEA School Creative Editing & AI Pro Course.",
+    "Thank you for applying to the Idea School Creative Editing & AI Pro Course.",
   robots: {
     index: false,
     follow: false,
@@ -21,17 +20,17 @@ export default function CreativeEditingThankYouPage() {
   return (
     <main className="thankYouPage longCourseThankYouPage">
       <Script id="fb-track-lead" strategy="afterInteractive">
-        {`fbq('track', 'Lead');`}
+        {`if (typeof fbq === 'function') { fbq('track', 'Lead'); }`}
       </Script>
       <section className="thankYouHero" aria-label="Application confirmation">
         <div className="thankYouHeroMedia"><HeroDotField /></div>
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="IDEA School home">
+          <Link className="brand" href="/" aria-label="Idea School home">
             <Image
               src="/images/idea logo.webp"
-              alt="IDEA School"
+              alt="Idea School"
               width={104}
               height={54}
               priority
@@ -71,7 +70,13 @@ export default function CreativeEditingThankYouPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Image src="/images/whatsapp.svg" alt="" width={21} height={21} />
+                <Image
+                  src="/images/whatsapp.svg"
+                  alt=""
+                  width={21}
+                  height={21}
+                  style={{ width: "auto", height: "auto" }}
+                />
                 <span className="primaryCtaText">Join Our WhatsApp Community</span>
               </a>
             </div>
@@ -81,7 +86,6 @@ export default function CreativeEditingThankYouPage() {
           </div>
         </div>
       </section>
-      <div className="newSite"><Footer /></div>
     </main>
   );
 }

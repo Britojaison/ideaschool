@@ -2,13 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
-import HeroDotField from "@/components/ui/HeroDotField";
-import ProgramMenu from "@/components/global/ProgramMenu";
-import Footer from "@/components/global/Footer";
+import HeroDotField from "../../HeroDotField";
+import ProgramMenu from "../../ProgramMenu";
 
 export const metadata: Metadata = {
-  title: "Enrollment Confirmed | IDEA School",
-  description: "Thank you for enrolling in the IDEA School workshop.",
+  title: "Enrollment Confirmed | Idea School",
+  description: "Thank you for enrolling in the Idea School workshop.",
   robots: {
     index: false,
     follow: false,
@@ -19,7 +18,7 @@ export default function ApplyThankYouPage() {
   return (
     <main className="thankYouPage">
       <Script id="fb-track-lead" strategy="afterInteractive">
-        {`fbq('track', 'Lead');`}
+        {`if (typeof fbq === 'function') { fbq('track', 'Lead'); }`}
       </Script>
       <section className="thankYouHero" aria-label="Enrollment confirmation">
         <div className="thankYouHeroMedia">
@@ -28,10 +27,10 @@ export default function ApplyThankYouPage() {
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="IDEA School home">
+          <Link className="brand" href="/" aria-label="Idea School home">
             <Image
               src="/images/idea logo.webp"
-              alt="IDEA"
+              alt="Idea"
               width={104}
               height={54}
               priority
@@ -83,7 +82,6 @@ export default function ApplyThankYouPage() {
           </div>
         </div>
       </section>
-      <div className="newSite"><Footer /></div>
     </main>
   );
 }

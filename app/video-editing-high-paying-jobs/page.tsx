@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DotField from "@/components/ui/DotField";
-import HeroDotField from "@/components/ui/HeroDotField";
-import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
-import MobileMenu from "@/components/global/MobileMenu";
+import DotField from "../DotField";
+import HeroDotField from "../HeroDotField";
+import ScrollTextReveal from "../ScrollTextReveal";
+import MobileMenu from "../MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
-import MetaPixel from "@/components/shared/MetaPixel";
-import Footer from "@/components/global/Footer";
 
 const curriculum = [
   {
@@ -220,7 +218,7 @@ const applyFaqs = [
   {
     question: "Will I receive a certificate?",
     answer:
-      "Yes. Every participant who attends the workshop will receive a Certificate of Participation from IDEA School.",
+      "Yes. Every participant who attends the workshop will receive a Certificate of Participation from Idea School.",
   },
   {
     question: "Why should I attend this workshop instead of learning from YouTube?",
@@ -235,7 +233,7 @@ const applyFaqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "Master High-Paying Video Editing | IDEA School",
+  title: "Master High-Paying Video Editing | Idea School",
   description:
     "Master High-Paying Video Editing In 1 Day. Learn High-Income Video Editing Skills That Are in Demand.",
   alternates: {
@@ -331,7 +329,6 @@ const pageSchema = {
 export default function ApplyPage() {
   return (
     <main className="applyPage">
-      <MetaPixel />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -346,10 +343,10 @@ export default function ApplyPage() {
         <div className="programHeroShade" />
 
         <header className="siteHeader">
-          <div className="brand" aria-label="IDEA School" style={{ cursor: "default" }}>
+          <div className="brand" aria-label="Idea School" style={{ cursor: "default" }}>
             <Image
               src="/images/idea logo.webp"
-              alt="IDEA"
+              alt="Idea"
               width={104}
               height={54}
               priority
@@ -497,7 +494,7 @@ export default function ApplyPage() {
         <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px" }}>Our Work</span>
-            <h2 style={{ color: "#ffffff", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", fontSize: "clamp(26px, 2.8vw, 40px)", fontWeight: 700, letterSpacing: "-0.04em", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
+            <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
             <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px", fontSize: "18px", lineHeight: "1.5" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>
         </div>
@@ -553,7 +550,7 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="videoSection" aria-label="IDEA School video">
+      <section className="videoSection" aria-label="Idea School video">
         <video
           id="applyHomePageVideo"
           className="videoPoster"
@@ -565,7 +562,7 @@ export default function ApplyPage() {
           disableRemotePlayback
           controlsList="nodownload noplaybackrate noremoteplayback"
           preload="metadata"
-          aria-label="IDEA School classroom video"
+          aria-label="Idea School classroom video"
         >
           <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
         </video>
@@ -588,7 +585,7 @@ export default function ApplyPage() {
           </div>
         </div>
         {/* 
-        <section className="contactSection" id="contact" aria-label="Contact IDEA School">
+        <section className="contactSection" id="contact" aria-label="Contact Idea School">
           <div className="contactInner">
             <div className="contactCopy">
               <h2>
@@ -599,7 +596,7 @@ export default function ApplyPage() {
                 Contact us.
               </h2>
               <p>
-                Join IDEA School and start learning editing, content creation, and
+                Join Idea School and start learning editing, content creation, and
                 AI tools through real projects and hands-on sessions.
               </p>
             </div>
@@ -652,7 +649,38 @@ export default function ApplyPage() {
         </div>
       </div>
 
-      <div className="newSite"><Footer /></div>
+      <footer className="siteFooter">
+        <div className="footerInner">
+          <p>Idea School is where you build real skills for the creative industry.</p>
+
+          <nav className="footerLinks" aria-label="Footer navigation">
+            <div>
+              <h2>Program</h2>
+              <Link href="/#program">Program</Link>
+              <Link href="/creative-editing-course">Creative Editing Program</Link>
+              <a href="#apply-form">Get early bird pass now</a>
+            </div>
+            <div>
+              <h2>Company</h2>
+              <Link href="/#about">About</Link>
+              <Link href="/#testimonials">Testimonials</Link>
+              <Link href="/#contact">Contact : 8850774428</Link>
+            </div>
+            <div>
+              <h2>Socials</h2>
+              <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </nav>
+        </div>
+        <Link className="footerHeroLink" href="/#hero" aria-label="Back to hero">
+          IDEA SCHOOL
+        </Link>
+      </footer>
     </main>
   );
 }

@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import ApplyButton from "@/components/shared/ApplyButton";
-import Footer from "@/components/global/Footer";
-import VslVideoPlayer from "./VslVideoPlayer";
+import ApplyButton from "../ApplyButton";
 import "./page.css";
 
 export const metadata: Metadata = {
-  title: "24-Week Industry Experience Program | IDEA School",
+  title: "24-Week Industry Experience Program | Idea School",
   description:
     "Learn professional video editing through live brand briefs, real client problems, mentor reviews, revision cycles, and portfolio-ready work.",
   alternates: {
@@ -32,8 +30,8 @@ export default function IndustryExperienceProgramPage() {
   return (
     <main className="vslPage">
       <section className="vslFunnel">
-        <Link className="vslLogo" href="/" aria-label="IDEA School home">
-          <Image src="/images/idea logo.webp" alt="IDEA School" width={110} height={58} priority />
+        <Link className="vslLogo" href="/" aria-label="Idea School home">
+          <Image src="/images/idea logo.webp" alt="Idea School" width={110} height={58} priority />
         </Link>
 
 
@@ -48,10 +46,17 @@ export default function IndustryExperienceProgramPage() {
         </p>
 
         <div className="vslVideoWrap" id="watch">
-          <VslVideoPlayer
-            src="/images/vsl-ideaschool-aug11.mp4"
+          <video
+            className="vslVideo"
+            controls
+            preload="metadata"
+            playsInline
             poster="/images/vsl-ideaschool-aug11-poster.webp"
-          />
+            aria-label="Industry Experience Program video"
+          >
+            <source src="/images/vsl-ideaschool-aug11.mp4" type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
         </div>
 
         <div className="vslJourney" aria-label="Program journey">
@@ -87,7 +92,16 @@ export default function IndustryExperienceProgramPage() {
         </section>
       </section>
 
-      <div className="newSite"><Footer /></div>
+      <footer className="vslFooter">
+        <p>
+          Results vary based on each student&apos;s effort, practice and participation. Idea School does
+          not guarantee employment or income. This program is designed to provide practical learning,
+          project experience and professional guidance.
+        </p>
+        <Image src="/images/idea logo.webp" alt="Idea School" width={110} height={58} className="vslFooterLogo" />
+        <span>© {new Date().getFullYear()} Idea School</span>
+        <nav><Link href="/">Home</Link><a href="mailto:hello@ideaschool.in">Contact</a></nav>
+      </footer>
     </main>
   );
 }

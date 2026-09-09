@@ -78,14 +78,9 @@ export default function StandOutSection() {
             ))}
           </div>
 
-          <button
-            type="button"
-            className="primaryCta programCta standOutCta"
-            onClick={() => window.dispatchEvent(new Event("open-home-form"))}
-            suppressHydrationWarning
-          >
+          <a className="primaryCta programCta standOutCta" href="#apply" suppressHydrationWarning>
             <span className="primaryCtaText">Apply Now</span>
-          </button>
+          </a>
         </div>
 
         <div className="standOutPrinciples">

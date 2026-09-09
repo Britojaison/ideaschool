@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DotField from "@/components/ui/DotField";
-import HeroDotField from "@/components/ui/HeroDotField";
-import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
-import MobileMenu from "@/components/global/MobileMenu";
+import DotField from "../DotField";
+import HeroDotField from "../HeroDotField";
+import ScrollTextReveal from "../ScrollTextReveal";
+import MobileMenu from "../MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProgramCountdown from "./ProgramCountdown";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import BrandCommercialsSection from "./BrandCommercialsSection";
-import Footer from "@/components/global/Footer";
 
 const curriculum = [
   {
@@ -274,7 +273,7 @@ const applyFaqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "AD Film Making | IDEA School",
+  title: "AD Film Making | Idea School",
   description:
     "Master AI-Powered AD Film Making in 1 day. Hands-on creative offline workshop to produce agency-level commercial ad films.",
   alternates: {
@@ -293,10 +292,10 @@ export default function ApplyPage() {
         <div className="programHeroShade" />
 
         <header className="siteHeader">
-          <Link className="brand" href="/" aria-label="IDEA School home">
+          <Link className="brand" href="/" aria-label="Idea School home">
             <Image
               src="/images/idea logo.webp"
-              alt="IDEA"
+              alt="Idea"
               width={104}
               height={54}
               priority
@@ -508,7 +507,7 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="videoSection" aria-label="IDEA School video">
+      <section className="videoSection" aria-label="Idea School video">
         <video
           id="applyHomePageVideo"
           className="videoPoster"
@@ -520,7 +519,7 @@ export default function ApplyPage() {
           disableRemotePlayback
           controlsList="nodownload noplaybackrate noremoteplayback"
           preload="metadata"
-          aria-label="IDEA School classroom video"
+          aria-label="Idea School classroom video"
         >
           <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
         </video>
@@ -543,7 +542,7 @@ export default function ApplyPage() {
           </div>
         </div>
         {/* 
-        <section className="contactSection" id="contact" aria-label="Contact IDEA School">
+        <section className="contactSection" id="contact" aria-label="Contact Idea School">
           <div className="contactInner">
             <div className="contactCopy">
               <h2>
@@ -554,7 +553,7 @@ export default function ApplyPage() {
                 Contact us.
               </h2>
               <p>
-                Join IDEA School and start learning editing, content creation, and
+                Join Idea School and start learning editing, content creation, and
                 AI tools through real projects and hands-on sessions.
               </p>
             </div>
@@ -601,7 +600,38 @@ export default function ApplyPage() {
         </div>
       </div>
 
-      <div className="newSite"><Footer /></div>
+      <footer className="siteFooter">
+        <div className="footerInner">
+          <p>Idea School is where you build real skills for the creative industry.</p>
+
+          <nav className="footerLinks" aria-label="Footer navigation">
+            <div>
+              <h2>Program</h2>
+              <Link href="/#program">Program</Link>
+              <Link href="/creative-editing-course">Creative Editing Program</Link>
+              <a href="#apply-form">Get early bird pass now</a>
+            </div>
+            <div>
+              <h2>Company</h2>
+              <Link href="/#about">About</Link>
+              <Link href="/#testimonials">Testimonials</Link>
+              <Link href="/#contact">Contact : 8850774428</Link>
+            </div>
+            <div>
+              <h2>Socials</h2>
+              <a href="https://www.instagram.com/ideaschool.pro/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              <a href="https://www.linkedin.com/company/88gb/posts/?feedView=all" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </nav>
+        </div>
+        <Link className="footerHeroLink" href="/#hero" aria-label="Back to hero">
+          IDEA SCHOOL
+        </Link>
+      </footer>
     </main>
   );
 }

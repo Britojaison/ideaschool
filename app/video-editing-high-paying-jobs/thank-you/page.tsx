@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import HeroDotField from "@/components/ui/HeroDotField";
-import ProgramMenu from "@/components/global/ProgramMenu";
-import MetaPixel from "@/components/shared/MetaPixel";
-import Footer from "@/components/global/Footer";
+import HeroDotField from "../../HeroDotField";
+import ProgramMenu from "../../ProgramMenu";
 
 export const metadata: Metadata = {
-  title: "Enrollment Confirmed | IDEA School",
-  description: "Thank you for enrolling in the IDEA School workshop.",
+  title: "Enrollment Confirmed | Idea School",
+  description: "Thank you for enrolling in the Idea School workshop.",
   robots: {
     index: false,
     follow: false,
@@ -18,7 +16,6 @@ export const metadata: Metadata = {
 export default function ApplyThankYouPage() {
   return (
     <main className="thankYouPage">
-      <MetaPixel />
       <section className="thankYouHero" aria-label="Enrollment confirmation">
         <div className="thankYouHeroMedia">
           <HeroDotField />
@@ -26,10 +23,10 @@ export default function ApplyThankYouPage() {
         <div className="thankYouHeroShade" />
 
         <header className="siteHeader">
-          <div className="brand" aria-label="IDEA School" style={{ cursor: "default" }}>
+          <div className="brand" aria-label="Idea School" style={{ cursor: "default" }}>
             <Image
               src="/images/idea logo.webp"
-              alt="IDEA"
+              alt="Idea"
               width={104}
               height={54}
               priority
@@ -81,7 +78,6 @@ export default function ApplyThankYouPage() {
           </div>
         </div>
       </section>
-      <div className="newSite"><Footer /></div>
     </main>
   );
 }

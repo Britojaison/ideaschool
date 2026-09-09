@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import LiquidVideoMuteButton from "@/components/ui/LiquidVideoMuteButton";
+import LiquidVideoMuteButton from "../LiquidVideoMuteButton";
 
 export default function ApplyHeroVideo() {
   const [isMuted, setIsMuted] = useState(true);
@@ -12,7 +12,7 @@ export default function ApplyHeroVideo() {
       <video
         id="apply-hero-video"
         className={`programHeroVideo${isReady ? " isReady" : ""}`}
-        src="/images/IDEASCHOOL - 88GB_low bitrate.compressed.mp4"
+        src="/images/video_edit1.mp4"
         autoPlay
         muted={isMuted}
         loop

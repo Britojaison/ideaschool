@@ -1,7 +1,5 @@
-"use client";
 
 import ClientBrandsMotion from "./ClientBrandsMotion";
-import TextAnimation from "@/components/ui/staggerText";
 
 type Brand =
   | {
@@ -39,6 +37,12 @@ const brands: Brand[] = [
   {
     name: "JLL",
     image: "/images/JLL.webp",
+    width: 1254,
+    height: 1254,
+  },
+  {
+    name: "Milky Mist",
+    image: "/images/MILKY MIST-2.webp",
     width: 1254,
     height: 1254,
   },
@@ -173,29 +177,22 @@ function BrandLogo({ brand }: { brand: Brand }) {
 
 export default function ClientBrandsGrid() {
   return (
-    <section className="clientBrandsSection clientBrandsCarouselSection" aria-label="Client Brands" data-header-theme="light">
+    <section className="clientBrandsSection" aria-label="Client Brands">
       <ClientBrandsMotion />
       <div className="clientBrandsInner">
         <div className="mentorSectionIntro">
-          <p className="clientBrandsEyebrow">
-            <TextAnimation divideBy="word">Client Brands</TextAnimation>
-          </p>
-          <h2>
-            <TextAnimation divideBy="word" delay={0.1}>Get Closer to the Work Behind Real Brands.</TextAnimation>
-          </h2>
+          <h2>Learn by Working with Some of Our Client Brands</h2>
         </div>
-        <div className="clientBrandsCarouselViewport">
-          <div className="clientBrandsCarouselTrack">
-            {[...brands, ...brands].map((brand, idx) => (
-              <div
-                key={`${brand.name}-${idx}`}
-                className="clientBrandCard"
-                aria-hidden={idx >= brands.length ? "true" : undefined}
-              >
-                <BrandLogo brand={brand} />
-              </div>
-            ))}
-          </div>
+        <div className="clientBrandsGridContainer">
+          {brands.map((brand, idx) => (
+            <div 
+              key={brand.name} 
+              className="clientBrandCard"
+              style={{ transitionDelay: `${idx * 0.04}s` }}
+            >
+              <BrandLogo brand={brand} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -7,9 +7,9 @@ import learningImage from "@public/assets/home/work1.webp";
 import styles from "./About.module.css";
 
 const pillars = [
-  { letter: "I", title: "Intelligence", text: "We nurture intelligent thinkers—people who ask better questions, understand problems before solving them, and use technology thoughtfully. Intelligence is the foundation of every great creator, marketer, designer, entrepreneur, and leader." },
+  { letter: "I", title: "Intelligence", text: "We nurture intelligent thinkers, people who ask better questions, understand problems before solving them, and use technology thoughtfully. Intelligence is the foundation of every great creator, marketer, designer, entrepreneur, and leader." },
   { letter: "D", title: "Design", text: "Design is not just aesthetics. It is a way of thinking: creating meaningful experiences, solving problems, and communicating ideas with clarity, purpose, and impact." },
-  { letter: "E", title: "Entrepreneurship", text: "We build people who think like owners—who take initiative, identify opportunities, create value, lead projects, and embrace responsibility wherever they work." },
+  { letter: "E", title: "Entrepreneurship", text: "We build people who think like owners, who take initiative, identify opportunities, create value, lead projects, and embrace responsibility wherever they work." },
   { letter: "A", title: "Artistry", text: "Artistry gives creativity meaning. It is the ability to tell stories that move people, shape culture, communicate emotion, and create experiences people remember." },
 ];
 
@@ -40,7 +40,7 @@ export default function Page() {
               <p>Technology is evolving. Creative industries are transforming. New careers are emerging, while traditional roles are being redefined. The way we learn, create, communicate, and work has fundamentally changed.</p>
               <div>
                 <p>Most institutions continue to teach tools. The industry, however, is looking for professionals who can think, adapt, collaborate, solve problems, and create meaningful impact.</p>
-                <p className={styles.strong}>That is why IDEA School was founded—not as another institute that teaches software.</p>
+                <p className={styles.strong}>That is why IDEA School was founded, not as another institute that teaches software.</p>
               </div>
             </div>
           </div>
@@ -100,12 +100,12 @@ export default function Page() {
             <p className={styles.index}>HOW WE LEARN</p>
             <h2>Real confidence comes from real experience.</h2>
             <p>Students don’t grow by simply consuming information. They grow by applying it. Every program is designed around experience, practice, mentorship, feedback, and execution.</p>
-            <p>Students don’t just watch—they build. They don’t just submit assignments—they solve challenges. They collaborate, communicate, and create work with purpose.</p>
+            <p>Students don’t just watch, they build. They don’t just submit assignments, they solve challenges. They collaborate, communicate, and create work with purpose.</p>
           </div>
         </section>
 
         <section className={styles.experience}>
-          <div><p className={styles.index}>BEYOND THE CLASSROOM</p><h2>Learning that mirrors the real world.</h2><p>Education should prepare students for the workplace—not surprise them when they enter it.</p></div>
+          <div><p className={styles.index}>BEYOND THE CLASSROOM</p><h2>Learning that mirrors the real world.</h2><p>Education should prepare students for the workplace, not surprise them when they enter it.</p></div>
           <ol>{experience.map((item) => <li key={item}>{item}</li>)}</ol>
         </section>
 
@@ -117,7 +117,7 @@ export default function Page() {
 
         <section className={styles.visionMission}>
           <article><span>OUR VISION</span><h2>Shape the future of the creative economy.</h2><p>To become the most respected Creative Professional School, nurturing confident, adaptable, ethical individuals who create impact through intelligence, creativity, innovation, and meaningful execution.</p></article>
-          <article><span>OUR MISSION</span><h2>Bridge education and industry.</h2><p>To create immersive learning experiences that combine creativity, technology, business understanding, and practical execution—so every learner graduates with confidence, perspective, discipline, and the ability to create meaningful impact.</p></article>
+          <article><span>OUR MISSION</span><h2>Bridge education and industry.</h2><p>To create immersive learning experiences that combine creativity, technology, business understanding, and practical execution, so every learner graduates with confidence, perspective, discipline, and the ability to create meaningful impact.</p></article>
         </section>
 
         <section className={styles.promise}>

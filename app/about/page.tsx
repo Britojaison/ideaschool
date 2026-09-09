@@ -15,6 +15,15 @@ const pillars = [
 
 const experience = ["Live projects", "Industry briefs", "Practical workshops", "Working mentors", "Portfolio development", "Team collaboration", "Reviews & feedback", "Creative challenges", "Professional workflows", "Industry immersion"];
 
+const futurePoints = [
+  "A filmmaker needs branding.",
+  "A marketer needs storytelling.",
+  "A designer needs business awareness.",
+  "A creator needs strategy.",
+  "An entrepreneur needs communication.",
+  "A visual artist needs technology.",
+];
+
 export default function Page() {
   return (
     <Shell>
@@ -168,9 +177,14 @@ export default function Page() {
         <section className={styles.future}>
           <p className={styles.index}>THE FUTURE</p>
           <h2>The future belongs to<br /><em>multi-disciplinary</em> professionals.</h2>
-          <div className={styles.futureGrid}>
-            <p>A filmmaker needs branding.</p><p>A marketer needs storytelling.</p><p>A designer needs business awareness.</p><p>A creator needs strategy.</p><p>An entrepreneur needs communication.</p><p>A visual artist needs technology.</p>
-          </div>
+          <ul className={styles.futureGrid}>
+            {futurePoints.map((point) => (
+              <li key={point} className={styles.pointItem}>
+                <span className={styles.pointBullet} aria-hidden="true">•</span>
+                <span className={styles.pointText}>{point}</span>
+              </li>
+            ))}
+          </ul>
           <p className={styles.futureNote}>Tomorrow’s professionals won’t be defined by a single skill, but by their ability to connect creativity, technology, business, and human understanding.</p>
         </section>
 

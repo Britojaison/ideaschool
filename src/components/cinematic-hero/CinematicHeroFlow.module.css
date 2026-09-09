@@ -1,5 +1,5 @@
 .wrapper {
-  --masthead-height: clamp(300px, 38vh, 410px);
+  --masthead-height: clamp(210px, 26vh, 285px);
   --masthead-ink: #0A0A0C;
   --masthead-muted: rgba(10, 10, 12, 0.72);
   --course-green: #0A0A0C;
@@ -41,7 +41,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: calc(env(safe-area-inset-top, 0px) + 7.4rem) clamp(1.25rem, 2vw, 2.5rem) 1.45rem;
+  padding: calc(env(safe-area-inset-top, 0px) + 4.5rem) clamp(1.25rem, 2vw, 2.5rem) 1.15rem;
   max-width: none;
   margin: 0 auto;
   pointer-events: auto;
@@ -56,7 +56,7 @@
   line-height: 0.78;
   letter-spacing: 0;
   text-align: center;
-  margin: 0 0 clamp(1.8rem, 4vh, 3.1rem) 0;
+  margin: 0 0 clamp(0.75rem, 1.8vh, 1.35rem) 0;
   display: flex;
   align-items: baseline;
   justify-content: center;

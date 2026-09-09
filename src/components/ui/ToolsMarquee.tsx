@@ -57,9 +57,9 @@ export default function ToolsMarquee() {
           gridTemplateColumns: "repeat(4, 1fr)",
           gap: "1px",
           width: "100%",
-          maxWidth: "1100px",
-          margin: "56px auto 0",
-          padding: "0 24px",
+          maxWidth: "1290px",
+          margin: "64px auto 0",
+          padding: "0 32px",
         }}
         className="tools-category-grid"
       >
@@ -74,33 +74,36 @@ export default function ToolsMarquee() {
             className="tools-card"
             style={{
               backgroundColor: "rgba(17,17,17,0.035)",
-              padding: "32px 28px",
+              padding: "44px 34px",
               borderLeft: "1px solid rgba(17,17,17,0.1)",
               position: "relative",
-              transition: "background-color 0.3s ease",
+              cursor: "pointer",
+              transition: "background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease",
             }}
           >
             <h3
               style={{
                 color: "#111111",
                 fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
-                fontSize: "clamp(0.88rem, 1.05vw, 1.05rem)",
-                fontWeight: 600,
+                fontSize: "clamp(1.05rem, 1.25vw, 1.25rem)",
+                fontWeight: 700,
                 textTransform: "uppercase" as const,
-                letterSpacing: "0.06em",
-                marginBottom: "10px",
+                letterSpacing: "0.04em",
+                marginBottom: "14px",
+                transition: "color 0.3s ease",
               }}
             >
               {cat.title}
             </h3>
             <p
               style={{
-                color: "rgba(17, 17, 17, 0.58)",
+                color: "rgba(17, 17, 17, 0.65)",
                 fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
-                fontSize: "clamp(0.82rem, 0.92vw, 0.92rem)",
-                lineHeight: 1.55,
+                fontSize: "clamp(0.92rem, 1.05vw, 1.02rem)",
+                lineHeight: 1.6,
                 margin: 0,
-                fontWeight: 300,
+                fontWeight: 400,
+                transition: "color 0.3s ease",
               }}
             >
               {cat.desc}
@@ -125,32 +128,42 @@ export default function ToolsMarquee() {
           animation: scrollRight 30s linear infinite;
         }
         .tools-card:hover {
-          background-color: rgba(17,17,17,0.07) !important;
+          background-color: #DAFD55 !important;
+          border-left-color: rgba(17, 17, 17, 0.3) !important;
+        }
+        .tools-card:hover h3 {
+          color: #111111 !important;
+        }
+        .tools-card:hover p {
+          color: rgba(17, 17, 17, 0.85) !important;
         }
         @media (max-width: 768px) {
           .tools-category-grid {
             grid-template-columns: repeat(2, 1fr) !important;
-            gap: 10px !important;
+            gap: 12px !important;
             padding: 0 16px !important;
-            margin-top: 36px !important;
+            margin-top: 40px !important;
           }
           .tools-card {
-            padding: 20px 16px !important;
+            padding: 24px 20px !important;
             border: 1px solid rgba(17,17,17,0.1) !important;
             border-radius: 12px !important;
             background-color: rgba(17,17,17,0.035) !important;
+          }
+          .tools-card:hover {
+            border-color: rgba(17, 17, 17, 0.35) !important;
           }
           .tools-card span {
             margin-bottom: 8px !important;
             font-size: 0.65rem !important;
           }
           .tools-card h3 {
-            font-size: 0.88rem !important;
-            margin-bottom: 6px !important;
+            font-size: 0.98rem !important;
+            margin-bottom: 8px !important;
           }
           .tools-card p {
-            font-size: 0.76rem !important;
-            line-height: 1.45 !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
           }
         }
       `}} />

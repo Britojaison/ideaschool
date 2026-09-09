@@ -105,7 +105,6 @@ export default function MobileMenu() {
                           <span className={styles.mobileSubItemTitle}>Visual School</span>
                           <span className={styles.mobileSubItemDesc}>Editing, motion design & AI cinema</span>
                         </div>
-                        <span className={styles.mobileSubBadgeActive}>Active</span>
                       </Link>
                       <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
                         <div className={styles.mobileSubItemInfo}>

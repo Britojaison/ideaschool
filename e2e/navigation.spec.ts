@@ -90,7 +90,7 @@ test.describe("mobile navigation", () => {
     await expect(page.locator("#mobile-navigation").getByRole("button", { name: "Close menu" })).toBeVisible();
     await page.getByRole("button", { name: /schools/i }).click();
     await dismissApplicationFormIfOpen(page);
-    await page.getByRole("link", { name: /Visual School.*Active/i }).click();
+    await page.getByRole("link", { name: /Visual School/i }).click();
 
     await expect(page).toHaveURL(/\/visual-school$/);
     await expect(page.getByRole("button", { name: "Open menu" })).toBeVisible();

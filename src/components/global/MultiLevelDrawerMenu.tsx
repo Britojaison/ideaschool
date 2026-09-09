@@ -47,7 +47,6 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
       label: "Visual School",
       href: "/visual-school",
       desc: "Editing, motion design & AI cinema",
-      badge: "Active",
     },
     {
       label: "Tech School",
@@ -70,12 +69,6 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
       href: "/creative-editing-course",
       desc: "24 Weeks · Career Flagship Course",
       badge: "Flagship",
-    },
-    {
-      label: "Industry Experience Program",
-      href: "/industry-experience-program",
-      desc: "Live studio briefs & hands-on client work",
-      badge: "New",
     },
   ],
   workshops: [
@@ -100,11 +93,6 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
   ],
   idea: [
     {
-      label: "Philosophy & Manifesto",
-      href: "/#the-idea",
-      desc: "Built by ambitious creators for ambitious creators",
-    },
-    {
       label: "Why IDEA School",
       href: "/#the-idea",
       desc: "Real mentors, real studio work & zero fluff",
@@ -115,11 +103,6 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
       label: "About IDEA School",
       href: "/about",
       desc: "Our story, mentors & state-of-the-art campus",
-    },
-    {
-      label: "Campus & Studio Culture",
-      href: "/about",
-      desc: "Bangalore studio campus built for creators",
     },
   ],
 };

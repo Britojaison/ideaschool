@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Application Received | 24-Week Industry Experience Program | IDEA School",
   description:
     "Thank you for applying to the 24-Week Industry Experience Program. You are one step closer to becoming an industry-ready video editor.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 const nextSteps = [

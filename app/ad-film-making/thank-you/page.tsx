@@ -9,6 +9,10 @@ import Footer from "@/components/global/Footer";
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | IDEA School",
   description: "Thank you for enrolling in the IDEA School workshop.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ApplyThankYouPage() {

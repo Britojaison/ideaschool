@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: "Registration Successful | Video Editing Workshop",
   description:
     "Thank you for registering for the IDEA School Video Editing Workshop.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function WorkshopThankYouPage() {

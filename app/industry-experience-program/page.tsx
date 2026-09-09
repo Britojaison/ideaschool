@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "24-Week Industry Experience Program | IDEA School",
   description:
     "Learn professional video editing through live brand briefs, real client problems, mentor reviews, revision cycles, and portfolio-ready work.",
+  alternates: {
+    canonical: "https://www.ideaschool.pro/industry-experience-program",
+  },
 };
 
 const proofPoints = [

@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Full Stack Creative Editing & AI Mastery | IDEA School",
   description:
     "A 24 week studio led video editing, cinematic pacing, motion graphics, and creative AI direction program from IDEA School.",
+  alternates: {
+    canonical: "https://www.ideaschool.pro/creative-editing-course",
+  },
 };
 
 const COURSE_FAQS = [

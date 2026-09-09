@@ -9,6 +9,10 @@ import Footer from "@/components/global/Footer";
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | IDEA School",
   description: "Thank you for enrolling in the IDEA School workshop.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ApplyThankYouPage() {
@@ -36,7 +40,7 @@ export default function ApplyThankYouPage() {
             <ProgramMenu />
           </nav>
 
-          <Link className="headerCta" href="/video-editing">
+          <Link className="headerCta" href="/video-editing-high-paying-jobs">
             <span className="headerCtaText">Back to program</span>
           </Link>
         </header>

@@ -373,7 +373,7 @@ export default function CinematicHeroFlow({
     >
       <div ref={pinRef} className={styles.pinContainer}>
         {/* SECTION 1: EDITORIAL HEADER (House of Honey Style) */}
-        <div ref={editorialHeaderRef} className={styles.editorialHeader}>
+        <div ref={editorialHeaderRef} className={styles.editorialHeader} data-header-theme="light">
           <h1 className={styles.editorialTitle}>
             <span className={styles.titleWord}>{heroHeadline1}</span>
             <span className={styles.titleScript}>is just the</span>

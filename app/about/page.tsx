@@ -32,15 +32,106 @@ export default function Page() {
           </div>
         </section>
 
-        <section className={styles.editorial}>
+        <section className={styles.editorial} id="why-we-exist" aria-label="Why We Exist">
           <div className={styles.editorialInner}>
-            <p className={styles.index}>WHY WE EXIST</p>
-            <h2>The world changed.<br />Education didn’t keep pace.</h2>
-            <div className={styles.twoColCopy}>
-              <p>Technology is evolving. Creative industries are transforming. New careers are emerging, while traditional roles are being redefined. The way we learn, create, communicate, and work has fundamentally changed.</p>
-              <div>
-                <p>Most institutions continue to teach tools. The industry, however, is looking for professionals who can think, adapt, collaborate, solve problems, and create meaningful impact.</p>
-                <p className={styles.strong}>That is why IDEA School was founded, not as another institute that teaches software.</p>
+            <div className={styles.editorialMeta}>
+              <div className={styles.metaBadge}>
+                <span className={styles.pulseDot} />
+                <span>01 / MANIFESTO</span>
+              </div>
+              <div className={styles.metaLine} />
+              <span className={styles.metaCategory}>WHY WE EXIST</span>
+              <span className={styles.metaSub}>THE PARADIGM SHIFT</span>
+            </div>
+
+            <div className={styles.editorialHeader}>
+              <h2 className={styles.editorialHeadline}>
+                <span>The world changed.</span>
+                <span className={styles.editorialHeadlineAccent}>Education didn’t keep pace.</span>
+              </h2>
+              <p className={styles.editorialLead}>
+                Creative industries and technology transformed at breakneck speed. Yet traditional institutions remained trapped in software tutorials and outdated curricula.
+              </p>
+            </div>
+
+            <div className={styles.editorialGrid}>
+              <div className={styles.editorialCard}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.cardIndex}>01</div>
+                  <span className={styles.cardTag}>THE REALITY</span>
+                </div>
+                <h3 className={styles.cardTitle}>
+                  Creative industries are evolving exponentially.
+                </h3>
+                <p className={styles.cardText}>
+                  Technology is evolving. Creative industries are transforming. New careers are emerging, while traditional roles are being redefined. The way we learn, create, communicate, and work has fundamentally changed.
+                </p>
+                <div className={styles.cardChips}>
+                  <span className={styles.cardChip}>AI & Generative Tools</span>
+                  <span className={styles.cardChip}>Cross-Disciplinary Roles</span>
+                  <span className={styles.cardChip}>Modern Creator Economy</span>
+                </div>
+              </div>
+
+              <div className={styles.editorialCard}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.cardIndex}>02</div>
+                  <span className={styles.cardTag}>THE SYSTEMIC GAP</span>
+                </div>
+                <h3 className={styles.cardTitle}>
+                  Institutions teach tools. Industry demands thinkers.
+                </h3>
+                <p className={styles.cardText}>
+                  Most institutions continue to teach tools. The industry, however, is looking for professionals who can think, adapt, collaborate, solve problems, and create meaningful impact.
+                </p>
+                <div className={styles.comparisonList}>
+                  <div className={styles.comparisonItemOutdated}>
+                    <span className={styles.compMarker}>✕</span>
+                    <span>Software tutorials and button memorization</span>
+                  </div>
+                  <div className={styles.comparisonItemModern}>
+                    <span className={styles.compMarker}>✓</span>
+                    <span>Strategic thinking, adaptability and real impact</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.editorialBanner}>
+              <div className={styles.bannerGlow} />
+              <div className={styles.bannerContent}>
+                <div className={styles.bannerTagWrap}>
+                  <span className={styles.bannerTag}>THE FOUNDING PURPOSE</span>
+                </div>
+                <h3 className={styles.bannerHeading}>
+                  That is why IDEA School was founded, not as another institute that teaches software.
+                </h3>
+                <p className={styles.bannerDesc}>
+                  We bridge the gap between creative ambition and industry reality. Tools and software evolve constantly, but foundational intelligence, taste, and the power to solve problems endure.
+                </p>
+                <div className={styles.bannerPillars}>
+                  <div className={styles.pillarItem}>
+                    <span className={styles.pillarNum}>01</span>
+                    <div>
+                      <strong>Thinking Over Tooling</strong>
+                      <p>Mastering narrative and strategic intent before touching software.</p>
+                    </div>
+                  </div>
+                  <div className={styles.pillarItem}>
+                    <span className={styles.pillarNum}>02</span>
+                    <div>
+                      <strong>Live Industry Briefs</strong>
+                      <p>Working on high-stakes briefs with real business constraints.</p>
+                    </div>
+                  </div>
+                  <div className={styles.pillarItem}>
+                    <span className={styles.pillarNum}>03</span>
+                    <div>
+                      <strong>Future-Proof Mindset</strong>
+                      <p>Building professionals who can adapt, innovate, and lead teams.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

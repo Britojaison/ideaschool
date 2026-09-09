@@ -255,7 +255,7 @@ export default function WhatYouBuild() {
                 <h2 className={styles.introTitle}>WHAT YOU BUILD</h2>
                 <h3 className={styles.introHeading}>
                   <TextAnimation divideBy="word" delay={0.1}>
-                    WORK THAT SHOWS WHAT YOU CAN DO.
+                    Work that shows what you can do.
                   </TextAnimation>
                 </h3>
                 <p className={styles.introDesc}>
@@ -296,7 +296,7 @@ export default function WhatYouBuild() {
               <h2 className={styles.introTitle}>WHAT YOU BUILD</h2>
               <h3 className={styles.introHeading}>
                 <TextAnimation divideBy="word" delay={0.1}>
-                  WORK THAT SHOWS WHAT YOU CAN DO.
+                  Work that shows what you can do.
                 </TextAnimation>
               </h3>
               <p className={styles.introDesc}>

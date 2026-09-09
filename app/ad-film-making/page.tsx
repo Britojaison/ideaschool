@@ -276,6 +276,9 @@ export const metadata: Metadata = {
   title: "AD Film Making | Idea School",
   description:
     "Master AI-Powered AD Film Making in 1 day. Hands-on creative offline workshop to produce agency-level commercial ad films.",
+  alternates: {
+    canonical: "https://www.ideaschool.pro/ad-film-making",
+  },
 };
 
 export default function ApplyPage() {

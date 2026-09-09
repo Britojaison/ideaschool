@@ -236,6 +236,9 @@ export const metadata: Metadata = {
   title: "Master High-Paying Video Editing | Idea School",
   description:
     "Master High-Paying Video Editing In 1 Day. Learn High-Income Video Editing Skills That Are in Demand.",
+  alternates: {
+    canonical: "https://www.ideaschool.pro/video-editing-high-paying-jobs",
+  },
 };
 
 export default function ApplyPage() {

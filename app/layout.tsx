@@ -4,9 +4,13 @@ import MetaPixel from "./MetaPixel";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ideaschool.pro"),
   title: "Idea School | Creative Skills, AI Ad Filmmaking & Editing Programs",
   description:
     "Hands-on creative programs for editing, AI ad filmmaking, content strategy, portfolio projects, and industry-ready creative workflows.",
+  alternates: {
+    canonical: "https://www.ideaschool.pro"
+  },
   icons: {
     icon: [{ url: "/images/idea%20logo.webp", type: "image/png" }],
     apple: [{ url: "/images/idea%20logo.webp", type: "image/png" }]
@@ -39,7 +43,7 @@ export default function RootLayout({
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "yejo0eorsa");`
+            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "yf17buzduz");`
           }}
         />
       </head>

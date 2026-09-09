@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   title: "master VIDEO EDITING | Idea School",
   description:
     "A live 2-day workshop to learn high-income video editing skills, Premiere Pro, After Effects, CapCut, audio tools, and AI-powered video creation with Higgsfield AI.",
+  alternates: {
+    canonical: "https://www.ideaschool.pro/master-video-editing",
+  },
 };
 
 const workshop = {

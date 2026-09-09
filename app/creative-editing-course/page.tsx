@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   title: "Full Stack Video Editing and Creative AI Mastery | Idea School",
   description:
     "A 24-week video editing, motion graphics, AI content creation, portfolio, and Industry Experience Program from Idea School.",
+  alternates: {
+    canonical: "https://www.ideaschool.pro/creative-editing-course",
+  },
 };
 
 const course = {

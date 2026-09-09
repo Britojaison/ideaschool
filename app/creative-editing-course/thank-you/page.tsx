@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "Application Received | Idea School",
   description:
     "Thank you for applying to the Idea School Creative Editing & AI Pro Course.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function CreativeEditingThankYouPage() {

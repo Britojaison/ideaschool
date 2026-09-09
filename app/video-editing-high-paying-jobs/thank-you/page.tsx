@@ -7,6 +7,10 @@ import ProgramMenu from "../../ProgramMenu";
 export const metadata: Metadata = {
   title: "Enrollment Confirmed | Idea School",
   description: "Thank you for enrolling in the Idea School workshop.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ApplyThankYouPage() {

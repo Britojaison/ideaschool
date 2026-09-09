@@ -239,11 +239,102 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.ideaschool.pro/video-editing-high-paying-jobs",
   },
+  openGraph: {
+    title: "Master High-Paying Video Editing | Idea School",
+    description:
+      "Master High-Paying Video Editing In 1 Day. Learn High-Income Video Editing Skills That Are in Demand.",
+    url: "https://www.ideaschool.pro/video-editing-high-paying-jobs",
+    siteName: "Idea School",
+    images: [
+      {
+        url: "https://www.ideaschool.pro/images/idea%20logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Idea School - Master High-Paying Video Editing",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Master High-Paying Video Editing | Idea School",
+    description:
+      "Master High-Paying Video Editing In 1 Day. Learn High-Income Video Editing Skills That Are in Demand.",
+    images: ["https://www.ideaschool.pro/images/idea%20logo.webp"],
+  },
+};
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.ideaschool.pro/video-editing-high-paying-jobs/#article",
+      "headline": "Video Editing High Paying Jobs",
+      "description":
+        "Master High-Paying Video Editing In 1 Day. Learn High-Income Video Editing Skills That Are in Demand.",
+      "author": {
+        "@type": "Organization",
+        "name": "Idea School",
+        "url": "https://www.ideaschool.pro"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Idea School",
+        "url": "https://www.ideaschool.pro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ideaschool.pro/images/idea%20logo.webp"
+        }
+      },
+      "mainEntityOfPage": "https://www.ideaschool.pro/video-editing-high-paying-jobs",
+      "datePublished": "2026-09-08T00:00:00+05:30",
+      "dateModified": "2026-09-09T00:00:00+05:30",
+      "image": "https://www.ideaschool.pro/images/idea%20logo.webp"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.ideaschool.pro/video-editing-high-paying-jobs/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ideaschool.pro"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Video Editing High Paying Jobs",
+          "item": "https://www.ideaschool.pro/video-editing-high-paying-jobs"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.ideaschool.pro/video-editing-high-paying-jobs/#faq",
+      "mainEntity": applyFaqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
 };
 
 export default function ApplyPage() {
   return (
     <main className="applyPage">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pageSchema),
+        }}
+      />
       <ScrollTextReveal />
       <section className="programHero" aria-label="AI-powered ad film workshop">
         <div className="programHeroMedia">

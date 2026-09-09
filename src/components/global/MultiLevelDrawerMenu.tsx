@@ -31,6 +31,7 @@ interface SublinkItem {
 interface PrimaryItem {
   id: string;
   label: string;
+  href?: string;
 }
 
 const PRIMARIES: PrimaryItem[] = [
@@ -38,7 +39,7 @@ const PRIMARIES: PrimaryItem[] = [
   { id: "programs",  label: "Programs" },
   { id: "workshops", label: "Workshops" },
   { id: "idea",      label: "The IDEA" },
-  { id: "about",     label: "About Us" },
+  { id: "about",     label: "About Us", href: "/about" },
 ];
 
 const SUBLISTS: Record<string, SublinkItem[]> = {
@@ -98,13 +99,6 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
       desc: "Real mentors, real studio work & zero fluff",
     },
   ],
-  about: [
-    {
-      label: "About IDEA School",
-      href: "/about",
-      desc: "Our story, mentors & state-of-the-art campus",
-    },
-  ],
 };
 
 const CARDS = [
@@ -152,7 +146,7 @@ export default function MultiLevelDrawerMenu({
   const backBtnRef     = useRef<HTMLButtonElement | null>(null);
 
   // Primary item refs
-  const primaryBtnRefs  = useRef<(HTMLButtonElement | null)[]>([]);
+  const primaryBtnRefs  = useRef<(HTMLButtonElement | HTMLAnchorElement | null)[]>([]);
   const primaryDotRefs  = useRef<(HTMLSpanElement | null)[]>([]);
   const primaryLblRefs  = useRef<(HTMLSpanElement | null)[]>([]);
 
@@ -636,29 +630,52 @@ export default function MultiLevelDrawerMenu({
                   <ul className={styles.list}>
                     {PRIMARIES.map((primary, i) => (
                       <li key={primary.id}>
-                        <button
-                          ref={(el) => { primaryBtnRefs.current[i] = el; }}
-                          className={`${styles.primaryBtn} ${
-                            activePrimaryId === primary.id ? styles.primaryBtnActive : ""
-                          }`}
-                          aria-expanded="false"
-                          onMouseEnter={() => handlePrimaryMouseEnter(i)}
-                          onMouseLeave={() => handlePrimaryMouseLeave(i)}
-                          onClick={() => handlePrimaryClick(i)}
-                          type="button"
-                        >
-                          <span
-                            ref={(el) => { primaryDotRefs.current[i] = el; }}
-                            className={styles.primaryDot}
-                            aria-hidden="true"
-                          />
-                          <span
-                            ref={(el) => { primaryLblRefs.current[i] = el; }}
-                            className={styles.primaryLabel}
+                        {primary.href ? (
+                          <Link
+                            href={primary.href}
+                            ref={(el) => { primaryBtnRefs.current[i] = el; }}
+                            className={styles.primaryBtn}
+                            onMouseEnter={() => handlePrimaryMouseEnter(i)}
+                            onMouseLeave={() => handlePrimaryMouseLeave(i)}
+                            onClick={closeMenu}
                           >
-                            {primary.label}
-                          </span>
-                        </button>
+                            <span
+                              ref={(el) => { primaryDotRefs.current[i] = el; }}
+                              className={styles.primaryDot}
+                              aria-hidden="true"
+                            />
+                            <span
+                              ref={(el) => { primaryLblRefs.current[i] = el; }}
+                              className={styles.primaryLabel}
+                            >
+                              {primary.label}
+                            </span>
+                          </Link>
+                        ) : (
+                          <button
+                            ref={(el) => { primaryBtnRefs.current[i] = el; }}
+                            className={`${styles.primaryBtn} ${
+                              activePrimaryId === primary.id ? styles.primaryBtnActive : ""
+                            }`}
+                            aria-expanded="false"
+                            onMouseEnter={() => handlePrimaryMouseEnter(i)}
+                            onMouseLeave={() => handlePrimaryMouseLeave(i)}
+                            onClick={() => handlePrimaryClick(i)}
+                            type="button"
+                          >
+                            <span
+                              ref={(el) => { primaryDotRefs.current[i] = el; }}
+                              className={styles.primaryDot}
+                              aria-hidden="true"
+                            />
+                            <span
+                              ref={(el) => { primaryLblRefs.current[i] = el; }}
+                              className={styles.primaryLabel}
+                            >
+                              {primary.label}
+                            </span>
+                          </button>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -759,7 +776,7 @@ export default function MultiLevelDrawerMenu({
                 </button>
 
                 <div className={styles.sublistStack}>
-                  {PRIMARIES.map((primary) => {
+                  {PRIMARIES.filter((primary) => !primary.href).map((primary) => {
                     const items = SUBLISTS[primary.id] || [];
                     if (!sublistLabelRefs.current[primary.id]) sublistLabelRefs.current[primary.id] = [];
                     if (!sublinkDotRefs.current[primary.id])   sublinkDotRefs.current[primary.id]   = [];

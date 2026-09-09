@@ -278,6 +278,7 @@
   padding: 0;
   color: #0a0a0a;
   text-align: left;
+  text-decoration: none;
   font-family: var(--font-stara), var(--font-helvetica), sans-serif;
   transition: opacity 0.2s ease;
 }

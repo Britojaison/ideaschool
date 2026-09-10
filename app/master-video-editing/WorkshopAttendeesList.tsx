@@ -3,37 +3,28 @@
 import React from "react";
 import { motion } from "motion/react";
 
-const attendeesData = [
+export type Attendee = {
+  num: string;
+  title: string;
+  text: string;
+};
+
+const attendeesData: Attendee[] = [
   {
     num: "01",
-    title: "FREELANCERS",
-    text: "Freelancers who want to offer video editing services and increase their income.",
-  },
-  {
-    num: "02",
     title: "COLLEGE STUDENTS",
     text: "College Students seeking a high-demand skill with freelancing and career opportunities.",
   },
   {
-    num: "03",
+    num: "02",
     title: "VIDEO EDITORS",
     text: "Video Editors with Basic Skills who want to level up, increase their earning potential, and work on higher-value projects.",
   },
   {
-    num: "04",
-    title: "CONTENT CREATORS",
-    text: "Content Creators who want to produce professional-quality content and grow faster on social media.",
-  },
-  {
-    num: "05",
+    num: "03",
     title: "AGENCY OWNERS",
     text: "Agency Owners who want to build an in-house video editing capability and reduce outsourcing costs.",
   },
-  {
-    num: "06",
-    title: "CREATIVE PROFESSIONALS",
-    text: "Aspiring Creative Professionals who want to build a long-term career in the creator economy.",
-  }
 ];
 
 function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesData[0], index: number, theme: 'light' | 'dark' }) {
@@ -65,7 +56,13 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
   );
 }
 
-export default function WorkshopAttendeesList({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
+export default function WorkshopAttendeesList({ 
+  theme = 'light',
+  items = attendeesData,
+}: { 
+  theme?: 'light' | 'dark';
+  items?: Attendee[];
+}) {
   const isDark = theme === 'dark';
   return (
     <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 20px" }}>
@@ -112,7 +109,7 @@ export default function WorkshopAttendeesList({ theme = 'light' }: { theme?: 'li
         gap: "24px",
         marginBottom: "80px"
       }}>
-        {attendeesData.map((attendee, index) => (
+        {items.map((attendee, index) => (
           <AttendeeItem key={index} attendee={attendee} index={index} theme={theme} />
         ))}
       </div>

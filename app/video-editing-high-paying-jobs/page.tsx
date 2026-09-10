@@ -67,16 +67,16 @@ const toolLogos = [
   },
   {
     name: "Captions.ai",
-    image: "/images/captionsai.avif",
-    width: 460,
-    height: 460,
+    image: "/images/captions_bright.png",
+    width: 800,
+    height: 800,
     className: "captions",
   },
   {
     name: "OpusClip",
-    image: "/images/opus_clip.png",
-    width: 820,
-    height: 820,
+    image: "/images/opus_clip_bright.png",
+    width: 800,
+    height: 800,
     className: "opus",
   },
   {
@@ -102,9 +102,9 @@ const toolLogos = [
   },
   {
     name: "InVideo AI",
-    image: "/images/InVideo.webp",
-    width: 700,
-    height: 700,
+    image: "/images/invideo_bright.png",
+    width: 800,
+    height: 800,
     className: "invideo",
   },
   {

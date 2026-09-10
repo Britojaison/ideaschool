@@ -226,12 +226,12 @@ const proofVideos = [
 const brandCommercials = [
   {
     id: "promo",
-    title: "Editing Promo",
+    title: "Podcast Editing Promo",
     src: "/images/edit_1.mp4",
     poster: "/images/edit_1_poster.webp",
     aspectRatio: "16/9",
     maxWidth: "900px",
-    description: "High-retention promo displaying storytelling, dynamic pacing, and visual effects.",
+    description: "Zoho Director Rajendran Dandapani on Leadership, AI, Education & Building for the Future.",
     duration: "PT1M44S",
     uploadDate: "2024-05-01T00:00:00+05:30",
   },

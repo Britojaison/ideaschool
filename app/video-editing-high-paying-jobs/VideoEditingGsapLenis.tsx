@@ -184,17 +184,15 @@ export default function VideoEditingGsapLenis() {
       );
 
       gsap.fromTo(
-        ".applyPage .toolsBlock > div > div",
-        { y: 30, opacity: 0, scale: 0.88 },
+        ".applyPage .toolsMarqueeRail",
+        { y: 28, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          scale: 1,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: "back.out(1.4)",
+          duration: 0.65,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: ".applyPage .toolsBlock > div",
+            trigger: ".applyPage .toolsBlock",
             start: "top 85%",
             toggleActions: "play none none reverse",
           },

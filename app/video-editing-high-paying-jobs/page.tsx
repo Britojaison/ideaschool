@@ -612,23 +612,45 @@ export default function ApplyPage() {
         <div className="programAudienceInner">
           <div className="toolsBlock">
             <h2>Tools You Will Master</h2>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexWrap: 'wrap', gap: 'clamp(28px, 3.5vw, 44px) clamp(16px, 2.5vw, 36px)', maxWidth: '980px', margin: '0 auto' }}>
-              {toolLogos.map((tool) => (
-                <div key={tool.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 'clamp(84px, 10vw, 115px)', flexShrink: 0 }}>
-                  <span className={`toolLogo ${tool.className}`} style={{ width: '100%', marginBottom: '12px' }}>
-                    <Image
-                      src={tool.image}
-                      alt={tool.name}
-                      width={tool.width}
-                      height={tool.height}
-                      className="toolLogoImage"
-                    />
-                  </span>
-                  <span style={{ color: '#fff', fontSize: 'clamp(12px, 1.2vw, 16px)', textAlign: 'center', fontWeight: '600', lineHeight: 1.3 }}>
-                    {tool.name}
-                  </span>
+            <div className="toolsMarqueeRail" aria-label="Tools marquee">
+              <div className="toolsMarqueeTrack">
+                <div className="toolsMarqueeGroup">
+                  {[...toolLogos, ...toolLogos].map((tool, index) => (
+                    <div className="toolsMarqueeItem" key={`tool-g1-${tool.name}-${index}`}>
+                      <span className={`toolLogo ${tool.className}`}>
+                        <Image
+                          src={tool.image}
+                          alt={tool.name}
+                          width={tool.width}
+                          height={tool.height}
+                          className="toolLogoImage"
+                        />
+                      </span>
+                      <span className="toolsMarqueeName">
+                        {tool.name}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+                <div className="toolsMarqueeGroup" aria-hidden="true">
+                  {[...toolLogos, ...toolLogos].map((tool, index) => (
+                    <div className="toolsMarqueeItem" key={`tool-g2-${tool.name}-${index}`}>
+                      <span className={`toolLogo ${tool.className}`}>
+                        <Image
+                          src={tool.image}
+                          alt={tool.name}
+                          width={tool.width}
+                          height={tool.height}
+                          className="toolLogoImage"
+                        />
+                      </span>
+                      <span className="toolsMarqueeName">
+                        {tool.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

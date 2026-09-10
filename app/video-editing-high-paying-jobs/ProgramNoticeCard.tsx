@@ -37,15 +37,6 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
       <div className="sprintOfferCard">
         {/* Left Column: Information & Workshop Highlights */}
         <div className="sprintOfferLeft">
-          {/* Eyebrow Pills */}
-          <div className="sprintOfferBadgeRow">
-            <span className="sprintOfferBadgePrimary">
-              Early Bird Offer
-            </span>
-            <span className="sprintOfferBadgeSecondary">
-              Offline Workshop
-            </span>
-          </div>
 
           {/* Title & Subtitle */}
           <div>

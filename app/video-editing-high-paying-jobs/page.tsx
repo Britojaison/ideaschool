@@ -53,7 +53,7 @@ const curriculum = [
 const toolLogos = [
   {
     name: "Adobe Premiere Pro",
-    image: "/images/adobepremierepro.svg",
+    image: "/images/adobepremierepro.webp",
     width: 800,
     height: 800,
     className: "adobe",
@@ -67,28 +67,28 @@ const toolLogos = [
   },
   {
     name: "Adobe Photoshop",
-    image: "/images/ps-logo-transparent.png",
+    image: "/images/ps-logo-transparent.webp",
     width: 288,
     height: 288,
     className: "photoshop",
   },
   {
     name: "Captions.ai",
-    image: "/images/captions_bright.png",
+    image: "/images/captions_bright.webp",
     width: 800,
     height: 800,
     className: "captions",
   },
   {
     name: "OpusClip",
-    image: "/images/opus_clip_bright.png",
+    image: "/images/opus_clip_bright.webp",
     width: 800,
     height: 800,
     className: "opus",
   },
   {
     name: "Higgsfield AI",
-    image: "/images/higgsfield.png",
+    image: "/images/higgsfield.webp",
     width: 600,
     height: 600,
     className: "higgsfield",
@@ -102,14 +102,14 @@ const toolLogos = [
   },
   {
     name: "Seedance 2.0",
-    image: "/images/seedance-2.png",
+    image: "/images/seedance-2.webp",
     width: 200,
     height: 200,
     className: "seedance",
   },
   {
     name: "InVideo AI",
-    image: "/images/invideo_bright.png",
+    image: "/images/invideo_bright.webp",
     width: 800,
     height: 800,
     className: "invideo",
@@ -117,8 +117,8 @@ const toolLogos = [
   {
     name: "Audio Enhancement",
     image: "/images/Adobe_Audition_CC_icon_(2020).svg.webp",
-    width: 3840,
-    height: 3745,
+    width: 800,
+    height: 800,
     className: "audio",
   },
 ];

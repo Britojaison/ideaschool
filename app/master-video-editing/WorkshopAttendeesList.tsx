@@ -22,8 +22,8 @@ const attendeesData: Attendee[] = [
   },
   {
     num: "03",
-    title: "AGENCY OWNERS",
-    text: "Agency Owners who want to build an in-house video editing capability and reduce outsourcing costs.",
+    title: "FREELANCERS",
+    text: "Freelancers who want to offer video editing services and increase their income.",
   },
 ];
 

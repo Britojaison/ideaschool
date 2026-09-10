@@ -40,6 +40,13 @@ const curriculum = [
     description:
       "Structure videos for maximum watch time. Breakdown successful viral edits and create content optimized for Reels, Shorts & Social Media.",
     images: ["/images/bf2b72489ff720a0100b6ab10c6e86a70fbc6c43.webp", "/images/c988e78cfada134657e808cfb29a0523e125dde8.webp"],
+  },
+  {
+    title: "[05] AI Integrated Workflow",
+    tools: "Higgsfield AI, Seedance 2.0, InVideo AI",
+    description:
+      "Supercharge your editing speed and visual storytelling with cutting-edge AI. Master AI video generation, automated B-roll workflows, and modern creator pipelines.",
+    images: ["/images/card1.webp", "/images/card2.webp"],
   }
 ];
 
@@ -109,9 +116,9 @@ const toolLogos = [
   },
   {
     name: "Audio Enhancement",
-    image: "/images/image 1.svg",
-    width: 1254,
-    height: 1254,
+    image: "/images/Adobe_Audition_CC_icon_(2020).svg.webp",
+    width: 3840,
+    height: 3745,
     className: "audio",
   },
 ];

@@ -4,7 +4,6 @@ import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
 import VideoEditingGsapLenis from "./VideoEditingGsapLenis";
-import MobileMenu from "../MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
@@ -509,7 +508,6 @@ export default function ApplyPage() {
               className="brandLogo"
             />
           </Link>
-          <MobileMenu />
         </header>
 
         <div className="programHeroInner">

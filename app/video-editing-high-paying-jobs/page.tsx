@@ -548,11 +548,11 @@ export default function ApplyPage() {
             </div>
             <div>
               <dt>Learning Mode</dt>
-              <dd>Offline </dd>
+              <dd>Offline</dd>
             </div>
             <div>
-              <dt>Full Day Session</dt>
-              <dd>Hands-on</dd>
+              <dt>Time</dt>
+              <dd>11 AM – 5 PM</dd>
             </div>
             <div>
               <dt>Location</dt>

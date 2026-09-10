@@ -16339,6 +16339,16 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   box-shadow: none !important;
   border: none !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 480px) {
+  .applyPage .attendeesListContainer h3 {
+    font-size: clamp(0.82rem, 3.5vw, 1.05rem) !important;
+    padding: 6px 14px !important;
+    letter-spacing: 0.02em !important;
+  }
 }
 
 /* Tools You Will Master */

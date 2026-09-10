@@ -35,7 +35,7 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.38, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      className={`group border-2 rounded-2xl p-8 transition-all duration-200 flex flex-col h-full hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none ${
+      className={`group border-2 rounded-2xl p-5 sm:p-8 transition-all duration-200 flex flex-col h-full hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none ${
         isDark 
           ? 'bg-[#121216] border-[rgba(242,246,252,0.14)] shadow-[6px_6px_0_0_rgba(242,246,252,0.1)]' 
           : 'bg-white border-black shadow-[6px_6px_0_0_#151515]'
@@ -46,11 +46,11 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
           {attendee.num}
         </div>
       )}
-      <h3 className={`inline-flex px-4 py-1.5 rounded-full font-black uppercase mb-6 w-fit ${
+      <h3 className={`inline-flex items-center px-3.5 py-1.5 sm:px-4 rounded-full font-black uppercase mb-6 w-fit whitespace-nowrap max-w-full ${
         isDark 
           ? 'bg-[#dafd55] text-black border-2 border-black' 
           : 'bg-[#dafd55] border-2 border-black text-black'
-      }`} style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.35rem)", color: "#000000", fontFamily: "var(--font-stara), 'Stara', var(--font-heading)", letterSpacing: "1px", boxShadow: "none" }}>
+      }`} style={{ fontSize: "clamp(0.88rem, 3.4vw, 1.35rem)", color: "#000000", fontFamily: "var(--font-stara), 'Stara', var(--font-heading)", letterSpacing: "0.5px", boxShadow: "none", whiteSpace: "nowrap" }}>
         {attendee.title}
       </h3>
       <p style={{ fontSize: "1.1rem", color: isDark ? "#bdc5cb" : "#333", lineHeight: 1.6, margin: 0, flex: 1, fontWeight: 500, fontFamily: "var(--font-stara), 'Stara', sans-serif" }}>

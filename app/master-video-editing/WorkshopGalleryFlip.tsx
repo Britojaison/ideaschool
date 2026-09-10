@@ -9,6 +9,9 @@ export type WorkshopVideo = {
   aspectRatio: string;
   maxWidth: string;
   description: string;
+  poster?: string;
+  uploadDate?: string;
+  duration?: string;
 };
 
 const defaultVideos: WorkshopVideo[] = [
@@ -16,25 +19,34 @@ const defaultVideos: WorkshopVideo[] = [
     id: "promo",
     title: "Editing Promo",
     src: "/images/edit_1.mp4",
+    poster: "/images/edit_1_poster.webp",
     aspectRatio: "16/9",
     maxWidth: "900px",
-    description: "High-retention promo displaying storytelling, dynamic pacing, and visual effects."
+    description: "High-retention promo displaying storytelling, dynamic pacing, and visual effects.",
+    duration: "PT1M44S",
+    uploadDate: "2024-05-01T00:00:00+05:30",
   },
   {
     id: "zaman",
     title: "Case Study",
     src: "/images/workshop/zaman_case_study.mp4",
+    poster: "/images/workshop/zaman_case_study_poster.webp",
     aspectRatio: "9/16",
     maxWidth: "380px",
-    description: "Vertical ad campaign project showcasing engaging hooks and retention edits."
+    description: "Vertical ad campaign project showcasing engaging hooks and retention edits.",
+    duration: "PT56S",
+    uploadDate: "2024-05-01T00:00:00+05:30",
   },
   {
     id: "luis",
     title: "Creative Reel",
     src: "/images/workshop/luis_reel.mp4",
+    poster: "/images/workshop/luis_reel_poster.webp",
     aspectRatio: "9/16",
     maxWidth: "380px",
-    description: "Vertical creative edit demonstrating advanced motion graphics and sound design."
+    description: "Vertical creative edit demonstrating advanced motion graphics and sound design.",
+    duration: "PT36S",
+    uploadDate: "2024-05-01T00:00:00+05:30",
   }
 ];
 
@@ -62,9 +74,11 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
         padding: "0 clamp(16px, 4vw, 32px)",
       }}
     >
-      {/* Video Player Frame Wrapper */}
+      {/* Video Player Frame Wrapper with Schema.org VideoObject microdata */}
       <div 
         className="workshopVideoPlayerFrame"
+        itemScope
+        itemType="https://schema.org/VideoObject"
         style={{
           width: "100%",
           maxWidth: currentVideo.maxWidth,
@@ -78,10 +92,20 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
           marginBottom: "20px"
         }}
       >
+        {/* Search Engine Microdata Meta Tags for current video */}
+        <meta itemProp="name" content={currentVideo.title} />
+        <meta itemProp="description" content={currentVideo.description} />
+        <meta itemProp="thumbnailUrl" content={`https://www.ideaschool.pro${currentVideo.poster || "/images/idea logo.webp"}`} />
+        <meta itemProp="uploadDate" content={currentVideo.uploadDate || "2024-05-01T00:00:00+05:30"} />
+        <meta itemProp="contentUrl" content={`https://www.ideaschool.pro${currentVideo.src}`} />
+        {currentVideo.duration && <meta itemProp="duration" content={currentVideo.duration} />}
+
         {/* Active Video Player */}
         <video
           key={currentVideo.src}
           src={currentVideo.src}
+          poster={currentVideo.poster}
+          title={currentVideo.title}
           style={{
             display: "block",
             width: "100%",
@@ -94,9 +118,11 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
           muted
           playsInline
           controls
-          preload="auto"
-          aria-label={currentVideo.description}
-        />
+          preload="metadata"
+          aria-label={`${currentVideo.title} - ${currentVideo.description}`}
+        >
+          <source src={currentVideo.src} type="video/mp4" />
+        </video>
 
         {/* Navigation Arrow Left */}
         <button
@@ -240,6 +266,20 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
       >
         {currentVideo.description}
       </p>
+
+      {/* Structured Microdata for all gallery videos (SEO Crawlers) */}
+      <div style={{ display: "none" }} aria-hidden="true">
+        {videos.map((vid) => (
+          <div key={vid.id} itemScope itemType="https://schema.org/VideoObject">
+            <meta itemProp="name" content={vid.title} />
+            <meta itemProp="description" content={vid.description} />
+            <meta itemProp="thumbnailUrl" content={`https://www.ideaschool.pro${vid.poster || "/images/idea logo.webp"}`} />
+            <meta itemProp="uploadDate" content={vid.uploadDate || "2024-05-01T00:00:00+05:30"} />
+            <meta itemProp="contentUrl" content={`https://www.ideaschool.pro${vid.src}`} />
+            {vid.duration && <meta itemProp="duration" content={vid.duration} />}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

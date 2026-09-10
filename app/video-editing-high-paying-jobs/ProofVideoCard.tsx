@@ -74,13 +74,24 @@ export default function ProofVideoCard({
   };
 
   return (
-    <div className="proofVideoPlayer">
+    <div 
+      className="proofVideoPlayer"
+      itemScope
+      itemType="https://schema.org/VideoObject"
+    >
+      <meta itemProp="name" content={`Student Video Review - Graduate Testimonial ${index + 1}`} />
+      <meta itemProp="description" content={`Real student review and video editing transformation story from Idea School participant ${index + 1}.`} />
+      <meta itemProp="thumbnailUrl" content={`https://www.ideaschool.pro${poster}`} />
+      <meta itemProp="uploadDate" content="2024-05-01T00:00:00+05:30" />
+      <meta itemProp="contentUrl" content={`https://www.ideaschool.pro${src}`} />
+
       <video
         ref={videoRef}
         className="proofVideoNative"
         src={src}
         poster={poster}
-        preload="none"
+        title={`Student Video Review - Graduate Testimonial ${index + 1}`}
+        preload="metadata"
         muted={isMuted}
         playsInline
         disablePictureInPicture

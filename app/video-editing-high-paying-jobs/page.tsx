@@ -225,41 +225,56 @@ const brandCommercials = [
     id: "promo",
     title: "Editing Promo",
     src: "/images/edit_1.mp4",
+    poster: "/images/edit_1_poster.webp",
     aspectRatio: "16/9",
     maxWidth: "900px",
-    description: "High-retention promo displaying storytelling, dynamic pacing, and visual effects."
+    description: "High-retention promo displaying storytelling, dynamic pacing, and visual effects.",
+    duration: "PT1M44S",
+    uploadDate: "2024-05-01T00:00:00+05:30",
   },
   {
     id: "zaman",
     title: "Case Study",
     src: "/images/workshop/zaman_case_study.mp4",
+    poster: "/images/workshop/zaman_case_study_poster.webp",
     aspectRatio: "9/16",
     maxWidth: "380px",
-    description: "Vertical ad campaign project showcasing engaging hooks and retention edits."
+    description: "Vertical ad campaign project showcasing engaging hooks and retention edits.",
+    duration: "PT56S",
+    uploadDate: "2024-05-01T00:00:00+05:30",
   },
   {
     id: "luis",
     title: "Creative Reel",
     src: "/images/workshop/luis_reel.mp4",
+    poster: "/images/workshop/luis_reel_poster.webp",
     aspectRatio: "9/16",
     maxWidth: "380px",
-    description: "Vertical creative edit demonstrating advanced motion graphics and sound design."
+    description: "Vertical creative edit demonstrating advanced motion graphics and sound design.",
+    duration: "PT36S",
+    uploadDate: "2024-05-01T00:00:00+05:30",
   },
   {
     id: "sunscreen",
     title: "Sunscreen",
     src: "/images/Brand Commercial/SunscreenAD_May22 V2.mp4",
+    poster: "/images/Brand Commercial/SunscreenAD_May22 V2.webp",
     aspectRatio: "16/9",
     maxWidth: "900px",
-    description: "Brand commercial ad film."
+    description: "Cinematic brand commercial ad film showcasing product storytelling, color grading, and commercial pacing.",
+    duration: "PT40S",
+    uploadDate: "2024-05-22T00:00:00+05:30",
   },
   {
     id: "campa",
     title: "Campa",
     src: "/images/Brand Commercial/CampaAD_Seedance_May22.mp4",
+    poster: "/images/Brand Commercial/CampaAD_Seedance_May22.webp",
     aspectRatio: "16/9",
     maxWidth: "900px",
-    description: "100% Made with AI."
+    description: "100% Made with AI commercial showcasing next-generation visual production and generative workflows.",
+    duration: "PT33S",
+    uploadDate: "2024-05-22T00:00:00+05:30",
   },
 ];
 
@@ -316,6 +331,22 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Idea School - Master High-Paying Video Editing",
+      },
+    ],
+    videos: [
+      {
+        url: "https://www.ideaschool.pro/images/edit_1.mp4",
+        secureUrl: "https://www.ideaschool.pro/images/edit_1.mp4",
+        type: "video/mp4",
+        width: 1920,
+        height: 1080,
+      },
+      {
+        url: "https://www.ideaschool.pro/images/Brand%20Commercial/SunscreenAD_May22%20V2.mp4",
+        secureUrl: "https://www.ideaschool.pro/images/Brand%20Commercial/SunscreenAD_May22%20V2.mp4",
+        type: "video/mp4",
+        width: 1920,
+        height: 1080,
       },
     ],
     locale: "en_US",
@@ -387,6 +418,54 @@ const pageSchema = {
           "text": faq.answer
         }
       }))
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.ideaschool.pro/video-editing-high-paying-jobs/#video-hero-preview",
+      "name": "Agency-Level Video Editing Workshop Preview",
+      "description": "Preview of the 1-day offline intensive video editing workshop by Idea School in Bengaluru.",
+      "thumbnailUrl": [
+        "https://www.ideaschool.pro/images/edit_1_poster.webp"
+      ],
+      "uploadDate": "2024-05-01T00:00:00+05:30",
+      "duration": "PT54S",
+      "contentUrl": "https://www.ideaschool.pro/images/video_edit1.mp4",
+      "embedUrl": "https://www.ideaschool.pro/video-editing-high-paying-jobs"
+    },
+    ...brandCommercials.map((video) => ({
+      "@type": "VideoObject",
+      "@id": `https://www.ideaschool.pro/video-editing-high-paying-jobs/#video-${video.id}`,
+      "name": `${video.title} - Video Editing Project Showcase`,
+      "description": video.description,
+      "thumbnailUrl": [
+        `https://www.ideaschool.pro${video.poster}`
+      ],
+      "uploadDate": video.uploadDate,
+      "duration": video.duration,
+      "contentUrl": `https://www.ideaschool.pro${encodeURI(video.src)}`,
+      "embedUrl": "https://www.ideaschool.pro/video-editing-high-paying-jobs",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Idea School",
+        "url": "https://www.ideaschool.pro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ideaschool.pro/images/idea%20logo.webp"
+        }
+      }
+    })),
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.ideaschool.pro/video-editing-high-paying-jobs/#video-classroom-experience",
+      "name": "Idea School Classroom and Studio Experience",
+      "description": "Inside the real offline studio sessions, hands-on guidance, and high-income editing workflows at Idea School.",
+      "thumbnailUrl": [
+        "https://www.ideaschool.pro/images/hero.webp"
+      ],
+      "uploadDate": "2024-05-01T00:00:00+05:30",
+      "duration": "PT27S",
+      "contentUrl": "https://www.ideaschool.pro/images/HOME%20PAGE%20VIDEO.mp4",
+      "embedUrl": "https://www.ideaschool.pro/video-editing-high-paying-jobs"
     }
   ]
 };
@@ -622,10 +701,18 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="videoSection" aria-label="Idea School video">
+      <section className="videoSection" aria-label="Idea School video" itemScope itemType="https://schema.org/VideoObject">
+        <meta itemProp="name" content="Idea School Classroom and Studio Experience" />
+        <meta itemProp="description" content="Inside the real offline studio sessions, hands-on guidance, and high-income editing workflows at Idea School." />
+        <meta itemProp="thumbnailUrl" content="https://www.ideaschool.pro/images/hero.webp" />
+        <meta itemProp="uploadDate" content="2024-05-01T00:00:00+05:30" />
+        <meta itemProp="contentUrl" content="https://www.ideaschool.pro/images/HOME%20PAGE%20VIDEO.mp4" />
+        <meta itemProp="duration" content="PT27S" />
         <video
           id="applyHomePageVideo"
           className="videoPoster"
+          title="Idea School Classroom and Studio Experience"
+          poster="/images/hero.webp"
           autoPlay
           loop
           muted

@@ -2489,6 +2489,37 @@ html.isHeroGlassCursorActive .hero * {
   transform: translateY(-1px);
 }
 
+.videoEditingFloatingButton {
+  position: fixed !important;
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 9999 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 38px !important;
+  padding: 8px 24px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #4b39bb 0%, #6b40cf 100%) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: none !important;
+  transition: transform 180ms ease, filter 180ms ease !important;
+}
+
+.videoEditingFloatingButton:hover {
+  filter: brightness(1.15) !important;
+  transform: translateX(-50%) translateY(-2px) !important;
+  box-shadow: none !important;
+}
+
 .programCurriculum {
   position: relative;
   overflow: hidden;

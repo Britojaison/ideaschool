@@ -791,22 +791,38 @@ export default function ApplyPage() {
 
       </section>
 
-      <div className="programBatchStrip" aria-label="Workshop batch announcement">
-        <span className="programBatchBadge programBatchBadgeVideoEditing">New Batch</span>
-        <p>HIGH-PAYING VIDEO EDITING</p>
-        <div className="programBatchAction">
-          <a
-            className="programBatchCta programBatchCtaVideoEditing"
-            href={razorpayPaymentLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Book your video editing workshop seat with Razorpay"
-          >
-            Book seat now
-          </a>
-          <span className="programBatchSeats">Only 2 seats Left</span>
-        </div>
-      </div>
+      <a
+        className="videoEditingFloatingButton"
+        href={razorpayPaymentLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Book your video editing workshop seat with Razorpay"
+        style={{
+          position: "fixed",
+          bottom: "24px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 9999,
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "38px",
+          padding: "8px 24px",
+          borderRadius: "999px",
+          background: "linear-gradient(90deg, #4b39bb 0%, #6b40cf 100%)",
+          color: "#ffffff",
+          fontSize: "14px",
+          fontWeight: 700,
+          lineHeight: 1,
+          textDecoration: "none",
+          textAlign: "center",
+          whiteSpace: "nowrap",
+          border: "1px solid rgba(255, 255, 255, 0.15)",
+          boxShadow: "none",
+        }}
+      >
+        Book seat now
+      </a>
 
       <footer className="siteFooter">
         <div className="footerInner">

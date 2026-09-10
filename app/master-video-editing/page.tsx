@@ -214,25 +214,25 @@ const testimonials = [
 const faqs = [
   {
     question: "Do I need prior experience?",
-    answer: "No. This workshop is designed for everyone—from complete beginners to experienced editors looking to upgrade their skills and learn modern editing workflows.",
+    answer: "No prior experience is needed. Idea School mentors designed this workshop for everyone—from complete beginners to experienced editors looking to upgrade their skills and master modern editing workflows.",
     open: true,
   },
   {
     question: "Will the sessions be live?",
-    answer: "Yes, both days will be conducted live online.",
+    answer: "Yes, Idea School conducts live, interactive sessions with hands-on exercises and real-time guidance.",
   },
 
   {
     question: "How long is the workshop?",
-    answer: "2 days of intensive live training with practical exercises.",
+    answer: "Idea School hosts an intensive 2-day live training sprint with practical exercises and portfolio builds.",
   },
   {
     question: "Can I ask questions during the workshop?",
-    answer: "Yes. There will be dedicated Q&A sessions where you can interact directly with the instructor.",
+    answer: "Yes. Idea School provides dedicated Q&A sessions where you can interact directly with mentors and instructors.",
   },
   {
-    question: "What makes this workshop different from YouTube tutorials?",
-    answer: "Instead of random tutorials, you'll learn a structured editing system focused on retention, storytelling, and professional workflows.",
+    question: "What makes Idea School different from YouTube tutorials?",
+    answer: "Instead of random tutorials, Idea School teaches a structured editing system focused on retention, storytelling, and professional agency workflows with mentor reviews.",
   },
 ];
 
@@ -400,7 +400,7 @@ export default function WorkshopPage() {
             <div className="longCourseSectionInner" style={{ marginBottom: "40px" }}>
               <div className="mentorSectionIntro" style={{ marginBottom: 0 }}>
                 <span className="sectionPill">Our Work</span>
-                <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)" }}>Watch Some Of Our Recent Projects</h2>
+                <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)" }}>Our Recent Projects</h2>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
               </div>
             </div>

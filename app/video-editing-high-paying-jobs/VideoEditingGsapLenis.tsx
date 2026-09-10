@@ -394,10 +394,34 @@ export default function VideoEditingGsapLenis() {
       );
     });
 
+    // 5. Hide floating CTA button when #enroll section is in view
+    let enrollObserver: IntersectionObserver | null = null;
+    const enrollEl = document.getElementById("enroll");
+    const floatingCta = document.querySelector(".videoEditingFloatingButton");
+
+    if (enrollEl && floatingCta) {
+      enrollObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              floatingCta.classList.add("floatingCtaHidden");
+            } else {
+              floatingCta.classList.remove("floatingCtaHidden");
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+      enrollObserver.observe(enrollEl);
+    }
+
     // Cleanup when component unmounts
     return () => {
       document.removeEventListener("click", handleAnchorClick);
       gsap.ticker.remove(tickerCallback);
+      if (enrollObserver) {
+        enrollObserver.disconnect();
+      }
       ctx.revert();
       lenis.destroy();
     };

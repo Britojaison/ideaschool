@@ -123,22 +123,22 @@ const instructors = [
   {
     name: "Dhananjayan . S",
     role: "CEO, 88GB",
-    experience: "8+ Yrs Exp",
+    experience: "12+ Yrs Exp",
     bio: "Built 88GB from the ground up, directing high-scale visual productions and viral brand campaigns.",
     image: "/images/mentor_ARJUN.webp",
   },
   {
-    name: "Elamparithi",
-    role: "Head of Design, 88GB",
-    experience: "6+ Yrs Exp",
-    bio: "Visual storytelling and motion graphics specialist leading creative workflows for premier brands.",
+    name: "Parithi",
+    role: "Head of Design & Motion Graphics, 88GB",
+    experience: "9+ Yrs Exp",
+    bio: "Specialised in Video, Motion, CGI & AI Creative Workflows, blending storytelling, visual craft and technology.",
     image: "/images/mentor_PARIDHI.webp",
   },
   {
     name: "Ajay Karthik",
     role: "Video Editor, 88GB",
     experience: "5+ Yrs Exp",
-    bio: "Retention editing specialist crafting high-CTR commercial cuts, viral hooks, and pacing.",
+    bio: "Visual storyteller behind fast-paced reels, podcast trailers, and scroll-stopping motion graphics.",
     image: "/images/mentor_AJAY.webp",
   },
   {
@@ -190,10 +190,6 @@ const clientStories = [
 ];
 
 const proofVideos = [
-  {
-    src: "/images/proof-videos/student-feedback-1.mp4",
-    poster: "/images/proof-videos/student-feedback-1.webp",
-  },
   {
     src: "/images/proof-videos/student-feedback-2.mp4",
     poster: "/images/proof-videos/student-feedback-2.webp",
@@ -282,33 +278,33 @@ const applyFaqs = [
   {
     question: "Do I need prior experience?",
     answer:
-      "No. This workshop is designed for everyone—from complete beginners to experienced editors looking to upgrade their skills and learn modern editing workflows.",
+      "No prior experience is needed. Idea School mentors designed this workshop for everyone—from complete beginners to experienced creators looking to upgrade their skills and master high-paying, agency-grade editing workflows.",
     open: true,
   },
   {
     question: "What do I need to bring?",
     answer:
-      "Bring your laptop, charger, and a notebook if you like taking notes. We will guide you through the tools, prompts, assets, and workflow during the session. Don’t have a laptop? No worries—we’ll provide one for you during the workshop.",
+      "Just bring your laptop, charger, and a notebook if you like taking notes. Idea School provides all project footage, AI toolkits, presets, and asset packs. Don't have a laptop? No worries—Idea School will provide a dedicated workstation for you at our studio.",
   },
   {
     question: "Will there be a recording?",
     answer:
-      "This workshop is designed to be a live, hands-on experience, and the full value comes from participating in person. Post-session resources and recap materials will be shared with all registered participants.",
+      "This is an immersive, hands-on offline studio experience where the full value comes from live practice and real-time mentor feedback. Idea School will provide all post-session recap materials, project templates, and reference toolkits to every registered participant.",
   },
   {
     question: "Will I receive a certificate?",
     answer:
-      "Yes. Every participant who attends the workshop will receive a Certificate of Participation from Idea School.",
+      "Yes. Upon completing the workshop, Idea School will award you an official Certificate of Completion recognized across top creator agencies and media studios.",
   },
   {
-    question: "Why should I attend this workshop instead of learning from YouTube?",
+    question: "Why should I join the Idea School workshop instead of learning from YouTube?",
     answer:
-      "YouTube can teach individual tools and techniques, but this workshop provides a structured learning experience, hands-on practice, mentor feedback, and real-world workflows used by a global agency.",
+      "YouTube only gives you scattered, passive tutorials without guidance. At Idea School, you learn directly from active agency directors with 1-on-1 feedback, live client project edits, high-retention storytelling formulas, and real-world commercial workflows.",
   },
   {
     question: "How many seats are available?",
     answer:
-      "Only 25 seats are available to ensure every participant receives individual guidance and a better hands-on learning experience.",
+      "Idea School strictly caps each offline batch at 25 seats to ensure our mentors can provide dedicated 1-on-1 guidance and personalized project reviews for every student.",
   },
 ];
 
@@ -578,6 +574,33 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <section className="videoSection" aria-label="Idea School video" itemScope itemType="https://schema.org/VideoObject">
+        <meta itemProp="name" content="Idea School Classroom and Studio Experience" />
+        <meta itemProp="description" content="Inside the real offline studio sessions, hands-on guidance, and high-income editing workflows at Idea School." />
+        <meta itemProp="thumbnailUrl" content="https://www.ideaschool.pro/images/hero.webp" />
+        <meta itemProp="uploadDate" content="2024-05-01T00:00:00+05:30" />
+        <meta itemProp="contentUrl" content="https://www.ideaschool.pro/images/HOME%20PAGE%20VIDEO.mp4" />
+        <meta itemProp="duration" content="PT27S" />
+        <video
+          id="applyHomePageVideo"
+          className="videoPoster"
+          title="Idea School Classroom and Studio Experience"
+          poster="/images/hero.webp"
+          autoPlay
+          loop
+          muted
+          playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controlsList="nodownload noplaybackrate noremoteplayback"
+          preload="metadata"
+          aria-label="Idea School classroom video"
+        >
+          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
+        </video>
+        <div className="videoSectionShade" aria-hidden="true" />
+      </section>
+
       <section className="programAudience" aria-label="Who should attend">
         <div className="programAudienceInner">
           <div className="toolsBlock">
@@ -645,7 +668,7 @@ export default function ApplyPage() {
         <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px" }}>Our Work</span>
-            <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
+            <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", textTransform: "uppercase", margin: "0 0 16px" }}>Our Recent Projects</h2>
             <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px", fontSize: "18px", lineHeight: "1.5" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>
         </div>
@@ -699,33 +722,6 @@ export default function ApplyPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="videoSection" aria-label="Idea School video" itemScope itemType="https://schema.org/VideoObject">
-        <meta itemProp="name" content="Idea School Classroom and Studio Experience" />
-        <meta itemProp="description" content="Inside the real offline studio sessions, hands-on guidance, and high-income editing workflows at Idea School." />
-        <meta itemProp="thumbnailUrl" content="https://www.ideaschool.pro/images/hero.webp" />
-        <meta itemProp="uploadDate" content="2024-05-01T00:00:00+05:30" />
-        <meta itemProp="contentUrl" content="https://www.ideaschool.pro/images/HOME%20PAGE%20VIDEO.mp4" />
-        <meta itemProp="duration" content="PT27S" />
-        <video
-          id="applyHomePageVideo"
-          className="videoPoster"
-          title="Idea School Classroom and Studio Experience"
-          poster="/images/hero.webp"
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-          controlsList="nodownload noplaybackrate noremoteplayback"
-          preload="metadata"
-          aria-label="Idea School classroom video"
-        >
-          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
-        </video>
-        <div className="videoSectionShade" aria-hidden="true" />
       </section>
 
       <section className="programFaqContact" aria-label="FAQ and application form">
@@ -797,29 +793,6 @@ export default function ApplyPage() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Book your video editing workshop seat with Razorpay"
-        style={{
-          position: "fixed",
-          bottom: "24px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 9999,
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "38px",
-          padding: "8px 24px",
-          borderRadius: "999px",
-          background: "linear-gradient(90deg, #4b39bb 0%, #6b40cf 100%)",
-          color: "#ffffff",
-          fontSize: "14px",
-          fontWeight: 700,
-          lineHeight: 1,
-          textDecoration: "none",
-          textAlign: "center",
-          whiteSpace: "nowrap",
-          border: "1px solid rgba(255, 255, 255, 0.15)",
-          boxShadow: "none",
-        }}
       >
         Book seat now
       </a>

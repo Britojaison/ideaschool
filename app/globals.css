@@ -2491,7 +2491,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .videoEditingFloatingButton {
   position: fixed !important;
-  bottom: 24px !important;
+  bottom: max(20px, env(safe-area-inset-bottom)) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   z-index: 9999 !important;
@@ -2511,13 +2511,553 @@ html.isHeroGlassCursorActive .hero * {
   white-space: nowrap !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow: none !important;
-  transition: transform 180ms ease, filter 180ms ease !important;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), filter 180ms ease, opacity 220ms ease, visibility 220ms ease !important;
 }
 
 .videoEditingFloatingButton:hover {
   filter: brightness(1.15) !important;
   transform: translateX(-50%) translateY(-2px) !important;
   box-shadow: none !important;
+}
+
+.videoEditingFloatingButton.floatingCtaHidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(28px) !important;
+}
+
+@media (max-width: 640px) {
+  .videoEditingFloatingButton {
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    padding: 8px 20px !important;
+    font-size: 13px !important;
+    min-height: 36px !important;
+  }
+}
+
+/* ==========================================================================
+   SPRINT OFFER CARD - RESPONSIVE DESIGN (MOBILE OPTIMIZED)
+   ========================================================================== */
+
+.sprintOfferSection {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 0 clamp(12px, 3vw, 24px);
+}
+
+.sprintOfferCard {
+  background: radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.22), transparent 42%), radial-gradient(circle at 10% 85%, rgba(75, 57, 187, 0.25), transparent 45%), linear-gradient(145deg, rgba(20, 16, 32, 0.98) 0%, rgba(10, 8, 18, 0.99) 100%);
+  border-radius: 32px;
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.8), 0 0 50px rgba(128, 86, 251, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: center;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+}
+
+.sprintOfferLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sprintOfferBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sprintOfferBadgePrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(168, 85, 247, 0.14);
+  border: 1px solid rgba(168, 85, 247, 0.32);
+  color: #d8b4fe;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.sprintOfferBadgeSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.sprintOfferHeading {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.sprintOfferHeadingAccent {
+  background: linear-gradient(90deg, #bf76e7 0%, #dafd55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sprintOfferSubtitle {
+  margin: 0;
+  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.55;
+  max-width: 480px;
+}
+
+.sprintOfferHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.sprintOfferHighlightItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.sprintOfferHighlightTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sprintOfferHighlightText {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+
+.sprintOfferHighlightIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dafd55;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.sprintOfferRight {
+  background: linear-gradient(180deg, rgba(26, 20, 42, 0.95) 0%, rgba(14, 11, 24, 0.98) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  padding: clamp(18px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sprintOfferBanner {
+  position: relative;
+  width: 100%;
+  height: 135px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sprintOfferPassTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sprintOfferPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sprintOfferPriceMain {
+  font-size: clamp(2.3rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.sprintOfferPricePeriod {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+
+.sprintOfferPriceDel {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.sprintOfferPriceTax {
+  font-size: 11.5px;
+  color: #d8b4fe;
+  font-weight: 600;
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.sprintOfferCtaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #4b39bb 0%, #6b40cf 100%);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(107, 64, 207, 0.5);
+  transition: all 0.2s ease;
+}
+
+.sprintOfferCtaButton:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.sprintOfferCtaCaption {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  font-weight: 500;
+}
+
+.sprintOfferDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.sprintOfferFeaturesLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.sprintOfferFeaturesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+}
+
+.sprintOfferFeatureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.sprintOfferNotice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* --- Mobile Specific Overrides (< 900px) --- */
+@media (max-width: 900px) {
+  .sprintOfferCard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 22px 16px;
+    border-radius: 24px;
+  }
+
+  .sprintOfferLeft {
+    gap: 16px;
+    width: 100%;
+  }
+
+  .sprintOfferHeading {
+    font-size: clamp(1.65rem, 6.5vw, 2.2rem);
+    margin-bottom: 6px;
+  }
+
+  .sprintOfferSubtitle {
+    font-size: 13.5px;
+    line-height: 1.48;
+  }
+
+  .sprintOfferBadgePrimary,
+  .sprintOfferBadgeSecondary {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+
+  .sprintOfferHighlights {
+    gap: 8px;
+    margin-top: 2px;
+  }
+
+  .sprintOfferHighlightItem {
+    padding: 11px 14px;
+    border-radius: 12px;
+  }
+
+  .sprintOfferHighlightTitle {
+    font-size: 14px;
+  }
+
+  .sprintOfferHighlightText {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .sprintOfferHighlightIcon {
+    width: 26px;
+    height: 26px;
+    margin-left: 10px;
+  }
+
+  .sprintOfferRight {
+    width: 100%;
+    padding: 18px 14px;
+    border-radius: 20px;
+    gap: 15px;
+  }
+
+  .sprintOfferBanner {
+    height: 120px;
+    border-radius: 12px;
+  }
+
+  .sprintOfferPassTitle {
+    font-size: 14.5px;
+  }
+
+  .sprintOfferPriceMain {
+    font-size: 2.3rem;
+  }
+
+  .sprintOfferPricePeriod {
+    font-size: 14px;
+  }
+
+  .sprintOfferPriceDel {
+    font-size: 15.5px;
+  }
+
+  .sprintOfferPriceTax {
+    font-size: 11px;
+    padding: 2px 7px;
+  }
+
+  .sprintOfferCtaButton {
+    min-height: 44px;
+    font-size: 14.5px;
+  }
+
+  .sprintOfferCtaCaption {
+    font-size: 11.5px;
+  }
+
+  .sprintOfferFeaturesGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 8px;
+  }
+
+  .sprintOfferFeatureItem {
+    font-size: 11.5px;
+    gap: 6px;
+  }
+
+  .sprintOfferNotice {
+    padding: 8px 11px;
+    font-size: 11px;
+    border-radius: 10px;
+  }
+}
+
+/* --- Extra Mobile Specific Overrides (<= 480px) --- */
+@media (max-width: 480px) {
+  .programOffer {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-top: 32px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .sprintOfferSection {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .sprintOfferCard {
+    padding: 16px 12px !important;
+    border-radius: 20px !important;
+    gap: 16px !important;
+  }
+
+  .sprintOfferHeading {
+    font-size: 1.7rem !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .sprintOfferSubtitle {
+    font-size: 12.5px !important;
+    line-height: 1.42 !important;
+  }
+
+  .sprintOfferBadgePrimary,
+  .sprintOfferBadgeSecondary {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+  }
+
+  .sprintOfferHighlights {
+    gap: 6px !important;
+  }
+
+  .sprintOfferHighlightItem {
+    padding: 9px 11px !important;
+    border-radius: 10px !important;
+  }
+
+  .sprintOfferHighlightTitle {
+    font-size: 13px !important;
+  }
+
+  .sprintOfferHighlightText {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  .sprintOfferHighlightIcon {
+    width: 22px !important;
+    height: 22px !important;
+    margin-left: 6px !important;
+  }
+
+  .sprintOfferHighlightIcon svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .sprintOfferRight {
+    padding: 14px 10px !important;
+    border-radius: 16px !important;
+    gap: 12px !important;
+  }
+
+  .sprintOfferBanner {
+    height: 105px !important;
+    border-radius: 10px !important;
+  }
+
+  .sprintOfferPassTitle {
+    font-size: 13.5px !important;
+  }
+
+  .sprintOfferPriceRow {
+    gap: 6px !important;
+    align-items: baseline !important;
+  }
+
+  .sprintOfferPriceMain {
+    font-size: 2rem !important;
+  }
+
+  .sprintOfferPricePeriod {
+    font-size: 12.5px !important;
+  }
+
+  .sprintOfferPriceDel {
+    font-size: 14px !important;
+  }
+
+  .sprintOfferPriceTax {
+    font-size: 10px !important;
+    padding: 2px 5px !important;
+  }
+
+  .sprintOfferCtaButton {
+    min-height: 42px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+  }
+
+  .sprintOfferCtaCaption {
+    font-size: 11px !important;
+  }
+
+  .sprintOfferFeaturesLabel {
+    font-size: 12.5px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .sprintOfferFeaturesGrid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px 6px !important;
+  }
+
+  .sprintOfferFeatureItem {
+    font-size: 10.5px !important;
+    gap: 5px !important;
+  }
+
+  .sprintOfferFeatureItem svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  .sprintOfferNotice {
+    padding: 7px 9px !important;
+    font-size: 10.5px !important;
+    border-radius: 8px !important;
+  }
 }
 
 .programCurriculum {

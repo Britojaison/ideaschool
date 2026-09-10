@@ -138,7 +138,7 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
               aria-label="Book your video editing workshop seat with Razorpay"
               className="sprintOfferCtaButton"
             >
-              Get Started
+              Buy Now
             </a>
             <span className="sprintOfferCtaCaption">
               Only 2 seats left • Limited to 25 seats only

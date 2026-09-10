@@ -1876,7 +1876,8 @@ html.isHeroGlassCursorActive .hero * {
 
 .seatLimit {
   display: block;
-  margin: 2px 0 0 2px;
+  margin: 12px 0 0 2px;
+  padding: 2px 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 15px !important;
   font-weight: 600;
@@ -3358,7 +3359,7 @@ html.isHeroGlassCursorActive .hero * {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   overflow: hidden;
-  padding: 16px 0 8px;
+  padding: 16px 0;
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
@@ -16244,6 +16245,8 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .applyPage .seatLimit {
+  margin-top: 14px !important;
+  padding: 2px 0 !important;
   color: var(--ash) !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
 }
@@ -16345,6 +16348,7 @@ html.isHeroGlassCursorActive .hero * {
     linear-gradient(rgba(251, 250, 242, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(251, 250, 242, 0.04) 1px, transparent 1px),
     var(--ink) !important;
+  padding-bottom: 24px !important;
 }
 
 .applyPage .toolsBlock h2 {

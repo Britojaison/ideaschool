@@ -665,7 +665,7 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(56px, 8vw, 84px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(24px, 4vw, 36px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
         <WorkshopAttendeesList theme="dark" />
       </section>
 

@@ -16267,16 +16267,24 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
 }
 
+.applyPage .curriculumList {
+  border-top: 1px solid var(--line) !important;
+}
+
 .applyPage .curriculumItem {
-  border-color: var(--line) !important;
+  background: transparent !important;
+  border-bottom: 1px solid var(--line) !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-  transition: border-color 0.25s, background 0.25s !important;
+  transition: border-color 0.25s !important;
+}
+
+.applyPage .curriculumItem::after {
+  display: none !important;
 }
 
 .applyPage .curriculumItem:hover {
-  border-color: rgba(242, 246, 252, 0.28) !important;
-  background: rgba(255, 255, 255, 0.04) !important;
+  background: transparent !important;
+  border-color: rgba(242, 246, 252, 0.3) !important;
 }
 
 .applyPage .curriculumHeading h3 {
@@ -16294,9 +16302,34 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
 }
 
+.applyPage .curriculumTools strong {
+  color: #DAFD55 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
 .applyPage .curriculumToggle {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid var(--line) !important;
   color: var(--frost) !important;
-  border-color: var(--line) !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.applyPage .curriculumItem:hover .curriculumToggle,
+.applyPage .curriculumItem.open .curriculumToggle {
+  background: #DAFD55 !important;
+  border-color: #DAFD55 !important;
+  color: #000000 !important;
+  box-shadow: 0 0 16px rgba(218, 253, 85, 0.35) !important;
+}
+
+/* Who Should Attend Pills */
+.applyPage .attendeesListContainer h3 {
+  background: #DAFD55 !important;
+  color: #000000 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  box-shadow: 0 0 16px rgba(218, 253, 85, 0.25) !important;
+  border: none !important;
 }
 
 /* Tools You Will Master */

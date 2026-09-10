@@ -48,9 +48,9 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
       )}
       <h3 className={`inline-flex px-4 py-1.5 rounded-full font-black uppercase mb-6 w-fit ${
         isDark 
-          ? 'bg-[#dafd55] text-black border-2 border-black shadow-[3px_3px_0_0_rgba(218,253,85,0.3)]' 
-          : 'bg-[#dafd55] border-2 border-black text-black shadow-[3px_3px_0_0_#151515]'
-      }`} style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.35rem)", color: "#000000", fontFamily: "var(--font-stara), 'Stara', var(--font-heading)", letterSpacing: "1px" }}>
+          ? 'bg-[#dafd55] text-black border-2 border-black' 
+          : 'bg-[#dafd55] border-2 border-black text-black'
+      }`} style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.35rem)", color: "#000000", fontFamily: "var(--font-stara), 'Stara', var(--font-heading)", letterSpacing: "1px", boxShadow: "none" }}>
         {attendee.title}
       </h3>
       <p style={{ fontSize: "1.1rem", color: isDark ? "#bdc5cb" : "#333", lineHeight: 1.6, margin: 0, flex: 1, fontWeight: 500, fontFamily: "var(--font-stara), 'Stara', sans-serif" }}>

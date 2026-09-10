@@ -16138,7 +16138,7 @@ html.isHeroGlassCursorActive .hero * {
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: none !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   margin-left: auto !important;
 }
@@ -16147,7 +16147,7 @@ html.isHeroGlassCursorActive .hero * {
   background: #DAFD55 !important;
   color: #000000 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(218, 253, 85, 0.35) !important;
+  box-shadow: none !important;
 }
 
 .applyPage .headerCtaText {
@@ -16194,12 +16194,12 @@ html.isHeroGlassCursorActive .hero * {
   background: rgba(218, 253, 85, 0.08) !important;
   color: var(--frost) !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
-  box-shadow: 0 0 20px rgba(218, 253, 85, 0.15) !important;
+  box-shadow: none !important;
 }
 
 .applyPage .programBadgeNeonDot {
   background-color: #DAFD55 !important;
-  box-shadow: 0 0 10px #DAFD55 !important;
+  box-shadow: none !important;
 }
 
 .applyPage .programHeroCopy h1 {
@@ -16224,9 +16224,9 @@ html.isHeroGlassCursorActive .hero * {
   color: #000000 !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   font-weight: 800 !important;
-  box-shadow: 0 0 28px rgba(218, 253, 85, 0.35) !important;
+  box-shadow: none !important;
   border-radius: 6px !important;
-  transition: transform 0.25s, background 0.25s, border-color 0.25s, box-shadow 0.25s !important;
+  transition: transform 0.25s, background 0.25s, border-color 0.25s !important;
 }
 
 .applyPage .programCta:hover,
@@ -16235,7 +16235,7 @@ html.isHeroGlassCursorActive .hero * {
   border-color: #e4ff6b !important;
   color: #000000 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 0 36px rgba(218, 253, 85, 0.55) !important;
+  box-shadow: none !important;
 }
 
 .applyPage .primaryCtaText {
@@ -16326,7 +16326,7 @@ html.isHeroGlassCursorActive .hero * {
   background: #DAFD55 !important;
   border-color: #DAFD55 !important;
   color: #000000 !important;
-  box-shadow: 0 0 16px rgba(218, 253, 85, 0.35) !important;
+  box-shadow: none !important;
 }
 
 /* Who Should Attend Pills */
@@ -16334,7 +16334,7 @@ html.isHeroGlassCursorActive .hero * {
   background: #DAFD55 !important;
   color: #000000 !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
-  box-shadow: 0 0 16px rgba(218, 253, 85, 0.25) !important;
+  box-shadow: none !important;
   border: none !important;
 }
 
@@ -16424,8 +16424,8 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   font-weight: 800 !important;
   border-radius: 6px !important;
-  box-shadow: 0 0 24px rgba(218, 253, 85, 0.35) !important;
-  transition: transform 0.25s, background 0.25s, box-shadow 0.25s !important;
+  box-shadow: none !important;
+  transition: transform 0.25s, background 0.25s !important;
 }
 
 .applyPage .sprintOfferCtaButton:hover {
@@ -16433,7 +16433,7 @@ html.isHeroGlassCursorActive .hero * {
   border-color: #e4ff6b !important;
   color: #000000 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 0 34px rgba(218, 253, 85, 0.55) !important;
+  box-shadow: none !important;
 }
 
 /* Meet the Instructors */
@@ -16594,7 +16594,7 @@ html.isHeroGlassCursorActive .hero * {
   color: #000000 !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   font-weight: 800 !important;
-  box-shadow: 0 8px 30px rgba(218, 253, 85, 0.4) !important;
+  box-shadow: none !important;
   border-radius: 999px !important;
 }
 
@@ -16602,7 +16602,7 @@ html.isHeroGlassCursorActive .hero * {
   background: #e4ff6b !important;
   border-color: #e4ff6b !important;
   color: #000000 !important;
-  box-shadow: 0 10px 36px rgba(218, 253, 85, 0.6) !important;
+  box-shadow: none !important;
   transform: translateX(-50%) translateY(-2px) !important;
 }
 

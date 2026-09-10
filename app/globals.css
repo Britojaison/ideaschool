@@ -2708,6 +2708,12 @@ html.isHeroGlassCursorActive .hero * {
   width: min(96px, 100%);
   height: auto;
   object-fit: contain;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.28s ease;
+}
+
+.toolLogo:hover .toolLogoImage {
+  transform: translateY(-4px) scale(1.05);
+  filter: drop-shadow(0 10px 20px rgba(218, 253, 85, 0.22));
 }
 
 .audienceTitle {

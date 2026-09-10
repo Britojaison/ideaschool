@@ -47,32 +47,73 @@ const toolLogos = [
   {
     name: "Adobe Premiere Pro",
     image: "/images/adobepremierepro.svg",
-    width: 1254,
-    height: 1254,
+    width: 800,
+    height: 800,
     className: "adobe",
   },
   {
     name: "Adobe After Effects",
     image: "/images/Ae_logo.webp",
-    width: 1254,
-    height: 1254,
+    width: 960,
+    height: 936,
     className: "adobe",
   },
   {
-    name: "Audio Enhancement Tools",
+    name: "Adobe Photoshop",
+    image: "/images/ps-logo-transparent.png",
+    width: 288,
+    height: 288,
+    className: "photoshop",
+  },
+  {
+    name: "Captions.ai",
+    image: "/images/captionsai.avif",
+    width: 460,
+    height: 460,
+    className: "captions",
+  },
+  {
+    name: "OpusClip",
+    image: "/images/opus_clip.png",
+    width: 820,
+    height: 820,
+    className: "opus",
+  },
+  {
+    name: "Higgsfield AI",
+    image: "/images/higgsfield.png",
+    width: 600,
+    height: 600,
+    className: "higgsfield",
+  },
+  {
+    name: "HeyGen",
+    image: "/images/heygen.webp",
+    width: 240,
+    height: 240,
+    className: "heygen",
+  },
+  {
+    name: "Seedance 2.0",
+    image: "/images/seedance-2.png",
+    width: 200,
+    height: 200,
+    className: "seedance",
+  },
+  {
+    name: "InVideo AI",
+    image: "/images/InVideo.webp",
+    width: 700,
+    height: 700,
+    className: "invideo",
+  },
+  {
+    name: "Audio Enhancement",
     image: "/images/image 1.svg",
     width: 1254,
     height: 1254,
     className: "audio",
   },
-  {
-    name: "Higgsfield",
-    image: "/images/higgsfield.png",
-    width: 1254,
-    height: 1254,
-    className: "higgsfield",
-  },
-
 ];
 
 const razorpayPaymentLink =
@@ -438,9 +479,9 @@ export default function ApplyPage() {
         <div className="programAudienceInner">
           <div className="toolsBlock">
             <h2>Tools You Will Master</h2>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexWrap: 'wrap', gap: 'clamp(20px, 5vw, 60px)' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', flexWrap: 'wrap', gap: 'clamp(28px, 3.5vw, 44px) clamp(16px, 2.5vw, 36px)', maxWidth: '980px', margin: '0 auto' }}>
               {toolLogos.map((tool) => (
-                <div key={tool.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 'clamp(80px, 12vw, 120px)', flexShrink: 0 }}>
+                <div key={tool.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 'clamp(84px, 10vw, 115px)', flexShrink: 0 }}>
                   <span className={`toolLogo ${tool.className}`} style={{ width: '100%', marginBottom: '12px' }}>
                     <Image
                       src={tool.image}

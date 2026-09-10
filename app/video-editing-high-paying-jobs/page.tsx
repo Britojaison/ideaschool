@@ -139,7 +139,7 @@ const instructors = [
     role: "Head of Design & Motion Graphics, 88GB",
     experience: "9+ Yrs Exp",
     bio: "Specialised in Video, Motion, CGI & AI Creative Workflows, blending storytelling, visual craft and technology.",
-    image: "/images/mentor_PARIDHI.webp",
+    image: "/images/Parithi IdeaSchool (2).png",
   },
   {
     name: "Ajay Karthik",

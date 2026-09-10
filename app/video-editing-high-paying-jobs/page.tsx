@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
-import ScrollTextReveal from "../ScrollTextReveal";
+import VideoEditingGsapLenis from "./VideoEditingGsapLenis";
 import MobileMenu from "../MobileMenu";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
@@ -335,7 +335,7 @@ export default function ApplyPage() {
           __html: JSON.stringify(pageSchema),
         }}
       />
-      <ScrollTextReveal />
+      <VideoEditingGsapLenis />
       <section className="programHero" aria-label="AI-powered ad film workshop">
         <div className="programHeroMedia">
           <HeroDotField />

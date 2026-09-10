@@ -81,6 +81,70 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-Medium.otf") format("opentype");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-MediumItalic.otf") format("opentype");
+  font-weight: 400 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-SemiBoldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stara";
+  src: url("/fonts/Stara-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #08090b;
   --foreground: #ffffff;
@@ -15972,4 +16036,547 @@ html.isHeroGlassCursorActive .hero * {
     max-width: 64%;
     height: clamp(18px, 5.5vw, 24px);
   }
+}
+
+/* ==========================================================================
+   APPLY PAGE - NEW_HOME COLOR PALETTE & STARA TYPOGRAPHY
+   ========================================================================== */
+
+.applyPage {
+  --ink: #0a0a0c;
+  --snow: #f2f6fc;
+  --frost: #fbfaf2;
+  --alabaster: #e5e4e2;
+  --slate: #536878;
+  --red: #fb1616;
+  --wine: #6f1d1b;
+  --linen: #f0e5de;
+  --ash: #adbdab;
+  --line: rgba(242, 246, 252, 0.14);
+  --apply-section-x: clamp(20px, 6.5vw, 88px);
+  min-height: 100vh;
+  background: var(--ink) !important;
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", var(--font-helvetica), Arial, sans-serif !important;
+  overflow-x: clip;
+}
+
+.applyPage ::selection {
+  color: #ffffff !important;
+  background: var(--red) !important;
+}
+
+.applyPage h1,
+.applyPage h2,
+.applyPage h3,
+.applyPage h4,
+.applyPage h5,
+.applyPage h6 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage p {
+  color: #cbd4da;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+}
+
+/* Header & Nav */
+.applyPage .siteHeader {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 90 !important;
+  width: 100% !important;
+  height: 76px !important;
+  min-height: 76px !important;
+  padding: 0 clamp(20px, 4.5vw, 60px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.applyPage .brandLink {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.applyPage .navMark {
+  flex: 0 0 auto !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 6px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.applyPage .brandLogo {
+  display: block !important;
+  width: 104px !important;
+  height: auto !important;
+}
+
+.applyPage .headerCta {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  background: #FBFAF2 !important;
+  color: #0a0a0c !important;
+  border: none !important;
+  border-radius: 4px !important;
+  min-height: 36px !important;
+  height: 36px !important;
+  padding: 0 20px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  margin-left: auto !important;
+}
+
+.applyPage .headerCta:hover {
+  background: #DAFD55 !important;
+  color: #000000 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(218, 253, 85, 0.35) !important;
+}
+
+.applyPage .headerCtaText {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  text-transform: inherit !important;
+  letter-spacing: inherit !important;
+  height: auto !important;
+  transform: none !important;
+}
+
+/* Hero Section */
+.applyPage .programHero {
+  background: var(--ink) !important;
+}
+
+.applyPage .programHeroMedia {
+  background:
+    radial-gradient(ellipse 62% 32% at -8% 22%, rgba(85, 46, 173, 0.45) 0%, rgba(85, 46, 173, 0.2) 40%, transparent 76%),
+    radial-gradient(ellipse 62% 32% at 108% 22%, rgba(85, 46, 173, 0.38) 0%, rgba(85, 46, 173, 0.16) 40%, transparent 76%),
+    linear-gradient(105deg, #16072d 0%, #0d011c 48%, #0a0014 100%) !important;
+}
+
+.applyPage .programHeroShade {
+  background:
+    linear-gradient(rgba(251, 250, 242, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 250, 242, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(10, 10, 12, 0.3) 0%, rgba(10, 10, 12, 0.05) 40%, var(--ink) 100%) !important;
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+.applyPage .programPill {
+  border: 1px solid var(--line) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  box-shadow: none !important;
+}
+
+.applyPage .programBadgeNeon {
+  border: 1px solid rgba(218, 253, 85, 0.35) !important;
+  background: rgba(218, 253, 85, 0.08) !important;
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  box-shadow: 0 0 20px rgba(218, 253, 85, 0.15) !important;
+}
+
+.applyPage .programBadgeNeonDot {
+  background-color: #DAFD55 !important;
+  box-shadow: 0 0 10px #DAFD55 !important;
+}
+
+.applyPage .programHeroCopy h1 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+  letter-spacing: -0.02em;
+}
+
+.applyPage .programHeroTitleAccent {
+  color: #DAFD55 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .programHeroTitleDay {
+  color: var(--frost) !important;
+}
+
+.applyPage .programCta,
+.applyPage .primaryCta {
+  background: var(--red) !important;
+  border: 1px solid var(--red) !important;
+  color: #ffffff !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 28px rgba(251, 22, 22, 0.4) !important;
+  border-radius: 4px !important;
+  transition: transform 0.25s, background 0.25s, border-color 0.25s, box-shadow 0.25s !important;
+}
+
+.applyPage .programCta:hover,
+.applyPage .primaryCta:hover {
+  background: #d90000 !important;
+  border-color: #d90000 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 34px rgba(251, 22, 22, 0.6) !important;
+}
+
+.applyPage .seatLimit {
+  color: var(--ash) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .programStats dt {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: #9fa8ae !important;
+}
+
+.applyPage .programStats dd {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+/* Curriculum Section */
+.applyPage .programCurriculum {
+  background: var(--ink) !important;
+}
+
+.applyPage .curriculumIntro h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .curriculumIntro p {
+  color: #9fa8ae !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .curriculumItem {
+  border-color: var(--line) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  transition: border-color 0.25s, background 0.25s !important;
+}
+
+.applyPage .curriculumItem:hover {
+  border-color: rgba(242, 246, 252, 0.28) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.applyPage .curriculumHeading h3 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .curriculumDetails p {
+  color: #bdc5cb !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .curriculumTools {
+  color: #DAFD55 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .curriculumToggle {
+  color: var(--frost) !important;
+  border-color: var(--line) !important;
+}
+
+/* Tools You Will Master */
+.applyPage .programAudience {
+  background:
+    radial-gradient(circle at 50% 3%, rgba(85, 46, 173, 0.2), transparent 45%),
+    linear-gradient(rgba(251, 250, 242, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 250, 242, 0.04) 1px, transparent 1px),
+    var(--ink) !important;
+}
+
+.applyPage .toolsBlock h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .toolsMarqueeName {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+/* Sprint Offer Card */
+.applyPage .sprintOfferCard {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(111, 29, 27, 0.32), transparent 42%),
+    radial-gradient(circle at 10% 85%, rgba(85, 46, 173, 0.22), transparent 45%),
+    #121216 !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.8), 0 0 50px rgba(251, 22, 22, 0.08) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .sprintOfferHeading {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .sprintOfferSubtitle {
+  color: #bdc5cb !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .sprintOfferHighlightItem {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid var(--line) !important;
+}
+
+.applyPage .sprintOfferHighlightTitle {
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .sprintOfferHighlightText {
+  color: #a0aab2 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .sprintOfferRight {
+  background: #0d1013 !important;
+  border: 1px solid var(--line) !important;
+}
+
+.applyPage .sprintOfferPriceMain {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .sprintOfferCtaButton {
+  background: var(--red) !important;
+  border: 1px solid var(--red) !important;
+  color: #ffffff !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 24px rgba(251, 22, 22, 0.35) !important;
+  transition: transform 0.25s, background 0.25s, box-shadow 0.25s !important;
+}
+
+.applyPage .sprintOfferCtaButton:hover {
+  background: #d90000 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 32px rgba(251, 22, 22, 0.55) !important;
+}
+
+/* Meet the Instructors */
+.applyPage .programInstructor {
+  background: var(--ink) !important;
+}
+
+.applyPage .programInstructor h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .instructorCard {
+  background: #121216 !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  transition: transform 0.28s, border-color 0.28s !important;
+}
+
+.applyPage .instructorCard:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(242, 246, 252, 0.32) !important;
+}
+
+.applyPage .instructorName {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .instructorRole {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: #9fa8ae !important;
+}
+
+.applyPage .instructorBio {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: #bdc5cb !important;
+}
+
+.applyPage .instructorExpBadge {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--line) !important;
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+/* Our Work */
+.applyPage .workshopWorkSection {
+  background: var(--ink) !important;
+}
+
+.applyPage .workshopWorkSection h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .workshopWorkSection p {
+  color: #a0aab2 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+/* Student Proof */
+.applyPage .programProof {
+  background: var(--ink) !important;
+}
+
+.applyPage .proofIntro h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .proofIntro p {
+  color: #a0aab2 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .proofCard {
+  background: #141418 !important;
+  border: 1px solid var(--line) !important;
+  color: var(--frost) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+}
+
+.applyPage .proofPerson {
+  position: relative !important;
+  align-self: end !important;
+  height: 188px !important;
+  overflow: visible !important;
+  background: radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.08), transparent 72%) !important;
+  border-radius: 12px !important;
+}
+
+.applyPage .proofPersonImage {
+  mix-blend-mode: normal !important;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)) !important;
+  opacity: 1 !important;
+  object-fit: contain !important;
+  object-position: bottom center !important;
+}
+
+.applyPage .proofQuote span {
+  color: #DAFD55 !important;
+}
+
+.applyPage .proofQuote p {
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .proofQuote strong {
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .proofQuote small {
+  color: #a0aab2 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+/* FAQ Section */
+.applyPage .programFaqContact {
+  background:
+    radial-gradient(ellipse at 50% 108%, rgba(85, 46, 173, 0.3) 0%, transparent 68%),
+    var(--ink) !important;
+}
+
+.applyPage .programFaqInner > h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .programFaqItem summary span {
+  border: 1px solid var(--line) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .programFaqItem summary strong {
+  border: 1px solid var(--line) !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+  color: var(--frost) !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .programFaqItem p {
+  border: 1px solid var(--line) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: #cbd4da !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+/* Floating Action Button */
+.applyPage .videoEditingFloatingButton {
+  background: var(--red, #fb1616) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  box-shadow: 0 8px 30px rgba(251, 22, 22, 0.45) !important;
+  border-radius: 4px !important;
+}
+
+.applyPage .videoEditingFloatingButton:hover {
+  background: #d90000 !important;
+  box-shadow: 0 10px 36px rgba(251, 22, 22, 0.6) !important;
+}
+
+/* Site Footer */
+.applyPage .siteFooter {
+  background: #060608 !important;
+  border-top: 1px solid var(--line) !important;
+}
+
+.applyPage .footerInner p {
+  color: #9fa8ae !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .footerLinks a {
+  color: #9fa8ae !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  transition: color 0.2s !important;
+}
+
+.applyPage .footerLinks a:hover {
+  color: var(--frost) !important;
+}
+
+.applyPage .footerLinks h2 {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: var(--frost) !important;
+}
+
+.applyPage .footerHeroLink {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  color: rgba(251, 250, 242, 0.18) !important;
+}
+
+.applyPage .footerHeroLink:hover {
+  color: var(--frost) !important;
 }

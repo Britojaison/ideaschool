@@ -490,16 +490,25 @@ export default function ApplyPage() {
         <div className="programHeroShade" />
 
         <header className="siteHeader">
-          <div className="brand" aria-label="Idea School" style={{ cursor: "default" }}>
+          <Link href="/" className="brandLink" aria-label="IDEA School home">
+            <Image
+              src="/assets/home/tumblr_c050d2fa4f5b9a2a88fa3f5196acd80f_1ccf7380_1280.webp"
+              alt=""
+              aria-hidden="true"
+              width={34}
+              height={34}
+              className="navMark"
+              priority
+            />
             <Image
               src="/images/idea logo.webp"
-              alt="Idea"
+              alt="Idea School"
               width={104}
-              height={54}
+              height={32}
               priority
               className="brandLogo"
             />
-          </div>
+          </Link>
           <a className="headerCta" href="#enroll">
             <span className="headerCtaText">Book your class</span>
           </a>
@@ -693,12 +702,12 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
+      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "var(--ink, #0a0a0c)", color: "var(--frost, #fbfaf2)" }}>
         <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-            <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px" }}>Our Work</span>
-            <h2 style={{ color: "#ffffff", fontFamily: "'Bebas Neue', var(--font-heading)", fontSize: "clamp(2.5rem, 5vw, 4.5rem)", textTransform: "uppercase", margin: "0 0 16px" }}>Our Recent Projects</h2>
-            <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px", fontSize: "18px", lineHeight: "1.5" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
+            <span className="sectionPill" style={{ background: "rgba(255, 255, 255, 0.06)", border: "1px solid rgba(242, 246, 252, 0.2)", color: "var(--frost, #fbfaf2)", padding: "8px 18px", borderRadius: "99px", fontWeight: "600", fontSize: "12px", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "16px", fontFamily: "var(--font-stara), 'Stara', sans-serif" }}>Our Work</span>
+            <h2 style={{ color: "var(--frost, #fbfaf2)", fontFamily: "var(--font-stara), 'Stara', sans-serif", fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)", textTransform: "uppercase", margin: "0 0 16px", letterSpacing: "-0.02em" }}>Our Recent Projects</h2>
+            <p style={{ color: "#a0aab2", maxWidth: "600px", fontSize: "17px", lineHeight: "1.55", fontFamily: "var(--font-stara), 'Stara', sans-serif" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>
         </div>
 

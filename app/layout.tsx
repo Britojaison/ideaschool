@@ -1,7 +1,26 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import DisableImageActions from "./DisableImageActions";
 import MetaPixel from "./MetaPixel";
 import "./globals.css";
+
+const stara = localFont({
+  src: [
+    { path: "../public/fonts/Stara-Medium.otf", weight: "400", style: "normal" },
+    { path: "../public/fonts/Stara-Medium.otf", weight: "500", style: "normal" },
+    { path: "../public/fonts/Stara-MediumItalic.otf", weight: "500", style: "italic" },
+    { path: "../public/fonts/Stara-SemiBold.otf", weight: "600", style: "normal" },
+    { path: "../public/fonts/Stara-SemiBoldItalic.otf", weight: "600", style: "italic" },
+    { path: "../public/fonts/Stara-Bold.otf", weight: "700", style: "normal" },
+    { path: "../public/fonts/Stara-BoldItalic.otf", weight: "700", style: "italic" },
+    { path: "../public/fonts/Stara-ExtraBold.otf", weight: "800", style: "normal" },
+    { path: "../public/fonts/Stara-ExtraBoldItalic.otf", weight: "800", style: "italic" },
+    { path: "../public/fonts/Stara-Black.otf", weight: "900", style: "normal" },
+    { path: "../public/fonts/Stara-BlackItalic.otf", weight: "900", style: "italic" },
+  ],
+  variable: "--font-stara",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ideaschool.pro"),
@@ -91,7 +110,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en" className={stara.variable} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script
           type="text/javascript"

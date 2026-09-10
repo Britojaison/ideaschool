@@ -387,7 +387,7 @@ export default function ApplyPage() {
           <dl className="programStats">
             <div>
               <dt>Batch Date</dt>
-              <dd>September 6</dd>
+              <dd>September 19</dd>
             </div>
             <div>
               <dt>Learning Mode</dt>

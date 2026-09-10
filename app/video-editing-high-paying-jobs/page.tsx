@@ -363,8 +363,9 @@ export default function ApplyPage() {
           <div className="programHeroCopy">
             <div className="programEyebrowRow">
               <span className="programPill">Offline workshop</span>
-              <span className="programTag programTagWide">
-                Agency-Level Video Editing Training Led By Industry Experts
+              <span className="programBadgeNeon">
+                <span className="programBadgeNeonDot" aria-hidden="true" />
+                <span>Agency-Level Video Editing Training Led By Industry Experts</span>
               </span>
             </div>
 

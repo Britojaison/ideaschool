@@ -1699,6 +1699,62 @@ html.isHeroGlassCursorActive .hero * {
   content: " ";
 }
 
+.programBadgeNeon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 22px;
+  border: 1px solid rgba(218, 253, 85, 0.45);
+  border-radius: 999px;
+  background:
+    linear-gradient(rgba(14, 18, 10, 0.88), rgba(14, 18, 10, 0.88)) padding-box,
+    linear-gradient(94.17deg, #dafd55 0%, #8eb80c 50%, #dafd55 100%) border-box;
+  box-shadow:
+    0 0 22px rgba(218, 253, 85, 0.2),
+    inset 0 1px 0 rgba(218, 253, 85, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #dafd55;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.programBadgeNeon:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 30px rgba(218, 253, 85, 0.32),
+    inset 0 1px 0 rgba(218, 253, 85, 0.28);
+}
+
+.programBadgeNeonDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #dafd55;
+  box-shadow: 0 0 10px #dafd55;
+  flex-shrink: 0;
+  animation: neonBadgePulse 2s ease-in-out infinite;
+}
+
+@keyframes neonBadgePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px #dafd55;
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+    box-shadow: 0 0 4px #dafd55;
+  }
+}
+
 .programHeroCopy h1 {
   max-width: 854px;
   margin: 0;
@@ -11080,6 +11136,21 @@ html.isHeroGlassCursorActive .hero * {
     white-space: nowrap;
   }
 
+  .applyPage .programEyebrowRow {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .programBadgeNeon {
+    min-height: 36px;
+    padding: 6px 14px;
+    font-size: 13px;
+    white-space: normal;
+    border-radius: 18px;
+    line-height: 1.25;
+    text-align: left;
+  }
+
   .programTagWide {
     justify-content: center;
     min-height: 46px;
@@ -12095,6 +12166,18 @@ html.isHeroGlassCursorActive .hero * {
     inset: -5px -8px;
   }
 
+  .programBadgeNeon {
+    font-size: 12px;
+    padding: 6px 12px;
+    gap: 8px;
+    border-radius: 14px;
+  }
+
+  .programBadgeNeonDot {
+    width: 6px;
+    height: 6px;
+  }
+
   .programTagWide {
     min-height: 46px;
   }
@@ -12112,6 +12195,10 @@ html.isHeroGlassCursorActive .hero * {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .programBadgeNeonDot {
+    animation: none;
   }
 
   .outcomeCard {

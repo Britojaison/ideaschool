@@ -63,28 +63,32 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
 export default function WorkshopAttendeesList({ 
   theme = 'light',
   items = attendeesData,
+  hideDividers = false,
 }: { 
   theme?: 'light' | 'dark';
   items?: Attendee[];
+  hideDividers?: boolean;
 }) {
   const isDark = theme === 'dark';
   return (
     <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 20px" }}>
 
       {/* Main Section Header */}
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: "100%" }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: isDark ? "rgba(242,246,252,0.14)" : "#000", marginBottom: "40px" }}
-      />
+      {!hideDividers && (
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          style={{ height: "1px", background: isDark ? "rgba(242,246,252,0.14)" : "#000", marginBottom: "40px" }}
+        />
+      )}
 
       <div 
         className={isDark ? "curriculumIntro" : ""}
         style={
           isDark 
-            ? { marginBottom: "60px" }
+            ? { marginBottom: hideDividers ? "clamp(24px, 4vw, 36px)" : "60px" }
             : { display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px", gap: "20px" }
         }
       >
@@ -111,7 +115,7 @@ export default function WorkshopAttendeesList({
         display: "grid", 
         gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", 
         gap: "24px",
-        marginBottom: "80px"
+        marginBottom: hideDividers ? "0" : "80px"
       }}>
         {items.map((attendee, index) => (
           <AttendeeItem key={index} attendee={attendee} index={index} theme={theme} />
@@ -119,13 +123,15 @@ export default function WorkshopAttendeesList({
       </div>
 
       {/* Final line at the bottom */}
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: "100%" }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: isDark ? "rgba(255,255,255,0.2)" : "#000", marginTop: "40px", marginBottom: "25px" }}
-      />
+      {!hideDividers && (
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "100%" }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          style={{ height: "1px", background: isDark ? "rgba(255,255,255,0.2)" : "#000", marginTop: "40px", marginBottom: "25px" }}
+        />
+      )}
     </div>
   );
 }

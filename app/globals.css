@@ -16264,6 +16264,8 @@ html.isHeroGlassCursorActive .hero * {
 /* Curriculum Section */
 .applyPage .programCurriculum {
   background: var(--ink) !important;
+  padding-top: clamp(36px, 5vw, 56px) !important;
+  padding-bottom: clamp(36px, 5vw, 56px) !important;
 }
 
 .applyPage .curriculumIntro h2 {
@@ -16358,7 +16360,13 @@ html.isHeroGlassCursorActive .hero * {
     linear-gradient(rgba(251, 250, 242, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(251, 250, 242, 0.04) 1px, transparent 1px),
     var(--ink) !important;
-  padding-bottom: 24px !important;
+  margin-top: 0 !important;
+  padding-top: clamp(36px, 5vw, 56px) !important;
+  padding-bottom: clamp(36px, 5vw, 56px) !important;
+}
+
+.applyPage .toolsBlock {
+  gap: clamp(20px, 3.5vw, 32px) !important;
 }
 
 .applyPage .toolsBlock h2 {
@@ -16372,6 +16380,10 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 /* Sprint Offer Card */
+.applyPage .programOffer {
+  padding: clamp(36px, 5vw, 56px) var(--apply-section-x) !important;
+}
+
 .applyPage .sprintOfferCard {
   background:
     radial-gradient(circle at 85% 15%, rgba(85, 46, 173, 0.28), transparent 42%),
@@ -16453,6 +16465,8 @@ html.isHeroGlassCursorActive .hero * {
 /* Meet the Instructors */
 .applyPage .programInstructor {
   background: var(--ink) !important;
+  padding-top: clamp(36px, 5vw, 56px) !important;
+  padding-bottom: clamp(36px, 5vw, 56px) !important;
 }
 
 .applyPage .programInstructor h2 {
@@ -16460,11 +16474,19 @@ html.isHeroGlassCursorActive .hero * {
   color: var(--frost) !important;
 }
 
+.applyPage .instructorGrid {
+  margin-top: clamp(24px, 4vw, 36px) !important;
+  align-items: stretch !important;
+}
+
 .applyPage .instructorCard {
   background: #121216 !important;
   border: 1px solid var(--line) !important;
   border-radius: 12px !important;
   padding: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
   transition: transform 0.28s, border-color 0.28s !important;
 }
 
@@ -16483,7 +16505,14 @@ html.isHeroGlassCursorActive .hero * {
   color: #9fa8ae !important;
 }
 
+.applyPage .instructorContent {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
 .applyPage .instructorBio {
+  margin-top: auto !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: #bdc5cb !important;
 }
@@ -16513,6 +16542,8 @@ html.isHeroGlassCursorActive .hero * {
 /* Student Proof */
 .applyPage .programProof {
   background: var(--ink) !important;
+  padding-top: clamp(36px, 5vw, 56px) !important;
+  padding-bottom: clamp(36px, 5vw, 56px) !important;
 }
 
 .applyPage .proofIntro h2 {

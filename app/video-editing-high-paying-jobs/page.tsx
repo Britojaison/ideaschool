@@ -662,8 +662,8 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(24px, 4vw, 36px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
-        <WorkshopAttendeesList theme="dark" />
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(36px, 5vw, 56px)", paddingBottom: "clamp(36px, 5vw, 56px)", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
+        <WorkshopAttendeesList theme="dark" hideDividers />
       </section>
 
       <section className="programOffer" aria-label="Early bird workshop offer">
@@ -699,8 +699,8 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "var(--ink, #0a0a0c)", color: "var(--frost, #fbfaf2)" }}>
-        <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
+      <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "clamp(36px, 5vw, 56px)", paddingBottom: "clamp(36px, 5vw, 56px)", backgroundColor: "var(--ink, #0a0a0c)", color: "var(--frost, #fbfaf2)" }}>
+        <div className="longCourseSectionInner" style={{ marginBottom: "clamp(24px, 4vw, 36px)", display: "flex", justifyContent: "center" }}>
           <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <span className="sectionPill" style={{ background: "#DAFD55", color: "#000000", padding: "8px 20px", borderRadius: "99px", fontWeight: "800", fontSize: "13px", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "16px", fontFamily: "var(--font-stara), 'Stara', sans-serif", boxShadow: "none", border: "none" }}>Our Work</span>
             <h2 style={{ color: "var(--frost, #fbfaf2)", fontFamily: "var(--font-stara), 'Stara', sans-serif", fontSize: "clamp(2.4rem, 4.8vw, 4.2rem)", textTransform: "uppercase", margin: "0 0 16px", letterSpacing: "-0.02em" }}>Our Recent Projects</h2>

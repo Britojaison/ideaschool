@@ -509,9 +509,6 @@ export default function ApplyPage() {
               className="brandLogo"
             />
           </Link>
-          <a className="headerCta" href="#enroll">
-            <span className="headerCtaText">Book your class</span>
-          </a>
           <MobileMenu />
         </header>
 

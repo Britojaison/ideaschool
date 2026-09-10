@@ -120,10 +120,34 @@ const razorpayPaymentLink =
   process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/XiQ2PDi";
 
 const instructors = [
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.webp" },
-  { name: "Elamparithi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.webp" },
-  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.webp" },
-  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.webp" },
+  {
+    name: "Dhananjayan . S",
+    role: "CEO, 88GB",
+    experience: "8+ Yrs Exp",
+    bio: "Built 88GB from the ground up, directing high-scale visual productions and viral brand campaigns.",
+    image: "/images/mentor_ARJUN.webp",
+  },
+  {
+    name: "Elamparithi",
+    role: "Head of Design, 88GB",
+    experience: "6+ Yrs Exp",
+    bio: "Visual storytelling and motion graphics specialist leading creative workflows for premier brands.",
+    image: "/images/mentor_PARIDHI.webp",
+  },
+  {
+    name: "Ajay Karthik",
+    role: "Video Editor, 88GB",
+    experience: "5+ Yrs Exp",
+    bio: "Retention editing specialist crafting high-CTR commercial cuts, viral hooks, and pacing.",
+    image: "/images/mentor_AJAY.webp",
+  },
+  {
+    name: "Chandrasoodeshwar",
+    role: "Senior Creative Strategist, 88GB",
+    experience: "5+ Yrs Exp",
+    bio: "Creative strategist behind viral narrative frameworks and high-converting commercial storytelling.",
+    image: "/images/mentor_CHANDRU.webp",
+  },
 ];
 
 const clientStories = [
@@ -524,8 +548,14 @@ export default function ApplyPage() {
                     className="instructorImage"
                   />
                 </div>
-                <p>{instructor.role}</p>
-                <h3>{instructor.name}</h3>
+                <div className="instructorContent">
+                  <span className="instructorRole">{instructor.role}</span>
+                  <div className="instructorNameRow">
+                    <h3 className="instructorName">{instructor.name}</h3>
+                    <span className="instructorExpBadge">{instructor.experience}</span>
+                  </div>
+                  <p className="instructorBio">{instructor.bio}</p>
+                </div>
               </article>
             ))}
           </div>

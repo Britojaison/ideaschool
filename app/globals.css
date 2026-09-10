@@ -2907,37 +2907,40 @@ html.isHeroGlassCursorActive .hero * {
 
 .instructorCard {
   outline: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   transition: transform 260ms ease;
 }
 
 .instructorCard:hover,
 .instructorCard:focus-within {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 .instructorCard:hover .instructorImageWrap,
 .instructorCard:focus-within .instructorImageWrap {
   filter: brightness(1.05) saturate(1.06);
   box-shadow:
-    0 24px 54px rgba(0, 0, 0, 0.34),
-    0 0 0 1px rgba(175, 82, 223, 0.48),
-    0 0 34px rgba(137, 85, 153, 0.3);
+    0 20px 48px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(175, 82, 223, 0.45),
+    0 0 28px rgba(137, 85, 153, 0.25);
 }
 
 .instructorCard:hover .instructorImage,
 .instructorCard:focus-within .instructorImage {
-  transform: scale(1.045);
+  transform: scale(1.04);
 }
 
-.instructorCard p {
-  margin: 24px 0 4px;
+.instructorCard p:not(.instructorBio) {
+  margin: 16px 0 4px;
   color: #a552bd;
   font-size: 13px;
   font-weight: 800;
   transition: color 220ms ease, transform 220ms ease;
 }
 
-.instructorCard h3 {
+.instructorCard h3:not(.instructorName) {
   margin: 0;
   font-family: var(--font-subject);
   font-size: 16px;
@@ -2945,16 +2948,73 @@ html.isHeroGlassCursorActive .hero * {
   transition: color 220ms ease, transform 220ms ease;
 }
 
-.instructorCard:hover p,
-.instructorCard:focus-within p,
-.instructorCard:hover h3,
-.instructorCard:focus-within h3 {
-  transform: translateY(-2px);
+.instructorContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(24px, 2.5vw, 32px);
 }
 
-.instructorCard:hover p,
-.instructorCard:focus-within p {
-  color: #c76be3;
+.instructorRole {
+  display: block;
+  margin-bottom: 4px;
+  color: #c084fc;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 220ms ease;
+}
+
+.instructorCard:hover .instructorRole,
+.instructorCard:focus-within .instructorRole {
+  color: #d8b4fe;
+}
+
+.instructorNameRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.instructorName {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 1.15vw, 18px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.instructorExpBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(218, 253, 85, 0.12);
+  border: 1px solid rgba(218, 253, 85, 0.38);
+  color: #dafd55;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.instructorBio {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  transition: color 220ms ease;
+}
+
+.instructorCard:hover .instructorBio,
+.instructorCard:focus-within .instructorBio {
+  color: rgba(255, 255, 255, 0.88) !important;
 }
 
 .brandCommercials {

@@ -12,8 +12,6 @@ import WhoItIsFor from "./WhoItIsFor";
 import AdmissionEnrollment from "./AdmissionEnrollment";
 import NextStepCta from "./NextStepCta";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
-import HeroOverview from "@/components/cinematic-hero/HeroOverview";
-
 
 export const metadata: Metadata = {
   title: "Full Stack Creative Editing & AI Mastery | IDEA School",
@@ -72,12 +70,6 @@ export default function CreativeEditingCopyPage() {
         heroHeadline1="EDITING"
         heroHeadline2="START"
         heroSubtitle="FULL STACK EDITING & CREATIVE AI"
-        studioName="IDEA School"
-        tags={["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"]}
-        leftGiantTop="INDUSTRY"
-        leftGiantBottom="LED."
-        rightGiantTop="CRAFT"
-        rightGiantBottom="BUILT."
       />
 
       <LearningEnvironment key="learning-environment" />

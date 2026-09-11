@@ -33,16 +33,6 @@ export default function CinematicHeroFlow({
   heroHeadline1 = "EDITING",
   heroHeadline2 = "START",
   heroSubtitle = "FULL STACK EDITING & CREATIVE AI",
-  studioName = "IDEA School",
-  tags = ["[ 24 WEEK PROGRAM ]", "[ INDUSTRY EXPERIENCE ]", "[ MENTOR LED ]", "[ HYBRID LEARNING ]"],
-  leftGiantTop = "INDUSTRY",
-  leftGiantBottom = "LED.",
-  rightGiantTop = "CRAFT",
-  rightGiantBottom = "BUILT.",
-  editorialParagraphs = [
-    "Build practical skills across editing, storytelling, motion design and Creative AI—then apply them through briefs, mentor feedback and portfolio projects.",
-    "Professional editors also need to understand a brief, structure a story, make creative decisions, respond to feedback and deliver work professionally. IDEA School is designed to help you develop those capabilities—not simply learn where the buttons are."
-  ],
   nextSectionId
 }: CinematicHeroFlowProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -53,15 +43,6 @@ export default function CinematicHeroFlow({
   const showcaseFrameRef = useRef<HTMLDivElement>(null);
   const frameControlsRef = useRef<HTMLDivElement>(null);
   const heroBottomShadeRef = useRef<HTMLDivElement>(null);
-  const directorLayerRef = useRef<HTMLDivElement>(null);
-  const directorBlackFadeRef = useRef<HTMLDivElement>(null);
-  const fullBlackOverlayRef = useRef<HTMLDivElement>(null);
-
-  // Staggered child refs for second section
-  const giantLeftRef = useRef<HTMLHeadingElement>(null);
-  const topRightTagsRef = useRef<HTMLDivElement>(null);
-  const giantRightRef = useRef<HTMLHeadingElement>(null);
-  const editorialBlockRef = useRef<HTMLDivElement>(null);
 
   // Player state
   const [isPlaying, setIsPlaying] = useState(true);
@@ -184,173 +165,59 @@ export default function CinematicHeroFlow({
     if (typeof window === "undefined" || !containerRef.current || !pinRef.current) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=260%",
-          pin: true,
-          pinSpacing: true,
-          scrub: 1.0,
-          anticipatePin: 1,
-          refreshPriority: 10,
-          onUpdate: (self) => {
-            if (editorialHeaderRef.current) {
-              editorialHeaderRef.current.style.pointerEvents = self.progress > 0.18 ? "none" : "auto";
-              editorialHeaderRef.current.style.visibility = self.progress > 0.18 ? "hidden" : "visible";
-            }
+      const mm = gsap.matchMedia();
 
-            if (frameControlsRef.current) {
-              frameControlsRef.current.style.pointerEvents = self.progress > 0.52 ? "none" : "auto";
-              frameControlsRef.current.style.visibility = self.progress > 0.52 ? "hidden" : "visible";
-            }
-
-            if (self.progress > 0.52) {
-              if (directorLayerRef.current) {
-                directorLayerRef.current.style.pointerEvents = "auto";
-                directorLayerRef.current.style.visibility = "visible";
-              }
-            } else {
-              if (directorLayerRef.current) {
-                directorLayerRef.current.style.pointerEvents = "none";
-                directorLayerRef.current.style.visibility = "hidden";
+      mm.add("(min-width: 821px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "+=100%",
+            pin: true,
+            pinSpacing: true,
+            scrub: 1.0,
+            anticipatePin: 1,
+            refreshPriority: 10,
+            onUpdate: (self) => {
+              if (editorialHeaderRef.current) {
+                editorialHeaderRef.current.style.pointerEvents = self.progress > 0.25 ? "none" : "auto";
+                editorialHeaderRef.current.style.visibility = self.progress > 0.25 ? "hidden" : "visible";
               }
             }
           }
-        }
-      });
+        });
 
-      ScrollTrigger.sort();
-      ScrollTrigger.refresh();
+        ScrollTrigger.sort();
+        ScrollTrigger.refresh();
 
-      // Initial state setup: Editorial Header is visible; Director is hidden
-      gsap.set(editorialHeaderRef.current, { opacity: 1, y: 0, visibility: "visible", pointerEvents: "auto" });
-      gsap.set(frameControlsRef.current, { opacity: 1, visibility: "visible", pointerEvents: "auto" });
-      gsap.set(directorLayerRef.current, { opacity: 0, visibility: "hidden", pointerEvents: "none" });
-      gsap.set(directorBlackFadeRef.current, { opacity: 0 });
-      gsap.set(fullBlackOverlayRef.current, { opacity: 0 });
+        // Initial state setup: Editorial Header is visible
+        gsap.set(editorialHeaderRef.current, { opacity: 1, y: 0, visibility: "visible", pointerEvents: "auto" });
+        gsap.set(frameControlsRef.current, { opacity: 1, visibility: "visible", pointerEvents: "auto" });
 
-      // Second section initial offsets
-      gsap.set(giantLeftRef.current, { opacity: 0, y: 40 });
-      gsap.set(topRightTagsRef.current, { opacity: 0, y: 20 });
-      gsap.set(giantRightRef.current, { opacity: 0, y: 40 });
-      gsap.set(editorialBlockRef.current, { opacity: 0, y: 40 });
-
-      // =========================================================================
-      // CONTINUOUS BLENDED FLOW SEQUENCE (Strict non-overlapping phases)
-      // =========================================================================
-
-      // 1. First scroll clears the masthead and leaves the viewer on the video.
-      tl.to(editorialHeaderRef.current,
-        {
-          opacity: 0,
-          y: -34,
-          duration: 0.2,
-          ease: "power2.inOut",
-        },
-        0
-      );
-
-      // 2. Showcase frame expands to a clean full-video state.
-      if (showcaseFrameRef.current) {
-        tl.to(showcaseFrameRef.current,
+        // 1. First scroll clears the masthead and leaves the viewer on the video.
+        tl.to(editorialHeaderRef.current,
           {
-            top: 0,
-            duration: 0.24,
+            opacity: 0,
+            y: -34,
+            duration: 0.35,
             ease: "power2.inOut",
           },
           0
         );
-      }
 
-      // 3. Keep the compact controls available while the video holds alone.
-      tl.to(frameControlsRef.current,
-        {
-          opacity: 0,
-          duration: 0.12,
-          ease: "power1.out",
-        },
-        0.5
-      );
+        // 2. Showcase frame expands to a clean full-video state.
+        if (showcaseFrameRef.current) {
+          tl.to(showcaseFrameRef.current,
+            {
+              top: 0,
+              duration: 0.45,
+              ease: "power2.inOut",
+            },
+            0
+          );
+        }
 
-      // 4. Parallax smooth video drift.
-      tl.to(videoRef.current, {
-        y: "-10%",
-        duration: 1.0,
-        ease: "none"
-      }, 0);
-
-      // 5. Director layer waits until after the video has had its own scroll beat.
-      tl.fromTo(directorBlackFadeRef.current,
-        { opacity: 0, y: "20vh" },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.22,
-          ease: "sine.inOut"
-        },
-        0.48
-      );
-
-      tl.set(directorLayerRef.current, { visibility: "visible" }, 0.52);
-      tl.to(directorLayerRef.current, { opacity: 1, duration: 0.1 }, 0.52);
-
-      // 6. First director wave.
-      tl.fromTo(giantLeftRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.28,
-          ease: "power2.out"
-        },
-        0.58
-      );
-
-      tl.fromTo(topRightTagsRef.current,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.25,
-          ease: "power1.out"
-        },
-        0.62
-      );
-
-      tl.fromTo(giantRightRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.28,
-          ease: "power2.out"
-        },
-        0.68
-      );
-
-      // 7. Narrative follows once the big type is established.
-      tl.fromTo(editorialBlockRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.30,
-          ease: "power2.out"
-        },
-        0.78
-      );
-
-      // 5. Final solid black immersion (0.85 -> 1.00)
-      tl.fromTo(fullBlackOverlayRef.current,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.15,
-          ease: "sine.inOut"
-        },
-        0.85
-      );
+      });
 
       const refreshTimeout = setTimeout(() => {
         ScrollTrigger.refresh();
@@ -417,10 +284,6 @@ export default function CinematicHeroFlow({
             </video>
             <div className={styles.videoOverlay} />
             <div ref={heroBottomShadeRef} className={styles.heroBottomShade} />
-
-            {/* Heavy Black Fade Layer (for Section 2) */}
-            <div ref={directorBlackFadeRef} className={styles.directorBlackFade} />
-            <div ref={fullBlackOverlayRef} className={styles.fullBlackOverlay} />
 
             {/* Docked Controls Bar */}
             <div ref={frameControlsRef} className={styles.frameControlsBar}>
@@ -489,40 +352,6 @@ export default function CinematicHeroFlow({
               </div>
             </div>
           </div>
-        </div>
-
-        {/* SECTION 2: DIRECTOR LED / STUDIO BUILT LAYER */}
-        <div ref={directorLayerRef} className={styles.directorLayer}>
-          {/* Top Right Studio Metadata (Wave 1) */}
-          <div ref={topRightTagsRef} className={styles.directorTopRight}>
-            <div className={styles.studioName}>{studioName}</div>
-            <div className={styles.disciplineTags}>
-              {tags.map((tag, idx) => (
-                <span key={idx}>{tag}</span>
-              ))}
-            </div>
-          </div>
-
-          {/* Left Giant Typography (INDUSTRY LED. / DIRECTOR LED. - Wave 1) */}
-          <h2 ref={giantLeftRef} className={styles.giantTextLeft}>
-            <div>{leftGiantTop}</div>
-            <div className={styles.giantAccent}>{leftGiantBottom}</div>
-          </h2>
-
-          {/* Center-Left Editorial Narrative Block (Wave 2 - Staggered AFTER Left & Right) */}
-          <div ref={editorialBlockRef} className={styles.editorialBlock}>
-            {editorialParagraphs.map((para, idx) => (
-              <p key={idx}>
-                {para}
-              </p>
-            ))}
-          </div>
-
-          {/* Right Giant Typography (CRAFT BUILT. / STUDIO BUILT. - Wave 1) */}
-          <h2 ref={giantRightRef} className={styles.giantTextRight}>
-            <div className={styles.giantAccent}>{rightGiantTop}</div>
-            <div>{rightGiantBottom}</div>
-          </h2>
         </div>
       </div>
     </div>

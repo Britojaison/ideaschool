@@ -1,7 +1,7 @@
 .section {
   background-color: #080808;
   color: #fff;
-  padding: 8rem 2rem;
+  padding: clamp(3.5rem, 6vw, 6rem) 2rem;
   font-family: var(--font-inter), sans-serif;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -14,7 +14,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 4.5rem;
 }
 
 .header {
@@ -238,9 +238,21 @@
 }
 
 @media (max-width: 900px) {
+  .section {
+    padding: 2.75rem 1.5rem 3.5rem;
+  }
+
+  .container {
+    gap: 3rem;
+  }
+
+  .tag {
+    margin-bottom: 1.25rem;
+  }
+
   .header {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .headerRight {
@@ -274,6 +286,18 @@
 }
 
 @media (max-width: 640px) {
+  .section {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .container {
+    gap: 2.25rem;
+  }
+
+  .tag {
+    margin-bottom: 0.85rem;
+  }
+
   .headerColLeft,
   .headerColRight {
     padding: 1.5rem 1rem;

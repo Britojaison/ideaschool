@@ -121,237 +121,65 @@ export function MagneticSpotlightMarquee({
     };
   }, [images]);
 
-  // Wake effect logic
-  useEffect(() => {
-    if (!containerRef.current || !marqueeStripRef.current || !contentWrapperRef.current) return;
-
-    const spotlightSection = containerRef.current;
-    const marqueeStrip = marqueeStripRef.current;
-
-    let stripBaseTop = 0;
-    let stripHeight = 0;
-    let sectionHeight = 0;
-    let stripRestCenterY = 0;
-    let contentTopAtRest = 0;
-
-    let stripTargetY = 0;
-    let stripCurrentY = 0;
-    let stripPrevY = 0;
-    let hasPointerMoved = false;
-    let lastClientY = 0;
-    let sectionAbsoluteTop = 0;
-
-    let targets: { el: HTMLElement; restCenterY: number; currentY: number }[] = [];
-
-    const measureGeometry = () => {
-      const rect = spotlightSection.getBoundingClientRect();
-      sectionHeight = rect.height;
-      sectionAbsoluteTop = rect.top + window.scrollY;
-      stripBaseTop = marqueeStrip.offsetTop;
-      stripHeight = marqueeStrip.offsetHeight;
-      
-      stripRestCenterY = config.stripEdgeInset;
-      
-      const elements = Array.from(spotlightSection.querySelectorAll('.wake-target')) as HTMLElement[];
-      
-      let blockTop = Infinity;
-      targets = elements.map(el => {
-        let y = 0;
-        let node: HTMLElement | null = el;
-        while (node && node !== spotlightSection) {
-          y += node.offsetTop;
-          node = node.offsetParent as HTMLElement;
-        }
-        const restCenterY = y + el.offsetHeight / 2;
-        blockTop = Math.min(blockTop, restCenterY - el.offsetHeight / 2);
-        
-        return {
-          el,
-          restCenterY,
-          currentY: 0
-        };
-      });
-
-      contentTopAtRest = isFinite(blockTop) ? blockTop : sectionHeight * 0.4;
-      
-      if (!hasPointerMoved) {
-        const restY = config.stripEdgeInset - stripHeight / 2;
-        stripTargetY = restY;
-        stripCurrentY = restY;
-        stripPrevY = restY;
-        gsap.set(marqueeStrip, { y: stripCurrentY });
-      }
-    };
-
-    const measureTimer = window.setTimeout(measureGeometry, 100);
-    window.addEventListener('resize', measureGeometry);
-
-    const handlePointerMove = (e: MouseEvent) => {
-      hasPointerMoved = true;
-      lastClientY = e.clientY;
-    };
-
-    const handlePointerLeave = () => {
-      hasPointerMoved = false;
-      stripTargetY = config.stripEdgeInset - stripHeight / 2;
-    };
-
-    spotlightSection.addEventListener('mousemove', handlePointerMove);
-    spotlightSection.addEventListener('mouseleave', handlePointerLeave);
-
-    const render = () => {
-      if (hasPointerMoved) {
-        const currentRectTop = sectionAbsoluteTop - window.scrollY;
-        const pointerY = lastClientY - currentRectTop;
-        stripTargetY = pointerY - stripHeight / 2;
-      }
-
-      stripCurrentY += (stripTargetY - stripCurrentY) * config.stripFollowEase;
-      gsap.set(marqueeStrip, { y: stripCurrentY });
-
-      const stripCenterY = stripBaseTop + stripCurrentY + stripHeight / 2;
-      const stripVelocityY = stripCurrentY - stripPrevY;
-      stripPrevY = stripCurrentY;
-
-      const descentBelowRest = Math.max(0, stripCenterY - stripRestCenterY);
-      const maxRise = Math.max(0, contentTopAtRest - config.risenTopGap);
-      const contentRise = -Math.min(
-        descentBelowRest * config.contentRiseRate,
-        maxRise
-      );
-
-      targets.forEach(line => {
-        const gapToStrip = line.restCenterY - stripCenterY;
-        const reachedLine = stripCenterY + config.liftHeadStart >= line.restCenterY;
-        
-        const wakeInfluence = Math.exp(
-          -(gapToStrip * gapToStrip) / (2 * config.wakeReach * config.wakeReach)
-        );
-        const wakeOffset = stripVelocityY * wakeInfluence * config.wakeStrength;
-        
-        const lineTarget = (reachedLine ? contentRise : 0) + wakeOffset;
-        
-        line.currentY += (lineTarget - line.currentY) * config.lineSettleEase;
-        gsap.set(line.el, { y: line.currentY });
-      });
-    };
-    let tickerActive = false;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !tickerActive) {
-        gsap.ticker.add(render);
-        tickerActive = true;
-      } else if (!entry.isIntersecting && tickerActive) {
-        gsap.ticker.remove(render);
-        tickerActive = false;
-      }
-    });
-    observer.observe(spotlightSection);
-
-    return () => {
-      window.clearTimeout(measureTimer);
-      observer.disconnect();
-      window.removeEventListener('resize', measureGeometry);
-      spotlightSection.removeEventListener('mousemove', handlePointerMove);
-      spotlightSection.removeEventListener('mouseleave', handlePointerLeave);
-      if (tickerActive) gsap.ticker.remove(render);
-    };
-  }, []);
-
   return (
     <section
       ref={containerRef}
       data-header-theme="light"
       className={cn(
-        "spotlight relative w-full h-[100vh] min-h-[800px] overflow-hidden bg-white dark:bg-[#0f0f0f] text-white font-sans",
+        "spotlight relative w-full py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0f0f0f] text-[#111] font-sans flex flex-col items-center justify-center",
         className
       )}
       style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
     >
-      {/* Top Nav - Centered layout as seen in screenshot */}
-      <div className="absolute top-0 left-0 w-full p-6 flex flex-col items-center justify-center z-50 text-[10px] md:text-xs font-medium tracking-wide opacity-90 text-[#111] pointer-events-none">
-        <div>{navEmail}</div>
-        <div>{navLinks}</div>
+      {/* Main Content Layout */}
+      <div 
+        ref={contentWrapperRef}
+        className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center mb-8 md:mb-12"
+      >
+        {/* Title */}
+        <h1 
+          className="text-[clamp(3.5rem,10.5vw,12rem)] font-normal leading-[0.88] tracking-tighter mb-6 md:mb-10 text-center flex flex-col items-center select-none"
+          style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
+        >
+          {title.map((line, idx) => (
+            <div key={idx} className="inline-block relative">
+              {line}
+            </div>
+          ))}
+        </h1>
+        
+        {/* Subtitle */}
+        {subtitle && subtitle.length > 0 && (
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs md:text-sm font-semibold tracking-widest uppercase opacity-75">
+            {subtitle.map((line, idx) => (
+              <span key={idx}>{line}</span>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Marquee Strip */}
+      {/* Marquee Strip — Positioned naturally below the title */}
       <div 
         ref={marqueeStripRef} 
-        className="spotlight-marquee absolute left-0 w-full z-20 h-[200px] md:h-[220px] lg:h-[260px] pointer-events-none will-change-transform"
-        style={{ top: 0 }} 
+        className="spotlight-marquee relative w-full h-[220px] md:h-[260px] lg:h-[300px] overflow-hidden"
       >
         <div 
           ref={marqueeTrackRef} 
           className="spotlight-marquee-track flex gap-4 h-full items-center absolute top-0 left-0 will-change-transform"
         >
           {clonedImages.map((img, idx) => (
-            <div key={idx} className="w-[180px] h-[180px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[240px] shrink-0 rounded-[16px] md:rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
+            <div key={idx} className="w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:w-[280px] lg:h-[280px] shrink-0 rounded-[16px] md:rounded-[20px] overflow-hidden shadow-sm bg-neutral-100 dark:bg-neutral-900">
               <Image
                 src={img}
                 alt="Marquee item"
-                width={240}
-                height={240}
-                sizes="(max-width: 639px) 180px, (max-width: 1023px) 200px, 240px"
+                width={280}
+                height={280}
+                sizes="(max-width: 639px) 200px, (max-width: 1023px) 240px, 280px"
                 className="w-full h-full object-cover"
               />
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Main Content Layout */}
-      <div 
-        ref={contentWrapperRef}
-        className="spotlight-content-wrapper relative w-full h-full flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 z-30 pointer-events-none text-[#111]"
-      >
-        {/* Title */}
-        <h1 
-          className="text-[clamp(3.5rem,10.5vw,12rem)] font-normal leading-[0.88] tracking-tighter mb-8 md:mb-12 lg:mb-16 text-center flex flex-col items-center select-none"
-          style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
-        >
-          {title.map((line, idx) => (
-            <div key={idx} className="wake-target inline-block relative will-change-transform">
-              {line}
-              {/* Optional playful dot for 'Studio' to mimic the screenshot */}
-              {line === "Studio" && (
-                <span className="absolute right-[0.45em] top-[0.1em] w-[0.25em] h-[0.25em] bg-white rounded-full"></span>
-              )}
-            </div>
-          ))}
-        </h1>
-        
-        {/* Subtitle & Paragraphs row */}
-        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start mt-4 md:mt-6 lg:mt-8 px-2 md:px-6 gap-6 md:gap-8 lg:gap-12">
-          
-          {/* Subtitle / Header (Left side) */}
-          <div className="flex-1 md:max-w-[240px] lg:max-w-[280px] text-left md:text-right mt-1">
-            <h3 className="text-lg md:text-xl lg:text-3xl uppercase tracking-tight font-medium leading-[1.1]">
-              {subtitle.map((line, idx) => (
-                <div key={idx} className="wake-target will-change-transform">{line}</div>
-              ))}
-            </h3>
-          </div>
-
-          {/* Paragraphs (Right side) */}
-          <div className="flex-1 flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-12 text-sm sm:text-base md:text-lg lg:text-xl leading-[1.55] text-black/85">
-            {paragraphs.map((para, pIdx) => (
-              <div key={pIdx} className="flex-1 flex flex-col">
-                {para.map((line, lIdx) => (
-                  <div key={lIdx} className="wake-target whitespace-normal will-change-transform">
-                    {line}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="absolute bottom-0 left-0 w-full p-8 z-40 flex justify-center pointer-events-none">
-        <p className="text-[8px] md:text-[10px] text-black/70 max-w-2xl text-center leading-[1.6]">
-          {footerText}
-        </p>
       </div>
     </section>
   );

@@ -127,6 +127,20 @@ export default function ToolsMarquee() {
         .marquee-track-right {
           animation: scrollRight 30s linear infinite;
         }
+        .marquee-item {
+          width: 90px;
+          height: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          padding: 8px;
+          background: transparent;
+          transition: transform 0.3s ease;
+        }
+        .marquee-item:hover {
+          transform: scale(1.1);
+        }
         .tools-card:hover {
           background-color: #DAFD55 !important;
           border-left-color: rgba(17, 17, 17, 0.3) !important;
@@ -138,6 +152,11 @@ export default function ToolsMarquee() {
           color: rgba(17, 17, 17, 0.85) !important;
         }
         @media (max-width: 768px) {
+          .marquee-item {
+            width: 70px;
+            height: 70px;
+            padding: 6px;
+          }
           .tools-category-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 12px !important;
@@ -181,40 +200,16 @@ function MarqueeRow({ items, direction }: { items: string[], direction: "left" |
         className={`marquee-track marquee-track-${direction}`}
         style={{ 
           display: "flex", 
-          gap: "20px", 
+          alignItems: "center",
+          gap: "36px", 
           width: "max-content",
-          padding: "0 10px"
+          padding: "10px"
         }}
       >
         {duplicatedItems.map((src, idx) => (
           <div 
             key={idx}
-            style={{
-              width: "120px",
-              height: "120px",
-              backgroundColor: "#16161a", // Subtle card background
-              borderRadius: "24px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-              padding: "24px",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-              border: "1px solid rgba(255,255,255,0.05)",
-              transition: "transform 0.3s ease, border-color 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
-              const img = e.currentTarget.querySelector("img");
-              if (img) img.style.filter = "grayscale(0%) opacity(100%)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-              const img = e.currentTarget.querySelector("img");
-              if (img) img.style.filter = "grayscale(100%) opacity(100%)";
-            }}
+            className="marquee-item"
           >
             <img 
               src={src} 
@@ -223,8 +218,6 @@ function MarqueeRow({ items, direction }: { items: string[], direction: "left" |
                 width: "100%",
                 height: "100%",
                 objectFit: "contain",
-                filter: "grayscale(100%) opacity(100%)",
-                transition: "filter 0.4s ease",
               }} 
             />
           </div>

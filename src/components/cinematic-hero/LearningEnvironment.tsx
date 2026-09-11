@@ -82,7 +82,7 @@ export default function LearningEnvironment() {
           <div className={styles.headerLeft}>
             <div className={styles.tag}>INSIDE IDEA SCHOOL</div>
             <div className={styles.title}>
-              <ScrollHighlight 
+              <ScrollHighlight
                 text="BUILT AROUND PRACTICE, FEEDBACK AND BETTER WORK."
                 font={{
                   fontSize: "inherit",
@@ -97,26 +97,6 @@ export default function LearningEnvironment() {
               />
             </div>
           </div>
-
-          <div className={styles.headerRight}>
-            <div className={styles.description}>
-              <ScrollHighlight 
-                text="Show the environment as it is: students creating, mentors reviewing, assignments progressing and work improving through revision."
-                font={{
-                  fontSize: "inherit",
-                  fontWeight: "inherit",
-                  lineHeight: "inherit",
-                  fontFamily: "inherit",
-                  textAlign: "left",
-                }}
-                splitBy="words"
-                dimColor="#475569"
-                highlightColor="#A0AAB2"
-                scrollStart="bottom bottom"
-                scrollEnd="center center"
-              />
-            </div>
-          </div>
         </div>
 
         <div className={styles.comparisonTable} ref={tableRef}>
@@ -125,7 +105,7 @@ export default function LearningEnvironment() {
           {/* Header Row */}
           <div className={styles.comparisonHeaderRow}>
             <div className={styles.headerColLeft}>
-              <h3 className={styles.headerTitleLeft}>Video Tutorials & Self-Study</h3>
+              <h3 className={styles.headerTitleLeft}>Video Tutorials & Other Courses</h3>
             </div>
             <div className={styles.headerColRight}>
               <h3 className={styles.headerTitleRight}>IDEA School</h3>

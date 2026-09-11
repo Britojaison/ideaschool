@@ -126,7 +126,7 @@ export function MagneticSpotlightMarquee({
       ref={containerRef}
       data-header-theme="light"
       className={cn(
-        "spotlight relative w-full py-16 md:py-24 overflow-hidden bg-white dark:bg-[#0f0f0f] text-[#111] font-sans flex flex-col items-center justify-center",
+        "spotlight relative w-full py-12 md:py-16 overflow-hidden bg-white dark:bg-[#0f0f0f] text-[#111] font-sans flex flex-col items-center justify-center",
         className
       )}
       style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
@@ -134,7 +134,7 @@ export function MagneticSpotlightMarquee({
       {/* Main Content Layout */}
       <div 
         ref={contentWrapperRef}
-        className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center mb-8 md:mb-12"
+        className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center mb-6 md:mb-8"
       >
         {/* Title */}
         <h1 

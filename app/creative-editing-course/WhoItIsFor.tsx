@@ -18,45 +18,52 @@ const reasons = [
   "You can commit to the 24-week learning and industry-experience process.",
 ];
 
-const exclusions = [
-  "You only want prerecorded lessons to watch casually.",
-  "You are looking for shortcuts, presets or AI prompts without learning the craft.",
-  "You are unwilling to practise or revise your work after feedback.",
-];
-
 export default function WhoItIsFor() {
   const artworkRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const contentGridRef = useRef<HTMLDivElement>(null);
+  const stickyColumnRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const artwork = artworkRef.current;
     const image = imageRef.current;
-    if (!artwork || !image || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    gsap.fromTo(
-      image,
-      { yPercent: -8 },
-      {
-        yPercent: 8,
-        ease: "none",
-        scrollTrigger: {
-          trigger: artwork,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 0.8,
+    if (artwork && image && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.fromTo(
+        image,
+        { yPercent: -8 },
+        {
+          yPercent: 8,
+          ease: "none",
+          scrollTrigger: {
+            trigger: artwork,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.8,
+          },
         },
-      },
-    );
+      );
+    }
+
+    const contentGrid = contentGridRef.current;
+    const stickyCol = stickyColumnRef.current;
+    if (contentGrid && stickyCol) {
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 901px)", () => {
+        ScrollTrigger.create({
+          trigger: contentGrid,
+          start: "top 84px",
+          end: "bottom bottom",
+          pin: stickyCol,
+          pinSpacing: false,
+          anticipatePin: 1,
+        });
+      });
+      return () => mm.revert();
+    }
   }, []);
 
   return (
     <section className={styles.section} data-header-theme="light">
-      <div className={styles.introGrid}>
-        <h2 className={styles.title}>
-          <TextAnimation divideBy="word">SERIOUS ABOUT BUILDING A CREATIVE CAREER?</TextAnimation>
-        </h2>
-      </div>
-
       <div className={styles.fullBleedArtwork} ref={artworkRef}>
         <Image
           ref={imageRef}
@@ -69,25 +76,25 @@ export default function WhoItIsFor() {
         />
       </div>
 
-      <div className={styles.contentGrid}>
-        <ol className={styles.reasons}>
-          {reasons.map((reason, index) => (
-            <li className={styles.reason} key={reason}>
-              <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
-              <p>{reason}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      <div className={styles.notForYou}>
-        <div>
-          <span className={styles.notLabel}>A QUICK REALITY CHECK</span>
-          <h3>This may not be for you if</h3>
+      <div className={styles.contentGrid} ref={contentGridRef}>
+        <div className={styles.stickyColumn} ref={stickyColumnRef}>
+          <div className={styles.stickyInner}>
+            <h2 className={styles.stickyTitle}>
+              WHO IS THIS FOR?
+            </h2>
+          </div>
         </div>
-        <ul>
-          {exclusions.map((item) => <li key={item}>{item}</li>)}
-        </ul>
+
+        <div className={styles.reasonsColumn}>
+          <ol className={styles.reasons}>
+            {reasons.map((reason, index) => (
+              <li className={styles.reason} key={reason}>
+                <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
+                <p>{reason}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );

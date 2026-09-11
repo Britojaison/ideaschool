@@ -6,29 +6,39 @@ import ScrollHighlight from "../ui/ScrollHighlight";
 
 const comparisonData = [
   {
+    num: "01",
     category: "LEARNING",
-    online: "Watch lessons independently.",
-    ideaSchool: "Combine structured online foundations with guided physical sessions.",
+    online: "Watch recorded lessons independently.",
+    ideaSchoolPrefix: "Combine online learning with ",
+    ideaSchoolHighlight: "guided studio sessions.",
   },
   {
+    num: "02",
     category: "PRACTICE",
-    online: "Follow tutorials and isolated exercises.",
-    ideaSchool: "Work through assignments and professional-style briefs.",
+    online: "Follow tutorials and exercises.",
+    ideaSchoolPrefix: "Work through assignments and ",
+    ideaSchoolHighlight: "professional-style briefs.",
   },
   {
+    num: "03",
     category: "FEEDBACK",
-    online: "Limited, delayed or automated.",
-    ideaSchool: "Receive mentor reviews and clear revision direction.",
+    online: "Review your own work or rely on automated feedback.",
+    ideaSchoolPrefix: "Receive direct mentor reviews and ",
+    ideaSchoolHighlight: "clear revision guidance.",
   },
   {
+    num: "04",
     category: "ENVIRONMENT",
     online: "Learn largely on your own.",
-    ideaSchool: "Learn alongside peers and working creative professionals.",
+    ideaSchoolPrefix: "Learn alongside peers and ",
+    ideaSchoolHighlight: "working creative professionals.",
   },
   {
+    num: "05",
     category: "OUTCOME",
-    online: "Understand the software.",
-    ideaSchool: "Build stronger work, professional habits and portfolio confidence.",
+    online: "Become familiar with the software.",
+    ideaSchoolPrefix: "Build a stronger process, professional habits and ",
+    ideaSchoolHighlight: "portfolio-ready work.",
   },
 ];
 
@@ -36,8 +46,8 @@ export default function LearningEnvironment() {
   const tableRef = useRef<HTMLDivElement>(null);
   const highlightRef = useRef<HTMLDivElement>(null);
   const cellRefs = useRef<Map<number, HTMLDivElement>>(new Map());
-  const activeRef = useRef(5); // Default to FEEDBACK on Idea School side
-  const [activeCell, setActiveCell] = useState(5);
+  const activeRef = useRef(0);
+  const [activeRow, setActiveRow] = useState(0);
 
   const moveHighlight = useCallback((index: number, animate = true) => {
     const table = tableRef.current;
@@ -45,15 +55,13 @@ export default function LearningEnvironment() {
     const cell = cellRefs.current.get(index);
     if (!table || !highlight || !cell) return;
 
-    const isLeft = index % 2 === 0;
-
     const tableRect = table.getBoundingClientRect();
     const cellRect = cell.getBoundingClientRect();
     highlight.style.transitionDuration = animate ? "250ms" : "0ms";
     highlight.style.transform = `translate3d(${cellRect.left - tableRect.left}px, ${cellRect.top - tableRect.top}px, 0)`;
     highlight.style.width = `${cellRect.width}px`;
     highlight.style.height = `${cellRect.height}px`;
-    highlight.style.backgroundColor = isLeft ? "#552EAD" : "#DAFD55";
+    highlight.style.opacity = "1";
     activeRef.current = index;
   }, []);
 
@@ -105,52 +113,58 @@ export default function LearningEnvironment() {
           {/* Header Row */}
           <div className={styles.comparisonHeaderRow}>
             <div className={styles.headerColLeft}>
-              <h3 className={styles.headerTitleLeft}>Video Tutorials & Other Courses</h3>
+              <div className={styles.headerSubtitle}>TYPICAL SELF-PACED COURSE</div>
+              <h3 className={styles.headerTitleLeft}>WATCH AND FOLLOW</h3>
             </div>
             <div className={styles.headerColRight}>
-              <h3 className={styles.headerTitleRight}>IDEA School</h3>
+              <div className={styles.headerSubtitleRight}>LEARN AND APPLY</div>
+              <h3 className={styles.headerTitleRight}>
+                <span className={styles.greenBar} aria-hidden="true" />
+                <span>IDEA SCHOOL</span>
+              </h3>
             </div>
           </div>
 
           {/* Comparison Rows */}
-          {comparisonData.map((row, rowIdx) => {
-            const leftIndex = rowIdx * 2;
-            const rightIndex = rowIdx * 2 + 1;
-
-            return (
-              <div key={row.category} className={styles.comparisonRow}>
-                <div
-                  ref={(element) => {
-                    if (element) cellRefs.current.set(leftIndex, element);
-                    else cellRefs.current.delete(leftIndex);
-                  }}
-                  className={`${styles.cellLeft}${activeCell === leftIndex ? ` ${styles.cellActive}` : ""}`}
-                  onPointerEnter={() => {
-                    setActiveCell(leftIndex);
-                    moveHighlight(leftIndex);
-                  }}
-                >
-                  <div className={styles.cellLabel}>{row.category}</div>
-                  <p className={styles.cellText}>{row.online}</p>
+          {comparisonData.map((row, rowIdx) => (
+            <div
+              key={row.category}
+              className={styles.comparisonRow}
+              onPointerEnter={() => {
+                setActiveRow(rowIdx);
+                moveHighlight(rowIdx);
+              }}
+            >
+              <div className={styles.cellLeft}>
+                <div className={styles.cellMetaLeft}>
+                  <span className={styles.cellNum}>{row.num}</span>
+                  <span className={styles.cellCategory}>{row.category}</span>
                 </div>
-
-                <div
-                  ref={(element) => {
-                    if (element) cellRefs.current.set(rightIndex, element);
-                    else cellRefs.current.delete(rightIndex);
-                  }}
-                  className={`${styles.cellRight}${activeCell === rightIndex ? ` ${styles.cellActive}` : ""}`}
-                  onPointerEnter={() => {
-                    setActiveCell(rightIndex);
-                    moveHighlight(rightIndex);
-                  }}
-                >
-                  <div className={styles.cellLabel}>{row.category}</div>
-                  <p className={styles.cellText}>{row.ideaSchool}</p>
-                </div>
+                <p className={styles.cellTextLeft}>{row.online}</p>
               </div>
-            );
-          })}
+
+              <div
+                ref={(element) => {
+                  if (element) cellRefs.current.set(rowIdx, element);
+                  else cellRefs.current.delete(rowIdx);
+                }}
+                className={`${styles.cellRight}${activeRow === rowIdx ? ` ${styles.cellActive}` : ""}`}
+                onPointerEnter={() => {
+                  setActiveRow(rowIdx);
+                  moveHighlight(rowIdx);
+                }}
+              >
+                <div className={styles.cellMetaRight}>
+                  <span className={styles.cellNum}>{row.num}</span>
+                  <span className={styles.cellCategory}>{row.category}</span>
+                </div>
+                <p className={styles.cellTextRight}>
+                  <span>{row.ideaSchoolPrefix}</span>
+                  <span className={styles.highlightText}>{row.ideaSchoolHighlight}</span>
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className={styles.sectionGroup}>

@@ -19,7 +19,7 @@ export default function ToolsMarquee() {
   return (
     <section 
       style={{ 
-        padding: "80px 0 60px", 
+        padding: "clamp(36px, 4.5vw, 56px) 0 clamp(40px, 5vw, 60px)", 
         backgroundColor: "#FBFAF2",
         overflow: "hidden",
         display: "flex",
@@ -29,7 +29,7 @@ export default function ToolsMarquee() {
       }}
     >
       {/* Section Header — matches SelectedProjects / ProgramBrochure */}
-      <div style={{ marginBottom: "40px", padding: "0 3.5vw" }}>
+      <div style={{ marginBottom: "28px", padding: "0 3.5vw" }}>
         <h2
           style={{
             fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif',
@@ -58,7 +58,7 @@ export default function ToolsMarquee() {
           gap: "1px",
           width: "100%",
           maxWidth: "1290px",
-          margin: "64px auto 0",
+          margin: "40px auto 0",
           padding: "0 32px",
         }}
         className="tools-category-grid"

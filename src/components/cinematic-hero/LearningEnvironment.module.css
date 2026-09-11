@@ -90,9 +90,12 @@
   left: 0;
   width: 0;
   height: 0;
+  opacity: 0;
   pointer-events: none;
-  background-color: #DAFD55;
-  transition-property: transform, width, height, background-color;
+  background-color: rgba(218, 253, 85, 0.04);
+  border: 1px solid rgba(218, 253, 85, 0.2);
+  box-shadow: inset 0 0 30px rgba(218, 253, 85, 0.03);
+  transition-property: transform, width, height, opacity;
   transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   will-change: transform, width, height;
 }
@@ -108,26 +111,67 @@
 .headerColLeft {
   padding: 3rem;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .headerColRight {
   padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.headerSubtitle,
+.headerSubtitleRight {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  min-height: 2.1rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.headerSubtitle {
+  color: #71717A;
+}
+
+.headerSubtitleRight {
+  color: #DAFD55;
 }
 
 .headerTitleLeft {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
   font-weight: 700;
-  color: #7B4EE4;
+  color: #8B7AFE;
   margin: 0;
   letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 .headerTitleRight {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
   font-weight: 700;
-  color: #DAFD55;
+  color: #ffffff;
   margin: 0;
   letter-spacing: -0.01em;
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.greenBar {
+  display: inline-block;
+  width: 5px;
+  height: 1.15em;
+  background-color: #DAFD55;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
 .comparisonRow {
@@ -147,8 +191,9 @@
   position: relative;
   padding: 2.75rem 3rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
   cursor: pointer;
 }
 
@@ -162,43 +207,61 @@
   z-index: 3;
 }
 
-.cellLabel {
-  font-size: 0.75rem;
+.cellMetaLeft,
+.cellMetaRight {
+  display: flex;
+  flex-direction: column;
+  min-width: 85px;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+.cellNum {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.cellCategory {
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffffff;
-  transition: color 200ms ease;
+  margin-top: 0.4rem;
 }
 
-.cellLeft .cellText {
-  font-size: 1.0625rem;
-  line-height: 1.5;
-  color: #A0AAB2;
+/* Left side styling: Muted / Subdued */
+.cellMetaLeft .cellNum,
+.cellMetaLeft .cellCategory {
+  color: #52525B;
+}
+
+.cellTextLeft {
+  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+  line-height: 1.45;
+  color: #8E8E93;
   margin: 0;
-  transition: color 200ms ease;
+  max-width: 480px;
 }
 
-.cellRight .cellText {
-  font-size: 1.0625rem;
-  line-height: 1.5;
-  color: #E2E8F0;
+/* Right side styling: Vibrant / Idea School */
+.cellMetaRight .cellNum,
+.cellMetaRight .cellCategory {
+  color: #DAFD55;
+}
+
+.cellTextRight {
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  line-height: 1.45;
+  color: #FFFFFF;
   margin: 0;
-  transition: color 200ms ease;
+  max-width: 520px;
 }
 
-/* Active Highlight State */
-.cellRight.cellActive .cellLabel,
-.cellRight.cellActive .cellText {
-  color: #080808 !important;
-}
-
-.cellLeft.cellActive .cellLabel {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.cellLeft.cellActive .cellText {
-  color: #ffffff !important;
+.highlightText {
+  color: #DAFD55;
+  font-weight: 500;
 }
 
 .principlesList {
@@ -261,15 +324,17 @@
   .cellLeft,
   .cellRight {
     padding: 2rem 1.5rem;
+    gap: 1.25rem;
   }
 
   .headerTitleLeft,
   .headerTitleRight {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 
-  .cellText {
-    font-size: 0.95rem;
+  .cellTextLeft,
+  .cellTextRight {
+    font-size: 1.05rem;
   }
 
   .principleRow {
@@ -297,9 +362,18 @@
     padding: 1.5rem 1rem;
   }
 
+  .headerSubtitle,
+  .headerSubtitleRight {
+    font-size: 0.6875rem;
+    min-height: 1.95rem;
+    margin-bottom: 0.65rem;
+  }
+
   .cellLeft,
   .cellRight {
     padding: 1.5rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .headerTitleLeft,
@@ -307,12 +381,22 @@
     font-size: 1.15rem;
   }
 
-  .cellLabel {
-    font-size: 0.6875rem;
+  .cellMetaLeft,
+  .cellMetaRight {
+    min-width: unset;
   }
 
-  .cellText {
-    font-size: 0.875rem;
+  .cellNum {
+    font-size: 0.95rem;
+  }
+
+  .cellCategory {
+    font-size: 0.625rem;
+  }
+
+  .cellTextLeft,
+  .cellTextRight {
+    font-size: 0.95rem;
   }
 }
 

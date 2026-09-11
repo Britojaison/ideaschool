@@ -64,6 +64,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
+  width: 100%;
 }
 
 .sectionTitle {
@@ -72,6 +74,7 @@
   letter-spacing: 0.1em;
   color: #A0AAB2;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .comparisonTable {
@@ -264,34 +267,70 @@
   font-weight: 500;
 }
 
-.principlesList {
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin: 0 auto;
+  padding: 1rem 0.25rem 2rem;
+  max-width: 1080px;
+  width: 100%;
+  justify-content: center;
+}
+
+.principleCard {
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding: 2rem 1.5rem 1.75rem;
+  min-height: 330px;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 1.25rem;
+  background: radial-gradient(120% 90% at 50% 0%, var(--card-glow, rgba(218, 253, 85, 0.07)) 0%, #131313 65%, #0d0d0d 100%);
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: rotate(var(--card-rotate, 0deg));
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1), border-color 0.35s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.35s cubic-bezier(0.2, 0, 0, 1);
+  cursor: default;
 }
 
-.principleRow {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 2rem;
-  padding: 3rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  align-items: start;
+.principleCard:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.02);
+  border-color: #DAFD55;
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(218, 253, 85, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  z-index: 5;
 }
 
-.principleTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #DAFD55;
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #FFFFFF;
   margin: 0;
+  letter-spacing: -0.01em;
+  max-width: 220px;
 }
 
-.principleDesc {
-  font-size: 1.125rem;
-  line-height: 1.6;
+.cardIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.25rem 0;
+  width: 100%;
+  height: 64px;
+}
+
+.cardDescription {
+  font-size: 0.875rem;
+  line-height: 1.55;
   color: #A0AAB2;
   margin: 0;
+  max-width: 260px;
 }
 
 @media (max-width: 900px) {
@@ -337,10 +376,11 @@
     font-size: 1.05rem;
   }
 
-  .principleRow {
+  .principlesGrid {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 2rem 0;
+    max-width: 440px;
+    margin: 1.5rem auto 0;
+    gap: 2rem;
   }
 }
 
@@ -397,6 +437,33 @@
   .cellTextLeft,
   .cellTextRight {
     font-size: 0.95rem;
+  }
+
+  .principlesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 340px;
+    margin: 1.25rem auto 0;
+    padding: 0.5rem 0;
+  }
+
+  .principleCard {
+    min-height: 290px;
+    padding: 1.75rem 1.25rem 1.5rem;
+    transform: rotate(0deg) !important;
+  }
+
+  .cardTitle {
+    font-size: 1.05rem;
+  }
+
+  .cardIconWrapper {
+    margin: 1rem 0;
+    height: 56px;
+  }
+
+  .cardDescription {
+    font-size: 0.825rem;
   }
 }
 

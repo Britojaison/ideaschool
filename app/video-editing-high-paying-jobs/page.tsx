@@ -1253,6 +1253,131 @@ export default function ApplyPage() {
           </div>
         </div>
       </section>
+      <section className="qualificationSection" aria-label="Who should attend">
+        <div className="qualificationInner">
+          <div className="qualificationHeader">
+            <p className="qualificationEyebrow">HONEST QUALIFICATION // ACTIVE EDITORS ONLY</p>
+            <h2>BOOK A SEAT IF • SKIP THIS IF</h2>
+            <p className="qualificationSubhead">This workshop is intentionally designed for active editors who want direct feedback, not casual passive viewers.</p>
+          </div>
+          
+          <div className="qualificationGrid">
+            <div className="qualificationCard qualificationRecommended">
+              <div className="qualificationCardHeader">
+                <span className="qualificationPill qualificationPillRecommended"><span className="qualificationPillIcon">✔</span> RECOMMENDED</span>
+                <h3>BOOK A SEAT IF:</h3>
+              </div>
+              <ul className="qualificationList">
+                <li><span className="qualificationIcon qualificationIconCheck">✔</span> Tutorials haven&apos;t improved your edits enough and you feel stuck on the timeline.</li>
+                <li><span className="qualificationIcon qualificationIconCheck">✔</span> You understand the basics but struggle to finish edits confidently and decisively.</li>
+                <li><span className="qualificationIcon qualificationIconCheck">✔</span> You want stronger freelance, creator, or agency editing skills that clients pay for.</li>
+                <li><span className="qualificationIcon qualificationIconCheck">✔</span> You want to build stronger portfolio pieces that stand out from generic template cuts.</li>
+                <li><span className="qualificationIcon qualificationIconCheck">✔</span> You learn significantly faster by doing with live mentors beside you.</li>
+                <li><span className="qualificationIcon qualificationIconCheck">✔</span> You want direct, honest feedback on your editing choices before releasing work.</li>
+              </ul>
+            </div>
+
+            <div className="qualificationCard qualificationNotFit">
+              <div className="qualificationCardHeader">
+                <span className="qualificationPill qualificationPillNotFit"><span className="qualificationPillIcon">✕</span> NOT A FIT</span>
+                <h3>SKIP THIS IF:</h3>
+              </div>
+              <ul className="qualificationList">
+                <li><span className="qualificationIcon qualificationIconX">✕</span> You want passive recorded content that sits in your bookmark folder.</li>
+                <li><span className="qualificationIcon qualificationIconX">✕</span> You don&apos;t want to open software and edit during the session.</li>
+                <li><span className="qualificationIcon qualificationIconX">✕</span> You cannot attend in person at 88GB HQ in HSR Layout, Bengaluru.</li>
+                <li><span className="qualificationIcon qualificationIconX">✕</span> You are only looking for keyboard shortcuts rather than editorial thinking.</li>
+                <li><span className="qualificationIcon qualificationIconX">✕</span> You expect a single day to make you an expert without continuous practice.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="thunderVaultSection" aria-label="The Thunder Vault">
+        <div className="thunderVaultInner">
+          <div className="thunderVaultHeader">
+            <div className="thunderVaultEyebrowRow">
+              <span className="thunderVaultPill">Bonus Inclusion //</span>
+              <span className="thunderVaultPillAlt">Lifetime Access</span>
+              <span className="thunderVaultPillAlt">₹5,000+ value</span>
+            </div>
+            <h2>THE THUNDER VAULT</h2>
+            <p className="thunderVaultSubhead">A preview of the resources and workflows that support the workshop. Build high-value editing skills used in paid freelance and agency work. Take home the exact swipe files, case studies, project templates, and AI workflows used inside 88GB.</p>
+          </div>
+
+          <div className="vaultModulesHeader">
+            <p>6 CORE VAULT MODULES INCLUDED // ZERO EXTRA COST</p>
+          </div>
+          
+          <div className="vaultModulesGrid">
+            <div className="vaultModuleCard">
+              <div className="vaultModuleCardTop">
+                <span className="vaultModuleNumber">01</span>
+                <span className="vaultModuleAccess">INSTANT ACCESS</span>
+              </div>
+              <h3>Brief Breakdowns</h3>
+              <p>Real agency client briefs with director notes, target pacing goals, and footage breakdown guides.</p>
+            </div>
+
+            <div className="vaultModuleCard">
+              <div className="vaultModuleCardTop">
+                <span className="vaultModuleNumber">02</span>
+                <span className="vaultModuleAccess">INSTANT ACCESS</span>
+              </div>
+              <h3>Edit Decision Case Studies</h3>
+              <p>Frame-by-frame dissection of why cuts were made, what was discarded, and how pacing was tuned.</p>
+            </div>
+
+            <div className="vaultModuleCard">
+              <div className="vaultModuleCardTop">
+                <span className="vaultModuleNumber">03</span>
+                <span className="vaultModuleAccess">INSTANT ACCESS</span>
+              </div>
+              <h3>Live Edit Workflow Pack</h3>
+              <p>Standardized agency bin structures, keyboard shortcut mappings, and timeline organization templates.</p>
+            </div>
+
+            <div className="vaultModuleCard">
+              <div className="vaultModuleCardTop">
+                <span className="vaultModuleNumber">04</span>
+                <span className="vaultModuleAccess">INSTANT ACCESS</span>
+              </div>
+              <h3>Hook + Retention Swipe File</h3>
+              <p>Proven retention hook structures categorized by genre, tone, and campaign objective.</p>
+            </div>
+
+            <div className="vaultModuleCard">
+              <div className="vaultModuleCardTop">
+                <span className="vaultModuleNumber">05</span>
+                <span className="vaultModuleAccess">INSTANT ACCESS</span>
+              </div>
+              <h3>AI Workflow Kit</h3>
+              <p>Curated AI tool stacks and prompting workflows for fast transcription, rotoscoping, and b-roll ideation.</p>
+            </div>
+
+            <div className="vaultModuleCard">
+              <div className="vaultModuleCardTop">
+                <span className="vaultModuleNumber">06</span>
+                <span className="vaultModuleAccess">INSTANT ACCESS</span>
+              </div>
+              <h3>Templates + Editing Resources</h3>
+              <p>Handcrafted color LUTs, sound design SFX beds, title graphics presets, and timeline review checklists.</p>
+            </div>
+          </div>
+
+          <div className="vaultBanner">
+            <div className="vaultBannerLeft">
+              <span className="vaultBannerLabel">INCLUDED FREE WITH REGISTRATION</span>
+              <p>You receive immediate access after attending the workshop.</p>
+            </div>
+            <div className="vaultBannerRight">
+              <span className="vaultBannerValue">WORTH ₹5,000+</span>
+              <span className="vaultBannerCta">FREE FOR ATTENDEES</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="freeAssetsSection" aria-label="Free assets kit worth ₹5000">
         <div className="freeAssetsInner">

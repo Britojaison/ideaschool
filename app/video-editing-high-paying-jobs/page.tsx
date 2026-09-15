@@ -240,41 +240,57 @@ const agencyBrandLogos = [
 const workshopTimeline = [
   {
     time: "11:00 AM",
+    duration: "15 min",
+    mode: "Onboarding",
     title: "Get Set Up",
     description: "Welcome, workstation setup, raw footage ingest, and project brief unpacking.",
   },
   {
     time: "11:15 AM",
+    duration: "60 min",
+    mode: "Analysis",
     title: "Hook Engineering",
     description: "Analyzing visual hooks, drop-off curves, and first 3-second retention mechanics.",
   },
   {
     time: "12:15 PM",
+    duration: "60 min",
+    mode: "Hands-on",
     title: "Retention Editing",
     description: "Cutting for rhythm, micro-resets, narrative tension, and momentum management.",
   },
   {
     time: "1:15 PM",
+    duration: "45 min",
+    mode: "Reset",
     title: "Break",
     description: "Pause, reset, lunch, and discussions with the 88GB creative team.",
   },
   {
     time: "2:00 PM",
+    duration: "45 min",
+    mode: "Craft",
     title: "Design + Sound",
     description: "Layering sound effects, audio ducking, kinetic graphics, and visual hierarchy.",
   },
   {
     time: "2:45 PM",
+    duration: "45 min",
+    mode: "Framework",
     title: "Viral Edit Framework",
     description: "Dissecting high-performing commercial edits and organic viral timelines.",
   },
   {
     time: "3:30 PM",
+    duration: "45 min",
+    mode: "AI Workflow",
     title: "AI-Integrated Workflow",
     description: "Speeding up transcript cuts, motion tracking, cleanup, and ideation using AI tools.",
   },
   {
     time: "4:15 PM",
+    duration: "45 min",
+    mode: "Review",
     title: "Live Edit + Mentor Review",
     description: "Hands-on edit session followed by direct over-the-shoulder feedback from mentors.",
   },
@@ -921,16 +937,23 @@ export default function ApplyPage() {
         <div className="workshopTimelineInner">
           <div className="workshopTimelineIntro">
             <p className="workshopTimelineEyebrow">WORKSHOP TIMELINE // 11 AM - 5 PM</p>
-            <h2>BY 5 PM, YOU SHOULD UNDERSTAND WHY EVERY CUT IS THERE</h2>
-            <p>One day. One structured workflow. One edit reviewed by a mentor.</p>
-            <strong>WATCH→EDIT→REVIEW→IMPROVE</strong>
+            <h2>What happens inside the workshop</h2>
+            <p>
+              A focused studio day that moves from edit setup to live mentor review.
+            </p>
           </div>
 
           <div className="workshopTimelineList">
             {workshopTimeline.map((item) => (
               <article className="workshopTimelineItem" key={`${item.time}-${item.title}`}>
-                <time>{item.time}</time>
-                <div>
+                <div className="workshopTimelineCardTop">
+                  <time>{item.time}</time>
+                </div>
+                <div className="workshopTimelineMeta">
+                  <span className="workshopTimelineMode">{item.mode}</span>
+                  <span className="workshopTimelineDuration">{item.duration}</span>
+                </div>
+                <div className="workshopTimelineCopy">
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>

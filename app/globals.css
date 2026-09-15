@@ -17578,27 +17578,37 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .workshopTimelineSection {
   position: relative;
   overflow: hidden;
-  padding: clamp(64px, 7vw, 108px) var(--apply-section-x) clamp(64px, 7vw, 104px);
+  padding: clamp(64px, 7vw, 104px) var(--apply-section-x) clamp(70px, 7vw, 110px);
   background:
-    radial-gradient(circle at 12% 0%, rgba(85, 46, 173, 0.14), transparent 34%),
+    radial-gradient(circle at 18% 0%, rgba(218, 253, 85, 0.08), transparent 26%),
+    radial-gradient(circle at 88% 6%, rgba(85, 46, 173, 0.13), transparent 34%),
     #06060a;
   border-top: 1px solid rgba(251, 250, 242, 0.08);
 }
 
+.applyPage .workshopTimelineSection::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 36%);
+  content: "";
+}
+
 .applyPage .workshopTimelineInner {
+  position: relative;
+  z-index: 1;
   width: min(100%, 1256px);
   margin: 0 auto;
 }
 
 .applyPage .workshopTimelineIntro {
-  max-width: 920px;
-  text-align: left;
+  max-width: 760px;
 }
 
 .applyPage .workshopTimelineEyebrow {
-  margin: 0 0 26px !important;
+  margin: 0 0 18px !important;
   color: #DAFD55 !important;
-  font-size: clamp(0.78rem, 1vw, 0.96rem) !important;
+  font-size: clamp(0.74rem, 0.9vw, 0.88rem) !important;
   font-weight: 900 !important;
   line-height: 1.1 !important;
   letter-spacing: 0.08em !important;
@@ -17606,79 +17616,129 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .applyPage .workshopTimelineIntro h2 {
-  max-width: 920px;
+  max-width: 760px;
   margin: 0;
   color: var(--frost) !important;
-  font-size: clamp(2.55rem, 5vw, 5.3rem);
+  font-size: clamp(2.15rem, 4.2vw, 4.2rem);
   font-weight: 950;
-  line-height: 1.08;
+  line-height: 1;
   letter-spacing: 0;
-  text-align: left;
 }
 
 .applyPage .workshopTimelineIntro > p {
-  max-width: 760px;
-  margin: 24px 0 0;
+  max-width: 620px;
+  margin: 20px 0 0;
   color: #9c95aa !important;
-  font-size: clamp(1rem, 1.4vw, 1.28rem);
+  font-size: clamp(0.98rem, 1.25vw, 1.16rem);
   font-weight: 500;
   line-height: 1.48;
-}
-
-.applyPage .workshopTimelineIntro > strong {
-  display: inline-flex;
-  margin-top: 28px;
-  color: #DAFD55;
-  font-size: clamp(1rem, 1.45vw, 1.35rem);
-  font-weight: 950;
-  line-height: 1;
-  letter-spacing: 0.02em;
 }
 
 .applyPage .workshopTimelineList {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(14px, 1.6vw, 20px);
-  margin-top: clamp(48px, 5vw, 72px);
+  gap: clamp(14px, 1.55vw, 20px);
+  margin-top: clamp(36px, 4.5vw, 58px);
 }
 
 .applyPage .workshopTimelineItem {
   position: relative;
-  min-height: 210px;
-  padding: clamp(22px, 2vw, 28px);
-  border: 1px solid rgba(251, 250, 242, 0.14);
-  border-radius: 5px;
+  display: flex;
+  min-height: 214px;
+  flex-direction: column;
+  padding: clamp(18px, 2vw, 24px);
+  overflow: hidden;
+  border: 1px solid rgba(251, 250, 242, 0.12);
+  border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.024)),
-    rgba(255, 255, 255, 0.026);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.022)),
+    rgba(255, 255, 255, 0.028);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 18px 48px rgba(0, 0, 0, 0.18);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.applyPage .workshopTimelineItem:hover {
+  transform: translateY(-3px);
+  border-color: rgba(218, 253, 85, 0.32);
+  background:
+    radial-gradient(circle at 86% 8%, rgba(218, 253, 85, 0.11), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.076), rgba(255, 255, 255, 0.024)),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.28);
 }
 
 .applyPage .workshopTimelineItem::before {
   position: absolute;
-  top: 28px;
-  right: 28px;
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: #DAFD55;
-  box-shadow: 0 0 18px rgba(218, 253, 85, 0.36);
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(218, 253, 85, 0.09), transparent 34%);
+  opacity: 0;
+  transition: opacity 180ms ease;
   content: "";
+}
+
+.applyPage .workshopTimelineItem:hover::before {
+  opacity: 1;
+}
+
+.applyPage .workshopTimelineCardTop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.applyPage .workshopTimelineItem time,
+.applyPage .workshopTimelineDuration {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 .applyPage .workshopTimelineItem time {
   display: inline-flex;
   color: #DAFD55;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: clamp(0.82rem, 1vw, 0.96rem);
+  font-size: clamp(0.92rem, 1vw, 1.05rem);
   font-weight: 950;
+  letter-spacing: 0.04em;
   line-height: 1;
 }
 
+.applyPage .workshopTimelineMeta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 26px;
+}
+
+.applyPage .workshopTimelineCopy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  margin-top: 20px;
+}
+
+.applyPage .workshopTimelineMode {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 6px 9px 5px;
+  border: 1px solid rgba(251, 250, 242, 0.11);
+  border-radius: 999px;
+  color: rgba(251, 250, 242, 0.62);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 0.64rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .applyPage .workshopTimelineItem h3 {
-  margin: 28px 0 0;
+  margin: 0;
   color: var(--frost) !important;
-  font-size: clamp(1.16rem, 1.45vw, 1.42rem);
+  font-size: clamp(1.16rem, 1.42vw, 1.4rem);
   font-weight: 950;
   line-height: 1.12;
 }
@@ -17686,9 +17746,21 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .workshopTimelineItem p {
   margin: 14px 0 0;
   color: #9c95aa !important;
-  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-size: clamp(0.88rem, 0.98vw, 0.98rem);
   font-weight: 500;
-  line-height: 1.42;
+  line-height: 1.46;
+}
+
+.applyPage .workshopTimelineDuration {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  color: rgba(251, 250, 242, 0.52);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 @media (max-width: 980px) {
@@ -17697,14 +17769,13 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .workshopTimelineIntro h2 {
-    font-size: clamp(2.35rem, 7.2vw, 4.2rem);
-    line-height: 1.08;
+    font-size: clamp(2.2rem, 7vw, 3.8rem);
   }
 }
 
 @media (max-width: 640px) {
   .applyPage .workshopTimelineSection {
-    padding: 48px 16px 86px;
+    padding: 48px 16px 70px;
   }
 
   .applyPage .workshopTimelineEyebrow {
@@ -17715,20 +17786,13 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .workshopTimelineIntro h2 {
-    font-size: clamp(1.9rem, 9.2vw, 2.45rem);
-    line-height: 1.02;
+    font-size: clamp(1.9rem, 9vw, 2.45rem);
   }
 
   .applyPage .workshopTimelineIntro > p {
     margin-top: 16px;
     font-size: 0.92rem;
     line-height: 1.42;
-  }
-
-  .applyPage .workshopTimelineIntro > strong {
-    margin-top: 22px;
-    font-size: 0.98rem;
-    line-height: 1.2;
   }
 
   .applyPage .workshopTimelineList {
@@ -17738,36 +17802,36 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .workshopTimelineItem {
-    display: grid;
-    grid-template-columns: 82px minmax(0, 1fr);
-    gap: 14px;
     min-height: auto;
-    padding: 16px 14px;
+    padding: 16px 14px 15px;
   }
 
-  .applyPage .workshopTimelineItem::before {
-    top: 22px;
-    right: 16px;
-    width: 7px;
-    height: 7px;
+  .applyPage .workshopTimelineMeta {
+    margin-top: 18px;
   }
 
   .applyPage .workshopTimelineItem h3 {
-    margin: 0;
-    padding-right: 18px;
-    font-size: 1rem;
+    font-size: 1.08rem;
   }
 
   .applyPage .workshopTimelineItem p {
     margin-top: 8px;
-    font-size: 0.76rem;
+    font-size: 0.8rem;
     line-height: 1.35;
   }
 
   .applyPage .workshopTimelineItem time {
-    padding-top: 2px;
-    font-size: 0.72rem;
+    font-size: 0.92rem;
     line-height: 1.2;
+  }
+
+  .applyPage .workshopTimelineMode {
+    padding: 6px 8px 5px;
+    font-size: 0.62rem;
+  }
+
+  .applyPage .workshopTimelineDuration {
+    font-size: 0.66rem;
   }
 }
 

@@ -610,7 +610,7 @@ const pageSchema = {
       "name": "Agency-Level Video Editing Workshop Preview",
       "description": "Preview of the 1-day offline intensive video editing workshop by Idea School in Bengaluru.",
       "thumbnailUrl": [
-        "https://www.ideaschool.pro/images/edit_1_poster.webp"
+        "https://www.ideaschool.pro/images/video_edit1_poster.webp"
       ],
       "uploadDate": "2024-05-01T00:00:00+05:30",
       "duration": "PT54S",

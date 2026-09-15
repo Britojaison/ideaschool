@@ -838,6 +838,20 @@ export default function ApplyPage() {
               <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
             </video>
           </div>
+          <div className="workshopImmersionFeatures">
+            <div className="workshopImmersionFeature">
+              <strong>Real Room</strong>
+              <p>Physical creative studio, high-energy environment</p>
+            </div>
+            <div className="workshopImmersionFeature">
+              <strong>Real Edits</strong>
+              <p>Working on actual commercial campaign footage</p>
+            </div>
+            <div className="workshopImmersionFeature">
+              <strong>Real Feedback</strong>
+              <p>Live over-the-shoulder timeline critique</p>
+            </div>
+          </div>
         </div>
         <div className="videoSectionShade" aria-hidden="true" />
       </section>
@@ -1069,6 +1083,62 @@ export default function ApplyPage() {
         </div>
 
         <WorkshopGalleryFlip videos={brandCommercials} />
+      </section>
+
+      <section className="workshopComparisonSection" aria-label="Workshop comparison">
+        <div className="workshopComparisonInner">
+          <h2 className="workshopComparisonHeading">That&apos;s what live feedback changes.</h2>
+          <div className="workshopComparisonTableWrap">
+            <table className="workshopComparisonTable">
+              <thead>
+                <tr>
+                  <th className="workshopCompColFactor">Decision Factor</th>
+                  <th className="workshopCompColHighlight">Idea School workshop</th>
+                  <th className="workshopCompColAlt">Tutorials</th>
+                  <th className="workshopCompColAlt">Typical course</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="workshopCompFactor">Feedback on your own edit</td>
+                  <td className="workshopCompHighlight"><span className="workshopCompCheck">✔</span> Live, 1-on-1 mentor review on your actual timeline</td>
+                  <td className="workshopCompAlt"><span className="workshopCompX">✕</span> None — you edit completely in isolation</td>
+                  <td className="workshopCompAlt"><span className="workshopCompDash">—</span> Automated quizzes or community thread</td>
+                </tr>
+                <tr>
+                  <td className="workshopCompFactor">Working agency editors</td>
+                  <td className="workshopCompHighlight"><span className="workshopCompCheck">✔</span> Active commercial directors, colorists, and post leads</td>
+                  <td className="workshopCompAlt"><span className="workshopCompX">✕</span> Solo YouTubers with varying commercial standards</td>
+                  <td className="workshopCompAlt"><span className="workshopCompDash">—</span> Career course creators</td>
+                </tr>
+                <tr>
+                  <td className="workshopCompFactor">Agency workflow</td>
+                  <td className="workshopCompHighlight"><span className="workshopCompCheck">✔</span> Real multi-track project structures and client briefs</td>
+                  <td className="workshopCompAlt"><span className="workshopCompX">✕</span> Fragmented 5-minute software tricks</td>
+                  <td className="workshopCompAlt"><span className="workshopCompDash">—</span> Artificial classroom exercises</td>
+                </tr>
+                <tr>
+                  <td className="workshopCompFactor">Live questions</td>
+                  <td className="workshopCompHighlight"><span className="workshopCompCheck">✔</span> Ask anything in real time as you run into friction</td>
+                  <td className="workshopCompAlt"><span className="workshopCompX">✕</span> Unanswered comment section</td>
+                  <td className="workshopCompAlt"><span className="workshopCompDash">—</span> Slow forum replies or Discord channels</td>
+                </tr>
+                <tr>
+                  <td className="workshopCompFactor">Finish an edit</td>
+                  <td className="workshopCompHighlight"><span className="workshopCompCheck">✔</span> You complete and polish an agency-level cut by 5 PM</td>
+                  <td className="workshopCompAlt"><span className="workshopCompX">✕</span> Endless unfinished practice files</td>
+                  <td className="workshopCompAlt"><span className="workshopCompDash">—</span> Weeks of half-watched video modules</td>
+                </tr>
+                <tr>
+                  <td className="workshopCompFactor">In-person review</td>
+                  <td className="workshopCompHighlight"><span className="workshopCompCheck">✔</span> Real room, real monitors, over-the-shoulder feedback</td>
+                  <td className="workshopCompAlt"><span className="workshopCompX">✕</span> Zero in-person connection</td>
+                  <td className="workshopCompAlt"><span className="workshopCompDash">—</span> Zero in-person connection</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
 
       <section className="programProof" aria-label="Client feedback">

@@ -3316,7 +3316,7 @@ html.isHeroGlassCursorActive .hero * {
   margin: 0;
   color: #fff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: clamp(2rem, 3.9vw, 3.7rem);
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
   font-weight: 950;
   line-height: 1;
   text-align: center;
@@ -3593,7 +3593,7 @@ html.isHeroGlassCursorActive .hero * {
 .proofIntro h2,
 .programFaqInner>h2 {
   margin: 0;
-  font-size: clamp(2rem, 3.9vw, 3.7rem);
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
   font-weight: 950;
   line-height: 1;
   text-align: center;
@@ -16075,6 +16075,7 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage h6 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
+  text-transform: uppercase !important;
 }
 
 .applyPage p {
@@ -16208,9 +16209,9 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
   letter-spacing: -0.02em;
-  font-size: clamp(4rem, 5.5vw, 6.4rem) !important;
+  font-size: clamp(2.8rem, 4.2vw, 4.8rem) !important;
   line-height: 0.98 !important;
-  text-transform: none !important;
+  text-transform: uppercase !important;
 }
 
 .applyPage .programHeroTitleAccent {
@@ -16406,7 +16407,7 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .agencyPedigreeIntro h2 {
   max-width: 920px;
   margin: 0;
-  font-size: clamp(2.55rem, 5vw, 5.3rem);
+  font-size: clamp(2rem, 3.6vw, 3.8rem);
   font-weight: 950;
   line-height: 1.08;
   letter-spacing: 0;
@@ -16614,7 +16615,7 @@ html.isHeroGlassCursorActive .hero * {
 
 @media (max-width: 980px) {
   .applyPage .programHeroCopy h1 {
-    font-size: clamp(2.4rem, 6.5vw, 3.8rem) !important;
+    font-size: clamp(2rem, 5.5vw, 3rem) !important;
   }
 
   .applyPage .programStats {
@@ -16683,7 +16684,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .programHeroCopy h1 {
-    font-size: clamp(1.85rem, 8vw, 2.35rem) !important;
+    font-size: clamp(1.6rem, 7vw, 2rem) !important;
     line-height: 1.05 !important;
     letter-spacing: -0.03em !important;
     margin: 0 0 12px 0 !important;
@@ -16786,7 +16787,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .agencyPedigreeIntro h2 {
-    font-size: clamp(1.9rem, 9.2vw, 2.45rem);
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
     line-height: 1.02;
   }
 
@@ -16958,7 +16959,7 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
   max-width: 920px !important;
-  font-size: clamp(2.55rem, 5vw, 5.3rem) !important;
+  font-size: clamp(2rem, 3.6vw, 3.8rem) !important;
   line-height: 1.08 !important;
   letter-spacing: 0 !important;
   text-align: left !important;
@@ -17400,7 +17401,7 @@ html.isHeroGlassCursorActive .hero * {
 
   .applyPage .curriculumIntro h2,
   .applyPage .editingJudgementIntro h2 {
-    font-size: clamp(2.35rem, 7.2vw, 4.2rem) !important;
+    font-size: clamp(1.8rem, 5.5vw, 3rem) !important;
     line-height: 1.08 !important;
   }
 
@@ -17440,7 +17441,7 @@ html.isHeroGlassCursorActive .hero * {
 
   .applyPage .curriculumIntro h2,
   .applyPage .editingJudgementIntro h2 {
-    font-size: clamp(1.9rem, 9.2vw, 2.45rem) !important;
+    font-size: clamp(1.6rem, 7vw, 2.1rem) !important;
     line-height: 1.02 !important;
   }
 
@@ -17619,7 +17620,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 760px;
   margin: 0;
   color: var(--frost) !important;
-  font-size: clamp(2.15rem, 4.2vw, 4.2rem);
+  font-size: clamp(1.8rem, 3.2vw, 3.2rem);
   font-weight: 950;
   line-height: 1;
   letter-spacing: 0;
@@ -17769,7 +17770,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .workshopTimelineIntro h2 {
-    font-size: clamp(2.2rem, 7vw, 3.8rem);
+    font-size: clamp(1.7rem, 5.5vw, 2.8rem);
   }
 }
 
@@ -17786,7 +17787,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .workshopTimelineIntro h2 {
-    font-size: clamp(1.9rem, 9vw, 2.45rem);
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
   }
 
   .applyPage .workshopTimelineIntro > p {
@@ -17899,7 +17900,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 920px;
   margin: 0;
   color: var(--frost) !important;
-  font-size: clamp(2.55rem, 5vw, 5.3rem);
+  font-size: clamp(2rem, 3.6vw, 3.8rem);
   font-weight: 950;
   line-height: 1.08;
   letter-spacing: 0;
@@ -17954,6 +17955,60 @@ html.isHeroGlassCursorActive .hero * {
   pointer-events: none !important;
 }
 
+.applyPage .workshopImmersionFeatures {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  margin-top: clamp(32px, 4vw, 48px) !important;
+  border: 1px solid rgba(251, 250, 242, 0.1) !important;
+  border-radius: 12px !important;
+  background: rgba(10, 8, 16, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  overflow: visible !important;
+}
+
+.applyPage .workshopImmersionFeature {
+  padding: clamp(20px, 2.5vw, 32px) clamp(20px, 2.5vw, 32px) !important;
+  position: relative !important;
+  display: block !important;
+}
+
+.applyPage .workshopImmersionFeature:not(:last-child) {
+  border-right: 1px solid rgba(251, 250, 242, 0.08) !important;
+}
+
+.applyPage .workshopImmersionFeature strong {
+  display: block !important;
+  margin-bottom: 8px !important;
+  font-family: var(--font-mono, "JetBrains Mono", "Fira Code", monospace) !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  color: #DAFD55 !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .workshopImmersionFeature p {
+  margin: 0 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: clamp(0.85rem, 1vw, 0.95rem) !important;
+  color: rgba(251, 250, 242, 0.55) !important;
+  line-height: 1.45 !important;
+}
+
+@media (max-width: 768px) {
+  .applyPage .workshopImmersionFeatures {
+    grid-template-columns: 1fr !important;
+  }
+
+  .applyPage .workshopImmersionFeature:not(:last-child) {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(251, 250, 242, 0.08) !important;
+  }
+}
+
 @media (max-width: 640px) {
   .applyPage .videoSection {
     padding-top: 48px !important;
@@ -17966,7 +18021,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .workshopImmersionIntro h2 {
-    font-size: clamp(1.9rem, 9.2vw, 2.45rem);
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
     line-height: 1.02;
   }
 
@@ -18141,6 +18196,126 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .workshopWorkSection p {
   color: #a0aab2 !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+/* Workshop Comparison Table */
+.applyPage .workshopComparisonSection {
+  position: relative;
+  padding: clamp(64px, 7vw, 104px) var(--apply-section-x);
+  background: #08060d;
+  border-top: 1px solid rgba(251, 250, 242, 0.06);
+}
+
+.applyPage .workshopComparisonInner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.applyPage .workshopComparisonHeading {
+  margin: 0 0 clamp(28px, 3.5vw, 48px) !important;
+  font-size: clamp(1.6rem, 3vw, 2.8rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.1 !important;
+  color: #DAFD55 !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .workshopComparisonTableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  border: 1px solid rgba(251, 250, 242, 0.08);
+}
+
+.applyPage .workshopComparisonTable {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+}
+
+.applyPage .workshopComparisonTable thead tr {
+  border-bottom: 1px solid rgba(251, 250, 242, 0.1);
+}
+
+.applyPage .workshopComparisonTable th {
+  padding: 18px 22px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  vertical-align: middle;
+  font-family: var(--font-mono, "JetBrains Mono", "Fira Code", monospace);
+}
+
+.applyPage .workshopCompColFactor {
+  color: rgba(251, 250, 242, 0.45) !important;
+  width: 18%;
+}
+
+.applyPage .workshopCompColHighlight {
+  color: #DAFD55 !important;
+  width: 34%;
+}
+
+.applyPage .workshopCompColAlt {
+  color: rgba(251, 250, 242, 0.45) !important;
+  width: 24%;
+}
+
+.applyPage .workshopComparisonTable tbody tr {
+  border-bottom: 1px solid rgba(251, 250, 242, 0.06);
+}
+
+.applyPage .workshopComparisonTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.applyPage .workshopComparisonTable td {
+  padding: 20px 22px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  vertical-align: top;
+}
+
+.applyPage .workshopCompFactor {
+  color: var(--frost, #fbfaf2) !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+}
+
+.applyPage .workshopCompHighlight {
+  color: rgba(251, 250, 242, 0.8) !important;
+  background: rgba(218, 253, 85, 0.04) !important;
+}
+
+.applyPage .workshopCompAlt {
+  color: rgba(251, 250, 242, 0.45) !important;
+}
+
+.applyPage .workshopCompCheck {
+  color: #DAFD55;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.applyPage .workshopCompX {
+  color: #ff5c5c;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.applyPage .workshopCompDash {
+  color: rgba(251, 250, 242, 0.3);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .applyPage .workshopComparisonHeading {
+    font-size: clamp(1.3rem, 6vw, 1.8rem) !important;
+  }
 }
 
 /* Student Proof */
@@ -18346,7 +18521,7 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .industryRecognitionIntro h2 {
   margin: 0;
   color: var(--frost) !important;
-  font-size: clamp(2.25rem, 4.5vw, 4.75rem);
+  font-size: clamp(1.8rem, 3.4vw, 3.4rem);
   font-weight: 950;
   line-height: 1;
   letter-spacing: 0;
@@ -18482,7 +18657,7 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .industryRecognitionIntro h2 {
-    font-size: clamp(1.9rem, 9vw, 2.55rem);
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
   }
 
   .applyPage .industryRecognitionIntro > p {

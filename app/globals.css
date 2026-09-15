@@ -16762,10 +16762,10 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .agencyBrandGroup {
   display: flex;
   align-items: center;
-  gap: clamp(54px, 6vw, 104px);
+  gap: clamp(58px, 6vw, 110px);
   flex: 0 0 auto;
   min-width: max-content;
-  padding-right: clamp(54px, 6vw, 104px);
+  padding-right: clamp(58px, 6vw, 110px);
   animation: agencyBrandMarquee 28s linear infinite;
   will-change: transform;
 }
@@ -16779,19 +16779,32 @@ html.isHeroGlassCursorActive .hero * {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  width: clamp(72px, 6.5vw, 110px);
-  height: 42px;
-  opacity: 0.44;
-  filter: grayscale(1);
+  width: clamp(112px, 8vw, 154px);
+  height: 64px;
+  opacity: 0.9;
+  filter: brightness(0) invert(1) grayscale(1) contrast(1.18);
 }
 
 .applyPage .agencyBrandImage {
   display: block;
   width: 100%;
-  max-width: 90px;
+  max-width: 138px;
   height: auto;
-  max-height: 34px;
+  max-height: 52px;
   object-fit: contain;
+}
+
+.applyPage .agencyBrandLogoMilkyMist {
+  width: clamp(150px, 10vw, 190px);
+  overflow: hidden;
+}
+
+.applyPage .agencyBrandLogoMilkyMist .agencyBrandImage {
+  width: clamp(150px, 10vw, 190px);
+  max-width: none;
+  height: 64px;
+  max-height: none;
+  object-fit: cover;
 }
 
 @keyframes agencyBrandMarquee {
@@ -17077,13 +17090,22 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .agencyBrandLogo {
-    width: 74px;
-    height: 30px;
+    width: 104px;
+    height: 46px;
   }
 
   .applyPage .agencyBrandImage {
-    max-width: 74px;
-    max-height: 26px;
+    max-width: 98px;
+    max-height: 38px;
+  }
+
+  .applyPage .agencyBrandLogoMilkyMist {
+    width: 136px;
+  }
+
+  .applyPage .agencyBrandLogoMilkyMist .agencyBrandImage {
+    width: 136px;
+    height: 48px;
   }
 
 }
@@ -19977,4 +19999,3 @@ html.isHeroGlassCursorActive .hero * {
     padding-right: 20px !important;
   }
 }
-

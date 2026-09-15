@@ -201,7 +201,7 @@ const agencyBrandLogos = [
   },
   {
     name: "Milky Mist",
-    image: "/images/milky mist.webp",
+    image: "/images/MILKY MIST-2.webp",
   },
   {
     name: "JLL",
@@ -230,10 +230,6 @@ const agencyBrandLogos = [
   {
     name: "Xiaomi",
     image: "/images/xioami.webp",
-  },
-  {
-    name: "Paytm",
-    image: "/images/paytm.webp",
   },
 ];
 
@@ -803,12 +799,15 @@ export default function ApplyPage() {
               <div className="agencyBrandTrack">
                 <div className="agencyBrandGroup">
                   {agencyBrandLogos.map((brand, index) => (
-                    <span className="agencyBrandLogo" key={`agency-brand-a-${brand.name}-${index}`}>
+                    <span
+                      className={`agencyBrandLogo${brand.name === "Milky Mist" ? " agencyBrandLogoMilkyMist" : ""}`}
+                      key={`agency-brand-a-${brand.name}-${index}`}
+                    >
                       <Image
                         src={brand.image}
                         alt={brand.name}
-                        width={110}
-                        height={44}
+                        width={170}
+                        height={68}
                         className="agencyBrandImage"
                       />
                     </span>
@@ -816,12 +815,15 @@ export default function ApplyPage() {
                 </div>
                 <div className="agencyBrandGroup" aria-hidden="true">
                   {agencyBrandLogos.map((brand, index) => (
-                    <span className="agencyBrandLogo" key={`agency-brand-b-${brand.name}-${index}`}>
+                    <span
+                      className={`agencyBrandLogo${brand.name === "Milky Mist" ? " agencyBrandLogoMilkyMist" : ""}`}
+                      key={`agency-brand-b-${brand.name}-${index}`}
+                    >
                       <Image
                         src={brand.image}
                         alt=""
-                        width={110}
-                        height={44}
+                        width={170}
+                        height={68}
                         className="agencyBrandImage"
                       />
                     </span>

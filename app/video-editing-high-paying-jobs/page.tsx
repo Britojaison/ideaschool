@@ -1119,6 +1119,31 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <section className="workshopReadyCta" aria-label="Reserve your workshop seat">
+        <div className="workshopReadyCtaDots" aria-hidden="true">
+          <span className="workshopReadyCtaDot workshopReadyCtaDotActive" />
+          <span className="workshopReadyCtaDot" />
+          <span className="workshopReadyCtaDot" />
+          <span className="workshopReadyCtaDot" />
+          <span className="workshopReadyCtaDot" />
+        </div>
+        <div className="workshopReadyCtaInner">
+          <div className="workshopReadyCtaCopy">
+            <strong>READY TO EDIT AT THIS LEVEL?</strong>
+            <p>Build your own agency-grade commercial edit with direct mentor critique this Saturday.</p>
+          </div>
+          <a
+            className="workshopReadyCtaBtn"
+            href={razorpayPaymentLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Reserve your video editing workshop seat with Razorpay"
+          >
+            Reserve your workshop seat — ₹499 →
+          </a>
+        </div>
+      </section>
+
       <section className="industryRecognition" aria-label="Industry recognition, press and awards">
         <div className="industryRecognitionInner">
           <div className="industryRecognitionIntro">

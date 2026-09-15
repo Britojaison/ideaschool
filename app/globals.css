@@ -18204,6 +18204,114 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
 }
 
+/* Workshop Ready CTA */
+.applyPage .workshopReadyCta {
+  position: relative;
+  padding: clamp(48px, 5vw, 72px) var(--apply-section-x);
+  background:
+    radial-gradient(ellipse at 90% 100%, rgba(85, 46, 173, 0.22), transparent 50%),
+    #08060d;
+}
+
+.applyPage .workshopReadyCtaDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.applyPage .workshopReadyCtaDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(251, 250, 242, 0.18);
+  transition: background 0.3s ease;
+}
+
+.applyPage .workshopReadyCtaDotActive {
+  background: #DAFD55;
+}
+
+.applyPage .workshopReadyCtaInner {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 24px 32px;
+  border: 1px solid rgba(218, 253, 85, 0.25);
+  border-radius: 12px;
+  background: rgba(251, 250, 242, 0.03);
+}
+
+.applyPage .workshopReadyCtaCopy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+.applyPage .workshopReadyCtaCopy strong {
+  font-family: var(--font-mono, "JetBrains Mono", "Fira Code", monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: #DAFD55;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.applyPage .workshopReadyCtaCopy p {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.95rem;
+  color: rgba(251, 250, 242, 0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.applyPage .workshopReadyCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: #DAFD55;
+  color: #08060d;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.applyPage .workshopReadyCtaBtn:hover {
+  background: #e5ff7a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(218, 253, 85, 0.3);
+}
+
+@media (max-width: 768px) {
+  .applyPage .workshopReadyCtaInner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+    gap: 20px;
+  }
+
+  .applyPage .workshopReadyCtaCopy {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .applyPage .workshopReadyCtaBtn {
+    width: 100%;
+  }
+}
+
 /* Industry Recognition */
 .applyPage .industryRecognition {
   position: relative;

@@ -237,6 +237,49 @@ const agencyBrandLogos = [
   },
 ];
 
+const workshopTimeline = [
+  {
+    time: "11:00 AM",
+    title: "Get Set Up",
+    description: "Welcome, workstation setup, raw footage ingest, and project brief unpacking.",
+  },
+  {
+    time: "11:15 AM",
+    title: "Hook Engineering",
+    description: "Analyzing visual hooks, drop-off curves, and first 3-second retention mechanics.",
+  },
+  {
+    time: "12:15 PM",
+    title: "Retention Editing",
+    description: "Cutting for rhythm, micro-resets, narrative tension, and momentum management.",
+  },
+  {
+    time: "1:15 PM",
+    title: "Break",
+    description: "Pause, reset, lunch, and discussions with the 88GB creative team.",
+  },
+  {
+    time: "2:00 PM",
+    title: "Design + Sound",
+    description: "Layering sound effects, audio ducking, kinetic graphics, and visual hierarchy.",
+  },
+  {
+    time: "2:45 PM",
+    title: "Viral Edit Framework",
+    description: "Dissecting high-performing commercial edits and organic viral timelines.",
+  },
+  {
+    time: "3:30 PM",
+    title: "AI-Integrated Workflow",
+    description: "Speeding up transcript cuts, motion tracking, cleanup, and ideation using AI tools.",
+  },
+  {
+    time: "4:15 PM",
+    title: "Live Edit + Mentor Review",
+    description: "Hands-on edit session followed by direct over-the-shoulder feedback from mentors.",
+  },
+];
+
 const clientStories = [
   {
     name: "Balaji",
@@ -874,6 +917,29 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <section className="workshopTimelineSection" aria-label="Workshop timeline from 11 AM to 5 PM">
+        <div className="workshopTimelineInner">
+          <div className="workshopTimelineIntro">
+            <p className="workshopTimelineEyebrow">WORKSHOP TIMELINE // 11 AM - 5 PM</p>
+            <h2>BY 5 PM, YOU SHOULD UNDERSTAND WHY EVERY CUT IS THERE</h2>
+            <p>One day. One structured workflow. One edit reviewed by a mentor.</p>
+            <strong>WATCH→EDIT→REVIEW→IMPROVE</strong>
+          </div>
+
+          <div className="workshopTimelineList">
+            {workshopTimeline.map((item) => (
+              <article className="workshopTimelineItem" key={`${item.time}-${item.title}`}>
+                <time>{item.time}</time>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="programAudience" aria-label="Who should attend">
         <div className="programAudienceInner">
           <div className="toolsBlock">
@@ -974,10 +1040,10 @@ export default function ApplyPage() {
       <section className="programProof" aria-label="Client feedback">
         <div className="programProofInner">
           <div className="proofIntro">
-            <h2>What Our Students Have to Say?</h2>
+            <h2>HEAR IT FROM PEOPLE WHO&apos;VE BEEN IN THE ROOM</h2>
             <p>
-              We&apos;ve already transformed hundreds of creators. Here&apos;s a
-              glimpse of what past participants built.
+              Unrehearsed feedback from editors and creators who attended
+              previous Idea School sessions.
             </p>
           </div>
 

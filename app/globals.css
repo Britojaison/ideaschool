@@ -18204,6 +18204,210 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
 }
 
+/* Industry Recognition */
+.applyPage .industryRecognition {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(64px, 7vw, 104px) var(--apply-section-x);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(85, 46, 173, 0.18), transparent 34%),
+    radial-gradient(circle at 16% 0%, rgba(218, 253, 85, 0.07), transparent 24%),
+    #08060d;
+  border-top: 1px solid rgba(251, 250, 242, 0.08);
+}
+
+.applyPage .industryRecognitionInner {
+  width: min(100%, 1320px);
+  margin: 0 auto;
+}
+
+.applyPage .industryRecognitionIntro {
+  max-width: 980px;
+}
+
+.applyPage .industryRecognitionEyebrow {
+  margin: 0 0 22px !important;
+  color: #DAFD55 !important;
+  font-size: clamp(0.78rem, 1vw, 0.96rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .industryRecognitionIntro h2 {
+  margin: 0;
+  color: var(--frost) !important;
+  font-size: clamp(2.25rem, 4.5vw, 4.75rem);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.applyPage .industryRecognitionIntro > p {
+  margin: 22px 0 0;
+  color: #9c95aa !important;
+  font-size: clamp(1rem, 1.35vw, 1.24rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.applyPage .industryRecognitionPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.9fr);
+  gap: clamp(28px, 4.2vw, 56px);
+  align-items: center;
+  margin-top: clamp(34px, 4vw, 54px);
+  padding: clamp(22px, 2.6vw, 34px);
+  border: 1px solid rgba(251, 250, 242, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+    rgba(255, 255, 255, 0.018);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+}
+
+.applyPage .recognitionImageFrame {
+  position: relative;
+  min-height: clamp(420px, 48vw, 650px);
+  overflow: hidden;
+  border: 1px solid rgba(251, 250, 242, 0.13);
+  border-radius: 8px;
+  background: #0b0a10;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+.applyPage .recognitionImageFrame::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.28)),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  content: "";
+}
+
+.applyPage .recognitionImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.applyPage .recognitionPill {
+  display: inline-flex;
+  padding: 9px 16px 8px;
+  border: 1px solid rgba(163, 93, 255, 0.6);
+  border-radius: 999px;
+  color: rgba(225, 196, 255, 0.92);
+  background: rgba(85, 46, 173, 0.34);
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.applyPage .recognitionContent h3 {
+  margin: 28px 0 0;
+  color: var(--frost) !important;
+  font-size: clamp(1.45rem, 2.05vw, 2.05rem);
+  font-weight: 950;
+  line-height: 1.14;
+}
+
+.applyPage .recognitionContent p {
+  max-width: 680px;
+  margin: 24px 0 0;
+  color: #9c95aa !important;
+  font-size: clamp(0.98rem, 1.16vw, 1.14rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.applyPage .recognitionHighlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(251, 250, 242, 0.12);
+}
+
+.applyPage .recognitionHighlight {
+  display: grid;
+  gap: 8px;
+}
+
+.applyPage .recognitionHighlight strong {
+  color: #DAFD55;
+  font-size: clamp(0.98rem, 1.2vw, 1.16rem);
+  font-weight: 950;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.applyPage .recognitionHighlight span {
+  color: #9c95aa;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+@media (max-width: 1100px) {
+  .applyPage .industryRecognitionPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .applyPage .recognitionContent {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 720px) {
+  .applyPage .industryRecognition {
+    padding: 52px 16px 66px;
+  }
+
+  .applyPage .industryRecognitionEyebrow {
+    margin-bottom: 16px !important;
+    font-size: 0.68rem !important;
+    line-height: 1.28 !important;
+  }
+
+  .applyPage .industryRecognitionIntro h2 {
+    font-size: clamp(1.9rem, 9vw, 2.55rem);
+  }
+
+  .applyPage .industryRecognitionIntro > p {
+    margin-top: 16px;
+    font-size: 0.92rem;
+  }
+
+  .applyPage .industryRecognitionPanel {
+    margin-top: 28px;
+    padding: 14px;
+  }
+
+  .applyPage .recognitionImageFrame {
+    min-height: 440px;
+  }
+
+  .applyPage .recognitionHighlights {
+    grid-template-columns: 1fr;
+  }
+
+  .applyPage .recognitionImage {
+    object-position: center top;
+  }
+
+  .applyPage .recognitionContent {
+    padding: 4px 2px 8px;
+  }
+
+  .applyPage .recognitionContent h3 {
+    margin-top: 22px;
+  }
+}
+
 /* FAQ Section */
 .applyPage .programFaqContact {
   background:

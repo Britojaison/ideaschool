@@ -362,6 +362,17 @@ const proofVideos = [
   },
 ];
 
+const recognitionHighlights = [
+  {
+    title: "Exchange4Media",
+    description: "Industry press coverage",
+  },
+  {
+    title: "Commercial Brands",
+    description: "Campaign recognition",
+  },
+];
+
 const brandCommercials = [
   {
     id: "promo",
@@ -1104,6 +1115,46 @@ export default function ApplyPage() {
                 <ProofVideoCard src={video.src} poster={video.poster} index={index} />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="industryRecognition" aria-label="Industry recognition, press and awards">
+        <div className="industryRecognitionInner">
+          <div className="industryRecognitionIntro">
+            <p className="industryRecognitionEyebrow">INDUSTRY RECOGNITION // PRESS &amp; AWARDS</p>
+            <h2>THE WORK HAS BEEN RECOGNISED TOO.</h2>
+            <p>Press coverage, commercial campaigns, and creative industry recognition.</p>
+          </div>
+
+          <div className="industryRecognitionPanel">
+            <div className="recognitionImageFrame">
+              <Image
+                src="/images/IMG_7839.jpg"
+                alt="88GB team with Exchange4Media Indian Marketing Awards trophies"
+                fill
+                sizes="(max-width: 1100px) 100vw, 680px"
+                className="recognitionImage"
+              />
+            </div>
+
+            <div className="recognitionContent">
+              <span className="recognitionPill">Industry Recognition</span>
+              <h3>88GB Commercial Creative Recognition</h3>
+              <p>
+                Our work has been featured across creative industry publications including
+                Exchange4Media, with commercial campaigns recognized for creative storytelling
+                and visual craft.
+              </p>
+              <div className="recognitionHighlights">
+                {recognitionHighlights.map((item) => (
+                  <div className="recognitionHighlight" key={item.title}>
+                    <strong>{item.title}</strong>
+                    <span>{item.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

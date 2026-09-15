@@ -12,7 +12,6 @@ import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList
 
 const cutPhaseCards = [
   {
-    number: "01",
     badge: "HOOK",
     title: "Hook Engineering",
     time: "00:00 - 00:03",
@@ -20,7 +19,6 @@ const cutPhaseCards = [
       "Cut dead frames before speech starts. Start in motion. Engineer visual intrigue in the first 90 frames so the viewer never swipes away.",
   },
   {
-    number: "02",
     badge: "PACE",
     title: "Retention Rhythm",
     time: "00:03 - 00:18",
@@ -28,7 +26,6 @@ const cutPhaseCards = [
       "Pacing isn't just fast cutting. It is rhythm, contrast, breath, and knowing when to let an emotional or visual beat land with weight.",
   },
   {
-    number: "03",
     badge: "RESET",
     title: "Attention Resets",
     time: "00:18 - 00:35",
@@ -36,7 +33,6 @@ const cutPhaseCards = [
       "Attention decays every 4 to 6 seconds. Insert micro-resets, focal shifts, sound drops, and unexpected angles to restore focus.",
   },
   {
-    number: "04",
     badge: "PAYOFF",
     title: "The Closing Payoff",
     time: "00:35 - 00:50",
@@ -860,9 +856,8 @@ export default function ApplyPage() {
 
           <div className="editingPhaseGrid" aria-label="Four cut phases">
             {cutPhaseCards.map((phase) => (
-              <article className="editingPhaseCard" key={phase.number}>
+              <article className="editingPhaseCard" key={phase.badge}>
                 <div className="editingPhaseTopline">
-                  <span>{phase.number}</span>
                   <strong>{phase.badge}</strong>
                 </div>
                 <h3>{phase.title}</h3>

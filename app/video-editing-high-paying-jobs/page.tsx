@@ -1120,7 +1120,7 @@ export default function ApplyPage() {
           </div>
         </div>
 
-        <WorkshopGalleryFlip videos={brandCommercials} />
+        <WorkshopGalleryFlip videos={brandCommercials} showControls={false} />
       </section>
 
       <section className="workshopComparisonSection" aria-label="Workshop comparison">

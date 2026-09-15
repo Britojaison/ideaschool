@@ -50,7 +50,13 @@ const defaultVideos: WorkshopVideo[] = [
   }
 ];
 
-export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos?: WorkshopVideo[] } = {}) {
+export default function WorkshopGalleryFlip({
+  videos = defaultVideos,
+  showControls = true,
+}: {
+  videos?: WorkshopVideo[];
+  showControls?: boolean;
+} = {}) {
   const [activeIdx, setActiveIdx] = useState(0);
   const currentVideo = videos[activeIdx];
 
@@ -117,8 +123,11 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
           loop
           muted
           playsInline
-          controls
-          preload="metadata"
+          controls={showControls}
+          controlsList="nodownload noplaybackrate noremoteplayback"
+          disablePictureInPicture
+          disableRemotePlayback
+          preload={showControls ? "metadata" : "none"}
           aria-label={`${currentVideo.title} - ${currentVideo.description}`}
         >
           <source src={currentVideo.src} type="video/mp4" />

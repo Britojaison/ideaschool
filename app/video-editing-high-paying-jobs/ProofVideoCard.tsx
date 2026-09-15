@@ -53,16 +53,16 @@ export default function ProofVideoCard({
       return;
     }
 
-    if (video.paused) {
-      document.querySelectorAll<HTMLVideoElement>(".proofVideoNative").forEach((item) => {
-        if (item !== video) {
-          item.pause();
-        }
-      });
-      void video.play();
-    } else {
-      video.pause();
+    if (!video.paused) {
+      return;
     }
+
+    document.querySelectorAll<HTMLVideoElement>(".proofVideoNative").forEach((item) => {
+      if (item !== video) {
+        item.pause();
+      }
+    });
+    void video.play();
   };
 
   const toggleMute = () => {
@@ -103,7 +103,7 @@ export default function ProofVideoCard({
         src={src}
         poster={poster}
         title={name ? `${name} - Student Video Review` : `Student Video Review - Graduate Testimonial ${index + 1}`}
-        preload="metadata"
+        preload="none"
         muted={isMuted}
         playsInline
         disablePictureInPicture
@@ -112,21 +112,16 @@ export default function ProofVideoCard({
         aria-label={`Student video feedback ${index + 1}`}
       />
       <span className="proofVideoOverlay" aria-hidden="true" />
-      <button
-        className="proofVideoAction"
-        type="button"
-        aria-label={isPlaying ? "Pause student video feedback" : "Play student video feedback"}
-        onClick={togglePlay}
-      >
-        {isPlaying ? (
-          <span className="proofVideoPause" aria-hidden="true">
-            <span />
-            <span />
-          </span>
-        ) : (
+      {!isPlaying && (
+        <button
+          className="proofVideoAction"
+          type="button"
+          aria-label="Play student video feedback"
+          onClick={togglePlay}
+        >
           <span className="proofVideoPlay" aria-hidden="true" />
-        )}
-      </button>
+        </button>
+      )}
       <button
         className="proofVideoMute"
         type="button"

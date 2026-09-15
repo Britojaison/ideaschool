@@ -1290,7 +1290,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .applyPage {
-  --apply-section-x: clamp(16px, 4vw, 60px);
+  --apply-section-x: 60px;
   min-height: 100vh;
   background: #09080e;
   color: #fff;
@@ -16158,7 +16158,7 @@ html.isHeroGlassCursorActive .hero * {
   --linen: #f0e5de;
   --ash: #adbdab;
   --line: rgba(242, 246, 252, 0.14);
-  --apply-section-x: clamp(16px, 4vw, 60px);
+  --apply-section-x: 60px !important;
   min-height: 100vh;
   background: var(--ink) !important;
   color: var(--frost) !important;
@@ -16197,7 +16197,7 @@ html.isHeroGlassCursorActive .hero * {
   width: 100% !important;
   height: 76px !important;
   min-height: 76px !important;
-  padding: 0 clamp(20px, 4.5vw, 60px) !important;
+  padding: 0 60px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -19491,3 +19491,90 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .footerHeroLink:hover {
   color: var(--frost) !important;
 }
+
+/* ==========================================================================
+   APPLY PAGE - STRICT 60PX SIDE MARGINS & INNER ALIGNMENT
+   ========================================================================== */
+
+.applyPage > section,
+.applyPage .siteHeader,
+.applyPage .programHero,
+.applyPage .agencyPedigree,
+.applyPage .videoSection,
+.applyPage .programCurriculum,
+.applyPage .workshopTimelineSection,
+.applyPage .programAudience,
+.applyPage .workshopAttendeesSection,
+.applyPage .programOffer,
+.applyPage .programInstructor,
+.applyPage .workshopWorkSection,
+.applyPage .workshopComparisonSection,
+.applyPage .programProof,
+.applyPage .workshopReadyCta,
+.applyPage .industryRecognition,
+.applyPage .qualificationSection,
+.applyPage .thunderVaultSection,
+.applyPage .freeAssetsSection,
+.applyPage .programFaqContact,
+.applyPage .siteFooter {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+
+/* Full bleed rails starting flush at the 60px side margin */
+.applyPage .proofVideoRail,
+.applyPage .proofRail {
+  margin-left: -60px !important;
+  margin-right: -60px !important;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+
+/* Harmonize container max-widths so content consistently aligns across sections */
+.applyPage .workshopComparisonInner,
+.applyPage .qualificationInner,
+.applyPage .thunderVaultInner,
+.applyPage .freeAssetsInner {
+  width: min(100%, 1256px) !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 640px) {
+  .applyPage {
+    --apply-section-x: 20px !important;
+  }
+
+  .applyPage > section,
+  .applyPage .siteHeader,
+  .applyPage .programHero,
+  .applyPage .agencyPedigree,
+  .applyPage .videoSection,
+  .applyPage .programCurriculum,
+  .applyPage .workshopTimelineSection,
+  .applyPage .programAudience,
+  .applyPage .workshopAttendeesSection,
+  .applyPage .programOffer,
+  .applyPage .programInstructor,
+  .applyPage .workshopWorkSection,
+  .applyPage .workshopComparisonSection,
+  .applyPage .programProof,
+  .applyPage .workshopReadyCta,
+  .applyPage .industryRecognition,
+  .applyPage .qualificationSection,
+  .applyPage .thunderVaultSection,
+  .applyPage .freeAssetsSection,
+  .applyPage .programFaqContact,
+  .applyPage .siteFooter {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .applyPage .proofVideoRail,
+  .applyPage .proofRail {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+

@@ -707,18 +707,35 @@ export default function ApplyPage() {
 
           <div className="agencyBrands" aria-label="Brands shaping Indian culture">
             <p>TRUSTED BY BRANDS SHAPING INDIAN CULTURE</p>
-            <div className="agencyBrandGrid">
-              {agencyBrandLogos.map((brand, index) => (
-                <span className="agencyBrandLogo" key={`${brand.name}-${index}`}>
-                  <Image
-                    src={brand.image}
-                    alt={brand.name}
-                    width={110}
-                    height={44}
-                    className="agencyBrandImage"
-                  />
-                </span>
-              ))}
+            <div className="agencyBrandMarquee" aria-label="Trusted brand logos">
+              <div className="agencyBrandTrack">
+                <div className="agencyBrandGroup">
+                  {agencyBrandLogos.map((brand, index) => (
+                    <span className="agencyBrandLogo" key={`agency-brand-a-${brand.name}-${index}`}>
+                      <Image
+                        src={brand.image}
+                        alt={brand.name}
+                        width={110}
+                        height={44}
+                        className="agencyBrandImage"
+                      />
+                    </span>
+                  ))}
+                </div>
+                <div className="agencyBrandGroup" aria-hidden="true">
+                  {agencyBrandLogos.map((brand, index) => (
+                    <span className="agencyBrandLogo" key={`agency-brand-b-${brand.name}-${index}`}>
+                      <Image
+                        src={brand.image}
+                        alt=""
+                        width={110}
+                        height={44}
+                        className="agencyBrandImage"
+                      />
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -16543,19 +16543,44 @@ html.isHeroGlassCursorActive .hero * {
   text-transform: uppercase;
 }
 
-.applyPage .agencyBrandGrid {
-  display: grid;
-  grid-template-columns: repeat(11, minmax(54px, 1fr));
-  align-items: center;
-  gap: clamp(18px, 2.2vw, 34px);
+.applyPage .agencyBrandMarquee {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
   margin-top: 30px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.applyPage .agencyBrandTrack {
+  display: flex;
+  width: max-content;
+  user-select: none;
+}
+
+.applyPage .agencyBrandGroup {
+  display: flex;
+  align-items: center;
+  gap: clamp(54px, 6vw, 104px);
+  flex: 0 0 auto;
+  min-width: max-content;
+  padding-right: clamp(54px, 6vw, 104px);
+  animation: agencyBrandMarquee 28s linear infinite;
+  will-change: transform;
+}
+
+.applyPage .agencyBrandMarquee:hover .agencyBrandGroup {
+  animation-play-state: paused;
 }
 
 .applyPage .agencyBrandLogo {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 0;
+  flex: 0 0 auto;
+  width: clamp(72px, 6.5vw, 110px);
   height: 42px;
   opacity: 0.44;
   filter: grayscale(1);
@@ -16568,6 +16593,22 @@ html.isHeroGlassCursorActive .hero * {
   height: auto;
   max-height: 34px;
   object-fit: contain;
+}
+
+@keyframes agencyBrandMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .applyPage .agencyBrandGroup {
+    animation-play-state: paused;
+  }
 }
 
 @media (max-width: 980px) {
@@ -16593,9 +16634,6 @@ html.isHeroGlassCursorActive .hero * {
     justify-content: stretch;
   }
 
-  .applyPage .agencyBrandGrid {
-    grid-template-columns: repeat(6, minmax(54px, 1fr));
-  }
 }
 
 @media (max-width: 640px) {
@@ -16792,13 +16830,12 @@ html.isHeroGlassCursorActive .hero * {
     margin-top: 40px;
   }
 
-  .applyPage .agencyBrandGrid {
-    grid-template-columns: repeat(3, minmax(64px, 1fr));
-    gap: 18px 22px;
+  .applyPage .agencyBrandMarquee {
     margin-top: 24px;
   }
 
   .applyPage .agencyBrandLogo {
+    width: 82px;
     height: 34px;
   }
 }

@@ -339,26 +339,56 @@ const proofVideos = [
   {
     src: "/images/proof-videos/student-feedback-2.mp4",
     poster: "/images/proof-videos/student-feedback-2.webp",
+    role: "Entrepreneur",
+    subRole: "Agency Founder · Digital Crew",
+    name: "Gokul",
+    description:
+      "Runs a digital marketing agency handling content & campaigns for 15+ cafes in HSR Layout. Mastered retention editing frameworks to deliver scroll-stopping reels for clients.",
   },
   {
     src: "/images/proof-videos/student-feedback-3.mp4",
     poster: "/images/proof-videos/student-feedback-3.webp",
+    role: "AI & Tech Creator",
+    subRole: "Growth Marketer",
+    name: "Manjunath",
+    description:
+      "Product marketer exploring generative video & AI workflows. Joined to bridge the gap between theoretical online courses and live, hands-on studio execution.",
   },
   {
     src: "/images/proof-videos/student-feedback-4.mp4",
     poster: "/images/proof-videos/student-feedback-4.webp",
+    role: "Video Editor",
+    subRole: "Freelance Creative Editor",
+    name: "Balaji",
+    description:
+      "Independent video editor scaling his commercial client base. Upgraded his cutting rhythm, hook engineering, and editorial judgment through direct 1-on-1 mentor critiques.",
   },
   {
     src: "/images/proof-videos/student-feedback-5.mp4",
     poster: "/images/proof-videos/student-feedback-5.webp",
+    role: "Content Creator",
+    subRole: "Visual & Motion Designer",
+    name: "Pooja",
+    description:
+      "Creator transitioning from basic graphic design to agency-grade Premiere Pro timelines and AI tools, creating high-converting short-form commercial videos.",
   },
   {
     src: "/images/proof-videos/student-feedback-6.mp4",
     poster: "/images/proof-videos/student-feedback-6.webp",
+    role: "Photographer",
+    subRole: "Lead · Candid Tales",
+    name: "Kiran",
+    description:
+      "Professional wedding & commercial photographer expanding into cinematic short-form video, learning commercial pacing, audio layering, and motion direction.",
   },
   {
     src: "/images/proof-videos/student-feedback-7.mp4",
     poster: "/images/proof-videos/student-feedback-7.webp",
+    role: "Entrepreneur",
+    subRole: "Business Owner",
+    name: "Hiren Mehta",
+    description:
+      "Modernizing a traditional family business into a digital-first brand, applying high-retention commercial frameworks to create viral video campaigns in-house.",
   },
 ];
 
@@ -1181,9 +1211,28 @@ export default function ApplyPage() {
 
           <div className="proofVideoRail" aria-label="Student video feedback">
             {proofVideos.map((video, index) => (
-              <div className="proofVideoFrame" key={video.src}>
-                <ProofVideoCard src={video.src} poster={video.poster} index={index} />
-              </div>
+              <article className="proofVideoItem" key={video.src}>
+                <div className="proofVideoFrame">
+                  <ProofVideoCard
+                    src={video.src}
+                    poster={video.poster}
+                    index={index}
+                    name={video.name}
+                    role={video.role}
+                    description={video.description}
+                  />
+                </div>
+                <div className="proofVideoMeta">
+                  <div className="proofVideoTagRow">
+                    <span className="proofVideoRoleBadge">{video.role}</span>
+                    {video.subRole && (
+                      <span className="proofVideoSubRole">{video.subRole}</span>
+                    )}
+                  </div>
+                  <h3 className="proofVideoStudentName">{video.name}</h3>
+                  <p className="proofVideoStudentBio">{video.description}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

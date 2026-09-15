@@ -340,7 +340,7 @@ export default function VideoEditingGsapLenis() {
       );
 
       gsap.fromTo(
-        ".applyPage .proofVideoFrame",
+        ".applyPage .proofVideoItem, .applyPage .proofVideoFrame",
         { y: 35, opacity: 0, scale: 0.97 },
         {
           y: 0,

@@ -6,10 +6,16 @@ export default function ProofVideoCard({
   src,
   poster,
   index,
+  name,
+  role,
+  description,
 }: {
   src: string;
   poster: string;
   index: number;
+  name?: string;
+  role?: string;
+  description?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -79,8 +85,14 @@ export default function ProofVideoCard({
       itemScope
       itemType="https://schema.org/VideoObject"
     >
-      <meta itemProp="name" content={`Student Video Review - Graduate Testimonial ${index + 1}`} />
-      <meta itemProp="description" content={`Real student review and video editing transformation story from Idea School participant ${index + 1}.`} />
+      <meta
+        itemProp="name"
+        content={name ? `${name} (${role || "Student"}) - Workshop Review` : `Student Video Review - Graduate Testimonial ${index + 1}`}
+      />
+      <meta
+        itemProp="description"
+        content={description || `Real student review and video editing transformation story from Idea School participant ${index + 1}.`}
+      />
       <meta itemProp="thumbnailUrl" content={`https://www.ideaschool.pro${poster}`} />
       <meta itemProp="uploadDate" content="2024-05-01T00:00:00+05:30" />
       <meta itemProp="contentUrl" content={`https://www.ideaschool.pro${src}`} />
@@ -90,7 +102,7 @@ export default function ProofVideoCard({
         className="proofVideoNative"
         src={src}
         poster={poster}
-        title={`Student Video Review - Graduate Testimonial ${index + 1}`}
+        title={name ? `${name} - Student Video Review` : `Student Video Review - Graduate Testimonial ${index + 1}`}
         preload="metadata"
         muted={isMuted}
         playsInline

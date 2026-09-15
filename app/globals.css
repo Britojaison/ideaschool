@@ -4088,6 +4088,22 @@ html.isHeroGlassCursorActive .hero * {
   background: rgba(175, 82, 223, 0.58);
 }
 
+.proofVideoItem {
+  position: relative;
+  flex: 0 0 440px;
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-snap-align: start;
+}
+
+.proofVideoItem .proofVideoFrame {
+  flex: none;
+  width: 100%;
+  height: 600px;
+}
+
 .proofVideoFrame {
   position: relative;
   flex: 0 0 500px;
@@ -4099,6 +4115,63 @@ html.isHeroGlassCursorActive .hero * {
   background: #09080e;
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
   scroll-snap-align: start;
+}
+
+.proofVideoMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 6px 12px;
+}
+
+.proofVideoTagRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.proofVideoRoleBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--font-stara), 'Stara', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(218, 253, 85, 0.14);
+  color: #DAFD55;
+  border: 1px solid rgba(218, 253, 85, 0.38);
+  box-shadow: 0 0 16px rgba(218, 253, 85, 0.08);
+  line-height: 1.4;
+}
+
+.proofVideoSubRole {
+  font-family: var(--font-stara), 'Stara', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(220, 222, 235, 0.65);
+  letter-spacing: 0.02em;
+}
+
+.proofVideoStudentName {
+  font-family: var(--font-stara), 'Stara', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 2px 0 0;
+  line-height: 1.3;
+}
+
+.proofVideoStudentBio {
+  font-family: var(--font-stara), 'Stara', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #a0aab2;
+  margin: 0;
 }
 
 .proofVideoPlayer,
@@ -7886,6 +7959,16 @@ html.isHeroGlassCursorActive .hero * {
     padding-inline: 0;
   }
 
+  .proofVideoItem {
+    flex-basis: min(78vw, 440px);
+    width: min(78vw, 440px);
+  }
+
+  .proofVideoItem .proofVideoFrame {
+    width: 100%;
+    height: min(102vw, 600px);
+  }
+
   .proofVideoFrame {
     flex-basis: min(78vw, 500px);
     width: min(78vw, 500px);
@@ -8767,6 +8850,27 @@ html.isHeroGlassCursorActive .hero * {
   .proofVideoRail {
     gap: 16px;
     padding-inline: 0;
+  }
+
+  .proofVideoItem {
+    flex-basis: min(86vw, 420px);
+    width: min(86vw, 420px);
+    gap: 12px;
+  }
+
+  .proofVideoItem .proofVideoFrame {
+    width: 100%;
+    height: min(112vw, 560px);
+    border-radius: 14px;
+  }
+
+  .proofVideoStudentName {
+    font-size: 18px;
+  }
+
+  .proofVideoStudentBio {
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   .proofVideoFrame {

@@ -741,6 +741,45 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <section className="videoSection" aria-label="Idea School video" itemScope itemType="https://schema.org/VideoObject">
+        <meta itemProp="name" content="Idea School Classroom and Studio Experience" />
+        <meta itemProp="description" content="Inside the real offline studio sessions, hands-on guidance, and high-income editing workflows at Idea School." />
+        <meta itemProp="thumbnailUrl" content="https://www.ideaschool.pro/images/hero.webp" />
+        <meta itemProp="uploadDate" content="2024-05-01T00:00:00+05:30" />
+        <meta itemProp="contentUrl" content="https://www.ideaschool.pro/images/HOME%20PAGE%20VIDEO.mp4" />
+        <meta itemProp="duration" content="PT27S" />
+        <div className="workshopImmersionInner">
+          <div className="workshopImmersionIntro">
+            <p className="workshopImmersionEyebrow">IN-PERSON IMMERSION // 88GB STUDIO</p>
+            <h2>See what an Idea School workshop actually feels like</h2>
+            <p>
+              Not another tab open on your laptop. A room full of people watching,
+              editing, questioning and getting better.
+            </p>
+          </div>
+          <div className="workshopImmersionVideoFrame">
+            <video
+              id="applyHomePageVideo"
+              className="videoPoster"
+              title="Idea School Classroom and Studio Experience"
+              poster="/images/hero.webp"
+              autoPlay
+              loop
+              muted
+              playsInline
+              disablePictureInPicture
+              disableRemotePlayback
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              preload="metadata"
+              aria-label="Idea School classroom video"
+            >
+              <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div className="videoSectionShade" aria-hidden="true" />
+      </section>
+
       <section className="programCurriculum" aria-label="What you will learn">
         <div className="programCurriculumDots">
           <DotField
@@ -766,33 +805,6 @@ export default function ApplyPage() {
 
           <CurriculumAccordion items={curriculum} />
         </div>
-      </section>
-
-      <section className="videoSection" aria-label="Idea School video" itemScope itemType="https://schema.org/VideoObject">
-        <meta itemProp="name" content="Idea School Classroom and Studio Experience" />
-        <meta itemProp="description" content="Inside the real offline studio sessions, hands-on guidance, and high-income editing workflows at Idea School." />
-        <meta itemProp="thumbnailUrl" content="https://www.ideaschool.pro/images/hero.webp" />
-        <meta itemProp="uploadDate" content="2024-05-01T00:00:00+05:30" />
-        <meta itemProp="contentUrl" content="https://www.ideaschool.pro/images/HOME%20PAGE%20VIDEO.mp4" />
-        <meta itemProp="duration" content="PT27S" />
-        <video
-          id="applyHomePageVideo"
-          className="videoPoster"
-          title="Idea School Classroom and Studio Experience"
-          poster="/images/hero.webp"
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-          controlsList="nodownload noplaybackrate noremoteplayback"
-          preload="metadata"
-          aria-label="Idea School classroom video"
-        >
-          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
-        </video>
-        <div className="videoSectionShade" aria-hidden="true" />
       </section>
 
       <section className="programAudience" aria-label="Who should attend">

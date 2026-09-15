@@ -16838,6 +16838,7 @@ html.isHeroGlassCursorActive .hero * {
     width: 82px;
     height: 34px;
   }
+
 }
 
 /* Curriculum Section */
@@ -16956,6 +16957,127 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .toolsMarqueeName {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
+}
+
+/* Workshop Immersion Video */
+.applyPage .videoSection {
+  position: relative !important;
+  width: 100% !important;
+  min-height: auto !important;
+  padding: clamp(64px, 7vw, 108px) var(--apply-section-x) clamp(52px, 6vw, 88px) !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 88% 2%, rgba(85, 46, 173, 0.18), transparent 34%),
+    #06060a !important;
+  isolation: isolate !important;
+}
+
+.applyPage .workshopImmersionInner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1256px);
+  margin: 0 auto;
+}
+
+.applyPage .workshopImmersionIntro {
+  max-width: 900px;
+}
+
+.applyPage .workshopImmersionEyebrow {
+  margin: 0 0 22px;
+  color: #DAFD55 !important;
+  font-size: clamp(0.78rem, 1vw, 0.96rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.applyPage .workshopImmersionIntro h2 {
+  max-width: 920px;
+  margin: 0;
+  color: var(--frost) !important;
+  font-size: clamp(2.35rem, 4.7vw, 4.85rem);
+  font-weight: 950;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.applyPage .workshopImmersionIntro > p:not(.workshopImmersionEyebrow) {
+  max-width: 800px;
+  margin: 24px 0 0;
+  color: #9c95aa !important;
+  font-size: clamp(1rem, 1.4vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.48;
+}
+
+.applyPage .workshopImmersionVideoFrame {
+  position: relative;
+  margin-top: clamp(42px, 5vw, 64px);
+  overflow: hidden;
+  border: 1px solid rgba(251, 250, 242, 0.14);
+  border-radius: 6px;
+  background: #111116;
+  aspect-ratio: 16 / 9;
+}
+
+.applyPage .workshopImmersionVideoFrame::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(6, 6, 10, 0.06), rgba(6, 6, 10, 0.22)),
+    radial-gradient(circle at 50% 100%, rgba(218, 253, 85, 0.12), transparent 34%);
+  pointer-events: none;
+}
+
+.applyPage .videoPoster {
+  position: static !important;
+  z-index: auto !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  pointer-events: none !important;
+}
+
+.applyPage .videoSectionShade {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  background: linear-gradient(180deg, rgba(6, 6, 10, 0), rgba(6, 6, 10, 0.42)) !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 640px) {
+  .applyPage .videoSection {
+    padding-top: 48px !important;
+    padding-bottom: 44px !important;
+  }
+
+  .applyPage .workshopImmersionEyebrow {
+    margin-bottom: 16px;
+    font-size: 0.76rem;
+  }
+
+  .applyPage .workshopImmersionIntro h2 {
+    font-size: clamp(2rem, 9.4vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .applyPage .workshopImmersionIntro > p:not(.workshopImmersionEyebrow) {
+    margin-top: 18px;
+    font-size: 0.98rem;
+  }
+
+  .applyPage .workshopImmersionVideoFrame {
+    margin-top: 32px;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    border-radius: 5px;
+  }
 }
 
 /* Sprint Offer Card */

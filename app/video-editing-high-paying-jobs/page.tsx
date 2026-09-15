@@ -1362,7 +1362,6 @@ export default function ApplyPage() {
           <div className="vaultModulesGrid">
             <div className="vaultModuleCard">
               <div className="vaultModuleCardTop">
-                <span className="vaultModuleNumber">01</span>
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>Brief Breakdowns</h3>
@@ -1371,7 +1370,6 @@ export default function ApplyPage() {
 
             <div className="vaultModuleCard">
               <div className="vaultModuleCardTop">
-                <span className="vaultModuleNumber">02</span>
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>Edit Decision Case Studies</h3>
@@ -1380,7 +1378,6 @@ export default function ApplyPage() {
 
             <div className="vaultModuleCard">
               <div className="vaultModuleCardTop">
-                <span className="vaultModuleNumber">03</span>
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>Live Edit Workflow Pack</h3>
@@ -1389,7 +1386,6 @@ export default function ApplyPage() {
 
             <div className="vaultModuleCard">
               <div className="vaultModuleCardTop">
-                <span className="vaultModuleNumber">04</span>
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>Hook + Retention Swipe File</h3>
@@ -1398,7 +1394,6 @@ export default function ApplyPage() {
 
             <div className="vaultModuleCard">
               <div className="vaultModuleCardTop">
-                <span className="vaultModuleNumber">05</span>
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>AI Workflow Kit</h3>
@@ -1407,7 +1402,6 @@ export default function ApplyPage() {
 
             <div className="vaultModuleCard">
               <div className="vaultModuleCardTop">
-                <span className="vaultModuleNumber">06</span>
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>Templates + Editing Resources</h3>

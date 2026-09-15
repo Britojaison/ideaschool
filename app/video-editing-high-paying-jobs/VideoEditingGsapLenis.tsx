@@ -357,6 +357,42 @@ export default function VideoEditingGsapLenis() {
         }
       );
 
+      // --- WORKSHOP VENUE SECTION ---
+      gsap.fromTo(
+        ".applyPage .workshopVenueHeader > *",
+        { y: 28, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.55,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".applyPage .workshopVenueHeader",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".applyPage .workshopVenueGrid > *",
+        { y: 35, opacity: 0, scale: 0.98 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".applyPage .workshopVenueGrid",
+            start: "top 82%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
       // --- FAQ SECTION ---
       gsap.fromTo(
         ".applyPage .programFaqInner h2",

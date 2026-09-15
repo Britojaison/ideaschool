@@ -1496,6 +1496,121 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <section className="workshopVenueSection" id="venue" aria-label="Workshop venue and location">
+        <div className="workshopVenueInner">
+          <div className="workshopVenueHeader">
+            <p className="workshopVenueEyebrow">WORKSHOP VENUE // IN-PERSON EDIT STUDIO</p>
+            <h2>WHERE THE WORK HAPPENS</h2>
+            <p className="workshopVenueSubhead">
+              Physical, hands-on workshop held inside IDEA School at 88GB Creative Agency HQ in HSR Layout, Bengaluru. Bring your laptop and your edit drive—everything else is set up for you.
+            </p>
+          </div>
+
+          <div className="workshopVenueGrid">
+            {/* Left Column: Studio Card */}
+            <div className="workshopVenueCard">
+              <div className="workshopVenueCardHeader">
+                <span className="workshopVenueBadge">STUDIO HQ</span>
+                <h3 className="workshopVenueTitle">88GB HQ · IDEA SCHOOL</h3>
+                <p className="workshopVenueAddress">HSR Layout, Bengaluru, Karnataka</p>
+              </div>
+
+              <div className="workshopVenueDivider" />
+
+              <div className="workshopVenueDetails">
+                <div className="workshopVenueDetailItem">
+                  <span className="workshopVenueDetailLabel">DATE &amp; TIME //</span>
+                  <p className="workshopVenueDetailValue">Saturday, 19 September 2026 · 11 AM – 5 PM IST</p>
+                </div>
+
+                <div className="workshopVenueDetailItem">
+                  <span className="workshopVenueDetailLabel">VENUE TYPE //</span>
+                  <p className="workshopVenueDetailValue">Working agency edit bays &amp; interactive workshop floor</p>
+                </div>
+
+                <div className="workshopVenueDetailItem">
+                  <span className="workshopVenueDetailLabel">TRANSIT &amp; ACCESS //</span>
+                  <p className="workshopVenueDetailValue">
+                    Easy cab/auto drop-off via 27th Main HSR &amp; Outer Ring Road. On-premise parking available.
+                  </p>
+                </div>
+              </div>
+
+              <div className="workshopVenuePerks">
+                <div className="workshopVenuePerk">
+                  <span className="workshopVenuePerkIcon">⚡</span>
+                  <span>Dedicated Power at Every Seat</span>
+                </div>
+                <div className="workshopVenuePerk">
+                  <span className="workshopVenuePerkIcon">📶</span>
+                  <span>High-Speed Gigabit Fiber</span>
+                </div>
+                <div className="workshopVenuePerk">
+                  <span className="workshopVenuePerkIcon">👥</span>
+                  <span>Live 1-on-1 Mentor Access</span>
+                </div>
+                <div className="workshopVenuePerk">
+                  <span className="workshopVenuePerkIcon">☕</span>
+                  <span>Beverages &amp; Snacks Included</span>
+                </div>
+              </div>
+
+              <div className="workshopVenueActions">
+                <a
+                  href="https://maps.google.com/?q=IDEA+School,+1658,+27th+Main+Rd,+Sector+2,+HSR+Layout,+Bengaluru,+Karnataka+560102"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="workshopVenueMapsBtn"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <span>Open in Google Maps ↗</span>
+                </a>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=IDEA+School,+1658,+27th+Main+Rd,+Sector+2,+HSR+Layout,+Bengaluru,+Karnataka+560102"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="workshopVenueDirectionsBtn"
+                >
+                  <span>Get Directions →</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Live Map Card */}
+            <div className="workshopVenueMapCard">
+              <div className="workshopVenueMapTop">
+                <div className="workshopVenueMapLive">
+                  <span className="workshopVenueMapDot" />
+                  <span>LIVE MAP // HSR LAYOUT, BENGALURU</span>
+                </div>
+                <a
+                  href="https://maps.google.com/?q=IDEA+School,+1658,+27th+Main+Rd,+Sector+2,+HSR+Layout,+Bengaluru,+Karnataka+560102"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="workshopVenueMapLargerLink"
+                >
+                  View Larger Map ↗
+                </a>
+              </div>
+              <div className="workshopVenueMapContainer">
+                <iframe
+                  title="IDEA School 88GB HQ Location Map"
+                  src="https://maps.google.com/maps?q=IDEA%20School%2C%201658%2C%2027th%20Main%20Rd%2C%20Parangi%20Palaya%2C%20Sector%202%2C%20HSR%20Layout%2C%20Bengaluru%2C%20Karnataka%20560102&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="programFaqContact" aria-label="FAQ and application form">
         <div className="programFaqInner">
           <h2>Frequently Asked Questions</h2>

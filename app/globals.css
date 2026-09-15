@@ -19413,6 +19413,327 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
+/* ==========================================================================
+   WORKSHOP VENUE - WHERE THE WORK HAPPENS
+   ========================================================================== */
+
+.applyPage .workshopVenueSection {
+  position: relative;
+  padding: clamp(64px, 7vw, 104px) var(--apply-section-x);
+  background: #08060d;
+  border-top: 1px solid rgba(251, 250, 242, 0.06);
+}
+
+.applyPage .workshopVenueInner {
+  width: min(100%, 1256px);
+  margin: 0 auto;
+}
+
+.applyPage .workshopVenueHeader {
+  margin-bottom: clamp(36px, 4.5vw, 54px);
+}
+
+.applyPage .workshopVenueEyebrow {
+  margin: 0 0 16px !important;
+  color: #DAFD55 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: clamp(0.78rem, 1vw, 0.95rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .workshopVenueHeader h2 {
+  margin: 0 0 16px !important;
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--frost, #fbfaf2) !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .workshopVenueSubhead {
+  max-width: 820px;
+  margin: 0 !important;
+  color: #a0aab2 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: clamp(1rem, 1.3vw, 1.15rem) !important;
+  line-height: 1.55 !important;
+}
+
+.applyPage .workshopVenueGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(20px, 2.5vw, 32px);
+  align-items: stretch;
+}
+
+/* Studio Info Card */
+.applyPage .workshopVenueCard {
+  background: #0c0a13;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: clamp(28px, 3.5vw, 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.applyPage .workshopVenueBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: rgba(218, 253, 85, 0.12);
+  color: #DAFD55;
+  border: 1px solid rgba(218, 253, 85, 0.4);
+  border-radius: 999px;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.applyPage .workshopVenueTitle {
+  margin: 16px 0 6px !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: clamp(1.4rem, 2vw, 1.85rem) !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .workshopVenueAddress {
+  margin: 0 0 24px !important;
+  color: #8e8a9a !important;
+  font-size: 14.5px !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .workshopVenueDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.applyPage .workshopVenueDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.applyPage .workshopVenueDetailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.applyPage .workshopVenueDetailLabel {
+  color: #DAFD55 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .workshopVenueDetailValue {
+  margin: 0 !important;
+  color: #e2e2ec !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+}
+
+.applyPage .workshopVenuePerks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 28px;
+}
+
+.applyPage .workshopVenuePerk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e5e5ec;
+}
+
+.applyPage .workshopVenuePerkIcon {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.applyPage .workshopVenueActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.applyPage .workshopVenueMapsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  background: #DAFD55;
+  color: #000000 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.applyPage .workshopVenueMapsBtn:hover {
+  background: #e4ff6b;
+  transform: translateY(-2px);
+}
+
+.applyPage .workshopVenueDirectionsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.applyPage .workshopVenueDirectionsBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+/* Map Card */
+.applyPage .workshopVenueMapCard {
+  background: #0c0a13;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+}
+
+.applyPage .workshopVenueMapTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #110f1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.applyPage .workshopVenueMapLive {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.applyPage .workshopVenueMapDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #DAFD55;
+  box-shadow: 0 0 10px #DAFD55;
+  animation: mapPulse 2s infinite ease-in-out;
+}
+
+@keyframes mapPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+}
+
+.applyPage .workshopVenueMapLargerLink {
+  color: #DAFD55 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease;
+}
+
+.applyPage .workshopVenueMapLargerLink:hover {
+  opacity: 0.8;
+  text-decoration: underline !important;
+}
+
+.applyPage .workshopVenueMapContainer {
+  flex: 1;
+  width: 100%;
+  min-height: 460px;
+  background: #15131f;
+}
+
+.applyPage .workshopVenueMapContainer iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .applyPage .workshopVenueGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .applyPage .workshopVenueMapContainer {
+    min-height: 400px;
+  }
+  
+  .applyPage .workshopVenueMapContainer iframe {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .applyPage .workshopVenuePerks {
+    grid-template-columns: 1fr;
+  }
+  
+  .applyPage .workshopVenueActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .applyPage .workshopVenueMapsBtn,
+  .applyPage .workshopVenueDirectionsBtn {
+    justify-content: center;
+  }
+}
+
 .applyPage .programFaqInner > h2 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
@@ -19515,6 +19836,7 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .qualificationSection,
 .applyPage .thunderVaultSection,
 .applyPage .freeAssetsSection,
+.applyPage .workshopVenueSection,
 .applyPage .programFaqContact,
 .applyPage .siteFooter {
   padding-left: 60px !important;
@@ -19534,7 +19856,8 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .workshopComparisonInner,
 .applyPage .qualificationInner,
 .applyPage .thunderVaultInner,
-.applyPage .freeAssetsInner {
+.applyPage .freeAssetsInner,
+.applyPage .workshopVenueInner {
   width: min(100%, 1256px) !important;
   margin: 0 auto !important;
 }
@@ -19563,6 +19886,7 @@ html.isHeroGlassCursorActive .hero * {
   .applyPage .qualificationSection,
   .applyPage .thunderVaultSection,
   .applyPage .freeAssetsSection,
+  .applyPage .workshopVenueSection,
   .applyPage .programFaqContact,
   .applyPage .siteFooter {
     padding-left: 20px !important;

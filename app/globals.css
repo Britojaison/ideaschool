@@ -16775,87 +16775,540 @@ html.isHeroGlassCursorActive .hero * {
   }
 
   .applyPage .agencyPedigree {
-    padding-top: 52px;
-    padding-bottom: 46px;
+    padding: 46px 16px 82px;
+  }
+
+  .applyPage .agencyPedigreeEyebrow {
+    margin-bottom: 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
   }
 
   .applyPage .agencyPedigreeIntro h2 {
-    font-size: clamp(2rem, 10vw, 3.1rem);
-    line-height: 1.06;
+    font-size: clamp(1.9rem, 9.2vw, 2.45rem);
+    line-height: 1.02;
   }
 
   .applyPage .agencyPedigreeIntro > p:not(.agencyPedigreeEyebrow) {
-    margin-top: 18px;
-    font-size: 0.98rem;
+    margin-top: 16px;
+    font-size: 0.92rem;
+    line-height: 1.42;
   }
 
   .applyPage .agencyPedigreeStats {
-    grid-template-columns: 1fr;
-    margin-top: 34px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 30px;
   }
 
   .applyPage .agencyPedigreeStat {
-    min-height: auto;
-    padding: 22px;
+    display: flex;
+    min-height: 132px;
+    padding: 16px 14px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .applyPage .agencyPedigreeStat h3 {
+    font-size: clamp(1.05rem, 5.6vw, 1.38rem);
+    line-height: 1.2;
+  }
+
+  .applyPage .agencyPedigreeStat p {
+    margin-top: 10px;
+    font-size: 0.76rem;
+    line-height: 1.28;
   }
 
   .applyPage .agencyMentorStrip {
-    margin-top: 34px;
-    padding: 20px;
+    margin-top: 28px;
+    padding: 18px 16px 22px;
+    gap: 18px;
   }
 
   .applyPage .agencyMentorStrip > p {
     white-space: normal;
+    font-size: 0.72rem;
+    line-height: 1.25;
   }
 
   .applyPage .agencyMentorList {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
   }
 
   .applyPage .agencyMentor {
-    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 10px;
   }
 
   .applyPage .agencyMentorAvatar {
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
+    border-width: 2px;
+  }
+
+  .applyPage .agencyMentor h3 {
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    line-height: 1;
   }
 
   .applyPage .agencyMentor p {
+    font-size: 0.72rem;
+    line-height: 1.18;
     white-space: normal;
   }
 
   .applyPage .agencyBrands {
-    margin-top: 40px;
+    margin-top: 36px;
+  }
+
+  .applyPage .agencyBrands > p {
+    max-width: 300px;
+    margin-inline: auto;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    letter-spacing: 0.1em;
   }
 
   .applyPage .agencyBrandMarquee {
-    margin-top: 24px;
+    margin-top: 20px;
   }
 
   .applyPage .agencyBrandLogo {
-    width: 82px;
-    height: 34px;
+    width: 74px;
+    height: 30px;
   }
 
+  .applyPage .agencyBrandImage {
+    max-width: 74px;
+    max-height: 26px;
+  }
+
+}
+
+@media (max-width: 380px) {
+  .applyPage .agencyPedigreeStats {
+    gap: 10px;
+  }
+
+  .applyPage .agencyPedigreeStat {
+    min-height: 122px;
+    padding: 14px 12px;
+  }
+
+  .applyPage .agencyPedigreeStat h3 {
+    font-size: 1rem;
+  }
+
+  .applyPage .agencyPedigreeStat p {
+    font-size: 0.7rem;
+  }
+
+  .applyPage .agencyMentorList {
+    gap: 14px 10px;
+  }
+
+  .applyPage .agencyMentor {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .applyPage .agencyMentorAvatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .applyPage .agencyMentor h3 {
+    font-size: 0.82rem;
+  }
+
+  .applyPage .agencyMentor p {
+    font-size: 0.66rem;
+  }
 }
 
 /* Curriculum Section */
 .applyPage .programCurriculum {
-  background: var(--ink) !important;
-  padding-top: clamp(36px, 5vw, 56px) !important;
-  padding-bottom: clamp(36px, 5vw, 56px) !important;
+  background: #06060a !important;
+  padding-top: clamp(64px, 7vw, 108px) !important;
+  padding-bottom: clamp(76px, 8vw, 118px) !important;
 }
 
-.applyPage .curriculumIntro h2 {
+.applyPage .editingJudgementIntro {
+  text-align: left !important;
+}
+
+.applyPage .editingJudgementEyebrow {
+  margin: 0 0 26px !important;
+  color: #DAFD55 !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: clamp(0.78rem, 1vw, 0.96rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .curriculumIntro h2,
+.applyPage .editingJudgementIntro h2 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
+  max-width: 940px !important;
+  font-size: clamp(3rem, 5.6vw, 5.3rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+  word-spacing: 0 !important;
 }
 
 .applyPage .curriculumIntro p {
   color: #9fa8ae !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+}
+
+.applyPage .editingJudgementPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.applyPage .editingJudgementPills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(251, 250, 242, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--frost);
+  font-size: clamp(0.86rem, 1.04vw, 1rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.applyPage .editingJudgementStatement {
+  margin: 38px 0 0 !important;
+  color: #DAFD55 !important;
+  font-size: clamp(1.35rem, 2vw, 1.75rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.12 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.applyPage .editingTimelinePanel {
+  position: relative;
+  margin-top: clamp(52px, 5.8vw, 78px);
+  padding: 20px 22px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(168, 85, 247, 0.42);
+  border-radius: 5px;
+  background: rgba(18, 15, 25, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.applyPage .editingTimelineHeader {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(251, 250, 242, 0.1);
+}
+
+.applyPage .editingWindowDots {
+  display: flex;
+  gap: 8px;
+}
+
+.applyPage .editingWindowDots span {
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+}
+
+.applyPage .editingWindowDots span:nth-child(1) {
+  background: #ff5e5a;
+}
+
+.applyPage .editingWindowDots span:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.applyPage .editingWindowDots span:nth-child(3) {
+  background: #27c942;
+}
+
+.applyPage .editingTimelineHeader p,
+.applyPage .editingTimelineHeader time,
+.applyPage .editingTimelineScale,
+.applyPage .editingTrackLabel,
+.applyPage .editingClip,
+.applyPage .editingPhaseCard time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
+}
+
+.applyPage .editingTimelineHeader p {
+  margin: 0 !important;
+  color: #8f889c !important;
+  font-size: clamp(0.72rem, 1vw, 0.9rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-align: center;
+}
+
+.applyPage .editingTimelineHeader time {
+  color: #DAFD55;
+  font-size: clamp(0.75rem, 1vw, 0.92rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.applyPage .editingTimelineScale {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 18px 0 10px 44px;
+  color: #6f687b;
+  font-size: clamp(0.68rem, 0.88vw, 0.82rem);
+  font-weight: 800;
+}
+
+.applyPage .editingTimelineScale span:last-child {
+  text-align: right;
+}
+
+.applyPage .editingTimelineTracks {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(760px, 1fr);
+  gap: 8px 10px;
+  min-width: 0;
+}
+
+.applyPage .editingTrackLabel {
+  display: flex;
+  align-items: center;
+  color: #a59caf;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.applyPage .editingTrack {
+  position: relative;
+  height: 41px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.applyPage .editingClip {
+  position: absolute;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  height: 31px;
+  padding: 0 10px;
+  overflow: hidden;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: clamp(0.62rem, 0.82vw, 0.78rem);
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.applyPage .clipHook {
+  left: 0;
+  width: 20%;
+  background: rgba(218, 253, 85, 0.22);
+  color: #DAFD55;
+}
+
+.applyPage .clipReset {
+  left: 40%;
+  width: 25%;
+  background: rgba(168, 85, 247, 0.22);
+  color: #c39cff;
+}
+
+.applyPage .clipPayoff {
+  left: 75%;
+  width: 20%;
+  background: rgba(80, 148, 255, 0.22);
+  color: #a9caff;
+}
+
+.applyPage .clipCamera {
+  background: rgba(251, 250, 242, 0.08);
+  color: #878091;
+}
+
+.applyPage .clipCamOne {
+  left: 0;
+  width: 18%;
+}
+
+.applyPage .clipCamTwo {
+  left: 18.3%;
+  width: 22%;
+}
+
+.applyPage .clipCamThree {
+  left: 40.6%;
+  width: 28%;
+}
+
+.applyPage .clipCamFour {
+  left: 68.9%;
+  width: 25%;
+}
+
+.applyPage .clipDialogue {
+  left: 0;
+  width: 95%;
+  background: rgba(23, 178, 128, 0.18);
+  color: #5ee0b8;
+}
+
+.applyPage .clipWhoosh,
+.applyPage .clipRiser,
+.applyPage .clipBoom {
+  background: rgba(255, 157, 0, 0.22);
+  color: #ffbd4a;
+}
+
+.applyPage .clipWhoosh {
+  left: 0;
+  width: 12%;
+}
+
+.applyPage .clipRiser {
+  left: 38%;
+  width: 15%;
+}
+
+.applyPage .clipBoom {
+  left: 72%;
+  width: 18%;
+}
+
+.applyPage .editingPlayhead {
+  position: absolute;
+  top: -59px;
+  bottom: 0;
+  left: calc(34px + 10px + 36%);
+  width: 2px;
+  background: #ff5e5a;
+  box-shadow: 0 0 14px rgba(255, 94, 90, 0.45);
+}
+
+.applyPage .editingPlayhead::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #ff5e5a;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.applyPage .editingPhaseGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 20px);
+  margin-top: clamp(48px, 5vw, 72px);
+}
+
+.applyPage .editingPhaseCard {
+  display: flex;
+  min-height: 238px;
+  padding: clamp(22px, 2vw, 28px);
+  flex-direction: column;
+  border: 1px solid rgba(251, 250, 242, 0.14);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.applyPage .editingPhaseTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.applyPage .editingPhaseTopline span {
+  color: #a39bad;
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  font-weight: 900;
+}
+
+.applyPage .editingPhaseTopline strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(218, 253, 85, 0.42);
+  border-radius: 999px;
+  background: rgba(218, 253, 85, 0.14);
+  color: #DAFD55;
+  font-size: 0.78rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.applyPage .editingPhaseCard h3 {
+  margin: 28px 0 16px;
+  color: var(--frost) !important;
+  font-size: clamp(1.16rem, 1.45vw, 1.38rem);
+  font-weight: 900;
+  line-height: 1.12;
+}
+
+.applyPage .editingPhaseCard time {
+  color: #8f889c;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.applyPage .editingPhaseCard p {
+  margin: 16px 0 0;
+  color: #9c95aa !important;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-weight: 500;
+  line-height: 1.42;
+}
+
+.applyPage .editingJudgementCallout {
+  margin-top: clamp(48px, 5vw, 72px);
+  padding: clamp(28px, 3vw, 38px);
+  border: 1px solid rgba(168, 85, 247, 0.42);
+  border-radius: 5px;
+  background: rgba(85, 46, 173, 0.12);
+  text-align: center;
+}
+
+.applyPage .editingJudgementCallout h3 {
+  margin: 0;
+  color: #DAFD55 !important;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 950;
+  line-height: 1.12;
+}
+
+.applyPage .editingJudgementCallout p {
+  margin: 18px auto 0;
+  max-width: 840px;
+  color: #9c95aa !important;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.45;
 }
 
 .applyPage .curriculumList {
@@ -16930,6 +17383,191 @@ html.isHeroGlassCursorActive .hero * {
     font-size: clamp(0.82rem, 3.5vw, 1.05rem) !important;
     padding: 6px 14px !important;
     letter-spacing: 0.02em !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .applyPage .programCurriculum {
+    padding-top: 58px !important;
+    padding-bottom: 94px !important;
+  }
+
+  .applyPage .curriculumIntro h2,
+  .applyPage .editingJudgementIntro h2 {
+    font-size: clamp(2.35rem, 8vw, 4.2rem) !important;
+  }
+
+  .applyPage .editingTimelinePanel {
+    overflow-x: auto;
+    padding: 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .applyPage .editingTimelineHeader,
+  .applyPage .editingTimelineScale,
+  .applyPage .editingTimelineTracks {
+    min-width: 860px;
+  }
+
+  .applyPage .editingPhaseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .applyPage .programCurriculum {
+    padding: 48px 16px 86px !important;
+  }
+
+  .applyPage .programCurriculumDots {
+    height: 260px;
+    opacity: 0.32;
+  }
+
+  .applyPage .editingJudgementEyebrow {
+    margin-bottom: 16px !important;
+    font-size: 0.68rem !important;
+    line-height: 1.28 !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  .applyPage .curriculumIntro h2,
+  .applyPage .editingJudgementIntro h2 {
+    font-size: clamp(2rem, 11vw, 2.95rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .applyPage .editingJudgementPills {
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .applyPage .editingJudgementPills span {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.74rem;
+  }
+
+  .applyPage .editingJudgementStatement {
+    margin-top: 24px !important;
+    font-size: clamp(1.12rem, 5.8vw, 1.48rem) !important;
+  }
+
+  .applyPage .editingTimelinePanel {
+    width: calc(100% + 20px);
+    margin-top: 34px;
+    margin-left: -10px;
+    padding: 14px;
+    border-radius: 5px;
+  }
+
+  .applyPage .editingTimelineHeader,
+  .applyPage .editingTimelineScale,
+  .applyPage .editingTimelineTracks {
+    min-width: 720px;
+  }
+
+  .applyPage .editingTimelineHeader {
+    grid-template-columns: 86px minmax(0, 1fr) max-content;
+    gap: 12px;
+  }
+
+  .applyPage .editingWindowDots span {
+    width: 10px;
+    height: 10px;
+  }
+
+  .applyPage .editingTimelineScale {
+    margin-left: 40px;
+  }
+
+  .applyPage .editingTimelineTracks {
+    grid-template-columns: 30px minmax(660px, 1fr);
+  }
+
+  .applyPage .editingTrack {
+    height: 36px;
+  }
+
+  .applyPage .editingClip {
+    top: 5px;
+    height: 26px;
+    padding: 0 8px;
+    font-size: 0.62rem;
+  }
+
+  .applyPage .editingPlayhead {
+    top: -52px;
+    left: calc(30px + 10px + 36%);
+  }
+
+  .applyPage .editingPhaseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 34px;
+  }
+
+  .applyPage .editingPhaseCard {
+    min-height: 210px;
+    padding: 16px 14px;
+  }
+
+  .applyPage .editingPhaseTopline span {
+    font-size: 0.78rem;
+  }
+
+  .applyPage .editingPhaseTopline strong {
+    min-height: 26px;
+    padding: 0 9px;
+    font-size: 0.64rem;
+  }
+
+  .applyPage .editingPhaseCard h3 {
+    margin: 20px 0 12px;
+    font-size: clamp(1rem, 5vw, 1.18rem);
+  }
+
+  .applyPage .editingPhaseCard time {
+    font-size: 0.68rem;
+  }
+
+  .applyPage .editingPhaseCard p {
+    margin-top: 12px;
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .applyPage .editingJudgementCallout {
+    margin-top: 34px;
+    padding: 22px 16px;
+  }
+
+  .applyPage .editingJudgementCallout h3 {
+    font-size: clamp(1.15rem, 6vw, 1.45rem);
+  }
+
+  .applyPage .editingJudgementCallout p {
+    margin-top: 12px;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .applyPage .editingPhaseGrid {
+    gap: 10px;
+  }
+
+  .applyPage .editingPhaseCard {
+    min-height: 196px;
+    padding: 14px 12px;
+  }
+
+  .applyPage .editingPhaseCard h3 {
+    font-size: 0.94rem;
+  }
+
+  .applyPage .editingPhaseCard p {
+    font-size: 0.7rem;
   }
 }
 

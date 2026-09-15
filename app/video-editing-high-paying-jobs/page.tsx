@@ -4,49 +4,45 @@ import Link from "next/link";
 import DotField from "../DotField";
 import HeroDotField from "../HeroDotField";
 import VideoEditingGsapLenis from "./VideoEditingGsapLenis";
-import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
 
-const curriculum = [
+const cutPhaseCards = [
   {
-    title: "[01] Hook Engineering",
-    tools: "Retention Editing",
+    number: "01",
+    badge: "HOOK",
+    title: "Hook Engineering",
+    time: "00:00 - 00:03",
     description:
-      "Create attention-grabbing hooks in the first 3 seconds. Master the hook frameworks used by top creators and implement powerful curiosity and retention strategies.",
-    images: ["/images/work1.webp", "/images/work2.webp"],
+      "Cut dead frames before speech starts. Start in motion. Engineer visual intrigue in the first 90 frames so the viewer never swipes away.",
   },
   {
-    title: "[02] Retention Editing",
-    tools: "Pacing & Storytelling",
+    number: "02",
+    badge: "PACE",
+    title: "Retention Rhythm",
+    time: "00:03 - 00:18",
     description:
-      "Keep viewers engaged till the end. Master pacing, cuts, visual storytelling, and motion graphics. Learn retention techniques behind viral content and AI-powered workflows with Higgsfield AI.",
-    images: ["/images/arjun.webp", "/images/359586b8b594b653726bbda2883862b8a820e37b.webp"],
+      "Pacing isn't just fast cutting. It is rhythm, contrast, breath, and knowing when to let an emotional or visual beat land with weight.",
   },
   {
-    title: "[03] Typography & Sound Design",
-    tools: "Audio Enhancement",
+    number: "03",
+    badge: "RESET",
+    title: "Attention Resets",
+    time: "00:18 - 00:35",
     description:
-      "Enhance viewer experience with animated captions and engaging typography. Master sound effects, music, and seamless audio transitions.",
-    images: ["/images/automotive.webp", "/images/ce04d496a79858c7cfcdeeb68c3992c3b57447a2.webp"],
+      "Attention decays every 4 to 6 seconds. Insert micro-resets, focal shifts, sound drops, and unexpected angles to restore focus.",
   },
   {
-    title: "[04] Viral Edit Framework",
-    tools: "Premiere Pro, After Effects",
+    number: "04",
+    badge: "PAYOFF",
+    title: "The Closing Payoff",
+    time: "00:35 - 00:50",
     description:
-      "Structure videos for maximum watch time. Breakdown successful viral edits and create content optimized for Reels, Shorts & Social Media.",
-    images: ["/images/bf2b72489ff720a0100b6ab10c6e86a70fbc6c43.webp", "/images/c988e78cfada134657e808cfb29a0523e125dde8.webp"],
+      "Deliver the emotional or commercial conclusion cleanly. An edit that doesn't stick the landing wastes the entire retention curve.",
   },
-  {
-    title: "[05] AI Integrated Workflow",
-    tools: "Higgsfield AI, Seedance 2.0, InVideo AI",
-    description:
-      "Supercharge your editing speed and visual storytelling with cutting-edge AI. Master AI video generation, automated B-roll workflows, and modern creator pipelines.",
-    images: ["/images/card1.webp", "/images/card2.webp"],
-  }
 ];
 
 const toolLogos = [
@@ -798,12 +794,88 @@ export default function ApplyPage() {
           />
         </div>
         <div className="programCurriculumInner">
-          <div className="curriculumIntro">
-            <h2>What You Will Learn</h2>
-            <p>A structured, hands-on journey from creative strategy to cinematic AI output.</p>
+          <div className="curriculumIntro editingJudgementIntro">
+            <p className="editingJudgementEyebrow">STRATEGIC EDITING JUDGEMENT // THE 4 CUT PHASES</p>
+            <h2>
+              KNOWING THE SOFTWARE
+              <br />
+              ISN&apos;T THE HARD PART
+            </h2>
+            <div className="editingJudgementPills" aria-label="Editing judgement topics">
+              <span>Where to cut.</span>
+              <span>What to remove.</span>
+              <span>How to hold attention.</span>
+              <span>Why an edit feels slow.</span>
+            </div>
+            <p className="editingJudgementStatement">THAT&apos;S THE LAYER THIS WORKSHOP TEACHES.</p>
           </div>
 
-          <CurriculumAccordion items={curriculum} />
+          <div className="editingTimelinePanel" aria-label="Commercial master timeline example">
+            <div className="editingTimelineHeader">
+              <span className="editingWindowDots" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
+              <p>88GB_COMMERCIAL_MASTER_v04.prproj</p>
+              <time>00:00:18:14</time>
+            </div>
+
+            <div className="editingTimelineScale" aria-hidden="true">
+              <span>00:00</span>
+              <span>00:10</span>
+              <span>00:20</span>
+              <span>00:30</span>
+              <span>00:40</span>
+              <span>00:50</span>
+            </div>
+
+            <div className="editingTimelineTracks">
+              <div className="editingTrackLabel">V2</div>
+              <div className="editingTrack">
+                <span className="editingClip clipHook">HOOK_OVERLAY</span>
+                <span className="editingClip clipReset">MICRO_RESET_BROLL</span>
+                <span className="editingClip clipPayoff">TITLE_PAYOFF</span>
+              </div>
+              <div className="editingTrackLabel">V1</div>
+              <div className="editingTrack">
+                <span className="editingClip clipCamera clipCamOne">A_CAM_01</span>
+                <span className="editingClip clipCamera clipCamTwo">A_CAM_02</span>
+                <span className="editingClip clipCamera clipCamThree">A_CAM_03</span>
+                <span className="editingClip clipCamera clipCamFour">A_CAM_04</span>
+              </div>
+              <div className="editingTrackLabel">A1</div>
+              <div className="editingTrack">
+                <span className="editingClip clipDialogue">SYNC_DIALOGUE_MASTER (NOISE CLEANED)</span>
+              </div>
+              <div className="editingTrackLabel">A2</div>
+              <div className="editingTrack">
+                <span className="editingClip clipWhoosh">WHOOSH_HIT</span>
+                <span className="editingClip clipRiser">RISER_DROP</span>
+                <span className="editingClip clipBoom">SUB_BOOM_OUTRO</span>
+              </div>
+              <span className="editingPlayhead" aria-hidden="true" />
+            </div>
+          </div>
+
+          <div className="editingPhaseGrid" aria-label="Four cut phases">
+            {cutPhaseCards.map((phase) => (
+              <article className="editingPhaseCard" key={phase.number}>
+                <div className="editingPhaseTopline">
+                  <span>{phase.number}</span>
+                  <strong>{phase.badge}</strong>
+                </div>
+                <h3>{phase.title}</h3>
+                <time>{phase.time}</time>
+                <p>{phase.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="editingJudgementCallout">
+            <h3>SOFTWARE KNOWLEDGE ≠ EDITING JUDGEMENT.</h3>
+            <p>Anyone can memorize keyboard shortcuts. What makes an editor hireable is knowing why to make the cut.</p>
+          </div>
         </div>
       </section>
 

@@ -16196,6 +16196,7 @@ html.isHeroGlassCursorActive .hero * {
   color: var(--frost) !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   box-shadow: none !important;
+  white-space: nowrap !important;
 }
 
 .applyPage .programBadgeNeonDot {
@@ -16207,15 +16208,27 @@ html.isHeroGlassCursorActive .hero * {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
   letter-spacing: -0.02em;
+  font-size: clamp(4rem, 5.5vw, 6.4rem) !important;
+  line-height: 0.98 !important;
+  text-transform: none !important;
 }
 
 .applyPage .programHeroTitleAccent {
-  color: #DAFD55 !important;
+  color: var(--frost) !important;
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
 }
 
 .applyPage .programHeroTitleDay {
   color: var(--frost) !important;
+}
+
+.applyPage .programHeroCopy > p {
+  max-width: 720px !important;
+  margin: 28px 0 0 !important;
+  color: #d5d8df !important;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
+  font-size: clamp(1rem, 1.18vw, 1.25rem) !important;
+  line-height: 1.45 !important;
 }
 
 .applyPage .programCta,
@@ -16228,6 +16241,7 @@ html.isHeroGlassCursorActive .hero * {
   box-shadow: none !important;
   border-radius: 6px !important;
   transition: transform 0.25s, background 0.25s, border-color 0.25s !important;
+  margin-top: 36px !important;
 }
 
 .applyPage .programCta:hover,
@@ -16254,11 +16268,79 @@ html.isHeroGlassCursorActive .hero * {
 .applyPage .programStats dt {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: #9fa8ae !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
 }
 
 .applyPage .programStats dd {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  overflow-wrap: normal !important;
+}
+
+.applyPage .programHeroInner > .programStats {
+  display: flex !important;
+  max-width: 360px !important;
+  margin-top: 42px !important;
+  gap: 0 !important;
+  flex-direction: column !important;
+}
+
+.applyPage .programStats div {
+  position: relative !important;
+  padding: 0 0 26px !important;
+}
+
+.applyPage .programStats div:not(:last-child)::after {
+  position: absolute;
+  left: 0;
+  bottom: 9px;
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.14);
+  content: "";
+}
+
+.applyPage .programStats div:nth-child(3) dd {
+  color: #DAFD55 !important;
+  font-size: 1.8rem !important;
+}
+
+.applyPage .programStats div:nth-child(4) {
+  padding-bottom: 0 !important;
+}
+
+.applyPage .programStats div:nth-child(4) dd {
+  color: #ff9d00 !important;
+}
+
+@media (max-width: 980px) {
+  .applyPage .programHeroCopy h1 {
+    font-size: clamp(2.6rem, 9vw, 4.8rem) !important;
+  }
+
+  .applyPage .programHeroInner > .programStats {
+    max-width: 100% !important;
+  }
+
+  .applyPage .programBadgeNeon {
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .applyPage .programHeroCopy h1 {
+    font-size: clamp(2.35rem, 12vw, 3.4rem) !important;
+  }
+
+  .applyPage .programHeroCopy > p {
+    font-size: 0.98rem !important;
+  }
 }
 
 /* Curriculum Section */

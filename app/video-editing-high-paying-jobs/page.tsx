@@ -513,22 +513,28 @@ export default function ApplyPage() {
         <div className="programHeroInner">
           <div className="programHeroCopy">
             <div className="programEyebrowRow">
-              <span className="programPill">Offline workshop</span>
+              <span className="programPill">Offline workshop // HSR Layout, Bengaluru</span>
               <span className="programBadgeNeon">
                 <span className="programBadgeNeonDot" aria-hidden="true" />
-                <span>Agency-Level Video Editing Training Led By Industry Experts</span>
+                <span>Agency-style editing intensive</span>
               </span>
             </div>
 
             <h1>
-              Master <span className="programHeroTitleAccent">High-Paying</span><br />
-              <span className="programHeroTitleAccent">Video Editing</span> In <span className="programHeroTitleDay">1 Day</span>
+              Build an<br />
+              <span className="programHeroTitleAccent">agency-style</span><br />
+              edit in <span className="programHeroTitleDay">one day</span>
             </h1>
+            <p>
+              A 6-hour intensive workshop where you sit in the 88GB edit suite,
+              unpack real client footage, cut high-retention commercial edits,
+              and receive live 1-on-1 timeline critique.
+            </p>
 
             <a className="primaryCta programCta" href="#enroll">
-              <span className="primaryCtaText">Get early bird pass now</span>
+              <span className="primaryCtaText">Book seat now</span>
             </a>
-            <span className="seatLimit">Limited to 25 seats Only</span>
+            <span className="seatLimit">25 seats per batch · 10 seats left</span>
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
@@ -538,20 +544,28 @@ export default function ApplyPage() {
 
           <dl className="programStats">
             <div>
-              <dt>Batch Date</dt>
-              <dd>September 19</dd>
-            </div>
-            <div>
-              <dt>Learning Mode</dt>
-              <dd>Offline</dd>
-            </div>
-            <div>
-              <dt>Time</dt>
-              <dd>11 AM – 5 PM</dd>
+              <dt>Date &amp; Time</dt>
+              <dd>
+                19 September 2026
+                <br />
+                11AM–5PM IST
+              </dd>
             </div>
             <div>
               <dt>Location</dt>
-              <dd>88GB HQ, HSR Layout, Bengaluru</dd>
+              <dd>
+                88GB HQ
+                <br />
+                HSR Layout, Bengaluru
+              </dd>
+            </div>
+            <div>
+              <dt>Workshop Fee</dt>
+              <dd>₹499</dd>
+            </div>
+            <div>
+              <dt>Seats</dt>
+              <dd>25 seats per batch · 10 seats left</dd>
             </div>
           </dl>
         </div>

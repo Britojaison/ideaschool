@@ -132,7 +132,7 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
               Buy Now
             </a>
             <span className="sprintOfferCtaCaption">
-              Only 2 seats left • Limited to 25 seats only
+              25 seats per batch · 10 seats left
             </span>
           </div>
 
@@ -169,7 +169,7 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
           {/* Bottom Callout Notice */}
           <div className="sprintOfferNotice">
             <span style={{ fontSize: "14px", flexShrink: 0, color: "#dafd55" }}>ⓘ</span>
-            <span>Batch Date: September 19 • 88GB HQ, HSR Layout, Bengaluru</span>
+            <span>Date &amp; Time: 19 September 2026, 11AM-5PM IST • 88GB HQ, HSR Layout, Bengaluru</span>
           </div>
         </div>
       </div>

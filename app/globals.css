@@ -18698,6 +18698,237 @@ html.isHeroGlassCursorActive .hero * {
     var(--ink) !important;
 }
 
+/* Free Assets Kit */
+.applyPage .freeAssetsSection {
+  position: relative;
+  padding: clamp(64px, 7vw, 104px) var(--apply-section-x);
+  background:
+    radial-gradient(circle at 10% 80%, rgba(85, 46, 173, 0.15), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(218, 253, 85, 0.06), transparent 35%),
+    #06060a;
+  border-top: 1px solid rgba(251, 250, 242, 0.06);
+}
+
+.applyPage .freeAssetsInner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.applyPage .freeAssetsHeader {
+  margin-bottom: clamp(32px, 4vw, 52px);
+}
+
+.applyPage .freeAssetsEyebrowRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.applyPage .freeAssetsPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: #DAFD55;
+  color: #08060d;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 99px;
+}
+
+.applyPage .freeAssetsPillAlt {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: transparent;
+  color: rgba(251, 250, 242, 0.6);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 99px;
+  border: 1px solid rgba(251, 250, 242, 0.15);
+}
+
+.applyPage .freeAssetsHeading {
+  margin: 0 0 16px !important;
+  font-size: clamp(1.8rem, 3.5vw, 3.4rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.05 !important;
+  color: var(--frost, #fbfaf2) !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+}
+
+.applyPage .freeAssetsSubhead {
+  max-width: 640px;
+  margin: 0 !important;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: rgba(251, 250, 242, 0.5) !important;
+  line-height: 1.55;
+}
+
+.applyPage .freeAssetsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.applyPage .freeAssetCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 20px;
+  background: rgba(251, 250, 242, 0.03);
+  border: 1px solid rgba(251, 250, 242, 0.08);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+
+.applyPage .freeAssetCard:hover {
+  border-color: rgba(218, 253, 85, 0.3);
+  background: rgba(218, 253, 85, 0.05);
+  transform: translateY(-2px);
+}
+
+.applyPage .freeAssetCardFeatured {
+  border-color: rgba(218, 253, 85, 0.2);
+  background: rgba(218, 253, 85, 0.04);
+}
+
+.applyPage .freeAssetIcon {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: block;
+}
+
+.applyPage .freeAssetCardBody {
+  flex: 1;
+}
+
+.applyPage .freeAssetCardBody strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--frost, #fbfaf2) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.01em;
+}
+
+.applyPage .freeAssetCardBody p {
+  margin: 0 !important;
+  font-size: 0.78rem !important;
+  color: rgba(251, 250, 242, 0.45) !important;
+  line-height: 1.45;
+}
+
+.applyPage .freeAssetBadge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(218, 253, 85, 0.12);
+  color: #DAFD55;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.applyPage .freeAssetsBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 28px;
+  background: rgba(85, 46, 173, 0.15);
+  border: 1px solid rgba(85, 46, 173, 0.35);
+  border-radius: 12px;
+}
+
+.applyPage .freeAssetsBannerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.applyPage .freeAssetsBannerLabel {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--frost, #fbfaf2);
+}
+
+.applyPage .freeAssetsBanner p {
+  margin: 0 !important;
+  font-size: 0.82rem !important;
+  color: rgba(251, 250, 242, 0.45) !important;
+}
+
+.applyPage .freeAssetsBannerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.applyPage .freeAssetsBannerValue {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(251, 250, 242, 0.45);
+  text-decoration: line-through;
+}
+
+.applyPage .freeAssetsBannerCta {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: #DAFD55;
+  color: #08060d;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 980px) {
+  .applyPage .freeAssetsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .applyPage .freeAssetsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .applyPage .freeAssetsBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .applyPage .freeAssetsBannerRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
 .applyPage .programFaqInner > h2 {
   font-family: var(--font-stara), "Stara", Arial, sans-serif !important;
   color: var(--frost) !important;

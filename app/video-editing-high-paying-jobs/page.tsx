@@ -1254,6 +1254,74 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <section className="freeAssetsSection" aria-label="Free assets kit worth ₹5000">
+        <div className="freeAssetsInner">
+          <div className="freeAssetsHeader">
+            <div className="freeAssetsEyebrowRow">
+              <span className="freeAssetsPill">Bonus Inclusion</span>
+              <span className="freeAssetsPillAlt">Free With Registration</span>
+              <span className="freeAssetsPillAlt">₹5,000+ Value</span>
+            </div>
+            <h2 className="freeAssetsHeading">Free Assets Kit</h2>
+            <p className="freeAssetsSubhead">Every attendee walks out with a production-ready asset pack — the exact tools working editors use on paid campaigns.</p>
+          </div>
+
+          <div className="freeAssetsGrid">
+            <div className="freeAssetCard">
+              <span className="freeAssetIcon">🎵</span>
+              <div className="freeAssetCardBody">
+                <strong>Sound Effects Pack</strong>
+                <p>Studio-grade SFX beds and transitions for commercial edits</p>
+              </div>
+              <span className="freeAssetBadge">Instant Access</span>
+            </div>
+            <div className="freeAssetCard">
+              <span className="freeAssetIcon">🎬</span>
+              <div className="freeAssetCardBody">
+                <strong>Motion Presets</strong>
+                <p>Pre-built animation presets for titles, kinetics and product reveals</p>
+              </div>
+              <span className="freeAssetBadge">Instant Access</span>
+            </div>
+            <div className="freeAssetCard">
+              <span className="freeAssetIcon">⚡</span>
+              <div className="freeAssetCardBody">
+                <strong>Transitions Pack</strong>
+                <p>Agency-grade cut transitions used in real brand commercial work</p>
+              </div>
+              <span className="freeAssetBadge">Instant Access</span>
+            </div>
+            <div className="freeAssetCard">
+              <span className="freeAssetIcon">🔤</span>
+              <div className="freeAssetCardBody">
+                <strong>Fonts &amp; Font Pairs</strong>
+                <p>Curated type pairings for social, broadcast and digital campaigns</p>
+              </div>
+              <span className="freeAssetBadge">Instant Access</span>
+            </div>
+            <div className="freeAssetCard freeAssetCardFeatured">
+              <span className="freeAssetIcon">💥</span>
+              <div className="freeAssetCardBody">
+                <strong>VFX Bundle</strong>
+                <p>Light leaks, glitch overlays, flares and impact elements for high-energy cuts</p>
+              </div>
+              <span className="freeAssetBadge">Instant Access</span>
+            </div>
+          </div>
+
+          <div className="freeAssetsBanner">
+            <div className="freeAssetsBannerLeft">
+              <span className="freeAssetsBannerLabel">Included free with registration</span>
+              <p>You receive immediate access after attending the workshop.</p>
+            </div>
+            <div className="freeAssetsBannerRight">
+              <span className="freeAssetsBannerValue">Worth ₹5,000+</span>
+              <span className="freeAssetsBannerCta">Free for attendees</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="programFaqContact" aria-label="FAQ and application form">
         <div className="programFaqInner">
           <h2>Frequently Asked Questions</h2>

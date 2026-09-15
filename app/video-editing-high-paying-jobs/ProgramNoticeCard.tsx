@@ -100,7 +100,9 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
 
           {/* Pass Name with Icon */}
           <div className="sprintOfferPassTitle">
-            <span style={{ fontSize: "15px", color: "#dafd55" }}>⚡</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#dafd55" aria-hidden="true" style={{ flexShrink: 0 }}>
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
             <span>Full Day Workshop Pass</span>
           </div>
 

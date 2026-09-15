@@ -1442,7 +1442,13 @@ export default function ApplyPage() {
 
           <div className="freeAssetsGrid">
             <div className="freeAssetCard">
-              <span className="freeAssetIcon">🎵</span>
+              <span className="freeAssetIcon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18V5l12-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="18" cy="16" r="3" />
+                </svg>
+              </span>
               <div className="freeAssetCardBody">
                 <strong>Sound Effects Pack</strong>
                 <p>Studio-grade SFX beds and transitions for commercial edits</p>
@@ -1450,7 +1456,18 @@ export default function ApplyPage() {
               <span className="freeAssetBadge">Instant Access</span>
             </div>
             <div className="freeAssetCard">
-              <span className="freeAssetIcon">🎬</span>
+              <span className="freeAssetIcon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                  <line x1="7" y1="2" x2="7" y2="22" />
+                  <line x1="17" y1="2" x2="17" y2="22" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <line x1="2" y1="7" x2="7" y2="7" />
+                  <line x1="2" y1="17" x2="7" y2="17" />
+                  <line x1="17" y1="17" x2="22" y2="17" />
+                  <line x1="17" y1="7" x2="22" y2="7" />
+                </svg>
+              </span>
               <div className="freeAssetCardBody">
                 <strong>Motion Presets</strong>
                 <p>Pre-built animation presets for titles, kinetics and product reveals</p>
@@ -1458,7 +1475,11 @@ export default function ApplyPage() {
               <span className="freeAssetBadge">Instant Access</span>
             </div>
             <div className="freeAssetCard">
-              <span className="freeAssetIcon">⚡</span>
+              <span className="freeAssetIcon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </span>
               <div className="freeAssetCardBody">
                 <strong>Transitions Pack</strong>
                 <p>Agency-grade cut transitions used in real brand commercial work</p>
@@ -1466,7 +1487,13 @@ export default function ApplyPage() {
               <span className="freeAssetBadge">Instant Access</span>
             </div>
             <div className="freeAssetCard">
-              <span className="freeAssetIcon">🔤</span>
+              <span className="freeAssetIcon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="4 7 4 4 20 4 20 7" />
+                  <line x1="9" y1="20" x2="15" y2="20" />
+                  <line x1="12" y1="4" x2="12" y2="20" />
+                </svg>
+              </span>
               <div className="freeAssetCardBody">
                 <strong>Fonts &amp; Font Pairs</strong>
                 <p>Curated type pairings for social, broadcast and digital campaigns</p>
@@ -1474,7 +1501,11 @@ export default function ApplyPage() {
               <span className="freeAssetBadge">Instant Access</span>
             </div>
             <div className="freeAssetCard freeAssetCardFeatured">
-              <span className="freeAssetIcon">💥</span>
+              <span className="freeAssetIcon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </span>
               <div className="freeAssetCardBody">
                 <strong>VFX Bundle</strong>
                 <p>Light leaks, glitch overlays, flares and impact elements for high-energy cuts</p>
@@ -1538,19 +1569,45 @@ export default function ApplyPage() {
 
               <div className="workshopVenuePerks">
                 <div className="workshopVenuePerk">
-                  <span className="workshopVenuePerkIcon">⚡</span>
+                  <span className="workshopVenuePerkIcon" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="#DAFD55">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                  </span>
                   <span>Dedicated Power at Every Seat</span>
                 </div>
                 <div className="workshopVenuePerk">
-                  <span className="workshopVenuePerkIcon">📶</span>
+                  <span className="workshopVenuePerkIcon" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                      <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                      <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                      <circle cx="12" cy="20" r="1" fill="#DAFD55" />
+                    </svg>
+                  </span>
                   <span>High-Speed Gigabit Fiber</span>
                 </div>
                 <div className="workshopVenuePerk">
-                  <span className="workshopVenuePerkIcon">👥</span>
+                  <span className="workshopVenuePerkIcon" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </span>
                   <span>Live 1-on-1 Mentor Access</span>
                 </div>
                 <div className="workshopVenuePerk">
-                  <span className="workshopVenuePerkIcon">☕</span>
+                  <span className="workshopVenuePerkIcon" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#DAFD55" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                      <line x1="6" y1="1" x2="6" y2="4" />
+                      <line x1="10" y1="1" x2="10" y2="4" />
+                      <line x1="14" y1="1" x2="14" y2="4" />
+                    </svg>
+                  </span>
                   <span>Beverages &amp; Snacks Included</span>
                 </div>
               </div>

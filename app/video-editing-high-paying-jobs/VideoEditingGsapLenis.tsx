@@ -431,7 +431,7 @@ export default function VideoEditingGsapLenis() {
     // 5. Hide floating CTA button when hero or #enroll section is in view
     const enrollEl = document.getElementById("enroll");
     const heroEl = document.querySelector(".programHero");
-    const floatingCta = document.querySelector(".videoEditingFloatingButton");
+    const floatingCta = document.querySelector(".videoEditingStickyBanner, .videoEditingFloatingButton");
 
     const updateFloatingCta = () => {
       if (!floatingCta) return;

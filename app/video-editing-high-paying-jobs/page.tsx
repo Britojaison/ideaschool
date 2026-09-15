@@ -1725,15 +1725,24 @@ export default function ApplyPage() {
 
       </section>
 
-      <a
-        className="videoEditingFloatingButton"
-        href={razorpayPaymentLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Book your video editing workshop seat with Razorpay"
-      >
-        BOOK MY SEAT — ₹499 →
-      </a>
+      <aside className="videoEditingStickyBanner" aria-label="Workshop registration bar">
+        <div className="stickyBannerInner">
+          <div className="stickyBannerMeta">
+            <span className="stickyBannerDateLoc">19 SEP · HSR LAYOUT</span>
+            <span className="stickyBannerPrice">₹499</span>
+            <span className="stickyBannerSeatsBadge">10 SEATS LEFT</span>
+          </div>
+          <a
+            className="stickyBannerCtaBtn"
+            href={razorpayPaymentLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book your video editing workshop seat for ₹499"
+          >
+            BOOK MY SEAT →
+          </a>
+        </div>
+      </aside>
 
       <footer className="siteFooter">
         <div className="footerInner">

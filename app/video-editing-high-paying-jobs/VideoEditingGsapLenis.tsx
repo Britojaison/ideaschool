@@ -392,33 +392,41 @@ export default function VideoEditingGsapLenis() {
       );
     });
 
-    // 5. Hide floating CTA button when #enroll section is in view
-    let enrollObserver: IntersectionObserver | null = null;
+    // 5. Hide floating CTA button when hero or #enroll section is in view
     const enrollEl = document.getElementById("enroll");
+    const heroEl = document.querySelector(".programHero");
     const floatingCta = document.querySelector(".videoEditingFloatingButton");
 
-    if (enrollEl && floatingCta) {
-      enrollObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              floatingCta.classList.add("floatingCtaHidden");
-            } else {
-              floatingCta.classList.remove("floatingCtaHidden");
-            }
-          });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-      );
-      enrollObserver.observe(enrollEl);
+    const updateFloatingCta = () => {
+      if (!floatingCta) return;
+      const heroRect = heroEl?.getBoundingClientRect();
+      const enrollRect = enrollEl?.getBoundingClientRect();
+
+      const isHeroVisible = heroRect ? heroRect.bottom > 140 : false;
+      const isEnrollVisible = enrollRect
+        ? enrollRect.top < window.innerHeight && enrollRect.bottom > 60
+        : false;
+
+      if (isHeroVisible || isEnrollVisible) {
+        floatingCta.classList.add("floatingCtaHidden");
+      } else {
+        floatingCta.classList.remove("floatingCtaHidden");
+      }
+    };
+
+    if (floatingCta) {
+      updateFloatingCta();
+      window.addEventListener("scroll", updateFloatingCta, { passive: true });
+      window.addEventListener("resize", updateFloatingCta, { passive: true });
     }
 
     // Cleanup when component unmounts
     return () => {
       document.removeEventListener("click", handleAnchorClick);
       gsap.ticker.remove(tickerCallback);
-      if (enrollObserver) {
-        enrollObserver.disconnect();
+      if (floatingCta) {
+        window.removeEventListener("scroll", updateFloatingCta);
+        window.removeEventListener("resize", updateFloatingCta);
       }
       ctx.revert();
       lenis.destroy();

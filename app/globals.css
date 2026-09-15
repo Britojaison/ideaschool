@@ -16794,15 +16794,44 @@ html.isHeroGlassCursorActive .hero * {
   object-fit: contain;
 }
 
+.applyPage .agencyBrandLogoMilkyMist,
+.applyPage .agencyBrandLogoHeritage,
+.applyPage .agencyBrandLogoAmazon {
+  overflow: hidden;
+}
+
 .applyPage .agencyBrandLogoMilkyMist {
   width: clamp(150px, 10vw, 190px);
-  overflow: hidden;
 }
 
 .applyPage .agencyBrandLogoMilkyMist .agencyBrandImage {
   width: clamp(150px, 10vw, 190px);
   max-width: none;
   height: 64px;
+  max-height: none;
+  object-fit: cover;
+}
+
+.applyPage .agencyBrandLogoHeritage {
+  width: clamp(128px, 8.8vw, 164px);
+}
+
+.applyPage .agencyBrandLogoHeritage .agencyBrandImage {
+  width: clamp(128px, 8.8vw, 164px);
+  max-width: none;
+  height: 64px;
+  max-height: none;
+  object-fit: cover;
+}
+
+.applyPage .agencyBrandLogoAmazon {
+  width: clamp(118px, 8.2vw, 150px);
+}
+
+.applyPage .agencyBrandLogoAmazon .agencyBrandImage {
+  width: clamp(118px, 8.2vw, 150px);
+  max-width: none;
+  height: 58px;
   max-height: none;
   object-fit: cover;
 }
@@ -17106,6 +17135,24 @@ html.isHeroGlassCursorActive .hero * {
   .applyPage .agencyBrandLogoMilkyMist .agencyBrandImage {
     width: 136px;
     height: 48px;
+  }
+
+  .applyPage .agencyBrandLogoHeritage {
+    width: 120px;
+  }
+
+  .applyPage .agencyBrandLogoHeritage .agencyBrandImage {
+    width: 120px;
+    height: 48px;
+  }
+
+  .applyPage .agencyBrandLogoAmazon {
+    width: 112px;
+  }
+
+  .applyPage .agencyBrandLogoAmazon .agencyBrandImage {
+    width: 112px;
+    height: 44px;
   }
 
 }

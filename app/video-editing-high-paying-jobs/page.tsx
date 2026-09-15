@@ -233,6 +233,12 @@ const agencyBrandLogos = [
   },
 ];
 
+const getAgencyBrandLogoClassName = (brandName: string) => {
+  const brandClassName = brandName.replace(/\s+/g, "");
+
+  return `agencyBrandLogo agencyBrandLogo${brandClassName}`;
+};
+
 const workshopTimeline = [
   {
     time: "11:00 AM",
@@ -800,7 +806,7 @@ export default function ApplyPage() {
                 <div className="agencyBrandGroup">
                   {agencyBrandLogos.map((brand, index) => (
                     <span
-                      className={`agencyBrandLogo${brand.name === "Milky Mist" ? " agencyBrandLogoMilkyMist" : ""}`}
+                      className={getAgencyBrandLogoClassName(brand.name)}
                       key={`agency-brand-a-${brand.name}-${index}`}
                     >
                       <Image
@@ -816,7 +822,7 @@ export default function ApplyPage() {
                 <div className="agencyBrandGroup" aria-hidden="true">
                   {agencyBrandLogos.map((brand, index) => (
                     <span
-                      className={`agencyBrandLogo${brand.name === "Milky Mist" ? " agencyBrandLogoMilkyMist" : ""}`}
+                      className={getAgencyBrandLogoClassName(brand.name)}
                       key={`agency-brand-b-${brand.name}-${index}`}
                     >
                       <Image

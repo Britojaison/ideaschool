@@ -156,6 +156,95 @@ const instructors = [
   },
 ];
 
+const agencyPedigreeStats = [
+  {
+    value: "30+ YEARS",
+    label: "Combined global agency experience",
+  },
+  {
+    value: "WORKING CREATIVES",
+    label: "Commercial practitioners",
+  },
+  {
+    value: "HANDS-ON",
+    label: "You edit during the session",
+  },
+  {
+    value: "DIRECT REVIEW",
+    label: "Mentor feedback on your work",
+  },
+];
+
+const agencyPedigreeMentors = [
+  {
+    name: "Ajay",
+    role: "Post Lead",
+    image: "/images/mentor_AJAY.webp",
+  },
+  {
+    name: "Arjun",
+    role: "Creative Director",
+    image: "/images/mentor_ARJUN.webp",
+  },
+  {
+    name: "Chandru",
+    role: "Color & Motion",
+    image: "/images/mentor_CHANDRU.webp",
+  },
+  {
+    name: "Paridhi",
+    role: "Commercial Editor",
+    image: "/images/mentor_PARIDHI.webp",
+  },
+];
+
+const agencyBrandLogos = [
+  {
+    name: "Paytm",
+    image: "/images/paytm.webp",
+  },
+  {
+    name: "Moj",
+    image: "/images/moj.webp",
+  },
+  {
+    name: "Milky Mist",
+    image: "/images/milky mist.webp",
+  },
+  {
+    name: "JLL",
+    image: "/images/JLL.webp",
+  },
+  {
+    name: "Heritage",
+    image: "/images/heritage.webp",
+  },
+  {
+    name: "Finolex Pipes",
+    image: "/images/finolex logo.webp",
+  },
+  {
+    name: "Amazon",
+    image: "/images/AMAZON.webp",
+  },
+  {
+    name: "Netflix",
+    image: "/images/netflix.webp",
+  },
+  {
+    name: "POCO",
+    image: "/images/POCO.webp",
+  },
+  {
+    name: "Xiaomi",
+    image: "/images/xioami.webp",
+  },
+  {
+    name: "Paytm",
+    image: "/images/paytm.webp",
+  },
+];
+
 const clientStories = [
   {
     name: "Balaji",
@@ -571,6 +660,68 @@ export default function ApplyPage() {
           </aside>
         </div>
 
+      </section>
+
+      <section className="agencyPedigree" aria-label="Agency pedigree and direct access">
+        <div className="agencyPedigreeInner">
+          <div className="agencyPedigreeIntro">
+            <p className="agencyPedigreeEyebrow">AGENCY PEDIGREE // DIRECT ACCESS</p>
+            <h2>LEARN WITH PEOPLE WHO DO THIS FOR A LIVING</h2>
+            <p>
+              Not course creators reading slides. Active commercial directors,
+              colorists, and post leads opening their actual production process.
+            </p>
+          </div>
+
+          <div className="agencyPedigreeStats" aria-label="Workshop credibility highlights">
+            {agencyPedigreeStats.map((stat) => (
+              <article className="agencyPedigreeStat" key={stat.value}>
+                <h3>{stat.value}</h3>
+                <p>{stat.label}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="agencyMentorStrip" aria-label="Mentors in the room">
+            <p>IN THE ROOM WITH YOU //</p>
+            <div className="agencyMentorList">
+              {agencyPedigreeMentors.map((mentor) => (
+                <article className="agencyMentor" key={mentor.name}>
+                  <div className="agencyMentorAvatar">
+                    <Image
+                      src={mentor.image}
+                      alt=""
+                      fill
+                      sizes="64px"
+                      className="agencyMentorImage"
+                    />
+                  </div>
+                  <div>
+                    <h3>{mentor.name}</h3>
+                    <p>{mentor.role}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="agencyBrands" aria-label="Brands shaping Indian culture">
+            <p>TRUSTED BY BRANDS SHAPING INDIAN CULTURE</p>
+            <div className="agencyBrandGrid">
+              {agencyBrandLogos.map((brand, index) => (
+                <span className="agencyBrandLogo" key={`${brand.name}-${index}`}>
+                  <Image
+                    src={brand.image}
+                    alt={brand.name}
+                    width={110}
+                    height={44}
+                    className="agencyBrandImage"
+                  />
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="programCurriculum" aria-label="What you will learn">

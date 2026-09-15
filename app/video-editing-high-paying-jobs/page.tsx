@@ -513,17 +513,16 @@ export default function ApplyPage() {
         <div className="programHeroInner">
           <div className="programHeroCopy">
             <div className="programEyebrowRow">
-              <span className="programPill">Offline workshop // HSR Layout, Bengaluru</span>
               <span className="programBadgeNeon">
                 <span className="programBadgeNeonDot" aria-hidden="true" />
-                <span>Agency-style editing intensive</span>
+                <span>OFFLINE WORKSHOP // HSR LAYOUT, BENGALURU</span>
               </span>
             </div>
 
             <h1>
-              Build an<br />
-              <span className="programHeroTitleAccent">agency-style</span><br />
-              edit in <span className="programHeroTitleDay">one day</span>
+              BUILD AN<br />
+              <span className="programHeroTitleAccent">AGENCY STYLE</span><br />
+              EDIT IN <span className="programHeroTitleDay">ONE DAY</span>
             </h1>
             <p>
               A 6-hour intensive workshop where you sit in the 88GB edit suite,
@@ -531,43 +530,45 @@ export default function ApplyPage() {
               and receive live 1-on-1 timeline critique.
             </p>
 
-            <a className="primaryCta programCta" href="#enroll">
-              <span className="primaryCtaText">Book seat now</span>
-            </a>
-            <span className="seatLimit">25 seats per batch · 10 seats left</span>
+            <dl className="programStats">
+              <div>
+                <dt>Date &amp; Time</dt>
+                <dd>
+                  19 September 2026
+                  <span className="statSub">11AM–5PM IST</span>
+                </dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>
+                  88GB HQ
+                  <span className="statSub">HSR Layout, Bengaluru</span>
+                </dd>
+              </div>
+              <div>
+                <dt>Workshop Fee</dt>
+                <dd className="statFee">₹499</dd>
+              </div>
+              <div>
+                <dt>Seats</dt>
+                <dd className="statSeats">25 seats per batch · 10 seats left</dd>
+              </div>
+            </dl>
+
+            <div className="workshopCtaRow">
+              <a className="primaryCta programCta" href="#enroll">
+                <span className="primaryCtaText">BOOK MY SEAT — ₹499 →</span>
+              </a>
+              <span className="seatLimit">Strict 25-seat limit for 1-on-1 feedback</span>
+            </div>
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
             <ApplyHeroVideo />
-
+            <p className="workshopVideoCaption">
+              Watch: Why we&apos;re opening our commercial editing workflow to learners.
+            </p>
           </aside>
-
-          <dl className="programStats">
-            <div>
-              <dt>Date &amp; Time</dt>
-              <dd>
-                19 September 2026
-                <br />
-                11AM–5PM IST
-              </dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>
-                88GB HQ
-                <br />
-                HSR Layout, Bengaluru
-              </dd>
-            </div>
-            <div>
-              <dt>Workshop Fee</dt>
-              <dd>₹499</dd>
-            </div>
-            <div>
-              <dt>Seats</dt>
-              <dd>25 seats per batch · 10 seats left</dd>
-            </div>
-          </dl>
         </div>
 
       </section>
@@ -841,7 +842,7 @@ export default function ApplyPage() {
         rel="noopener noreferrer"
         aria-label="Book your video editing workshop seat with Razorpay"
       >
-        Book seat now
+        BOOK MY SEAT — ₹499 →
       </a>
 
       <footer className="siteFooter">

@@ -1317,7 +1317,7 @@ export default function ApplyPage() {
             <h2>BOOK A SEAT IF • SKIP THIS IF</h2>
             <p className="qualificationSubhead">This workshop is intentionally designed for active editors who want direct feedback, not casual passive viewers.</p>
           </div>
-          
+
           <div className="qualificationGrid">
             <div className="qualificationCard qualificationRecommended">
               <div className="qualificationCardHeader">
@@ -1366,7 +1366,7 @@ export default function ApplyPage() {
           <div className="vaultModulesHeader">
             <p>6 CORE VAULT MODULES INCLUDED // ZERO EXTRA COST</p>
           </div>
-          
+
           <div className="vaultModulesGrid">
             <div className="vaultModuleCard">
               <div className="vaultModuleCardTop">
@@ -1405,7 +1405,7 @@ export default function ApplyPage() {
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>AI Workflow Kit</h3>
-              <p>Curated AI tool stacks and prompting workflows for fast transcription, rotoscoping, and b-roll ideation.</p>
+              <p>Curated AI tool stacks and prompting workflows for fast transcription, motion capture and visual effects, b-roll ideation.</p>
             </div>
 
             <div className="vaultModuleCard">
@@ -1413,7 +1413,7 @@ export default function ApplyPage() {
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>Templates + Editing Resources</h3>
-              <p>Handcrafted color LUTs, sound design SFX beds, title graphics presets, and timeline review checklists.</p>
+              <p>Handcrafted color LUTs, VFX content, title graphics presets, and timeline review checklists.</p>
             </div>
           </div>
 
@@ -1622,7 +1622,7 @@ export default function ApplyPage() {
                   className="workshopVenueMapsBtn"
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                   <span>Open in Google Maps ↗</span>
                 </a>

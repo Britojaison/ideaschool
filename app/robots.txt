@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Old Wix placeholder / test pages - never meant to be indexed
+Disallow: /blank
+Disallow: /blank-1
+Disallow: /blank-2
+Disallow: /blank-3
+Disallow: /blank-4
+Disallow: /123
+
+# Duplicate homepage alias
+Disallow: /home
+
+# Lead-gen form + thank-you pages - thin/duplicate content, shouldn't rank
+Disallow: /ai-form
+Disallow: /ai-design-brochure-form
+Disallow: /ai-design-thank-you
+
+Sitemap: https://www.ideaschool.pro/sitemap.xml

@@ -1405,7 +1405,7 @@ export default function ApplyPage() {
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>AI Workflow Kit</h3>
-              <p>Curated AI tool stacks and prompting workflows for fast transcription, motion capture and visual effects, b-roll ideation.</p>
+              <p>Curated AI tool stacks and prompting workflows for fast transcription, motion capture, and b-roll ideation.</p>
             </div>
 
             <div className="vaultModuleCard">
@@ -1413,7 +1413,7 @@ export default function ApplyPage() {
                 <span className="vaultModuleAccess">INSTANT ACCESS</span>
               </div>
               <h3>Templates + Editing Resources</h3>
-              <p>Handcrafted color LUTs, VFX content, title graphics presets, and timeline review checklists.</p>
+              <p>Handcrafted color LUTs, title graphics presets, and timeline review checklists.</p>
             </div>
           </div>
 

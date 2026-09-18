@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/home",
+        destination: "/",
+        statusCode: 301,
+      },
+      {
         source: "/video-editing",
         destination: "/video-editing-high-paying-jobs",
         permanent: true,

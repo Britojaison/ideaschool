@@ -9,9 +9,6 @@ Disallow: /blank-3
 Disallow: /blank-4
 Disallow: /123
 
-# Duplicate homepage alias
-Disallow: /home
-
 # Lead-gen form + thank-you pages - thin/duplicate content, shouldn't rank
 Disallow: /ai-form
 Disallow: /ai-design-brochure-form

@@ -169,8 +169,10 @@ export default function CurriculumStackSection() {
     const ctx = gsap.context(() => {
       // Stacking card animation using ScrollTrigger
       cards.forEach((card, index) => {
-        // Sticky offset spacing: each subsequent card stacks with slight offset
-        const topOffset = 110 + index * 12;
+        // Uniform sticky position so all cards lock to the exact same top boundary
+        // When the final card reaches this point and the parent scrolls away,
+        // ALL stacked cards move together as a single unified deck.
+        const topOffset = 110;
         card.style.top = `${topOffset}px`;
 
         if (index < cards.length - 1) {

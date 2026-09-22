@@ -16,20 +16,16 @@
   width: 100%;
 }
 
-/* Red Gradient Card matching reference */
+/* Purple Card with soft white gradient */
 .ctaCard {
   position: relative;
   width: 100%;
   min-height: clamp(130px, 14vw, 170px);
   border-radius: clamp(20px, 2.2vw, 32px);
-  background: linear-gradient(
-    90deg,
-    #cc0000 0%,
-    #e50914 30%,
-    #e50914 70%,
-    #c40000 100%
-  );
-  box-shadow: 0 16px 48px rgba(229, 9, 20, 0.28), 0 0 1px rgba(255, 255, 255, 0.4) inset;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(0, 0, 0, 0.12) 100%),
+    #552ead;
+  box-shadow: 0 16px 48px rgba(85, 46, 173, 0.35), 0 0 1px rgba(255, 255, 255, 0.4) inset;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.22;
+  opacity: 0.25;
 }
 
 .ring {
@@ -85,7 +81,7 @@
   letter-spacing: -0.01em;
 }
 
-/* Right Apply Button (Pill white with red text like in reference) */
+/* Right Apply Button (Pill white with purple text) */
 .actionWrap {
   position: relative;
   z-index: 2;
@@ -99,7 +95,7 @@
   gap: 0.65rem;
   padding: clamp(0.85rem, 1.2vw, 1.05rem) clamp(1.75rem, 2.5vw, 2.5rem);
   background-color: #ffffff;
-  color: #cc0000;
+  color: #552ead;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(0.92rem, 1.1vw, 1.1rem);
   font-weight: 800;

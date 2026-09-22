@@ -1,0 +1,152 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 3.5rem);
+  background-color: #080808;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Red Gradient Card matching reference */
+.ctaCard {
+  position: relative;
+  width: 100%;
+  min-height: clamp(130px, 14vw, 170px);
+  border-radius: clamp(20px, 2.2vw, 32px);
+  background: linear-gradient(
+    90deg,
+    #cc0000 0%,
+    #e50914 30%,
+    #e50914 70%,
+    #c40000 100%
+  );
+  box-shadow: 0 16px 48px rgba(229, 9, 20, 0.28), 0 0 1px rgba(255, 255, 255, 0.4) inset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 3.5vw, 2.75rem) clamp(1.75rem, 4.5vw, 3.75rem);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Concentric rings pattern in the center */
+.radialEffect {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.22;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Left Content */
+.textContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.headline {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.subtext {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Right Apply Button (Pill white with red text like in reference) */
+.actionWrap {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.applyBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: clamp(0.85rem, 1.2vw, 1.05rem) clamp(1.75rem, 2.5vw, 2.5rem);
+  background-color: #ffffff;
+  color: #cc0000;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(0.92rem, 1.1vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.2s ease;
+}
+
+.applyBtn:hover {
+  transform: translateY(-2px);
+  background-color: #f7f7f7;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.applyBtn:active {
+  transform: translateY(0);
+}
+
+.btnArrow {
+  font-size: 1.15em;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.applyBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .ctaCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+
+  .radialEffect {
+    left: 80%;
+  }
+
+  .applyBtn {
+    width: 100%;
+  }
+
+  .actionWrap {
+    width: 100%;
+  }
+}

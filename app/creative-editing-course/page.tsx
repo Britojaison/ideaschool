@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Shell from "@/components/global/Shell";
-import CinematicHeroFlow from "@/components/cinematic-hero/CinematicHeroFlow";
+import CreativeHero from "./CreativeHero";
+import VideoSection from "./VideoSection";
+import StudentTestimonials from "./StudentTestimonials";
+import CurriculumStackSection from "./CurriculumStackSection";
+import ReadyToLevelUpCta from "./ReadyToLevelUpCta";
 import LearningEnvironment from "@/components/cinematic-hero/LearningEnvironment";
 import ToolsMarquee from "@/components/ui/ToolsMarquee";
 import WhatYouBuild from "@/components/cinematic-hero/WhatYouBuild";
@@ -64,13 +68,11 @@ const COURSE_FAQS = [
 export default function CreativeEditingCopyPage() {
   return (
     <Shell headerOverlay={true} showAnnouncement={false}>
-      <CinematicHeroFlow
-        videoSrc="/images/vsl-ideaschool-aug11.mp4"
-        mobileVideoSrc="/images/vsl-ideaschool-aug11.mp4"
-        heroHeadline1="EDITING"
-        heroHeadline2="START"
-        heroSubtitle="FULL STACK EDITING & CREATIVE AI"
-      />
+      <CreativeHero />
+      <VideoSection />
+      <StudentTestimonials />
+      <CurriculumStackSection />
+      <ReadyToLevelUpCta />
 
       <LearningEnvironment key="learning-environment" />
       <WhatYouBuild key="what-you-build" />

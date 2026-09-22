@@ -29,11 +29,11 @@ const config = {
 };
 
 const DEFAULT_IMAGES = [
-  "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=800&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=800&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?q=80&w=800&auto=format&fit=crop", 
-  "https://images.unsplash.com/photo-1560972550-aba3456b5564?q=80&w=800&auto=format&fit=crop", 
+  "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1541562232579-512a21360020?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1560972550-aba3456b5564?q=80&w=800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?q=80&w=800&auto=format&fit=crop",
 ];
 
@@ -85,7 +85,7 @@ export function MagneticSpotlightMarquee({
     const gap = 16; // 1rem gap
     const oneSetWidth = images.length * (itemWidth + gap);
     const setsNeeded = Math.ceil(window.innerWidth / oneSetWidth) + 1;
-    
+
     const newImages = [];
     for (let i = 0; i < setsNeeded; i++) {
       newImages.push(...images);
@@ -97,15 +97,15 @@ export function MagneticSpotlightMarquee({
     let isVisible = false;
     const ctx = gsap.context(() => {
       marqueeTween = gsap.to(marqueeTrack, {
-           x: `-${oneSetWidth}px`,
-           duration: oneSetWidth / 150, // Reduced speed for better performance and smoothness
-           ease: "none",
-           repeat: -1,
-           paused: true,
-           modifiers: {
-             x: (x) => `${gsap.utils.wrap(-oneSetWidth, 0, parseFloat(x))}px`
-           }
-         });
+        x: `-${oneSetWidth}px`,
+        duration: oneSetWidth / 150, // Reduced speed for better performance and smoothness
+        ease: "none",
+        repeat: -1,
+        paused: true,
+        modifiers: {
+          x: (x) => `${gsap.utils.wrap(-oneSetWidth, 0, parseFloat(x))}px`
+        }
+      });
     }, marqueeTrack);
 
     const observer = new IntersectionObserver(([entry]) => {
@@ -132,12 +132,12 @@ export function MagneticSpotlightMarquee({
       style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
     >
       {/* Main Content Layout */}
-      <div 
+      <div
         ref={contentWrapperRef}
         className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center mb-6 md:mb-8"
       >
         {/* Title */}
-        <h1 
+        <h1
           className="text-[clamp(3.5rem,10.5vw,12rem)] font-normal leading-[0.88] tracking-tighter mb-6 md:mb-10 text-center flex flex-col items-center select-none"
           style={{ fontFamily: 'var(--font-stara), "Stara", Arial, sans-serif' }}
         >
@@ -147,7 +147,7 @@ export function MagneticSpotlightMarquee({
             </div>
           ))}
         </h1>
-        
+
         {/* Subtitle */}
         {subtitle && subtitle.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs md:text-sm font-semibold tracking-widest uppercase opacity-75">
@@ -159,12 +159,12 @@ export function MagneticSpotlightMarquee({
       </div>
 
       {/* Marquee Strip — Positioned naturally below the title */}
-      <div 
-        ref={marqueeStripRef} 
+      <div
+        ref={marqueeStripRef}
         className="spotlight-marquee relative w-full h-[220px] md:h-[260px] lg:h-[300px] overflow-hidden"
       >
-        <div 
-          ref={marqueeTrackRef} 
+        <div
+          ref={marqueeTrackRef}
           className="spotlight-marquee-track flex gap-4 h-full items-center absolute top-0 left-0 will-change-transform"
         >
           {clonedImages.map((img, idx) => (

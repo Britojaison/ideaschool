@@ -3,8 +3,8 @@
   color: #fff;
   padding: clamp(3.5rem, 6vw, 6rem) 2rem;
   font-family: var(--font-inter), sans-serif;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: none;
+  border-bottom: none;
   position: relative;
   overflow: hidden;
 }

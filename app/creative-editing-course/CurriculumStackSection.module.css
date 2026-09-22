@@ -1,0 +1,216 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(6rem, 10vw, 10rem);
+  background-color: #080808;
+  color: #FBFAF2;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 0 clamp(3rem, 6vw, 5rem) 0;
+  text-align: left;
+}
+
+.tag {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #A0AAB2;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 500;
+  margin-bottom: 0;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: left;
+  width: 100%;
+}
+
+/* Stacking Cards Wrapper */
+.cardsStackWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  width: 100%;
+}
+
+/* Individual Card (Sticky GSAP Stacking) */
+.stackCard {
+  position: sticky;
+  top: 110px;
+  width: 100%;
+  min-height: 440px;
+  border-radius: clamp(20px, 2.5vw, 32px);
+  padding: clamp(1.75rem, 3.5vw, 3.2rem);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 1px rgba(255, 255, 255, 0.2);
+  will-change: transform, filter;
+  transform-origin: center top;
+}
+
+/* Left Content */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.cardMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.phaseLabel {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.durationBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.moduleTitle {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 clamp(1.5rem, 2.5vw, 2rem) 0;
+  text-transform: uppercase;
+}
+
+/* Topics list */
+.topicList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.topicItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.checkIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.topicText {
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Right Media Preview */
+.cardMedia {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border-radius: clamp(14px, 1.8vw, 22px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.moduleImage {
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stackCard:hover .moduleImage {
+  transform: scale(1.04);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .stackCard {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 1.75rem;
+  }
+
+  .imageWrapper {
+    min-height: 220px;
+  }
+}

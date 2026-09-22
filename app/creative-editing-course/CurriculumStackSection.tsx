@@ -18,8 +18,14 @@ interface CurriculumModule {
   duration: string;
   topics: string[];
   image: string;
-  gradient: string;
+  bgColor: string;
+  textColor: string;
+  secondaryTextColor: string;
   accentColor: string;
+  badgeBg: string;
+  badgeBorder: string;
+  badgeText: string;
+  sharpShadowColor: string;
 }
 
 const MODULES: CurriculumModule[] = [
@@ -36,8 +42,14 @@ const MODULES: CurriculumModule[] = [
       "Motion Graphics Fundamentals",
     ],
     image: "/images/DSC00048.webp",
-    gradient: "linear-gradient(135deg, #7c1a1a 0%, #3e0b0b 60%, #1e0505 100%)",
-    accentColor: "#ff7a7a",
+    bgColor: "#d9fa2f",
+    textColor: "#0a0a0c",
+    secondaryTextColor: "rgba(10, 10, 12, 0.85)",
+    accentColor: "#0a0a0c",
+    badgeBg: "rgba(10, 10, 12, 0.12)",
+    badgeBorder: "rgba(10, 10, 12, 0.25)",
+    badgeText: "#0a0a0c",
+    sharpShadowColor: "#552ead",
   },
   {
     id: "module-2",
@@ -50,8 +62,14 @@ const MODULES: CurriculumModule[] = [
       "AI Tools for Repurposing Content",
     ],
     image: "/images/DSC00123.webp",
-    gradient: "linear-gradient(135deg, #0d4b4a 0%, #062b2b 60%, #031717 100%)",
-    accentColor: "#47d7d4",
+    bgColor: "#552ead",
+    textColor: "#ffffff",
+    secondaryTextColor: "rgba(255, 255, 255, 0.9)",
+    accentColor: "#d9fa2f",
+    badgeBg: "rgba(255, 255, 255, 0.15)",
+    badgeBorder: "rgba(255, 255, 255, 0.3)",
+    badgeText: "#ffffff",
+    sharpShadowColor: "#d9fa2f",
   },
   {
     id: "module-3",
@@ -64,8 +82,14 @@ const MODULES: CurriculumModule[] = [
       "Thumbnail Design & CTR Optimization",
     ],
     image: "/images/DSC00298.webp",
-    gradient: "linear-gradient(135deg, #3d2370 0%, #1e103d 60%, #100824 100%)",
-    accentColor: "#b286ff",
+    bgColor: "#efeeea",
+    textColor: "#0a0a0c",
+    secondaryTextColor: "rgba(10, 10, 12, 0.85)",
+    accentColor: "#0a0a0c",
+    badgeBg: "rgba(10, 10, 12, 0.12)",
+    badgeBorder: "rgba(10, 10, 12, 0.25)",
+    badgeText: "#0a0a0c",
+    sharpShadowColor: "#cd0c41",
   },
   {
     id: "module-4",
@@ -79,8 +103,14 @@ const MODULES: CurriculumModule[] = [
       "Final Project",
     ],
     image: "/images/DSC00041.webp",
-    gradient: "linear-gradient(135deg, #6c4710 0%, #3a2405 60%, #1a1002 100%)",
-    accentColor: "#ffbe53",
+    bgColor: "#cd0c41",
+    textColor: "#ffffff",
+    secondaryTextColor: "rgba(255, 255, 255, 0.92)",
+    accentColor: "#ffffff",
+    badgeBg: "rgba(255, 255, 255, 0.18)",
+    badgeBorder: "rgba(255, 255, 255, 0.32)",
+    badgeText: "#ffffff",
+    sharpShadowColor: "#ffb621",
   },
   {
     id: "module-5",
@@ -94,8 +124,14 @@ const MODULES: CurriculumModule[] = [
       "Interview & Industry Readiness",
     ],
     image: "/images/DSC00033.webp",
-    gradient: "linear-gradient(135deg, #17385c 0%, #0b1e33 60%, #05101c 100%)",
-    accentColor: "#57a8ff",
+    bgColor: "#ff5c2f",
+    textColor: "#ffffff",
+    secondaryTextColor: "rgba(255, 255, 255, 0.92)",
+    accentColor: "#ffffff",
+    badgeBg: "rgba(255, 255, 255, 0.18)",
+    badgeBorder: "rgba(255, 255, 255, 0.32)",
+    badgeText: "#ffffff",
+    sharpShadowColor: "#552ead",
   },
   {
     id: "module-6",
@@ -109,8 +145,14 @@ const MODULES: CurriculumModule[] = [
       "Production-Ready Commercial Reel",
     ],
     image: "/images/DSC00093.webp",
-    gradient: "linear-gradient(135deg, #2b4515 0%, #172809 60%, #0b1404 100%)",
-    accentColor: "#DAFD55",
+    bgColor: "#ffb621",
+    textColor: "#0a0a0c",
+    secondaryTextColor: "rgba(10, 10, 12, 0.88)",
+    accentColor: "#0a0a0c",
+    badgeBg: "rgba(10, 10, 12, 0.12)",
+    badgeBorder: "rgba(10, 10, 12, 0.25)",
+    badgeText: "#0a0a0c",
+    sharpShadowColor: "#cd0c41",
   },
 ];
 
@@ -174,19 +216,8 @@ export default function CurriculumStackSection() {
         <div className={styles.header}>
           <div className={styles.tag}>CURRICULUM BREAKDOWN</div>
           <h2 className={styles.title}>
-            <ScrollHighlight
-              text="THE BLUEPRINT TO PROFESSIONAL EDITING."
-              font={{
-                fontSize: "inherit",
-                fontWeight: "inherit",
-                lineHeight: "inherit",
-                fontFamily: "inherit",
-                textAlign: "left",
-              }}
-              splitBy="words"
-              scrollStart="top bottom"
-              scrollEnd="center center"
-            />
+            <span>THE BLUEPRINT TO </span>
+            <span className={styles.highlightWord}>PROFESSIONAL EDITING.</span>
           </h2>
         </div>
 
@@ -200,17 +231,29 @@ export default function CurriculumStackSection() {
               }}
               className={styles.stackCard}
               style={{
-                background: module.gradient,
+                backgroundColor: module.bgColor,
+                color: module.textColor,
+                boxShadow: `-12px 14px 0px 0px ${module.sharpShadowColor}`,
+                border: "2px solid #000000",
               }}
             >
               {/* Left Content */}
               <div className={styles.cardContent}>
                 <div className={styles.cardMetaRow}>
-                  <span className={styles.phaseLabel}>{module.phase}</span>
-                  <span className={styles.durationBadge}>{module.duration}</span>
+                  <span
+                    className={styles.phaseLabel}
+                    style={{ color: module.textColor }}
+                  >
+                    {module.phase}
+                  </span>
                 </div>
 
-                <h3 className={styles.moduleTitle}>{module.title}</h3>
+                <h3
+                  className={styles.moduleTitle}
+                  style={{ color: module.textColor }}
+                >
+                  {module.title}
+                </h3>
 
                 {/* Topics Bullet List with checkmarks */}
                 <ul className={styles.topicList}>
@@ -234,7 +277,12 @@ export default function CurriculumStackSection() {
                           />
                         </svg>
                       </span>
-                      <span className={styles.topicText}>{topic}</span>
+                      <span
+                        className={styles.topicText}
+                        style={{ color: module.secondaryTextColor }}
+                      >
+                        {topic}
+                      </span>
                     </li>
                   ))}
                 </ul>

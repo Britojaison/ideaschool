@@ -38,7 +38,10 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
+  background: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 64px 64px,
+    radial-gradient(
       ellipse at center,
       rgba(8, 8, 8, 0.22) 0%,
       rgba(8, 8, 8, 0.65) 75%,
@@ -218,7 +221,7 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.95rem 1.85rem;
-  background: rgba(255, 255, 255, 0.08);
+  background-color: #552ead;
   color: #ffffff;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: clamp(0.88rem, 1vw, 1rem);
@@ -226,7 +229,8 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(85, 46, 173, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
@@ -234,8 +238,9 @@
 }
 
 .secondaryBtn:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.45);
+  background-color: #6737d1;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 28px rgba(85, 46, 173, 0.6);
   transform: translateY(-2px);
 }
 

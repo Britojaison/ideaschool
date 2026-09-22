@@ -105,14 +105,16 @@ export default function CreativeHero() {
             <span className={styles.btnArrow} aria-hidden="true">↗</span>
           </button>
 
-          <button
-            type="button"
+          <a
+            href="/pdf/Program%20Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.secondaryBtn}
-            onClick={handleCurriculumClick}
+            aria-label="Download Full Program Brochure"
           >
             <span>Download Brochure</span>
             <span className={styles.btnDownArrow} aria-hidden="true">↓</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>

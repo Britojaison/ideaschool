@@ -3,6 +3,10 @@
   width: 100%;
   padding: clamp(90px, 12vh, 140px) 0 clamp(70px, 10vh, 110px);
   background-color: #060508;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
   overflow: hidden;
   color: #ffffff;
   border-top: 1px solid rgba(255, 255, 255, 0.08);

@@ -3,6 +3,10 @@
   width: 100%;
   padding: clamp(4.5rem, 8vw, 7.5rem) clamp(1.25rem, 4vw, 3.5rem);
   background-color: #080808;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
   color: #FBFAF2;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

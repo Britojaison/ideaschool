@@ -49,19 +49,8 @@ export default function StudentTestimonials() {
         <div className={styles.header}>
           <div className={styles.eyebrow}>STUDENT OUTCOMES</div>
           <h2 className={styles.title}>
-            <ScrollHighlight
-              text="HEAR FROM OUR STUDENTS."
-              font={{
-                fontSize: "inherit",
-                fontWeight: "inherit",
-                lineHeight: "inherit",
-                fontFamily: "inherit",
-                textAlign: "left",
-              }}
-              splitBy="words"
-              scrollStart="top bottom"
-              scrollEnd="center center"
-            />
+            <span>HEAR FROM OUR </span>
+            <span className={styles.highlightWord}>STUDENTS.</span>
           </h2>
         </div>
 

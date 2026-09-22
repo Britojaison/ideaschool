@@ -156,7 +156,6 @@ export default function LearningEnvironment() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <div className={styles.tag}>INSIDE IDEA SCHOOL</div>
             <div className={styles.title}>
               <ScrollHighlight
                 text="BUILT AROUND PRACTICE, FEEDBACK AND BETTER WORK."
@@ -236,10 +235,6 @@ export default function LearningEnvironment() {
         </div>
 
         <div className={styles.sectionGroup}>
-          <div className={styles.sectionTitle}>
-            CORE PRINCIPLES
-          </div>
-
           <div className={styles.principlesGrid}>
             {corePrinciples.map((item) => (
               <div

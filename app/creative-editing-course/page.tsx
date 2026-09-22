@@ -7,11 +7,9 @@ import CurriculumStackSection from "./CurriculumStackSection";
 import ReadyToLevelUpCta from "./ReadyToLevelUpCta";
 import ToolsMasterGrid from "./ToolsMasterGrid";
 import NotJustAnotherCourse from "./NotJustAnotherCourse";
-import LearningEnvironment from "@/components/cinematic-hero/LearningEnvironment";
+import ClientLogosSection from "./ClientLogosSection";
 import WhatYouBuild from "@/components/cinematic-hero/WhatYouBuild";
-import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
-import ClientBrandsGrid from "./ClientBrandsGrid";
 import CourseGallery from "./CourseGallery";
 import WhoItIsFor from "./WhoItIsFor";
 import AdmissionEnrollment from "./AdmissionEnrollment";
@@ -76,12 +74,10 @@ export default function CreativeEditingCopyPage() {
       <ReadyToLevelUpCta />
       <ToolsMasterGrid />
       <NotJustAnotherCourse />
+      <ClientLogosSection />
 
-      <LearningEnvironment key="learning-environment" />
       <WhatYouBuild key="what-you-build" />
-      <ByTheNumbers key="programme" />
       <MentorsDiagonal key="mentors" />
-      <ClientBrandsGrid key="client-brands" />
       <CourseGallery key="course-gallery" />
       <WhoItIsFor key="who-it-is-for" />
       <AdmissionEnrollment key="admission" />

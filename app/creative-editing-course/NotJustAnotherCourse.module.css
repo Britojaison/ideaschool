@@ -1,0 +1,300 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 3.5rem);
+  background-color: #080808;
+  color: #FBFAF2;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 0 clamp(3rem, 5vw, 4.5rem) 0;
+  text-align: left;
+}
+
+.tag {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #A0AAB2;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: left;
+  width: 100%;
+}
+
+.subtitle {
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Board Wrapper with horizontal scrolling on mobile */
+.boardWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+.boardScrollContainer {
+  min-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Header Pills (Column titles) */
+.headerPillsRow {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.brandPillHeader {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.headerLabelMuted {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.categoriesTrack {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.pillHeader {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Row 1: IdeaSchool Highlighted Banner Row (Red) */
+.ideaSchoolRow {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    #cc0000 0%,
+    #e50914 40%,
+    #d9040f 100%
+  );
+  border-radius: 20px;
+  padding: 1.35rem 1.5rem;
+  box-shadow: 0 12px 36px rgba(229, 9, 20, 0.3), 0 0 1px rgba(255, 255, 255, 0.4) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.ideaSchoolBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brandBadgeWrap {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.ideaLogoImg {
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.ideaBrandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.ideaBrandName {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.ideaBrandSubtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.valuesTrack {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.ideaSchoolValueCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 0.4rem;
+}
+
+.ideaValueText {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+/* Rows 2 & 3: Standard Rows (Online Courses & Offline Schools) */
+.standardRow {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: rgba(18, 18, 22, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.standardBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.standardIconWrap {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.standardBrandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.standardBrandName {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.standardBrandSubtitle {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.standardValueCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 0.4rem;
+}
+
+.standardValueText {
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.35;
+}
+
+.mobileCategoryLabel {
+  display: none;
+}
+
+/* Custom horizontal scrollbar for wide table */
+.boardWrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.boardWrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+.boardWrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.boardWrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

@@ -5,8 +5,9 @@ import VideoSection from "./VideoSection";
 import StudentTestimonials from "./StudentTestimonials";
 import CurriculumStackSection from "./CurriculumStackSection";
 import ReadyToLevelUpCta from "./ReadyToLevelUpCta";
+import ToolsMasterGrid from "./ToolsMasterGrid";
+import NotJustAnotherCourse from "./NotJustAnotherCourse";
 import LearningEnvironment from "@/components/cinematic-hero/LearningEnvironment";
-import ToolsMarquee from "@/components/ui/ToolsMarquee";
 import WhatYouBuild from "@/components/cinematic-hero/WhatYouBuild";
 import ByTheNumbers from "@/components/cinematic-hero/ByTheNumbers";
 import MentorsDiagonal from "@/components/cinematic-hero/MentorsDiagonal";
@@ -73,11 +74,12 @@ export default function CreativeEditingCopyPage() {
       <StudentTestimonials />
       <CurriculumStackSection />
       <ReadyToLevelUpCta />
+      <ToolsMasterGrid />
+      <NotJustAnotherCourse />
 
       <LearningEnvironment key="learning-environment" />
       <WhatYouBuild key="what-you-build" />
       <ByTheNumbers key="programme" />
-      <ToolsMarquee key="tools-marquee" />
       <MentorsDiagonal key="mentors" />
       <ClientBrandsGrid key="client-brands" />
       <CourseGallery key="course-gallery" />

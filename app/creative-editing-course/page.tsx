@@ -78,10 +78,10 @@ export default function CreativeEditingCopyPage() {
 
       <WhatYouBuild key="what-you-build" />
       <MentorsDiagonal key="mentors" />
-      <CourseGallery key="course-gallery" />
       <WhoItIsFor key="who-it-is-for" />
       <AdmissionEnrollment key="admission" />
       <NextStepCta key="next-step" />
+      <CourseGallery key="course-gallery" />
       <HomeFAQ key="faq" transitionFromCream faqs={COURSE_FAQS} />
     </Shell>
   );

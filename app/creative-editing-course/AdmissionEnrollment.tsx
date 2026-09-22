@@ -1,206 +1,250 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import TextAnimation from "@/components/ui/staggerText";
+import React, { useState } from "react";
+import ScrollHighlight from "@/components/ui/ScrollHighlight";
+import styles from "./AdmissionEnrollment.module.css";
 
 export default function AdmissionEnrollment() {
-  const enrollmentDetails = [
-    {
-      label: "Mode",
-      value: "Hybrid"
-    },
-    {
-      label: "Ideal For",
-      value: "Aspiring Video Editors, Creators, Designers, Students, Freelancers and Creative Professionals"
-    },
-    {
-      label: "Cohort",
-      value: "Limited seats for focused mentorship, feedback and practical learning."
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "24-Week Creative Editing (EMI)",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json().catch(() => null);
+      if (!response.ok) {
+        throw new Error(result?.error || "Failed to submit. Please try again.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", program: "24-Week Creative Editing (EMI)" });
+    } catch (error: unknown) {
+      console.error("Enrollment error:", error);
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong. Please try again later.");
     }
-  ];
+  };
+
+  const handleFullProgramApply = () => {
+    window.dispatchEvent(new Event("open-home-form"));
+  };
 
   return (
     <section
       id="program"
-      className="flex flex-col lg:flex-row min-h-screen w-full scroll-mt-20"
-      style={{ backgroundColor: "#FBFAF2" }}
-      data-header-theme="light"
+      className={styles.section}
+      data-header-theme="dark"
+      data-theme="dark"
+      aria-label="Fees and Enrollment"
     >
-      {/* Left Side: Visual / Studio Showcase */}
-      <div className="w-full lg:w-1/2 relative min-h-[60vh] lg:min-h-screen p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
-        <div className="relative w-full h-[480px] lg:h-[88%] rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 shadow-2xl group">
-          <Image
-            src="/images/full-optimized.webp"
-            alt="IDEA School Campus Lab"
-            fill
-            priority
-            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+      <div className={styles.container}>
+        {/* Header */}
+        <div className={styles.header}>
+          <div className={styles.tag}>FEES &amp; ENROLLMENT</div>
+          <h2 className={styles.title}>
+            <ScrollHighlight
+              text="INVEST IN A SKILLSET YOU CAN BUILD A CAREER AROUND."
+              font={{
+                fontSize: "inherit",
+                fontWeight: "inherit",
+                lineHeight: "inherit",
+                fontFamily: "inherit",
+                textAlign: "left",
+              }}
+              splitBy="words"
+              scrollStart="top bottom"
+              scrollEnd="center center"
+            />
+          </h2>
+          <p className={styles.subtitle}>
+            Transparent pricing with flexible installment options and 100% placement accountability.
+          </p>
         </div>
-      </div>
 
-      {/* Right Side: Content */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12 lg:p-20">
-        <div className="w-full max-w-[640px] flex flex-col justify-center">
-          <div className="mb-8">
-            <h2
-              className="text-3xl md:text-5xl uppercase m-0 leading-tight"
-              style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-            >
-              <TextAnimation divideBy="word">Fees and Enrollment</TextAnimation>
-            </h2>
-            <p
-              className="mt-3 text-sm md:text-base uppercase tracking-wider m-0 font-medium"
-              style={{ color: "#718000", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-            >
-              <TextAnimation divideBy="word" delay={0.15}>
-                Invest in a skillset you can build a career around.
-              </TextAnimation>
-            </p>
+        {/* 2 Cards Grid */}
+        <div className={styles.cardsGrid}>
+          {/* Card 01 — Book Your Seat (EMI) */}
+          <div className={`${styles.card} ${styles.emiCard}`}>
+            <div className={styles.cardHeader}>
+              <span className={styles.cardBadge}>FLEXIBLE PAYMENT</span>
+              <h3 className={styles.cardTitle}>Book Your Seat (EMI)</h3>
+              
+              <div className={styles.emiHighlightRow}>
+                <div className={styles.emiPill}>
+                  <span className={styles.emiCount}>3 Easy EMI</span>
+                </div>
+                <div className={styles.emiAmountWrap}>
+                  <span className={styles.currencySymbol}>₹</span>
+                  <span className={styles.emiAmount}>15,000</span>
+                  <span className={styles.emiPeriod}>/ each</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Embedded Direct Application Form */}
+            {status === "success" ? (
+              <div className={styles.successBox}>
+                <div className={styles.successIcon} aria-hidden="true">✓</div>
+                <h4 className={styles.successTitle}>Application Received</h4>
+                <p className={styles.successDesc}>
+                  Our admissions team will reach out to you shortly to guide you through the next steps.
+                </p>
+                <button
+                  type="button"
+                  className={styles.resetBtn}
+                  onClick={() => setStatus("idle")}
+                >
+                  Apply Again
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className={styles.enrollForm}>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="emi-name" className={styles.label}>Name</label>
+                  <input
+                    id="emi-name"
+                    type="text"
+                    required
+                    placeholder="Enter your name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className={styles.input}
+                    disabled={status === "loading"}
+                  />
+                </div>
+
+                <div className={styles.inputGroup}>
+                  <label htmlFor="emi-email" className={styles.label}>Email</label>
+                  <input
+                    id="emi-email"
+                    type="email"
+                    required
+                    placeholder="name@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className={styles.input}
+                    disabled={status === "loading"}
+                  />
+                </div>
+
+                <div className={styles.inputGroup}>
+                  <label htmlFor="emi-phone" className={styles.label}>Phone Number</label>
+                  <input
+                    id="emi-phone"
+                    type="tel"
+                    required
+                    placeholder="+91 98765 43210"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className={styles.input}
+                    disabled={status === "loading"}
+                  />
+                </div>
+
+                {errorMessage && (
+                  <p className={styles.errorMsg}>{errorMessage}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className={styles.submitBtn}
+                >
+                  <span>Apply Now</span>
+                  <span className={styles.btnArrow} aria-hidden="true">↗</span>
+                </button>
+              </form>
+            )}
           </div>
 
-          {/* Full Program Highlight Card */}
-          <div
-            className="rounded-2xl p-6 md:p-8 mb-8 border transition-shadow duration-300 hover:shadow-lg"
-            style={{
-              backgroundColor: "#F1F0E8",
-              borderColor: "rgba(17,17,17,0.14)"
-            }}
-          >
-            {/* Card Header Tag & Cohort Status */}
-            <div className="flex items-center justify-between gap-3 mb-3">
-              <span
-                className="inline-block px-3 py-1 rounded-full text-[11px] uppercase tracking-widest font-bold"
-                style={{
-                  backgroundColor: "rgba(113, 128, 0, 0.12)",
-                  color: "#606d00",
-                  fontFamily: 'var(--font-stara), "Stara", sans-serif'
-                }}
-              >
-                Full Program • 24 Weeks
-              </span>
-              <span
-                className="text-[11px] uppercase tracking-wider font-semibold opacity-60"
-                style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-              >
-                Hybrid
-              </span>
-            </div>
-
-            {/* Program Title */}
-            <h3
-              className="text-xl md:text-2xl font-bold uppercase tracking-tight m-0 mb-5 leading-snug"
-              style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-            >
-              24-Week Full-Stack Video Editing & Creative AI Mastery
-            </h3>
-
-            {/* 2-Phase Structured Timeline Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              <div
-                className="p-4 rounded-xl border flex flex-col justify-between"
-                style={{
-                  backgroundColor: "#FBFAF2",
-                  borderColor: "rgba(17,17,17,0.1)"
-                }}
-              >
-                <div>
-                  <div
-                    className="text-[10px] font-bold uppercase tracking-widest mb-1.5"
-                    style={{ color: "#718000", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                  >
-                    Phase 01 · 12 Weeks
-                  </div>
-                  <div
-                    className="text-sm font-bold text-[#111111] mb-1"
-                    style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                  >
-                    Core Skill Development
-                  </div>
-                  <p className="text-xs text-[#666666] m-0 leading-relaxed">
-                    Premiere Pro, DaVinci Resolve, narrative pacing & AI tool pipelines.
-                  </p>
-                </div>
+          {/* Card 02 — Full Program */}
+          <div className={`${styles.card} ${styles.fullProgramCard}`}>
+            <div className={styles.cardHeader}>
+              <div className={styles.badgeRow}>
+                <span className={styles.cardBadgeLime}>CARD 02</span>
+                <span className={styles.tagPill}>LIMITED SEATS</span>
               </div>
-
-              <div
-                className="p-4 rounded-xl border flex flex-col justify-between"
-                style={{
-                  backgroundColor: "#FBFAF2",
-                  borderColor: "rgba(17,17,17,0.1)"
-                }}
-              >
-                <div>
-                  <div
-                    className="text-[10px] font-bold uppercase tracking-widest mb-1.5"
-                    style={{ color: "#718000", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                  >
-                    Phase 02 · 12 Weeks
-                  </div>
-                  <div
-                    className="text-sm font-bold text-[#111111] mb-1"
-                    style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                  >
-                    Industry Experience
-                  </div>
-                  <p className="text-xs text-[#666666] m-0 leading-relaxed">
-                    Live 88GB agency briefs, weekly 1:1 mentor feedback & client-ready portfolio.
-                  </p>
+              <h3 className={styles.cardTitle}>Full Program</h3>
+              
+              <div className={styles.pricingWrap}>
+                <div className={styles.priceMain}>
+                  <span className={styles.priceCurrency}>₹</span>
+                  <span className={styles.priceFigure}>39,999</span>
                 </div>
+                <span className={styles.priceLabel}>Full Program Fee</span>
               </div>
             </div>
 
-            {/* Action Button & Note Footer */}
-            <div className="pt-4 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ borderColor: "rgba(17,17,17,0.1)" }}>
-              <p
-                className="m-0 text-xs text-[#666666] leading-relaxed max-w-xs"
-                style={{ fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-              >
-                ✦ Seats are strictly limited to maintain a mentor-led studio environment.
-              </p>
+            {/* Feature Points Checkmarks */}
+            <div className={styles.featuresList}>
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>Guaranteed Placement</span>
+              </div>
 
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>No Hidden Cost</span>
+              </div>
+
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>6 Months Offline Classes</span>
+              </div>
+
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>Bangalore Studio Campus</span>
+              </div>
+            </div>
+
+            {/* Bottom CTA Button */}
+            <div className={styles.fullProgramFooter}>
               <button
                 type="button"
-                onClick={() => window.dispatchEvent(new Event("open-home-form"))}
-                className="w-full sm:w-auto font-black uppercase px-6 py-3.5 rounded-full tracking-wider text-xs md:text-sm no-underline hover:scale-105 active:scale-95 transition-all duration-200 border-none cursor-pointer shrink-0 flex items-center justify-center gap-2 shadow-sm"
-                style={{
-                  backgroundColor: "#dafd55",
-                  color: "#030405",
-                  fontFamily: 'var(--font-stara), "Stara", sans-serif',
-                }}
+                onClick={handleFullProgramApply}
+                className={styles.fullProgramBtn}
               >
-                <span>Talk to IDEA Creative School</span>
-                <span aria-hidden="true">↗</span>
+                <span>Enroll in Full Program</span>
+                <span className={styles.btnArrow} aria-hidden="true">↗</span>
               </button>
+              <p className={styles.guaranteeNote}>
+                ✦ Includes all live studio projects, mentor reviews, and production tool access.
+              </p>
             </div>
           </div>
-
-          {/* Details List */}
-          <dl className="flex flex-col gap-5 m-0">
-            {enrollmentDetails.map((item, index) => (
-              <div
-                key={item.label}
-                className={`grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-4 ${index !== enrollmentDetails.length - 1 ? "pb-5 border-b" : ""}`}
-                style={{ borderColor: "rgba(17,17,17,0.14)" }}
-              >
-                <dt
-                  className="font-bold text-sm md:text-[0.95rem] uppercase tracking-wider"
-                  style={{ color: "#111111", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                >
-                  {item.label}
-                </dt>
-                <dd
-                  className="m-0 leading-relaxed text-sm md:text-[0.92rem]"
-                  style={{ color: "#555555", fontFamily: 'var(--font-stara), "Stara", sans-serif' }}
-                >
-                  {item.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>

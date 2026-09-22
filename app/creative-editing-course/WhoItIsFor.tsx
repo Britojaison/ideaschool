@@ -11,11 +11,11 @@ import TextAnimation from "@/components/ui/staggerText";
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const reasons = [
-  "You want more structure and guidance than random online tutorials provide.",
-  "You are willing to practise, receive feedback and revise your work.",
-  "You want to build a portfolio that demonstrates practical capability.",
-  "You want to understand how professional creative work is briefed, reviewed and delivered.",
-  "You can commit to the 24-week learning and industry-experience process.",
+  "You want more guidance than random online tutorials.",
+  "You are ready to practise, get feedback and improve.",
+  "You want to build a strong portfolio with real work.",
+  "You want to learn how professional creative projects work.",
+  "You can commit to the full 24-week program.",
 ];
 
 export default function WhoItIsFor() {

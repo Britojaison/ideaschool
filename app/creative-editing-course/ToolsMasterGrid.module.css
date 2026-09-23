@@ -55,6 +55,16 @@
   width: 100%;
 }
 
+.highlightWord {
+  display: inline-block;
+  background-color: #d9fa2f;
+  color: #0a0a0c !important;
+  padding: 0 0.28em;
+  border-radius: 0 !important;
+  margin-left: 0.15em;
+  line-height: 1.1;
+}
+
 .subtitle {
   font-size: clamp(0.95rem, 1.15vw, 1.15rem);
   line-height: 1.6;
@@ -77,23 +87,20 @@
   align-items: center;
   gap: 1.25rem;
   padding: 1.35rem 1.5rem;
-  background: rgba(18, 18, 22, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: clamp(14px, 1.6vw, 18px);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
   cursor: default;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  background: rgba(24, 24, 30, 0.85);
-  border-color: rgba(218, 253, 85, 0.35);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 16px rgba(218, 253, 85, 0.08);
+  filter: brightness(1.05);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
 }
 
 .logoWrapper {

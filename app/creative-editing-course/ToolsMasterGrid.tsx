@@ -74,6 +74,51 @@ const MASTER_TOOLS: ToolItem[] = [
   },
 ];
 
+const CARD_THEMES = [
+  {
+    bgColor: "#d9fa2f",
+    textColor: "#0a0a0c",
+    catColor: "rgba(10, 10, 12, 0.75)",
+    logoBg: "rgba(10, 10, 12, 0.08)",
+    logoBorder: "rgba(10, 10, 12, 0.15)",
+  },
+  {
+    bgColor: "#552ead",
+    textColor: "#ffffff",
+    catColor: "rgba(255, 255, 255, 0.8)",
+    logoBg: "rgba(255, 255, 255, 0.12)",
+    logoBorder: "rgba(255, 255, 255, 0.25)",
+  },
+  {
+    bgColor: "#efeeea",
+    textColor: "#0a0a0c",
+    catColor: "rgba(10, 10, 12, 0.72)",
+    logoBg: "rgba(10, 10, 12, 0.06)",
+    logoBorder: "rgba(10, 10, 12, 0.15)",
+  },
+  {
+    bgColor: "#cd0c41",
+    textColor: "#ffffff",
+    catColor: "rgba(255, 255, 255, 0.82)",
+    logoBg: "rgba(255, 255, 255, 0.14)",
+    logoBorder: "rgba(255, 255, 255, 0.28)",
+  },
+  {
+    bgColor: "#ff5c2f",
+    textColor: "#ffffff",
+    catColor: "rgba(255, 255, 255, 0.85)",
+    logoBg: "rgba(255, 255, 255, 0.14)",
+    logoBorder: "rgba(255, 255, 255, 0.28)",
+  },
+  {
+    bgColor: "#ffb621",
+    textColor: "#0a0a0c",
+    catColor: "rgba(10, 10, 12, 0.75)",
+    logoBg: "rgba(10, 10, 12, 0.08)",
+    logoBorder: "rgba(10, 10, 12, 0.18)",
+  },
+];
+
 export default function ToolsMasterGrid() {
   return (
     <section
@@ -88,45 +133,57 @@ export default function ToolsMasterGrid() {
         <div className={styles.header}>
           <div className={styles.tag}>INDUSTRY STANDARD STACK</div>
           <h2 className={styles.title}>
-            <ScrollHighlight
-              text="TOOLS YOU WILL MASTER."
-              font={{
-                fontSize: "inherit",
-                fontWeight: "inherit",
-                lineHeight: "inherit",
-                fontFamily: "inherit",
-                textAlign: "left",
-              }}
-              splitBy="words"
-              scrollStart="top bottom"
-              scrollEnd="center center"
-            />
+            <span>TOOLS YOU WILL </span>
+            <span className={styles.highlightWord}>MASTER.</span>
           </h2>
-          <p className={styles.subtitle}>
-            From industry-standard timeline editing to cutting-edge generative AI models. Learn not just the software, but the exact workflow to produce commercial-grade edits faster.
-          </p>
         </div>
 
         {/* Tools Grid */}
         <div className={styles.grid}>
-          {MASTER_TOOLS.map((tool, idx) => (
-            <div key={idx} className={styles.card}>
-              <div className={styles.logoWrapper}>
-                <Image
-                  src={tool.image}
-                  alt={tool.name}
-                  width={56}
-                  height={56}
-                  className={styles.logoImage}
-                />
-              </div>
+          {MASTER_TOOLS.map((tool, idx) => {
+            const theme = CARD_THEMES[idx % CARD_THEMES.length];
+            return (
+              <div
+                key={idx}
+                className={styles.card}
+                style={{
+                  backgroundColor: theme.bgColor,
+                  color: theme.textColor,
+                }}
+              >
+                <div
+                  className={styles.logoWrapper}
+                  style={{
+                    backgroundColor: theme.logoBg,
+                    borderColor: theme.logoBorder,
+                  }}
+                >
+                  <Image
+                    src={tool.image}
+                    alt={tool.name}
+                    width={56}
+                    height={56}
+                    className={styles.logoImage}
+                  />
+                </div>
 
-              <div className={styles.toolInfo}>
-                <h3 className={styles.toolName}>{tool.name}</h3>
-                <span className={styles.toolCategory}>{tool.category}</span>
+                <div className={styles.toolInfo}>
+                  <h3
+                    className={styles.toolName}
+                    style={{ color: theme.textColor }}
+                  >
+                    {tool.name}
+                  </h3>
+                  <span
+                    className={styles.toolCategory}
+                    style={{ color: theme.catColor }}
+                  >
+                    {tool.category}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

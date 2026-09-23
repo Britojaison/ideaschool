@@ -1,9 +1,9 @@
 .section {
   position: relative;
   width: 100%;
-  padding: clamp(4.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(2rem, 3.5vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem);
   background-color: #080808;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
@@ -25,7 +25,7 @@
   flex-direction: column;
   align-items: flex-start;
   max-width: 900px;
-  margin: 0 0 clamp(3rem, 5vw, 4.5rem) 0;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem) 0;
   text-align: left;
 }
 
@@ -47,12 +47,22 @@
   font-size: clamp(2rem, 3.5vw, 4rem);
   line-height: 1.1;
   font-weight: 500;
-  margin-bottom: 1.25rem;
+  margin: 0 0 clamp(2rem, 3.5vw, 3rem) 0;
   color: #fff;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   text-align: left;
   width: 100%;
+}
+
+.highlightWord {
+  display: inline;
+  background-color: #d9fa2f;
+  color: #0a0a0c !important;
+  padding: 0.05em .25em;
+  border-radius: 0 !important;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .subtitle {
@@ -78,27 +88,20 @@
   gap: 14px;
 }
 
-/* Header Pills (Column titles) */
-.headerPillsRow {
+/* Category Headers attached directly above Row 1 */
+.tableHeaderRow {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 12px;
-  align-items: center;
-  padding: 0 12px;
+  align-items: flex-end;
+  padding: 0 1.5rem;
+  margin-bottom: -6px;
+  position: relative;
+  z-index: 2;
 }
 
-.brandPillHeader {
-  display: flex;
-  align-items: center;
-  padding-left: 8px;
-}
-
-.headerLabelMuted {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+.emptyBrandHeader {
+  width: 100%;
 }
 
 .categoriesTrack {
@@ -108,20 +111,26 @@
 }
 
 .pillHeader {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 0.75rem 0.5rem;
+  background: rgba(28, 28, 34, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: none;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 0.8rem 0.4rem 1.15rem;
   text-align: center;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: 0.82rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.01em;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
   white-space: nowrap;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
 }
 
-/* Row 1: IdeaSchool Highlighted Banner Row (Red) */
+/* Row 1: IdeaSchool Highlighted Banner Row (Purple #552ead) */
 .ideaSchoolRow {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -129,14 +138,15 @@
   align-items: center;
   background: linear-gradient(
     90deg,
-    #cc0000 0%,
-    #e50914 40%,
-    #d9040f 100%
+    #552ead 0%,
+    #6335ca 45%,
+    #552ead 100%
   );
   border-radius: 20px;
   padding: 1.35rem 1.5rem;
-  box-shadow: 0 12px 36px rgba(229, 9, 20, 0.3), 0 0 1px rgba(255, 255, 255, 0.4) inset;
+  box-shadow: 0 12px 36px rgba(85, 46, 173, 0.35), 0 0 1px rgba(255, 255, 255, 0.4) inset;
   position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 

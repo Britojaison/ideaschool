@@ -1,7 +1,7 @@
 .section {
   position: relative;
   width: 100%;
-  padding: clamp(4rem, 7vw, 6.5rem) 0 clamp(4.5rem, 8vw, 7rem);
+  padding: clamp(2rem, 3.5vw, 3.5rem) 0;
   background-color: #080808;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),

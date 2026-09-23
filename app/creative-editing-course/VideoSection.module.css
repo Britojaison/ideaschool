@@ -1,7 +1,7 @@
 .videoSection {
   position: relative;
   width: 100%;
-  padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 3.5vw, 3rem);
+  padding: clamp(1.25rem, 2.5vw, 2.25rem) clamp(1rem, 3.5vw, 3rem);
   background-color: #080808;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),

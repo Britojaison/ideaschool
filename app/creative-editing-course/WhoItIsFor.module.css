@@ -1,7 +1,7 @@
 .section {
   background: #fbfaf2;
   color: #111;
-  padding: clamp(56px, 7vw, 96px) clamp(20px, 4vw, 72px);
+  padding: clamp(36px, 4.5vw, 60px) clamp(20px, 4vw, 72px);
   overflow: visible;
   position: relative;
 }

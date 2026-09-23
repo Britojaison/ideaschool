@@ -151,13 +151,7 @@ export default function ToolsMasterGrid() {
                   color: theme.textColor,
                 }}
               >
-                <div
-                  className={styles.logoWrapper}
-                  style={{
-                    backgroundColor: theme.logoBg,
-                    borderColor: theme.logoBorder,
-                  }}
-                >
+                <div className={styles.logoWrapper}>
                   <Image
                     src={tool.image}
                     alt={tool.name}

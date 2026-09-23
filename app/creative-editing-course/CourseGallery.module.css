@@ -1,7 +1,7 @@
 .gallerySection {
   position: relative;
   width: 100%;
-  padding: clamp(90px, 12vh, 140px) 0 clamp(70px, 10vh, 110px);
+  padding: clamp(45px, 6vh, 70px) 0 clamp(35px, 5vh, 55px);
   background-color: #060508;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),

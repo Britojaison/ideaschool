@@ -44,6 +44,69 @@ const BUILD_ROLES = [
   }
 ];
 
+const CARD_THEMES = [
+  {
+    bgColor: "#d9fa2f",
+    textColor: "#0a0a0c",
+    descColor: "rgba(10, 10, 12, 0.78)",
+    badgeBg: "rgba(10, 10, 12, 0.12)",
+    badgeBorder: "rgba(10, 10, 12, 0.22)",
+    badgeColor: "#0a0a0c",
+    shadow: "#552ead",
+    border: "1px solid rgba(10, 10, 12, 0.12)",
+  },
+  {
+    bgColor: "#552ead",
+    textColor: "#ffffff",
+    descColor: "rgba(255, 255, 255, 0.85)",
+    badgeBg: "rgba(255, 255, 255, 0.15)",
+    badgeBorder: "rgba(255, 255, 255, 0.28)",
+    badgeColor: "#ffffff",
+    shadow: "#d9fa2f",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
+  {
+    bgColor: "#efeeea",
+    textColor: "#0a0a0c",
+    descColor: "rgba(10, 10, 12, 0.76)",
+    badgeBg: "rgba(10, 10, 12, 0.1)",
+    badgeBorder: "rgba(10, 10, 12, 0.18)",
+    badgeColor: "#0a0a0c",
+    shadow: "#cd0c41",
+    border: "1px solid rgba(10, 10, 12, 0.1)",
+  },
+  {
+    bgColor: "#cd0c41",
+    textColor: "#ffffff",
+    descColor: "rgba(255, 255, 255, 0.88)",
+    badgeBg: "rgba(255, 255, 255, 0.18)",
+    badgeBorder: "rgba(255, 255, 255, 0.3)",
+    badgeColor: "#ffffff",
+    shadow: "#ffb621",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
+  {
+    bgColor: "#ff5c2f",
+    textColor: "#ffffff",
+    descColor: "rgba(255, 255, 255, 0.88)",
+    badgeBg: "rgba(255, 255, 255, 0.18)",
+    badgeBorder: "rgba(255, 255, 255, 0.3)",
+    badgeColor: "#ffffff",
+    shadow: "#552ead",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
+  {
+    bgColor: "#ffb621",
+    textColor: "#0a0a0c",
+    descColor: "rgba(10, 10, 12, 0.78)",
+    badgeBg: "rgba(10, 10, 12, 0.12)",
+    badgeBorder: "rgba(10, 10, 12, 0.22)",
+    badgeColor: "#0a0a0c",
+    shadow: "#552ead",
+    border: "1px solid rgba(10, 10, 12, 0.12)",
+  },
+];
+
 export default function WhatYouBuild() {
   return (
     <section
@@ -55,41 +118,53 @@ export default function WhatYouBuild() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <p className={styles.eyebrow}>
-            <TextAnimation divideBy="word">WHAT YOU BUILD</TextAnimation>
-          </p>
+          <div className={styles.eyebrow}>WHAT YOU BUILD</div>
           <h2 className={styles.title}>
-            <TextAnimation divideBy="word" delay={0.08}>
-              Work that shows what you can do.
-            </TextAnimation>
+            <span className={styles.highlightWord}>WORK</span>
+            <span> THAT SHOWS WHAT YOU CAN DO.</span>
           </h2>
-          <p className={styles.description}>
-            <TextAnimation divideBy="word" delay={0.16}>
-              Your portfolio develops throughout the program through practical assignments, mentor reviews and revision cycles.
-            </TextAnimation>
-          </p>
         </div>
 
         {/* 6 Career Roles Grid (3 per row) */}
         <div className={styles.grid}>
-          {BUILD_ROLES.map((point) => (
-            <article key={point.step} className={styles.card}>
-              <div className={styles.cardImageWrapper}>
-                <Image
-                  src={point.image}
-                  alt={point.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className={styles.cardImage}
-                />
-              </div>
-              <div className={styles.cardBody}>
-                <span className={styles.cardNumber}>{point.step}</span>
-                <h3 className={styles.cardTitle}>{point.title}</h3>
-                <p className={styles.cardDescription}>{point.description}</p>
-              </div>
-            </article>
-          ))}
+          {BUILD_ROLES.map((point, idx) => {
+            const theme = CARD_THEMES[idx % CARD_THEMES.length];
+            return (
+              <article
+                key={point.step}
+                className={styles.card}
+                style={{
+                  backgroundColor: theme.bgColor,
+                  border: theme.border,
+                  ["--card-shadow" as any]: theme.shadow,
+                }}
+              >
+                <div className={styles.cardImageWrapper}>
+                  <Image
+                    src={point.image}
+                    alt={point.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={styles.cardImage}
+                  />
+                </div>
+                <div className={styles.cardBody}>
+                  <h3
+                    className={styles.cardTitle}
+                    style={{ color: theme.textColor }}
+                  >
+                    {point.title}
+                  </h3>
+                  <p
+                    className={styles.cardDescription}
+                    style={{ color: theme.descColor }}
+                  >
+                    {point.description}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

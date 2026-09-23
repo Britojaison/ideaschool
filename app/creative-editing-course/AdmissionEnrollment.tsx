@@ -57,23 +57,9 @@ export default function AdmissionEnrollment() {
         <div className={styles.header}>
           <div className={styles.tag}>FEES &amp; ENROLLMENT</div>
           <h2 className={styles.title}>
-            <ScrollHighlight
-              text="INVEST IN A SKILLSET YOU CAN BUILD A CAREER AROUND."
-              font={{
-                fontSize: "inherit",
-                fontWeight: "inherit",
-                lineHeight: "inherit",
-                fontFamily: "inherit",
-                textAlign: "left",
-              }}
-              splitBy="words"
-              scrollStart="top bottom"
-              scrollEnd="center center"
-            />
+            <span className={styles.highlightWord}>INVEST IN A SKILLSET</span>
+            <span> YOU CAN BUILD A CAREER AROUND.</span>
           </h2>
-          <p className={styles.subtitle}>
-            Transparent pricing with flexible installment options and 100% placement accountability.
-          </p>
         </div>
 
         {/* 2 Cards Grid */}
@@ -81,7 +67,6 @@ export default function AdmissionEnrollment() {
           {/* Card 01 — Book Your Seat (EMI) */}
           <div className={`${styles.card} ${styles.emiCard}`}>
             <div className={styles.cardHeader}>
-              <span className={styles.cardBadge}>FLEXIBLE PAYMENT</span>
               <h3 className={styles.cardTitle}>Book Your Seat (EMI)</h3>
               
               <div className={styles.emiHighlightRow}>
@@ -176,7 +161,6 @@ export default function AdmissionEnrollment() {
           <div className={`${styles.card} ${styles.fullProgramCard}`}>
             <div className={styles.cardHeader}>
               <div className={styles.badgeRow}>
-                <span className={styles.cardBadgeLime}>CARD 02</span>
                 <span className={styles.tagPill}>LIMITED SEATS</span>
               </div>
               <h3 className={styles.cardTitle}>Full Program</h3>

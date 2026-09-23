@@ -30,6 +30,45 @@ const BRANDS: Brand[] = [
   { name: "Zenvista", image: "/images/zenvista.webp" },
 ];
 
+const CARD_THEMES = [
+  {
+    bgColor: "#d9fa2f",
+    textColor: "#0a0a0c",
+    filter: "brightness(0)",
+    border: "1px solid rgba(0, 0, 0, 0.15)",
+  },
+  {
+    bgColor: "#552ead",
+    textColor: "#ffffff",
+    filter: "brightness(0) invert(1)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
+  {
+    bgColor: "#efeeea",
+    textColor: "#0a0a0c",
+    filter: "brightness(0)",
+    border: "1px solid rgba(0, 0, 0, 0.12)",
+  },
+  {
+    bgColor: "#cd0c41",
+    textColor: "#ffffff",
+    filter: "brightness(0) invert(1)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
+  {
+    bgColor: "#ff5c2f",
+    textColor: "#ffffff",
+    filter: "brightness(0) invert(1)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
+  {
+    bgColor: "#ffb621",
+    textColor: "#0a0a0c",
+    filter: "brightness(0)",
+    border: "1px solid rgba(0, 0, 0, 0.15)",
+  },
+];
+
 export default function ClientLogosSection() {
   // Triple items for continuous smooth infinite scrolling
   const tickerItems = [...BRANDS, ...BRANDS, ...BRANDS];
@@ -47,52 +86,60 @@ export default function ClientLogosSection() {
         <div className={styles.header}>
           <div className={styles.tag}>CLIENT ECOSYSTEM</div>
           <h2 className={styles.title}>
-            <ScrollHighlight
-              text="BRANDS OUR MENTORS & STUDENTS WORK WITH."
-              font={{
-                fontSize: "inherit",
-                fontWeight: "inherit",
-                lineHeight: "inherit",
-                fontFamily: "inherit",
-                textAlign: "left",
-              }}
-              splitBy="words"
-              scrollStart="top bottom"
-              scrollEnd="center center"
-            />
+            <span className={styles.highlightWord}>BRANDS</span>
+            <span> OUR MENTORS & STUDENTS WORK WITH.</span>
           </h2>
-          <p className={styles.subtitle}>
-            Work on commercial-grade briefs and deliverables modeled after real campaigns for top national and global brands.
-          </p>
         </div>
       </div>
 
-      {/* Infinite Marquee Track (Dark Seamless Look) */}
+      {/* Infinite Marquee Track (Colored Cards) */}
       <div className={styles.marqueeViewport}>
         <div className={styles.marqueeTrack}>
-          {tickerItems.map((brand, idx) => (
-            <div
-              key={`${brand.name}-${idx}`}
-              className={styles.brandCard}
-              aria-hidden={idx >= BRANDS.length ? "true" : undefined}
-            >
-              {brand.image ? (
-                <div className={styles.logoWrap}>
-                  <Image
-                    src={brand.image}
-                    alt={brand.name}
-                    width={140}
-                    height={60}
-                    className={`${styles.brandLogoImage} ${
-                      brand.name === "Mapro" ? styles.maproLogo : ""
-                    }`}
-                  />
-                </div>
-              ) : (
-                <span className={styles.brandTextLogo}>{brand.text}</span>
-              )}
-            </div>
-          ))}
+          {tickerItems.map((brand, idx) => {
+            const theme = CARD_THEMES[idx % CARD_THEMES.length];
+            return (
+              <div
+                key={`${brand.name}-${idx}`}
+                className={styles.brandCard}
+                aria-hidden={idx >= BRANDS.length ? "true" : undefined}
+                style={{
+                  backgroundColor: theme.bgColor,
+                  border: theme.border,
+                  color: theme.textColor,
+                }}
+              >
+                {brand.image ? (
+                  <div className={styles.logoWrap}>
+                    <Image
+                      src={brand.image}
+                      alt={brand.name}
+                      width={220}
+                      height={90}
+                      className={`${styles.brandLogoImage} ${
+                        brand.name === "Mapro" ? styles.maproLogo : ""
+                      } ${brand.name === "Milky Mist" ? styles.milkyMistLogo : ""} ${
+                        brand.name === "SIG" ? styles.sigLogo : ""
+                      } ${brand.name === "Zenvista" ? styles.zenvistaLogo : ""} ${
+                        brand.name === "Netflix" ? styles.netflixLogo : ""
+                      } ${brand.name === "TEDx" ? styles.tedxLogo : ""} ${
+                        brand.name === "SRM" ? styles.srmLogo : ""
+                      } ${brand.name === "Super Jewellery" ? styles.superJewelleryLogo : ""}`}
+                      style={{
+                        filter: theme.filter,
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <span
+                    className={styles.brandTextLogo}
+                    style={{ color: theme.textColor }}
+                  >
+                    {brand.text}
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

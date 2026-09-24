@@ -124,19 +124,23 @@
 }
 
 .pillHeader {
-  background: rgba(28, 28, 34, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 10px;
-  padding: 0.65rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0.5rem 0.25rem 0.65rem;
   text-align: center;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 0.02em;
+  font-size: clamp(0.78rem, 0.88vw, 0.86rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Row 1: IdeaSchool Highlighted Banner Row (Purple #552ead) */
@@ -371,9 +375,8 @@
   }
 
   .pillHeader {
-    padding: 0.5rem 0.3rem;
+    padding: 0.4rem 0.2rem;
     font-size: 0.72rem;
-    border-radius: 8px;
   }
 
   .ideaSchoolBrand {

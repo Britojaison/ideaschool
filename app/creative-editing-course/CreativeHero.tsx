@@ -47,7 +47,7 @@ export default function CreativeHero() {
           </span>
           <span className={styles.headlineAccent}>
             <TextAnimation divideBy="word" delay={0.15}>
-              AI Video Editing Mastery
+              Full Stack Editing & AI Mastery
             </TextAnimation>
           </span>
         </h1>

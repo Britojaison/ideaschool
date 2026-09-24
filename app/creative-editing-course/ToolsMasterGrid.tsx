@@ -70,52 +70,7 @@ const MASTER_TOOLS: ToolItem[] = [
   {
     name: "Topaz Video AI",
     category: "Upscaling & Enhancement",
-    image: "/images/tool3.webp",
-  },
-];
-
-const CARD_THEMES = [
-  {
-    bgColor: "#d9fa2f",
-    textColor: "#0a0a0c",
-    catColor: "rgba(10, 10, 12, 0.75)",
-    logoBg: "rgba(10, 10, 12, 0.08)",
-    logoBorder: "rgba(10, 10, 12, 0.15)",
-  },
-  {
-    bgColor: "#552ead",
-    textColor: "#ffffff",
-    catColor: "rgba(255, 255, 255, 0.8)",
-    logoBg: "rgba(255, 255, 255, 0.12)",
-    logoBorder: "rgba(255, 255, 255, 0.25)",
-  },
-  {
-    bgColor: "#efeeea",
-    textColor: "#0a0a0c",
-    catColor: "rgba(10, 10, 12, 0.72)",
-    logoBg: "rgba(10, 10, 12, 0.06)",
-    logoBorder: "rgba(10, 10, 12, 0.15)",
-  },
-  {
-    bgColor: "#cd0c41",
-    textColor: "#ffffff",
-    catColor: "rgba(255, 255, 255, 0.82)",
-    logoBg: "rgba(255, 255, 255, 0.14)",
-    logoBorder: "rgba(255, 255, 255, 0.28)",
-  },
-  {
-    bgColor: "#ff5c2f",
-    textColor: "#ffffff",
-    catColor: "rgba(255, 255, 255, 0.85)",
-    logoBg: "rgba(255, 255, 255, 0.14)",
-    logoBorder: "rgba(255, 255, 255, 0.28)",
-  },
-  {
-    bgColor: "#ffb621",
-    textColor: "#0a0a0c",
-    catColor: "rgba(10, 10, 12, 0.75)",
-    logoBg: "rgba(10, 10, 12, 0.08)",
-    logoBorder: "rgba(10, 10, 12, 0.18)",
+    image: "/images/topaz_logo.webp",
   },
 ];
 
@@ -140,15 +95,10 @@ export default function ToolsMasterGrid() {
         {/* Tools Grid */}
         <div className={styles.grid}>
           {MASTER_TOOLS.map((tool, idx) => {
-            const theme = CARD_THEMES[idx % CARD_THEMES.length];
             return (
               <div
                 key={idx}
                 className={styles.card}
-                style={{
-                  backgroundColor: theme.bgColor,
-                  color: theme.textColor,
-                }}
               >
                 <div className={styles.logoWrapper}>
                   <Image
@@ -161,16 +111,10 @@ export default function ToolsMasterGrid() {
                 </div>
 
                 <div className={styles.toolInfo}>
-                  <h3
-                    className={styles.toolName}
-                    style={{ color: theme.textColor }}
-                  >
+                  <h3 className={styles.toolName}>
                     {tool.name}
                   </h3>
-                  <span
-                    className={styles.toolCategory}
-                    style={{ color: theme.catColor }}
-                  >
+                  <span className={styles.toolCategory}>
                     {tool.category}
                   </span>
                 </div>

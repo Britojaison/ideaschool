@@ -123,13 +123,10 @@
   padding: clamp(0.4rem, 0.8vw, 0.75rem);
   box-sizing: border-box;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.45);
-}
-
-.brandCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.55);
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
 }
 
 .logoWrap {
@@ -140,6 +137,8 @@
   justify-content: center;
   position: relative;
   overflow: visible;
+  pointer-events: none;
+  user-select: none;
 }
 
 .brandLogoImage {
@@ -149,11 +148,8 @@
   max-height: 90% !important;
   object-fit: contain;
   transform: scale(1.45);
-  transition: transform 0.25s ease;
-}
-
-.brandCard:hover .brandLogoImage {
-  transform: scale(1.52);
+  pointer-events: none;
+  user-select: none;
 }
 
 .maproLogo {

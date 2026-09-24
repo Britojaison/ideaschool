@@ -127,34 +127,9 @@
   transform: scale(1.05);
 }
 
-/* Gradient overlay to create seamless transition into card bottom */
+/* Gradient overlay removed per user request */
 .imageOverlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.card:nth-child(odd) .imageOverlay {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 68%,
-    rgba(85, 46, 173, 0.4) 84%,
-    rgba(85, 46, 173, 0.88) 94%,
-    #552ead 100%
-  );
-}
-
-.card:nth-child(even) .imageOverlay {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 68%,
-    rgba(0, 0, 0, 0.4) 84%,
-    rgba(0, 0, 0, 0.88) 94%,
-    #000000 100%
-  );
+  display: none;
 }
 
 .tagBadge {
@@ -237,8 +212,8 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
+  padding: 0.22rem 0.6rem;
+  border-radius: 0 !important;
   margin: 0 0 0.35rem 0;
   line-height: 1.2;
 }

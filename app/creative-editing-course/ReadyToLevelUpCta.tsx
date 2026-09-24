@@ -17,23 +17,46 @@ export default function ReadyToLevelUpCta() {
     >
       <div className={styles.container}>
         <div className={styles.ctaCard}>
-          {/* Sleek audio waveform / video timeline bars design */}
-          <div className={styles.waveEffect} aria-hidden="true">
-            <span className={styles.waveBar} style={{ height: "45%" }} />
-            <span className={styles.waveBar} style={{ height: "65%" }} />
-            <span className={styles.waveBar} style={{ height: "30%" }} />
-            <span className={styles.waveBar} style={{ height: "80%" }} />
-            <span className={styles.waveBar} style={{ height: "95%" }} />
-            <span className={styles.waveBar} style={{ height: "60%" }} />
-            <span className={styles.waveBar} style={{ height: "85%" }} />
-            <span className={styles.waveBar} style={{ height: "40%" }} />
-            <span className={styles.waveBar} style={{ height: "70%" }} />
-            <span className={styles.waveBar} style={{ height: "100%" }} />
-            <span className={styles.waveBar} style={{ height: "75%" }} />
-            <span className={styles.waveBar} style={{ height: "50%" }} />
-            <span className={styles.waveBar} style={{ height: "85%" }} />
-            <span className={styles.waveBar} style={{ height: "65%" }} />
-            <span className={styles.waveBar} style={{ height: "35%" }} />
+          {/* Cinematic Film Strip & Timeline Frames Overlay */}
+          <div className={styles.filmStripOverlay} aria-hidden="true">
+            {/* Top sprocket holes */}
+            <div className={styles.sprocketRow}>
+              {Array.from({ length: 14 }).map((_, i) => (
+                <span key={`top-${i}`} className={styles.sprocketHole} />
+              ))}
+            </div>
+
+            {/* Film cell frames with timecode & marker tracks */}
+            <div className={styles.filmFramesTrack}>
+              <div className={styles.filmFrame}>
+                <span className={styles.frameTc}>00:12:04:18</span>
+                <div className={styles.playheadLine} />
+              </div>
+              <div className={styles.filmFrame}>
+                <span className={styles.frameTc}>00:12:05:02</span>
+                <div className={styles.audioMiniTrack}>
+                  <span style={{ height: "40%" }} />
+                  <span style={{ height: "80%" }} />
+                  <span style={{ height: "55%" }} />
+                  <span style={{ height: "95%" }} />
+                  <span style={{ height: "35%" }} />
+                </div>
+              </div>
+              <div className={styles.filmFrame}>
+                <span className={styles.frameTc}>00:12:05:14</span>
+                <div className={styles.keyframeDot} />
+              </div>
+              <div className={styles.filmFrame}>
+                <span className={styles.frameTc}>00:12:06:00</span>
+              </div>
+            </div>
+
+            {/* Bottom sprocket holes */}
+            <div className={styles.sprocketRow}>
+              {Array.from({ length: 14 }).map((_, i) => (
+                <span key={`bot-${i}`} className={styles.sprocketHole} />
+              ))}
+            </div>
           </div>
 
           {/* Left Text */}

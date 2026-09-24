@@ -34,25 +34,100 @@
   box-sizing: border-box;
 }
 
-/* Modern audio waveform / timeline bars background effect */
-.waveEffect {
+/* Cinematic Film Strip & Timeline Frames Overlay */
+.filmStripOverlay {
   position: absolute;
   top: 50%;
-  left: 55%;
+  left: 60%;
   transform: translate(-50%, -50%);
+  width: 580px;
+  height: 110px;
   pointer-events: none;
   display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 80px;
-  opacity: 0.18;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0.22;
+  user-select: none;
 }
 
-.waveBar {
-  width: 4px;
-  min-height: 12px;
-  background: #ffffff;
-  border-radius: 4px;
+.sprocketRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 4px;
+}
+
+.sprocketHole {
+  width: 14px;
+  height: 9px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.filmFramesTrack {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  height: 64px;
+  padding: 0 4px;
+}
+
+.filmFrame {
+  position: relative;
+  flex: 1;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.frameTc {
+  font-family: var(--font-stara), monospace, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.playheadLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 45%;
+  width: 2px;
+  background: #dafd55;
+  box-shadow: 0 0 8px rgba(218, 253, 85, 0.6);
+}
+
+.audioMiniTrack {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+}
+
+.audioMiniTrack span {
+  width: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1px;
+}
+
+.keyframeDot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: #dafd55;
 }
 
 /* Left Content */

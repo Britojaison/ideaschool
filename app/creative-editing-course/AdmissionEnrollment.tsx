@@ -102,16 +102,89 @@ export default function AdmissionEnrollment() {
 
         {/* 2 Cards Grid */}
         <div className={styles.cardsGrid}>
-          {/* Card 01 — Book Your Seat (EMI) */}
+          {/* Card 01 — Full Program */}
+          <div className={`${styles.card} ${styles.fullProgramCard}`}>
+            <div className={styles.cardHeader}>
+              <div className={styles.titleRow}>
+                <h3 className={styles.cardTitle}>Full Program</h3>
+                <span className={styles.tagPill}>LIMITED SEATS</span>
+              </div>
+
+              <div className={styles.fullProgramPriceRow}>
+                <div className={styles.priceMain}>
+                  <span className={styles.priceCurrency}>₹</span>
+                  <span className={styles.priceFigure}>39,999</span>
+                </div>
+                <span className={styles.priceLabel}>Full Program Fee</span>
+              </div>
+            </div>
+
+            {/* Feature Points Checkmarks */}
+            <div className={styles.featuresList}>
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>Guaranteed Placement</span>
+              </div>
+
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>No Hidden Cost</span>
+              </div>
+
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>6 Months Offline Classes</span>
+              </div>
+
+              <div className={styles.featureItem}>
+                <span className={styles.checkIcon} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </span>
+                <span className={styles.featureText}>Bangalore Studio Campus</span>
+              </div>
+            </div>
+
+            {/* Bottom CTA Button */}
+            <div className={styles.fullProgramFooter}>
+              <button
+                type="button"
+                onClick={handleFullProgramApply}
+                className={styles.fullProgramBtn}
+              >
+                <span>Enroll in Full Program</span>
+                <span className={styles.btnArrow} aria-hidden="true">↗</span>
+              </button>
+              <p className={styles.guaranteeNote}>
+                ✦ Includes all live studio projects, mentor reviews, and production tool access.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 02 — Book Your Seat (EMI) */}
           <div className={`${styles.card} ${styles.emiCard}`}>
             <div className={styles.cardHeader}>
               <div className={styles.titleRow}>
-                <h3 className={styles.cardTitle}>Book Your Seat (EMI)</h3>
+                <h3 className={styles.cardTitle}>EMI option available </h3>
               </div>
-              
+
               <div className={styles.emiHighlightRow}>
                 <div className={styles.emiPill}>
-                  <span className={styles.emiCount}>3 Easy EMI</span>
+                  <span className={styles.emiCount}>3 Easy EMI's</span>
                 </div>
                 <div className={styles.emiAmountWrap}>
                   <span className={styles.currencySymbol}>₹</span>
@@ -203,85 +276,12 @@ export default function AdmissionEnrollment() {
               </form>
             )}
           </div>
-
-          {/* Card 02 — Full Program */}
-          <div className={`${styles.card} ${styles.fullProgramCard}`}>
-            <div className={styles.cardHeader}>
-              <div className={styles.titleRow}>
-                <h3 className={styles.cardTitle}>Full Program</h3>
-                <span className={styles.tagPill}>LIMITED SEATS</span>
-              </div>
-              
-              <div className={styles.fullProgramPriceRow}>
-                <div className={styles.priceMain}>
-                  <span className={styles.priceCurrency}>₹</span>
-                  <span className={styles.priceFigure}>39,999</span>
-                </div>
-                <span className={styles.priceLabel}>Full Program Fee</span>
-              </div>
-            </div>
-
-            {/* Feature Points Checkmarks */}
-            <div className={styles.featuresList}>
-              <div className={styles.featureItem}>
-                <span className={styles.checkIcon} aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                <span className={styles.featureText}>Guaranteed Placement</span>
-              </div>
-
-              <div className={styles.featureItem}>
-                <span className={styles.checkIcon} aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                <span className={styles.featureText}>No Hidden Cost</span>
-              </div>
-
-              <div className={styles.featureItem}>
-                <span className={styles.checkIcon} aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </span>
-                <span className={styles.featureText}>6 Months Offline Classes</span>
-              </div>
-
-              <div className={styles.featureItem}>
-                <span className={styles.checkIcon} aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </span>
-                <span className={styles.featureText}>Bangalore Studio Campus</span>
-              </div>
-            </div>
-
-            {/* Bottom CTA Button */}
-            <div className={styles.fullProgramFooter}>
-              <button
-                type="button"
-                onClick={handleFullProgramApply}
-                className={styles.fullProgramBtn}
-              >
-                <span>Enroll in Full Program</span>
-                <span className={styles.btnArrow} aria-hidden="true">↗</span>
-              </button>
-              <p className={styles.guaranteeNote}>
-                ✦ Includes all live studio projects, mentor reviews, and production tool access.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Full Program Application Modal Popup */}
       {isModalOpen && (
-        <div 
+        <div
           className={styles.modalOverlay}
           onClick={(e) => {
             if (e.target === e.currentTarget) setIsModalOpen(false);

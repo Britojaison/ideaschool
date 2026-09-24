@@ -70,7 +70,7 @@ export default function NotJustAnotherCourse() {
         {/* Section Header */}
         <div className={styles.header}>
           <h2 className={styles.title}>
-            <span>COURSE THAT </span>
+            <span>A COURSE THAT </span>
             <span className={styles.highlightWord}>GOES FURTHER.</span>
           </h2>
         </div>

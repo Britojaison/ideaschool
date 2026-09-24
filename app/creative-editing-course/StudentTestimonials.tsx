@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import styles from "./StudentTestimonials.module.css";
-import ScrollHighlight from "@/components/ui/ScrollHighlight";
 
 const testimonials = [
   {
@@ -36,6 +35,56 @@ const testimonials = [
 ];
 
 export default function StudentTestimonials() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+
+    const scrollLeft = container.scrollLeft;
+    const containerCenter = scrollLeft + container.clientWidth / 2;
+    const children = Array.from(container.children) as HTMLElement[];
+
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    children.forEach((child, index) => {
+      const childCenter = child.offsetLeft + child.offsetWidth / 2;
+      const distance = Math.abs(containerCenter - childCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    setActiveIndex(closestIndex);
+  }, []);
+
+  const scrollToIndex = (index: number) => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const children = Array.from(container.children) as HTMLElement[];
+    if (children[index]) {
+      const child = children[index];
+      const targetLeft =
+        child.offsetLeft - (container.clientWidth - child.offsetWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: "smooth",
+      });
+      setActiveIndex(index);
+    }
+  };
+
+  const handlePrev = () => {
+    scrollToIndex(Math.max(0, activeIndex - 1));
+  };
+
+  const handleNext = () => {
+    scrollToIndex(Math.min(testimonials.length - 1, activeIndex + 1));
+  };
+
   return (
     <section
       id="student-testimonials"
@@ -53,8 +102,12 @@ export default function StudentTestimonials() {
           </h2>
         </div>
 
-        {/* Testimonials Cards Grid */}
-        <div className={styles.grid}>
+        {/* Testimonials Cards (3-column Grid on desktop, smooth snap Carousel on tablet & mobile) */}
+        <div
+          ref={carouselRef}
+          className={styles.grid}
+          onScroll={handleScroll}
+        >
           {testimonials.map((t, index) => (
             <div key={index} className={styles.card}>
               <div className={styles.imageContainer}>
@@ -62,7 +115,7 @@ export default function StudentTestimonials() {
                   src={t.image}
                   alt={t.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
                   className={styles.studentImage}
                 />
                 <div className={styles.imageOverlay} />
@@ -83,6 +136,64 @@ export default function StudentTestimonials() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Carousel Navigation Controls (Tablet & Mobile only) */}
+        <div className={styles.carouselControls} aria-label="Testimonial navigation">
+          <button
+            type="button"
+            className={styles.navButton}
+            onClick={handlePrev}
+            disabled={activeIndex === 0}
+            aria-label="Previous testimonial"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          <div className={styles.dotsContainer}>
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                className={`${styles.dot} ${idx === activeIndex ? styles.dotActive : ""}`}
+                onClick={() => scrollToIndex(idx)}
+                aria-label={`Go to testimonial ${idx + 1}`}
+                aria-current={idx === activeIndex ? "true" : "false"}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className={styles.navButton}
+            onClick={handleNext}
+            disabled={activeIndex === testimonials.length - 1}
+            aria-label="Next testimonial"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

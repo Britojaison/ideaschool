@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import styles from "./HomeFAQ.module.css";
 import Accordion from "@/components/ui/Accordion";
+import { cn } from "@/lib/utils";
 
 export interface FAQItem {
   q: string;
@@ -35,10 +36,12 @@ const DEFAULT_FAQS: FAQItem[] = [
 
 export default function HomeFAQ({
   transitionFromCream = false,
-  faqs = DEFAULT_FAQS
+  faqs = DEFAULT_FAQS,
+  className,
 }: {
   transitionFromCream?: boolean;
   faqs?: FAQItem[];
+  className?: string;
 }) {
   const faqSectionRef = useRef<HTMLElement>(null);
 
@@ -82,7 +85,7 @@ export default function HomeFAQ({
 
   return (
     <section
-      className={styles.faqSection}
+      className={cn(styles.faqSection, className)}
       ref={faqSectionRef}
       data-header-theme={transitionFromCream ? undefined : "dark"}
       data-section="faq"

@@ -77,7 +77,7 @@ export default function CreativeHero() {
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
               </svg>
             </span>
-            <span className={styles.featureText}>Practice / Work with real clients</span>
+            <span className={styles.featureText}>Work with real clients</span>
           </div>
 
           <span className={styles.featureDot} aria-hidden="true">•</span>

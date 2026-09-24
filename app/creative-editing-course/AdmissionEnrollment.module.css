@@ -68,8 +68,8 @@
 /* 2 Cards Grid */
 .cardsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
   width: 100%;
   align-items: stretch;
 }
@@ -77,8 +77,8 @@
 /* Base Card Styling */
 .card {
   position: relative;
-  border-radius: clamp(20px, 2.5vw, 30px);
-  padding: clamp(2rem, 3.5vw, 3rem);
+  border-radius: clamp(16px, 2.2vw, 28px);
+  padding: clamp(1.25rem, 2.5vw, 2.75rem);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -127,7 +127,7 @@
 .cardHeader {
   display: flex;
   flex-direction: column;
-  margin-bottom: clamp(1.5rem, 2.5vw, 2.2rem);
+  margin-bottom: clamp(1rem, 2vw, 1.8rem);
 }
 
 .badgeRow {
@@ -171,16 +171,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-  min-height: 48px;
-  margin-bottom: 1.25rem;
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+  min-height: clamp(38px, 4vw, 48px);
+  margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
 }
 
 .cardTitle {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+  font-size: clamp(1.3rem, 1.8vw, 2.1rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0;
@@ -193,13 +193,13 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  padding: 0.85rem 1.2rem;
-  min-height: 64px;
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+  padding: clamp(0.65rem, 1vw, 0.85rem) clamp(0.85rem, 1.4vw, 1.2rem);
+  min-height: clamp(52px, 5vw, 64px);
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: clamp(10px, 1.2vw, 14px);
 }
 
 .emiPill {
@@ -208,7 +208,7 @@
 }
 
 .emiCount {
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -222,21 +222,21 @@
 }
 
 .currencySymbol {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
   font-weight: 700;
   color: #DAFD55;
 }
 
 .emiAmount {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  font-size: clamp(1.4rem, 2vw, 2.3rem);
   font-weight: 900;
   color: #ffffff;
   line-height: 1;
 }
 
 .emiPeriod {
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 0.9vw, 0.85rem);
   color: rgba(255, 255, 255, 0.6);
   font-weight: 600;
   margin-left: 2px;
@@ -248,13 +248,13 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  padding: 0.85rem 1.2rem;
-  min-height: 64px;
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+  padding: clamp(0.65rem, 1vw, 0.85rem) clamp(0.85rem, 1.4vw, 1.2rem);
+  min-height: clamp(52px, 5vw, 64px);
   box-sizing: border-box;
   background: rgba(218, 253, 85, 0.06);
   border: 1px solid rgba(218, 253, 85, 0.18);
-  border-radius: 14px;
+  border-radius: clamp(10px, 1.2vw, 14px);
 }
 
 .priceMain {
@@ -264,14 +264,14 @@
 }
 
 .priceCurrency {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
   font-weight: 700;
   color: #DAFD55;
 }
 
 .priceFigure {
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  font-size: clamp(1.4rem, 2vw, 2.3rem);
   font-weight: 900;
   line-height: 1;
   color: #ffffff;
@@ -279,7 +279,7 @@
 }
 
 .priceLabel {
-  font-size: 0.8rem;
+  font-size: clamp(0.72rem, 0.85vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -298,18 +298,18 @@
 .formFields {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: clamp(0.75rem, 1.2vw, 1rem);
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
   text-align: left;
 }
 
 .label {
-  font-size: 0.76rem;
+  font-size: clamp(0.7rem, 0.8vw, 0.76rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -318,13 +318,13 @@
 
 .input {
   width: 100%;
-  padding: 0.85rem 1.15rem;
+  padding: clamp(0.7rem, 1vw, 0.85rem) clamp(0.85rem, 1.2vw, 1.15rem);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   color: #ffffff;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 1vw, 0.95rem);
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -351,11 +351,11 @@
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding: 1.05rem 2rem;
+  padding: clamp(0.85rem, 1.2vw, 1.05rem) clamp(1.5rem, 2vw, 2rem);
   background-color: #DAFD55;
   color: #0a0a0c;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  font-size: clamp(0.88rem, 1vw, 1.05rem);
   font-weight: 900;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -441,12 +441,12 @@
 .featuresList {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: clamp(0.85rem, 1.3vw, 1.25rem);
   margin: 0 0 1.5rem 0;
-  padding: 1.75rem 1.5rem;
+  padding: clamp(1.2rem, 1.8vw, 1.75rem) clamp(1rem, 1.5vw, 1.5rem);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  border-radius: clamp(12px, 1.5vw, 16px);
   flex: 1;
   justify-content: center;
 }
@@ -454,15 +454,15 @@
 .featureItem {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: clamp(0.65rem, 1vw, 0.85rem);
 }
 
 .checkIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: clamp(22px, 2vw, 26px);
+  height: clamp(22px, 2vw, 26px);
   border-radius: 50%;
   background: rgba(218, 253, 85, 0.15);
   color: #DAFD55;
@@ -470,7 +470,7 @@
 }
 
 .featureText {
-  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  font-size: clamp(0.88rem, 1.05vw, 1.05rem);
   font-weight: 700;
   color: rgba(255, 255, 255, 0.92);
 }
@@ -479,7 +479,7 @@
 .fullProgramFooter {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: clamp(0.65rem, 1vw, 0.9rem);
 }
 
 .fullProgramBtn {
@@ -488,11 +488,11 @@
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding: 1.05rem 2rem;
+  padding: clamp(0.85rem, 1.2vw, 1.05rem) clamp(1.5rem, 2vw, 2rem);
   background: #ffffff;
   color: #0a0a0c;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  font-size: clamp(0.88rem, 1vw, 1.05rem);
   font-weight: 900;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -514,19 +514,11 @@
 }
 
 .guaranteeNote {
-  font-size: 0.75rem;
+  font-size: clamp(0.7rem, 0.8vw, 0.75rem);
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.5;
   margin: 0;
   text-align: center;
-}
-
-/* Responsiveness */
-@media (max-width: 960px) {
-  .cardsGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
 }
 
 /* Modal Popup for Full Program */

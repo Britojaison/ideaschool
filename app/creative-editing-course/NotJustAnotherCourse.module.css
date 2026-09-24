@@ -73,52 +73,61 @@
   max-width: 720px;
 }
 
-/* Board Wrapper with horizontal scrolling on mobile */
+/* Board Wrapper with horizontal scrolling */
 .boardWrapper {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 1rem;
+  padding-bottom: 1.25rem;
+  scrollbar-width: thin;
 }
 
 .boardScrollContainer {
-  min-width: 1100px;
+  width: max-content;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  --brand-col-width: 220px;
 }
 
 /* Category Headers attached directly above Row 1 */
 .tableHeaderRow {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 12px;
-  align-items: flex-end;
-  padding: 0 1.5rem;
-  margin-bottom: -6px;
+  grid-template-columns: var(--brand-col-width) 1fr;
+  gap: 0;
+  align-items: stretch;
+  padding: 0 1.5rem 0 0;
+  margin-bottom: 8px;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .emptyBrandHeader {
-  width: 100%;
+  position: sticky;
+  left: 0;
+  z-index: 12;
+  width: var(--brand-col-width);
+  min-width: var(--brand-col-width);
+  background: #080808;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  pointer-events: none;
 }
 
 .categoriesTrack {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
   gap: 10px;
+  padding-left: 12px;
 }
 
 .pillHeader {
   background: rgba(28, 28, 34, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-bottom: none;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding: 0.8rem 0.4rem 1.15rem;
+  border-radius: 10px;
+  padding: 0.65rem 0.5rem;
   text-align: center;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
   font-size: 0.82rem;
@@ -126,15 +135,15 @@
   color: #ffffff;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
 }
 
 /* Row 1: IdeaSchool Highlighted Banner Row (Purple #552ead) */
 .ideaSchoolRow {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 12px;
+  grid-template-columns: var(--brand-col-width) 1fr;
+  gap: 0;
   align-items: center;
   background: linear-gradient(
     90deg,
@@ -143,17 +152,28 @@
     #552ead 100%
   );
   border-radius: 20px;
-  padding: 1.35rem 1.5rem;
+  padding: 0 1.5rem 0 0;
   box-shadow: 0 12px 36px rgba(85, 46, 173, 0.35), 0 0 1px rgba(255, 255, 255, 0.4) inset;
   position: relative;
-  z-index: 1;
-  overflow: hidden;
+  z-index: 2;
+  overflow: visible;
 }
 
 .ideaSchoolBrand {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  width: var(--brand-col-width);
+  min-width: var(--brand-col-width);
+  background: #552ead;
+  padding: 1.35rem 1.25rem;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: none;
+  box-shadow: 6px 0 16px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  box-sizing: border-box;
 }
 
 .brandBadgeWrap {
@@ -200,8 +220,9 @@
 
 .valuesTrack {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
   gap: 10px;
+  padding-left: 12px;
 }
 
 .ideaSchoolValueCell {
@@ -224,21 +245,35 @@
 /* Rows 2 & 3: Standard Rows (Online Courses & Offline Schools) */
 .standardRow {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 12px;
+  grid-template-columns: var(--brand-col-width) 1fr;
+  gap: 0;
   align-items: center;
-  background: rgba(18, 18, 22, 0.65);
+  background: rgba(18, 18, 22, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
-  padding: 1.25rem 1.5rem;
+  padding: 0 1.5rem 0 0;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+  overflow: visible;
 }
 
 .standardBrand {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  width: var(--brand-col-width);
+  min-width: var(--brand-col-width);
+  background: #121217;
+  padding: 1.25rem 1.25rem;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 6px 0 16px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  box-sizing: border-box;
 }
 
 .standardIconWrap {
@@ -292,6 +327,86 @@
 
 .mobileCategoryLabel {
   display: none;
+}
+
+/* Tablet & Mobile responsive adaptations */
+@media (max-width: 1024px) {
+  .boardScrollContainer {
+    --brand-col-width: 175px;
+  }
+
+  .tableHeaderRow {
+    margin-bottom: 8px;
+  }
+
+  .pillHeader {
+    padding: 0.55rem 0.35rem;
+    font-size: 0.76rem;
+  }
+
+  .ideaSchoolBrand {
+    padding: 1.15rem 1rem;
+  }
+
+  .standardBrand {
+    padding: 1.1rem 1rem;
+  }
+
+  .ideaBrandName {
+    font-size: 1.05rem;
+  }
+
+  .standardBrandName {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .boardScrollContainer {
+    --brand-col-width: 145px;
+  }
+
+  .tableHeaderRow {
+    margin-bottom: 6px;
+  }
+
+  .pillHeader {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.72rem;
+    border-radius: 8px;
+  }
+
+  .ideaSchoolBrand {
+    padding: 1rem 0.75rem;
+  }
+
+  .standardBrand {
+    padding: 0.95rem 0.75rem;
+  }
+
+  .ideaBrandName {
+    font-size: 0.92rem;
+  }
+
+  .ideaBrandSubtitle {
+    font-size: 0.62rem;
+  }
+
+  .standardBrandName {
+    font-size: 0.82rem;
+  }
+
+  .standardBrandSubtitle {
+    font-size: 0.62rem;
+  }
+
+  .ideaValueText {
+    font-size: 0.85rem;
+  }
+
+  .standardValueText {
+    font-size: 0.8rem;
+  }
 }
 
 /* Custom horizontal scrollbar for wide table */

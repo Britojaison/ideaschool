@@ -65,11 +65,11 @@
   line-height: 1.1;
 }
 
-/* Cards Grid */
+/* Cards Grid on Desktop */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.25rem, 2.5vw, 2rem);
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
 /* Individual Card - Alternating #552ead and #000000 */
@@ -262,17 +262,107 @@
   white-space: nowrap;
 }
 
-/* Responsive */
+/* Carousel Controls */
+.carouselControls {
+  display: none;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px; /* matches navbar apply now button 4px */
+  color: #FBFAF2;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.navButton:hover:not(:disabled) {
+  background: rgba(218, 253, 85, 0.15);
+  border-color: #d9fa2f;
+  color: #d9fa2f;
+  transform: translateY(-1px);
+}
+
+.navButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.navButton:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dotsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.28);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.dotActive {
+  width: 24px;
+  background: #d9fa2f;
+  border-radius: 4px;
+}
+
+/* Tablet & Mobile: Carousel Mode (from tablet size and below) */
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: clamp(14px, 2.5vw, 22px);
+    padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 clamp(290px, 72vw, 420px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .carouselControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: clamp(1rem, 2.5vw, 1.75rem);
   }
 }
 
+/* Mobile refinement */
 @media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .card {
+    flex: 0 0 clamp(280px, 84vw, 360px);
   }
 
   .imageContainer {

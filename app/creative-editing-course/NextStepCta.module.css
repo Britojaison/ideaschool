@@ -64,15 +64,15 @@
 .primaryAction,
 .secondaryAction {
   display: flex;
-  min-height: 76px;
+  min-height: clamp(56px, 6vw, 76px);
   align-items: center;
   justify-content: space-between;
-  padding: 0 26px;
+  padding: 0 clamp(16px, 2vw, 26px);
   border-radius: 4px;
   border: 1px solid #111;
   cursor: pointer;
   font-family: var(--font-stara), sans-serif;
-  font-size: 13px;
+  font-size: clamp(11.5px, 0.9vw, 13px);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;

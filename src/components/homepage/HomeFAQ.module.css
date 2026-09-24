@@ -1,5 +1,5 @@
 .faqSection {
-  padding: 140px 0;
+  padding: clamp(32px, 4.5vw, 64px) 0 clamp(60px, 7vw, 100px);
   background: transparent;
   position: relative;
   z-index: 5;

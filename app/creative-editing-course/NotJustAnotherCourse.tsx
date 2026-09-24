@@ -69,7 +69,6 @@ export default function NotJustAnotherCourse() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <div className={styles.tag}>WHY IDEA SCHOOL</div>
           <h2 className={styles.title}>
             <span>COURSE THAT </span>
             <span className={styles.highlightWord}>GOES FURTHER.</span>

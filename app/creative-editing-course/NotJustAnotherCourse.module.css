@@ -56,13 +56,13 @@
 }
 
 .highlightWord {
-  display: inline;
+  display: inline-block;
+  vertical-align: baseline;
   background-color: #d9fa2f;
   color: #0a0a0c !important;
-  padding: 0.05em .25em;
+  padding: 0 0.22em;
+  line-height: 1.05;
   border-radius: 0 !important;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .subtitle {

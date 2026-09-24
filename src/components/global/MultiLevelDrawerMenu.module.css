@@ -480,14 +480,14 @@
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 6px rgba(218, 253, 85, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: none;
 }
 
 .footerApplyBtn:hover {
   background: #cbf046;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(218, 253, 85, 0.45);
+  box-shadow: none;
 }
 
 /* PANEL 2 — SUBCATEGORIES */

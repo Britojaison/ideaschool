@@ -118,7 +118,6 @@ export default function WhatYouBuild() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <div className={styles.eyebrow}>WHAT YOU BUILD</div>
           <h2 className={styles.title}>
             <span className={styles.highlightWord}>WORK</span>
             <span> THAT SHOWS WHAT YOU CAN DO.</span>

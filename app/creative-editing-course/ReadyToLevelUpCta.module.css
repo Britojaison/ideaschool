@@ -34,8 +34,8 @@
   box-sizing: border-box;
 }
 
-/* Concentric rings pattern in the center */
-.radialEffect {
+/* Modern audio waveform / timeline bars background effect */
+.waveEffect {
   position: absolute;
   top: 50%;
   left: 55%;
@@ -43,14 +43,16 @@
   pointer-events: none;
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0.25;
+  gap: 8px;
+  height: 80px;
+  opacity: 0.18;
 }
 
-.ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+.waveBar {
+  width: 4px;
+  min-height: 12px;
+  background: #ffffff;
+  border-radius: 4px;
 }
 
 /* Left Content */
@@ -100,19 +102,18 @@
   font-size: clamp(0.92rem, 1.1vw, 1.1rem);
   font-weight: 800;
   letter-spacing: -0.01em;
-  border-radius: 9999px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: none;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
     background-color 0.2s ease;
 }
 
 .applyBtn:hover {
   transform: translateY(-2px);
   background-color: #f7f7f7;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
 }
 
 .applyBtn:active {

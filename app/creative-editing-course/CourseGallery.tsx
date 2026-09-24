@@ -37,7 +37,6 @@ const GALLERY_IMAGES = [
 export default function CourseGallery() {
   return (
     <MagneticSpotlightMarquee
-      className="!bg-[#FBFAF2]"
       images={GALLERY_IMAGES}
       title={["IDEA School", "Gallery"]}
       subtitle={["STUDENT WORK", "CREATIVE EXCELLENCE"]}

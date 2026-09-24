@@ -136,14 +136,14 @@
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   font-family: var(--font-stara), "Stara", Arial, sans-serif;
 }
 
 .downloadBtn:hover {
   transform: translateY(-2px);
   background: #e6ff66;
-  box-shadow: 0 8px 24px rgba(218, 253, 85, 0.35);
+  box-shadow: none;
 }
 
 .downloadIconBox {

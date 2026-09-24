@@ -47,7 +47,6 @@ export default function StudentTestimonials() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <div className={styles.eyebrow}>STUDENT OUTCOMES</div>
           <h2 className={styles.title}>
             <span>HEAR FROM OUR </span>
             <span className={styles.highlightWord}>STUDENTS.</span>

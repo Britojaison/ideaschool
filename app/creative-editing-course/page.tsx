@@ -82,7 +82,7 @@ export default function CreativeEditingCopyPage() {
       <AdmissionEnrollment key="admission" />
       <NextStepCta key="next-step" />
       <CourseGallery key="course-gallery" />
-      <HomeFAQ key="faq" transitionFromCream faqs={COURSE_FAQS} />
+      <HomeFAQ key="faq" faqs={COURSE_FAQS} />
     </Shell>
   );
 }

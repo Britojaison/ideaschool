@@ -84,7 +84,6 @@ export default function ClientLogosSection() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <div className={styles.tag}>CLIENT ECOSYSTEM</div>
           <h2 className={styles.title}>
             <span className={styles.highlightWord}>BRANDS</span>
             <span> OUR MENTORS & STUDENTS WORK WITH.</span>
@@ -92,20 +91,19 @@ export default function ClientLogosSection() {
         </div>
       </div>
 
-      {/* Infinite Marquee Track (Colored Cards) */}
+      {/* Infinite Marquee Track (White Cards) */}
       <div className={styles.marqueeViewport}>
         <div className={styles.marqueeTrack}>
           {tickerItems.map((brand, idx) => {
-            const theme = CARD_THEMES[idx % CARD_THEMES.length];
             return (
               <div
                 key={`${brand.name}-${idx}`}
                 className={styles.brandCard}
                 aria-hidden={idx >= BRANDS.length ? "true" : undefined}
                 style={{
-                  backgroundColor: theme.bgColor,
-                  border: theme.border,
-                  color: theme.textColor,
+                  backgroundColor: "#ffffff",
+                  border: "1px solid rgba(255, 255, 255, 0.15)",
+                  color: "#0a0a0c",
                 }}
               >
                 {brand.image ? (
@@ -125,14 +123,14 @@ export default function ClientLogosSection() {
                         brand.name === "SRM" ? styles.srmLogo : ""
                       } ${brand.name === "Super Jewellery" ? styles.superJewelleryLogo : ""}`}
                       style={{
-                        filter: theme.filter,
+                        filter: "brightness(0)",
                       }}
                     />
                   </div>
                 ) : (
                   <span
                     className={styles.brandTextLogo}
-                    style={{ color: theme.textColor }}
+                    style={{ color: "#0a0a0c" }}
                   >
                     {brand.text}
                   </span>

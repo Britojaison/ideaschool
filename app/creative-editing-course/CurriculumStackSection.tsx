@@ -216,7 +216,6 @@ export default function CurriculumStackSection() {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <div className={styles.tag}>CURRICULUM BREAKDOWN</div>
           <h2 className={styles.title}>
             <span>THE BLUEPRINT TO </span>
             <span className={styles.highlightWord}>PROFESSIONAL EDITING.</span>
@@ -236,7 +235,7 @@ export default function CurriculumStackSection() {
                 backgroundColor: module.bgColor,
                 color: module.textColor,
                 boxShadow: `-12px 14px 0px 0px ${module.sharpShadowColor}`,
-                border: "2px solid #000000",
+                border: "none",
               }}
             >
               {/* Left Content */}

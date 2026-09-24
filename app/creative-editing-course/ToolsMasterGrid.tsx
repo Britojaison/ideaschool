@@ -131,7 +131,6 @@ export default function ToolsMasterGrid() {
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
-          <div className={styles.tag}>INDUSTRY STANDARD STACK</div>
           <h2 className={styles.title}>
             <span>TOOLS YOU WILL </span>
             <span className={styles.highlightWord}>MASTER.</span>

@@ -9,10 +9,21 @@ export default function AdmissionEnrollment() {
     name: "",
     email: "",
     phone: "",
-    program: "24-Week Creative Editing (EMI)",
+    program: "24-Week Creative Editing (EMI - ₹15,000/mo)",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  // Modal State for "Enroll in Full Program"
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalFormData, setModalFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "24-Week Creative Editing (Full Program - ₹39,999)",
+  });
+  const [modalStatus, setModalStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [modalErrorMessage, setModalErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +43,7 @@ export default function AdmissionEnrollment() {
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", phone: "", program: "24-Week Creative Editing (EMI)" });
+      setFormData({ name: "", email: "", phone: "", program: "24-Week Creative Editing (EMI - ₹15,000/mo)" });
     } catch (error: unknown) {
       console.error("Enrollment error:", error);
       setStatus("error");
@@ -40,8 +51,36 @@ export default function AdmissionEnrollment() {
     }
   };
 
+  const handleModalSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setModalStatus("loading");
+    setModalErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(modalFormData),
+      });
+
+      const result = await response.json().catch(() => null);
+      if (!response.ok) {
+        throw new Error(result?.error || "Failed to submit. Please try again.");
+      }
+
+      setModalStatus("success");
+      setModalFormData({ name: "", email: "", phone: "", program: "24-Week Creative Editing (Full Program - ₹39,999)" });
+    } catch (error: unknown) {
+      console.error("Modal enrollment error:", error);
+      setModalStatus("error");
+      setModalErrorMessage(error instanceof Error ? error.message : "Something went wrong. Please try again later.");
+    }
+  };
+
   const handleFullProgramApply = () => {
-    window.dispatchEvent(new Event("open-home-form"));
+    setIsModalOpen(true);
+    setModalStatus("idle");
+    setModalErrorMessage("");
   };
 
   return (
@@ -55,7 +94,6 @@ export default function AdmissionEnrollment() {
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
-          <div className={styles.tag}>FEES &amp; ENROLLMENT</div>
           <h2 className={styles.title}>
             <span className={styles.highlightWord}>INVEST IN A SKILLSET</span>
             <span> YOU CAN BUILD A CAREER AROUND.</span>
@@ -67,7 +105,9 @@ export default function AdmissionEnrollment() {
           {/* Card 01 — Book Your Seat (EMI) */}
           <div className={`${styles.card} ${styles.emiCard}`}>
             <div className={styles.cardHeader}>
-              <h3 className={styles.cardTitle}>Book Your Seat (EMI)</h3>
+              <div className={styles.titleRow}>
+                <h3 className={styles.cardTitle}>Book Your Seat (EMI)</h3>
+              </div>
               
               <div className={styles.emiHighlightRow}>
                 <div className={styles.emiPill}>
@@ -99,60 +139,67 @@ export default function AdmissionEnrollment() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.enrollForm}>
-                <div className={styles.inputGroup}>
-                  <label htmlFor="emi-name" className={styles.label}>Name</label>
-                  <input
-                    id="emi-name"
-                    type="text"
-                    required
-                    placeholder="Enter your name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={styles.input}
-                    disabled={status === "loading"}
-                  />
+                <div className={styles.formFields}>
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="emi-name" className={styles.label}>Name</label>
+                    <input
+                      id="emi-name"
+                      type="text"
+                      required
+                      placeholder="Enter your name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className={styles.input}
+                      disabled={status === "loading"}
+                    />
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="emi-email" className={styles.label}>Email</label>
+                    <input
+                      id="emi-email"
+                      type="email"
+                      required
+                      placeholder="name@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className={styles.input}
+                      disabled={status === "loading"}
+                    />
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="emi-phone" className={styles.label}>Phone Number</label>
+                    <input
+                      id="emi-phone"
+                      type="tel"
+                      required
+                      placeholder="+91 98765 43210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className={styles.input}
+                      disabled={status === "loading"}
+                    />
+                  </div>
+
+                  {errorMessage && (
+                    <p className={styles.errorMsg}>{errorMessage}</p>
+                  )}
                 </div>
 
-                <div className={styles.inputGroup}>
-                  <label htmlFor="emi-email" className={styles.label}>Email</label>
-                  <input
-                    id="emi-email"
-                    type="email"
-                    required
-                    placeholder="name@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={styles.input}
+                <div className={styles.fullProgramFooter}>
+                  <button
+                    type="submit"
                     disabled={status === "loading"}
-                  />
+                    className={styles.submitBtn}
+                  >
+                    <span>Apply Now</span>
+                    <span className={styles.btnArrow} aria-hidden="true">↗</span>
+                  </button>
+                  <p className={styles.guaranteeNote} style={{ visibility: "hidden" }} aria-hidden="true">
+                    ✦ Includes all live studio projects, mentor reviews, and production tool access.
+                  </p>
                 </div>
-
-                <div className={styles.inputGroup}>
-                  <label htmlFor="emi-phone" className={styles.label}>Phone Number</label>
-                  <input
-                    id="emi-phone"
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={styles.input}
-                    disabled={status === "loading"}
-                  />
-                </div>
-
-                {errorMessage && (
-                  <p className={styles.errorMsg}>{errorMessage}</p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className={styles.submitBtn}
-                >
-                  <span>Apply Now</span>
-                  <span className={styles.btnArrow} aria-hidden="true">↗</span>
-                </button>
               </form>
             )}
           </div>
@@ -160,12 +207,12 @@ export default function AdmissionEnrollment() {
           {/* Card 02 — Full Program */}
           <div className={`${styles.card} ${styles.fullProgramCard}`}>
             <div className={styles.cardHeader}>
-              <div className={styles.badgeRow}>
+              <div className={styles.titleRow}>
+                <h3 className={styles.cardTitle}>Full Program</h3>
                 <span className={styles.tagPill}>LIMITED SEATS</span>
               </div>
-              <h3 className={styles.cardTitle}>Full Program</h3>
               
-              <div className={styles.pricingWrap}>
+              <div className={styles.fullProgramPriceRow}>
                 <div className={styles.priceMain}>
                   <span className={styles.priceCurrency}>₹</span>
                   <span className={styles.priceFigure}>39,999</span>
@@ -231,6 +278,113 @@ export default function AdmissionEnrollment() {
           </div>
         </div>
       </div>
+
+      {/* Full Program Application Modal Popup */}
+      {isModalOpen && (
+        <div 
+          className={styles.modalOverlay}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setIsModalOpen(false);
+          }}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className={styles.modalBox}>
+            <button
+              type="button"
+              className={styles.modalCloseBtn}
+              onClick={() => setIsModalOpen(false)}
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+
+            <div className={styles.modalHeader}>
+              <span className={styles.modalBadge}>FULL PROGRAM ENROLLMENT</span>
+              <h3 className={styles.modalTitle}>Join IDEA School</h3>
+              <p className={styles.modalSubtitle}>
+                Complete your details below to reserve your seat in the upcoming cohort.
+              </p>
+            </div>
+
+            {modalStatus === "success" ? (
+              <div className={styles.successBox}>
+                <div className={styles.successIcon} aria-hidden="true">✓</div>
+                <h4 className={styles.successTitle}>Application Received</h4>
+                <p className={styles.successDesc}>
+                  Our admissions team will contact you shortly to confirm your enrollment in the Full Program.
+                </p>
+                <button
+                  type="button"
+                  className={styles.resetBtn}
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleModalSubmit} className={styles.enrollForm}>
+                <div className={styles.formFields}>
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="modal-name" className={styles.label}>Full Name</label>
+                    <input
+                      id="modal-name"
+                      type="text"
+                      required
+                      placeholder="Enter your full name"
+                      value={modalFormData.name}
+                      onChange={(e) => setModalFormData({ ...modalFormData, name: e.target.value })}
+                      className={styles.input}
+                      disabled={modalStatus === "loading"}
+                    />
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="modal-email" className={styles.label}>Email Address</label>
+                    <input
+                      id="modal-email"
+                      type="email"
+                      required
+                      placeholder="name@example.com"
+                      value={modalFormData.email}
+                      onChange={(e) => setModalFormData({ ...modalFormData, email: e.target.value })}
+                      className={styles.input}
+                      disabled={modalStatus === "loading"}
+                    />
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="modal-phone" className={styles.label}>Phone Number</label>
+                    <input
+                      id="modal-phone"
+                      type="tel"
+                      required
+                      placeholder="+91 98765 43210"
+                      value={modalFormData.phone}
+                      onChange={(e) => setModalFormData({ ...modalFormData, phone: e.target.value })}
+                      className={styles.input}
+                      disabled={modalStatus === "loading"}
+                    />
+                  </div>
+
+                  {modalErrorMessage && (
+                    <p className={styles.errorMsg}>{modalErrorMessage}</p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={modalStatus === "loading"}
+                  className={styles.submitBtn}
+                >
+                  <span>{modalStatus === "loading" ? "Submitting..." : "Submit Application"}</span>
+                  <span className={styles.btnArrow} aria-hidden="true">↗</span>
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

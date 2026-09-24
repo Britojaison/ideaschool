@@ -19,31 +19,10 @@ const reasons = [
 ];
 
 export default function WhoItIsFor() {
-  const artworkRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
   const contentGridRef = useRef<HTMLDivElement>(null);
   const stickyColumnRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const artwork = artworkRef.current;
-    const image = imageRef.current;
-    if (artwork && image && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      gsap.fromTo(
-        image,
-        { yPercent: -8 },
-        {
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: {
-            trigger: artwork,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.8,
-          },
-        },
-      );
-    }
-
     const contentGrid = contentGridRef.current;
     const stickyCol = stickyColumnRef.current;
     if (contentGrid && stickyCol) {
@@ -64,18 +43,6 @@ export default function WhoItIsFor() {
 
   return (
     <section className={styles.section} data-header-theme="light">
-      <div className={styles.fullBleedArtwork} ref={artworkRef}>
-        <Image
-          ref={imageRef}
-          src="/images/pn_copy.webp"
-          alt="IDEA School creative community"
-          width={2048}
-          height={508}
-          className={styles.fullBleedImage}
-          sizes="100vw"
-        />
-      </div>
-
       <div className={styles.contentGrid} ref={contentGridRef}>
         <div className={styles.stickyColumn} ref={stickyColumnRef}>
           <div className={styles.stickyInner}>

@@ -17,13 +17,23 @@ export default function ReadyToLevelUpCta() {
     >
       <div className={styles.container}>
         <div className={styles.ctaCard}>
-          {/* Subtle concentric ripple rings effect like in reference */}
-          <div className={styles.radialEffect} aria-hidden="true">
-            <span className={styles.ring} style={{ width: "180px", height: "180px" }} />
-            <span className={styles.ring} style={{ width: "300px", height: "300px" }} />
-            <span className={styles.ring} style={{ width: "420px", height: "420px" }} />
-            <span className={styles.ring} style={{ width: "560px", height: "560px" }} />
-            <span className={styles.ring} style={{ width: "700px", height: "700px" }} />
+          {/* Sleek audio waveform / video timeline bars design */}
+          <div className={styles.waveEffect} aria-hidden="true">
+            <span className={styles.waveBar} style={{ height: "45%" }} />
+            <span className={styles.waveBar} style={{ height: "65%" }} />
+            <span className={styles.waveBar} style={{ height: "30%" }} />
+            <span className={styles.waveBar} style={{ height: "80%" }} />
+            <span className={styles.waveBar} style={{ height: "95%" }} />
+            <span className={styles.waveBar} style={{ height: "60%" }} />
+            <span className={styles.waveBar} style={{ height: "85%" }} />
+            <span className={styles.waveBar} style={{ height: "40%" }} />
+            <span className={styles.waveBar} style={{ height: "70%" }} />
+            <span className={styles.waveBar} style={{ height: "100%" }} />
+            <span className={styles.waveBar} style={{ height: "75%" }} />
+            <span className={styles.waveBar} style={{ height: "50%" }} />
+            <span className={styles.waveBar} style={{ height: "85%" }} />
+            <span className={styles.waveBar} style={{ height: "65%" }} />
+            <span className={styles.waveBar} style={{ height: "35%" }} />
           </div>
 
           {/* Left Text */}

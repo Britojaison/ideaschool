@@ -26,13 +26,23 @@ export default function CreativeHero() {
     >
       {/* Background Image Container */}
       <div className={styles.bgWrapper}>
+        {/* Desktop / Tablet Background Image */}
         <Image
           src="/images/videofullcourse/hero.png"
           alt="Creative Editing Course Hero"
           fill
           priority
           sizes="100vw"
-          className={styles.bgImage}
+          className={styles.bgImageDesktop}
+        />
+        {/* Mobile Background Image (Hero Vertical) */}
+        <Image
+          src="/images/videofullcourse/Hero%20Vertical.png"
+          alt="Creative Editing Course Hero Mobile"
+          fill
+          priority
+          sizes="100vw"
+          className={styles.bgImageMobile}
         />
         <div className={styles.overlay} />
         <div className={styles.bottomVignette} />

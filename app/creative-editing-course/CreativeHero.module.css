@@ -25,13 +25,23 @@
   pointer-events: none;
 }
 
-.bgImage {
+.bgImageDesktop,
+.bgImageMobile {
   object-fit: cover;
-  object-position: center 25%;
   width: 100%;
   height: 100%;
   transform: scale(1.02);
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bgImageDesktop {
+  display: block;
+  object-position: center 25%;
+}
+
+.bgImageMobile {
+  display: none;
+  object-position: center center;
 }
 
 /* Cinematic Dark Overlays */
@@ -267,7 +277,12 @@
     line-height: 1.1;
   }
 
-  .bgImage {
-    object-position: center 30%;
+  .bgImageDesktop {
+    display: none !important;
+  }
+
+  .bgImageMobile {
+    display: block !important;
+    object-position: center center;
   }
 }

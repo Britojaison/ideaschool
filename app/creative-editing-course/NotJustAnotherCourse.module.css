@@ -45,7 +45,7 @@
 .title {
   font-family: var(--font-inter), sans-serif;
   font-size: clamp(2rem, 3.5vw, 4rem);
-  line-height: 1.1;
+  line-height: 1.35;
   font-weight: 500;
   margin: 0 0 clamp(2rem, 3.5vw, 3rem) 0;
   color: #fff;
@@ -56,13 +56,15 @@
 }
 
 .highlightWord {
-  display: inline-block;
+  display: inline;
   vertical-align: baseline;
   background-color: #d9fa2f;
   color: #0a0a0c !important;
-  padding: 0 0.22em;
-  line-height: 1.05;
+  padding: 0 0.12em;
+  line-height: 1.1;
   border-radius: 0 !important;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .subtitle {

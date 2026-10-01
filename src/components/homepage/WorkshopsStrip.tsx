@@ -7,18 +7,26 @@ import styles from "@/styles/Home.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import imageCreative from "@public/images/premium-editorial-campaign-poster-for-a-creative-v.png";
-import imageConceptual from "@public/images/premium-editorial-campaign-poster-for-an-exclusive.png";
-import imageCampaign from "@public/images/premium-editorial-campaign-poster-for-an-advanced-.png";
-
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const workshops = [
-  { title: "Creative Editing Course", href: "/creative-editing-course", image: imageCreative, objectPosition: "center" },
-  { title: "Video Editing", href: "/video-editing", image: imageConceptual },
-  { title: "Master Video Editing", href: "/master-video-editing", image: imageCampaign },
+  {
+    title: "Visual School",
+    href: "/visual-school",
+    image: "/images/homepagnew/visualschool.png",
+  },
+  {
+    title: "Tech School",
+    href: "/tech-school",
+    image: "/images/homepagnew/teechschool.png",
+  },
+  {
+    title: "Marketing School",
+    href: "/marketing-school",
+    image: "/images/homepagnew/marketingschool.png",
+  },
 ];
 
 export default function WorkshopsStrip() {
@@ -76,7 +84,7 @@ export default function WorkshopsStrip() {
         </div>
 
         <div className={styles.workshopGrid} ref={cardsRef}>
-          {workshops.map((w, index) => (
+          {workshops.map((w) => (
             <Link
               href={w.href}
               key={w.title}
@@ -86,10 +94,20 @@ export default function WorkshopsStrip() {
               <Image
                 src={w.image}
                 alt={w.title}
-                placeholder="blur"
+                width={1920}
+                height={1080}
                 sizes="(max-width: 900px) 100vw, 33vw"
                 className={styles.workshopImage}
               />
+              <div className={styles.workshopOverlay}>
+                <span className={styles.workshopSchoolName}>
+                  {w.title.replace(" School", "")}
+                  <small className={styles.workshopSchoolSub}>SCHOOL</small>
+                </span>
+                <span className={styles.workshopArrowBadge} aria-hidden="true">
+                  ↗
+                </span>
+              </div>
             </Link>
           ))}
         </div>

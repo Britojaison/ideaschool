@@ -10,13 +10,13 @@ import Shell from "@/components/global/Shell";
 import Schools from "@/components/homepage/Schools";
 import IdeaPhilosophy from "@/components/homepage/IdeaPhilosophy";
 import WorkshopsStrip from "@/components/homepage/WorkshopsStrip";
-import FlagshipSpotlight from "@/components/homepage/FlagshipSpotlight";
 import InsideProgram from "@/components/homepage/InsideProgram";
 import HowLearningWorks from "@/components/homepage/HowLearningWorks";
 import StudentProjects from "@/components/homepage/StudentProjects";
 import BuiltByAmbitious from "@/components/homepage/BuiltByAmbitious";
 import Gallery from "@/components/homepage/Gallery";
 import Reviews from "@/components/homepage/Reviews";
+import BeforeYouApply from "@/components/homepage/BeforeYouApply";
 import HomeFAQ from "@/components/homepage/HomeFAQ";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
@@ -46,17 +46,33 @@ export default function Home() {
 
   useGSAP(
     () => {
-      gsap.from(".gsap-text-creating", {
-        x: 200,
+      gsap.from(".gsap-text-welcome", {
+        y: -30,
         opacity: 0,
-        duration: 1.2,
+        duration: 1.0,
         ease: "power3.out",
+        delay: 0.1,
       });
-      gsap.from(".gsap-text-becomes", {
-        x: -200,
+      gsap.from(".gsap-text-deep-end", {
+        x: -80,
         opacity: 0,
         duration: 1.2,
         ease: "power3.out",
+        delay: 0.25,
+      });
+      gsap.from(".gsap-text-of-your", {
+        y: 20,
+        opacity: 0,
+        duration: 1.0,
+        ease: "power3.out",
+        delay: 0.45,
+      });
+      gsap.from(".gsap-text-ideas", {
+        x: 80,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        delay: 0.6,
       });
 
       gsap.from(".gsap-card-1, .gsap-note-1", {
@@ -340,17 +356,17 @@ export default function Home() {
           </div>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              <span className={styles.lineOne}>
-                <span className="gsap-text-creating" style={{ display: "block" }}>
-                  SKILLS
-                </span>
+              <span className={styles.heroPretitle}>
+                <span className="gsap-text-welcome">Welcome to</span>
               </span>
-              <span className={styles.lineTwo}>
-                <span className={`${styles.becomeWord} gsap-text-becomes`}>
-                  BECOME
-                </span>
-                <span className={`${styles.yourWord} gsap-title-aside`}>YOUR</span>
-                <span className={`${styles.superpowerWord} gsap-title-aside`}>SUPERPOWER</span>
+              <span className={styles.lineDeepEnd}>
+                <span className="gsap-text-deep-end">THE DEEP END</span>
+              </span>
+              <span className={styles.heroSubtitle}>
+                <span className="gsap-text-of-your">of your</span>
+              </span>
+              <span className={styles.lineIdeas}>
+                <span className="gsap-text-ideas">IDEAS</span>
               </span>
             </h1>
             <p className={styles.heroIntro}>
@@ -378,11 +394,12 @@ export default function Home() {
         <IdeaPhilosophy />
         <WorkshopsStrip />
       </div>
-      <FlagshipSpotlight />
       <InsideProgram />
       <HowLearningWorks />
       <StudentProjects />
       <BuiltByAmbitious />
+      <Reviews />
+      <BeforeYouApply />
       <Gallery />
       <div
         className={styles.fullBleedContainer}
@@ -396,7 +413,6 @@ export default function Home() {
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
       </div>
-      <Reviews />
       <HomeFAQ />
       <VisualSchoolCTA />
     </Shell>

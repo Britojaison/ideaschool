@@ -14,30 +14,28 @@ if (typeof window !== "undefined") {
 const steps = [
   {
     number: "01",
-    title: "Understand",
-    description: "Read the problem before choosing a direction.",
+    title: "Real Briefs",
+    description: "Work starts with a problem worth solving.",
   },
   {
     number: "02",
-    title: "Explore",
-    description: "Test ideas, references and possible directions.",
+    title: "Critiques",
+    description: "Someone actually looks at the work with you.",
   },
   {
     number: "03",
-    title: "Build",
-    description: "Use the right tools to develop the idea.",
+    title: "Hands-on Practice",
+    description: "You learn by making the thing.",
   },
   {
     number: "04",
-    title: "Review",
-    description:
-      "Discuss the decisions behind the work, not only the final output.",
+    title: "Tools in Context",
+    description: "Software makes more sense when there is a reason to use it.",
   },
   {
     number: "05",
-    title: "Refine",
-    description:
-      "Use feedback to resolve the details and improve the result.",
+    title: "Peer Learning",
+    description: "You are not the only person figuring it out.",
   },
 ];
 
@@ -172,16 +170,16 @@ export default function HowLearningWorks() {
           </h2>
           <p className={styles.headline}>
             <TextAnimation divideBy="word" delay={0.1}>
-              UNDERSTAND THE IDEA. BUILD WITH PURPOSE.
+              NO BACK BENCHES.
             </TextAnimation>
             <br />
             <TextAnimation divideBy="word" delay={0.25}>
-              REFINE THE OUTCOME.
+              EVERYONE’S IN IT.
             </TextAnimation>
           </p>
           <p className={styles.headerDesc}>
             <TextAnimation divideBy="word" delay={0.4}>
-              You work through practical briefs, explain your decisions and strengthen the outcome through feedback.
+              You will be thinking, making, discussing, presenting, getting things wrong, fixing them and trying again.
             </TextAnimation>
           </p>
         </div>

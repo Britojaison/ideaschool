@@ -14,17 +14,12 @@ export default function StudentProjects() {
             <h2 className={styles.title}>
               <span className={styles.titleLine}>
                 <TextAnimation divideBy="word" delay={0.06}>
-                  SEE IDEAS
+                  THEY HAVE CLIENT CALLS
                 </TextAnimation>
               </span>
               <span className={styles.titleMutedLine}>
                 <TextAnimation divideBy="word" delay={0.18}>
-                  DEVELOP INTO
-                </TextAnimation>
-              </span>
-              <span className={styles.titleLine}>
-                <TextAnimation divideBy="word" delay={0.3}>
-                  FINISHED WORK.
+                  AFTER CLASS.
                 </TextAnimation>
               </span>
             </h2>

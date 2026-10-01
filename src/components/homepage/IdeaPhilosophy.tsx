@@ -108,7 +108,6 @@ export default function IdeaPhilosophy() {
                 />
               </div>
               <h3>{pillar.title}</h3>
-              <p>{pillar.description}</p>
             </div>
           </article>
         ))}

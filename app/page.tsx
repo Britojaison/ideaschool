@@ -92,23 +92,6 @@ export default function Home() {
         delay: 0.6,
         stagger: 0.1,
       });
-      gsap.from(".gsap-title-aside", {
-        opacity: 0,
-        x: 30,
-        duration: 1.0,
-        ease: "power3.out",
-        delay: 0.4,
-      });
-      gsap.from(".gsap-hero-intro-line", {
-        scale: 0.72,
-        y: 18,
-        opacity: 0,
-        duration: 0.65,
-        ease: "back.out(1.8)",
-        delay: 1.05,
-        stagger: 0.12,
-        transformOrigin: "center",
-      });
 
       const handleMouseMove = (e: MouseEvent) => {
         const { innerWidth, innerHeight } = window;

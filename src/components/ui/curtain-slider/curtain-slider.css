@@ -3,13 +3,6 @@
    slide-in, while the outgoing layer counter-drifts and darkens. No Webflow -
    CSS variables + @font-face allowed. */
 
-@font-face {
-  font-family: 'Switzer';
-  src: url('/fonts/Switzer-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-display: swap;
-}
-
 .cs_wrap {
   --cs-bg:      #101010;
   --cs-fg:      rgba(255, 250, 242, 0.92);
@@ -21,7 +14,7 @@
   --cs-circle:  rgba(255, 255, 255, 0.1);
   --cs-circle-hover: rgba(255, 255, 255, 0.22);
   --cs-margin:  40px;
-  --cs-sans:    'Switzer', -apple-system, BlinkMacSystemFont, sans-serif;
+  --cs-sans:    var(--font-helvetica), -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .cs_wrap {

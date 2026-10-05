@@ -1446,6 +1446,16 @@
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
 
+.workshopCardStatic {
+    cursor: default;
+    pointer-events: auto;
+}
+
+.workshopCardStatic:hover .workshopImage {
+    transform: none;
+    box-shadow: none;
+}
+
 .workshopOverlay {
     position: absolute;
     inset: 0;

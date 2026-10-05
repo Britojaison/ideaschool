@@ -19,12 +19,10 @@ const workshops = [
   },
   {
     title: "Tech School",
-    href: "/tech-school",
     image: "/images/homepagnew/teechschool.png",
   },
   {
     title: "Marketing School",
-    href: "/marketing-school",
     image: "/images/homepagnew/marketingschool.png",
   },
 ];
@@ -84,32 +82,54 @@ export default function WorkshopsStrip() {
         </div>
 
         <div className={styles.workshopGrid} ref={cardsRef}>
-          {workshops.map((w) => (
-            <Link
-              href={w.href}
-              key={w.title}
-              className={styles.workshopCard}
-              aria-label={w.title}
-            >
-              <Image
-                src={w.image}
-                alt={w.title}
-                width={1920}
-                height={1080}
-                sizes="(max-width: 900px) 100vw, 33vw"
-                className={styles.workshopImage}
-              />
-              <div className={styles.workshopOverlay}>
-                <span className={styles.workshopSchoolName}>
-                  {w.title.replace(" School", "")}
-                  <small className={styles.workshopSchoolSub}>SCHOOL</small>
-                </span>
-                <span className={styles.workshopArrowBadge} aria-hidden="true">
-                  ↗
-                </span>
+          {workshops.map((w) => {
+            const cardContent = (
+              <>
+                <Image
+                  src={w.image}
+                  alt={w.title}
+                  width={1920}
+                  height={1080}
+                  sizes="(max-width: 900px) 100vw, 33vw"
+                  className={styles.workshopImage}
+                />
+                <div className={styles.workshopOverlay}>
+                  <span className={styles.workshopSchoolName}>
+                    {w.title.replace(" School", "")}
+                    <small className={styles.workshopSchoolSub}>SCHOOL</small>
+                  </span>
+                  {w.href && (
+                    <span className={styles.workshopArrowBadge} aria-hidden="true">
+                      ↗
+                    </span>
+                  )}
+                </div>
+              </>
+            );
+
+            if (w.href) {
+              return (
+                <Link
+                  href={w.href}
+                  key={w.title}
+                  className={styles.workshopCard}
+                  aria-label={w.title}
+                >
+                  {cardContent}
+                </Link>
+              );
+            }
+
+            return (
+              <div
+                key={w.title}
+                className={`${styles.workshopCard} ${styles.workshopCardStatic}`}
+                aria-label={w.title}
+              >
+                {cardContent}
               </div>
-            </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

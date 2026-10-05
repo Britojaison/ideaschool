@@ -120,39 +120,97 @@
 
 .heroPretitle {
     font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-    font-size: clamp(18px, 1.8vw, 32px);
-    font-weight: 300;
+    font-size: clamp(14px, 1.25vw, 20px);
+    font-weight: 400;
     line-height: 1.2;
-    letter-spacing: -.02em;
-    text-transform: none;
-    color: rgba(251, 250, 242, 0.85);
-    margin-bottom: clamp(4px, 0.6vw, 10px);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(251, 250, 242, 0.72);
+    margin-bottom: clamp(8px, 1vw, 16px);
     text-align: center;
 }
 
+.lineLearnToBuild,
 .lineSchoolOf,
 .lineDeepEnd {
     margin-left: 0;
     font-family: var(--font-stara), "Stara", Arial, sans-serif;
-    font-size: clamp(38px, 5.2vw, 84px);
+    font-size: clamp(40px, 5.6vw, 92px);
     font-weight: 900;
     line-height: .92;
-    letter-spacing: -.02em;
+    letter-spacing: -.025em;
     text-transform: uppercase;
     color: #fbfaf2;
     text-align: center;
 }
 
+.lineTheFuture,
 .lineIdeas {
     margin-left: 0;
     font-family: var(--font-stara), "Stara", Arial, sans-serif;
-    font-size: clamp(56px, 8vw, 132px);
+    font-size: clamp(46px, 6.4vw, 104px);
     font-weight: 900;
-    line-height: .86;
+    line-height: .9;
     letter-spacing: -.025em;
     text-transform: uppercase;
     color: #D9FA2F;
     text-align: center;
+}
+
+.heroDescription {
+    margin-top: clamp(16px, 1.8vw, 26px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(4px, 0.4vw, 6px);
+}
+
+.heroDescription p {
+    margin: 0;
+    font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -.01em;
+    color: rgba(251, 250, 242, 0.82);
+    text-align: center;
+}
+
+.heroCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 28px;
+    margin-top: clamp(20px, 2.2vw, 32px);
+    background: #fbfaf2;
+    color: #05020a;
+    font-family: var(--font-stara), "Stara", Arial, sans-serif;
+    font-size: clamp(12px, 0.9vw, 14px);
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease, color .25s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    pointer-events: auto;
+}
+
+.heroCta:hover {
+    transform: translateY(-2px);
+    background: #D9FA2F;
+    color: #05020a;
+    box-shadow: 0 6px 24px rgba(217, 250, 47, 0.35);
+}
+
+.heroCta svg {
+    width: 13px;
+    height: 13px;
+    transition: transform .25s ease;
+}
+
+.heroCta:hover svg {
+    transform: translateX(2px) translateY(2px);
 }
 
 .heroTagline {
@@ -932,25 +990,38 @@
     }
 
     .heroPretitle {
-        font-size: clamp(15px, 4.2vw, 20px) !important;
-        margin-bottom: 4px !important;
+        font-size: clamp(12px, 3.4vw, 15px) !important;
+        letter-spacing: .05em !important;
+        margin-bottom: 8px !important;
     }
 
+    .lineLearnToBuild,
     .lineSchoolOf,
     .lineDeepEnd {
-        font-size: clamp(28px, 8.5vw, 48px) !important;
+        font-size: clamp(26px, 8.2vw, 46px) !important;
         line-height: .95 !important;
     }
 
+    .lineTheFuture,
     .lineIdeas {
-        font-size: clamp(48px, 14vw, 76px) !important;
-        line-height: .9 !important;
+        font-size: clamp(30px, 9.8vw, 54px) !important;
+        line-height: .92 !important;
     }
 
-    .heroTagline {
-        font-size: clamp(14px, 3.8vw, 17px) !important;
+    .heroDescription {
         margin-top: 14px !important;
         padding: 0 16px;
+    }
+
+    .heroDescription p {
+        font-size: clamp(13px, 3.6vw, 15px) !important;
+        line-height: 1.35 !important;
+    }
+
+    .heroCta {
+        padding: 11px 22px !important;
+        margin-top: 18px !important;
+        font-size: 12px !important;
     }
 
     .lineOne {

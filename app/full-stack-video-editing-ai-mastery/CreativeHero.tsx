@@ -28,17 +28,17 @@ export default function CreativeHero() {
       <div className={styles.bgWrapper}>
         {/* Desktop / Tablet Background Image */}
         <Image
-          src="/images/videofullcourse/hero.png"
-          alt="Creative Editing Course Hero"
+          src="/images/videofullcourse/Cinematic%20Video%20Editing%20Workspace.png"
+          alt="Full Stack Video Editing & AI Mastery Hero"
           fill
           priority
           sizes="100vw"
           className={styles.bgImageDesktop}
         />
-        {/* Mobile Background Image (Hero Vertical) */}
+        {/* Mobile Background Image */}
         <Image
-          src="/images/videofullcourse/Hero%20Vertical.png"
-          alt="Creative Editing Course Hero Mobile"
+          src="/images/videofullcourse/Cinematic%20Video%20Editing%20Workspace.png"
+          alt="Full Stack Video Editing & AI Mastery Hero Mobile"
           fill
           priority
           sizes="100vw"

@@ -41,7 +41,7 @@
 
 .bgImageMobile {
   display: none;
-  object-position: center center;
+  object-position: 80% 20%;
 }
 
 /* Cinematic Dark Overlays */
@@ -290,7 +290,7 @@
 
   .bgImageMobile {
     display: block !important;
-    object-position: center 4%;
+    object-position: 80% 20%;
     transform: scale(1.05);
   }
 

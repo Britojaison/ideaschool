@@ -46,26 +46,41 @@ export default function Home() {
 
   useGSAP(
     () => {
-      gsap.from(".gsap-text-deep-end", {
+      gsap.from(".gsap-hero-pretitle", {
+        y: -15,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.1,
+      });
+      gsap.from(".gsap-hero-line-1", {
         y: 20,
         opacity: 0,
         duration: 1.0,
         ease: "power3.out",
-        delay: 0.15,
+        delay: 0.25,
       });
-      gsap.from(".gsap-text-ideas", {
+      gsap.from(".gsap-hero-line-2", {
         y: 25,
         opacity: 0,
         duration: 1.1,
         ease: "power3.out",
-        delay: 0.35,
+        delay: 0.45,
       });
-      gsap.from(".gsap-hero-tagline", {
+      gsap.from(".gsap-hero-desc", {
         y: 20,
         opacity: 0,
         duration: 1.0,
         ease: "power3.out",
-        delay: 0.55,
+        delay: 0.65,
+      });
+      gsap.from(".gsap-hero-cta", {
+        y: 15,
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.8,
       });
 
       gsap.from(".gsap-card-1, .gsap-note-1", {
@@ -91,23 +106,6 @@ export default function Home() {
         ease: "power3.out",
         delay: 0.6,
         stagger: 0.1,
-      });
-      gsap.from(".gsap-title-aside", {
-        opacity: 0,
-        x: 30,
-        duration: 1.0,
-        ease: "power3.out",
-        delay: 0.4,
-      });
-      gsap.from(".gsap-hero-intro-line", {
-        scale: 0.72,
-        y: 18,
-        opacity: 0,
-        duration: 0.65,
-        ease: "back.out(1.8)",
-        delay: 1.05,
-        stagger: 0.12,
-        transformOrigin: "center",
       });
 
       const handleMouseMove = (e: MouseEvent) => {
@@ -206,7 +204,7 @@ export default function Home() {
                 />
               </svg>
               <span>
-                Master visual<br />storytelling
+                Tell Stories<br />That Move People.
               </span>
             </div>
             <figure
@@ -247,7 +245,7 @@ export default function Home() {
                 />
               </svg>
               <span>
-                Shape your<br />creative vision!
+                Turn Ideas<br />Into Products.
               </span>
             </div>
             <figure
@@ -288,7 +286,7 @@ export default function Home() {
                 />
               </svg>
               <span>
-                Scale your<br />audience!
+                Build Brands.<br />Drive Growth.
               </span>
             </div>
           </div>
@@ -349,16 +347,26 @@ export default function Home() {
           </div>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              <span className={styles.lineSchoolOf}>
-                <span className="gsap-text-deep-end">India’s NexGen</span>
+              <span className={styles.heroPretitle}>
+                <span className="gsap-hero-pretitle">India’s Next-Generation School</span>
               </span>
-              <span className={styles.lineIdeas}>
-                <span className="gsap-text-ideas">School</span>
+              <span className={styles.lineLearnToBuild}>
+                <span className="gsap-hero-line-1">LEARN TO BUILD</span>
+              </span>
+              <span className={styles.lineTheFuture}>
+                <span className="gsap-hero-line-2">THE FUTURE</span>
               </span>
             </h1>
-            <p className={`${styles.heroTagline} gsap-hero-tagline`}>
-              For <strong>Creative Marketers</strong>, <strong>Tech Professionals</strong> &amp; <strong>Visual Storytellers</strong>.
-            </p>
+            <div className={`${styles.heroDescription} gsap-hero-desc`}>
+              <p>Build Skills In Creativity, Marketing &amp; Technology.</p>
+              <p>Think Like An Entrepreneur. Create With AI.</p>
+            </div>
+            <a href="#workshops" className={`${styles.heroCta} gsap-hero-cta`}>
+              <span>Explore Our Programs</span>
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 2L12 12M12 12H4M12 12V4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
           </div>
           <a
             className={styles.cornerArrow}

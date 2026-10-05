@@ -14,52 +14,52 @@ if (typeof window !== "undefined") {
 const points = [
   {
     number: "01",
-    text: "work on briefs instead of only listening to lectures",
+    text: "Work on briefs instead of only listening to lectures",
   },
   {
     number: "02",
-    text: "make things before you feel completely ready",
+    text: "Make things before you feel completely ready",
   },
   {
     number: "03",
-    text: "have your work questioned and reviewed",
+    text: "Have your work questioned and reviewed",
   },
   {
     number: "04",
-    text: "understand why something works, not just which button to press",
+    text: "Understand why something works, not just which button to press",
   },
   {
     number: "05",
-    text: "learn alongside other people making things",
+    text: "Learn alongside other people making things",
   },
   {
     number: "06",
-    text: "leave with better judgement and better work",
+    text: "Leave with better judgement and better work",
   },
 ];
 
 export default function BeforeYouApply() {
   const sectionRef = useRef<HTMLElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
+  const rowsRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const items = gsap.utils.toArray<HTMLElement>(listRef.current?.children || []);
+      const rows = gsap.utils.toArray<HTMLElement>(rowsRef.current?.children || []);
       gsap.fromTo(
-        items,
+        rows,
         {
           opacity: 0,
-          x: 40,
+          y: 24,
         },
         {
           opacity: 1,
-          x: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power2.out",
+          y: 0,
+          duration: 0.55,
+          stagger: 0.08,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: listRef.current,
-            start: "top 80%",
+            trigger: rowsRef.current,
+            start: "top 82%",
             toggleActions: "play none none reverse",
           },
         }
@@ -76,35 +76,32 @@ export default function BeforeYouApply() {
       data-header-theme="light"
     >
       <div className={styles.container}>
-        <div className={styles.layout}>
-          {/* Left Column */}
-          <div className={styles.leftCol}>
-            <span className={styles.eyebrow}>
-              <TextAnimation divideBy="word">Before You Apply</TextAnimation>
-            </span>
-            <h2 className={styles.mainTitle}>
-              <TextAnimation divideBy="word" delay={0.1}>
-                COME READY TO GET STUCK IN.
-              </TextAnimation>
-            </h2>
-            <p className={styles.subIntro}>
-              <TextAnimation divideBy="word" delay={0.25}>
-                You will probably enjoy Idea School if you want to:
-              </TextAnimation>
-            </p>
+        {/* Header Block */}
+        <div className={styles.headerBlock}>
+          <div className={styles.eyebrow}>
+            <TextAnimation divideBy="word">Before You Apply</TextAnimation>
           </div>
+          <h2 className={styles.mainTitle}>
+            <TextAnimation divideBy="word" delay={0.08}>
+              COME READY TO GET STUCK IN.
+            </TextAnimation>
+          </h2>
+          <p className={styles.subIntro}>
+            <TextAnimation divideBy="word" delay={0.2}>
+              You will probably enjoy Idea School if you want to:
+            </TextAnimation>
+          </p>
+        </div>
 
-          {/* Right Column */}
-          <div className={styles.rightCol}>
-            <ul ref={listRef} className={styles.itemsList}>
-              {points.map((point) => (
-                <li key={point.number} className={styles.listItem}>
-                  <span className={styles.itemNumber}>{point.number}</span>
-                  <span className={styles.itemText}>{point.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Stripped Bold Editorial Statement Rows */}
+        <div ref={rowsRef} className={styles.rowsContainer}>
+          {points.map((point) => (
+            <div key={point.number} className={styles.rowItem}>
+              <span className={styles.rowNumber}>{point.number}</span>
+              <h3 className={styles.rowText}>{point.text}</h3>
+              <span className={styles.rowArrow} aria-hidden="true">↗</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -129,10 +129,16 @@
 
 .headlineAccent {
   color: #DAFD55;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   white-space: normal;
   background: transparent !important;
   text-shadow: none !important;
+}
+
+.headlineLine {
+  display: block;
 }
 
 /* 3 Feature Points Row (Horizontal with Icons) */

@@ -7,11 +7,11 @@ import Image from "next/image";
 
 const courses = [
   {
-    title: "Creative Editing",
+    title: "Full Stack Video Editing & AI Mastery",
     subtitle: "Art & systems of editing",
     badge: "6 Months Program",
     badgeClass: "isOffline",
-    link: "/creative-editing-course",
+    link: "/full-stack-video-editing-ai-mastery",
     image: "/images/DSC01109.webp",
     imageClass: "programMenuImageCreative",
   },

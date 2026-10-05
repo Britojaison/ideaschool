@@ -137,9 +137,9 @@ export default function MobileMenu() {
                   </button>
                   <div className={`${styles.mobileSubLinksDrawer} ${expanded === "courses" ? styles.mobileSubLinksDrawerOpen : ""}`}>
                     <div className={styles.mobileSubLinksInner}>
-                      <Link href="/creative-editing-course" className={styles.mobileSubItem} onClick={closeMenu}>
+                      <Link href="/full-stack-video-editing-ai-mastery" className={styles.mobileSubItem} onClick={closeMenu}>
                         <div className={styles.mobileSubItemInfo}>
-                          <span className={styles.mobileSubItemTitle}>Creative Editing & AI Pro</span>
+                          <span className={styles.mobileSubItemTitle}>Full Stack Video Editing & AI Mastery</span>
                           <span className={styles.mobileSubItemDesc}>24 Weeks · Career Flagship Course</span>
                         </div>
                         <span className={styles.mobileSubArrow}>↗</span>

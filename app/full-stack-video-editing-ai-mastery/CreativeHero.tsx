@@ -56,9 +56,16 @@ export default function CreativeHero() {
             <TextAnimation divideBy="word">India’s First Agency-Led</TextAnimation>
           </span>
           <span className={styles.headlineAccent}>
-            <TextAnimation divideBy="word" delay={0.15}>
-              Full Stack Editing & AI Mastery
-            </TextAnimation>
+            <span className={styles.headlineLine}>
+              <TextAnimation divideBy="word" delay={0.15}>
+                Full Stack Video Editing &amp;
+              </TextAnimation>
+            </span>
+            <span className={styles.headlineLine}>
+              <TextAnimation divideBy="word" delay={0.28}>
+                AI Mastery
+              </TextAnimation>
+            </span>
           </span>
         </h1>
 

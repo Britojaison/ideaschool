@@ -58,7 +58,7 @@ export default function FlagshipSpotlight() {
             </TextAnimation>
           </p>
           <div className={styles.actions}>
-            <Link href="/creative-editing-course" className={styles.customBtn}>
+            <Link href="/full-stack-video-editing-ai-mastery" className={styles.customBtn}>
               Explore the program
             </Link>
           </div>

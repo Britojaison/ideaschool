@@ -30,10 +30,10 @@ const paths = [
   {
     index: "01",
     category: "flagship",
-    title: "Creative Editing & AI Pro",
+    title: "Full Stack Video Editing & AI Mastery",
     tags: ["FLAGSHIP PROGRAM", "24 WEEKS"],
     image: c1,
-    href: "/creative-editing-course",
+    href: "/full-stack-video-editing-ai-mastery",
     isFlagship: true,
   },
   {
@@ -502,9 +502,9 @@ export default function VisualSchoolPage() {
               </video>
               <div className={styles.overlayContent} ref={overlayContentRef}>
                 <p className={styles.overlayLabel}>24 WEEK FLAGSHIP PROGRAM</p>
-                <h2>Creative Editing &amp; AI Pro</h2>
+                <h2>Full Stack Video Editing &amp; AI Mastery</h2>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
+                  <Link href="/full-stack-video-editing-ai-mastery" className={styles.btnPrimary}>Explore Full Course</Link>
                   <button
                     type="button"
                     className={styles.btnSecondary}
@@ -528,7 +528,7 @@ export default function VisualSchoolPage() {
                 <p className={styles.overlayLabel}>COMPLETE COURSE CURRICULUM</p>
                 <h2>From Story to Final Cut</h2>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
+                  <Link href="/full-stack-video-editing-ai-mastery" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
               {renderAudioButton("curriculum")}
@@ -543,7 +543,7 @@ export default function VisualSchoolPage() {
                 <p className={styles.overlayLabel}>CAREER-READY OUTCOMES</p>
                 <h2>Build an Industry Ready Portfolio</h2>
                 <div className={styles.overlayActions}>
-                  <Link href="/creative-editing-course" className={styles.btnPrimary}>Explore Full Course</Link>
+                  <Link href="/full-stack-video-editing-ai-mastery" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
               {renderAudioButton("portfolio")}

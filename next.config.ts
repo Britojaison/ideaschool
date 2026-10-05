@@ -36,6 +36,16 @@ const nextConfig: NextConfig = {
         destination: "/video-editing-high-paying-jobs/thank-you",
         permanent: true,
       },
+      {
+        source: "/creative-editing-course",
+        destination: "/full-stack-video-editing-ai-mastery",
+        permanent: true,
+      },
+      {
+        source: "/creative-editing-course/thank-you",
+        destination: "/full-stack-video-editing-ai-mastery/thank-you",
+        permanent: true,
+      },
     ];
   },
 };

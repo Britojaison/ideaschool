@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import DetailsSectionMotion from "../creative-editing-course/DetailsSectionMotion";
+import DetailsSectionMotion from "../full-stack-video-editing-ai-mastery/DetailsSectionMotion";
 import LiquidVideoMuteButton from "@/components/ui/LiquidVideoMuteButton";
-import OutcomeCards from "../creative-editing-course/OutcomeCards";
+import OutcomeCards from "../full-stack-video-editing-ai-mastery/OutcomeCards";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import TiltedCard from "@/components/ui/TiltedCard";
 import WorkshopGsapAnimations from "./WorkshopGsapAnimations";
@@ -22,12 +22,12 @@ import WorkshopGalleryFlip from "./WorkshopGalleryFlip";
 import WorkshopStickyBanner from "./WorkshopStickyBanner";
 
 const LazyCurriculumDotField = dynamic(
-  () => import("../creative-editing-course/LazyCurriculumDotField"),
+  () => import("../full-stack-video-editing-ai-mastery/LazyCurriculumDotField"),
   { loading: () => null },
 );
 
 const ScrollFadeArrow = dynamic(
-  () => import("../creative-editing-course/ScrollFadeArrow"),
+  () => import("../full-stack-video-editing-ai-mastery/ScrollFadeArrow"),
   { loading: () => null },
 );
 

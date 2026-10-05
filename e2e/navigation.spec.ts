@@ -11,7 +11,7 @@ async function dismissApplicationFormIfOpen(page: Page) {
 const activeRoutes = [
   { path: "/", heading: /skills become your superpower/i },
   { path: "/visual-school", heading: /visual stories that/i },
-  { path: "/creative-editing-course", heading: /editing is just the start/i },
+  { path: "/full-stack-video-editing-ai-mastery", heading: /editing is just the start/i },
   { path: "/industry-experience-program", heading: /don't just learn video editing/i },
   { path: "/master-video-editing", heading: /master high-paying video editing/i },
   { path: "/video-editing", heading: /high-paying video editing/i },
@@ -51,7 +51,7 @@ test.describe("desktop navigation", () => {
       .getByRole("link", { name: "Visual School", exact: true })
       .click();
     await expect(page).toHaveURL(/\/visual-school$/);
-    await expect(page.locator("main")).toContainText("Creative Editing & AI Pro");
+    await expect(page.locator("main")).toContainText("Full Stack Video Editing & AI Mastery");
   });
 
   test("visual school dropdown links open active program routes", async ({ page }) => {
@@ -61,10 +61,10 @@ test.describe("desktop navigation", () => {
     const mainNav = page.getByRole("navigation", { name: "Main Navigation" });
     const visualSchoolLink = mainNav.getByRole("link", { name: "Visual School", exact: true });
     await visualSchoolLink.hover();
-    await expect(page.getByRole("link", { name: /Creative Editing & AI Pro/i }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Full Stack Video Editing & AI Mastery/i }).first()).toBeVisible();
 
     const programLinks = [
-      { href: "/creative-editing-course", url: /\/creative-editing-course$/ },
+      { href: "/full-stack-video-editing-ai-mastery", url: /\/full-stack-video-editing-ai-mastery$/ },
       { href: "/master-video-editing", url: /\/master-video-editing$/ },
       { href: "/video-editing", url: /\/video-editing$/ },
       { href: "/ad-film-making", url: /\/ad-film-making$/ },

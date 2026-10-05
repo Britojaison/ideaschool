@@ -10,7 +10,7 @@ const whatsappUrl = "https://chat.whatsapp.com/KPOJNXzGGmXCdUh2BdF4En";
 export const metadata: Metadata = {
   title: "Application Received | IDEA School",
   description:
-    "Thank you for applying to the IDEA School Creative Editing & AI Pro Course.",
+    "Thank you for applying to the IDEA School Full Stack Video Editing & AI Mastery Course.",
   robots: {
     index: false,
     follow: false,
@@ -38,7 +38,7 @@ export default function CreativeEditingThankYouPage() {
               className="brandLogo"
             />
           </Link>
-          <Link className="headerCta" href="/creative-editing-course">
+          <Link className="headerCta" href="/full-stack-video-editing-ai-mastery">
             <span className="headerCtaText">Back to course</span>
           </Link>
         </header>

@@ -66,8 +66,8 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
   ],
   programs: [
     {
-      label: "Creative Editing & AI Pro",
-      href: "/creative-editing-course",
+      label: "Full Stack Video Editing & AI Mastery",
+      href: "/full-stack-video-editing-ai-mastery",
       desc: "24 Weeks · Career Flagship Course",
       badge: "Flagship",
     },
@@ -105,8 +105,8 @@ const CARDS = [
   {
     src: "/images/DSC00024.webp",
     tag: "Flagship 24W",
-    label: "Creative Editing & AI Pro",
-    href: "/creative-editing-course",
+    label: "Full Stack Video Editing & AI Mastery",
+    href: "/full-stack-video-editing-ai-mastery",
   },
   {
     src: "/images/DSC00093.webp",

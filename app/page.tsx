@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 import Shell from "@/components/global/Shell";
-import Schools from "@/components/homepage/Schools";
 import BrandGrid from "@/components/homepage/BrandGrid";
 import IdeaPhilosophy from "@/components/homepage/IdeaPhilosophy";
 import WorkshopsStrip from "@/components/homepage/WorkshopsStrip";
@@ -47,33 +46,26 @@ export default function Home() {
 
   useGSAP(
     () => {
-      gsap.from(".gsap-text-welcome", {
-        y: -30,
-        opacity: 0,
-        duration: 1.0,
-        ease: "power3.out",
-        delay: 0.1,
-      });
       gsap.from(".gsap-text-deep-end", {
-        x: -80,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        delay: 0.25,
-      });
-      gsap.from(".gsap-text-of-your", {
         y: 20,
         opacity: 0,
         duration: 1.0,
         ease: "power3.out",
-        delay: 0.45,
+        delay: 0.15,
       });
       gsap.from(".gsap-text-ideas", {
-        x: 80,
+        y: 25,
         opacity: 0,
-        duration: 1.2,
+        duration: 1.1,
         ease: "power3.out",
-        delay: 0.6,
+        delay: 0.35,
+      });
+      gsap.from(".gsap-hero-tagline", {
+        y: 20,
+        opacity: 0,
+        duration: 1.0,
+        ease: "power3.out",
+        delay: 0.55,
       });
 
       gsap.from(".gsap-card-1, .gsap-note-1", {
@@ -357,44 +349,29 @@ export default function Home() {
           </div>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              <span className={styles.heroPretitle}>
-                <span className="gsap-text-welcome">Welcome to</span>
-              </span>
-              <span className={styles.lineDeepEnd}>
-                <span className="gsap-text-deep-end">THE DEEP END</span>
-              </span>
-              <span className={styles.heroSubtitle}>
-                <span className="gsap-text-of-your">of your</span>
+              <span className={styles.lineSchoolOf}>
+                <span className="gsap-text-deep-end">India’s NexGen</span>
               </span>
               <span className={styles.lineIdeas}>
-                <span className="gsap-text-ideas">IDEAS</span>
+                <span className="gsap-text-ideas">School</span>
               </span>
             </h1>
-            <p className={styles.heroIntro}>
-              <span className="gsap-hero-intro-line">
-                Learn real world creative skills.
-              </span>
-              <span className="gsap-hero-intro-line">
-                Build work that gets noticed.
-              </span>
-              <span className="gsap-hero-intro-line">
-                Turn what you love into a career.
-              </span>
+            <p className={`${styles.heroTagline} gsap-hero-tagline`}>
+              For <strong>Creative Marketers</strong>, <strong>Tech Professionals</strong> &amp; <strong>Visual Storytellers</strong>.
             </p>
           </div>
           <a
             className={styles.cornerArrow}
-            href="#schools"
-            aria-label="Explore schools"
+            href="#workshops"
+            aria-label="Explore The IDEA School Universe"
           >
             ↙
           </a>
           </section>
-          <Schools />
         </div>
       </div>
-      <IdeaPhilosophy />
       <WorkshopsStrip />
+      <IdeaPhilosophy />
       <BrandGrid />
       <InsideProgram />
       <HowLearningWorks />

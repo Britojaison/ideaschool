@@ -85,8 +85,8 @@ export const metadata: Metadata = {
     images: ["/images/idea%20logo.webp"],
   },
   icons: {
-    icon: [{ url: "/images/idea%20logo.webp", type: "image/png" }],
-    apple: [{ url: "/images/idea%20logo.webp", type: "image/png" }]
+    icon: [{ url: "/images/idea_logo_black.webp", type: "image/webp" }],
+    apple: [{ url: "/images/idea_logo_black.webp", type: "image/webp" }]
   },
   verification: {
     google: [

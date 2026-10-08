@@ -27,16 +27,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/visual-school",
-        destination: "/",
-        permanent: false,
-      },
-      {
-        source: "/visual-school/:path*",
-        destination: "/",
-        permanent: false,
-      },
-      {
         source: "/video-editing",
         destination: "/video-editing-high-paying-jobs",
         permanent: true,

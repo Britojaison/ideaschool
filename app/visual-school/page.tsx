@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import VisualSchoolPage from "@/components/school/VisualSchoolPage";
 
 export default function VisualSchool() {
-  redirect("/");
+  return <VisualSchoolPage />;
 }

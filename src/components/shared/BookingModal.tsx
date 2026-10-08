@@ -297,12 +297,16 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
 
                     <div className="formGroup">
                       <label>Gender</label>
-                      <select value={gender} onChange={e => setGender(e.target.value)}>
-                        <option value="">Select Gender (optional)</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                        <option value="Prefer Not to say">Prefer Not to say</option>
+                      <select 
+                        value={gender} 
+                        onChange={e => setGender(e.target.value)}
+                        style={{ color: gender ? 'inherit' : '#a1a1aa' }}
+                      >
+                        <option value="" disabled hidden>Select Gender (optional)</option>
+                        <option value="Male" style={{ color: '#000000' }}>Male</option>
+                        <option value="Female" style={{ color: '#000000' }}>Female</option>
+                        <option value="Other" style={{ color: '#000000' }}>Other</option>
+                        <option value="Prefer Not to say" style={{ color: '#000000' }}>Prefer Not to say</option>
                       </select>
                     </div>
 

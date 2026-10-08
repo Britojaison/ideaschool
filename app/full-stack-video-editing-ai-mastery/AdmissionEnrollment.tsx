@@ -302,12 +302,13 @@ export default function AdmissionEnrollment() {
                         onChange={(e) => setModalFormData({ ...modalFormData, gender: e.target.value })}
                         className={styles.input}
                         disabled={modalStatus === "loading"}
+                        style={{ color: modalFormData.gender ? '#ffffff' : 'rgba(255, 255, 255, 0.3)' }}
                       >
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                        <option value="Prefer Not to say">Prefer Not to say</option>
+                        <option value="" disabled hidden>Select Gender (Optional)</option>
+                        <option value="Male" style={{ color: '#ffffff' }}>Male</option>
+                        <option value="Female" style={{ color: '#ffffff' }}>Female</option>
+                        <option value="Other" style={{ color: '#ffffff' }}>Other</option>
+                        <option value="Prefer Not to say" style={{ color: '#ffffff' }}>Prefer Not to say</option>
                       </select>
                     </div>
                   </div>

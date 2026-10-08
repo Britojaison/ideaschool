@@ -87,12 +87,19 @@ export default function ContactForm({ successRedirect }: { successRedirect?: str
             </label>
             <label>
               <span>Gender (optional)</span>
-              <select name="gender" defaultValue="">
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-                <option value="Prefer Not to say">Prefer Not to say</option>
+              <select 
+                name="gender" 
+                defaultValue=""
+                onChange={e => {
+                  e.currentTarget.style.color = e.currentTarget.value ? '#ffffff' : 'rgba(255, 255, 255, 0.4)';
+                }}
+                style={{ color: 'rgba(255, 255, 255, 0.4)' }}
+              >
+                <option value="" disabled hidden>Select Gender (Optional)</option>
+                <option value="Male" style={{ color: '#fff' }}>Male</option>
+                <option value="Female" style={{ color: '#fff' }}>Female</option>
+                <option value="Other" style={{ color: '#fff' }}>Other</option>
+                <option value="Prefer Not to say" style={{ color: '#fff' }}>Prefer Not to say</option>
               </select>
             </label>
           </div>

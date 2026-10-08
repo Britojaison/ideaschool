@@ -15,7 +15,15 @@ if (typeof window !== "undefined") {
 }
 
 export default function HomeForm() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', program: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    program: '',
+    age: '',
+    gender: '',
+    location: ''
+  });
   const [isVisible, setIsVisible] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
@@ -78,7 +86,7 @@ export default function HomeForm() {
       }
       
       setStatus('success');
-      setFormData({ name: '', email: '', phone: '', program: '' });
+      setFormData({ name: '', email: '', phone: '', program: '', age: '', gender: '', location: '' });
     } catch (error: unknown) {
       console.error("Form submission error:", error);
       setStatus('error');
@@ -162,6 +170,46 @@ export default function HomeForm() {
                   value={formData.phone} 
                   onChange={e => setFormData({...formData, phone: e.target.value})}
                   required 
+                  disabled={status === 'loading'}
+                />
+              </div>
+
+              <div className={styles.formRow}>
+                <div className={styles.inputGroup}>
+                  <input 
+                    type="number" 
+                    id="age" 
+                    placeholder="Age (Optional)" 
+                    min="1" 
+                    max="120"
+                    value={formData.age} 
+                    onChange={e => setFormData({...formData, age: e.target.value})}
+                    disabled={status === 'loading'}
+                  />
+                </div>
+                <div className={styles.selectGroup}>
+                  <select 
+                    id="gender" 
+                    value={formData.gender} 
+                    onChange={e => setFormData({...formData, gender: e.target.value})}
+                    disabled={status === 'loading'}
+                  >
+                    <option value="">Select Gender (Optional)</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer Not to say">Prefer Not to say</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className={styles.inputGroup}>
+                <input 
+                  type="text" 
+                  id="location" 
+                  placeholder="Location (City / State) (Optional)" 
+                  value={formData.location} 
+                  onChange={e => setFormData({...formData, location: e.target.value})}
                   disabled={status === 'loading'}
                 />
               </div>

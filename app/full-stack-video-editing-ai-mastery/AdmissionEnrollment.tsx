@@ -12,6 +12,9 @@ export default function AdmissionEnrollment() {
     email: "",
     phone: "",
     program: "Full-Stack Video Editing & AI Mastery (Full Program)",
+    age: "",
+    gender: "",
+    location: "",
   });
   const [modalStatus, setModalStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [modalErrorMessage, setModalErrorMessage] = useState("");
@@ -34,7 +37,15 @@ export default function AdmissionEnrollment() {
       }
 
       setModalStatus("success");
-      setModalFormData({ name: "", email: "", phone: "", program: "Full-Stack Video Editing & AI Mastery (Full Program)" });
+      setModalFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "Full-Stack Video Editing & AI Mastery (Full Program)",
+        age: "",
+        gender: "",
+        location: "",
+      });
     } catch (error: unknown) {
       console.error("Modal enrollment error:", error);
       setModalStatus("error");
@@ -262,6 +273,53 @@ export default function AdmissionEnrollment() {
                       placeholder="+91 98765 43210"
                       value={modalFormData.phone}
                       onChange={(e) => setModalFormData({ ...modalFormData, phone: e.target.value })}
+                      className={styles.input}
+                      disabled={modalStatus === "loading"}
+                    />
+                  </div>
+
+                  <div className={styles.formRow}>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="modal-age" className={styles.label}>Age (Optional)</label>
+                      <input
+                        id="modal-age"
+                        type="number"
+                        min="1"
+                        max="120"
+                        placeholder="Age"
+                        value={modalFormData.age}
+                        onChange={(e) => setModalFormData({ ...modalFormData, age: e.target.value })}
+                        className={styles.input}
+                        disabled={modalStatus === "loading"}
+                      />
+                    </div>
+
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="modal-gender" className={styles.label}>Gender (Optional)</label>
+                      <select
+                        id="modal-gender"
+                        value={modalFormData.gender}
+                        onChange={(e) => setModalFormData({ ...modalFormData, gender: e.target.value })}
+                        className={styles.input}
+                        disabled={modalStatus === "loading"}
+                      >
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer Not to say">Prefer Not to say</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="modal-location" className={styles.label}>Location (City / State) (Optional)</label>
+                    <input
+                      id="modal-location"
+                      type="text"
+                      placeholder="e.g. Bangalore, Karnataka"
+                      value={modalFormData.location}
+                      onChange={(e) => setModalFormData({ ...modalFormData, location: e.target.value })}
                       className={styles.input}
                       disabled={modalStatus === "loading"}
                     />

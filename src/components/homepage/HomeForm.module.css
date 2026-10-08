@@ -24,9 +24,9 @@
     display: flex;
     width: 85vw;
     max-width: 900px;
-    height: 75vh;
-    max-height: 600px;
-    min-height: 500px;
+    height: 82vh;
+    max-height: 680px;
+    min-height: 520px;
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
@@ -63,6 +63,7 @@
     justify-content: center;
     align-items: center;
     background: #fff;
+    overflow-y: auto;
 }
 
 .formContainer {
@@ -95,7 +96,7 @@
 
 .formHeader {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .formHeader h2 {
@@ -121,7 +122,14 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
 }
 
 .inputGroup, .selectGroup {
@@ -133,7 +141,7 @@
     width: 100%;
     background: #fff;
     border: 1px solid #e5e5e5;
-    padding: 12px 14px;
+    padding: 10px 14px;
     font-size: 14px;
     color: #0a0a0c;
     border-radius: 6px;

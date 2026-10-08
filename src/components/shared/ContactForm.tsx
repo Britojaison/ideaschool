@@ -80,6 +80,26 @@ export default function ContactForm({ successRedirect }: { successRedirect?: str
               <input type="text" name="lastName" autoComplete="family-name" required />
             </label>
           </div>
+          <div className="formRow">
+            <label>
+              <span>Age (optional)</span>
+              <input type="number" name="age" min="1" max="120" placeholder="e.g. 22" />
+            </label>
+            <label>
+              <span>Gender (optional)</span>
+              <select name="gender" defaultValue="">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Prefer Not to say">Prefer Not to say</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            <span>Location (City / State) (optional)</span>
+            <input type="text" name="location" placeholder="e.g. Bangalore, Karnataka" />
+          </label>
           <label>
             <span>Email</span>
             <input type="email" name="email" autoComplete="email" required />

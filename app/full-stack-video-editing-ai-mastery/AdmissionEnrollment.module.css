@@ -407,6 +407,13 @@
   gap: clamp(0.75rem, 1.2vw, 1rem);
 }
 
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.6rem, 1vw, 0.85rem);
+  width: 100%;
+}
+
 .inputGroup {
   display: flex;
   flex-direction: column;
@@ -434,6 +441,11 @@
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input option {
+  background: #141418;
+  color: #ffffff;
 }
 
 .input:focus {
@@ -670,6 +682,8 @@
   position: relative;
   width: 100%;
   max-width: 520px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
   background: #141418;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;

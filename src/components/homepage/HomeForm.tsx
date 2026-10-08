@@ -19,7 +19,7 @@ export default function HomeForm() {
     name: '',
     email: '',
     phone: '',
-    program: '',
+    program: 'Full Stack Video Editing Program',
     age: '',
     gender: '',
     location: ''
@@ -86,7 +86,7 @@ export default function HomeForm() {
       }
       
       setStatus('success');
-      setFormData({ name: '', email: '', phone: '', program: '', age: '', gender: '', location: '' });
+      setFormData({ name: '', email: '', phone: '', program: 'Full Stack Video Editing Program', age: '', gender: '', location: '' });
     } catch (error: unknown) {
       console.error("Form submission error:", error);
       setStatus('error');
@@ -215,19 +215,14 @@ export default function HomeForm() {
                 />
               </div>
 
-              <div className={styles.selectGroup}>
-                <select 
+              <div className={styles.inputGroup}>
+                <input 
+                  type="text" 
                   id="program" 
-                  value={formData.program} 
-                  onChange={e => setFormData({...formData, program: e.target.value})}
-                  required
+                  value="Full Stack Video Editing Program" 
+                  readOnly
                   disabled={status === 'loading'}
-                >
-                  <option value="" disabled hidden>Select a Program</option>
-                  <option value="visual">Visual School</option>
-                  <option value="tech">Tech School</option>
-                  <option value="marketing">Marketing School</option>
-                </select>
+                />
               </div>
 
               {status === 'error' && (

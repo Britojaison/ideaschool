@@ -456,16 +456,15 @@ export default function VisualSchoolPage() {
                   <TextAnimation divideBy="word">Visual School</TextAnimation>
                 </p>
                 <h1>
-                  <TextAnimation divideBy="word" delay={0.05}>Visual stories that</TextAnimation>
+                  <TextAnimation divideBy="word" delay={0.05}>Master Visual Storytelling</TextAnimation>
                   <br />
-                  <TextAnimation divideBy="word" delay={0.2}>move people.</TextAnimation>
+                  <TextAnimation divideBy="word" delay={0.2}>on Real Client Briefs.</TextAnimation>
                 </h1>
                 <p className={styles.heroIntro}>
                   <TextAnimation divideBy="word" delay={0.35}>
                     For people who want to tell stronger stories through editing, filmmaking, design and Creative AI.
                   </TextAnimation>
                 </p>
-                <button type="button" onClick={scrollToPrograms} className={styles.heroCta}>See the disciplines <b>↘</b></button>
                 <div className={styles.heroMarquee}>
                   <IconMarquee />
                 </div>

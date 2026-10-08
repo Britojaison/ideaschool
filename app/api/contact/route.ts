@@ -4,10 +4,10 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
 
-    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL || process.env.GOOGLE_SCRIPT_URL;
 
     if (!webhookUrl) {
-      console.error("GOOGLE_SHEET_WEBHOOK_URL is not set");
+      console.error("Neither GOOGLE_SHEET_WEBHOOK_URL nor GOOGLE_SCRIPT_URL is configured");
       return NextResponse.json(
         { error: "Webhook URL not configured" },
         { status: 500 }

@@ -193,12 +193,13 @@ export default function HomeForm() {
                     value={formData.gender} 
                     onChange={e => setFormData({...formData, gender: e.target.value})}
                     disabled={status === 'loading'}
+                    style={{ color: formData.gender ? '#0a0a0c' : '#a3a3a3' }}
                   >
-                    <option value="">Select Gender (Optional)</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                    <option value="Prefer Not to say">Prefer Not to say</option>
+                    <option value="" disabled hidden>Select Gender (Optional)</option>
+                    <option value="Male" style={{ color: '#0a0a0c' }}>Male</option>
+                    <option value="Female" style={{ color: '#0a0a0c' }}>Female</option>
+                    <option value="Other" style={{ color: '#0a0a0c' }}>Other</option>
+                    <option value="Prefer Not to say" style={{ color: '#0a0a0c' }}>Prefer Not to say</option>
                   </select>
                 </div>
               </div>

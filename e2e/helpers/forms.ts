@@ -47,6 +47,9 @@ export async function fillAndSubmitHomepageApplication(page: Page) {
   await page.getByPlaceholder("name@example.com").fill("e2e-applicant@example.com");
   await page.getByPlaceholder("Full Name").fill("E2E Applicant");
   await page.getByPlaceholder("Phone Number").fill("9876543210");
+  await page.getByPlaceholder("Age").fill("23");
+  await page.locator("select#gender").selectOption("Male");
+  await page.getByPlaceholder("Location (City / State)").fill("Bangalore");
   await page.locator("select#program").selectOption("visual");
   await page.getByRole("button", { name: "Submit Application" }).click();
 
@@ -74,9 +77,10 @@ export async function fillAndSubmitBooking(page: Page) {
   await page.getByPlaceholder("Enter phone number").fill("9876543210");
   await page.getByPlaceholder("Enter your city").fill("Chennai");
   await page.getByPlaceholder("Enter your age").fill("24");
+  await page.locator(".bookingForm select").first().selectOption("Male");
   await page.getByPlaceholder("E.g. Student, Video Editor, etc.").fill("Video Editor");
   await page.getByPlaceholder("Briefly explain your reason").fill("I want to build client-ready editing projects.");
-  await page.getByRole("combobox").selectOption("Yes, I promise");
+  await page.locator(".bookingForm select").nth(1).selectOption("Yes, I promise");
   await page.getByPlaceholder("Your main goal").fill("Build a stronger portfolio.");
   await page.getByRole("button", { name: "Schedule Appointment" }).click();
 

@@ -23,6 +23,7 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
   const [profession, setProfession] = useState("");
   const [reason, setReason] = useState("");
   const [canAttend, setCanAttend] = useState("");
@@ -43,6 +44,7 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
       setPhone("");
       setCity("");
       setAge("");
+      setGender("");
       setProfession("");
       setReason("");
       setCanAttend("");
@@ -107,7 +109,9 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
           email,
           phone,
           city,
+          location: city,
           age,
+          gender,
           profession,
           reason,
           canAttend,
@@ -282,13 +286,24 @@ export default function BookingModal({ isOpen, onClose, programName = "Industry 
                     </div>
 
                     <div className="formGroup">
-                      <label>City *</label>
-                      <input type="text" required placeholder="Enter your city" value={city} onChange={e => setCity(e.target.value)} />
+                      <label>Location (City)</label>
+                      <input type="text" placeholder="Enter your city (optional)" value={city} onChange={e => setCity(e.target.value)} />
                     </div>
 
                     <div className="formGroup">
-                      <label>How old are you? *</label>
-                      <input type="text" required placeholder="Enter your age" value={age} onChange={e => setAge(e.target.value)} />
+                      <label>Age</label>
+                      <input type="number" min="1" max="120" placeholder="Enter your age (optional)" value={age} onChange={e => setAge(e.target.value)} />
+                    </div>
+
+                    <div className="formGroup">
+                      <label>Gender</label>
+                      <select value={gender} onChange={e => setGender(e.target.value)}>
+                        <option value="">Select Gender (optional)</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer Not to say">Prefer Not to say</option>
+                      </select>
                     </div>
 
                     <div className="formGroup">

@@ -16482,4 +16482,230 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
+/* UNIFY ALL SECTION HEADINGS AND DESCRIPTIONS */
+.toolsBlock h2, 
+.workshopExperienceHeader h2, 
+.judgementHeader h2, 
+.proofIntro h2,
+.timelineHeader h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: clamp(2rem, 3.9vw, 3.7rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+}
+
+.workshopExperienceHeader p,
+.judgementHeader .judgementHighlight,
+.proofIntro p,
+.timelineHeader > p {
+  font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  margin: 14px auto 0 !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+  max-width: 780px !important;
+}
+
+.workshopExperienceHeader, .judgementHeader, .proofIntro, .toolsBlock, .timelineHeader {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+@media (max-width: 768px) {
+  .toolsBlock h2, 
+  .workshopExperienceHeader h2, 
+  .judgementHeader h2, 
+  .proofIntro h2,
+  .timelineHeader h2 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
+  }
+}
+
+/* WORKSHOP TIMELINE SECTION */
+.workshopTimelineSection {
+  padding: 80px var(--apply-section-x);
+  background-color: #0c0d0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.workshopTimelineInner {
+  width: min(100%, 800px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.timelineHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+.timelineSubtitle {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.timelineActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.tAction {
+  background: rgba(218, 253, 85, 0.05);
+  border: 1px solid rgba(218, 253, 85, 0.2);
+  color: #dafd55;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 24px;
+}
+
+.timelineMarker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.markerDot {
+  width: 8px;
+  height: 8px;
+  background: #dafd55;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.markerLine {
+  width: 1px;
+  flex-grow: 1;
+  background: rgba(218, 253, 85, 0.2);
+  margin-top: 8px;
+  margin-bottom: -12px;
+}
+
+.timelineContentWrap {
+  padding-bottom: 40px;
+}
+
+.tTime {
+  display: inline-block;
+  background: rgba(218, 253, 85, 0.1);
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.tContent h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.tContent p {
+  color: #a1a1aa;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.timelineFooter {
+  background: rgba(25, 15, 35, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.timelineFooterTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footerHeaderTitle {
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.footerHeaderSub {
+  color: #a1a1aa;
+  font-size: 11px;
+}
+
+.timelineToolsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 16px;
+  gap: 12px;
+}
+
+.tToolCard {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.tToolCard h4 {
+  color: #dafd55;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.tToolCard p {
+  color: #a1a1aa;
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .timelineFooterTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .timelineToolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 

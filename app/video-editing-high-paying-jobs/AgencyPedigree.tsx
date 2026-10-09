@@ -80,7 +80,7 @@ export default function AgencyPedigree() {
             <h3 style={{ color: "#dafd55", fontSize: "24px", fontWeight: 700, margin: 0, textTransform: "uppercase" }}>30+ YEARS</h3>
             <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", margin: 0 }}>Combined global agency experience</p>
           </div>
-          <div className="pCard" style={{ padding: "32px 24px", backgroundColor: "#0a0a0a", border: "1px solid rgba(218,253,85,0.4)", borderRadius: "8px", display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div className="pCard" style={{ padding: "32px 24px", backgroundColor: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px", display: "flex", flexDirection: "column", gap: "12px" }}>
             <h3 style={{ color: "#dafd55", fontSize: "24px", fontWeight: 700, margin: 0, textTransform: "uppercase" }}>WORKING CREATIVES</h3>
             <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px", margin: 0 }}>Commercial practitioners</p>
           </div>

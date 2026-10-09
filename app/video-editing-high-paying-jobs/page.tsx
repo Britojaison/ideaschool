@@ -20,6 +20,7 @@ import FeedbackAdvantageSection from "./FeedbackAdvantageSection";
 import QualificationSection from "./QualificationSection";
 import ThunderVaultSection from "./ThunderVaultSection";
 import WorkshopVenueSection from "./WorkshopVenueSection";
+import ReferralEngine from "./ReferralEngine";
 import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
@@ -597,6 +598,8 @@ export default function ApplyPage() {
       </section>
 
       <WorkshopVenueSection />
+
+      <ReferralEngine />
 
       <section className="programFaqContact" aria-label="FAQ and application form">
         <div className="programFaqInner">

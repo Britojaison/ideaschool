@@ -13,6 +13,7 @@ import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
 import WorkshopExperienceSection from "../ad-film-making/WorkshopExperienceSection";
+import EditingJudgementSection from "./EditingJudgementSection";
 import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
@@ -446,6 +447,8 @@ export default function ApplyPage() {
       <AgencyPedigree />
 
       <WorkshopExperienceSection />
+      
+      <EditingJudgementSection />
 
       <section className="programCurriculum" aria-label="What you will learn">
         <div className="programCurriculumDots">

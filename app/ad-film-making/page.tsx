@@ -12,6 +12,7 @@ import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import BrandCommercialsSection from "./BrandCommercialsSection";
 import WorkshopExperienceSection from "./WorkshopExperienceSection";
+import EditingJudgementSection from "../video-editing-high-paying-jobs/EditingJudgementSection";
 import Footer from "@/components/global/Footer";
 
 const curriculum = [
@@ -362,6 +363,10 @@ export default function ApplyPage() {
 
       </section>
 
+      <WorkshopExperienceSection />
+      
+      <EditingJudgementSection />
+
       <section className="programCurriculum" aria-label="What you will learn">
         <div className="programCurriculumDots">
           <DotField
@@ -388,8 +393,6 @@ export default function ApplyPage() {
           <CurriculumAccordion items={curriculum} />
         </div>
       </section>
-
-      <WorkshopExperienceSection />
 
       <section className="programAudience" aria-label="Who should attend">
         <div className="programAudienceInner">

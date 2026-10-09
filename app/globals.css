@@ -16179,6 +16179,307 @@ html.isHeroGlassCursorActive .hero * {
     grid-template-columns: 1fr;
   }
 }
- 
+.editingJudgement {
+  padding: 80px var(--apply-section-x);
+  background-color: #0c0d0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editingJudgementInner {
+  width: min(100%, 1256px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.judgementHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.judgementSubtitle {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.judgementHeader h2 {
+  color: #fff;
+  font-family: 'Bebas Neue', var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.judgementPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.judgementPill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 99px;
+}
+
+.judgementHighlight {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.judgementTimelineWrap {
+  width: 100%;
+}
+
+.timelineEditor {
+  background: #0a0a0c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineEditorTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timelineDots {
+  display: flex;
+  gap: 6px;
+}
+
+.timelineDots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dotRed { background: #ef4444; }
+.dotYellow { background: #f59e0b; }
+.dotGreen { background: #10b981; }
+
+.timelineProjectName {
+  color: #a1a1aa;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+}
+
+.timelineTimecode {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.timelineTimeRuler {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px 8px 60px;
+  color: #52525b;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timelineEditorTracks {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  gap: 8px;
+}
+
+.timelinePlayhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #ef4444;
+  z-index: 10;
+}
+.timelinePlayhead::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -4px;
+  width: 9px;
+  height: 9px;
+  background: #ef4444;
+  border-radius: 50%;
+}
+
+.timelineTrack {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.trackLabel {
+  width: 50px;
+  text-align: center;
+  color: #a1a1aa;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.trackItems {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  margin-right: 16px;
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 2px;
+}
+
+.trackItem {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  border-radius: 2px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemGreen { background: rgba(77, 124, 15, 0.5); border-color: rgba(218, 253, 85, 0.5); color: #dafd55; }
+.itemPurple { background: rgba(76, 29, 149, 0.5); border-color: rgba(139, 92, 246, 0.5); color: #c4b5fd; }
+.itemBlue { background: rgba(30, 58, 138, 0.5); border-color: rgba(59, 130, 246, 0.5); color: #bfdbfe; }
+.itemGray { background: rgba(63, 63, 70, 0.5); border-color: rgba(82, 82, 91, 0.5); color: #a1a1aa; }
+.itemDarkGreen { background: rgba(6, 78, 59, 0.5); border-color: rgba(16, 185, 129, 0.5); color: #6ee7b7; }
+.itemOrange { background: rgba(120, 53, 15, 0.5); border-color: rgba(245, 158, 11, 0.5); color: #fcd34d; }
+
+.judgementGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.judgementCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.judgementCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.jcNum {
+  color: #52525b;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.jcTag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 99px;
+  border: 1px solid;
+}
+.tagHook { border-color: rgba(218, 253, 85, 0.5); color: #dafd55; }
+.tagPace { border-color: rgba(245, 158, 11, 0.5); color: #fcd34d; }
+.tagReset { border-color: rgba(16, 185, 129, 0.5); color: #6ee7b7; }
+.tagPayoff { border-color: rgba(218, 253, 85, 0.5); color: #dafd55; }
+
+.judgementCard h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.jcTime {
+  color: #a1a1aa;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.judgementCard p {
+  color: #a1a1aa;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.judgementFooter {
+  background: linear-gradient(135deg, rgba(30,10,45,1) 0%, rgba(15,5,25,1) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 6px;
+  padding: 30px;
+  text-align: center;
+}
+
+.judgementFooter h3 {
+  color: #dafd55;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.05em;
+}
+
+.judgementFooter p {
+  color: #a1a1aa;
+  font-size: 15px;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .judgementGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .judgementGrid {
+    grid-template-columns: 1fr;
+  }
+  .timelineEditor {
+    overflow-x: auto;
+  }
+  .timelineEditorTracks {
+    min-width: 600px;
+  }
+}
 
 

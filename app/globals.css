@@ -16674,7 +16674,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .footerHeaderTitle {
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Space Mono', monospace;
   font-weight: bold;
   letter-spacing: 0.05em;
@@ -16682,7 +16682,7 @@ html.isHeroGlassCursorActive .hero * {
 
 .footerHeaderSub {
   color: #a1a1aa;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .timelineToolsGrid {
@@ -16701,15 +16701,15 @@ html.isHeroGlassCursorActive .hero * {
 
 .tToolCard h4 {
   color: #dafd55;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   margin: 0 0 6px 0;
 }
 
 .tToolCard p {
   color: #a1a1aa;
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 14px;
+  line-height: 1.5;
   margin: 0;
 }
 

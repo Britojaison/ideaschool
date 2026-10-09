@@ -19,6 +19,7 @@ import IndustryRecognitionSection from "./IndustryRecognitionSection";
 import FeedbackAdvantageSection from "./FeedbackAdvantageSection";
 import QualificationSection from "./QualificationSection";
 import ThunderVaultSection from "./ThunderVaultSection";
+import WorkshopVenueSection from "./WorkshopVenueSection";
 import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
@@ -582,6 +583,8 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <WorkshopVenueSection />
+
       <section className="programFaqContact" aria-label="FAQ and application form">
         <div className="programFaqInner">
           <h2>Frequently Asked Questions</h2>
@@ -686,3 +689,4 @@ export default function ApplyPage() {
     </main>
   );
 }
+ 

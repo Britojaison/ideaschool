@@ -77,6 +77,7 @@ export default function ProofVideoCard({
     <div className="proofVideoPlayer">
       <video
         ref={videoRef}
+        suppressHydrationWarning
         className="proofVideoNative"
         src={src}
         poster={poster}

@@ -6,31 +6,16 @@ import { motion } from "motion/react";
 const attendeesData = [
   {
     num: "01",
-    title: "FREELANCERS",
-    text: "Freelancers who want to offer video editing services and increase their income.",
-  },
-  {
-    num: "02",
-    title: "COLLEGE STUDENTS",
-    text: "College Students seeking a high-demand skill with freelancing and career opportunities.",
-  },
-  {
-    num: "03",
     title: "VIDEO EDITORS",
     text: "Video Editors with Basic Skills who want to level up, increase their earning potential, and work on higher-value projects.",
   },
   {
-    num: "04",
+    num: "02",
     title: "CONTENT CREATORS",
     text: "Content Creators who want to produce professional-quality content and grow faster on social media.",
   },
   {
-    num: "05",
-    title: "AGENCY OWNERS",
-    text: "Agency Owners who want to build an in-house video editing capability and reduce outsourcing costs.",
-  },
-  {
-    num: "06",
+    num: "03",
     title: "CREATIVE PROFESSIONALS",
     text: "Aspiring Creative Professionals who want to build a long-term career in the creator economy.",
   }

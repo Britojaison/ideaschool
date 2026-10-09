@@ -1659,7 +1659,7 @@ html.isHeroGlassCursorActive .hero * {
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
-  padding: clamp(104px, 10vw, 126px) var(--apply-section-x) 0;
+  padding: clamp(104px, 10vw, 126px) var(--apply-section-x) 140px;
   background: #050608;
   isolation: isolate;
 }
@@ -6931,7 +6931,7 @@ html.isHeroGlassCursorActive .hero * {
   .programHero {
     min-height: 100vh;
     min-height: 100svh;
-    padding: 118px var(--apply-section-x) 0;
+    padding: 118px var(--apply-section-x) 140px;
   }
 
   .thankYouHero {
@@ -11262,7 +11262,7 @@ html.isHeroGlassCursorActive .hero * {
 @media (max-width: 640px) {
   .programHero {
     padding-top: 98px;
-    padding-bottom: 32px;
+    padding-bottom: 120px;
   }
 
   .programHero .siteHeader .headerCta {

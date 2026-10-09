@@ -450,32 +450,6 @@ export default function ApplyPage() {
       
       <EditingJudgementSection />
 
-      <section className="programCurriculum" aria-label="What you will learn">
-        <div className="programCurriculumDots">
-          <DotField
-            dotRadius={2.8}
-            dotSpacing={16}
-            cursorRadius={500}
-            cursorForce={0.1}
-            bulgeOnly
-            bulgeStrength={67}
-            glowRadius={160}
-            sparkle={false}
-            waveAmplitude={0}
-            gradientFrom="rgba(168, 85, 247, 0.52)"
-            gradientTo="rgba(180, 151, 207, 0.38)"
-            glowColor="rgba(168, 85, 247, 0.18)"
-          />
-        </div>
-        <div className="programCurriculumInner">
-          <div className="curriculumIntro">
-            <h2>What You Will Learn</h2>
-            <p>A structured, hands-on journey from creative strategy to cinematic AI output.</p>
-          </div>
-
-          <CurriculumAccordion items={curriculum} />
-        </div>
-      </section>
 
       <section className="programAudience" aria-label="Who should attend">
         <div className="programAudienceInner">

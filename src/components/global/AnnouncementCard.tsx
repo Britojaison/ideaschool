@@ -68,14 +68,14 @@ export default function AnnouncementCard() {
         </div>
 
         <div className={styles.content}>
-          <span className={styles.eyebrow}>LIVE WORKSHOP</span>
-          <h2>Full Course</h2>
+          <span className={styles.eyebrow}>Full Course</span>
+          <h2>Full Stack Video Editing & AI Mastery</h2>
           <Link
             className={styles.cta}
             href="/full-stack-video-editing-ai-mastery"
             aria-label="Explore Full Course"
           >
-            Explore Full Course <span aria-hidden="true">↗</span>
+            Explore <span aria-hidden="true">↗</span>
           </Link>
         </div>
       </div>

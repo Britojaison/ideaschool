@@ -4,7 +4,7 @@ export default function FeedbackAdvantageSection() {
       <div className="feedbackInner">
         
         <div className="feedbackHeader">
-          <span className="feedbackSubtitle">DIFFERENTIATION BY DESIGN // THE FEEDBACK ADVANTAGE</span>
+          <span className="feedbackSubtitle">DIFFERENTIATION BY DESIGN THE FEEDBACK ADVANTAGE</span>
           <h2>YOUTUBE CAN TEACH THE TOOL. IT CAN'T REVIEW YOUR TIMELINE.</h2>
           
           <div className="feedbackQuotes">

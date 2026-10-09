@@ -15,7 +15,7 @@ export default function WorkshopTimelineSection() {
       <div className="workshopTimelineInner">
         
         <div className="timelineHeader">
-          <span className="timelineSubtitle">WORKSHOP TIMELINE // 11 AM &mdash; 5 PM</span>
+          <span className="timelineSubtitle">WORKSHOP TIMELINE 11 AM &mdash; 5 PM</span>
           <h2>BY 5 PM, YOU SHOULD<br/>UNDERSTAND WHY EVERY CUT IS THERE</h2>
           <p>One day. One structured workflow. One edit reviewed by a mentor.</p>
           

@@ -4,7 +4,7 @@ export default function QualificationSection() {
       <div className="qualificationInner">
         
         <div className="qualificationHeader">
-          <span className="qualificationSubtitle">HONEST QUALIFICATION // ACTIVE EDITORS ONLY</span>
+          <span className="qualificationSubtitle">HONEST QUALIFICATION ACTIVE EDITORS ONLY</span>
           <h2>BOOK A SEAT IF &middot; SKIP THIS IF</h2>
           <p>This workshop is intentionally designed for active editors who want direct feedback, not casual passive viewers.</p>
         </div>

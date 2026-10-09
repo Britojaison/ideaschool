@@ -4,7 +4,7 @@ export default function EditingJudgementSection() {
       <div className="editingJudgementInner">
         
         <div className="judgementHeader">
-          <span className="judgementSubtitle">STRATEGIC EDITING JUDGEMENT // THE 4 CUT PHASES</span>
+          <span className="judgementSubtitle">STRATEGIC EDITING JUDGEMENT THE 4 CUT PHASES</span>
           <h2>KNOWING THE SOFTWARE<br/>ISN'T THE HARD PART</h2>
           
           <div className="judgementPills">

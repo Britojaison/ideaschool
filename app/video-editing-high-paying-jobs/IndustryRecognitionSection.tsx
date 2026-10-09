@@ -6,7 +6,7 @@ export default function IndustryRecognitionSection() {
       <div className="recognitionInner">
         
         <div className="recognitionHeader">
-          <span className="recognitionSubtitle">INDUSTRY RECOGNITION // PRESS &amp; AWARDS</span>
+          <span className="recognitionSubtitle">INDUSTRY RECOGNITION PRESS &amp; AWARDS</span>
           <h2>THE WORK HAS BEEN RECOGNISED TOO.</h2>
           <p>Press coverage, commercial campaigns, and creative industry recognition.</p>
         </div>

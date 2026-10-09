@@ -4,7 +4,7 @@ export default function WorkshopVenueSection() {
       <div className="venueInner">
         
         <div className="venueHeader">
-          <span className="venueSubtitle">WORKSHOP VENUE // IN-PERSON EDIT STUDIO</span>
+          <span className="venueSubtitle">WORKSHOP VENUE IN-PERSON EDIT STUDIO</span>
           <h2>WHERE THE WORK HAPPENS</h2>
           <p>Physical, hands-on workshop held inside IDEA School at 88GB Creative Agency HQ in HSR Layout, Bengaluru. Bring your laptop and your edit drive—everything else is set up for you.</p>
         </div>
@@ -16,15 +16,15 @@ export default function WorkshopVenueSection() {
             <p className="vLocation">HSR Layout, Bengaluru, Karnataka</p>
 
             <div className="vDetailsBlock">
-              <span className="vDetailsTitle">DATE & TIME //</span>
+              <span className="vDetailsTitle">DATE & TIME</span>
               <p>Saturday, 19 September 2026 &middot; 11 AM - 5 PM IST</p>
             </div>
             <div className="vDetailsBlock">
-              <span className="vDetailsTitle">VENUE TYPE //</span>
+              <span className="vDetailsTitle">VENUE TYPE</span>
               <p>Working agency edit bays & interactive workshop floor</p>
             </div>
             <div className="vDetailsBlock">
-              <span className="vDetailsTitle">TRANSIT & ACCESS //</span>
+              <span className="vDetailsTitle">TRANSIT & ACCESS</span>
               <p>Easy cab/auto drop-off via 27th Main HSR & Outer Ring Road. On-premise parking available.</p>
             </div>
 
@@ -47,7 +47,7 @@ export default function WorkshopVenueSection() {
 
           <div className="venueRight">
             <div className="vMapTop">
-              <span className="vMapLabel"><span className="vMapDot"></span> LIVE MAP // HSR LAYOUT, BENGALURU</span>
+              <span className="vMapLabel"><span className="vMapDot"></span> LIVE MAP HSR LAYOUT, BENGALURU</span>
               <a href="https://maps.google.com" className="vMapLink">View Larger Map ↗</a>
             </div>
             <div className="vMapEmbed">

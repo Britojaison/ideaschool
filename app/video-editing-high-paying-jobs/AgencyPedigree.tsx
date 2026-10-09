@@ -48,7 +48,7 @@ export default function AgencyPedigree() {
             textTransform: "uppercase",
             letterSpacing: "0.1em"
           }}>
-            AGENCY PEDIGREE // DIRECT ACCESS
+            AGENCY PEDIGREE DIRECT ACCESS
           </span>
           <h2 style={{
             fontSize: "clamp(32px, 4vw, 48px)",
@@ -106,7 +106,7 @@ export default function AgencyPedigree() {
           flexWrap: "wrap"
         }}>
           <span style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(255,255,255,0.8)" }}>
-            IN THE ROOM WITH YOU //
+            IN THE ROOM WITH YOU
           </span>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "32px" }}>
             {mentors.map(mentor => (

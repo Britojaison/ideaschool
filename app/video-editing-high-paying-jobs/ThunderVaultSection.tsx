@@ -16,7 +16,7 @@ export default function ThunderVaultSection() {
         
         <div className="vaultHeader">
           <div className="vaultPills">
-            <span className="vPill vPillGreen">BONUS INCLUSION //</span>
+            <span className="vPill vPillGreen">BONUS INCLUSION</span>
             <span className="vPill vPillPurple">LIFETIME ACCESS</span>
             <span className="vPill vPillDark">₹5,000+ value</span>
           </div>
@@ -37,7 +37,7 @@ export default function ThunderVaultSection() {
 
         <div className="vaultModulesWrap">
           <div className="vModulesHeader">
-            6 CORE VAULT MODULES INCLUDED // ZERO EXTRA COST
+            6 CORE VAULT MODULES INCLUDED ZERO EXTRA COST
           </div>
           <div className="vModulesGrid">
             {vaultModules.map((mod, index) => (

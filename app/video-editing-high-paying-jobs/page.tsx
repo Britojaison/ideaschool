@@ -383,7 +383,7 @@ export default function ApplyPage() {
                 textTransform: "uppercase",
                 padding: "8px 16px" 
               }}>
-                Offline workshop // HSR Layout, Bengaluru
+                Offline workshop HSR Layout, Bengaluru
               </span>
             </div>
 

@@ -11,6 +11,7 @@ import ProgramCountdown from "./ProgramCountdown";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import BrandCommercialsSection from "./BrandCommercialsSection";
+import WorkshopExperienceSection from "./WorkshopExperienceSection";
 import Footer from "@/components/global/Footer";
 
 const curriculum = [
@@ -388,6 +389,8 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <WorkshopExperienceSection />
+
       <section className="programAudience" aria-label="Who should attend">
         <div className="programAudienceInner">
           <div className="toolsBlock">
@@ -506,25 +509,6 @@ export default function ApplyPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="videoSection" aria-label="IDEA School video">
-        <video
-          id="applyHomePageVideo"
-          className="videoPoster"
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-          controlsList="nodownload noplaybackrate noremoteplayback"
-          preload="metadata"
-          aria-label="IDEA School classroom video"
-        >
-          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
-        </video>
-        <div className="videoSectionShade" aria-hidden="true" />
       </section>
 
       <section className="programFaqContact" aria-label="FAQ and application form">

@@ -15848,3 +15848,157 @@ html.isHeroGlassCursorActive .hero * {
     height: clamp(18px, 5.5vw, 24px);
   }
 }
+
+/* Workshop Experience Section */
+.workshopExperience {
+  position: relative;
+  z-index: 10;
+  background-color: #0c0d0f;
+  padding: 80px var(--apply-section-x);
+}
+
+.workshopExperienceInner {
+  width: min(100%, 1256px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.workshopExperienceHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+}
+
+.workshopExperienceSubtitle {
+  color: #a3e635;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.workshopExperienceHeader h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.workshopExperienceHeader p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.5;
+}
+
+.workshopExperienceVideoWrap {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #000;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+}
+
+.workshopExperienceVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.workshopExperienceVideoOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 40px;
+  transition: opacity 0.3s ease;
+}
+
+.workshopExperienceVideoOverlay.isPlaying {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.workshopExperiencePlayBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #a3e635;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  padding: 0;
+}
+
+.workshopExperiencePlayBtn:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  background: rgba(163, 230, 53, 0.3);
+}
+
+.workshopExperiencePlayBtn svg {
+  width: 36px;
+  height: 36px;
+  margin-left: 6px;
+}
+
+.workshopExperienceVideoText {
+  text-align: center;
+}
+
+.workshopExperienceVideoText h3 {
+  color: #a3e635;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+}
+
+.workshopExperienceVideoText p {
+  color: #d1d5db;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .workshopExperience {
+    padding: 60px var(--apply-section-x);
+  }
+  .workshopExperiencePlayBtn {
+    width: 60px;
+    height: 60px;
+  }
+  .workshopExperiencePlayBtn svg {
+    width: 28px;
+    height: 28px;
+  }
+  .workshopExperienceVideoOverlay {
+    padding-bottom: 20px;
+  }
+  .workshopExperienceVideoText h3 {
+    margin: 0 0 8px 0;
+  }
+}
+

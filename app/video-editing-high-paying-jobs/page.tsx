@@ -12,6 +12,7 @@ import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
+import WorkshopExperienceSection from "../ad-film-making/WorkshopExperienceSection";
 import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
@@ -443,6 +444,9 @@ export default function ApplyPage() {
       </section>
 
       <AgencyPedigree />
+
+      <WorkshopExperienceSection />
+
       <section className="programCurriculum" aria-label="What you will learn">
         <div className="programCurriculumDots">
           <DotField
@@ -585,25 +589,6 @@ export default function ApplyPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="videoSection" aria-label="IDEA School video">
-        <video
-          id="applyHomePageVideo"
-          className="videoPoster"
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-          controlsList="nodownload noplaybackrate noremoteplayback"
-          preload="metadata"
-          aria-label="IDEA School classroom video"
-        >
-          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
-        </video>
-        <div className="videoSectionShade" aria-hidden="true" />
       </section>
 
       <section className="programFaqContact" aria-label="FAQ and application form">

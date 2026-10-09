@@ -2673,7 +2673,8 @@ html.isHeroGlassCursorActive .hero * {
 .programAudience {
   position: relative;
   overflow: hidden;
-  padding: 80px var(--apply-section-x);
+  margin-top: -120px;
+  padding: 174px var(--apply-section-x) 80px;
   background-color: #050608;
 }
 

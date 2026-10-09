@@ -451,7 +451,7 @@ export default function ApplyPage() {
       </section>
 
       <section className="programAudience" aria-label="Who should attend" style={{ isolation: 'isolate' }}>
-        <div className="programHeroMedia" style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 120px)', maskImage: 'linear-gradient(to bottom, transparent, black 120px)' }}>
+        <div className="programHeroMedia" style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 60px)', maskImage: 'linear-gradient(to bottom, transparent, black 60px)' }}>
           <DotField
             dotRadius={2.8}
             dotSpacing={16}
@@ -467,7 +467,7 @@ export default function ApplyPage() {
             glowColor="rgba(168, 85, 247, 0.18)"
           />
         </div>
-        <div className="programHeroShade" style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 120px)', maskImage: 'linear-gradient(to bottom, transparent, black 120px)' }} />
+        <div className="programHeroShade" style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 60px)', maskImage: 'linear-gradient(to bottom, transparent, black 60px)' }} />
         <div className="programAudienceInner">
           <div className="toolsBlock">
             <h2>Tools You Will Master</h2>

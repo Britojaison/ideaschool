@@ -2673,8 +2673,8 @@ html.isHeroGlassCursorActive .hero * {
 .programAudience {
   position: relative;
   overflow: hidden;
-  margin-top: -120px;
-  padding: 174px var(--apply-section-x) 80px;
+  margin-top: -140px;
+  padding: 80px var(--apply-section-x);
   background-color: #050608;
 }
 
@@ -16857,5 +16857,401 @@ html.isHeroGlassCursorActive .hero * {
     flex-direction: column;
     gap: 20px;
   }
+}
+
+
+/* NEW VAULT GRID LAYOUT */
+.vaultNewWrap {
+  background: rgba(15, 10, 25, 0.4);
+  border: 1px solid rgba(137, 85, 153, 0.2);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.vaultTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.vaultTopLeft h3 {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.vaultTopLeft h2 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.vaultTopLeft p {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  max-width: 400px;
+}
+
+.vaultTopRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.vaultFeatures {
+  display: flex;
+  gap: 16px;
+}
+
+.vaultFeatureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  width: 80px;
+}
+
+.vaultLifetimeBadge {
+  border: 1px solid #dafd55;
+  border-radius: 8px;
+  padding: 12px 16px;
+  text-align: center;
+  background: rgba(218, 253, 85, 0.05);
+}
+
+.vaultLifetimeBadge h4 {
+  color: #dafd55;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.vaultLifetimeBadge p {
+  font-size: 9px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.vaultGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .vaultGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .vaultGrid {
+    grid-template-columns: 1fr;
+  }
+  .vaultTopRow {
+    flex-direction: column;
+  }
+  .vaultFeatures {
+    display: none;
+  }
+}
+
+.vCardFeatured {
+  grid-row: span 2;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.5) 100%);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.vCardFeaturedBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.vCardFeaturedContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.vCardFeaturedTag {
+  background: #5b21b6;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-bottom: 24px;
+  letter-spacing: 0.1em;
+}
+
+.vCardFeatured h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.vCardFeatured p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  max-width: 80%;
+  margin-bottom: auto;
+}
+
+.vCardFeaturedStats {
+  display: flex;
+  gap: 24px;
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.vCardStat {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.vCardStat svg {
+  width: 16px;
+  height: 16px;
+  color: rgba(255,255,255,0.4);
+}
+
+.vCardFeaturedFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.vCardStartBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #dafd55;
+  font-weight: 700;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.vCardStartIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #dafd55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.vCardFeaturedQuote {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  max-width: 180px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.vCardSmall {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.vCardSmallImgWrap {
+  position: relative;
+  height: 100px;
+  width: 100%;
+}
+
+.vCardSmallTime {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-family: 'Space Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.vCardSmallContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vCardSmall h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.vCardSmall p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.vCardSmallFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vCardSmallBadge {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255,255,255,0.8);
+}
+
+.vCardSmallIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+}
+
+.vCardChecklist {
+  background: linear-gradient(135deg, rgba(91, 33, 182, 0.2) 0%, rgba(0,0,0,0.5) 100%);
+  border: 1px solid rgba(137, 85, 153, 0.2);
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vCardChecklist h4 {
+  font-family: 'Covered By Your Grace', 'Caveat', cursive, sans-serif;
+  font-size: 24px;
+  color: #c4b5fd;
+  margin-bottom: 24px;
+  transform: rotate(-4deg);
+  line-height: 1.1;
+}
+
+.vCardChecklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vCardChecklist li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+}
+
+.vCardChecklist li svg {
+  color: #dafd55;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.vaultFooterBar {
+  background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 16px 16px;
+  margin: 0 -32px -32px -32px;
+}
+
+.vaultFooterLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vaultFooterLeft p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
+
+.vaultFooterLeft p strong {
+  color: rgba(255,255,255,0.8);
+  margin-right: 4px;
+}
+
+.vBannerBtnOutline {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 

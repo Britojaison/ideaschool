@@ -71,7 +71,7 @@ const toolLogos = [
   },
   {
     name: "Audio Enhancement Tools",
-    image: "/images/image 1.svg",
+    image: "/images/41KqslICYsL.webp",
     width: 1254,
     height: 1254,
     className: "audio",
@@ -681,18 +681,25 @@ export default function ApplyPage() {
 
       </section>
 
-      <div className="programBatchStrip" aria-label="Workshop batch announcement" style={{ display: 'flex', justifyContent: 'center' }}>
-        <div className="programBatchAction">
+      <div className="newStickyBar" aria-label="Workshop batch announcement">
+        <div className="newStickyBarLeft">
+          <span className="stickyDateLoc">19 SEP • HSR LAYOUT</span>
+          <span className="stickyPrice">₹499</span>
+          <span className="stickySeatsPill">10 SEATS LEFT</span>
+        </div>
+        <div className="newStickyBarRight">
+          <a href="#" className="stickyReferBtn">
+            <span>🎁</span> REFER & EARN ₹2,000
+          </a>
           <a
-            className="programBatchCta programBatchCtaVideoEditing"
+            className="stickyBookBtn"
             href={razorpayPaymentLink}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Book your video editing workshop seat with Razorpay"
           >
-            Book seat now
+            BOOK MY SEAT &rarr;
           </a>
-          <span className="programBatchSeats">Only 2 seats Left</span>
         </div>
       </div>
 

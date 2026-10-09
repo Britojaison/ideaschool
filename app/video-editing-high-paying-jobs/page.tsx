@@ -137,10 +137,6 @@ const clientStories = [
 
 const proofVideos = [
   {
-    src: "/images/proof-videos/student-feedback-1.mp4",
-    poster: "/images/proof-videos/student-feedback-1.webp",
-  },
-  {
     src: "/images/proof-videos/student-feedback-2.mp4",
     poster: "/images/proof-videos/student-feedback-2.webp",
   },

@@ -364,47 +364,79 @@ export default function ApplyPage() {
 
         <div className="programHeroInner">
           <div className="programHeroCopy">
-            <div className="programEyebrowRow">
-              <span className="programPill">Offline workshop</span>
-              <span className="programTag programTagWide">
-                Agency-Level Video Editing Training Led By Industry Experts
+            <div className="programEyebrowRow" style={{ marginBottom: "24px" }}>
+              <span className="programPill" style={{ 
+                background: "rgba(218, 253, 85, 0.05)", 
+                border: "1px solid rgba(218, 253, 85, 0.3)", 
+                color: "#dafd55", 
+                fontSize: "12px", 
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                padding: "8px 16px" 
+              }}>
+                Offline workshop // HSR Layout, Bengaluru
               </span>
             </div>
 
-            <h1>
-              Master <span className="programHeroTitleAccent">High-Paying</span><br />
-              <span className="programHeroTitleAccent">Video Editing</span> In <span className="programHeroTitleDay">1 Day</span>
+            <h1 style={{ marginBottom: "20px" }}>
+              Build an agency-style<br />edit in one day
             </h1>
+            
+            <p style={{ 
+              fontSize: "18px", 
+              lineHeight: "1.6", 
+              color: "rgba(255, 255, 255, 0.8)", 
+              marginBottom: "32px",
+              maxWidth: "600px"
+            }}>
+              A 6-hour intensive workshop where you sit in the 88GB edit suite, unpack real client footage, cut high-retention commercial edits, and receive live 1-on-1 timeline critique.
+            </p>
 
-            <a className="primaryCta programCta" href="#enroll">
-              <span className="primaryCtaText">Get early bird pass now</span>
-            </a>
-            <span className="seatLimit">Limited to 25 seats Only</span>
+            <dl style={{ 
+              display: "flex", 
+              flexDirection: "column", 
+              gap: "24px",
+              marginBottom: "40px" 
+            }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Date & Time</dt>
+                <dd style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0 }}>19 September 2026</dd>
+                <dd style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.5)", margin: 0 }}>11 AM-5 PM IST</dd>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Location</dt>
+                <dd style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0 }}>88GB HQ</dd>
+                <dd style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.5)", margin: 0 }}>HSR Layout, Bengaluru</dd>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Workshop Fee</dt>
+                <dd style={{ fontSize: "28px", fontWeight: 700, color: "#dafd55", margin: 0 }}>₹499</dd>
+                <dd style={{ fontSize: "13px", color: "#eab308", margin: 0, fontWeight: 500 }}>25 seats per batch &middot; 10 seats left</dd>
+              </div>
+            </dl>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
+              <a className="primaryCta" href="#enroll" style={{ 
+                background: "#dafd55", 
+                color: "#000", 
+                padding: "16px 32px", 
+                borderRadius: "4px",
+                fontSize: "16px",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                boxShadow: "0 0 30px rgba(218, 253, 85, 0.2)",
+                height: "auto",
+                minHeight: "56px"
+              }}>
+                <span className="primaryCtaText" style={{ color: "#000", transform: "none" }}>Book my seat — ₹499 &rarr;</span>
+              </a>
+              <span className="seatLimit" style={{ color: "rgba(255, 255, 255, 0.6)", fontSize: "14px" }}>Strict 25-seat limit for 1-on-1 feedback</span>
+            </div>
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
             <ApplyHeroVideo />
-
           </aside>
-
-          <dl className="programStats">
-            <div>
-              <dt>Batch Date</dt>
-              <dd>September 6</dd>
-            </div>
-            <div>
-              <dt>Learning Mode</dt>
-              <dd>Offline </dd>
-            </div>
-            <div>
-              <dt>Full Day Session</dt>
-              <dd>Hands-on</dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>88GB HQ, HSR Layout, Bengaluru</dd>
-            </div>
-          </dl>
         </div>
 
       </section>

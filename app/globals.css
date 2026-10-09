@@ -16490,13 +16490,20 @@ html.isHeroGlassCursorActive .hero * {
 .timelineHeader h2,
 .recognitionHeader h2,
 .qualificationHeader h2,
-.venueHeader h2 {
+.venueHeader h2,
+.pedigreeHeader h2,
+.feedbackHeader h2,
+.vaultHeader h2,
+.programInstructor h2,
+.programFaqInner > h2,
+.mentorSectionIntro h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-size: clamp(2rem, 3.9vw, 3.7rem) !important;
   font-weight: 800 !important;
   line-height: 1.1 !important;
   letter-spacing: -0.01em !important;
   text-transform: uppercase !important;
+  text-align: left !important;
   margin: 0 !important;
 }
 
@@ -16506,18 +16513,23 @@ html.isHeroGlassCursorActive .hero * {
 .timelineHeader > p,
 .recognitionHeader > p,
 .qualificationHeader > p,
-.venueHeader > p {
+.venueHeader > p,
+.pedigreeHeader > p,
+.feedbackHeader > p,
+.vaultHeader > p,
+.mentorSectionIntro p {
   font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
   color: rgba(255, 255, 255, 0.72) !important;
-  margin: 14px auto 0 !important;
+  margin: 14px 0 0 !important;
   line-height: 1.5 !important;
   font-weight: 400 !important;
+  text-align: left !important;
   max-width: 780px !important;
 }
 
-.workshopExperienceHeader, .judgementHeader, .proofIntro, .toolsBlock, .timelineHeader, .recognitionHeader, .qualificationHeader, .venueHeader {
-  text-align: center !important;
-  align-items: center !important;
+.workshopExperienceHeader, .judgementHeader, .proofIntro, .toolsBlock, .timelineHeader, .recognitionHeader, .qualificationHeader, .venueHeader, .pedigreeHeader, .feedbackHeader, .vaultHeader, .programInstructorInner, .programFaqInner, .mentorSectionIntro {
+  text-align: left !important;
+  align-items: flex-start !important;
 }
 
 @media (max-width: 768px) {
@@ -16528,7 +16540,13 @@ html.isHeroGlassCursorActive .hero * {
   .timelineHeader h2,
   .recognitionHeader h2,
   .qualificationHeader h2,
-  .venueHeader h2 {
+  .venueHeader h2,
+  .pedigreeHeader h2,
+  .feedbackHeader h2,
+  .vaultHeader h2,
+  .programInstructor h2,
+  .programFaqInner > h2,
+  .mentorSectionIntro h2 {
     font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
   }
 }

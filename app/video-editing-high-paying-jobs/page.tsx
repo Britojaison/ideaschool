@@ -524,11 +524,11 @@ export default function ApplyPage() {
       </section>
 
       <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
-        <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
-          <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-            <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px" }}>Our Work</span>
-            <h2 style={{ color: "#ffffff", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", fontSize: "clamp(26px, 2.8vw, 40px)", fontWeight: 700, letterSpacing: "-0.04em", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
-            <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px", fontSize: "18px", lineHeight: "1.5" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
+        <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "flex-start" }}>
+          <div className="mentorSectionIntro">
+            <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px", display: "inline-block" }}>Our Work</span>
+            <h2>Watch Some Of Our Recent Projects</h2>
+            <p>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>
         </div>
 

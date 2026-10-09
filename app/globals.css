@@ -16002,3 +16002,179 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
+.workshopExperienceFeatures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.workshopFeatureCol h4 {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  margin: 0 0 8px;
+  letter-spacing: 0.1em;
+}
+
+.workshopFeatureCol p {
+  color: #a1a1aa;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.workshopExperienceBreakdown {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 30px;
+}
+
+.breakdownHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.breakdownHeader h5 {
+  font-family: 'Space Mono', monospace;
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.breakdownHeader span {
+  font-family: 'Space Mono', monospace;
+  color: #a1a1aa;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.breakdownGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.breakdownCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.breakdownCardImgWrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.breakdownCardImgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.breakdownCardTag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #dafd55;
+  color: #000;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.breakdownCardContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.breakdownCardTc {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.breakdownCardContent h6 {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.breakdownCardContent p {
+  color: #a1a1aa;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.workshopExperienceAction {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.reserveSeatBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  background: rgba(218, 253, 85, 0.05);
+  border: 1px solid rgba(218, 253, 85, 0.3);
+  color: #dafd55;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.reserveSeatBtn:hover {
+  background: rgba(218, 253, 85, 0.1);
+  border-color: #dafd55;
+}
+
+@media (max-width: 1024px) {
+  .breakdownGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .workshopExperienceFeatures {
+    grid-template-columns: 1fr;
+  }
+  
+  .breakdownHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .breakdownGrid {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+
+

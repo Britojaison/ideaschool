@@ -444,13 +444,6 @@ export default function ApplyPage() {
 
       </section>
 
-      <AgencyPedigree />
-
-      <WorkshopExperienceSection />
-      
-      <EditingJudgementSection />
-
-
       <section className="programAudience" aria-label="Who should attend">
         <div className="programAudienceInner">
           <div className="toolsBlock">
@@ -476,6 +469,15 @@ export default function ApplyPage() {
           </div>
         </div>
       </section>
+
+      <AgencyPedigree />
+
+      <WorkshopExperienceSection />
+      
+      <EditingJudgementSection />
+
+
+
 
       <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(56px, 8vw, 84px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
         <WorkshopAttendeesList theme="dark" />

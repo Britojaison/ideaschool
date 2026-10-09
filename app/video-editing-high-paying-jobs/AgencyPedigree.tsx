@@ -124,7 +124,7 @@ export default function AgencyPedigree() {
         </div>
 
         {/* Brands Row */}
-        <div className="brandsRowWrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px", marginTop: "40px", overflow: "hidden", width: "100%" }}>
+        <div className="brandsRowWrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px", marginTop: "0px", overflow: "hidden", width: "100%" }}>
           <span style={{ fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "rgba(255,255,255,0.5)", textAlign: "center" }}>
             TRUSTED BY BRANDS SHAPING INDIAN CULTURE
           </span>

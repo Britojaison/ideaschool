@@ -393,9 +393,9 @@ export default function ApplyPage() {
             </p>
 
             <dl style={{ 
-              display: "flex", 
-              flexDirection: "column", 
-              gap: "24px",
+              display: "grid", 
+              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", 
+              gap: "32px 24px",
               marginBottom: "40px" 
             }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
@@ -408,7 +408,7 @@ export default function ApplyPage() {
                 <dd style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0 }}>88GB HQ</dd>
                 <dd style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.5)", margin: 0 }}>HSR Layout, Bengaluru</dd>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px", gridColumn: "1 / -1" }}>
                 <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Workshop Fee</dt>
                 <dd style={{ fontSize: "28px", fontWeight: 700, color: "#dafd55", margin: 0 }}>₹499</dd>
                 <dd style={{ fontSize: "13px", color: "#eab308", margin: 0, fontWeight: 500 }}>25 seats per batch &middot; 10 seats left</dd>

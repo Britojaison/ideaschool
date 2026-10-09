@@ -18,6 +18,11 @@ const attendeesData = [
     num: "03",
     title: "CREATIVE PROFESSIONALS",
     text: "Aspiring Creative Professionals who want to build a long-term career in the creator economy.",
+  },
+  {
+    num: "04",
+    title: "COLLEGE STUDENTS",
+    text: "College Students seeking a high-demand skill with freelancing and career opportunities.",
   }
 ];
 

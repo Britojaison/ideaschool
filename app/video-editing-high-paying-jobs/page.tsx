@@ -681,9 +681,7 @@ export default function ApplyPage() {
 
       </section>
 
-      <div className="programBatchStrip" aria-label="Workshop batch announcement">
-        <span className="programBatchBadge programBatchBadgeVideoEditing">New Batch</span>
-        <p>HIGH-PAYING VIDEO EDITING</p>
+      <div className="programBatchStrip" aria-label="Workshop batch announcement" style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="programBatchAction">
           <a
             className="programBatchCta programBatchCtaVideoEditing"

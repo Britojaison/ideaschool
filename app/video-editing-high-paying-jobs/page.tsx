@@ -5,6 +5,7 @@ import DotField from "@/components/ui/DotField";
 import HeroDotField from "@/components/ui/HeroDotField";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import MobileMenu from "@/components/global/MobileMenu";
+import AgencyPedigree from "./AgencyPedigree";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
@@ -441,6 +442,7 @@ export default function ApplyPage() {
 
       </section>
 
+      <AgencyPedigree />
       <section className="programCurriculum" aria-label="What you will learn">
         <div className="programCurriculumDots">
           <DotField

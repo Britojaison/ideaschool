@@ -2673,30 +2673,14 @@ html.isHeroGlassCursorActive .hero * {
 .programAudience {
   position: relative;
   overflow: hidden;
-  margin-top: -120px;
-  padding: 174px var(--apply-section-x) 64px;
-  background:
-    radial-gradient(circle at 50% 3%, rgba(126, 75, 170, 0.12), transparent 34%),
-    linear-gradient(rgba(116, 66, 148, 0.11) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(116, 66, 148, 0.11) 1px, transparent 1px),
-    #08070c;
-  background-size: auto, 44px 44px, 44px 44px, auto;
-}
-
-.programAudience::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background:
-    linear-gradient(180deg, #0c0d0f 0%, rgba(12, 13, 15, 0.9) 12%, rgba(8, 7, 12, 0.58) 28%, rgba(8, 7, 12, 0.2) 54%, rgba(8, 7, 12, 0.78) 100%),
-    linear-gradient(90deg, rgba(8, 7, 12, 0.9), transparent 18%, transparent 82%, rgba(8, 7, 12, 0.9));
-  pointer-events: none;
+  padding: 80px var(--apply-section-x);
+  background-color: #0c0d0f;
 }
 
 .programAudienceInner {
   position: relative;
   z-index: 1;
-  width: min(100%, 1256px);
+  width: min(100%, 1200px);
   margin: 0 auto;
 }
 
@@ -2885,7 +2869,7 @@ html.isHeroGlassCursorActive .hero * {
 .programFaqInner,
 .programContactInner,
 .programFooter {
-  width: min(100%, 1180px);
+  width: min(100%, 1200px);
   margin: 0 auto;
 }
 
@@ -16188,7 +16172,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .editingJudgementInner {
-  width: min(100%, 1256px);
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -16561,7 +16545,7 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopTimelineInner {
-  width: min(100%, 800px);
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;

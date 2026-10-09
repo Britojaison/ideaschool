@@ -16487,7 +16487,8 @@ html.isHeroGlassCursorActive .hero * {
 .workshopExperienceHeader h2, 
 .judgementHeader h2, 
 .proofIntro h2,
-.timelineHeader h2 {
+.timelineHeader h2,
+.recognitionHeader h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-size: clamp(2rem, 3.9vw, 3.7rem) !important;
   font-weight: 800 !important;
@@ -16500,7 +16501,8 @@ html.isHeroGlassCursorActive .hero * {
 .workshopExperienceHeader p,
 .judgementHeader .judgementHighlight,
 .proofIntro p,
-.timelineHeader > p {
+.timelineHeader > p,
+.recognitionHeader > p {
   font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
   color: rgba(255, 255, 255, 0.72) !important;
   margin: 14px auto 0 !important;
@@ -16509,7 +16511,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 780px !important;
 }
 
-.workshopExperienceHeader, .judgementHeader, .proofIntro, .toolsBlock, .timelineHeader {
+.workshopExperienceHeader, .judgementHeader, .proofIntro, .toolsBlock, .timelineHeader, .recognitionHeader {
   text-align: center !important;
   align-items: center !important;
 }
@@ -16519,7 +16521,8 @@ html.isHeroGlassCursorActive .hero * {
   .workshopExperienceHeader h2, 
   .judgementHeader h2, 
   .proofIntro h2,
-  .timelineHeader h2 {
+  .timelineHeader h2,
+  .recognitionHeader h2 {
     font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
   }
 }
@@ -16716,4 +16719,133 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
+/* INDUSTRY RECOGNITION SECTION */
+.industryRecognitionSection {
+  padding: 80px var(--apply-section-x);
+  background-color: #0c0d0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.recognitionInner {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.recognitionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+.recognitionSubtitle {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.recognitionCard {
+  display: flex;
+  flex-direction: row;
+  background: rgba(15, 15, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.recognitionCardImage {
+  position: relative;
+  width: 50%;
+  min-height: 400px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.recognitionCardContent {
+  width: 50%;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recognitionBadgeWrap {
+  margin-bottom: 24px;
+}
+
+.recognitionBadge {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.recognitionCardContent h3 {
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.recognitionCardContent p {
+  color: #a1a1aa;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+.recognitionFooter {
+  display: flex;
+  gap: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rFooterItem h4 {
+  color: #dafd55;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 0 6px 0;
+}
+
+.rFooterItem p {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .recognitionCard {
+    flex-direction: column;
+  }
+  .recognitionCardImage,
+  .recognitionCardContent {
+    width: 100%;
+  }
+  .recognitionCardImage {
+    min-height: 300px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+@media (max-width: 600px) {
+  .recognitionFooter {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

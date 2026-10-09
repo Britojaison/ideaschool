@@ -15,6 +15,7 @@ import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList
 import WorkshopExperienceSection from "../ad-film-making/WorkshopExperienceSection";
 import EditingJudgementSection from "./EditingJudgementSection";
 import WorkshopTimelineSection from "./WorkshopTimelineSection";
+import IndustryRecognitionSection from "./IndustryRecognitionSection";
 import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
 
@@ -478,6 +479,8 @@ export default function ApplyPage() {
       <EditingJudgementSection />
       
       <WorkshopTimelineSection />
+      
+      <IndustryRecognitionSection />
       
       <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(56px, 8vw, 84px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
         <WorkshopAttendeesList theme="dark" />

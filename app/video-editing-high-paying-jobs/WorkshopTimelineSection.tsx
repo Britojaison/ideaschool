@@ -27,19 +27,16 @@ export default function WorkshopTimelineSection() {
           </div>
         </div>
 
-        <div className="timelineList">
+        <div className="timelineCardsGrid">
           {timelineData.map((item, index) => (
-            <div className="timelineItem" key={index}>
-              <div className="timelineMarker">
-                <div className="markerDot"></div>
-                {index < timelineData.length - 1 && <div className="markerLine"></div>}
+            <div className="tScheduleCard" key={index}>
+              <div className="tCardHeader">
+                <span className="tTimeBadge">{item.time}</span>
+                <div className="tCardDot"></div>
               </div>
-              <div className="timelineContentWrap">
-                <span className="tTime">{item.time}</span>
-                <div className="tContent">
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
+              <div className="tCardBody">
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
               </div>
             </div>
           ))}

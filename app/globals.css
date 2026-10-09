@@ -16488,7 +16488,8 @@ html.isHeroGlassCursorActive .hero * {
 .judgementHeader h2, 
 .proofIntro h2,
 .timelineHeader h2,
-.recognitionHeader h2 {
+.recognitionHeader h2,
+.qualificationHeader h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-size: clamp(2rem, 3.9vw, 3.7rem) !important;
   font-weight: 800 !important;
@@ -16502,7 +16503,8 @@ html.isHeroGlassCursorActive .hero * {
 .judgementHeader .judgementHighlight,
 .proofIntro p,
 .timelineHeader > p,
-.recognitionHeader > p {
+.recognitionHeader > p,
+.qualificationHeader > p {
   font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
   color: rgba(255, 255, 255, 0.72) !important;
   margin: 14px auto 0 !important;
@@ -16511,7 +16513,7 @@ html.isHeroGlassCursorActive .hero * {
   max-width: 780px !important;
 }
 
-.workshopExperienceHeader, .judgementHeader, .proofIntro, .toolsBlock, .timelineHeader, .recognitionHeader {
+.workshopExperienceHeader, .judgementHeader, .proofIntro, .toolsBlock, .timelineHeader, .recognitionHeader, .qualificationHeader {
   text-align: center !important;
   align-items: center !important;
 }
@@ -16522,7 +16524,8 @@ html.isHeroGlassCursorActive .hero * {
   .judgementHeader h2, 
   .proofIntro h2,
   .timelineHeader h2,
-  .recognitionHeader h2 {
+  .recognitionHeader h2,
+  .qualificationHeader h2 {
     font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
   }
 }
@@ -16849,3 +16852,294 @@ html.isHeroGlassCursorActive .hero * {
     gap: 20px;
   }
 }
+
+/* FEEDBACK ADVANTAGE SECTION */
+.feedbackAdvantageSection {
+  padding: 80px var(--apply-section-x);
+  background-color: #08080a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedbackInner {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.feedbackHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left !important;
+}
+
+.feedbackSubtitle {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.feedbackHeader h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+  color: #fff;
+  max-width: 900px;
+}
+
+.feedbackQuotes {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.fQuote {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 16px 20px;
+  color: #fff;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.feedbackHighlight {
+  color: #dafd55;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.feedbackTableWrap {
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.feedbackTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.feedbackTable th, .feedbackTable td {
+  padding: 24px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.feedbackTable th {
+  color: #a1a1aa;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feedbackTable td {
+  color: #d1d5db;
+}
+
+.feedbackTable td:first-child,
+.feedbackTable th:first-child {
+  font-weight: 700;
+  color: #fff;
+  width: 20%;
+}
+
+.highlightCol {
+  background: rgba(30, 20, 45, 0.5); /* dark purple */
+  border-left: 1px solid rgba(168, 85, 247, 0.1);
+  border-right: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+.feedbackTable th.highlightCol {
+  color: #dafd55;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.feedbackTable td.highlightCol {
+  color: #fff;
+  font-weight: 600;
+}
+
+.checkIcon {
+  color: #dafd55;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.crossIcon {
+  color: #ef4444; /* red */
+  margin-right: 8px;
+}
+
+.dashIcon {
+  color: #6b7280; /* gray */
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .feedbackTableWrap {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+/* QUALIFICATION SECTION */
+.qualificationSection {
+  padding: 80px var(--apply-section-x);
+  background-color: #0c0d0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qualificationInner {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.qualificationHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left !important;
+}
+
+.qualificationSubtitle {
+  color: #dafd55;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.qualificationCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.qCard {
+  background: rgba(15, 15, 20, 0.6);
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.qCardBook {
+  border: 1px solid rgba(218, 253, 85, 0.2);
+}
+
+.qCardSkip {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.qBadgeWrap {
+  margin-bottom: 24px;
+}
+
+.qBadge {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.qBadgeGreen {
+  background: rgba(218, 253, 85, 0.2);
+  color: #dafd55;
+}
+
+.qBadgeGray {
+  background: rgba(255, 255, 255, 0.05);
+  color: #a1a1aa;
+}
+
+.qCard h3 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.01em;
+}
+
+.qCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.qCard li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.qCardBook li {
+  color: #fff;
+}
+
+.qCardSkip li {
+  color: #8c8c94;
+}
+
+.qCardBook .qIcon {
+  color: #dafd55;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.qCardSkip .qIcon {
+  color: #6b7280;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .qualificationCards {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+.dummy_trigger { color: red; }

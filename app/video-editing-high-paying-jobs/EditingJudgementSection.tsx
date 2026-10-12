@@ -29,50 +29,52 @@ export default function EditingJudgementSection() {
               <span className="timelineTimecode">00:00:18:14</span>
             </div>
 
-            <div className="timelineTimeRuler">
-              <span>00:00</span>
-              <span>00:10</span>
-              <span>00:20</span>
-              <span>00:30</span>
-              <span>00:40</span>
-              <span>00:50</span>
-            </div>
+            <div className="timelineScrollArea">
+              <div className="timelineTimeRuler">
+                <span>00:00</span>
+                <span>00:10</span>
+                <span>00:20</span>
+                <span>00:30</span>
+                <span>00:40</span>
+                <span>00:50</span>
+              </div>
 
-            <div className="timelineEditorTracks">
-              <div className="timelinePlayhead" style={{ left: '38%' }}></div>
-              
-              <div className="timelineTrack">
-                <span className="trackLabel">V2</span>
-                <div className="trackItems">
-                  <div className="trackItem itemGreen" style={{ left: '3%', width: '18%' }}>HOOK_OVERLAY</div>
-                  <div className="trackItem itemPurple" style={{ left: '42%', width: '22%' }}>MICRO_RESET_BROLL</div>
-                  <div className="trackItem itemBlue" style={{ left: '71%', width: '22%' }}>TITLE_PAYOFF</div>
+              <div className="timelineEditorTracks">
+                <div className="timelinePlayhead" style={{ left: '38%' }}></div>
+                
+                <div className="timelineTrack">
+                  <span className="trackLabel">V2</span>
+                  <div className="trackItems">
+                    <div className="trackItem itemGreen" style={{ left: '3%', width: '18%' }}>HOOK_OVERLAY</div>
+                    <div className="trackItem itemPurple" style={{ left: '42%', width: '22%' }}>MICRO_RESET_BROLL</div>
+                    <div className="trackItem itemBlue" style={{ left: '71%', width: '22%' }}>TITLE_PAYOFF</div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="timelineTrack">
-                <span className="trackLabel">V1</span>
-                <div className="trackItems">
-                  <div className="trackItem itemGray" style={{ left: '3%', width: '16%' }}>A_CAM_01</div>
-                  <div className="trackItem itemGray" style={{ left: '19.5%', width: '18%' }}>A_CAM_02</div>
-                  <div className="trackItem itemGray" style={{ left: '42%', width: '26%' }}>A_CAM_03</div>
-                  <div className="trackItem itemGray" style={{ left: '68.5%', width: '22%' }}>A_CAM_04</div>
+                
+                <div className="timelineTrack">
+                  <span className="trackLabel">V1</span>
+                  <div className="trackItems">
+                    <div className="trackItem itemGray" style={{ left: '3%', width: '16%' }}>A_CAM_01</div>
+                    <div className="trackItem itemGray" style={{ left: '19.5%', width: '18%' }}>A_CAM_02</div>
+                    <div className="trackItem itemGray" style={{ left: '42%', width: '26%' }}>A_CAM_03</div>
+                    <div className="trackItem itemGray" style={{ left: '68.5%', width: '22%' }}>A_CAM_04</div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="timelineTrack">
-                <span className="trackLabel">A1</span>
-                <div className="trackItems">
-                  <div className="trackItem itemDarkGreen" style={{ left: '3%', width: '92%' }}>SYNC_DIALOGUE_MASTER (NOISE CLEANED)</div>
+                
+                <div className="timelineTrack">
+                  <span className="trackLabel">A1</span>
+                  <div className="trackItems">
+                    <div className="trackItem itemDarkGreen" style={{ left: '3%', width: '92%' }}>SYNC_DIALOGUE_MASTER (NOISE CLEANED)</div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="timelineTrack">
-                <span className="trackLabel">A2</span>
-                <div className="trackItems">
-                  <div className="trackItem itemOrange" style={{ left: '3%', width: '13%' }}>WHOOSH_HIT</div>
-                  <div className="trackItem itemOrange" style={{ left: '39%', width: '13%' }}>RISER_DROP</div>
-                  <div className="trackItem itemOrange" style={{ left: '73%', width: '16%' }}>SUB_BOOM_OUTRO</div>
+                
+                <div className="timelineTrack">
+                  <span className="trackLabel">A2</span>
+                  <div className="trackItems">
+                    <div className="trackItem itemOrange" style={{ left: '3%', width: '13%' }}>WHOOSH_HIT</div>
+                    <div className="trackItem itemOrange" style={{ left: '39%', width: '13%' }}>RISER_DROP</div>
+                    <div className="trackItem itemOrange" style={{ left: '73%', width: '16%' }}>SUB_BOOM_OUTRO</div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -102,6 +102,7 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
         <button
           onClick={handlePrev}
           aria-label="Previous Project"
+          className="workshopGalleryNavBtn workshopGalleryPrev"
           style={{
             position: "absolute",
             left: "16px",
@@ -142,6 +143,7 @@ export default function WorkshopGalleryFlip({ videos = defaultVideos }: { videos
         <button
           onClick={handleNext}
           aria-label="Next Project"
+          className="workshopGalleryNavBtn workshopGalleryNext"
           style={{
             position: "absolute",
             right: "16px",

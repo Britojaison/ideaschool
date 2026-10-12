@@ -34,10 +34,10 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.38, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      className={`group border-2 rounded-2xl p-8 transition-all duration-200 flex flex-col h-full hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none ${
+      className={`group border-2 rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-200 flex flex-col h-full hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none ${
         isDark 
-          ? 'bg-[#111] border-[#333] shadow-[6px_6px_0_0_#333]' 
-          : 'bg-white border-black shadow-[6px_6px_0_0_#151515]'
+          ? 'bg-[#111] border-[#333] shadow-[3px_3px_0_0_#333] sm:shadow-[6px_6px_0_0_#333]' 
+          : 'bg-white border-black shadow-[3px_3px_0_0_#151515] sm:shadow-[6px_6px_0_0_#151515]'
       }`}
     >
       {!isDark && (
@@ -45,10 +45,10 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
           {attendee.num}
         </div>
       )}
-      <h3 className="inline-flex px-4 py-1.5 bg-[#d2bbf4] border-2 border-black rounded-full text-black font-black uppercase mb-6 shadow-[3px_3px_0_0_#151515] w-fit" style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", color: "#000", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", letterSpacing: "1px" }}>
+      <h3 className="inline-flex px-4 py-1.5 bg-[#d2bbf4] border-2 border-black rounded-full text-black font-black uppercase mb-6 shadow-[3px_3px_0_0_#151515] w-fit" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.5rem)", color: "#000", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", letterSpacing: "1px" }}>
         {attendee.title}
       </h3>
-      <p style={{ fontSize: "1.1rem", color: isDark ? "rgba(255,255,255,0.7)" : "#333", lineHeight: 1.6, margin: 0, flex: 1, fontWeight: 500 }}>
+      <p style={{ fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)", color: isDark ? "rgba(255,255,255,0.7)" : "#333", lineHeight: 1.6, margin: 0, flex: 1, fontWeight: 500 }}>
         {attendee.text}
       </p>
     </motion.div>
@@ -58,7 +58,7 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
 export default function WorkshopAttendeesList({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
   const isDark = theme === 'dark';
   return (
-    <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 20px" }}>
+    <div className="attendeesListContainer" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0" }}>
 
       {/* Main Section Header */}
       <motion.div
@@ -73,15 +73,15 @@ export default function WorkshopAttendeesList({ theme = 'light' }: { theme?: 'li
         className={isDark ? "curriculumIntro" : ""}
         style={
           isDark 
-            ? { marginBottom: "60px" }
-            : { display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px", gap: "20px" }
+            ? { marginBottom: "40px" }
+            : { display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", gap: "20px" }
         }
       >
         <h2 
           style={
             isDark 
               ? { color: "#fff" }
-              : { fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 900, color: "#000", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", margin: 0, textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 1 }
+              : { fontSize: "clamp(2.2rem, 6vw, 5rem)", fontWeight: 900, color: "#000", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", margin: 0, textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 1 }
           }
         >
           {isDark ? "Who Should Attend" : "(WHO SHOULD ATTEND)"}
@@ -90,7 +90,7 @@ export default function WorkshopAttendeesList({ theme = 'light' }: { theme?: 'li
         {isDark ? (
           <p>Discover if this workshop is the right fit for your career goals.</p>
         ) : (
-          <div style={{ fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)", fontWeight: 500, color: "#555", maxWidth: "500px", lineHeight: 1.4 }}>
+          <div style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.5rem)", fontWeight: 500, color: "#555", maxWidth: "500px", lineHeight: 1.4 }}>
             Discover if this workshop is the right fit for your career goals.
           </div>
         )}
@@ -98,9 +98,9 @@ export default function WorkshopAttendeesList({ theme = 'light' }: { theme?: 'li
 
       <div style={{ 
         display: "grid", 
-        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
-        gap: "24px",
-        marginBottom: "80px"
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", 
+        gap: "20px",
+        marginBottom: "60px"
       }}>
         {attendeesData.map((attendee, index) => (
           <AttendeeItem key={index} attendee={attendee} index={index} theme={theme} />

@@ -18,6 +18,9 @@ export default function FeedbackAdvantageSection() {
         </div>
 
         <div className="feedbackTableWrap">
+          <div className="mobileTableHintWrap">
+            <span className="mobileTableHint">← Swipe table sideways to compare →</span>
+          </div>
           <table className="feedbackTable">
             <thead>
               <tr>

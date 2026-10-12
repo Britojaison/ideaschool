@@ -394,8 +394,8 @@ export default function ApplyPage() {
 
         <div className="programHeroInner">
           <div className="programHeroCopy">
-            <div className="programEyebrowRow" style={{ marginBottom: "24px" }}>
-              <span className="programPill" style={{ 
+            <div className="programEyebrowRow" style={{ marginBottom: "20px" }}>
+              <span className="programPill heroPillCustom" style={{ 
                 background: "rgba(218, 253, 85, 0.05)", 
                 border: "1px solid rgba(218, 253, 85, 0.3)", 
                 color: "#dafd55", 
@@ -408,12 +408,12 @@ export default function ApplyPage() {
               </span>
             </div>
 
-            <h1 style={{ marginBottom: "20px" }}>
-              Build an agency-style<br />edit in one day
+            <h1 className="heroTitleCustom" style={{ marginBottom: "20px" }}>
+              Build an agency-style <br className="hidden sm:inline" />edit in one day
             </h1>
             
             <p style={{ 
-              fontSize: "18px", 
+              fontSize: "clamp(15px, 2.5vw, 18px)", 
               lineHeight: "1.6", 
               color: "rgba(255, 255, 255, 0.8)", 
               marginBottom: "32px",
@@ -422,7 +422,7 @@ export default function ApplyPage() {
               A 6-hour intensive workshop where you sit in the 88GB edit suite, unpack real client footage, cut high-retention commercial edits, and receive live 1-on-1 timeline critique.
             </p>
 
-            <dl style={{ 
+            <dl className="heroDlCustom" style={{ 
               display: "grid", 
               gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", 
               gap: "32px 24px",
@@ -445,8 +445,8 @@ export default function ApplyPage() {
               </div>
             </dl>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
-              <a className="primaryCta" href="#enroll" style={{ 
+            <div className="heroCtaRow" style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
+              <a className="primaryCta heroPrimaryCta" href="#enroll" style={{ 
                 background: "#dafd55", 
                 color: "#000", 
                 padding: "16px 32px", 
@@ -530,7 +530,7 @@ export default function ApplyPage() {
 
       <ThunderVaultSection />
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(56px, 8vw, 84px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(48px, 6vw, 84px)", paddingBottom: "0", paddingLeft: "var(--apply-section-x, 16px)", paddingRight: "var(--apply-section-x, 16px)", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
         <WorkshopAttendeesList theme="dark" />
       </section>
 
@@ -756,11 +756,86 @@ export default function ApplyPage() {
         .stickyReferBtn:hover { background: #222; border-color: #666; }
         .stickyBookBtn { background: #d4ff00; color: #000; font-family: var(--font-helvetica), sans-serif; font-weight: 800; font-size: 14px; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 14px rgba(212, 255, 0, 0.2); }
         .stickyBookBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 255, 0, 0.3); }
+
         @media (max-width: 768px) {
-          .newStickyBar { flex-direction: column; padding: 12px 20px; gap: 12px; }
-          .newStickyBarLeft { width: 100%; justify-content: center; }
-          .newStickyBarRight { width: 100%; justify-content: space-between; }
-          .stickyReferBtn, .stickyBookBtn { flex: 1; justify-content: center; padding: 10px 12px; font-size: 12px; }
+          .heroPillCustom {
+            min-width: 0 !important;
+            padding: 6px 12px !important;
+            font-size: 11px !important;
+            letter-spacing: 0.05em !important;
+            line-height: 1.3 !important;
+            text-align: center !important;
+          }
+          .heroTitleCustom {
+            font-size: clamp(2rem, 7.5vw, 2.75rem) !important;
+            line-height: 1.15 !important;
+          }
+          .heroDlCustom {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px 16px !important;
+            margin-bottom: 28px !important;
+          }
+          .heroCtaRow {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+            width: 100% !important;
+          }
+          .heroPrimaryCta {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding: 16px 20px !important;
+            min-height: 52px !important;
+          }
+          .seatLimit {
+            text-align: center !important;
+            width: 100% !important;
+            font-size: 13px !important;
+          }
+          .workshopGalleryNavBtn {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          .workshopGalleryPrev {
+            left: 8px !important;
+          }
+          .workshopGalleryNext {
+            right: 8px !important;
+          }
+          .newStickyBar {
+            flex-direction: column;
+            padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)) 16px;
+            gap: 8px;
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+          }
+          .newStickyBarLeft {
+            width: 100%;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+          .stickyDateLoc { font-size: 11.5px; }
+          .stickyPrice { font-size: 16px; }
+          .stickySeatsPill { font-size: 10px; padding: 3px 8px; }
+          .newStickyBarRight {
+            width: 100%;
+            justify-content: space-between;
+            gap: 8px;
+          }
+          .stickyReferBtn, .stickyBookBtn {
+            flex: 1;
+            justify-content: center;
+            padding: 10px 8px;
+            font-size: 11px;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            min-height: 42px;
+            box-sizing: border-box;
+          }
         }
       `}} />
       <div className="newStickyBar" aria-label="Workshop batch announcement">

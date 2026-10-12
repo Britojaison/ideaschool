@@ -1315,10 +1315,14 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .applyPage {
-  --apply-section-x: clamp(20px, 6.5vw, 88px);
+  --apply-section-x: clamp(16px, 5vw, 88px);
   min-height: 100vh;
   background: #09080e;
   color: #fff;
+  overflow-x: clip;
+  width: 100%;
+  position: relative;
+  padding-bottom: 96px;
 }
 
 .thankYouPage {
@@ -6987,7 +6991,6 @@ html.isHeroGlassCursorActive .hero * {
 
   .toolsBlock h2 {
     font-size: clamp(1.5rem, 6vw, 2rem);
-    white-space: nowrap;
   }
 
   .toolsRow {
@@ -16086,16 +16089,37 @@ html.isHeroGlassCursorActive .hero * {
 @media (max-width: 768px) {
   .workshopExperienceFeatures {
     grid-template-columns: 1fr;
+    padding: 20px 16px;
+    margin-top: 24px;
+    gap: 16px;
   }
   
+  .workshopExperienceBreakdown {
+    padding: 20px 16px;
+    margin-top: 16px;
+  }
+
   .breakdownHeader {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
   }
   
   .breakdownGrid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .workshopExperienceAction {
+    margin-top: 32px;
+  }
+
+  .reserveSeatBtn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 18px;
   }
 }
 .editingJudgement {
@@ -16389,15 +16413,40 @@ html.isHeroGlassCursorActive .hero * {
   }
 }
 
+.timelineScrollArea {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (max-width: 768px) {
   .judgementGrid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .judgementCard {
+    padding: 20px 16px;
   }
   .timelineEditor {
-    overflow-x: auto;
+    overflow: hidden;
   }
+  .timelineTimeRuler,
   .timelineEditorTracks {
-    min-width: 600px;
+    min-width: 540px;
+  }
+  .judgementPills {
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .judgementPill {
+    font-size: 12.5px;
+    padding: 6px 12px;
+  }
+  .judgementFooter {
+    padding: 24px 16px;
+  }
+  .judgementFooter h3 {
+    font-size: 18px;
   }
 }
 
@@ -16649,16 +16698,33 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 @media (max-width: 768px) {
+  .timelineActions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .timelineCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .tScheduleCard {
+    padding: 20px 16px;
+  }
+  .tCardHeader {
+    margin-bottom: 16px;
+  }
   .timelineFooterTop {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+    padding: 14px 16px;
   }
   .timelineToolsGrid {
     grid-template-columns: repeat(2, 1fr);
+    padding: 12px;
+    gap: 8px;
   }
-  .timelineCardsGrid {
-    grid-template-columns: 1fr;
+  .tToolCard {
+    padding: 12px;
   }
 }
 
@@ -16781,15 +16847,18 @@ html.isHeroGlassCursorActive .hero * {
     width: 100%;
   }
   .recognitionCardImage {
-    min-height: 300px;
+    min-height: 240px;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .recognitionCardContent {
+    padding: 28px 20px !important;
   }
 }
 @media (max-width: 600px) {
   .recognitionFooter {
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 }
 

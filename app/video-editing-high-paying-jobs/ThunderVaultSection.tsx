@@ -31,11 +31,16 @@ export default function ThunderVaultSection() {
               </div>
               
               <div className="vaultLifetimeBadge">
-                <h4>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm10 0a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-5 4s1.5-2 2-2M12 12s-1.5 2-2 2"></path></svg>
-                  LIFETIME<br/>ACCESS
-                </h4>
-                <p>LEARN TODAY.<br/>USE FOREVER.</p>
+                <div className="vaultLifetimeIcon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm10 0a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-5 4s1.5-2 2-2M12 12s-1.5 2-2 2" />
+                  </svg>
+                </div>
+                <div className="vaultLifetimeInfo">
+                  <h4>LIFETIME ACCESS</h4>
+                  <p>Learn today • Use forever</p>
+                </div>
+                <span className="vaultLifetimePill">INCLUDED</span>
               </div>
             </div>
           </div>

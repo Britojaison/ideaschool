@@ -45,9 +45,20 @@ function AttendeeItem({ attendee, index, theme }: { attendee: typeof attendeesDa
           {attendee.num}
         </div>
       )}
-      <h3 className="inline-flex px-4 py-1.5 bg-[#d2bbf4] border-2 border-black rounded-full text-black font-black uppercase mb-6 shadow-[3px_3px_0_0_#151515] w-fit" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.5rem)", color: "#000", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", letterSpacing: "1px" }}>
-        {attendee.title}
-      </h3>
+      <div className="mb-5 sm:mb-6">
+        <h3 
+          className="inline-flex items-center px-3.5 py-1.5 bg-[#d2bbf4] border-2 border-black rounded-full text-black font-black uppercase shadow-[2.5px_2.5px_0_0_#151515] whitespace-nowrap" 
+          style={{ 
+            fontSize: "clamp(11.5px, 1.1vw, 13.5px)", 
+            color: "#000", 
+            fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", 
+            letterSpacing: "0.5px",
+            lineHeight: 1
+          }}
+        >
+          {attendee.title}
+        </h3>
+      </div>
       <p style={{ fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)", color: isDark ? "rgba(255,255,255,0.7)" : "#333", lineHeight: 1.6, margin: 0, flex: 1, fontWeight: 500 }}>
         {attendee.text}
       </p>

@@ -67,7 +67,7 @@ export default function ReferralEngine() {
           <div className="rStepCard" style={{
             padding: '32px 24px',
             backgroundColor: '#111216',
-            border: '1px solid #dafd55',
+            border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: '12px',
             display: 'flex',
             flexDirection: 'column',
@@ -149,7 +149,6 @@ export default function ReferralEngine() {
           fontWeight: 800,
           textTransform: 'uppercase',
           textDecoration: 'none',
-          marginBottom: '24px',
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
@@ -157,18 +156,6 @@ export default function ReferralEngine() {
           transition: 'transform 0.2s'
         }}>
           <span>🎁</span> APPLY & GET MY REFERRAL CODE
-        </a>
-
-        <a href="#login" style={{
-          color: 'rgba(255,255,255,0.5)',
-          fontSize: '13px',
-          textDecoration: 'underline',
-          transition: 'color 0.2s'
-        }}
-        onMouseOver={(e) => e.currentTarget.style.color = '#fff'}
-        onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
-        >
-          Already applied? Find my referral code &rarr;
         </a>
 
       </div>

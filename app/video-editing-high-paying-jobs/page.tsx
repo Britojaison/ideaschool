@@ -440,7 +440,7 @@ export default function ApplyPage() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "4px", gridColumn: "1 / -1" }}>
                 <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Workshop Fee</dt>
-                <dd style={{ fontSize: "28px", fontWeight: 700, color: "#dafd55", margin: 0 }}>₹499</dd>
+                <dd style={{ fontSize: "28px", fontWeight: 700, color: "#dafd55", margin: 0 }}>₹1999</dd>
                 <dd style={{ fontSize: "13px", color: "#eab308", margin: 0, fontWeight: 500 }}>25 seats per batch &middot; 10 seats left</dd>
               </div>
             </dl>
@@ -458,7 +458,7 @@ export default function ApplyPage() {
                 height: "auto",
                 minHeight: "56px"
               }}>
-                <span className="primaryCtaText" style={{ color: "#000", transform: "none" }}>Book my seat — ₹499 &rarr;</span>
+                <span className="primaryCtaText" style={{ color: "#000", transform: "none" }}>Book my seat — ₹1999 &rarr;</span>
               </a>
               <span className="seatLimit" style={{ color: "rgba(255, 255, 255, 0.6)", fontSize: "14px" }}>Strict 25-seat limit for 1-on-1 feedback</span>
             </div>
@@ -766,7 +766,7 @@ export default function ApplyPage() {
       <div className="newStickyBar" aria-label="Workshop batch announcement">
         <div className="newStickyBarLeft">
           <span className="stickyDateLoc">19 SEP • HSR LAYOUT</span>
-          <span className="stickyPrice">₹499</span>
+          <span className="stickyPrice">₹1999</span>
           <span className="stickySeatsPill">10 SEATS LEFT</span>
         </div>
         <div className="newStickyBarRight">

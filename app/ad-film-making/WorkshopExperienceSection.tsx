@@ -76,7 +76,7 @@ export default function WorkshopExperienceSection() {
 
         <div className="workshopExperienceAction">
           <a href="#apply-form" className="reserveSeatBtn">
-            Reserve your workshop seat — ₹499 &rarr;
+            Reserve your workshop seat — ₹1999 &rarr;
           </a>
         </div>
       </div>

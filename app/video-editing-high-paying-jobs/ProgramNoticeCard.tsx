@@ -67,10 +67,10 @@ export default function ProgramNoticeCard({ paymentLink }: ProgramNoticeCardProp
             
             <div className="price" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
-                <span style={{ fontSize: '2.5rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>₹499</span>
+                <span style={{ fontSize: '2.5rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>₹1999</span>
                 <span style={{ fontSize: '0.9rem', color: '#999', fontWeight: 600 }}>(Incl. Taxes)</span>
               </div>
-              <del style={{ color: '#666', fontSize: '1.1rem', fontWeight: 600, textDecorationThickness: '2px' }}>₹1999</del>
+              <del style={{ color: '#666', fontSize: '1.1rem', fontWeight: 600, textDecorationThickness: '2px' }}>₹4999</del>
             </div>
 
             <div style={{ width: '1px', height: '100%', background: 'rgba(255,255,255,0.1)' }}></div>

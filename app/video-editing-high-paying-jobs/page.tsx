@@ -91,10 +91,34 @@ const razorpayPaymentLink =
   process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/XiQ2PDi";
 
 const instructors = [
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.webp" },
-  { name: "Elamparithi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.webp" },
-  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.webp" },
-  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.webp" },
+  {
+    name: "Dhananjayan . S",
+    role: "CEO, 88GB",
+    experience: "12+ Yrs Exp",
+    bio: "Commercial director and creative director leading multi-platform brand productions.",
+    image: "/images/mentor_ARJUN.webp",
+  },
+  {
+    name: "Elamparithi",
+    role: "Head of Design, 88GB",
+    experience: "10+ Yrs Exp",
+    bio: "Over a decade of mastery in visual storytelling, motion graphics, and design systems.",
+    image: "/images/mentor_PARIDHI.webp",
+  },
+  {
+    name: "Ajay Karthik",
+    role: "Video Editor, 88GB",
+    experience: "6+ Yrs Exp",
+    bio: "Lead post editor specialized in retention editing, rhythm, and dynamic pacing.",
+    image: "/images/mentor_AJAY.webp",
+  },
+  {
+    name: "Chandrasoodeshwar",
+    role: "Senior Creative Strategist, 88GB",
+    experience: "7+ Yrs Exp",
+    bio: "Strategist & colorist expert in viral content architecture and DaVinci color grading.",
+    image: "/images/mentor_CHANDRU.webp",
+  },
 ];
 
 const clientStories = [
@@ -529,8 +553,14 @@ export default function ApplyPage() {
                     className="instructorImage"
                   />
                 </div>
-                <p>{instructor.role}</p>
-                <h3>{instructor.name}</h3>
+                <div className="instructorMeta">
+                  <div className="instructorRoleRow">
+                    <p className="instructorRole">{instructor.role}</p>
+                    <span className="instructorExpBadge">{instructor.experience}</span>
+                  </div>
+                  <h3>{instructor.name}</h3>
+                  <p className="instructorBio">{instructor.bio}</p>
+                </div>
               </article>
             ))}
           </div>

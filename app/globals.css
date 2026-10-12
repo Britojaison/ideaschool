@@ -12966,6 +12966,10 @@ html.isHeroGlassCursorActive .hero * {
 }
 
 .workshopWorkSection .sectionPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background: linear-gradient(90deg, #dafd55, #a3f412);
   color: #000 !important;
   border: none;

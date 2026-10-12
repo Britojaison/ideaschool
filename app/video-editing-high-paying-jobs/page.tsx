@@ -570,7 +570,25 @@ export default function ApplyPage() {
       <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
         <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "flex-start" }}>
           <div className="mentorSectionIntro">
-            <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px", display: "inline-block" }}>Our Work</span>
+            <span
+              className="sectionPill"
+              style={{
+                background: "#dafd55",
+                color: "#000",
+                padding: "8px 24px",
+                borderRadius: "99px",
+                fontWeight: "bold",
+                fontSize: "14px",
+                textTransform: "uppercase",
+                marginBottom: "16px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              Our Work
+            </span>
             <h2>Watch Some Of Our Recent Projects</h2>
             <p>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>

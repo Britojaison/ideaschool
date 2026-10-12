@@ -1,5 +1,4 @@
 "use client";
-
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,6 +61,37 @@ const paths = [
     image: c4,
     href: "/ad-film-making",
     isFlagship: false,
+  },
+];
+
+const agencyAdvantages = [
+  {
+    index: "01",
+    tag: "DIRECT MENTORSHIP",
+    title: "Agency Mentorship, Not Course Instructors",
+    description: "You learn directly from senior editors and art directors who manage client deliverables and commercial campaigns daily.",
+    highlight: "Senior Editors & Art Directors",
+  },
+  {
+    index: "02",
+    tag: "LIVE STAKES",
+    title: "Real Client Exposure",
+    description: "No hypothetical case studies. Work on raw footage, strict brand guidelines, tight turnaround deadlines, and actual stakeholder feedback.",
+    highlight: "Raw Commercial Footage",
+  },
+  {
+    index: "03",
+    tag: "MARKET PROOF",
+    title: "Commercial-Grade Portfolio",
+    description: "Graduate with work you can immediately send to creative agencies, production houses, or freelance clients.",
+    highlight: "Pitch-Ready Client Work",
+  },
+  {
+    index: "04",
+    tag: "CREATIVE CADENCE",
+    title: "Fast-Paced Creative Pipeline",
+    description: "Understand the business of visuals—brief decomposition, client revisions, storytelling rhythm, and output optimization.",
+    highlight: "Brief to Delivery Pipeline",
   },
 ];
 
@@ -269,7 +299,7 @@ export default function VisualSchoolPage() {
         id: "visual-video-stack",
         trigger: containerRef.current,
         start: "top top",
-        end: isMobile ? "+=300%" : "+=380%",
+        end: isMobile ? "+=220%" : "+=270%",
         scrub: isMobile ? 0.35 : true,
         pin: true,
         invalidateOnRefresh: true,
@@ -328,21 +358,32 @@ export default function VisualSchoolPage() {
       2.6
     );
 
-    // Pause on Card 2 so user can view/read it
-    tl.to({}, { duration: 0.3 }, 3.6);
-
-    // Slide in "What is Visual School?" smoothly directly over the cards
-    tl.fromTo(visualSchoolIntroRef.current,
-      { y: "100vh" },
-      { y: "0%", duration: 1.2, ease: "power2.inOut" },
-      3.9
-    );
-
-    // Settle on Visual School Intro before pin ends
-    tl.to({}, { duration: 0.3 }, 5.1);
+    // Pause on Card 2 before pin concludes
+    tl.to({}, { duration: 0.4 }, 3.6);
 
     return () => ScrollTrigger.removeEventListener("refreshInit", updateInitialPosition);
   }, { scope: containerRef });
+
+  useGSAP(() => {
+    if (!visualSchoolIntroRef.current) return;
+
+    gsap.fromTo(
+      visualSchoolIntroRef.current.querySelectorAll(`.${styles.advantageCard}`),
+      { y: 35, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: visualSchoolIntroRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, { scope: visualSchoolIntroRef });
 
 
   useEffect(() => {
@@ -369,7 +410,7 @@ export default function VisualSchoolPage() {
     if (!whoSectionRef.current) return;
 
     gsap.to(`.${styles.page}`, {
-      backgroundColor: "#0a0a0b",
+      backgroundColor: "#0B0B0A",
       color: "#FBFAF2",
       scrollTrigger: {
         trigger: whoSectionRef.current,
@@ -443,22 +484,18 @@ export default function VisualSchoolPage() {
 
   return (
     <Shell headerOverlay>
-      <div className={styles.page}>
+      <div className={styles.page} data-header-theme="dark">
         <div className={styles.heroGrid} aria-hidden="true" />
         <div className={styles.gridColumns} aria-hidden="true" />
         <div className={styles.gridRows} aria-hidden="true" />
         <div ref={containerRef} style={{ position: "relative", overflow: "hidden" }}>
-          <section className={styles.hero} ref={heroRef}>
+          <section className={styles.hero} ref={heroRef} data-header-theme="dark">
             <div className={`${styles.heroShape} heroFadeOut`} aria-hidden="true" />
             <div className={`container ${styles.heroInner}`}>
               <div className={`${styles.heroCopy} heroFadeOut`}>
-                <p className={styles.kicker}>
-                  <TextAnimation divideBy="word">Visual School</TextAnimation>
-                </p>
                 <h1>
-                  <TextAnimation divideBy="word" delay={0.05}>Master Visual Storytelling</TextAnimation>
-                  <br />
-                  <TextAnimation divideBy="word" delay={0.2}>on Real Client Briefs.</TextAnimation>
+                  <span className={styles.headlineTop}>Master Visual Storytelling</span>{" "}
+                  <span className={styles.headlineAccent}>on Real Client Briefs.</span>
                 </h1>
                 <p className={styles.heroIntro}>
                   <TextAnimation divideBy="word" delay={0.35}>
@@ -545,56 +582,83 @@ export default function VisualSchoolPage() {
                   <Link href="/full-stack-video-editing-ai-mastery" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
-              {renderAudioButton("portfolio")}
             </div>
           </div>
+        </div>
 
-          <section
-            className={styles.visualSchoolIntro}
-            ref={visualSchoolIntroRef}
-            data-header-theme="light"
-          >
-            <div className={styles.heroGrid} aria-hidden="true" />
-            <div className={styles.gridColumns} aria-hidden="true" />
-            <div className={styles.gridRows} aria-hidden="true" />
-            <div className={`container ${styles.visualSchoolIntroInner}`}>
-              <div className={styles.visualSchoolIntroTop}>
-                <p className={styles.visualSchoolIntroEyebrow}>
-                  <TextAnimation divideBy="word">What is Visual School?</TextAnimation>
-                </p>
-                <h2 className={styles.visualSchoolIntroHeading}>
-                  <TextAnimation divideBy="word" delay={0.1}>A place to develop visual craft.</TextAnimation>
-                </h2>
+        <section
+          className={styles.visualSchoolIntro}
+          ref={visualSchoolIntroRef}
+          data-header-theme="dark"
+          aria-label="Why Visual School - The Agency-Led Advantage"
+        >
+          <div className={styles.heroGrid} aria-hidden="true" />
+          <div className={styles.gridColumns} aria-hidden="true" />
+          <div className={styles.gridRows} aria-hidden="true" />
+          <div className={`container ${styles.visualSchoolIntroInner}`}>
+            <div className={styles.visualSchoolIntroTop}>
+              <div className={styles.introEyebrowWrapper}>
+                <span className={styles.visualSchoolIntroEyebrow}>
+                  Why Visual School?
+                </span>
               </div>
+              <h2 className={styles.visualSchoolIntroHeading}>
+                <TextAnimation divideBy="word" delay={0.08}>
+                  Work on real client briefs, Not hypothetical exercises.
+                </TextAnimation>
+              </h2>
+            </div>
 
-              <div className={styles.visualSchoolIntroBottom}>
-                <p className={styles.visualSchoolIntroDesc}>
-                  <TextAnimation divideBy="word" delay={0.25}>
-                    Visual School connects story, image, sound and motion. You develop the craft, technical ability and judgment to take an idea from its first reference to the final output.
-                  </TextAnimation>
-                </p>
+            <div className={styles.advantageGrid}>
+              {agencyAdvantages.map((item, index) => {
+                const cardColorClass = [
+                  styles.cardCrimson,
+                  styles.cardCoral,
+                  styles.cardIris,
+                  styles.cardAmber,
+                ][index % 4];
 
-                <div className={styles.foundationCard}>
-                  <p className={styles.foundationTitle}>Built on the IDEA foundation</p>
-                  <div className={styles.foundationPillars}>
-                    <span className={styles.foundationPillar}>
-                      <span className={styles.pillarLetter}>I</span>ntelligence
-                    </span>
-                    <span className={styles.foundationPillar}>
-                      <span className={styles.pillarLetter}>D</span>esign
-                    </span>
-                    <span className={styles.foundationPillar}>
-                      <span className={styles.pillarLetter}>E</span>ntrepreneurship
-                    </span>
-                    <span className={styles.foundationPillar}>
-                      <span className={styles.pillarLetter}>A</span>rtistry
-                    </span>
-                  </div>
-                </div>
+                return (
+                  <article className={`${styles.advantageCard} ${cardColorClass} agencyCardItem`} key={item.index}>
+                    <div className={styles.advantageCardHeader}>
+                      <span className={styles.advantageTag}>{item.tag}</span>
+                    </div>
+
+                    <div className={styles.advantageCardBody}>
+                      <h3 className={styles.advantageCardTitle}>{item.title}</h3>
+                      <p className={styles.advantageCardDesc}>{item.description}</p>
+                    </div>
+
+                    <div className={styles.advantageCardFooter}>
+                      <span className={styles.advantagePillBadge}>
+                        <span className={styles.pillSpark} aria-hidden="true">✦</span>
+                        {item.highlight}
+                      </span>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className={styles.introBottomBar}>
+              <div className={styles.introFoundationNote}>
+                <span className={styles.foundationLabel}>Built on the IDEA Foundation</span>
+                <span className={styles.foundationPillarsMini}>
+                  <span><strong className={styles.pillarLetter}>I</strong>ntelligence</span>
+                  <span className={styles.pillarSep}>·</span>
+                  <span><strong className={styles.pillarLetter}>D</strong>esign</span>
+                  <span className={styles.pillarSep}>·</span>
+                  <span><strong className={styles.pillarLetter}>E</strong>ntrepreneurship</span>
+                  <span className={styles.pillarSep}>·</span>
+                  <span><strong className={styles.pillarLetter}>A</strong>rtistry</span>
+                </span>
+              </div>
+              <div className={styles.introPipelineCallout}>
+                <span>Senior Mentors &bull; Commercial Briefs &bull; Guaranteed Portfolios</span>
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
         <section className={styles.disciplinesSection} id="programs" ref={disciplinesSectionRef}>
           <div className={`container ${styles.disciplinesInner}`}>
@@ -692,7 +756,7 @@ export default function VisualSchoolPage() {
                   auto={3}
                   duration={1.2}
                   images={visualSchoolWorkImages}
-                  onChange={() => {}}
+                  onChange={() => { }}
                 />
               </div>
               <div className={styles.workTextPanel}>

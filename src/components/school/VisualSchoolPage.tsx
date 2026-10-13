@@ -2,7 +2,7 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Shell from "@/components/global/Shell";
 import IconMarquee from "@/components/global/IconMarquee";
@@ -15,6 +15,14 @@ import c1 from "@public/images/Gemini_Generated_Image_e3vatne3vatne3va.png";
 import c2 from "@public/images/Gemini_Generated_Image_n9gxwhn9gxwhn9gx.png";
 import c3 from "@public/images/Gemini_Generated_Image_72xeoz72xeoz72xe.png";
 import c4 from "@public/assets/images/c4.png";
+import iconHourglass from "@public/images/visualpage/icon-hourglass.png";
+import iconStar from "@public/images/visualpage/icon-star.png";
+import iconGrid from "@public/images/visualpage/icon-grid.png";
+import iconSemicircles from "@public/images/visualpage/icon-semicircles.png";
+import whyCardIcon1 from "@public/images/visualpage/why-card-icon-1.png";
+import whyCardIcon2 from "@public/images/visualpage/why-card-icon-2.png";
+import whyCardIcon3 from "@public/images/visualpage/why-card-icon-3.png";
+import whyCardIcon4 from "@public/images/visualpage/why-card-icon-4.png";
 
 
 import gsap from "gsap";
@@ -71,6 +79,7 @@ const agencyAdvantages = [
     title: "Agency Mentorship, Not Course Instructors",
     description: "You learn directly from senior editors and art directors who manage client deliverables and commercial campaigns daily.",
     highlight: "Senior Editors & Art Directors",
+    icon: whyCardIcon1,
   },
   {
     index: "02",
@@ -78,6 +87,7 @@ const agencyAdvantages = [
     title: "Real Client Exposure",
     description: "No hypothetical case studies. Work on raw footage, strict brand guidelines, tight turnaround deadlines, and actual stakeholder feedback.",
     highlight: "Raw Commercial Footage",
+    icon: whyCardIcon2,
   },
   {
     index: "03",
@@ -85,6 +95,7 @@ const agencyAdvantages = [
     title: "Commercial-Grade Portfolio",
     description: "Graduate with work you can immediately send to creative agencies, production houses, or freelance clients.",
     highlight: "Pitch-Ready Client Work",
+    icon: whyCardIcon3,
   },
   {
     index: "04",
@@ -92,6 +103,7 @@ const agencyAdvantages = [
     title: "Fast-Paced Creative Pipeline",
     description: "Understand the business of visuals—brief decomposition, client revisions, storytelling rhythm, and output optimization.",
     highlight: "Brief to Delivery Pipeline",
+    icon: whyCardIcon4,
   },
 ];
 
@@ -117,6 +129,57 @@ const disciplines = [
     index: "04",
     title: "Creative AI",
     copy: "Explore new production possibilities while keeping human direction at the centre.",
+  },
+];
+
+const whoIsItFor = [
+  {
+    id: "track-1",
+    title: "VISUAL EDITING FOUNDATIONS",
+    topics: [
+      "Premiere Pro & Timeline Mastery",
+      "Short-Form Retention & Cutting Rhythm",
+      "Raw Commercial Rushes & First Portfolio Reel",
+      "Direct Agency Mentorship & Timeline Reviews",
+    ],
+    image: "/images/whoStudents & Career Switchers.webp",
+    bgColor: "#552ead",
+    textColor: "#ffffff",
+    secondaryTextColor: "rgba(255, 255, 255, 0.9)",
+    accentColor: "#d9fa2f",
+    sharpShadowColor: "#d9fa2f",
+  },
+  {
+    id: "track-2",
+    title: "COMMERCIAL RHYTHM & SOUND",
+    topics: [
+      "Advanced Story Rhythm & Pacing Optimization",
+      "Colour Grading & Commercial Sound Design",
+      "Deconstructing Brand Briefs & Director Feedback",
+      "Fast-Turnaround Agency Pipeline Integration",
+    ],
+    image: "/images/whoContent Creators.webp",
+    bgColor: "#efeeea",
+    textColor: "#0a0a0c",
+    secondaryTextColor: "rgba(10, 10, 12, 0.85)",
+    accentColor: "#0a0a0c",
+    sharpShadowColor: "#cd0c41",
+  },
+  {
+    id: "track-3",
+    title: "CREATING FOR YOUR OWN WORK",
+    topics: [
+      "End-to-End Campaign Direction & Creative Control",
+      "Creative AI Toolchains for High-Velocity Output",
+      "Direct-Response Visuals & Brand Storytelling",
+      "Full Commercial Master Delivery from Concept to Screen",
+    ],
+    image: "/images/whoEntrepreneurs & Brand Owners.webp",
+    bgColor: "#cd0c41",
+    textColor: "#ffffff",
+    secondaryTextColor: "rgba(255, 255, 255, 0.9)",
+    accentColor: "#ffb621",
+    sharpShadowColor: "#ffb621",
   },
 ];
 
@@ -193,6 +256,7 @@ export default function VisualSchoolPage() {
   const leftQuoteRef = useRef<HTMLDivElement>(null);
   const rightQuoteRef = useRef<HTMLDivElement>(null);
   const whoSectionRef = useRef<HTMLElement>(null);
+  const whoCardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const workSectionRef = useRef<HTMLElement>(null);
   const practitionersSectionRef = useRef<HTMLElement>(null);
   const faqSectionRef = useRef<HTMLElement>(null);
@@ -420,26 +484,36 @@ export default function VisualSchoolPage() {
       }
     });
 
-    // Staggered card entrance animation
-    const cards = whoSectionRef.current.querySelectorAll(`.${styles.whoCard}`);
-    cards.forEach((card, i) => {
-      gsap.fromTo(card,
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: whoSectionRef.current,
-            start: "top 70%",
-            toggleActions: "play none none reverse",
+    // Stacking card animation using ScrollTrigger
+    const cards = whoCardsRef.current.filter(Boolean) as HTMLDivElement[];
+    if (cards.length === 0) return;
+
+    cards.forEach((card, index) => {
+      const topOffset = 110;
+      card.style.top = `${topOffset}px`;
+
+      if (index < cards.length - 1) {
+        const nextCard = cards[index + 1];
+
+        ScrollTrigger.create({
+          trigger: nextCard,
+          start: `top ${topOffset + 80}px`,
+          end: "bottom top",
+          scrub: true,
+          onUpdate: (self) => {
+            const scale = 1 - self.progress * 0.05;
+            const brightness = 1 - self.progress * 0.35;
+            gsap.to(card, {
+              scale,
+              filter: `brightness(${brightness})`,
+              duration: 0.1,
+              overwrite: "auto",
+            });
           },
-          delay: i * 0.15,
-        }
-      );
+        });
+      }
     });
-  });
+  }, { scope: whoSectionRef });
 
   useGSAP(() => {
     if (!workSectionRef.current) return;
@@ -589,7 +663,7 @@ export default function VisualSchoolPage() {
         <section
           className={styles.visualSchoolIntro}
           ref={visualSchoolIntroRef}
-          data-header-theme="dark"
+          data-header-theme="light"
           aria-label="Why Visual School - The Agency-Led Advantage"
         >
           <div className={styles.heroGrid} aria-hidden="true" />
@@ -611,12 +685,8 @@ export default function VisualSchoolPage() {
 
             <div className={styles.advantageGrid}>
               {agencyAdvantages.map((item, index) => {
-                const cardColorClass = [
-                  styles.cardCrimson,
-                  styles.cardCoral,
-                  styles.cardIris,
-                  styles.cardAmber,
-                ][index % 4];
+                const cardColorClass =
+                  index % 2 === 0 ? styles.cardPurple : styles.cardBlack;
 
                 return (
                   <article className={`${styles.advantageCard} ${cardColorClass} agencyCardItem`} key={item.index}>
@@ -634,6 +704,17 @@ export default function VisualSchoolPage() {
                         <span className={styles.pillSpark} aria-hidden="true">✦</span>
                         {item.highlight}
                       </span>
+                      {item.icon && (
+                        <div className={styles.advantageBrandIconWrap}>
+                          <Image
+                            src={item.icon}
+                            alt={`${item.title} icon`}
+                            width={40}
+                            height={40}
+                            className={styles.advantageBrandIcon}
+                          />
+                        </div>
+                      )}
                     </div>
                   </article>
                 );
@@ -662,25 +743,77 @@ export default function VisualSchoolPage() {
 
         <section className={styles.disciplinesSection} id="programs" ref={disciplinesSectionRef}>
           <div className={`container ${styles.disciplinesInner}`}>
-            <div className={styles.disciplinesHeader}>
-              <div>
-                <p className={styles.sectionEyebrow}>
-                  <TextAnimation divideBy="word">The Visual Disciplines</TextAnimation>
-                </p>
-                <h2>
-                  <TextAnimation divideBy="word" delay={0.1}>Story can take more than one form.</TextAnimation>
-                </h2>
+            <p className={styles.sectionEyebrow}>
+              <TextAnimation divideBy="word">The Visual Disciplines</TextAnimation>
+            </p>
+
+            <div className={styles.disciplinesLockup}>
+              <h2 className={styles.disciplinesHeadline}>
+                <span className={styles.lockupLine}>
+                  <span className={styles.disciplineWord}>Editing</span>
+                  <span className={styles.shapeWrapper} aria-hidden="true">
+                    <Image
+                      src={iconHourglass}
+                      alt="IdeaSchool icon"
+                      className={styles.brandIcon}
+                      width={120}
+                      height={120}
+                    />
+                  </span>
+                  <span className={styles.disciplineWord}>Filmmaking</span>
+                  <span className={styles.shapeWrapper} aria-hidden="true">
+                    <Image
+                      src={iconStar}
+                      alt="IdeaSchool icon"
+                      className={styles.brandIcon}
+                      width={120}
+                      height={120}
+                    />
+                  </span>
+                  <span className={styles.disciplineWord}>Motion &amp; Design</span>
+                  <span className={styles.shapeWrapper} aria-hidden="true">
+                    <Image
+                      src={iconGrid}
+                      alt="IdeaSchool icon"
+                      className={styles.brandIcon}
+                      width={120}
+                      height={120}
+                    />
+                  </span>
+                  <span className={styles.disciplineWord}>Creative AI.</span>
+                </span>
+
+                <span className={styles.lockupLine}>
+                  <span>Many forms of story.</span>
+                  <span className={styles.shapeWrapper} aria-hidden="true">
+                    <Image
+                      src={iconSemicircles}
+                      alt="IdeaSchool icon"
+                      className={styles.brandIcon}
+                      width={120}
+                      height={120}
+                    />
+                  </span>
+                </span>
+              </h2>
+
+              <div className={styles.disciplinesCtaRow}>
+                <button
+                  type="button"
+                  className={styles.zonePillBtn}
+                  onClick={() => window.dispatchEvent(new Event("open-home-form"))}
+                >
+                  Explore Programs
+                </button>
+                <button
+                  type="button"
+                  className={styles.zoneArrowBtn}
+                  aria-label="Explore Programs"
+                  onClick={() => window.dispatchEvent(new Event("open-home-form"))}
+                >
+                  <ArrowRight size={20} strokeWidth={2.4} />
+                </button>
               </div>
-            </div>
-            <div className={styles.disciplineGrid}>
-              {disciplines.map((discipline) => (
-                <article className={styles.disciplineCard} key={discipline.index}>
-                  <div>
-                    <h3>{discipline.title}</h3>
-                    <p>{discipline.copy}</p>
-                  </div>
-                </article>
-              ))}
             </div>
           </div>
         </section>
@@ -695,28 +828,98 @@ export default function VisualSchoolPage() {
 
           <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div className={styles.whoHeader}>
-              <p className={styles.sectionEyebrow}>
-                <TextAnimation divideBy="word">Who Visual School Is For</TextAnimation>
-              </p>
-              <h2>
-                <TextAnimation divideBy="word" delay={0.1}>Different starting points. One shared interest in visual work.</TextAnimation>
+              <div className={styles.whoEyebrowWrapper}>
+                <span className={styles.whoEyebrow}>WHO VISUAL SCHOOL IS FOR</span>
+              </div>
+              <h2 className={styles.whoHeading}>
+                <span className={styles.whoHeadingWhite}>DIFFERENT STARTING POINTS.</span>{" "}
+                <span className={styles.whoHeadingGradient}>ONE SHARED CRAFT.</span>
               </h2>
             </div>
 
-            <div className={styles.whoGrid}>
-              <div className={styles.whoCard}>
-                <h3>Starting out</h3>
-                <p>You want structure, guidance and a practical introduction to visual work.</p>
-              </div>
+            <div className={styles.whoCardsStackWrapper}>
+              {whoIsItFor.map((item, i) => (
+                <div
+                  key={item.id}
+                  ref={(el) => {
+                    whoCardsRef.current[i] = el;
+                  }}
+                  className={styles.whoStackCard}
+                  style={{
+                    backgroundColor: item.bgColor,
+                    color: item.textColor,
+                    boxShadow: `-12px 14px 0px 0px ${item.sharpShadowColor}`,
+                    border: "none",
+                  }}
+                >
+                  {/* Left Content */}
+                  <div className={styles.whoCardContent}>
+                    <h3
+                      className={styles.whoModuleTitle}
+                      style={{ color: item.textColor }}
+                    >
+                      {item.title}
+                    </h3>
 
-              <div className={styles.whoCard}>
-                <h3>Building on experience</h3>
-                <p>You already work with visuals and want to broaden your craft or improve your process.</p>
-              </div>
+                    {/* Topics Bullet List with checkmarks */}
+                    <ul className={styles.whoTopicList}>
+                      {item.topics.map((topic, tIdx) => (
+                        <li key={tIdx} className={styles.whoTopicItem}>
+                          <span
+                            className={styles.whoCheckIconWrap}
+                            style={{ color: item.accentColor }}
+                            aria-hidden="true"
+                          >
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.707 7.707a1 1 0 00-1.414-1.414L10 13.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l6-6z"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            className={styles.whoTopicText}
+                            style={{ color: item.secondaryTextColor }}
+                          >
+                            {topic}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-              <div className={styles.whoCard}>
-                <h3>Creating for your own work</h3>
-                <p>You are a creator, freelancer or team member who wants stronger production skills.</p>
+                  {/* Right Media Preview */}
+                  <div className={styles.whoCardMedia}>
+                    <div className={styles.whoImageWrapper}>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 550px"
+                        className={styles.whoModuleImage}
+                      />
+                      <div className={styles.whoImageOverlay} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.whoBottomStrip}>
+              <div className={styles.whoPillarsGroup}>
+                <span className={styles.whoPillarItem}>Senior Mentors</span>
+                <span className={styles.whoPillarSep}>·</span>
+                <span className={styles.whoPillarItem}>Raw Commercial Footage</span>
+                <span className={styles.whoPillarSep}>·</span>
+                <span className={styles.whoPillarItem}>Iterative Creative Reviews</span>
+                <span className={styles.whoPillarSep}>·</span>
+                <span className={styles.whoPillarItem}>No Academic Fluff</span>
               </div>
             </div>
           </div>

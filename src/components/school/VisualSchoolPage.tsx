@@ -635,7 +635,7 @@ export default function VisualSchoolPage() {
             {/* Stacked Video 1 */}
             <div className={styles.stackedVideo} ref={stackedVideo1Ref}>
               <video ref={stackedVideo1ElRef} autoPlay muted loop playsInline disablePictureInPicture>
-                <source src="/assets/videos/zaman_case_study.mp4" type="video/mp4" />
+                <source src="/images/visualpage/SC_Chandra - Idea School_sept 16.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
                 <p className={styles.overlayLabel}>COMPLETE COURSE CURRICULUM</p>
@@ -650,7 +650,7 @@ export default function VisualSchoolPage() {
             {/* Stacked Video 2 */}
             <div className={styles.stackedVideo} ref={stackedVideo2Ref}>
               <video ref={stackedVideo2ElRef} autoPlay muted loop playsInline disablePictureInPicture>
-                <source src="/assets/videos/luis_reel.mp4" type="video/mp4" />
+                <source src="/images/visualpage/v2 -AK  - Idea School_sept 16_3.mp4" type="video/mp4" />
               </video>
               <div className={styles.overlayContent}>
                 <p className={styles.overlayLabel}>CAREER-READY OUTCOMES</p>
@@ -659,6 +659,7 @@ export default function VisualSchoolPage() {
                   <Link href="/full-stack-video-editing-ai-mastery" className={styles.btnPrimary}>Explore Full Course</Link>
                 </div>
               </div>
+              {renderAudioButton("portfolio")}
             </div>
           </div>
         </div>

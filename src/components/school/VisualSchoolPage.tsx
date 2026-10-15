@@ -84,7 +84,7 @@ const agencyAdvantages = [
   {
     index: "02",
     tag: "LIVE STAKES",
-    title: "Real Client Exposure",
+    title: "Real Client\nExposure",
     description: "No hypothetical case studies. Work on raw footage, strict brand guidelines, tight turnaround deadlines, and actual stakeholder feedback.",
     highlight: "Raw Commercial Footage",
     icon: whyCardIcon2,
@@ -143,6 +143,7 @@ const whoIsItFor = [
       "Direct Agency Mentorship & Timeline Reviews",
     ],
     image: "/images/whoStudents & Career Switchers.webp",
+    imagePosition: "center 15%",
     bgColor: "#552ead",
     textColor: "#ffffff",
     secondaryTextColor: "rgba(255, 255, 255, 0.9)",
@@ -159,6 +160,7 @@ const whoIsItFor = [
       "Fast-Turnaround Agency Pipeline Integration",
     ],
     image: "/images/whoContent Creators.webp",
+    imagePosition: "center 10%",
     bgColor: "#efeeea",
     textColor: "#0a0a0c",
     secondaryTextColor: "rgba(10, 10, 12, 0.85)",
@@ -175,6 +177,7 @@ const whoIsItFor = [
       "Full Commercial Master Delivery from Concept to Screen",
     ],
     image: "/images/whoEntrepreneurs & Brand Owners.webp",
+    imagePosition: "center 5%",
     bgColor: "#cd0c41",
     textColor: "#ffffff",
     secondaryTextColor: "rgba(255, 255, 255, 0.9)",
@@ -702,14 +705,13 @@ export default function VisualSchoolPage() {
 
                     <div className={styles.advantageCardFooter}>
                       <span className={styles.advantagePillBadge}>
-                        <span className={styles.pillSpark} aria-hidden="true">✦</span>
                         {item.highlight}
                       </span>
                       {item.icon && (
                         <div className={styles.advantageBrandIconWrap}>
                           <Image
                             src={item.icon}
-                            alt={`${item.title} icon`}
+                            alt={`${item.tag} icon`}
                             width={40}
                             height={40}
                             className={styles.advantageBrandIcon}
@@ -902,18 +904,19 @@ export default function VisualSchoolPage() {
                   </div>
 
                   {/* Right Media Preview */}
-                  <div className={styles.whoCardMedia}>
-                    <div className={styles.whoImageWrapper}>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 900px) 100vw, 550px"
-                        className={styles.whoModuleImage}
-                      />
-                      <div className={styles.whoImageOverlay} />
+                    <div className={styles.whoCardMedia}>
+                      <div className={styles.whoImageWrapper}>
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 900px) 100vw, 550px"
+                          className={styles.whoModuleImage}
+                          style={{ objectPosition: item.imagePosition || "center top" }}
+                        />
+                        <div className={styles.whoImageOverlay} />
+                      </div>
                     </div>
-                  </div>
                 </div>
               ))}
             </div>
@@ -1036,23 +1039,31 @@ export default function VisualSchoolPage() {
             </div>
 
             <div className={styles.practitionersGrid}>
-              {practitioners.map((person) => (
-                <div className={styles.practitionerCard} key={person.name}>
-                  <div className={styles.practitionerImageWrapper}>
-                    <Image
-                      src={person.image}
-                      alt={person.name}
-                      fill
-                      className={styles.practitionerImage}
-                      sizes="(max-width: 800px) 260px, (max-width: 1024px) 50vw, 25vw"
-                    />
+              {practitioners.map((person, index) => {
+                const cardColorClass =
+                  index % 2 === 0 ? styles.practitionerPurple : styles.practitionerBlack;
+
+                return (
+                  <div
+                    className={`${styles.practitionerCard} ${cardColorClass}`}
+                    key={person.name}
+                  >
+                    <div className={styles.practitionerImageWrapper}>
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        fill
+                        className={styles.practitionerImage}
+                        sizes="(max-width: 800px) 260px, (max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
+                    <div className={styles.practitionerMeta}>
+                      <h3>{person.name}</h3>
+                      <p>{person.role}</p>
+                    </div>
                   </div>
-                  <div className={styles.practitionerMeta}>
-                    <h3>{person.name}</h3>
-                    <p>{person.role}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

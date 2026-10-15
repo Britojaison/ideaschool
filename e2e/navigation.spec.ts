@@ -10,7 +10,7 @@ async function dismissApplicationFormIfOpen(page: Page) {
 
 const activeRoutes = [
   { path: "/", heading: /skills become your superpower/i },
-  { path: "/visual-school", heading: /visual stories that/i },
+  { path: "/visual-school", heading: /master visual storytelling/i },
   { path: "/full-stack-video-editing-ai-mastery", heading: /editing is just the start/i },
   { path: "/industry-experience-program", heading: /don't just learn video editing/i },
   { path: "/master-video-editing", heading: /master high-paying video editing/i },

@@ -41,7 +41,7 @@ export default function AnnouncementCard() {
   if (!isVisible || isHiddenByScroll) return null;
 
   return (
-    <aside className={styles.wrapper} aria-label="Master Video Editing workshop advertisement">
+    <aside className={styles.wrapper} aria-label="Full Stack Video Editing announcement">
       <div className={styles.card}>
         <button
           className={styles.close}
@@ -56,7 +56,7 @@ export default function AnnouncementCard() {
           <Image
             className={styles.artImage}
             src="/images/DSC00298.webp"
-            alt="Master the craft of video editing"
+            alt="Full Stack Video Editing"
             fill
             sizes="(max-width: 900px) 230px, 300px"
             priority

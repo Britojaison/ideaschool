@@ -609,20 +609,53 @@
   gap: 8px 12px;
 }
 
-.visualSchoolIntroEyebrow {
-  margin: 0;
+/* --- Uniform Section Title Label Design --- */
+.sectionLabelBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 6px 14px;
-  color: #552ead;
-  background: rgba(85, 46, 173, 0.08);
-  border: 1px solid rgba(85, 46, 173, 0.25);
   border-radius: 9999px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(10, 10, 12, 0.05);
+  border: 1px solid rgba(10, 10, 12, 0.14);
+  color: #0A0A0C;
   font-family: var(--font-stara), "Stara", sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
+  margin-bottom: clamp(14px, 1.8vh, 20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: fit-content;
+  line-height: 1;
+}
+
+.sectionLabelBadgeDark {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #F8F8F5;
+}
+
+.sectionLabelSpark {
+  color: #552EAD;
+  font-size: 11px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.sectionLabelBadgeDark .sectionLabelSpark {
+  color: #d9fa2f;
+}
+
+.disciplinesEyebrowWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.visualSchoolIntroEyebrow {
+  composes: sectionLabelBadge;
 }
 
 .visualSchoolIntroHeading {
@@ -1808,11 +1841,14 @@
   color: #FBFAF2;
 }
 
-.cta span {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-transform: uppercase;
+.cta :global(.container) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta .sectionLabelBadge {
+  margin: 0 auto clamp(20px, 3vh, 32px);
 }
 
 .cta h2 {
@@ -3162,15 +3198,27 @@
   min-width: min(100%, 600px);
 }
 
-.workEyebrow {
-  display: block;
-  font-family: var(--font-stara), "Stara", Arial, sans-serif;
-  font-size: 13.5px;
+.workPillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(10, 10, 12, 0.05);
+  border: 1px solid rgba(10, 10, 12, 0.15);
+  color: #0A0A0C;
+  font-family: var(--font-stara), "Stara", sans-serif;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: #71717A;
-  margin-bottom: 20px;
+  margin-bottom: clamp(14px, 1.8vh, 20px);
+}
+
+.workBadgeSpark {
+  color: #552EAD;
+  font-size: 13px;
+  line-height: 1;
 }
 
 .workHeader h2 {
@@ -3201,9 +3249,187 @@
 .workContentWrapper {
   position: relative;
   width: 100%;
-  border-radius: 14px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border: 2px solid #000000;
+  box-shadow: -8px 8px 0px 0px #000000;
+  background: #0B0B0A;
+}
+
+/* Production Monitor HUD Overlay */
+.monitorHudOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(16px, 2.2vw, 24px);
+}
+
+.monitorTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.monitorRecGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 10, 12, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.monitorRecDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FF2E4D;
+  box-shadow: 0 0 8px #FF2E4D;
+  animation: recDotBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes recDotBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+}
+
+.monitorRecText {
+  color: #FFFFFF;
+  font-family: var(--font-stara), monospace, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.monitorFpsBadge,
+.monitorResBadge {
+  color: #d9fa2f;
+  font-family: var(--font-stara), monospace, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(217, 250, 47, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(217, 250, 47, 0.25);
+}
+
+.monitorMetaGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(10, 10, 12, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.monitorTimecode {
+  color: #FFFFFF;
+  font-family: monospace, var(--font-stara), sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.monitorFeedTag {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-stara), sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 4 Camera Corner Crop Marks */
+.cornerCrop {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(255, 255, 255, 0.45);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.cornerTopLeft {
+  top: 18px;
+  left: 18px;
+  border-width: 2px 0 0 2px;
+}
+
+.cornerTopRight {
+  top: 18px;
+  right: 18px;
+  border-width: 2px 2px 0 0;
+}
+
+.cornerBottomLeft {
+  bottom: 18px;
+  left: 18px;
+  border-width: 0 0 2px 2px;
+}
+
+.cornerBottomRight {
+  bottom: 18px;
+  right: 18px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Center Camera Reticle */
+.centerReticle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.32;
+}
+
+.reticleCross {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.reticleCross::before,
+.reticleCross::after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+}
+
+.reticleCross::before {
+  top: 8px;
+  left: 0;
+  width: 18px;
+  height: 2px;
+}
+
+.reticleCross::after {
+  top: 0;
+  left: 8px;
+  width: 2px;
+  height: 18px;
 }
 
 .workImageWrapper {
@@ -3219,31 +3445,37 @@
   height: 100%;
 }
 
+.workImageWrapper :global(.cs_progress) {
+  display: none !important;
+}
+
 .workTextPanel {
   position: absolute;
-  bottom: 40px;
-  right: 40px;
-  width: 440px;
-  max-width: calc(100% - 80px);
-  background: rgba(20, 20, 22, 0.45);
+  bottom: 32px;
+  right: 32px;
+  width: 420px;
+  max-width: calc(100% - 64px);
+  background: rgba(14, 14, 18, 0.72);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  padding: 38px 36px;
+  padding: 34px 32px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
 .workPanelSubtitle {
-  display: block;
-  color: #CCFF00;
-  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #d9fa2f;
+  font-family: var(--font-stara), sans-serif;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .workPanelTitle {
@@ -3252,14 +3484,14 @@
   line-height: 1.02;
   letter-spacing: 0.015em;
   text-transform: uppercase;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
   color: #FFFFFF;
   font-weight: 400;
 }
 
 .workPanelDesc {
-  font-family: var(--font-helvetica), "Helvetica Now Display", Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-stara), Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.82);
   font-size: clamp(13px, 0.95vw, 15px);
   line-height: 1.5;
   margin: 0;
@@ -3286,6 +3518,29 @@
     max-width: 100%;
     padding-bottom: 0;
   }
+
+  .workContentWrapper {
+    border-radius: 16px;
+    box-shadow: -5px 5px 0px 0px #000000;
+  }
+
+  .monitorHudOverlay {
+    padding: 12px;
+  }
+
+  .monitorMetaGroup {
+    display: none;
+  }
+
+  .cornerCrop {
+    width: 14px;
+    height: 14px;
+  }
+
+  .cornerTopLeft { top: 12px; left: 12px; }
+  .cornerTopRight { top: 12px; right: 12px; }
+  .cornerBottomLeft { bottom: 12px; left: 12px; }
+  .cornerBottomRight { bottom: 12px; right: 12px; }
 
   .workImageWrapper {
     aspect-ratio: 4 / 5;
@@ -3485,6 +3740,9 @@
 
 .faqHeader {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 60px;
 }
 

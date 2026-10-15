@@ -188,7 +188,7 @@ const visualSchoolWorkImages = [
     src: "/images/DSC00024.webp",
     alt: "Students working in editing lab",
     title: "Edit",
-    label: "Lab 01",
+    // label: "Lab 01",
   },
   {
     src: "/images/DSC00033.webp",
@@ -200,13 +200,13 @@ const visualSchoolWorkImages = [
     src: "/images/gallery10.webp",
     alt: "Classroom studio production",
     title: "Shoot",
-    label: "Lab 03",
+    // label: "Lab 03",
   },
   {
     src: "/images/DSC00057.webp",
     alt: "Visual School workshop and mentoring",
     title: "Process",
-    label: "Lab 04",
+    // label: "Lab 04",
   },
 ];
 
@@ -671,11 +671,12 @@ export default function VisualSchoolPage() {
           <div className={styles.gridRows} aria-hidden="true" />
           <div className={`container ${styles.visualSchoolIntroInner}`}>
             <div className={styles.visualSchoolIntroTop}>
-              <div className={styles.introEyebrowWrapper}>
-                <span className={styles.visualSchoolIntroEyebrow}>
-                  Why Visual School?
+              {/* <div className={styles.introEyebrowWrapper}>
+                <span className={styles.sectionLabelBadge}>
+                  <span className={styles.sectionLabelSpark} aria-hidden="true">✦</span>
+                  WHY VISUAL SCHOOL?
                 </span>
-              </div>
+              </div> */}
               <h2 className={styles.visualSchoolIntroHeading}>
                 <TextAnimation divideBy="word" delay={0.08}>
                   Work on real client briefs, Not hypothetical exercises.
@@ -743,9 +744,12 @@ export default function VisualSchoolPage() {
 
         <section className={styles.disciplinesSection} id="programs" ref={disciplinesSectionRef}>
           <div className={`container ${styles.disciplinesInner}`}>
-            <p className={styles.sectionEyebrow}>
-              <TextAnimation divideBy="word">The Visual Disciplines</TextAnimation>
-            </p>
+            {/* <div className={styles.disciplinesEyebrowWrapper}>
+              <span className={styles.sectionLabelBadge}>
+                <span className={styles.sectionLabelSpark} aria-hidden="true">✦</span>
+                THE VISUAL DISCIPLINES
+              </span>
+            </div> */}
 
             <div className={styles.disciplinesLockup}>
               <h2 className={styles.disciplinesHeadline}>
@@ -828,9 +832,12 @@ export default function VisualSchoolPage() {
 
           <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div className={styles.whoHeader}>
-              <div className={styles.whoEyebrowWrapper}>
-                <span className={styles.whoEyebrow}>WHO VISUAL SCHOOL IS FOR</span>
-              </div>
+              {/* <div className={styles.whoEyebrowWrapper}>
+                <span className={`${styles.sectionLabelBadge} ${styles.sectionLabelBadgeDark}`}>
+                  <span className={styles.sectionLabelSpark} aria-hidden="true">✦</span>
+                  WHO VISUAL SCHOOL IS FOR
+                </span>
+              </div> */}
               <h2 className={styles.whoHeading}>
                 <span className={styles.whoHeadingWhite}>DIFFERENT STARTING POINTS.</span>{" "}
                 <span className={styles.whoHeadingGradient}>ONE SHARED CRAFT.</span>
@@ -935,9 +942,10 @@ export default function VisualSchoolPage() {
           <div className="container" style={{ position: "relative", zIndex: 10 }}>
             <div className={styles.workHeader}>
               <div className={styles.workTitleCol}>
-                <span className={styles.workEyebrow}>
-                  <TextAnimation divideBy="word">WORK FROM VISUAL SCHOOL</TextAnimation>
-                </span>
+                {/* <span className={styles.sectionLabelBadge}>
+                  <span className={styles.sectionLabelSpark} aria-hidden="true">✦</span>
+                  WORK FROM VISUAL SCHOOL
+                </span> */}
                 <h2>
                   <TextAnimation divideBy="word" delay={0.1}>See the process in</TextAnimation>
                   <br />
@@ -954,6 +962,33 @@ export default function VisualSchoolPage() {
             </div>
 
             <div className={styles.workContentWrapper}>
+              {/* Production Monitor HUD Frame Overlay */}
+              <div className={styles.monitorHudOverlay} aria-hidden="true">
+                <div className={styles.monitorTopBar}>
+                  <div className={styles.monitorRecGroup}>
+                    <span className={styles.monitorRecDot} />
+                    <span className={styles.monitorRecText}>REC</span>
+                    <span className={styles.monitorFpsBadge}>24 FPS</span>
+                    <span className={styles.monitorResBadge}>4K UHD</span>
+                  </div>
+                  <div className={styles.monitorMetaGroup}>
+                    <span className={styles.monitorTimecode}>TC 00:04:18:12</span>
+                    <span className={styles.monitorFeedTag}>LIVE STUDIO FEED</span>
+                  </div>
+                </div>
+
+                {/* Camera Viewfinder Crop Marks */}
+                <span className={`${styles.cornerCrop} ${styles.cornerTopLeft}`} />
+                <span className={`${styles.cornerCrop} ${styles.cornerTopRight}`} />
+                <span className={`${styles.cornerCrop} ${styles.cornerBottomLeft}`} />
+                <span className={`${styles.cornerCrop} ${styles.cornerBottomRight}`} />
+
+                {/* Viewfinder Center Reticle */}
+                <div className={styles.centerReticle}>
+                  <span className={styles.reticleCross} />
+                </div>
+              </div>
+
               <div className={styles.workImageWrapper}>
                 <CurtainSlider
                   auto={3}
@@ -962,7 +997,7 @@ export default function VisualSchoolPage() {
                   onChange={() => { }}
                 />
               </div>
-              <div className={styles.workTextPanel}>
+              {/* <div className={styles.workTextPanel}>
                 <span className={styles.workPanelSubtitle}>STUDENT WORK</span>
                 <h3 className={styles.workPanelTitle}>
                   EVERY PROJECT<br />STARTS WITH<br />A DIRECTION.
@@ -970,7 +1005,7 @@ export default function VisualSchoolPage() {
                 <p className={styles.workPanelDesc}>
                   The work improves through practice, feedback and revision.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -985,7 +1020,10 @@ export default function VisualSchoolPage() {
           <div className="container" style={{ position: "relative", zIndex: 10 }}>
             <div className={styles.practitionersHeader}>
               <div className={styles.practitionersTitleCol}>
-                <span className={styles.practitionersEyebrow}>PEOPLE YOU LEARN WITH</span>
+                {/* <span className={styles.sectionLabelBadge}>
+                  <span className={styles.sectionLabelSpark} aria-hidden="true">✦</span>
+                  PEOPLE YOU LEARN WITH
+                </span> */}
                 <h2>
                   Practitioners in<br />the room.
                 </h2>
@@ -1028,6 +1066,10 @@ export default function VisualSchoolPage() {
 
           <div className="container" style={{ position: 'relative', zIndex: 10 }}>
             <div className={styles.faqHeader}>
+              {/* <span className={`${styles.sectionLabelBadge} ${styles.sectionLabelBadgeDark}`}>
+                <span className={styles.sectionLabelSpark} aria-hidden="true">✦</span>
+                COMMON QUESTIONS
+              </span> */}
               <h2>Frequently Asked Questions</h2>
             </div>
 
@@ -1079,9 +1121,10 @@ export default function VisualSchoolPage() {
 
         <section className={styles.cta}>
           <div className="container">
-            <span>
-              <TextAnimation divideBy="word">Applications are open</TextAnimation>
-            </span>
+            {/* <span className={`${styles.sectionLabelBadge} ${styles.sectionLabelBadgeDark}`}>
+              <span className={styles.sectionLabelSpark} aria-hidden="true">✦</span>
+              APPLICATIONS OPEN
+            </span> */}
             <h2>
               <TextAnimation divideBy="word" delay={0.1}>Your best work</TextAnimation>
               <br />

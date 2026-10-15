@@ -132,8 +132,26 @@
     width: 100%;
 }
 
-.inputGroup, .selectGroup {
+.inputGroup {
     width: 100%;
+}
+
+.selectGroup {
+    position: relative;
+    width: 100%;
+}
+
+.selectGroup::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid #737373;
+    border-bottom: 2px solid #737373;
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
 }
 
 .inputGroup input,
@@ -157,6 +175,7 @@
     appearance: none;
     cursor: pointer;
     color: #a3a3a3;
+    padding-right: 32px;
 }
 
 .selectGroup select:focus,

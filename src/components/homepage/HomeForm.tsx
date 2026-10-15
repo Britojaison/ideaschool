@@ -20,6 +20,7 @@ export default function HomeForm() {
     email: '',
     phone: '',
     program: 'Full Stack Video Editing Program',
+    classPreference: '',
     age: '',
     gender: '',
     location: ''
@@ -86,7 +87,7 @@ export default function HomeForm() {
       }
       
       setStatus('success');
-      setFormData({ name: '', email: '', phone: '', program: 'Full Stack Video Editing Program', age: '', gender: '', location: '' });
+      setFormData({ name: '', email: '', phone: '', program: 'Full Stack Video Editing Program', classPreference: '', age: '', gender: '', location: '' });
     } catch (error: unknown) {
       console.error("Form submission error:", error);
       setStatus('error');
@@ -213,6 +214,21 @@ export default function HomeForm() {
                   onChange={e => setFormData({...formData, location: e.target.value})}
                   disabled={status === 'loading'}
                 />
+              </div>
+
+              <div className={styles.selectGroup}>
+                <select 
+                  id="classPreference" 
+                  value={formData.classPreference} 
+                  onChange={e => setFormData({...formData, classPreference: e.target.value})}
+                  disabled={status === 'loading'}
+                  required
+                  style={{ color: formData.classPreference ? '#0a0a0c' : '#a3a3a3' }}
+                >
+                  <option value="" disabled hidden>Class Preference (Online / Offline) *</option>
+                  <option value="Offline Class (Bangalore Studio)" style={{ color: '#0a0a0c' }}>Offline Class (Bangalore Studio)</option>
+                  <option value="Online Class (Live Interactive)" style={{ color: '#0a0a0c' }}>Online Class (Live Interactive)</option>
+                </select>
               </div>
 
               <div className={styles.inputGroup}>

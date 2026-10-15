@@ -12,6 +12,7 @@ export default function AdmissionEnrollment() {
     email: "",
     phone: "",
     program: "Full-Stack Video Editing & AI Mastery (Full Program)",
+    classPreference: "",
     age: "",
     gender: "",
     location: "",
@@ -42,6 +43,7 @@ export default function AdmissionEnrollment() {
         email: "",
         phone: "",
         program: "Full-Stack Video Editing & AI Mastery (Full Program)",
+        classPreference: "",
         age: "",
         gender: "",
         location: "",
@@ -324,6 +326,23 @@ export default function AdmissionEnrollment() {
                       className={styles.input}
                       disabled={modalStatus === "loading"}
                     />
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                    <label htmlFor="modal-preference" className={styles.label}>Class Preference *</label>
+                    <select
+                      id="modal-preference"
+                      required
+                      value={modalFormData.classPreference}
+                      onChange={(e) => setModalFormData({ ...modalFormData, classPreference: e.target.value })}
+                      className={styles.input}
+                      disabled={modalStatus === "loading"}
+                      style={{ color: modalFormData.classPreference ? '#ffffff' : 'rgba(255, 255, 255, 0.4)' }}
+                    >
+                      <option value="" disabled hidden>Select Online or Offline</option>
+                      <option value="Offline Class (Bangalore Studio)" style={{ color: '#000000' }}>Offline Class (Bangalore Studio)</option>
+                      <option value="Online Class (Live Interactive)" style={{ color: '#000000' }}>Online Class (Live Interactive)</option>
+                    </select>
                   </div>
 
                   {modalErrorMessage && (

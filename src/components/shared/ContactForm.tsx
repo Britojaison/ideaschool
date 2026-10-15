@@ -108,6 +108,21 @@ export default function ContactForm({ successRedirect }: { successRedirect?: str
             <input type="text" name="location" placeholder="e.g. Bangalore, Karnataka" />
           </label>
           <label>
+            <span>Class Preference (Online / Offline)</span>
+            <select 
+              name="classPreference" 
+              defaultValue=""
+              onChange={e => {
+                e.currentTarget.style.color = e.currentTarget.value ? '#ffffff' : 'rgba(255, 255, 255, 0.4)';
+              }}
+              style={{ color: 'rgba(255, 255, 255, 0.4)' }}
+            >
+              <option value="" disabled hidden>Select Online or Offline</option>
+              <option value="Offline Class (Bangalore Studio)" style={{ color: '#000000' }}>Offline Class (Bangalore Studio)</option>
+              <option value="Online Class (Live Interactive)" style={{ color: '#000000' }}>Online Class (Live Interactive)</option>
+            </select>
+          </label>
+          <label>
             <span>Email</span>
             <input type="email" name="email" autoComplete="email" required />
           </label>

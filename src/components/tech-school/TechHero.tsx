@@ -31,42 +31,69 @@ export default function TechHero({ onReserveClick }: TechHeroProps) {
       {/* 3D Wireframe Grid Plane from moodboard */}
       <div className={styles.wireframeGridPlane} aria-hidden="true" />
 
-      {/* Main Content Container (Left Column) */}
+      {/* Top Header Block: Badge */}
       <div className={styles.container}>
-        <div className={styles.heroContentLeft}>
+        <div className={styles.heroCenterHeader}>
           {/* Badge: LIVE 1-DAY BUILD WORKSHOP */}
           <div className={styles.heroBadge}>
             <span className={styles.liveIndicatorPulse} aria-hidden="true" />
             <span>LIVE 1-DAY BUILD WORKSHOP</span>
           </div>
+        </div>
+      </div>
 
-          {/* Headline: Stop "Vibe Coding." Start Engineering. */}
-          <h1 className={styles.heroTitle}>
-            Stop <span className={styles.heroTitleHighlight}>&ldquo;Vibe Coding.&rdquo;</span><br />
-            Start <span className={styles.heroTitleGradient}>Engineering.</span>
-          </h1>
+      {/* Centered Robo Visual with Stop Vibe Coding, Start Engineering Poster Lockup Overlay */}
+      <div className={styles.heroCenterVisualContainer}>
+        {/* Glowing radial gradient backdrop */}
+        <div className={styles.heroCenterRoboGlow} aria-hidden="true" />
 
+        {/* Poster Lockup on Robot:
+            STOP "VIBE CODING,"
+            START
+            [ ENGINEERING. ] (Highlighted in Sopar font on gradient stripe) */}
+        <h1 className={styles.heroPosterLockup}>
+          <span className={styles.heroPosterTextTop}>
+            <span>STOP &ldquo;VIBE CODING,&rdquo;</span>
+            <span>START</span>
+          </span>
+          <span className={styles.heroPosterStripe}>
+            <span className={styles.heroPosterExperimentText}>ENGINEERING.</span>
+          </span>
+        </h1>
+
+        {/* Centered Robot Image Anchored to Base */}
+        <Image
+          src="/images/vibecode/guide.png"
+          alt="AI Engineering Architect Guide"
+          width={1209}
+          height={1301}
+          priority
+          className={styles.heroCenterRoboImg}
+          style={{ height: "100%", width: "auto" }}
+        />
+      </div>
+
+      {/* Foreground Actions: Subheadline, CTA & Proof Points */}
+      <div className={styles.container} style={{ zIndex: 20 }}>
+        <div className={styles.heroForegroundActions}>
           {/* Subheadline from PDF */}
-          <p className={styles.heroSubheadline}>
+          <p className={styles.heroSubheadline} style={{ marginBottom: "6px" }}>
             Anyone can prompt an AI to spit out code. <strong>Real software engineers</strong> know how to design, secure, and ship production-grade systems. Build and deploy a <span className={styles.highlightGold}>live AI SaaS application</span> in a single day.
           </p>
 
-          {/* CTA Button */}
-          <div className={styles.heroCtaGroup} style={{ alignItems: "flex-start" }}>
-            <button
-              type="button"
-              onClick={handleScrollToCta}
-              className={styles.primaryCtaBtn}
-              id="hero-reserve-btn"
-              aria-label="Reserve Your Seat Now for the Tech Workshop"
-            >
-              <span>Reserve Your Seat Now</span>
-              <ArrowRight size={18} />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={handleScrollToCta}
+            className={styles.primaryCtaBtn}
+            id="hero-reserve-btn"
+            aria-label="Reserve Your Seat Now for the Tech Workshop"
+          >
+            <span>Reserve Your Seat Now</span>
+            <ArrowRight size={18} />
+          </button>
 
-          {/* Proof Points - Stacked in Left Column */}
-          <div className={styles.proofPointsStack}>
+          {/* Proof Points Strip */}
+          <div className={styles.proofPointsRow}>
             <div className={styles.proofCard}>
               <div className={styles.proofCardIcon}>
                 <Wrench size={16} color="#f2bf49" />
@@ -95,22 +122,6 @@ export default function TechHero({ onReserveClick }: TechHeroProps) {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Huge Guide 3D Chrome Figure Anchored Flush to the Screen Base */}
-      <div className={styles.heroHugeGuideContainer}>
-        {/* Glowing radial gradient backdrop */}
-        <div className={styles.heroHugeGuideGlow} aria-hidden="true" />
-
-        <Image
-          src="/images/vibecode/guide.png"
-          alt="AI Engineering Architect Guide"
-          width={1209}
-          height={1301}
-          priority
-          className={styles.heroHugeGuideImg}
-          style={{ height: "100%", width: "auto" }}
-        />
       </div>
     </section>
   );

@@ -6,7 +6,7 @@
      - #f2bf49 (Gold/amber wireframe & tactical accents)
      - #e5e6e9 (Clean high-contrast body & heading neutral)
    Typography:
-     - Highlight: "HK Modular", "Monument Extended", sans-serif
+     - Highlight: "Sopar", "Monument Extended", sans-serif
      - Heading: var(--font-stara), "Stara", sans-serif
      - Body: var(--font-helvetica), "Helvetica Now Display", Helvetica, Arial, sans-serif
 ========================================================================= */
@@ -19,7 +19,7 @@
   --text-main: #e5e6e9;
   --text-muted: rgba(229, 230, 233, 0.68);
   --text-dim: rgba(229, 230, 233, 0.45);
-  
+
   /* Gradients enforcing #cd0c41 always as gradient */
   --grad-crimson-btn: linear-gradient(135deg, #cd0c41 0%, #ff2a6d 100%);
   --grad-crimson-btn-hover: linear-gradient(135deg, #ff2a6d 0%, #cd0c41 50%, #f2bf49 100%);
@@ -72,7 +72,7 @@
 
 /* Typography Tokens */
 .fontHighlight {
-  font-family: "HK Modular", "Monument Extended", "Syne", sans-serif;
+  font-family: "Sopar", "Monument Extended", "Syne", sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -126,20 +126,22 @@
 }
 
 /* =========================================================================
-   SECTION 1: HERO SECTION
+   SECTION 1: HERO SECTION (CENTERED ROBOT & POSTER LOCKUP)
 ========================================================================= */
 .heroSection {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 90px;
-  padding-bottom: 0;
+  justify-content: space-between;
+  padding-top: 88px;
+  padding-bottom: 24px;
   background: var(--grad-hero-radial);
   overflow: hidden;
   border-bottom: 1px solid rgba(229, 230, 233, 0.1);
+  text-align: center;
 }
 
 /* Perspective 3D wireframe grid from moodboard */
@@ -149,168 +151,192 @@
   left: -20%;
   width: 140%;
   height: 480px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(242, 191, 73, 0.22) 1px, transparent 1px),
     linear-gradient(to top, rgba(242, 191, 73, 0.22) 1px, transparent 1px);
   background-size: 54px 54px;
   transform: perspective(600px) rotateX(68deg);
   transform-origin: 50% 100%;
   mask-image: linear-gradient(to top, rgba(0, 0, 1, 1) 10%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 1, 1) 10%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
   pointer-events: none;
   z-index: 1;
 }
 
-.heroContentLeft {
+.heroCenterHeader {
   position: relative;
-  z-index: 5;
-  max-width: 660px;
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  padding-bottom: 24px;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
-  .heroSection {
-    min-height: auto;
-    height: auto;
-    padding-top: 110px;
-    padding-bottom: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .heroContentLeft {
-    max-width: 100%;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 16px;
-    padding-bottom: 0;
-  }
-}
-
-/* Huge Guide Figure anchored directly to the bottom base of the screen */
-.heroHugeGuideContainer {
+/* Centered Visual Container with Robot Base Touching Section Bottom */
+.heroCenterVisualContainer {
   position: absolute;
-  right: max(0px, calc(50% - 700px));
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
-  height: clamp(540px, 92vh, 920px);
-  width: auto;
-  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  height: clamp(560px, 80vh, 920px);
+  z-index: 2;
   pointer-events: none;
 }
 
-@media (max-width: 1280px) {
-  .heroHugeGuideContainer {
-    right: -20px;
-    height: clamp(480px, 84vh, 780px);
-    opacity: 0.95;
-  }
-}
-
-@media (max-width: 1024px) {
-  .heroHugeGuideContainer {
-    position: relative;
-    right: auto;
-    bottom: 0;
-    height: clamp(360px, 55vh, 520px);
-    margin: 16px auto 0;
-    width: 100%;
-  }
-}
-
-.heroHugeGuideImg {
+.heroCenterRoboImg {
   display: block;
   height: 100%;
   width: auto;
-  max-width: none;
+  max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
   vertical-align: bottom;
   filter: drop-shadow(0 20px 50px rgba(205, 12, 65, 0.45));
 }
 
-.heroHugeGuideGlow {
+.heroCenterRoboGlow {
   position: absolute;
   top: 15%;
-  left: 10%;
-  width: 580px;
-  height: 580px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(340px, 45vw, 620px);
+  height: clamp(340px, 45vw, 620px);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(205, 12, 65, 0.55) 0%, rgba(255, 42, 109, 0.25) 42%, rgba(242, 191, 73, 0.08) 65%, transparent 75%);
-  filter: blur(50px);
+  background: radial-gradient(circle, rgba(205, 12, 65, 0.5) 0%, rgba(255, 42, 109, 0.22) 42%, rgba(242, 191, 73, 0.08) 65%, transparent 75%);
+  filter: blur(55px);
   pointer-events: none;
   animation: glowPulse 4.5s infinite ease-in-out;
 }
 
 @keyframes glowPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.8;
     transform: scale(0.96);
   }
+
   50% {
     opacity: 1.15;
     transform: scale(1.05);
   }
 }
 
-.heroFloatingBadgeTop {
+/* Poster Lockup on Robot:
+   STOP "VIBE CODING,"
+   START
+   [ ENGINEERING. ] (Sopar font in yellow/coral gradient stripe) */
+.heroPosterLockup {
   position: absolute;
-  top: 10%;
-  left: -20px;
-  z-index: 4;
-  background: rgba(3, 0, 11, 0.92);
-  border: 1px solid rgba(242, 191, 73, 0.6);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(242, 191, 73, 0.25);
-  backdrop-filter: blur(12px);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-family: "HK Modular", "Monument Extended", sans-serif;
-  font-size: 9.5px;
-  color: var(--accent-gold);
-  letter-spacing: 0.1em;
+  top: 19%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: max-content;
+  max-width: 94vw;
+  z-index: 15;
+  pointer-events: none;
+  margin: 0;
+}
+
+.heroPosterTextTop {
+  font-family: var(--font-stara), "Stara", sans-serif;
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 42px);
+  line-height: 1.12;
+  letter-spacing: 0.04em;
+  color: #ffffff;
   text-transform: uppercase;
-  white-space: nowrap;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.95), 0 0 14px rgba(0, 0, 0, 0.9);
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
-.heroFloatingBadgeBottom {
-  position: absolute;
-  bottom: 8%;
-  left: -20px;
-  z-index: 4;
-  transform: rotate(-3deg);
-  box-shadow: 0 10px 25px rgba(205, 12, 65, 0.5);
+.heroPosterStripe {
+  background: linear-gradient(90deg, rgba(242, 191, 73, 0.68) 0%, rgba(255, 75, 114, 0.62) 52%, rgba(205, 12, 65, 0.68) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(242, 191, 73, 0.35);
+  padding: 8px 28px;
+  border-radius: 0px;
+  box-shadow: 0 8px 28px rgba(205, 12, 65, 0.35), 0 0 20px rgba(242, 191, 73, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-0.5deg);
 }
 
-@media (max-width: 640px) {
-  .heroFloatingBadgeTop {
-    top: 5%;
-    left: 5%;
-    font-size: 8px;
-    padding: 5px 10px;
-  }
-  .heroFloatingBadgeBottom {
-    bottom: 5%;
-    left: 5%;
-  }
+.heroPosterExperimentText {
+  font-family: "Sopar", "Monument Extended", sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Proof Points Stack in Left Column - 3 Columns on Desktop */
-.proofPointsStack {
+/* Foreground Actions: CTA & Proof points */
+.heroForegroundActions {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 980px;
+  margin: -10px auto 0;
+}
+
+.proofPointsRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  max-width: 660px;
-  margin-top: 14px;
+  max-width: 940px;
 }
 
-@media (max-width: 768px) {
-  .proofPointsStack {
+@media (max-width: 1024px) {
+  .heroSection {
+    padding-top: 85px;
+    height: auto;
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .heroCenterVisualContainer {
+    position: relative;
+    left: auto;
+    transform: none;
+    bottom: auto;
+    height: clamp(380px, 55vh, 520px);
+    margin: 16px auto 0;
+  }
+
+  .heroPosterLockup {
+    top: 14%;
+  }
+
+  .heroForegroundActions {
+    margin-top: 14px;
+  }
+
+  .proofPointsRow {
     grid-template-columns: 1fr;
     gap: 8px;
   }
@@ -321,17 +347,17 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   border-radius: 9999px;
   background: var(--grad-crimson-pill);
   border: 1px solid rgba(205, 12, 65, 0.45);
   box-shadow: 0 0 24px rgba(205, 12, 65, 0.28);
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   backdrop-filter: blur(12px);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
@@ -351,10 +377,13 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(0.9);
     opacity: 0.8;
   }
+
   50% {
     transform: scale(1.4);
     opacity: 1;
@@ -365,10 +394,10 @@
 /* Hero Headline */
 .heroTitle {
   font-family: var(--font-stara), "Stara", sans-serif;
-  font-weight: 900;
+  font-weight: 500;
   font-size: clamp(34px, 4.2vw, 62px);
   line-height: 1.05;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   color: #ffffff;
   margin-bottom: 16px;
   text-transform: none;
@@ -382,7 +411,7 @@
 }
 
 .heroTitleHighlight {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   background: var(--grad-crimson-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -430,7 +459,7 @@
   border-radius: 12px;
   background: var(--grad-crimson-btn);
   color: #ffffff;
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 15px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -569,7 +598,7 @@
   gap: 6px;
   background-color: var(--accent-gold);
   color: #03000b;
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-weight: 900;
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -587,7 +616,7 @@
   gap: 6px;
   background: var(--grad-crimson-btn);
   color: #ffffff;
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-weight: 900;
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -612,7 +641,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -710,7 +739,7 @@
 }
 
 .trapStatusPill {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 10px;
   letter-spacing: 0.1em;
   padding: 4px 10px;
@@ -773,7 +802,7 @@
 }
 
 .punchlineLabelDim {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -807,7 +836,7 @@
 }
 
 .punchlineLabelHighlight {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -872,7 +901,7 @@
 }
 
 .colHeaderTitleBad {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 15px;
   letter-spacing: 0.06em;
   color: #ff5e7e;
@@ -881,7 +910,7 @@
 }
 
 .colHeaderTitleGood {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 15px;
   letter-spacing: 0.06em;
   color: #ffffff;
@@ -1026,7 +1055,7 @@
 }
 
 .walkAwayCardIndex {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 13px;
   color: var(--accent-gold);
   letter-spacing: 0.1em;
@@ -1052,7 +1081,7 @@
 }
 
 .walkAwayStackLabel {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1078,7 +1107,7 @@
 }
 
 .outcomeBadge {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 10px;
   padding: 3px 8px;
   border-radius: 4px;
@@ -1137,7 +1166,7 @@
 }
 
 .guaranteeTitle {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 13px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1187,7 +1216,7 @@
 }
 
 .multiplierMetric {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: clamp(48px, 5vw, 68px);
   font-weight: 900;
   line-height: 1;
@@ -1305,7 +1334,7 @@
 
 .prerequisiteText strong {
   color: var(--accent-gold);
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1387,7 +1416,7 @@
 }
 
 .cohortStatusBadge {
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 11px;
   letter-spacing: 0.08em;
   padding: 6px 12px;
@@ -1429,7 +1458,7 @@
 .quickSubmitBtn {
   background: var(--grad-crimson-btn);
   color: #ffffff;
-  font-family: "HK Modular", "Monument Extended", sans-serif;
+  font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;

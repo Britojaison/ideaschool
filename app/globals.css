@@ -3,7 +3,9 @@
 
 @font-face {
   font-family: "Stara";
-  src: url("/fonts/stara/Stara-Medium.otf") format("opentype");
+  src: url("/fonts/stara-sans-serif-font-2023-11-27-04-56-32-utc/Web-TT/Stara-Medium.woff2") format("woff2"),
+       url("/fonts/stara/Stara-Medium.woff2") format("woff2"),
+       url("/fonts/stara/Stara-Medium.otf") format("opentype");
   font-weight: 400 500;
   font-style: normal;
   font-display: swap;
@@ -11,7 +13,9 @@
 
 @font-face {
   font-family: "Stara";
-  src: url("/fonts/stara/Stara-MediumItalic.otf") format("opentype");
+  src: url("/fonts/stara-sans-serif-font-2023-11-27-04-56-32-utc/Web-TT/Stara-MediumItalic.woff2") format("woff2"),
+       url("/fonts/stara/Stara-MediumItalic.woff2") format("woff2"),
+       url("/fonts/stara/Stara-MediumItalic.otf") format("opentype");
   font-weight: 400 500;
   font-style: italic;
   font-display: swap;
@@ -19,7 +23,9 @@
 
 @font-face {
   font-family: "Stara";
-  src: url("/fonts/stara/Stara-SemiBold.otf") format("opentype");
+  src: url("/fonts/stara-sans-serif-font-2023-11-27-04-56-32-utc/Web-TT/Stara-SemiBold.woff2") format("woff2"),
+       url("/fonts/stara/Stara-SemiBold.woff2") format("woff2"),
+       url("/fonts/stara/Stara-SemiBold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -27,7 +33,9 @@
 
 @font-face {
   font-family: "Stara";
-  src: url("/fonts/stara/Stara-Bold.otf") format("opentype");
+  src: url("/fonts/stara-sans-serif-font-2023-11-27-04-56-32-utc/Web-TT/Stara-Bold.woff2") format("woff2"),
+       url("/fonts/stara/Stara-Bold.woff2") format("woff2"),
+       url("/fonts/stara/Stara-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -35,7 +43,9 @@
 
 @font-face {
   font-family: "Stara";
-  src: url("/fonts/stara/Stara-ExtraBold.otf") format("opentype");
+  src: url("/fonts/stara-sans-serif-font-2023-11-27-04-56-32-utc/Web-TT/Stara-ExtraBold.woff2") format("woff2"),
+       url("/fonts/stara/Stara-ExtraBold.woff2") format("woff2"),
+       url("/fonts/stara/Stara-ExtraBold.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -43,7 +53,9 @@
 
 @font-face {
   font-family: "Stara";
-  src: url("/fonts/stara/Stara-Black.otf") format("opentype");
+  src: url("/fonts/stara-sans-serif-font-2023-11-27-04-56-32-utc/Web-TT/Stara-Black.woff2") format("woff2"),
+       url("/fonts/stara/Stara-Black.woff2") format("woff2"),
+       url("/fonts/stara/Stara-Black.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -130,8 +142,21 @@
 }
 
 @font-face {
+  font-family: "Sopar";
+  src: url("/fonts/Sopar.otf") format("opentype"),
+       url("/fonts/Sopar.ttf") format("truetype"),
+       url("/fonts/sopar-tech-sans-serif-font-2026-10-09-01-04-11-utc/Sopar.otf") format("opentype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "HK Modular";
-  src: local("HK Modular"), local("HKModular"), url("/fonts/MonumentExtended-Ultrabold.otf") format("opentype");
+  src: url("/fonts/Sopar.otf") format("opentype"),
+       url("/fonts/Sopar.ttf") format("truetype"),
+       url("/fonts/sopar-tech-sans-serif-font-2026-10-09-01-04-11-utc/Sopar.otf") format("opentype"),
+       local("HK Modular"), local("HKModular"), url("/fonts/MonumentExtended-Ultrabold.otf") format("opentype");
   font-weight: 700 900;
   font-style: normal;
   font-display: swap;
@@ -139,7 +164,10 @@
 
 @font-face {
   font-family: "HK Modular";
-  src: local("HK Modular"), local("HKModular"), url("/fonts/MonumentExtended-Regular.otf") format("opentype");
+  src: url("/fonts/Sopar.otf") format("opentype"),
+       url("/fonts/Sopar.ttf") format("truetype"),
+       url("/fonts/sopar-tech-sans-serif-font-2026-10-09-01-04-11-utc/Sopar.otf") format("opentype"),
+       local("HK Modular"), local("HKModular"), url("/fonts/MonumentExtended-Regular.otf") format("opentype");
   font-weight: 400 500;
   font-style: normal;
   font-display: swap;

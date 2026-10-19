@@ -67,7 +67,7 @@ export default function TwoXMultiplier() {
 
                 <div style={{
                   fontSize: "11px",
-                  fontFamily: '"HK Modular", "Monument Extended", sans-serif',
+                  fontFamily: '"Sopar", "Monument Extended", sans-serif',
                   letterSpacing: "0.12em",
                   color: "var(--accent-gold)",
                   marginBottom: "8px",

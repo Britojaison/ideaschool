@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./TechSchool.module.css";
-import { ArrowRight, Wrench, Rocket, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface TechHeroProps {
   onReserveClick?: () => void;
@@ -27,53 +27,40 @@ export default function TechHero({ onReserveClick }: TechHeroProps) {
     <section className={styles.heroSection} data-header-theme="dark">
       {/* Ambient glowing radial effects */}
       <div className={styles.ambientGlowTop} aria-hidden="true" />
-      
+
       {/* 3D Wireframe Grid Plane from moodboard */}
       <div className={styles.wireframeGridPlane} aria-hidden="true" />
 
-      {/* Top Header Block: Badge */}
-      <div className={styles.container}>
-        <div className={styles.heroCenterHeader}>
-          {/* Badge: LIVE 1-DAY BUILD WORKSHOP */}
-          <div className={styles.heroBadge}>
-            <span className={styles.liveIndicatorPulse} aria-hidden="true" />
-            <span>LIVE 1-DAY BUILD WORKSHOP</span>
-          </div>
-        </div>
-      </div>
 
-      {/* Centered Robo Visual with Stop Vibe Coding, Start Engineering Poster Lockup Overlay */}
+
+      {/* Centered Robo Visual Anchored to Base */}
       <div className={styles.heroCenterVisualContainer}>
         {/* Glowing radial gradient backdrop */}
         <div className={styles.heroCenterRoboGlow} aria-hidden="true" />
 
-        {/* Poster Lockup on Robot:
-            STOP "VIBE CODING,"
-            START
-            [ ENGINEERING. ] (Highlighted in Sopar font on gradient stripe) */}
-        <h1 className={styles.heroPosterLockup}>
-          <span className={styles.heroPosterTextTop}>
-            <span>STOP &ldquo;VIBE CODING,&rdquo;</span>
-            <span>START</span>
-          </span>
-          <span className={styles.heroPosterStripe}>
-            <span className={styles.heroPosterExperimentText}>ENGINEERING.</span>
-          </span>
-        </h1>
-
-        {/* Centered Robot Image Anchored to Base */}
         <Image
-          src="/images/vibecode/guide.png"
+          src="/images/vibecode/robo.png"
           alt="AI Engineering Architect Guide"
-          width={1209}
-          height={1301}
+          width={2758}
+          height={3356}
           priority
           className={styles.heroCenterRoboImg}
           style={{ height: "100%", width: "auto" }}
         />
       </div>
 
-      {/* Foreground Actions: Subheadline, CTA & Proof Points */}
+      {/* Main Heading Lockup - Dead Centered Vertically & Horizontally */}
+      <h1 className={styles.heroPosterLockup}>
+        <span className={styles.heroPosterTextTop}>
+          <span>STOP &ldquo;VIBE CODING,&rdquo;</span>
+          <span>START</span>
+        </span>
+        <span className={styles.heroPosterStripe}>
+          <span className={styles.heroPosterExperimentText}>ENGINEERING.</span>
+        </span>
+      </h1>
+
+      {/* Foreground Actions: Subheadline & CTA */}
       <div className={styles.container} style={{ zIndex: 20 }}>
         <div className={styles.heroForegroundActions}>
           {/* Subheadline from PDF */}
@@ -91,36 +78,6 @@ export default function TechHero({ onReserveClick }: TechHeroProps) {
             <span>Reserve Your Seat Now</span>
             <ArrowRight size={18} />
           </button>
-
-          {/* Proof Points Strip */}
-          <div className={styles.proofPointsRow}>
-            <div className={styles.proofCard}>
-              <div className={styles.proofCardIcon}>
-                <Wrench size={16} color="#f2bf49" />
-              </div>
-              <div className={styles.proofCardText}>
-                1 Full-Day Interactive Build Sprint
-              </div>
-            </div>
-
-            <div className={styles.proofCard}>
-              <div className={styles.proofCardIcon}>
-                <Rocket size={16} color="#ff3b7a" />
-              </div>
-              <div className={styles.proofCardText}>
-                Launch a Live AI SaaS by the End of Day
-              </div>
-            </div>
-
-            <div className={styles.proofCard}>
-              <div className={styles.proofCardIcon}>
-                <Cpu size={16} color="#f2bf49" />
-              </div>
-              <div className={styles.proofCardText}>
-                Master Agentic IDEs, Next.js, Backend Architectures & RAG
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

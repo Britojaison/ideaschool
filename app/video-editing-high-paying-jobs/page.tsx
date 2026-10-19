@@ -5,14 +5,25 @@ import DotField from "@/components/ui/DotField";
 import HeroDotField from "@/components/ui/HeroDotField";
 import ScrollTextReveal from "@/components/ui/ScrollTextReveal";
 import MobileMenu from "@/components/global/MobileMenu";
+import AgencyPedigree from "./AgencyPedigree";
 import CurriculumAccordion from "./CurriculumAccordion";
 import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
 import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
+import WorkshopExperienceSection from "../ad-film-making/WorkshopExperienceSection";
+import EditingJudgementSection from "./EditingJudgementSection";
+import WorkshopTimelineSection from "./WorkshopTimelineSection";
+import IndustryRecognitionSection from "./IndustryRecognitionSection";
+import FeedbackAdvantageSection from "./FeedbackAdvantageSection";
+import QualificationSection from "./QualificationSection";
+import ThunderVaultSection from "./ThunderVaultSection";
+import WorkshopVenueSection from "./WorkshopVenueSection";
+import ReferralEngine from "./ReferralEngine";
 import MetaPixel from "@/components/shared/MetaPixel";
 import Footer from "@/components/global/Footer";
+import "../new-sections.css";
 
 const curriculum = [
   {
@@ -62,7 +73,7 @@ const toolLogos = [
   },
   {
     name: "Audio Enhancement Tools",
-    image: "/images/image 1.svg",
+    image: "/images/41KqslICYsL.webp",
     width: 1254,
     height: 1254,
     className: "audio",
@@ -81,10 +92,34 @@ const razorpayPaymentLink =
   process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK ?? "https://rzp.io/rzp/XiQ2PDi";
 
 const instructors = [
-  { name: "Dhananjayan . S", role: "CEO, 88GB", image: "/images/mentor_ARJUN.webp" },
-  { name: "Elamparithi", role: "Head of Design, 88GB", image: "/images/mentor_PARIDHI.webp" },
-  { name: "Ajay Karthik", role: "Video Editor, 88GB", image: "/images/mentor_AJAY.webp" },
-  { name: "Chandrasoodeshwar", role: "Senior Creative Strategist, 88GB", image: "/images/mentor_CHANDRU.webp" },
+  {
+    name: "Dhananjayan . S",
+    role: "CEO, 88GB",
+    experience: "12+ Yrs Exp",
+    bio: "Commercial director and creative director leading multi-platform brand productions.",
+    image: "/images/mentor_ARJUN.webp",
+  },
+  {
+    name: "Elamparithi",
+    role: "Head of Design, 88GB",
+    experience: "10+ Yrs Exp",
+    bio: "Over a decade of mastery in visual storytelling, motion graphics, and design systems.",
+    image: "/images/mentor_PARIDHI.webp",
+  },
+  {
+    name: "Ajay Karthik",
+    role: "Video Editor, 88GB",
+    experience: "6+ Yrs Exp",
+    bio: "Lead post editor specialized in retention editing, rhythm, and dynamic pacing.",
+    image: "/images/mentor_AJAY.webp",
+  },
+  {
+    name: "Chandrasoodeshwar",
+    role: "Senior Creative Strategist, 88GB",
+    experience: "7+ Yrs Exp",
+    bio: "Strategist & colorist expert in viral content architecture and DaVinci color grading.",
+    image: "/images/mentor_CHANDRU.webp",
+  },
 ];
 
 const clientStories = [
@@ -127,10 +162,6 @@ const clientStories = [
 ];
 
 const proofVideos = [
-  {
-    src: "/images/proof-videos/student-feedback-1.mp4",
-    poster: "/images/proof-videos/student-feedback-1.webp",
-  },
   {
     src: "/images/proof-videos/student-feedback-2.mp4",
     poster: "/images/proof-videos/student-feedback-2.webp",
@@ -364,53 +395,85 @@ export default function ApplyPage() {
 
         <div className="programHeroInner">
           <div className="programHeroCopy">
-            <div className="programEyebrowRow">
-              <span className="programPill">Offline workshop</span>
-              <span className="programTag programTagWide">
-                Agency-Level Video Editing Training Led By Industry Experts
+            <div className="programEyebrowRow" style={{ marginBottom: "20px" }}>
+              <span className="programPill heroPillCustom" style={{ 
+                background: "rgba(218, 253, 85, 0.05)", 
+                border: "1px solid rgba(218, 253, 85, 0.3)", 
+                color: "#dafd55", 
+                fontSize: "12px", 
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                padding: "8px 16px" 
+              }}>
+                Offline workshop HSR Layout, Bengaluru
               </span>
             </div>
 
-            <h1>
-              Master <span className="programHeroTitleAccent">High-Paying</span><br />
-              <span className="programHeroTitleAccent">Video Editing</span> In <span className="programHeroTitleDay">1 Day</span>
+            <h1 className="heroTitleCustom" style={{ marginBottom: "20px" }}>
+              Build an agency-style <br className="hidden sm:inline" />edit in one day
             </h1>
+            
+            <p style={{ 
+              fontSize: "clamp(15px, 2.5vw, 18px)", 
+              lineHeight: "1.6", 
+              color: "rgba(255, 255, 255, 0.8)", 
+              marginBottom: "32px",
+              maxWidth: "600px"
+            }}>
+              A 6-hour intensive workshop where you sit in the 88GB edit suite, unpack real client footage, cut high-retention commercial edits, and receive live 1-on-1 timeline critique.
+            </p>
 
-            <a className="primaryCta programCta" href="#enroll">
-              <span className="primaryCtaText">Get early bird pass now</span>
-            </a>
-            <span className="seatLimit">Limited to 25 seats Only</span>
+            <dl className="heroDlCustom" style={{ 
+              display: "grid", 
+              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", 
+              gap: "32px 24px",
+              marginBottom: "40px" 
+            }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Date & Time</dt>
+                <dd style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0 }}>19 September 2026</dd>
+                <dd style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.5)", margin: 0 }}>11 AM-5 PM IST</dd>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Location</dt>
+                <dd style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0 }}>88GB HQ</dd>
+                <dd style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.5)", margin: 0 }}>HSR Layout, Bengaluru</dd>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px", gridColumn: "1 / -1" }}>
+                <dt style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Workshop Fee</dt>
+                <dd style={{ fontSize: "28px", fontWeight: 700, color: "#dafd55", margin: 0 }}>₹1999</dd>
+                <dd style={{ fontSize: "13px", color: "#eab308", margin: 0, fontWeight: 500 }}>25 seats per batch &middot; 10 seats left</dd>
+              </div>
+            </dl>
+
+            <div className="heroCtaRow" style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
+              <a className="primaryCta heroPrimaryCta" href="#enroll" style={{ 
+                background: "#dafd55", 
+                color: "#000", 
+                padding: "16px 32px", 
+                borderRadius: "4px",
+                fontSize: "16px",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                boxShadow: "0 0 30px rgba(218, 253, 85, 0.2)",
+                height: "auto",
+                minHeight: "56px"
+              }}>
+                <span className="primaryCtaText" style={{ color: "#000", transform: "none" }}>Book my seat — ₹1999 &rarr;</span>
+              </a>
+              <span className="seatLimit" style={{ color: "rgba(255, 255, 255, 0.6)", fontSize: "14px" }}>Strict 25-seat limit for 1-on-1 feedback</span>
+            </div>
           </div>
 
           <aside className="programHeroCard" aria-label="Workshop preview">
             <ApplyHeroVideo />
-
           </aside>
-
-          <dl className="programStats">
-            <div>
-              <dt>Batch Date</dt>
-              <dd>September 6</dd>
-            </div>
-            <div>
-              <dt>Learning Mode</dt>
-              <dd>Offline </dd>
-            </div>
-            <div>
-              <dt>Full Day Session</dt>
-              <dd>Hands-on</dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>88GB HQ, HSR Layout, Bengaluru</dd>
-            </div>
-          </dl>
         </div>
 
       </section>
 
-      <section className="programCurriculum" aria-label="What you will learn">
-        <div className="programCurriculumDots">
+      <section className="programAudience" aria-label="Who should attend" style={{ isolation: 'isolate' }}>
+        <div className="programHeroMedia" style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 60px)', maskImage: 'linear-gradient(to bottom, transparent, black 60px)' }}>
           <DotField
             dotRadius={2.8}
             dotSpacing={16}
@@ -426,17 +489,7 @@ export default function ApplyPage() {
             glowColor="rgba(168, 85, 247, 0.18)"
           />
         </div>
-        <div className="programCurriculumInner">
-          <div className="curriculumIntro">
-            <h2>What You Will Learn</h2>
-            <p>A structured, hands-on journey from creative strategy to cinematic AI output.</p>
-          </div>
-
-          <CurriculumAccordion items={curriculum} />
-        </div>
-      </section>
-
-      <section className="programAudience" aria-label="Who should attend">
+        <div className="programHeroShade" style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 60px)', maskImage: 'linear-gradient(to bottom, transparent, black 60px)' }} />
         <div className="programAudienceInner">
           <div className="toolsBlock">
             <h2>Tools You Will Master</h2>
@@ -462,7 +515,23 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(56px, 8vw, 84px)", paddingBottom: "0", paddingLeft: "4vw", paddingRight: "4vw", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
+      <AgencyPedigree />
+
+      <WorkshopExperienceSection />
+      
+      <EditingJudgementSection />
+      
+      <WorkshopTimelineSection />
+      
+      <IndustryRecognitionSection />
+      
+      <FeedbackAdvantageSection />
+
+      <QualificationSection />
+
+      <ThunderVaultSection />
+
+      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(48px, 6vw, 84px)", paddingBottom: "0", paddingLeft: "var(--apply-section-x, 16px)", paddingRight: "var(--apply-section-x, 16px)", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
         <WorkshopAttendeesList theme="dark" />
       </section>
 
@@ -485,8 +554,14 @@ export default function ApplyPage() {
                     className="instructorImage"
                   />
                 </div>
-                <p>{instructor.role}</p>
-                <h3>{instructor.name}</h3>
+                <div className="instructorMeta">
+                  <div className="instructorRoleRow">
+                    <p className="instructorRole">{instructor.role}</p>
+                    <span className="instructorExpBadge">{instructor.experience}</span>
+                  </div>
+                  <h3>{instructor.name}</h3>
+                  <p className="instructorBio">{instructor.bio}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -494,11 +569,29 @@ export default function ApplyPage() {
       </section>
 
       <section className="longCourseDetails workshopWorkSection workshopGsapSection" id="work" aria-label="Our work" style={{ paddingTop: "80px", paddingBottom: "80px", backgroundColor: "#000000", color: "#ffffff" }}>
-        <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}>
-          <div className="mentorSectionIntro" style={{ marginBottom: 0, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-            <span className="sectionPill" style={{ background: "#dafd55", color: "#000", padding: "8px 16px", borderRadius: "99px", fontWeight: "bold", fontSize: "14px", textTransform: "uppercase", marginBottom: "16px" }}>Our Work</span>
-            <h2 style={{ color: "#ffffff", fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif", fontSize: "clamp(26px, 2.8vw, 40px)", fontWeight: 700, letterSpacing: "-0.04em", textTransform: "uppercase", margin: "0 0 16px" }}>Watch Some Of Our Recent Projects</h2>
-            <p style={{ color: "rgba(255,255,255,0.7)", maxWidth: "600px", fontSize: "18px", lineHeight: "1.5" }}>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
+        <div className="longCourseSectionInner" style={{ marginBottom: "40px", display: "flex", justifyContent: "flex-start" }}>
+          <div className="mentorSectionIntro">
+            <span
+              className="sectionPill"
+              style={{
+                background: "#dafd55",
+                color: "#000",
+                padding: "8px 24px",
+                borderRadius: "99px",
+                fontWeight: "bold",
+                fontSize: "14px",
+                textTransform: "uppercase",
+                marginBottom: "16px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              Our Work
+            </span>
+            <h2>Watch Some Of Our Recent Projects</h2>
+            <p>Take a look at the caliber of high-performing video content you will learn to produce during this intensive workshop.</p>
           </div>
         </div>
 
@@ -553,24 +646,9 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <section className="videoSection" aria-label="IDEA School video">
-        <video
-          id="applyHomePageVideo"
-          className="videoPoster"
-          autoPlay
-          loop
-          muted
-          playsInline
-          disablePictureInPicture
-          disableRemotePlayback
-          controlsList="nodownload noplaybackrate noremoteplayback"
-          preload="metadata"
-          aria-label="IDEA School classroom video"
-        >
-          <source src="/images/HOME PAGE VIDEO.mp4" type="video/mp4" />
-        </video>
-        <div className="videoSectionShade" aria-hidden="true" />
-      </section>
+      <WorkshopVenueSection />
+
+      <ReferralEngine />
 
       <section className="programFaqContact" aria-label="FAQ and application form">
         <div className="programFaqInner">
@@ -655,20 +733,131 @@ export default function ApplyPage() {
 
       </section>
 
-      <div className="programBatchStrip" aria-label="Workshop batch announcement">
-        <span className="programBatchBadge programBatchBadgeVideoEditing">New Batch</span>
-        <p>HIGH-PAYING VIDEO EDITING</p>
-        <div className="programBatchAction">
+      <style dangerouslySetInnerHTML={{__html: `
+        .newStickyBar {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          z-index: 999;
+          background: #0a0a0a;
+          border-top: 1px solid #222;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 40px;
+          box-sizing: border-box;
+        }
+        .newStickyBarLeft { display: flex; align-items: center; gap: 16px; }
+        .stickyDateLoc { color: #fff; font-family: var(--font-helvetica), sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.5px; }
+        .stickyPrice { color: #fff; font-family: var(--font-helvetica), sans-serif; font-weight: 800; font-size: 18px; }
+        .stickySeatsPill { background: rgba(255, 140, 0, 0.15); color: #ff9d00; border: 1px solid rgba(255, 140, 0, 0.3); font-family: var(--font-helvetica), sans-serif; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; white-space: nowrap; }
+        .newStickyBarRight { display: flex; align-items: center; gap: 16px; }
+        .stickyReferBtn { background: transparent; border: 1px solid #444; color: #d4ff00; font-family: var(--font-helvetica), sans-serif; font-weight: 700; font-size: 13px; padding: 12px 20px; border-radius: 8px; text-decoration: none; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
+        .stickyReferBtn:hover { background: #222; border-color: #666; }
+        .stickyBookBtn { background: #d4ff00; color: #000; font-family: var(--font-helvetica), sans-serif; font-weight: 800; font-size: 14px; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 14px rgba(212, 255, 0, 0.2); }
+        .stickyBookBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 255, 0, 0.3); }
+
+        @media (max-width: 768px) {
+          .heroPillCustom {
+            min-width: 0 !important;
+            padding: 6px 12px !important;
+            font-size: 11px !important;
+            letter-spacing: 0.05em !important;
+            line-height: 1.3 !important;
+            text-align: center !important;
+          }
+          .heroTitleCustom {
+            font-size: clamp(2rem, 7.5vw, 2.75rem) !important;
+            line-height: 1.15 !important;
+          }
+          .heroDlCustom {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px 16px !important;
+            margin-bottom: 28px !important;
+          }
+          .heroCtaRow {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+            width: 100% !important;
+          }
+          .heroPrimaryCta {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding: 16px 20px !important;
+            min-height: 52px !important;
+          }
+          .seatLimit {
+            text-align: center !important;
+            width: 100% !important;
+            font-size: 13px !important;
+          }
+          .workshopGalleryNavBtn {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          .workshopGalleryPrev {
+            left: 8px !important;
+          }
+          .workshopGalleryNext {
+            right: 8px !important;
+          }
+          .newStickyBar {
+            flex-direction: column;
+            padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)) 16px;
+            gap: 8px;
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+          }
+          .newStickyBarLeft {
+            width: 100%;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+          .stickyDateLoc { font-size: 11.5px; }
+          .stickyPrice { font-size: 16px; }
+          .stickySeatsPill { font-size: 10px; padding: 3px 8px; }
+          .newStickyBarRight {
+            width: 100%;
+            justify-content: space-between;
+            gap: 8px;
+          }
+          .stickyReferBtn, .stickyBookBtn {
+            flex: 1;
+            justify-content: center;
+            padding: 10px 8px;
+            font-size: 11px;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            min-height: 42px;
+            box-sizing: border-box;
+          }
+        }
+      `}} />
+      <div className="newStickyBar" aria-label="Workshop batch announcement">
+        <div className="newStickyBarLeft">
+          <span className="stickyDateLoc">19 SEP • HSR LAYOUT</span>
+          <span className="stickyPrice">₹1999</span>
+          <span className="stickySeatsPill">10 SEATS LEFT</span>
+        </div>
+        <div className="newStickyBarRight">
+          <a href="#" className="stickyReferBtn">
+            <span>🎁</span> REFER & EARN ₹2,000
+          </a>
           <a
-            className="programBatchCta programBatchCtaVideoEditing"
+            className="stickyBookBtn"
             href={razorpayPaymentLink}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Book your video editing workshop seat with Razorpay"
           >
-            Book seat now
+            BOOK MY SEAT &rarr;
           </a>
-          <span className="programBatchSeats">Only 2 seats Left</span>
         </div>
       </div>
 
@@ -676,3 +865,4 @@ export default function ApplyPage() {
     </main>
   );
 }
+ 

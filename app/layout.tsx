@@ -4,6 +4,7 @@ import DisableImageActions from "@/components/shared/DisableImageActions";
 import CustomAnimatedCursor from "@/components/global/CustomAnimatedCursor";
 import MetaPixel from "@/components/shared/MetaPixel";
 import "./globals.css";
+import "./new-sections.css";
 
 const stara = localFont({
   src: [

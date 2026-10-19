@@ -51,10 +51,10 @@ const SUBLISTS: Record<string, SublinkItem[]> = {
     },
     {
       label: "Tech School",
-      href: "#",
-      desc: "AI workflows & software engineering",
-      badge: "Soon",
-      disabled: true,
+      href: "/tech-school",
+      desc: "Stop vibe coding. Start engineering.",
+      badge: "Workshop",
+      disabled: false,
     },
     {
       label: "Marketing School",

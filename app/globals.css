@@ -129,6 +129,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "HK Modular";
+  src: local("HK Modular"), local("HKModular"), url("/fonts/MonumentExtended-Ultrabold.otf") format("opentype");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HK Modular";
+  src: local("HK Modular"), local("HKModular"), url("/fonts/MonumentExtended-Regular.otf") format("opentype");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #08090b;
   --foreground: #ffffff;

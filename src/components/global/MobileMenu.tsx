@@ -106,13 +106,13 @@ export default function MobileMenu() {
                           <span className={styles.mobileSubItemDesc}>Editing, motion design & AI cinema</span>
                         </div>
                       </Link>
-                      <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
+                      <Link href="/tech-school" className={styles.mobileSubItem} onClick={closeMenu}>
                         <div className={styles.mobileSubItemInfo}>
                           <span className={styles.mobileSubItemTitle}>Tech School</span>
-                          <span className={styles.mobileSubItemDesc}>AI workflows & software</span>
+                          <span className={styles.mobileSubItemDesc}>Stop vibe coding. Start engineering.</span>
                         </div>
-                        <span className={styles.mobileSubBadgeSoon}>Soon</span>
-                      </div>
+                        <span className={styles.mobileSubBadgeSoon} style={{ background: "linear-gradient(135deg, #cd0c41, #ff2a6d)", color: "#fff" }}>Live</span>
+                      </Link>
                       <div className={`${styles.mobileSubItem} ${styles.mobileSubItemDisabled}`}>
                         <div className={styles.mobileSubItemInfo}>
                           <span className={styles.mobileSubItemTitle}>Marketing School</span>

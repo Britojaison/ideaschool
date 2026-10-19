@@ -19,6 +19,7 @@ const workshops = [
   },
   {
     title: "Tech School",
+    href: "/tech-school",
     image: "/images/homepagnew/teechschool.png",
   },
   {

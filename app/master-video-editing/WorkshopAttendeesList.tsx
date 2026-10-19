@@ -76,7 +76,7 @@ export default function WorkshopAttendeesList({ theme = 'light' }: { theme?: 'li
         whileInView={{ width: "100%" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ height: "1px", background: isDark ? "rgba(255,255,255,0.2)" : "#000", marginBottom: "40px" }}
+        style={{ height: "1px", background: isDark ? "rgba(255,255,255,0.2)" : "#000", marginBottom: "60px" }}
       />
 
       <div 

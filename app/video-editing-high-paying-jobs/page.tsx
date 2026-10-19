@@ -11,7 +11,6 @@ import ProgramNoticeCard from "./ProgramNoticeCard";
 import ProofVideoCard from "./ProofVideoCard";
 import ApplyHeroVideo from "./ApplyHeroVideo";
 import WorkshopGalleryFlip from "../master-video-editing/WorkshopGalleryFlip";
-import WorkshopAttendeesList from "../master-video-editing/WorkshopAttendeesList";
 import WorkshopExperienceSection from "../ad-film-making/WorkshopExperienceSection";
 import EditingJudgementSection from "./EditingJudgementSection";
 import WorkshopTimelineSection from "./WorkshopTimelineSection";
@@ -531,9 +530,6 @@ export default function ApplyPage() {
 
       <ThunderVaultSection />
 
-      <section className="workshopAttendeesSection" id="attendees" aria-label="Who Should Attend" style={{ paddingTop: "clamp(48px, 6vw, 84px)", paddingBottom: "0", paddingLeft: "var(--apply-section-x, 16px)", paddingRight: "var(--apply-section-x, 16px)", minHeight: "auto", display: "block", backgroundColor: "transparent" }}>
-        <WorkshopAttendeesList theme="dark" />
-      </section>
 
       <section className="programOffer" aria-label="Early bird workshop offer">
         <ProgramNoticeCard paymentLink={razorpayPaymentLink} />

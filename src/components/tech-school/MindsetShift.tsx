@@ -2,7 +2,7 @@
 
 import React from "react";
 import styles from "./TechSchool.module.css";
-import { X, Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const COMPARISONS = [
   {
@@ -80,35 +80,23 @@ export default function MindsetShift() {
               <div key={row.index} className={styles.comparisonRow}>
                 {/* Left: Casual Vibecoding */}
                 <div className={styles.cellBad}>
-                  <div className={styles.cellIconWrapBad}>
-                    <X size={16} strokeWidth={2.5} />
-                  </div>
-                  <div className={styles.cellContent}>
-                    <div className={styles.cellMetaRow}>
-                      <span className={styles.cellIndexBadgeBad}>[ {row.index} ]</span>
-                      <span className={styles.cellCategoryBad}>{row.badCategory}</span>
-                    </div>
-                    <p className={styles.cellTextBad}>{row.bad}</p>
-                  </div>
+                  <p className={styles.cellTextBad}>{row.bad}</p>
                 </div>
 
                 {/* Center Transition Indicator (Desktop) */}
                 <div className={styles.rowTransitionArrow} aria-hidden="true">
-                  <ArrowRight size={14} />
+                  <Image
+                    src="/images/vibecode/arrow.png"
+                    alt=""
+                    width={32}
+                    height={32}
+                    className={styles.transitionArrowImg}
+                  />
                 </div>
 
                 {/* Right: True AI Engineering */}
                 <div className={styles.cellGood}>
-                  <div className={styles.cellIconWrapGood}>
-                    <Check size={16} strokeWidth={3} />
-                  </div>
-                  <div className={styles.cellContent}>
-                    <div className={styles.cellMetaRow}>
-                      <span className={styles.cellIndexBadgeGood}>[ {row.index} ]</span>
-                      <span className={styles.cellCategoryGood}>{row.goodCategory}</span>
-                    </div>
-                    <p className={styles.cellTextGood}>{row.good}</p>
-                  </div>
+                  <p className={styles.cellTextGood}>{row.good}</p>
                 </div>
               </div>
             ))}

@@ -3,6 +3,7 @@
 import React from "react";
 import Shell from "@/components/global/Shell";
 import TechHero from "./TechHero";
+import TechHeroTicker from "./TechHeroTicker";
 import VibecodingTrap from "./VibecodingTrap";
 import MindsetShift from "./MindsetShift";
 import WhatYouWalkAwayWith from "./WhatYouWalkAwayWith";
@@ -27,6 +28,9 @@ export default function TechSchoolPage() {
       <div className={styles.techPageRoot} data-header-theme="dark">
         {/* Section 1: Hero (Above the Fold) */}
         <TechHero onReserveClick={handleOpenReservation} />
+
+        {/* Transition Ticker Marquee */}
+        <TechHeroTicker />
 
         {/* Section 2: The Core Problem (The "Vibecoding" Trap) */}
         <VibecodingTrap />

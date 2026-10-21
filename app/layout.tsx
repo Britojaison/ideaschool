@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Anton } from "next/font/google";
 import DisableImageActions from "@/components/shared/DisableImageActions";
 import CustomAnimatedCursor from "@/components/global/CustomAnimatedCursor";
 import MetaPixel from "@/components/shared/MetaPixel";
@@ -50,6 +51,13 @@ const magnu = localFont({
     { path: "../fonts/Magnu/GCMagnu-ExtraBold.otf", weight: "800", style: "normal" }
   ],
   variable: "--font-magnu",
+  display: "swap"
+});
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-anton-sc",
   display: "swap"
 });
 
@@ -143,7 +151,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${stara.variable} ${helveticaNow.variable} ${magnu.variable}`}
+      className={`${stara.variable} ${helveticaNow.variable} ${magnu.variable} ${anton.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

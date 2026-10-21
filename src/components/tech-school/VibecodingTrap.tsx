@@ -1,103 +1,132 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import styles from "./TechSchool.module.css";
-import { AlertTriangle, ShieldAlert, FileCode2 } from "lucide-react";
+import whyCardIcon1 from "@public/images/visualpage/why-card-icon-1.png";
+import whyCardIcon2 from "@public/images/visualpage/why-card-icon-2.png";
+import whyCardIcon3 from "@public/images/visualpage/why-card-icon-3.png";
+import whyCardIcon4 from "@public/images/visualpage/why-card-icon-4.png";
+import iconGrid from "@public/images/visualpage/icon-grid.png";
+
+const trapPoints = [
+  {
+    index: "01",
+    title: "Everything breaks when real users show up",
+    icon: whyCardIcon1,
+  },
+  {
+    index: "02",
+    title: "A generic AI interface that nobody trusts",
+    icon: iconGrid,
+  },
+  {
+    index: "03",
+    title: "Security holes slip in without you noticing",
+    icon: whyCardIcon2,
+  },
+  {
+    index: "04",
+    title: "One tiny change breaks the whole app",
+    icon: whyCardIcon3,
+  },
+  {
+    index: "05",
+    title: "Hours lost asking AI to fix its own bugs",
+    icon: whyCardIcon4,
+  },
+];
 
 export default function VibecodingTrap() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.trapCardVisible);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -30px 0px",
+      }
+    );
+
+    cardRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={`${styles.section} ${styles.coreProblemSection}`} id="the-trap" data-header-theme="dark">
-      <div className={styles.ambientGlowLeft} aria-hidden="true" />
-      
+    <section
+      className={`${styles.section} ${styles.coreProblemSection}`}
+      id="the-trap"
+      data-header-theme="dark"
+    >
+      {/* Background Cyber Grid (Fixed & motionless across section) */}
+      <div className={styles.coreProblemGridBg} aria-hidden="true" />
+
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <div className={styles.sectionEyebrow}>
-            Section 02 // The Core Problem
-          </div>
-          <h2 className={styles.sectionTitle}>
-            The Brutal Truth About <span className={styles.sectionTitleGradient}>Casual AI Coding</span>
-          </h2>
-          <p className={styles.sectionDesc}>
-            Right now, everyone is talking about &ldquo;vibe coding&rdquo;—throwing vague prompts at an LLM, copy-pasting snippets into an editor, and hoping things don&apos;t break. It feels fast until reality strikes:
-          </p>
-        </div>
+        {/* Split 2-Column Layout */}
+        <div className={styles.coreProblemLayout}>
 
-        {/* 3 Trap Cards */}
-        <div className={styles.trapCardsGrid}>
-          
-          {/* Card 1 */}
-          <div className={styles.trapCard}>
-            <div className={styles.trapCardHeader}>
-              <span className={styles.trapStatusPill}>[ 01 // PRODUCTION COLLAPSE ]</span>
-              <AlertTriangle size={20} color="#ff3b7a" />
-            </div>
-            <div className={styles.trapCodeMock}>
-              <code>
-                FATAL: pool exhausted<br />
-                Query latency: 14,280ms (p99)<br />
-                HTTP 504 Gateway Timeout
-              </code>
-            </div>
-            <div className={styles.trapCardBody}>
-              The system hits production load and collapses under unoptimized queries.
+          {/* Left Column with Sticky Content */}
+          <div className={styles.coreProblemLeftCol}>
+            <div className={styles.coreProblemStickyCol}>
+              <h2 className={styles.coreProblemBigTitle}>
+                <span className={styles.coreProblemLine}>THE BRUTAL TRUTH</span>
+                <span className={`${styles.coreProblemLine} ${styles.coreProblemTitleRowHighlight}`}>
+                  <span>ABOUT</span>
+                  <span className={styles.coreProblemHighlightBox}>CASUAL</span>
+                  <span>AI</span>
+                </span>
+                <span className={styles.coreProblemLine}>CODING THAT NOBODY</span>
+                <span className={styles.coreProblemLine}>TALKS ABOUT</span>
+              </h2>
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className={styles.trapCard}>
-            <div className={styles.trapCardHeader}>
-              <span className={styles.trapStatusPill}>[ 02 // SILENT VULNERABILITY ]</span>
-              <ShieldAlert size={20} color="#ff3b7a" />
-            </div>
-            <div className={styles.trapCodeMock}>
-              <code>
-                WARN: CVE-2024-EXPOSED_KEY<br />
-                Insecure direct object ref<br />
-                Prompt injection vector active
-              </code>
-            </div>
-            <div className={styles.trapCardBody}>
-              Hallucinated code introduces silent security holes and fragile dependencies.
-            </div>
+          {/* Right Column: 5 Solid Neo-Brutalist Cards */}
+          <div className={styles.coreProblemCardsCol}>
+            {trapPoints.map((item, index) => {
+              const cardColorClass =
+                index % 2 === 0 ? styles.trapCardBlack : styles.trapCardYellow;
+
+              return (
+                <div
+                  key={item.index}
+                  ref={(el) => {
+                    cardRefs.current[index] = el;
+                  }}
+                  className={styles.trapCardItemWrap}
+                >
+                  <article className={`${styles.trapSolidCard} ${cardColorClass}`}>
+                    <span className={styles.trapCardIndexBadge}>{item.index}</span>
+
+                    <div className={styles.trapCardContentRow}>
+                      <div className={styles.trapBrandIconWrap}>
+                        <Image
+                          src={item.icon}
+                          alt={`${item.title} icon`}
+                          width={68}
+                          height={68}
+                          className={styles.trapBrandIcon}
+                        />
+                      </div>
+
+                      <h3 className={styles.trapCardMainTitle}>{item.title}</h3>
+                    </div>
+                  </article>
+                </div>
+              );
+            })}
           </div>
 
-          {/* Card 3 */}
-          <div className={styles.trapCard}>
-            <div className={styles.trapCardHeader}>
-              <span className={styles.trapStatusPill}>[ 03 // ARCHITECTURAL DEAD-END ]</span>
-              <FileCode2 size={20} color="#ff3b7a" />
-            </div>
-            <div className={styles.trapCodeMock}>
-              <code>
-                ERROR: Context window exceeded<br />
-                Spaghetti dependencies (42 files)<br />
-                AI refactor failed: recursion limit
-              </code>
-            </div>
-            <div className={styles.trapCardBody}>
-              Your codebase turns into technical debt that no one—not even your AI assistant—can debug or scale.
-            </div>
-          </div>
-
-        </div>
-
-        {/* Punchline Contrast Banner */}
-        <div className={styles.punchlineBanner}>
-          <div className={styles.punchlineSideLeft}>
-            <span className={styles.punchlineLabelDim}>THE CASUAL TRAP</span>
-            <p className={styles.punchlineTextDim}>
-              Casual prompting makes you a spectator in your own terminal.
-            </p>
-          </div>
-
-          <div className={styles.punchlineDivider} aria-hidden="true" />
-
-          <div className={styles.punchlineSideRight}>
-            <span className={styles.punchlineLabelHighlight}>THE ARCHITECT PARADIGM</span>
-            <p className={styles.punchlineTextBright}>
-              True AI engineering makes you a <span>high-leverage architect.</span>
-            </p>
-          </div>
         </div>
 
       </div>

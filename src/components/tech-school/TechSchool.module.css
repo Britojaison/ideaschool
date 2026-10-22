@@ -1170,7 +1170,7 @@
 }
 
 /* =========================================================================
-   SECTION 3: THE MINDSET SHIFT (VIBECODING VS. AI ENGINEERING)
+   SECTION 3: THE MINDSET SHIFT (TRUE AI ENGINEERING)
 ========================================================================= */
 .mindsetSection {
   position: relative;
@@ -1178,8 +1178,30 @@
 }
 
 .mindsetHeaderGroup {
-  margin-bottom: clamp(32px, 4.5vh, 48px);
+  margin-bottom: clamp(28px, 4vh, 40px);
   width: 100%;
+}
+
+.protocolStamp {
+  width: 52px;
+  height: 52px;
+  margin-left: auto;
+  flex-shrink: 0;
+  transform: rotate(-8deg);
+  filter: drop-shadow(-3px 3px 0 #000000);
+}
+
+.protocolGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(242, 191, 73, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 191, 73, 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 70% 45%, #000 10%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle at 70% 45%, #000 10%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .mindsetStatement {
@@ -1193,94 +1215,29 @@
   margin: 0;
 }
 
-.comparisonTableWrapper {
-  background: #e5e6e9;
-  border: 2px solid #000000;
-  border-radius: 0px !important;
-  overflow: hidden;
-  box-shadow: -8px 8px 0px 0px #000000, -8px 8px 0px 2px #f2bf49;
-  position: relative;
-}
-
-.comparisonTableHeader {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 2px solid #000000;
-  background: #e5e6e9;
-  border-radius: 0px !important;
-}
-
-@media (max-width: 860px) {
-  .comparisonTableHeader {
-    display: none;
-  }
-}
-
-.colHeaderLeft {
-  padding: 22px 32px;
-  background: #dedfe3;
-  border-right: 2px solid #000000;
-  border-bottom: 2px solid #000000;
+.protocolHead {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 0px !important;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
 }
 
-.colHeaderRight {
-  padding: 22px 32px;
-  background: #e2dcce;
-  border-bottom: 2px solid #000000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 0px !important;
-}
-
-.colHeaderTitleGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.colHeaderPillBad {
+.protocolEyebrow {
   font-family: "Sopar", "Monument Extended", sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: #b80c3a;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.colHeaderSubBad {
-  font-family: var(--font-helvetica), "Helvetica Now Display", sans-serif;
   font-size: 12px;
-  color: #555555;
-}
-
-.colHeaderPillGood {
-  font-family: "Sopar", "Monument Extended", sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: #000000;
-  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--accent-gold);
 }
 
-.colHeaderSubGood {
-  font-family: var(--font-helvetica), "Helvetica Now Display", sans-serif;
-  font-size: 12px;
-  color: #444444;
-}
-
-.productionProofBadge {
+.protocolBadge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   background: #f2bf49;
   color: #000000;
   padding: 5px 12px;
-  border-radius: 0px !important;
   border: 1.5px solid #000000;
   font-family: "Sopar", "Monument Extended", sans-serif;
   font-size: 10px;
@@ -1290,190 +1247,285 @@
   box-shadow: -2px 2px 0px 0px #000000;
 }
 
-.comparisonRowsContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.comparisonRow {
-  position: relative;
+.protocolBoard {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 2px solid #000000;
-  border-radius: 0px !important;
+  grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.7fr);
+  gap: 18px;
+  align-items: stretch;
 }
 
-.comparisonRow:last-child {
-  border-bottom: none;
+.protocolStage {
+  position: relative;
+  min-height: 460px;
 }
 
-.cellBad {
-  padding: 24px 32px;
-  border-right: 2px solid #000000;
-  display: flex;
-  align-items: center;
-  background: #e5e6e9;
-  border-radius: 0px !important;
+.protocolStageCard {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(160px, 0.9fr);
+  align-items: stretch;
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(22px, 2.4vw, 36px);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.comparisonRow:nth-child(even) .cellBad {
-  background: #dedfe3;
-}
-
-@media (max-width: 860px) {
-  .cellBad {
-    border-right: none;
-    border-bottom: 2px dashed rgba(0, 0, 0, 0.25);
-    padding: 20px 24px;
-  }
-}
-
-.cellGood {
-  padding: 24px 32px;
-  display: flex;
-  align-items: center;
-  background: #ece7da;
-  border-radius: 0px !important;
-}
-
-.comparisonRow:nth-child(even) .cellGood {
-  background: #e5dfd0;
-}
-
-@media (max-width: 860px) {
-  .cellGood {
-    padding: 20px 24px;
-  }
-}
-
-.cellIconWrapBad {
-  width: 28px;
-  height: 28px;
-  border-radius: 0px !important;
-  background: #ffdde6;
-  border: 1.5px solid #000000;
-  color: #b80c3a;
-  box-shadow: -2px 2px 0px 0px #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.cellIconWrapGood {
-  width: 28px;
-  height: 28px;
-  border-radius: 0px !important;
-  background: #f2bf49;
-  border: 1.5px solid #000000;
-  color: #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-  box-shadow: -2px 2px 0px 0px #000000;
-}
-
-.cellContent {
+.protocolStageMain {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  justify-content: flex-end;
+  min-width: 0;
+  min-height: 0;
+}
+
+.protocolArt {
+  position: relative;
+  min-height: 0;
+  background: #000000;
+  border: 2px solid #000000;
+  overflow: hidden;
+}
+
+.protocolCardDark .protocolArt {
+  border-color: #f2bf49;
+}
+
+.protocolArtImg {
+  object-fit: contain;
+}
+
+.protocolPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.protocolTab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
+  min-height: 72px;
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  color: #ffffff;
+  background: #0b0b0a;
+  border: 2px solid #f2bf49;
+  box-shadow: -4px 4px 0 #f2bf49;
+  font: inherit;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.cellMetaRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.protocolTab:hover:not(.protocolTabActive) {
+  transform: translate(2px, -2px);
+  box-shadow: -6px 6px 0 #f2bf49;
 }
 
-.cellIndexBadgeBad {
-  font-family: "Sopar", "Monument Extended", sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #b80c3a;
+.protocolTab:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
-.cellCategoryBad {
-  font-family: var(--font-helvetica), "Helvetica Now Display", sans-serif;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #666666;
-  font-weight: 600;
-}
-
-.cellIndexBadgeGood {
-  font-family: "Sopar", "Monument Extended", sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+.protocolTabActive {
+  background: #f2bf49;
   color: #000000;
+  border-color: #000000;
+  box-shadow: -6px 6px 0 #000000;
 }
 
-.cellCategoryGood {
-  font-family: var(--font-helvetica), "Helvetica Now Display", sans-serif;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #8a5e00;
-  font-weight: 800;
+.protocolTabMark {
+  width: 44px;
+  height: 44px;
+  display: block;
+  flex-shrink: 0;
+  border: 1.5px solid #000000;
+  background: #000000;
+  overflow: hidden;
 }
 
-.cellTextBad {
-  font-family: var(--font-helvetica), "Helvetica Now Display", sans-serif;
-  font-size: clamp(18px, 1.35vw, 22px);
-  line-height: 1.48;
-  letter-spacing: -0.01em;
-  color: #2b2b2b;
-  margin: 0;
-}
-
-.cellTextGood {
-  font-family: var(--font-helvetica), "Helvetica Now Display", sans-serif;
-  font-size: clamp(18px, 1.35vw, 22px);
-  line-height: 1.48;
-  letter-spacing: -0.01em;
-  color: #000000;
-  font-weight: 700;
-  margin: 0;
-}
-
-/* Center Transformation Arrow indicator on desktop - using arrow.png */
-.rowTransitionArrow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  pointer-events: none;
-  filter: drop-shadow(-2px 2px 0px #000000);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
-}
-
-.transitionArrowImg {
+.protocolTabArt {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
-.comparisonRow:hover .rowTransitionArrow {
-  transform: translate(-50%, -50%) scale(1.18);
-  filter: drop-shadow(-3px 3px 0px #000000);
+.protocolTabCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.protocolTabIndex {
+  font-family: "Sopar", "Monument Extended", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.protocolTabTitle {
+  font-family: var(--font-stara), "Stara", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.protocolCardGold {
+  background: #f2bf49;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: -8px 8px 0 #000000;
+}
+
+.protocolCardDark {
+  background: #0b0b0a;
+  color: #ffffff;
+  border: 2px solid #f2bf49;
+  box-shadow: -8px 8px 0 #f2bf49;
+}
+
+.protocolMark {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #000000;
+  transform: rotate(-6deg);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.protocolStageCard .protocolMark {
+  width: 88px;
+  height: 88px;
+}
+
+.protocolStageCard .protocolTitle {
+  font-size: clamp(28px, 2.4vw, 44px);
+}
+
+.protocolStageCard .protocolText {
+  font-size: clamp(16px, 1.35vw, 20px);
+  max-width: 38rem;
+}
+
+.protocolCardGold .protocolMark {
+  background: #0b0b0a;
+  color: #f2bf49;
+  box-shadow: -4px 4px 0 #000000;
+}
+
+.protocolCardDark .protocolMark {
+  background: #f2bf49;
+  color: #000000;
+  box-shadow: -4px 4px 0 #f2bf49;
+}
+
+.protocolCopy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.protocolIndex {
+  font-family: "Sopar", "Monument Extended", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.protocolCardGold .protocolIndex {
+  color: #000000;
+}
+
+.protocolCardDark .protocolIndex {
+  color: #f2bf49;
+}
+
+.protocolTitle {
+  font-family: var(--font-stara), "Stara", sans-serif;
+  font-size: clamp(22px, 1.8vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.protocolCardGold .protocolTitle {
+  color: #000000;
+}
+
+.protocolCardDark .protocolTitle {
+  color: #ffffff;
+}
+
+.protocolText {
+  font-family: var(--font-helvetica), "Helvetica Now Display", sans-serif;
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.protocolCardGold .protocolText {
+  color: rgba(0, 0, 0, 0.78);
+}
+
+.protocolCardDark .protocolText {
+  color: rgba(229, 230, 233, 0.72);
 }
 
 @media (max-width: 860px) {
-  .rowTransitionArrow {
-    display: none;
+  .protocolStamp {
+    width: 44px;
+    height: 44px;
+  }
+
+  .protocolBoard {
+    grid-template-columns: 1fr;
+  }
+
+  .protocolStage {
+    min-height: 520px;
+  }
+
+  .protocolStageCard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 210px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .protocolArt {
+    grid-row: 1;
+  }
+
+  .protocolStageMain {
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+
+  .protocolStageCard .protocolTitle {
+    font-size: 30px;
+  }
+
+  .protocolPicker {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .protocolTab {
+    flex: 0 0 210px;
+    scroll-snap-align: start;
+    min-height: 68px;
   }
 }
 

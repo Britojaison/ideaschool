@@ -620,12 +620,19 @@ export default function WorkshopPage() {
 
                 {/* Contact - Right Side */}
                 <div className="lg:w-[320px] xl:w-[380px] flex-shrink-0 pt-6">
-                  <h3 className="text-3xl md:text-4xl font-medium text-black mb-8 leading-tight" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
+                  <h3 className="text-3xl md:text-4xl font-medium text-black mb-6 leading-tight" style={{ fontFamily: "var(--font-helvetica), 'Helvetica Now Display', Arial, sans-serif" }}>
                     Didn&apos;t find the answer you were looking for?
                   </h3>
-                  <a href="mailto:admin@88gb.in" className="inline-block text-[11px] font-bold tracking-[0.15em] text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity">
-                    SEND US AN MAIL
-                  </a>
+                  <div className="flex flex-col gap-3 items-start">
+                    <div className="flex items-center gap-2.5">
+                      <a href="tel:+919791156190" className="text-[15px] font-bold tracking-[0.05em] text-black hover:opacity-60 transition-opacity">
+                        +91 97911 56190
+                      </a>
+                    </div>
+                    <a href="mailto:admin@88gb.in" className="inline-block text-[11px] font-bold tracking-[0.15em] text-black border-b-2 border-black pb-1 hover:opacity-60 transition-opacity">
+                      SEND US AN MAIL
+                    </a>
+                  </div>
                 </div>
               </div>
 

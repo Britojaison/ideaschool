@@ -118,8 +118,8 @@ export default function ContactForm({ successRedirect }: { successRedirect?: str
               style={{ color: 'rgba(255, 255, 255, 0.4)' }}
             >
               <option value="" disabled hidden>Select Online or Offline</option>
-              <option value="Offline Class (Bangalore Studio)" style={{ color: '#000000' }}>Offline Class (Bangalore Studio)</option>
-              <option value="Online Class (Live Interactive)" style={{ color: '#000000' }}>Online Class (Live Interactive)</option>
+              <option value="Offline Class (Bangalore Studio)" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Offline Class (Bangalore Studio)</option>
+              <option value="Online Class (Live Interactive)" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Online Class (Live Interactive)</option>
             </select>
           </label>
           <label>

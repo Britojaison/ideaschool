@@ -215,7 +215,7 @@ const visualSchoolWorkImages = [
 
 const practitioners = [
   {
-    name: "Dhananjayan S.",
+    name: "Arjun",
     role: "CEO, 88GB",
     image: "/assets/images/mentor_ARJUN.webp",
   },
@@ -1125,7 +1125,16 @@ export default function VisualSchoolPage() {
 
               <div className={styles.faqContact}>
                 <h3>Didn&apos;t find the answer you were looking for?</h3>
-                <a href="mailto:hello@ideaschool.pro" className={styles.faqMailLink}>Send us an mail</a>
+                <div className={styles.faqContactActions}>
+                  <div className={styles.faqPhoneRow}>
+                    <a href="tel:+919791156190" className={styles.faqPhoneLink}>
+                      <span>+91 97911 56190</span>
+                    </a>
+                  </div>
+                  <a href="mailto:admin@88gb.in" className={styles.faqMailLink}>
+                    Send us an mail
+                  </a>
+                </div>
               </div>
             </div>
           </div>

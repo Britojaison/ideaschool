@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./CreativeHero.module.css";
 import TextAnimation from "@/components/ui/staggerText";
+import BrochureModal from "@/components/shared/BrochureModal";
 
 export default function CreativeHero() {
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+
   const handleApplyClick = () => {
     window.dispatchEvent(new Event("open-home-form"));
   };
@@ -122,18 +125,24 @@ export default function CreativeHero() {
             <span className={styles.btnArrow} aria-hidden="true">↗</span>
           </button>
 
-          <a
-            href="/pdf/Program%20Brochure.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => setIsBrochureOpen(true)}
             className={styles.secondaryBtn}
             aria-label="Download Full Program Brochure"
           >
             <span>Download Brochure</span>
             <span className={styles.btnDownArrow} aria-hidden="true">↓</span>
-          </a>
+          </button>
         </div>
       </div>
+
+      <BrochureModal
+        isOpen={isBrochureOpen}
+        onClose={() => setIsBrochureOpen(false)}
+        programName="Full Stack Video Editing Program"
+        pdfUrl="/pdf/Program%20Brochure.pdf"
+      />
     </section>
   );
 }

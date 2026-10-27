@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ProgramBrochure.module.css";
+import BrochureModal from "@/components/shared/BrochureModal";
 
 interface BrochureHighlight {
   index: string;
@@ -32,6 +33,7 @@ const BROCHURE_HIGHLIGHTS: BrochureHighlight[] = [
 ];
 
 export default function ProgramBrochure() {
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const brochurePdfUrl = "/pdf/Program%20Brochure.pdf";
 
   return (
@@ -54,16 +56,15 @@ export default function ProgramBrochure() {
 
           {/* CTA Buttons */}
           <div className={styles.ctaRow}>
-            <a
-              href={brochurePdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => setIsBrochureOpen(true)}
               className={styles.downloadBtn}
               aria-label="Download Full Program Brochure PDF"
             >
               <span>DOWNLOAD BROCHURE (PDF)</span>
               <span className={styles.downloadIconBox}>↓</span>
-            </a>
+            </button>
 
             <button
               type="button"
@@ -76,6 +77,13 @@ export default function ProgramBrochure() {
             </button>
           </div>
         </div>
+
+        <BrochureModal
+          isOpen={isBrochureOpen}
+          onClose={() => setIsBrochureOpen(false)}
+          programName="Full Stack Video Editing Program"
+          pdfUrl={brochurePdfUrl}
+        />
 
         {/* Right Column: Technical Dossier Preview Card */}
         <div className={styles.rightCol}>

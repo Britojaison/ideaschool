@@ -3911,6 +3911,55 @@
   font-family: var(--font-magnu), "Magnu", "GCMagnu", sans-serif;
 }
 
+.faqContactActions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faqPhoneRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.faqPhoneLink {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FBFAF2;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.faqPhoneLink:hover {
+  opacity: 0.8;
+  color: #dafd55;
+}
+
+.faqWhatsAppBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.faqWhatsAppBtn:hover {
+  background: #25d366;
+  border-color: #25d366;
+  transform: scale(1.1);
+}
+
+.faqWhatsAppBtn:hover img {
+  filter: brightness(0) invert(1);
+}
+
 .faqMailLink {
   font-size: 16px;
   font-weight: 600;

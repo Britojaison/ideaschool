@@ -212,6 +212,59 @@
   text-align: left;
 }
 
+.faqContactActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.faqPhoneRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.faqPhoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-stara), "Stara", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FBFAF2;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.faqPhoneLink:hover {
+  color: #dafd55;
+}
+
+.faqWhatsAppBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.faqWhatsAppBtn:hover {
+  background: #25d366;
+  border-color: #25d366;
+  transform: scale(1.1);
+}
+
+.faqWhatsAppBtn:hover img {
+  filter: brightness(0) invert(1);
+}
+
 .faqMailLink {
   display: inline-flex;
   align-items: center;

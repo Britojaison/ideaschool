@@ -92,7 +92,7 @@ const razorpayPaymentLink =
 
 const instructors = [
   {
-    name: "Dhananjayan . S",
+    name: "Arjun",
     role: "CEO, 88GB",
     experience: "12+ Yrs Exp",
     bio: "Commercial director and creative director leading multi-platform brand productions.",

@@ -88,7 +88,7 @@ export default function AdmissionEnrollment() {
                 <div className={styles.metaRow}>
                   <span className={styles.cohortBadge}>COHORT ADMISSION</span>
                   <span className={styles.metaDot}>•</span>
-                  <span className={styles.metaText}>6 MONTHS OFFLINE</span>
+                  <span className={styles.metaText}>6 MONTHS HYBRID</span>
                   <span className={styles.metaDot}>•</span>
                   <span className={styles.metaText}>BANGALORE STUDIO</span>
                 </div>
@@ -169,7 +169,7 @@ export default function AdmissionEnrollment() {
                     </svg>
                   </span>
                   <div className={styles.featureContent}>
-                    <span className={styles.featureText}>6 Months Offline Classes</span>
+                    <span className={styles.featureText}>6 Months of Hybrid classes</span>
                     <span className={styles.featureSubtext}>Intensive in-person learning, daily feedback rounds & live briefs.</span>
                   </div>
                 </div>
@@ -307,10 +307,10 @@ export default function AdmissionEnrollment() {
                         style={{ color: modalFormData.gender ? '#ffffff' : 'rgba(255, 255, 255, 0.3)' }}
                       >
                         <option value="" disabled hidden>Select Gender (Optional)</option>
-                        <option value="Male" style={{ color: '#ffffff' }}>Male</option>
-                        <option value="Female" style={{ color: '#ffffff' }}>Female</option>
-                        <option value="Other" style={{ color: '#ffffff' }}>Other</option>
-                        <option value="Prefer Not to say" style={{ color: '#ffffff' }}>Prefer Not to say</option>
+                        <option value="Male" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Male</option>
+                        <option value="Female" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Female</option>
+                        <option value="Other" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Other</option>
+                        <option value="Prefer Not to say" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Prefer Not to say</option>
                       </select>
                     </div>
                   </div>
@@ -340,8 +340,8 @@ export default function AdmissionEnrollment() {
                       style={{ color: modalFormData.classPreference ? '#ffffff' : 'rgba(255, 255, 255, 0.4)' }}
                     >
                       <option value="" disabled hidden>Select Online or Offline</option>
-                      <option value="Offline Class (Bangalore Studio)" style={{ color: '#000000' }}>Offline Class (Bangalore Studio)</option>
-                      <option value="Online Class (Live Interactive)" style={{ color: '#000000' }}>Online Class (Live Interactive)</option>
+                      <option value="Offline Class (Bangalore Studio)" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Offline Class (Bangalore Studio)</option>
+                      <option value="Online Class (Live Interactive)" style={{ color: '#ffffff', backgroundColor: '#141418' }}>Online Class (Live Interactive)</option>
                     </select>
                   </div>
 
